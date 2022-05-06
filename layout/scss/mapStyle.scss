@@ -1,0 +1,74 @@
+// 引入基礎樣式
+@import 'base';
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.mapAndCardWrap{
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.cardGroupWrap{
+  width: 350px;
+  height: calc(100vh - 150px);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.cardWrap{
+  width: 340px;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  align-items: flex-end;
+}
+.cardDetail{
+  width: 350px;
+  height: calc(100vh - 150px);
+  background: rgba($color: #000000, $alpha: .5);
+  position: absolute;
+  top: 0;
+  left: -350px;
+}
+.card{
+  height:100px;
+  width:320px;
+  background:#F8F1DE;
+  border-radius: 5px;
+  padding:20px;
+  box-sizing:border-box;
+  display:flex;
+  gap:10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.card img{
+  height: 60px;
+  width: 75px;
+  border-radius: 5px;
+}
+i{
+  cursor: pointer;
+}
+.itemText{
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+// .itemText p{
+  
+// }
+.mapWrap{
+  width: calc(100% - 350px);
+  height: calc(100vh - 150px);
+  background: #000;
+}

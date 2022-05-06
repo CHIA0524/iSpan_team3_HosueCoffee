@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAAA;;;;GAIG,AAIH,AAAA,KAAK,CAAE,KAAK,AAAC,CACX,eAAgC,CAAa,uCAAC,CAC/C,AAED,UAAU,CACR,WAAW,CAAE,qBAAqB,CAClC,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,GAAG,CAChB,YAAY,CE+BY,KAAK,CF9B7B,GAAG,CAAE,qCAA0C,CAAC,eAAe,CAC7D,mCAAwC,CAAC,kBAAkB,CAG/D,AAAA,IAAI,CACJ,SAAS,AAAC,CACR,WAAW,CAAE,qBAAqB,CAClC,WAAW,CAAE,GAAG,CACjB",
+    "sources": [
+        "../fontawesome-free-6.0.0-web/scss/solid.scss",
+        "../fontawesome-free-6.0.0-web/scss/_functions.scss",
+        "../fontawesome-free-6.0.0-web/scss/_variables.scss"
+    ],
+    "names": [],
+    "file": "solid.css"
+}
