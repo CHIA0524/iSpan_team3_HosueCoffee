@@ -1,17 +1,12 @@
-// 引入基礎樣式
 @import 'base';
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 .mapAndCardWrap{
-  margin: 50px;
+  margin-top: -3rem;
   display: flex;
   flex-direction: row;
 }
 .cardGroupWrap{
-  width: 350px;
+  width: 400px;
   height: calc(100vh - 150px);
   position: relative;
   display: flex;
@@ -21,14 +16,12 @@
   align-items: center;
   gap: 10px;
 }
-.cardWrap{
-  width: 340px;
+.storeWrap{
+  width: 380px;
   height: calc(100vh - 150px);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: .1rem .5rem;
   overflow-y: scroll;
-  align-items: flex-end;
+  overflow-x: hidden;
 }
 .cardDetail{
   width: 350px;
@@ -38,22 +31,25 @@
   top: 0;
   left: -350px;
 }
-.card{
+.cardWrap{
+  width:360px;
   height:100px;
-  width:320px;
+  margin-bottom: 5px;
   background:#F8F1DE;
   border-radius: 5px;
   padding:20px;
-  box-sizing:border-box;
   display:flex;
-  gap:10px;
   align-items: center;
   justify-content: space-between;
+  transition: all .2s ease-in-out;
 }
-.card img{
+.cardWrap img{
   height: 60px;
   width: 75px;
   border-radius: 5px;
+}
+.cardWrap:hover{
+  box-shadow: 0px 0px 5px $font_border_color;
 }
 i{
   cursor: pointer;
@@ -64,11 +60,30 @@ i{
   flex-direction: column;
   justify-content: space-between;
 }
-// .itemText p{
-  
-// }
+.itemText p{
+  margin: 0;
+  font-size: 14px;
+}
+.itemText p:first-child{
+  font-size: 16px;
+}
 .mapWrap{
   width: calc(100% - 350px);
   height: calc(100vh - 150px);
   background: #000;
+}
+
+@media screen and (max-width:800px) {
+  .mapAndCardWrap{
+    flex-direction: column-reverse;
+  }
+  .cardGroupWrap{
+    width: auto;
+    margin: 1rem auto 0;
+  }
+  .mapWrap{
+    width: 100%;
+    height: calc(100vh - 150px);
+    background: #000;
+  }
 }
