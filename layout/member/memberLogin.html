@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!---------- custom style ---------->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/memberLogin.css">
+
+
+  <!---------- fontawesome ---------->
+  <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+
+  <!---------- google font ---------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
+
+  <!---------- bootstrap 5 ---------->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="sideDark"></div>
+  <header>
+    <nav class="coffee-navbar">
+      <div class="navFirst" style="left: -260px;">
+        <li class="webNone navSideX">X</li>
+        <li class="webNone"><a href="#"><i class="fa-solid fa-user-large"><span>MEMBER<i class="fa-solid fa-user-large"></i></span></i></a></li>
+        <li><a href="#">HOME<span>首頁</span></a></li>
+        <li><a href="#">MAP<span>門市地圖</span></a></li>
+        <li><a href="#">BLOG<span>部落格</span></a></li>
+        <li><a href="#">SHOP<span>網路商城</span></a></li>
+        <li class="webNone"><a href="#"><button class="coffee-dark-btn">>> Order Online</button></a></li>
+      </div>
+      <div><span class="openNavSide">三</span></div>
+      <div>
+        <li><a href=""><img src="../img/好室咖啡logo深色.svg" alt=""></a></li>
+      </div>
+      <div>
+        <li class="mobileNone"><a href="#"><button class="coffee-dark-btn">>> Order Online</button></a></li>
+        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
+        <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
+        
+      </div>
+    </nav>
+  </header>
+  
+ 
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 ">
+      <div class="memberLoginMain">
+       
+        <div class="row">
+          <div class="col-6 loginLift">
+            <img class="member1" src="../img/member/member_logoin_1.png" alt="">
+            <img class="member2" src="../img/member/member_logoin_2.png" alt="">
+            <h2 class="liftW1">登入會員</h2>
+            <h2 class="liftW2">享受專屬優惠</h2>
+          </div>
+          <div class="col-6 loginRight">
+            <div class="row">
+              <div class="col-6 loginTop loginTopL"> <div class="loginWord lg1" onclick="Login()">LOGIN</div> </div>
+              <div class="col-6 loginTop loginTopR"> <div class="loginWord lg2" onclick="SingIn()">SIGN IN</div> </div>
+            </div>
+          </div>
+        </div>
+        <div class="row loginMain">
+          <div class="col-6 loginMain1">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="loginInput loginInputL">
+      
+              <br>
+              <input type="text" size="30" placeholder="&ensp;會員帳號">
+              <br>
+              <input type="password" size="30" placeholder="&ensp;會員密碼">
+              <div class="row">
+                <div class="col-3"></div>
+                <div class="col-4"></div> 
+                <div id="forget" class="col-3">忘記密碼?</div>
+                <div class="col-2"></div>
+              </div>
+              <br>
+              <button>&ensp;登入&ensp;</button>
+              <hr>
+              <br>
+              <div class="GLoginL"><i class="fa-brands fa-google"></i>&ensp;使用Google登入</div>
+            </div>
+          </div>
+          <div class="col-6 loginMain2">
+            <br>
+            <br>
+            <div class="loginInput loginInputR">
+              <br>
+              <input type="email" size="30" placeholder="&ensp;會員信箱">
+              <br>
+              <input type="text" size="30" placeholder="&ensp;會員帳號">
+              <br>
+              <input type="password" size="30" placeholder="&ensp;會員密碼">
+              <br>
+              <button>&ensp;註冊&ensp;</button>
+              <hr>
+              <br>
+              <div class="GLoginR"><i class="fa-brands fa-google"></i>&ensp;使用Google註冊</div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="col-2"></div>
+
+  </div>
+  <br>
+
+  <footer class="d-flex coffee-footer">
+    <div class="d-flex">
+      <div class="mx-5">
+        PRODUCT
+        <li><a href="">coffee</a></li>
+        <li><a href="">cups</a></li>
+        <li><a href="">other</a></li>
+      </div>
+      <div class="mx-5">
+        ABOUT US
+        <li><a href="">news</a></li>
+        <li><a href="">store</a></li>
+        <li><a href="">FAQs</a></li>
+      </div>
+    </div>
+    <div class="mx-5">
+      <div class="d-flex">
+        <i class="fa-regular fa-envelope"></i>
+        <p>team3@house.coffee.com</p>
+      </div>
+      <div class="d-flex">
+        <i class="fa-regular fa-phone"></i>
+        <p>(07)333-3333</p>
+      </div>
+      <div class="d-flex">
+        <i class="fa-solid fa-copyright"></i>
+        <p>2022 . HOUSE COFFEE</p>
+      </div>
+    </div>
+    
+  </footer>
+
+  <script>
+    const loginleft=document.querySelector('.lg1');
+    loginleft.addEventListener('click', ()=>{
+      document.querySelector('.loginMain1').style.right='-491px';
+      document.querySelector('.loginMain1').style.transition='0.5s';
+    });
+    const loginright=document.querySelector('.lg2');
+    loginright.addEventListener('click', ()=>{
+      document.querySelector('.loginMain1 ').style.right='0px';
+      document.querySelector('.loginMain1 ').style.transition='0.5s';
+    });
+
+    // function Login(){
+    //   document.querySelector('.loginInputL').style.right='-491px'
+    // }
+    const openNavSide = document.querySelector('.openNavSide');
+    openNavSide.addEventListener('click', ()=>{
+      document.querySelector('.navFirst').style.left = '0px';
+      document.querySelector('.sideDark').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
