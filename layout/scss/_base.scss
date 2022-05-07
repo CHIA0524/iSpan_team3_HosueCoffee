@@ -1,4 +1,4 @@
-// 顏色
+/* -------- 顏色 -------- */
 $main_color: #EDE1C1;
 $secondary_color: #E5D8B7;
 $font_border_color: #4C3410;
@@ -7,20 +7,20 @@ $nav_item_active: #DDB44A;
 $nav_item_inactive: #A37025;
 
 
-// 字體
+/* -------- 字體 -------- */
 $main_font: 'Comfortaa', "Microsoft JhengHei", cursive;
 $content_font: 'Yantramanav', "Microsoft JhengHei", sans-serif;
 
 body, h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: $main_font;
 }
+
+/* -------- ScrollBar -------- */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-// ScrollBar 樣式
-
 /* Track */
 *::-webkit-scrollbar-track {
   background: #ffffff;
@@ -36,8 +36,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
   background: $nav_item_inactive;
 }
 
-
-// button 相關
+/* -------- button -------- */
 $btn_height: 40px;
 $btn_font_size: 16px;
 
@@ -60,7 +59,7 @@ $btn_font_size: 16px;
   background: $nav_item_active;
 }
 
-// navbar 相關
+/* -------- navbar -------- */
 $nav_box_shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
 $nav_box_radius: 0px;
 $nav_li_height: 28px;
@@ -71,7 +70,6 @@ $nav_li_height: 28px;
 .mobileNone{
   display: block;
 }
-
 .coffeeNavbar{
   width: 100%;
   height: 125px;
@@ -166,7 +164,10 @@ $nav_li_height: 28px;
 
   .coffeeNavbar{
     position: relative;
-    
+    justify-content: space-between;
+    div{
+      width: 20%;
+    }
     div:first-child{
       flex-direction: column;
       width: 260px;
@@ -203,21 +204,21 @@ $nav_li_height: 28px;
   }
 }
 
-// input 相關
+/* -------- input checkbox radio -------- */
 $user_input_width: 330px;
 $user_input_height: 40px;
 
-.userInput{
+.adminInput{
   width: $user_input_width;
   height: $user_input_height;
   padding: 3px 1.5rem;
-  border: 1px solid $main_color;
+  border: 2px solid $main_color;
   border-radius: 15px;
   box-sizing: border-box;
   outline: none;
 }
 
-// footer
+/* -------- footer -------- */
 .coffeeFooter{
   width: 100%;
   height: 250px;
