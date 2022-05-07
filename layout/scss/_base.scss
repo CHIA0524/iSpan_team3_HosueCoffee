@@ -203,7 +203,14 @@ $nav_li_height: 28px;
     }
   }
 }
-
+@media screen and(max-width:600px) {
+  .coffeeNavbar{
+    height: 90px;
+    .logo a img{
+      width: 90px;
+    }
+  }
+}
 /* -------- input checkbox radio -------- */
 $user_input_width: 330px;
 $user_input_height: 40px;
@@ -230,7 +237,14 @@ $user_input_height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  
+  div:nth-child(2){
+    div{
+      align-items: baseline;
+      i{
+        margin-right: 5px;
+      }
+    }
+  }
   // div{
   //   margin: 2rem;
   // }
@@ -244,8 +258,15 @@ $user_input_height: 40px;
 }
 @media screen and (max-width:700px) {
   .coffeeFooter{
-    height: 450px;
+    height: 500px;
+    padding-top: 0rem;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+    div:nth-child(2){
+      div{
+        justify-content: center;
+      }
+    }
   }
 }
