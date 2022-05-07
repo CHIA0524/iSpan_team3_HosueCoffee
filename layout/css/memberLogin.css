@@ -1,129 +1,132 @@
-.memberLoginMain{
-    background:  #cdcdcd; 
-    width: 958px;   
-    height: 600px;
-    border-radius: 20px;
-    box-shadow: rgb(124, 124, 124) 5px 5px 5px;
-}
-.loginTop{
-    height: 50px;
-    text-align: center;
-    
-}
-.loginTopL{
-    background-color: #EFECEA;
-    color: black;
-    
-}
-.loginTopR{
-    background-color: #615A51;
-    border-radius: 0 20px 0 0;  
-    color: #E5E5E5;
-}
-.loginWord{
-    display: block;
-    padding-top: 10px;
-}
-.loginLift{
-    overflow: hidden;
-    border-radius: 20px 0 0 20px;
-    background:  #cdcdcd; 
-    z-index:100;
-    position: relative;
-}
-.loginRight{
-    background: #615A51;
-    border-radius: 0 20px 20px 0;
-    height: 600px;
+.memberLoginMain {
+  background: #cdcdcd;
+  width: 958px;
+  height: 600px;
+  border-radius: 20px;
+  box-shadow: rgb(124, 124, 124) 20px 10px 5px;
 }
 
-.member1{
-    height: 287px;
-    border-radius: 20px;
-    position: relative;
-    top: 40px;
-    right: -145px;
+.loginTop {
+  height: 50px;
+  text-align: center;
 }
-.member2{
-    height: 139px;
-    position: relative;
-    top: -25px;
-    
+.loginTopL {
+  background-color: #efecea;
+  color: black;
 }
-.liftW1{
-    position: relative;
-    left: 50px;
-    font-weight: bolder;
+.loginTopR {
+  background-color: #615a51;
+  border-radius: 0 20px 0 0;
+  color: #e5e5e5;
 }
-.liftW2{
-    position: relative;
-    left: 250px;
-    font-weight: bolder;
-}
-.loginMain{
-    position: relative;
-    overflow: hidden;
-    top: -550px;
-    
-    height: 550px;
-    
+.loginWord {
+  display: block;
+  padding-top: 10px;
+  font-weight: bolder;
 }
 
-.loginMain1{
-    background-color: #EFECEA;
-    position: relative;
-    border-radius: 0 0 20px 0;
-    right: -491px;
-    
+.loginLift {
+  overflow: hidden;
+  border-radius: 20px 0 0 20px;
+  background: #cdcdcd;
+  z-index: 100;
+  position: relative;
 }
-.loginInput{
-    text-align: center;
-}
-.loginInput input{
-    border-radius: 10px;
-    height: 40px;   
-    font-size: 20px;
-    margin: 20px ;
-    border-style: none;
-}
-.loginInputL button{
-    border-radius: 50px;
-    font-size: 25px;
-    margin: 20px ;
-    width: 200px;
-    color: #E4D2A3;
-    background-color: #615A51;
-    border-style: none;
+.loginRight {
+  background: #615a51;
+  border-radius: 0 20px 20px 0;
+  height: 600px;
 }
 
-.loginInputR button{
-    border-radius: 50px;
-    font-size: 25px;
-    margin: 20px ;
-    width: 200px;
-    color: white;
-    background-color: #E4D2A3;
-    border-style: none;
+.member1 {
+  height: 287px;
+  border-radius: 20px;
+  position: relative;
+  top: 40px;
+  right: -145px;
+}
+.member2 {
+  height: 139px;
+  position: relative;
+  top: -25px;
+}
+.liftW1 {
+  position: relative;
+  left: 50px;
+  font-weight: bolder;
+}
+.liftW2 {
+  position: relative;
+  left: 250px;
+  font-weight: bolder;
+}
+.loginMain {
+  position: relative;
+  overflow: hidden;
+  top: -550px;
+  height: 550px;
 }
 
-.loginInputL hr{
-    color: #615A51;
-    width: 400px;
-    margin: 20px auto;
-    /* border: 2px #EFECEA solid; */
+.loginMain2 {
+  box-shadow: rgb(124, 124, 124) 10px 10px 5px;
 }
-.loginInputR hr{
-    color: #EFECEA;
-    width: 400px;
-    margin: 20px auto;
-    /* border: 2px #EFECEA solid; */
+
+.loginMain1 {
+  background-color: #efecea;
+  position: relative;
+  border-radius: 0 0 20px 0;
+  right: -491px;
 }
-.GLoginR{
-    color: #615A51;
+
+.loginInput {
+  text-align: center;
 }
-.GLoginR{
-    color: white;
+
+.loginInput input {
+  border-radius: 10px;
+  height: 40px;
+  font-size: 20px;
+  margin: 20px;
+  border-style: none;
 }
-.forget{
-    display: block;
+.loginInputL button {
+  border-radius: 50px;
+  font-size: 25px;
+  margin: 20px;
+  width: 200px;
+  color: #e4d2a3;
+  background-color: #615a51;
+  border-style: none;
+}
+
+.loginInputR button {
+  border-radius: 50px;
+  font-size: 25px;
+  margin: 20px;
+  width: 200px;
+  color: white;
+  background-color: #e4d2a3;
+  border-style: none;
+}
+
+.loginInputL hr {
+  color: #615a51;
+  width: 400px;
+  margin: 20px auto;
+  /* border: 2px #EFECEA solid; */
+}
+.loginInputR hr {
+  color: #efecea;
+  width: 400px;
+  margin: 20px auto;
+  /* border: 2px #EFECEA solid; */
+}
+.GLoginR {
+  color: #615a51;
+}
+.GLoginR {
+  color: white;
+}
+.forget {
+  display: block;
 }
