@@ -15,6 +15,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: $main_font;
 }
 
+/* -------- icon -------- */
+.iconDuck{
+  width: 24px !important;
+  height: 24PX !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: $font_border_color;
+}
 /* -------- ScrollBar -------- */
 
 /* width */
@@ -50,12 +58,20 @@ $btn_font_size: 16px;
   background: $nav_item_inactive;
   border: none;
   border-radius: 10px;
+  transition: all .3s ease-in-out;
 }
-.coffeeDarkBtn:hover, .coffeeLightBtn:hover{
+.coffeeDarkBtn:hover{
   cursor: pointer;
+  color: $font_border_color;
+  background: $nav_item_active;
+}
+.coffeeLightBtn:hover{
+  cursor: pointer;
+  color: white;
+  background: $nav_item_inactive;
 }
 .coffeeLightBtn{
-  color: $nav_item_active;
+  color: $font_border_color;
   background: $nav_item_active;
 }
 
@@ -115,27 +131,36 @@ $nav_li_height: 28px;
       fill:$font_border_color;
     }
   }
-  :first-child li{
-    margin: 0px 10px;
-    overflow: hidden;
-    position: relative;
-    a{
-      padding: 1px 10px;
-      display: flex;
-      flex-direction: column;
-      color: $nav_item_active;
+  .navFirst{
+    li{
+      margin: 0px 10px;
+      overflow: hidden;
+      position: relative;
+      a{
+        padding: 1px 10px;
+        display: flex;
+        flex-direction: column;
+        color: $nav_item_active;
+        font-weight: 600;
+        transition: all .3s;
+        align-items: center;
+      }
+      a:hover{
+        color: $nav_item_inactive;
+      }
+      p{
+      margin: 0;
       font-weight: 600;
-      transition: all .3s;
-      align-items: center;
+      color: $font_border_color;
+      }
     }
-  }
-  :first-child li:nth-child(n+3):nth-child(-n+6){
-    height: $nav_li_height;
-    line-height: $nav_li_height;
-  }
-  :first-child li:nth-child(n+3):nth-child(-n+6) a:hover{
-    margin-top: -$nav_li_height;
-    color: $nav_item_inactive;
+    li:nth-child(n+3):nth-child(-n+7){
+      height: $nav_li_height;
+      line-height: $nav_li_height;
+      a:hover{
+        margin-top: -$nav_li_height;
+      }
+    }
   }
   div img{
     width: auto;
@@ -154,9 +179,13 @@ $nav_li_height: 28px;
 }
 
 @media screen and (max-width:800px){
-  
+  .closeSideNav{
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }
   .webNone{
-    display: block;
+    display: flex;
   }
   .mobileNone{
     display: none;
@@ -168,10 +197,10 @@ $nav_li_height: 28px;
     div{
       width: 20%;
     }
-    div:first-child{
+    .navFirst{
       flex-direction: column;
       width: 260px;
-      height: 100vh;
+      min-height: 100vh;
       text-align: start;
       align-items: flex-start;
       justify-content: start;
@@ -189,10 +218,28 @@ $nav_li_height: 28px;
         a{
           align-items: flex-start;
         }
-        :hover{
-          background: rgb(244, 244, 244);
-        }
       }
+      .memberDteil{
+        display: none;
+        width: 100%;
+        height: 0px;
+        flex-direction: column;
+        transition: all .3s ease-in-out;
+        li:nth-child(n+1):nth-child(-n+5){
+          width: 180px;
+          height: 30px;
+          padding: 5px;
+          margin: 5px auto 5px 10px;
+          a{
+            align-items: center;
+            color: $font_border_color;
+          }
+          a:hover{
+            margin-top: 0;
+            color: $nav_item_inactive;
+          }
+        }
+    }
     }
     div:nth-child(2){
       display: flex;
@@ -211,6 +258,7 @@ $nav_li_height: 28px;
     }
   }
 }
+
 /* -------- input checkbox radio -------- */
 $user_input_width: 330px;
 $user_input_height: 40px;
