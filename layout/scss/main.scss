@@ -1,10 +1,4 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-// 顏色
+/* -------- 顏色 -------- */
 $main_color: #EDE1C1;
 $secondary_color: #E5D8B7;
 $font_border_color: #4C3410;
@@ -13,20 +7,20 @@ $nav_item_active: #DDB44A;
 $nav_item_inactive: #A37025;
 
 
-// 字體
+/* -------- 字體 -------- */
 $main_font: 'Comfortaa', "Microsoft JhengHei", cursive;
 $content_font: 'Yantramanav', "Microsoft JhengHei", sans-serif;
 
 body, h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: $main_font;
 }
+
+/* -------- ScrollBar -------- */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-// ScrollBar 樣式
-
 /* Track */
 *::-webkit-scrollbar-track {
   background: #ffffff;
@@ -42,12 +36,11 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
   background: $nav_item_inactive;
 }
 
-
-// button 相關
+/* -------- button -------- */
 $btn_height: 40px;
 $btn_font_size: 16px;
 
-.coffee-dark-btn, .coffee-light-btn{
+.coffeeDarkBtn, .coffeeLightBtn{
   height: $btn_height;
   padding: 3px 1rem;
   color: white;
@@ -58,15 +51,15 @@ $btn_font_size: 16px;
   border: none;
   border-radius: 10px;
 }
-.coffee-dark-btn:hover, .coffee-light-btn:hover{
+.coffeeDarkBtn:hover, .coffeeLightBtn:hover{
   cursor: pointer;
 }
-.coffee-light-btn{
+.coffeeLightBtn{
   color: $nav_item_active;
   background: $nav_item_active;
 }
 
-// navbar 相關
+/* -------- navbar -------- */
 $nav_box_shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
 $nav_box_radius: 0px;
 $nav_li_height: 28px;
@@ -77,8 +70,7 @@ $nav_li_height: 28px;
 .mobileNone{
   display: block;
 }
-
-.coffee-navbar{
+.coffeeNavbar{
   width: 100%;
   height: 125px;
   padding: 0px 0rem;
@@ -91,7 +83,7 @@ $nav_li_height: 28px;
   box-sizing: border-box;
   box-shadow: $nav_box_shadow;
 
-  .coffee-light-btn{
+  .coffeeLightBtn{
     font-weight: 600;
   }
   div{
@@ -170,9 +162,12 @@ $nav_li_height: 28px;
     display: none;
   }
 
-  .coffee-navbar{
+  .coffeeNavbar{
     position: relative;
-    
+    justify-content: space-between;
+    div{
+      width: 20%;
+    }
     div:first-child{
       flex-direction: column;
       width: 260px;
@@ -208,25 +203,33 @@ $nav_li_height: 28px;
     }
   }
 }
-
-// input 相關
+@media screen and(max-width:600px) {
+  .coffeeNavbar{
+    height: 90px;
+    .logo a img{
+      width: 90px;
+    }
+  }
+}
+/* -------- input checkbox radio -------- */
 $user_input_width: 330px;
 $user_input_height: 40px;
 
-.user_input{
+.adminInput{
   width: $user_input_width;
   height: $user_input_height;
   padding: 3px 1.5rem;
-  border: 1px solid $main_color;
+  border: 2px solid $main_color;
   border-radius: 15px;
   box-sizing: border-box;
   outline: none;
 }
 
-// footer
-.coffee-footer{
+/* -------- footer -------- */
+.coffeeFooter{
   width: 100%;
-  height: 457px;
+  height: 300px;
+  padding-top: 3rem;
   color: $font_border_color;
   background: $main_color;
   list-style: none;
@@ -234,15 +237,36 @@ $user_input_height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  
-  div{
-    margin: 3rem;
+  div:nth-child(2){
+    div{
+      align-items: baseline;
+      i{
+        margin-right: 5px;
+      }
+    }
   }
+  // div{
+  //   margin: 2rem;
+  // }
   div li{
     margin: 1rem;
   }
   a{
     color: $font_border_color;
     text-decoration: none;
+  }
+}
+@media screen and (max-width:700px) {
+  .coffeeFooter{
+    height: 500px;
+    padding-top: 0rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    div:nth-child(2){
+      div{
+        justify-content: center;
+      }
+    }
   }
 }

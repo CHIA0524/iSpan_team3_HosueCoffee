@@ -90,7 +90,6 @@ i{
     background: #000;
   }
 }
-
 // storeIndex
 
 .storeBanner{
@@ -100,8 +99,7 @@ i{
   margin-top: -3rem;
 }
 .storeIndex{
-  margin-top: 60px;
-  margin-bottom: 150px;
+  margin: 60px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,6 +176,10 @@ i{
     height: 300px;
   }
   .storeIndex{
+    gap: 30px;
+    div{
+        width: calc(100% - 60px);
+    }
     div:nth-child(1){
       p, img{
         display: none;
