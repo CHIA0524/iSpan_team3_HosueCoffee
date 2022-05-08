@@ -21,8 +21,16 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
   height: 24PX !important;
   padding: 0 !important;
   margin: 0 !important;
-  color: $font_border_color;
+  transition: all .3s ease-in-out !important;
 }
+svg path{
+  fill: $font_border_color !important;
+  transition: all .2s ease-in-out !important;
+}
+svg:hover path{
+  fill: $secondary_color !important;
+}
+
 /* -------- ScrollBar -------- */
 
 /* width */
@@ -119,17 +127,10 @@ $nav_li_height: 28px;
   li{
     list-style: none;
   }
-  li:hover svg path{
-    fill: $secondary_color;
-  }
   a{
     padding: 1rem;
     color: $font_border_color;
     text-decoration: none;
-    svg path{
-      transition: all .3s;
-      fill:$font_border_color;
-    }
   }
   .navFirst{
     li{
