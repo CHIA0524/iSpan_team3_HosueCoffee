@@ -96,9 +96,12 @@
 .moreInfo {
   padding-top: 10rem;
   display: flex;
+  justify-content: space-evenly;
   align-content: center;
+  align-items: center;
+  margin-bottom: 20rem;
 }
-.moreInfo img {
+.infoBtn img {
   width: 3rem;
 }
 .card {
@@ -107,6 +110,13 @@
 }
 .card img {
   width: 100%;
+}
+.cardPrice {
+  margin-top: -1rem;
+}
+.title {
+  margin: 11rem 0 -4rem 5rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 800px) {
