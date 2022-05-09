@@ -50,11 +50,12 @@
 }
 .cardDetail{
   width: 375px;
-  height: calc(100vh - 150px);
+  height: 100vh;
   padding: 15px 40px;
   background: white;
   position: absolute;
   top: 0;
+  left: -400px;
   transition: all .3s ease-in-out;
   overflow: scroll;
   // left: -350px;
@@ -79,6 +80,9 @@
     column-gap: 1.2rem;
     row-gap: 5px;
   }
+}
+.cardDetailOpenCss{
+  left: 0px;
 }
 .cardWrap{
   width:350px;
@@ -135,6 +139,14 @@ i{
     width: 100%;
     height: calc(100vh - 150px);
     background: #000;
+  }
+  .cardDetail{
+    top: 800px;
+    background: $secondary_color;
+  }
+  .cardDetailOpenCss{
+    top: 0px;
+    left: calc(50% - 180px);
   }
 }
 
