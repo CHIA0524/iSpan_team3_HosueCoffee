@@ -117,6 +117,7 @@ svg:hover path {
   -webkit-box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
   position: relative;
+  z-index: 5;
 }
 
 .coffeeNavbar .webUserInfo {
@@ -478,8 +479,48 @@ svg:hover path {
           flex-direction: row;
 }
 
+.storeSearch {
+  width: 100%;
+  height: 60px;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.storeSearch div {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.1);
+}
+
+.storeSearch input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+}
+
+.storeSearch input:focus {
+  outline: none;
+}
+
+.storeSearch svg {
+  cursor: pointer;
+}
+
 .cardGroupWrap {
-  width: 400px;
+  width: 375px;
   height: calc(100vh - 150px);
   position: relative;
   display: -webkit-box;
@@ -500,7 +541,7 @@ svg:hover path {
 }
 
 .storeWrap {
-  width: 380px;
+  width: 375px;
   height: calc(100vh - 150px);
   padding: .1rem .5rem;
   overflow-y: scroll;
@@ -517,12 +558,12 @@ svg:hover path {
 }
 
 .cardWrap {
-  width: 360px;
+  width: 350px;
   height: 100px;
   margin-bottom: 5px;
   background: #F8F1DE;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -537,8 +578,8 @@ svg:hover path {
 }
 
 .cardWrap img {
+  width: 25%;
   height: 60px;
-  width: 75px;
   border-radius: 5px;
 }
 
@@ -548,6 +589,8 @@ svg:hover path {
 }
 
 i {
+  width: 10%;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -576,7 +619,6 @@ i {
 
 .mapWrap {
   width: calc(100% - 350px);
-  height: calc(100vh - 150px);
   background: #000;
 }
 
@@ -589,7 +631,6 @@ i {
   }
   .cardGroupWrap {
     width: auto;
-    margin: 1rem auto 0;
   }
   .mapWrap {
     width: 100%;
