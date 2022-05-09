@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
     <!---------- brandproduct style ---------->
-    <link rel="stylesheet" href="../css/brandproduc.css">
+    <link rel="stylesheet" href="../css/productdetail.css">
 
 
 
@@ -121,16 +121,45 @@
                         率較其他產區也更低。</p>
                     <br>
                     <p>數量</p>
-                    <button type="button" class="btn btn-primary btn-sm button" id="plus">+</button>
-                    <input class="num" type="text" id="text" value="1" />
-                    <button type="button" class="btn btn-primary btn-sm button" id="subtract">-</button>
+                    <div class="addNum">
+                        <a href=""><button type="button" class="buttonNum" id="plus">+</button></a>
+                        <input class="num" type="text" id="text" value="1" />
+                        <a href=""><button type="button" class="buttonNum" id="subtract">-</button></a>
+                    </div>
+                    <br>
+
+                    <div class="addCart">
+                        <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
+                            </button></a>
+                    </div>
+                </div>
 
 
+            </div>
+            <div class="row ">
 
+                <div class="moreInfo">
+                    <div>
+                        <a href=""><img src="./img/Vector left.png" alt=""></a>
+                    </div>
+                    <div class="card ">
+                        <div class="package">
+                            <a href=""><img class="card-img-top" src="./img/包裝 2.png" alt=""></a>
+                        </div>
+                        <div class="cardName d-flex justify-content-between">
+                            <div>
+                                <p>咖啡豆</p>
+                            </div>
 
+                        </div>
+                        <p class="cardPrice">$499</p>
+                    </div>
+
+                    <div><a href=""><img src="./img/Vector right.png" alt=""></a></div>
                 </div>
 
             </div>
+
 
         </main>
     </div>
@@ -167,11 +196,7 @@
     </footer>
 
     <script>
-        const openNavSide = document.querySelector('.openNavSide');
-        openNavSide.addEventListener('click', () => {
-            document.querySelector('.navFirst').style.left = '0px';
-            document.querySelector('.sideDark').style.display = 'block';
-        });
+
     </script>
 
 
