@@ -4,6 +4,7 @@
   height: 600px;
   border-radius: 20px;
   box-shadow: rgb(124, 124, 124) 20px 10px 5px;
+  margin: 0 auto;
 }
 
 .loginTop {
@@ -23,13 +24,14 @@
   display: block;
   padding-top: 10px;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .loginLift {
   overflow: hidden;
   border-radius: 20px 0 0 20px;
   background: #cdcdcd;
-  z-index: 100;
+  z-index: 10;
   position: relative;
 }
 .loginRight {
