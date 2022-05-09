@@ -117,7 +117,7 @@ svg:hover path {
   -webkit-box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: 5;
+  z-index: 50;
 }
 
 .coffeeNavbar .webUserInfo {
@@ -278,10 +278,10 @@ svg:hover path {
 
 .sideDark {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   display: none;
-  position: absolute;
+  position: relative;
   z-index: 1;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
