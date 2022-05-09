@@ -111,8 +111,7 @@ $nav_li_height: 28px;
   justify-content: space-around;
   box-sizing: border-box;
   box-shadow: $nav_box_shadow;
-  position: relative;
-  z-index: 50;
+
   .webUserInfo{
     width: 140px;
     height: 200px;
@@ -163,10 +162,6 @@ $nav_li_height: 28px;
     }
   }
 
-
-  .coffeeLightBtn{
-    font-weight: 600;
-  }
   div{
     width: 40%;
     text-align: center;
@@ -235,7 +230,8 @@ $nav_li_height: 28px;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   display: none;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 1;
   transition: all .3s ease-in-out;
 }
@@ -304,7 +300,12 @@ $nav_li_height: 28px;
             color: $nav_item_inactive;
           }
         }
-    }
+      }
+      li:nth-child(n+3):nth-child(-n+7){
+        a:hover{
+          margin-top: 0px;
+        }
+      }
     }
     div:nth-child(2){
       display: flex;
@@ -361,21 +362,34 @@ $user_input_height: 40px;
   // div{
   //   margin: 2rem;
   // }
-  div li{
+  div{
     margin: 1rem;
+    li{
+      padding: 0.2rem 0rem;
+    }
   }
   a{
     color: $font_border_color;
     text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+  a:hover{
+    color: $nav_item_inactive;
   }
 }
-@media screen and (max-width:700px) {
+@media screen and (max-width:800px) {
   .coffeeFooter{
     height: 500px;
-    padding-top: 0rem;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    div{
+      margin: 1rem;
+      li{
+        text-align: center;
+        padding: 0.2rem 0rem;
+      }
+    }
     div:nth-child(2){
       div{
         justify-content: center;
