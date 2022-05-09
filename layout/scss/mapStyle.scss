@@ -49,13 +49,36 @@
   overflow-x: hidden;
 }
 .cardDetail{
-  width: 350px;
+  width: 375px;
   height: calc(100vh - 150px);
-  background: rgba($color: #000000, $alpha: .5);
+  padding: 15px 40px;
+  background: white;
   position: absolute;
   top: 0;
   transition: all .3s ease-in-out;
+  overflow: scroll;
   // left: -350px;
+  li{
+    padding: 5px 0;
+    list-style: none;
+    font-weight: 600;
+    }
+  .closeCardDetail{
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  div{
+    li, h5{
+      text-align: left;
+      font-weight: 600;
+    }
+  }
+  .storeServeList{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.2rem;
+    row-gap: 5px;
+  }
 }
 .cardWrap{
   width:350px;
