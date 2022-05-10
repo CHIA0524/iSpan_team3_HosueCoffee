@@ -3,14 +3,15 @@
 /* -------- 字體 -------- */
 body, h1, h2, h3, h4, h5, h6, p, span, a {
   font-family: "Comfortaa", "Microsoft JhengHei", cursive;
+  color: #4C3410;
   padding: 0;
   margin: 0;
 }
 
 /* -------- icon -------- */
 .iconDuck {
-  width: 24px !important;
-  height: 24PX !important;
+  width: 28px !important;
+  height: 28PX !important;
   padding: 0 !important;
   margin: 0 !important;
   -webkit-transition: all .3s ease-in-out !important;
@@ -79,12 +80,14 @@ svg:hover path {
 .coffeeLightBtn:hover {
   cursor: pointer;
   color: white;
+  border: 4px solid #A37025;
   background: #A37025;
 }
 
 .coffeeLightBtn {
-  color: #4C3410;
-  background: #DDB44A;
+  color: #E4D2A3;
+  border: 4px solid #E4D2A3;
+  background: white;
 }
 
 /* -------- navbar -------- */
@@ -118,6 +121,19 @@ svg:hover path {
           box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 50;
+}
+
+.coffeeNavbar .sideDark {
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 51;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .coffeeNavbar .webUserInfo {
@@ -175,7 +191,7 @@ svg:hover path {
   width: 50px;
 }
 
-.coffeeNavbar div:nth-child(4):last-child li:hover .webUserInfo {
+.coffeeNavbar div:nth-child(5):last-child li:hover .webUserInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,11 +215,11 @@ svg:hover path {
           align-items: center;
 }
 
-.coffeeNavbar div:nth-child(2) {
+.coffeeNavbar div:nth-child(3) {
   display: none;
 }
 
-.coffeeNavbar div:nth-child(3) {
+.coffeeNavbar div:nth-child(4) {
   width: 10%;
 }
 
@@ -272,18 +288,6 @@ svg:hover path {
   margin: 1px 1rem;
 }
 
-.sideDark {
-  width: 100%;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
 @media screen and (max-width: 800px) {
   .closeSideNav {
     cursor: pointer;
@@ -328,8 +332,8 @@ svg:hover path {
     padding: 1rem;
     background: white;
     position: fixed;
-    z-index: 50;
     top: 0;
+    z-index: 100;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
   }
@@ -374,7 +378,7 @@ svg:hover path {
   .coffeeNavbar .navFirst li:nth-child(n+3):nth-child(-n+7) a:hover {
     margin-top: 0px;
   }
-  .coffeeNavbar div:nth-child(2) {
+  .coffeeNavbar div:nth-child(3) {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -390,7 +394,7 @@ svg:hover path {
     height: 90px;
   }
   .coffeeNavbar .logo a img {
-    width: 90px;
+    width: 80px;
   }
 }
 
