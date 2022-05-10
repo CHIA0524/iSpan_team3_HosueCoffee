@@ -40,13 +40,7 @@
 
 
 
-.card {
-    border: hidden;
-    width: 25rem;
-    padding-right: 2rem;
-    padding-bottom: 4rem;
-    
-}
+
 
 .cardPrice {
     margin-top: -1rem;
@@ -80,20 +74,44 @@
     width:fit-content;
     margin: 30px auto;
 }
+
 .proR{
     border-left: 1px solid black;
+}
+.changePhoto{
+    z-index: -1;
+    align-items: center;
+    top: -70px;
+    text-align: center;
+    position: relative;
+    opacity: 1;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+    transition: 0.5s;
+    
 }
 .memberPhoto{
     margin: 20px auto;
     width: 120px;
     height: 120px;
     border-radius: 100%;
-    background-color: #333;
+    background-color: transparent;
     overflow: hidden;
+    /* transition: 0.5s; */
 }
 .memberPhoto img{
     width: 100%;
+    opacity: 1;
+    transition: 0.5s;
 }
+.memberPhoto:hover img{
+    opacity: 0.5;
+}
+.memberPhoto:hover .changePhoto{
+    z-index: 1;
+}
+
 .memberNumber{
     margin :30px 0;
     text-align: center;
