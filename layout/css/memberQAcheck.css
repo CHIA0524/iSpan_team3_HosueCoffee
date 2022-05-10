@@ -39,6 +39,10 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 10px;
 }
+#nowWeb{
+  color: #E4D2A3;
+  font-weight: bolder;
+}
 
 /* 彈跳視窗 */
 .popupWrap {
