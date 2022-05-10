@@ -10,8 +10,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a {
 
 /* -------- icon -------- */
 .iconDuck {
-  width: 24px !important;
-  height: 24PX !important;
+  width: 28px !important;
+  height: 28PX !important;
   padding: 0 !important;
   margin: 0 !important;
   -webkit-transition: all .3s ease-in-out !important;
@@ -80,13 +80,13 @@ svg:hover path {
 .coffeeLightBtn:hover {
   cursor: pointer;
   color: white;
-  border: 2px solid #A37025;
+  border: 4px solid #A37025;
   background: #A37025;
 }
 
 .coffeeLightBtn {
   color: #E4D2A3;
-  border: 2px solid #E4D2A3;
+  border: 4px solid #E4D2A3;
   background: white;
 }
 
