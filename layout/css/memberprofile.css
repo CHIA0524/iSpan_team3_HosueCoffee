@@ -65,7 +65,7 @@
     margin: 0 auto;
     padding-top: 2%;
     width: 79%;
-    min-width: 800px;
+    min-width: 100%;
 }
 .type{
     display: none;
@@ -100,7 +100,8 @@
     text-align: center;
 }
 .memberEdit{
-    margin: 30px auto;
+    display: block;
+    margin: 0 auto;
     color:#A37025;
     border: 1px solid #A37025;
     border-radius: 50px;
@@ -109,6 +110,10 @@
     height: 35px;
 
 }
+.memberEdit-m{
+    display: none;
+}
+
 .proList_m{
     display: none;
 }
@@ -164,6 +169,10 @@
     
     .memberEdit-w{
         display: none;
+    }
+    .memberEdit-m{
+        display: block;
+        justify-content: center;
     }
     .proR{
     border: 0;
