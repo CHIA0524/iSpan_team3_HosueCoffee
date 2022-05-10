@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ----- Variables ----- */
 /* ----- Global ----- */
 * {
@@ -227,5 +228,134 @@ footer a:hover {
 
 .aside1 {
   font-size: x-large;
+}
+
+.adminAside {
+  padding-top: 2%;
+  padding-left: 3%;
+  width: 30%;
+  min-width: 120px;
+}
+
+.asideContent {
+  margin: 0 auto;
+  min-width: 400px;
+  width: 20%;
+}
+
+.adminAside a {
+  color: #4C3410;
+  text-decoration: none;
+  border: 1px transparent solid;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.adminAside a:hover {
+  border-left: 1px solid #E4D2A3;
+  color: #E4D2A3;
+}
+
+.adminAside .maindir {
+  color: #817575;
+  font-size: larger;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+
+.adminAside ul {
+  padding-left: 6rem;
+}
+
+.adminAside li {
+  list-style: none;
+}
+
+.pMain {
+  padding-top: 2%;
+}
+
+.card {
+  border: hidden;
+  width: 25rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+}
+
+.cardPrice {
+  margin-top: -1rem;
+}
+
+.package a :hover {
+  opacity: 0.6;
+}
+
+.adminAside {
+  display: inline-block;
+}
+
+.pMain {
+  margin: 0 auto;
+  display: inline-block;
+  /* min-width: 800px; */
+}
+
+.type {
+  display: none;
+}
+
+.mShop {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .mShop {
+    display: block;
+    color: #817575;
+    font-size: 1.5rem;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 3rem;
+  }
+  .type {
+    padding-top: -1rem;
+    padding-bottom: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .typeDetail {
+    width: 20%;
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #E4D2A3;
+    color: #4C3410;
+  }
+  .adminAside {
+    /*隱藏選單開始*/
+    max-height: 0;
+    overflow: hidden;
+    /*隱藏選單end*/
+    position: absolute;
+    /*追隨.header*/
+    /*讓選單從左到右延伸start*/
+    right: 0;
+    left: 0;
+    /*讓選單從左到右延伸end*/
+    top: 67px;
+    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+    z-index: 100;
+    -webkit-transition: all 2.5s;
+    transition: all 2.5s;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 15rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
