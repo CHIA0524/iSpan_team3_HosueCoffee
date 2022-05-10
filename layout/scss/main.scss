@@ -104,7 +104,18 @@ $nav_li_height: 28px;
   box-shadow: $nav_box_shadow;
   position: relative;
   z-index: 50;
-
+  
+  .sideDark{
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 51;
+    transition: all .3s ease-in-out;
+  }
   .webUserInfo{
     width: 140px;
     height: 200px;
@@ -149,7 +160,7 @@ $nav_li_height: 28px;
       }
     }
   }
-  div:nth-child(4):last-child li:hover{
+  div:nth-child(5):last-child li:hover{
     .webUserInfo{
       display: flex;
     }
@@ -163,10 +174,10 @@ $nav_li_height: 28px;
     justify-content: center;
     align-items: center;
   }
-  div:nth-child(2){
+  div:nth-child(3){
     display: none;
   }
-  div:nth-child(3){
+  div:nth-child(4){
     width: 10%;
   }
   li{
@@ -218,16 +229,7 @@ $nav_li_height: 28px;
     margin: 1px 1rem;
   }
 }
-.sideDark{
-  width: 100%;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  transition: all .3s ease-in-out;
-}
+
 
 @media screen and (max-width:800px){
   .closeSideNav{
@@ -255,14 +257,12 @@ $nav_li_height: 28px;
       text-align: start;
       align-items: flex-start;
       justify-content: start;
-      // display: none;
       padding: 1rem;
       background: white;
       position: fixed;
-      z-index: 50;
       top: 0;
+      z-index: 100;
       transition: all .3s ease-in-out;
-      // left: -260px;
       li{
         width: 200px;
         margin: .9rem auto;
@@ -300,7 +300,7 @@ $nav_li_height: 28px;
         }
       }
     }
-    div:nth-child(2){
+    div:nth-child(3){
       display: flex;
     }
     .navSideX{
@@ -313,7 +313,7 @@ $nav_li_height: 28px;
   .coffeeNavbar{
     height: 90px;
     .logo a img{
-      width: 90px;
+      width: 80px;
     }
   }
 }
