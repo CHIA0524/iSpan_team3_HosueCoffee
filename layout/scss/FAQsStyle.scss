@@ -1,0 +1,43 @@
+@import 'main';
+
+.FAQsWrap{
+  padding: 60px 10%;
+  h2{
+    margin-bottom: 50px;
+  }
+  h3{
+    padding: 10px 40px;
+    background: #F6F6F6;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.5em;
+  }
+  div{
+    margin-bottom: 5rem;
+    div{
+      padding: 20px 0px;
+      margin: 0px 100px;
+      :nth-child(2){
+        color: $font_border_color;
+      }
+    }
+  }
+  p{
+    margin: 0;
+    letter-spacing: 0.3em;
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .FAQsWrap{
+    padding: 30px 30px;
+    h2, h3{
+      text-align: center;
+    }
+    div div{
+      margin: 0px 30px;
+    }
+  }
+}
