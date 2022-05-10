@@ -1,0 +1,33 @@
+﻿.steps {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 25px 0 25px 20px;
+}
+
+.step,
+.stepLine {
+  float: left;
+}
+
+.step {
+  display: block;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  background: #e4d2a3;
+}
+
+.stepLine {
+  width: 6rem;
+  position: relative;
+  top: 0.8rem;
+  height: 5px;
+  background-color: #e4d2a3;
+}
+.stepText {
+  line-height: 2rem;
+  color: rgba(0, 0, 0, 0.25);
+}
