@@ -119,3 +119,50 @@
   transform: translate(-50%, -50%) scale(.6);
 }
 
+.ansWrap{
+  min-width: 70%;
+  padding-top: 2%;
+  padding-right: 10%;
+}
+.memberAnsDetail{
+  padding-top: 2%;
+  margin: 0rem 3rem 0 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  li{
+    margin-bottom: 1rem;
+    list-style: none;
+  }
+}
+.memberAnser{
+  padding: 1rem;
+  margin-top: 2%;
+  border: 1px solid #2B3034;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;  
+  div{
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+  }
+  div:hover{
+    background: $main_color;
+  }
+  div:first-child{
+    text-align: right;
+  }
+  span{
+      font-size: smaller;
+  }
+}
+.memberAnserInout{
+  textarea{
+    height: 150px;
+    margin: 40px 0;
+    padding: 2rem;
+    border-radius: 10px;
+    resize: none;
+  }
+}
