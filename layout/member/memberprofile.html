@@ -19,162 +19,11 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../css/memberprofile.css">
  
 
    
-    <style>
-        .adminAside {
-            padding-top: 2%;
-            padding-left: 3%;
-            width: 30%;
-            min-width: 120px;
-
-        }
-
-        .asideContent {
-            margin: 0 auto;
-            min-width: 400px;
-            width: 20%;
-            padding-left: 6rem;
-        }
-        .asideContent li{
-            margin: 20px auto;
-            list-style: none;
-         
-        }
-
-        .adminAside a {
-            color: #4C3410;
-            text-decoration: none;
-            border: 1px transparent solid;
-            transition: all 0.2s ease;
-        }
-
-        .adminAside a:hover {
-            border-left: 1px solid #E4D2A3;
-            color: #E4D2A3;
-        }
-
-        .adminAside .maindir {
-            color: rgb(129, 117, 117);
-            font-size: larger;
-            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-            padding: 10px;
-        }
-
-
-       
-
-        .card {
-            border: hidden;
-            width: 25rem;
-            padding-right: 2rem;
-            padding-bottom: 4rem;
-            
-        }
-
-        .cardPrice {
-            margin-top: -1rem;
-        }
-
-        .package a :hover {
-            opacity: 0.6;
-        }
-
-        .adminAside {
-            display: inline-block;
-
-        }
-
-        .pMain {
-            margin: 0 auto;
-            padding-top: 2%;
-            width: 79%;
-            min-width: 800px;
-        }
-        .type{
-            display: none;
-        }
-        .mShop{
-            display: none;
-        }
-        .proMain{
-            padding: 0px 50px;
-        }
-        .proList{
-            margin: 30px 0;
-        }
-        .proR{
-            border-left: 1px solid black;
-        }
-        .memberPhoto{
-            margin: 20px auto;
-            width: 120px;
-            height: 120px;
-            border-radius: 100%;
-            background-color: #333;
-            overflow: hidden;
-        }
-        .memberPhoto img{
-            width: 100%;
-        }
-        .memberNumber{
-            margin :30px 0;
-            text-align: center;
-        }
-
-        @media screen and (max-width:800px) {
-            .mShop{
-                display: block;
-                color: rgb(129, 117, 117);
-            font-size: 1.5rem;
-            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-            padding: 3rem ;
-           
-            }
-            .type{
-                padding-top: -1rem;
-                padding-bottom: 2rem;
-                display: flex;
-                justify-content: center;
-            }
-            .typeDetail{
-                width: 20%;
-                display: block;  
-                text-align: center;
-                border-radius: 20px;
-                border: 1px solid #E4D2A3;
-                color: #4C3410;
-              
-                
-           
-            }
-            .adminAside {
-                /*隱藏選單開始*/
-                max-height: 0;
-                overflow: hidden;
-                /*隱藏選單end*/
-                position: absolute;
-                /*追隨.header*/
-                /*讓選單從左到右延伸start*/
-                right: 0;
-                left: 0;
-                /*讓選單從左到右延伸end*/
-                top: 67px;
-                /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
-                z-index: 100;
-                transition: all 2.5s;
-            }
-            
-
-          
-        }
-        @media screen and (max-width:600px)  {
-            .card{
-                width: 15rem;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -203,14 +52,14 @@
       </div>
     </nav>
   </header>
-    <div class="mShop">
-        <p>商店</p>
+    <div class="mMember">
+        <p>&lt;&ensp;會員中心</p>
     </div>
     <!-- 手機板的select -->
-        <div class="type" >
+        <!-- <div class="type" >
         <select class="form-select form-select-sm typeDetail" >
-        <option selected>會員資料</option>
-        <option value="1">基本資料</option>
+        
+        <option value="1" selected>基本資料</option>
         <option value="2">訂單查詢</option>
         <option value="3">訂餐查詢</option>
         <option value="4">優惠紅利</option>
@@ -218,7 +67,7 @@
         <option value="6">我的收藏</option>
         </select>
     
-    </div>
+    </div> -->
     
     <div class="d-flex flex-md-row">
         <aside class="adminAside">
@@ -252,24 +101,35 @@
         <main class="pMain row">
             <!-- <div class=" row justify-content-center"> -->
                 
-                <div class="col-3">
-                    <div class="memberPhoto"><img  src="../img/member/memberphoto.jpg" alt="會員照片"></div>
-                    <div class="memberNumber">
-                        <div >會員編號</div>
-                        <div >x x x x x x</div>
+                <div class="col-3 col-3None">
+                    <div class="proList">
+                        <div class="memberPhoto"><img  src="../img/member/memberphoto.jpg" alt="會員照片"></div>
+                        <div class="memberNumber">
+                            <div >會員帳號</div>
+                            <div >Jack123</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6 proR">
+                <div class="col proR">
                     <div class="proMain">
-                        <h4 class="proList">姓名:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
-                        <h4 class="proList">暱稱:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
-                        <h4 class="proList">生日:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
-                        <h4 class="proList">手機號碼:&emsp;&emsp; xxxxxx</h4>
-                        <h4 class="proList">電子信箱:&emsp;&emsp; xxxxxx</h4>
-                        <h4 class="proList">地址:&emsp;&emsp;&emsp;&emsp; xxxxxx </h4>
+                        <div class="proList_m">
+                            <div class="memberPhoto"><img  src="../img/member/memberphoto.jpg" alt="會員照片"></div>
+                            <div class="memberNumber">
+                                <div >Jack123</div>
+                            </div>
+                        </div>
+                        <h4 class="proRight">姓名:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
+                        <h4 class="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
+                        <h4 class="proRight">生日:&emsp; &emsp;&emsp;&emsp;xxxxxx</h4>
+                        <h4 class="proRight">手機號碼:&emsp;&emsp; xxxxxx</h4>
+                        <h4 class="proRight">電子信箱:&emsp;&emsp; xxxxxx</h4>
+                        <h4 class="proRight">地址:&emsp;&emsp;&emsp;&emsp; xxxxxx </h4>
+                        <br>
+                        <button class="memberEdit memberEdit-w">編輯個人資料</button>
+                        <button class="memberEdit type">編輯</button>
                     </div>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-3 col-3None"></div>
             <!-- </div> -->
                
         </main>    
