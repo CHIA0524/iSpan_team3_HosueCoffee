@@ -79,12 +79,14 @@ svg:hover path {
 .coffeeLightBtn:hover {
   cursor: pointer;
   color: white;
+  border: 2px solid #A37025;
   background: #A37025;
 }
 
 .coffeeLightBtn {
-  color: #4C3410;
-  background: #DDB44A;
+  color: #E4D2A3;
+  border: 2px solid #E4D2A3;
+  background: white;
 }
 
 /* -------- navbar -------- */
