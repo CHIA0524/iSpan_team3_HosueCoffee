@@ -1,7 +1,7 @@
 .adminAside {
     padding-top: 2%;
     padding-left: 3%;
-    width: 30%;
+    width: 15%;
     min-width: 120px;
 
 }
@@ -12,9 +12,12 @@
     width: 20%;
     padding-left: 6rem;
 }
+
 .asideContent li{
-    margin: 20px auto;
+    margin: 20px 0;
     list-style: none;
+    width: fit-content;
+    
  
 }
 
@@ -35,6 +38,7 @@
     font-size: larger;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 10px;
+    width: fit-content;
 }
 
 
