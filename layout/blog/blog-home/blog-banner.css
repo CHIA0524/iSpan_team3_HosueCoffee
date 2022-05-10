@@ -1,0 +1,28 @@
+.blog-banner{
+    position:relative;
+    padding-top:10%;
+    width:100% ;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment:fixed; */
+    background-image: url(./imgs/banner.svg);
+}
+
+
+.banner-word{
+position: relative;
+width: 166px;
+height:50px;
+font-family: 'Yantramanav';
+font-style: normal;
+font-weight: 600;
+font-size: 50px;
+line-height: 42px;
+letter-spacing: 0.2em;
+
+color: #000000;
+
+text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
