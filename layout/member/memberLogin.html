@@ -199,13 +199,24 @@
     loginleft.addEventListener('click', ()=>{
       document.querySelector('.loginMain1').style.right='-491px';
       document.querySelector('.loginMain1').style.transition='0.5s';
-      // document.querySelector('.loginMain1').style.transition='0.5s';
+      document.querySelector('.lg1').style.display='block';
+      document.querySelector('.lg2').style.display='block';
+      document.querySelector('.lg1').style.font='20px Comfortaa ';
+      document.querySelector('.lg1').style.padding='20px 0';
+      document.querySelector('.lg2').style.font='16px Comfortaa ';
+      document.querySelector('.lg2').style.padding='20px 0';
      
     });
     const loginright=document.querySelector('.lg2');
     loginright.addEventListener('click', ()=>{
       document.querySelector('.loginMain1 ').style.right='0px';
       document.querySelector('.loginMain1 ').style.transition='0.5s';
+      document.querySelector('.lg1').style.display='block';
+      document.querySelector('.lg2').style.display='block';
+      document.querySelector('.lg1').style.font='16px Comfortaa ';
+      document.querySelector('.lg1').style.padding='10px 0';
+      document.querySelector('.lg2').style.font='20px Comfortaa ';
+      document.querySelector('.lg2').style.padding='10px 0';
     });
 
     // function Login(){
