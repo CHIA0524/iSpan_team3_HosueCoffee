@@ -122,6 +122,19 @@ svg:hover path {
   z-index: 50;
 }
 
+.coffeeNavbar .sideDark {
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 51;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
 .coffeeNavbar .webUserInfo {
   width: 140px;
   height: 200px;
@@ -177,7 +190,7 @@ svg:hover path {
   width: 50px;
 }
 
-.coffeeNavbar div:nth-child(4):last-child li:hover .webUserInfo {
+.coffeeNavbar div:nth-child(5):last-child li:hover .webUserInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,11 +214,11 @@ svg:hover path {
           align-items: center;
 }
 
-.coffeeNavbar div:nth-child(2) {
+.coffeeNavbar div:nth-child(3) {
   display: none;
 }
 
-.coffeeNavbar div:nth-child(3) {
+.coffeeNavbar div:nth-child(4) {
   width: 10%;
 }
 
@@ -274,18 +287,6 @@ svg:hover path {
   margin: 1px 1rem;
 }
 
-.sideDark {
-  width: 100%;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  position: fixed;
-  top: 0;
-  z-index: 51;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
 @media screen and (max-width: 800px) {
   .closeSideNav {
     cursor: pointer;
@@ -330,8 +331,8 @@ svg:hover path {
     padding: 1rem;
     background: white;
     position: fixed;
-    z-index: 50;
     top: 0;
+    z-index: 100;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
   }
@@ -376,7 +377,7 @@ svg:hover path {
   .coffeeNavbar .navFirst li:nth-child(n+3):nth-child(-n+7) a:hover {
     margin-top: 0px;
   }
-  .coffeeNavbar div:nth-child(2) {
+  .coffeeNavbar div:nth-child(3) {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -392,7 +393,7 @@ svg:hover path {
     height: 90px;
   }
   .coffeeNavbar .logo a img {
-    width: 90px;
+    width: 80px;
   }
 }
 

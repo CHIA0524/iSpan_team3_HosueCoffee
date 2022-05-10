@@ -7,6 +7,7 @@
 
   <!---------- custom style ---------->
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/FAQsStyle.css">
 
   <!---------- fontawesome ---------->
   <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
@@ -24,6 +25,7 @@
   <title>Document</title>
 </head>
 <body>
+  <!---------- header ---------->
   <header>
     <nav class="coffeeNavbar">
       <div class="sideDark"></div>
@@ -90,6 +92,7 @@
     </nav>
   </header>
 
+
   <div>
     <br>
     <br>
@@ -99,6 +102,8 @@
     <!--內容放這裡-->
   </div>
 
+
+  <!---------- footer start ---------->
   <footer class="d-flex coffeeFooter">
     <div class="d-flex">
       <div class="mx-5">
@@ -128,47 +133,13 @@
         <p>2022 . HOUSE COFFEE</p>
       </div>
     </div>
-    
   </footer>
 
-  <script>
-    const openSideNav = document.querySelector('.openSideNav');
-    const navFirst = document.querySelector('.navFirst');
-    const sideDark = document.querySelector('.sideDark');
-    const closeSideNav = document.querySelector('.closeSideNav');
-    
-    const openMemberDetail = document.querySelector('.openMemberDetail');
-    const memberDetail = document.querySelector('.memberDetail');
-
-    sideDark.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-    closeSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-
-    openSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '0px';
-      sideDark.style.display = 'block';
-    });
-    openMemberDetail.addEventListener('click', ()=>{
-      if(memberDetail.style.display=='flex'){
-        memberDetail.style.display = 'none';
-      }
-      else if(memberDetail.style.display=='none'){
-        memberDetail.style.display = 'flex';
-        memberDetail.style.height = 'auto';
-      }
-    })
-
-
-
-    
-  </script>
+  <!---------- jquery CDN ---------->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <!---------- navbar js link ---------->
+  <script src="../js/navbar.js"></script>
 
 </body>
 </html>

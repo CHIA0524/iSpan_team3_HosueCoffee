@@ -7,7 +7,7 @@
 
   <!---------- custom style ---------->
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/FAQsStyle.css">
+  <link rel="stylesheet" href="../css/member.css">
 
   <!---------- fontawesome ---------->
   <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
@@ -21,9 +21,11 @@
   <!---------- bootstrap 5 ---------->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+
   <title>Document</title>
 </head>
 <body>
+  <!---------- header ---------->
   <header>
     <nav class="coffeeNavbar">
       <div class="sideDark"></div>
@@ -89,65 +91,72 @@
 
     </nav>
   </header>
-  
-  <div class="FAQsWrap">
-    <h2>FAQs</h2>
 
-    <div>
-      <h3>商品購買問題</h3>
-      <div class="QandA">
-        <p>Q: 如何查詢訂購紀錄？</p>
-        <p>A: 請您至【會員資料】查詢訂購紀錄。</p>
-      </div>
-      <div class="QandA">
-        <p>Q: 如何更改已送出訂單中的取餐門市？</p>
-        <p>A: 若已成立訂單，仍顯示門市訂單接收中，請撥打門市電話，吿知門市人員以手動方式，為您更改取餐門市。若門市訂單準備中，將無法修改訂單。</p>
-      </div>
-      <div class="QandA">
-        <p>Q: 商品的配送時間和方式？</p>
-        <p>A: 商品將於完成付款後 7 個工作天內送達（不含週六、日及國定假日。部份預購、特別訂製商品除外），目前配送方式為郵局、宅配或貨運等配送方式。</p>
-      </div>
+
+  <!---------- 內容 ---------->
+  <div class="d-flex flex-md-row">
+    <aside class="adminAside">
+      <ul class="asideContent">
+          <p class="py-2 px-3 maindir">會員資料</p>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">基本資料</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">訂單查詢</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">訂餐查詢</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">優惠紅利</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">問答中心</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">密碼管理</a>
+          </li>
+          <li>
+              <a class=" d-block  py-2 px-3" href="">我的收藏</a>
+          </li>
+
+      </ul>
+
+    </aside>
+
+    <!---------- 彈跳視窗打開按鈕 ---------->
+    <div class="col-2.5 ansAddBtn d-flex me-0">
+      <a href="#popupWrap" class="popupOpen">
+        <button class="coffeeLightBtn">提問</button>
+      </a>
     </div>
 
-    <div>
-      <h3>線上咖啡訂購問題</h3>
-      <div>
-        <p>Q: 訂單成立後是否可以更改訂單數量及商品？</p>
-        <p>A: 為保障您購物資料的安全性，客服人員無任何權限異動會員的訂單資料，所以訂單成立後即無法更改數量及商品。</p>
-      </div>
-      <div>
-        <p>Q: 如何更改已送出訂單中的取餐門市？</p>
-        <p>A: 若已成立訂單，仍顯示門市訂單接收中，請撥打門市電話，吿知門市人員以手動方式，為您更改取餐門市。若門市訂單準備中，將無法修改訂單。</p>
-      </div>
-      <div>
-        <p>Q: 如何才能知道我的訂單是否成立？</p>
-        <p>A: 請您至【會員資料】查詢訂單，或透過同頁面右下方的線上諮詢服務查詢訂單事宜。</p>
+    <!---------- 彈跳視窗 ---------->
+    <div class="popupWrap" id="popupWrap">
+      <div class="popupBox">
+        <form name="ansAddForm" class="ansAddForm d-flex flex-column text-start" method="post" novalidate onsubmit="checkNewForm(); return false;">
+          <a class="popupClose text-center" href="#"><i class="fa-solid fa-xmark"></i></a>
+          <input type="text" name="" id="" placeholder="主旨">
+          <select name="" id="">
+            <option value="" disabled selected>類型</option>
+            <option value="">商品相關</option>
+            <option value="">付款相關</option>
+            <option value="">其他</option>
+          </select>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <div class="text-center">
+            <button type="submit" class="coffeeLightBtn">送出</button>
+          </div>
+        </form>
       </div>
     </div>
-
-    <div>
-      <h3>會員常見問題</h3>
-      <div>
-        <p>Q: 忘記密碼怎麼辦？</p>
-        <p>A: 請於登入時，輸入帳號或手機號碼後，選擇【忘記密碼】，待取得簡訊驗證碼後，填入數字並重新設定一組8到12字元、英數混合的密碼即可。請儘量避免使用生日、個人手機及連號數字，並留意定期更新密碼，以維護您的帳戶安全。</p>
-      </div>
-      <div>
-        <p>Q: 想重設密碼 ，但收不到簡訊驗證碼該如何做？</p>
-        <p>A: 建議您刪除一兩封簡訊，將wifi或行動網路4G、5G調整為另一種連線方式；您亦可將手機sim卡更換至其他行動裝置，開啟個人熱點，並使用原裝置連線後，再次嘗試索取驗證碼。</p>
-      </div>
-      <div>
-        <p>Q: 如何修改密碼及個人資料？</p>
-        <p>A: 請前往【會員資料】，在我的帳戶中選擇「基本資料」及「密碼管理」，即可自行更新您的手機號碼、電子郵件信箱、登入密碼及個人基本資料。提醒您，修改後請再次確認資料的正確性，以保障您的權益。</p>
-      </div>
-
-    </div>
-
 
 
   </div>
 
-  
 
+
+  <!---------- footer ---------->
   <footer class="d-flex coffeeFooter">
     <div class="d-flex">
       <div class="mx-5">
@@ -177,41 +186,34 @@
         <p>2022 . HOUSE COFFEE</p>
       </div>
     </div>
+    
   </footer>
 
+  <!---------- jquery CDN ---------->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!---------- navbar js link ---------->
+  <script src="../js/navbar.js"></script>
+
+  <!---------- js ---------->
   <script>
-    const openSideNav = document.querySelector('.openSideNav');
-    const navFirst = document.querySelector('.navFirst');
-    const sideDark = document.querySelector('.sideDark');
-    const closeSideNav = document.querySelector('.closeSideNav');
-    
-    const openMemberDetail = document.querySelector('.openMemberDetail');
-    const memberDetail = document.querySelector('.memberDetail');
 
-    sideDark.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-    closeSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-
-    openSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '0px';
-      sideDark.style.display = 'block';
+    // 彈跳視窗 js
+    $(".popupOpen").click(function() {
+      let href = $(this).attr("href")
+      $(href).fadeIn(250);
+      $(".popupBox").removeClass("popupTransformOut").addClass("popupTransformIn").css('display','block');
+      event.preventDefault();
     });
-    openMemberDetail.addEventListener('click', ()=>{
-      if(memberDetail.style.display=='flex'){
-        memberDetail.style.display = 'none';
-      }
-      else if(memberDetail.style.display=='none'){
-        memberDetail.style.display = 'flex';
-        memberDetail.style.height = 'auto';
-      }
-    })
+    $(".popupClose").click(function() {
+      closeWindow();
+    });
+    function closeWindow(){
+      $(".popupWrap").fadeOut(200);
+      $(".popupBox").removeClass("popupTransformIn").addClass("popupTransformOut");
+      event.preventDefault();
+    }
+    
   </script>
 
 </body>
