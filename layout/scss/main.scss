@@ -1,15 +1,4 @@
-/* -------- 顏色 -------- */
-$main_color: #EDE1C1;
-$secondary_color: #E5D8B7;
-$font_border_color: #4C3410;
-$navbar_font_color: #E4D2A3;
-$nav_item_active: #DDB44A;
-$nav_item_inactive: #A37025;
-
-
-/* -------- 字體 -------- */
-$main_font: 'Comfortaa', "Microsoft JhengHei", cursive;
-$content_font: 'Yantramanav', "Microsoft JhengHei", sans-serif;
+@import 'baseVariable';
 
 body, h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: $main_font;
@@ -111,6 +100,8 @@ $nav_li_height: 28px;
   justify-content: space-around;
   box-sizing: border-box;
   box-shadow: $nav_box_shadow;
+  position: relative;
+  z-index: 50;
 
   .webUserInfo{
     width: 140px;
@@ -266,7 +257,7 @@ $nav_li_height: 28px;
       padding: 1rem;
       background: white;
       position: fixed;
-      z-index: 2;
+      z-index: 50;
       top: 0;
       transition: all .3s ease-in-out;
       // left: -260px;
@@ -384,7 +375,7 @@ $user_input_height: 40px;
     justify-content: space-evenly;
     align-items: center;
     div{
-      margin: 1rem;
+      margin: .5rem;
       li{
         text-align: center;
         padding: 0.2rem 0rem;
