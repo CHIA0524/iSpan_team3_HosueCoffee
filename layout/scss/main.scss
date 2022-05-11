@@ -1,32 +1,37 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-// 顏色
-$main_color: #EDE1C1;
-$secondary_color: #E5D8B7;
-$font_border_color: #4C3410;
-$navbar_font_color: #E4D2A3;
-$nav_item_active: #DDB44A;
-$nav_item_inactive: #A37025;
-
-
-// 字體
-$main_font: 'Comfortaa', "Microsoft JhengHei", cursive;
-$content_font: 'Yantramanav', "Microsoft JhengHei", sans-serif;
+@import 'baseVariable';
 
 body, h1, h2, h3, h4, h5, h6, p, span, a{
   font-family: $main_font;
+  color: $font_border_color;
+  padding: 0;
+  margin: 0;
 }
+
+/* -------- icon -------- */
+.iconDuck{
+  width: 28px !important;
+  height: 28PX !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: all .3s ease-in-out !important;
+}
+svg{
+  cursor: pointer;
+}
+svg path{
+  fill: $font_border_color !important;
+  transition: all .2s ease-in-out !important;
+}
+svg:hover path{
+  fill: $secondary_color !important;
+}
+
+/* -------- ScrollBar -------- */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-// ScrollBar 樣式
-
 /* Track */
 *::-webkit-scrollbar-track {
   background: #ffffff;
@@ -42,12 +47,11 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
   background: $nav_item_inactive;
 }
 
-
-// button 相關
+/* -------- button -------- */
 $btn_height: 40px;
 $btn_font_size: 16px;
 
-.coffee-dark-btn, .coffee-light-btn{
+.coffeeDarkBtn, .coffeeLightBtn{
   height: $btn_height;
   padding: 3px 1rem;
   color: white;
@@ -57,16 +61,26 @@ $btn_font_size: 16px;
   background: $nav_item_inactive;
   border: none;
   border-radius: 10px;
+  transition: all .3s ease-in-out;
 }
-.coffee-dark-btn:hover, .coffee-light-btn:hover{
+.coffeeDarkBtn:hover{
   cursor: pointer;
-}
-.coffee-light-btn{
-  color: $nav_item_active;
+  color: $font_border_color;
   background: $nav_item_active;
 }
+.coffeeLightBtn:hover{
+  cursor: pointer;
+  color: white;
+  border: 4px solid $nav_item_inactive;
+  background: $nav_item_inactive;
+}
+.coffeeLightBtn{
+  color: $navbar_font_color;
+  border: 4px solid $navbar_font_color;
+  background: white;
+}
 
-// navbar 相關
+/* -------- navbar -------- */
 $nav_box_shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
 $nav_box_radius: 0px;
 $nav_li_height: 28px;
@@ -77,8 +91,7 @@ $nav_li_height: 28px;
 .mobileNone{
   display: block;
 }
-
-.coffee-navbar{
+.coffeeNavbar{
   width: 100%;
   height: 125px;
   padding: 0px 0rem;
@@ -90,10 +103,70 @@ $nav_li_height: 28px;
   justify-content: space-around;
   box-sizing: border-box;
   box-shadow: $nav_box_shadow;
-
-  .coffee-light-btn{
-    font-weight: 600;
+  position: relative;
+  z-index: 50;
+  
+  .sideDark{
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 51;
+    transition: all .3s ease-in-out;
   }
+  .webUserInfo{
+    width: 140px;
+    height: 200px;
+    padding: 25px 15px 15px;
+    margin: 0;
+    background: no-repeat url('../img/Union.svg');
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 30px;
+    right: -6px;
+    z-index: 1;
+    a{
+      color: white;
+      font-weight: 600;
+    }
+    a:hover{
+      color: $font_border_color;
+    }
+    :last-child{
+      a{
+        color: $nav_item_inactive;
+        font-size: larger;
+      }
+      a:hover{
+        color: $font_border_color;
+      }
+      ::after{
+        content: "";
+        display: block;
+        width: 0px;
+        height: 2px;
+        background-color: #4C3410;
+        position: absolute;
+        left: calc(50% - 25px);
+        transition: all .2s ease-in-out;
+      }
+      :hover::after{
+        width: 50px;
+      }
+    }
+  }
+  div:nth-child(5):last-child li:hover{
+    .webUserInfo{
+      display: flex;
+    }
+  }
+
   div{
     width: 40%;
     text-align: center;
@@ -102,48 +175,54 @@ $nav_li_height: 28px;
     justify-content: center;
     align-items: center;
   }
-  div:nth-child(2){
+  div:nth-child(3){
     display: none;
   }
-  div:nth-child(3){
+  div:nth-child(4){
     width: 10%;
   }
   li{
     list-style: none;
   }
-  li:hover svg path{
-    fill: $secondary_color;
-  }
   a{
     padding: 1rem;
     color: $font_border_color;
     text-decoration: none;
-    svg path{
-      transition: all .3s;
-      fill:$font_border_color;
-    }
+    transition: all .2s ease-in-out;
   }
-  :first-child li{
-    margin: 0px 10px;
-    overflow: hidden;
-    position: relative;
-    a{
-      padding: 1px 10px;
-      display: flex;
-      flex-direction: column;
-      color: $nav_item_active;
-      font-weight: 600;
-      transition: all .3s;
-      align-items: center;
-    }
-  }
-  :first-child li:nth-child(n+3):nth-child(-n+6){
-    height: $nav_li_height;
-    line-height: $nav_li_height;
-  }
-  :first-child li:nth-child(n+3):nth-child(-n+6) a:hover{
-    margin-top: -$nav_li_height;
+  a:hover{
     color: $nav_item_inactive;
+  }
+  .navFirst{
+    li{
+      margin: 0px 10px;
+      overflow: hidden;
+      position: relative;
+      a{
+        padding: 1px 10px;
+        display: flex;
+        flex-direction: column;
+        color: $nav_item_active;
+        font-weight: 600;
+        transition: all .3s;
+        align-items: center;
+      }
+      a:hover{
+        color: $nav_item_inactive;
+      }
+      p{
+      margin: 0;
+      font-weight: 600;
+      color: $font_border_color;
+      }
+    }
+    li:nth-child(n+3):nth-child(-n+7){
+      height: $nav_li_height;
+      line-height: $nav_li_height;
+      a:hover{
+        margin-top: -$nav_li_height;
+      }
+    }
   }
   div img{
     width: auto;
@@ -151,55 +230,78 @@ $nav_li_height: 28px;
     margin: 1px 1rem;
   }
 }
-.sideDark{
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  position: absolute;
-  z-index: 1;
-  transition: all .3s ease-in-out;
-}
+
 
 @media screen and (max-width:800px){
-  
+  .closeSideNav{
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }
   .webNone{
-    display: block;
+    display: flex;
   }
   .mobileNone{
     display: none;
   }
 
-  .coffee-navbar{
+  .coffeeNavbar{
     position: relative;
-    
-    div:first-child{
+    justify-content: space-between;
+    div{
+      width: 20%;
+    }
+    .navFirst{
       flex-direction: column;
       width: 260px;
-      height: 100vh;
+      min-height: 100vh;
       text-align: start;
       align-items: flex-start;
       justify-content: start;
-      // display: none;
       padding: 1rem;
       background: white;
       position: fixed;
-      z-index: 2;
       top: 0;
+      z-index: 100;
       transition: all .3s ease-in-out;
-      // left: -260px;
       li{
         width: 200px;
         margin: .9rem auto;
         a{
           align-items: flex-start;
         }
-        :hover{
-          background: rgb(244, 244, 244);
+      }
+      .openMemberDetail, .openNavSide{
+        cursor: pointer;
+      }
+
+      .memberDetail{
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        transition: all .3s ease-in-out;
+        li:nth-child(n+1):nth-child(-n+5){
+          width: 180px;
+          height: 30px;
+          padding: 5px;
+          margin: 5px auto 5px 10px;
+          a{
+            align-items: center;
+            color: $font_border_color;
+          }
+          a:hover{
+            margin-top: 0;
+            color: $nav_item_inactive;
+          }
+        }
+      }
+      li:nth-child(n+3):nth-child(-n+7){
+        a:hover{
+          margin-top: 0px;
         }
       }
     }
-    div:nth-child(2){
+    div:nth-child(3){
       display: flex;
     }
     .navSideX{
@@ -208,25 +310,34 @@ $nav_li_height: 28px;
     }
   }
 }
+@media screen and(max-width:600px) {
+  .coffeeNavbar{
+    height: 90px;
+    .logo a img{
+      width: 80px;
+    }
+  }
+}
 
-// input 相關
+/* -------- input checkbox radio -------- */
 $user_input_width: 330px;
 $user_input_height: 40px;
 
-.user_input{
+.adminInput{
   width: $user_input_width;
   height: $user_input_height;
   padding: 3px 1.5rem;
-  border: 1px solid $main_color;
+  border: 2px solid $main_color;
   border-radius: 15px;
   box-sizing: border-box;
   outline: none;
 }
 
-// footer
-.coffee-footer{
+/* -------- footer -------- */
+.coffeeFooter{
   width: 100%;
-  height: 457px;
+  height: 300px;
+  padding-top: 3rem;
   color: $font_border_color;
   background: $main_color;
   list-style: none;
@@ -234,15 +345,49 @@ $user_input_height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  
-  div{
-    margin: 3rem;
+  div:nth-child(2){
+    div{
+      align-items: baseline;
+      i{
+        margin-right: 5px;
+      }
+    }
   }
-  div li{
+  // div{
+  //   margin: 2rem;
+  // }
+  div{
     margin: 1rem;
+    li{
+      padding: 0.2rem 0rem;
+    }
   }
   a{
     color: $font_border_color;
     text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+  a:hover{
+    color: $nav_item_inactive;
+  }
+}
+@media screen and (max-width:800px) {
+  .coffeeFooter{
+    height: 500px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    div{
+      margin: .5rem;
+      li{
+        text-align: center;
+        padding: 0.2rem 0rem;
+      }
+    }
+    div:nth-child(2){
+      div{
+        justify-content: center;
+      }
+    }
   }
 }

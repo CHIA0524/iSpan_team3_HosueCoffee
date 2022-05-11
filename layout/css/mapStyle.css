@@ -193,7 +193,7 @@ i {
   }
   .mapWrap {
     width: 100%;
-    height: calc(100vh - 150px);
+    height: 60vh;
     background: #000;
   }
   .cardDetail {
