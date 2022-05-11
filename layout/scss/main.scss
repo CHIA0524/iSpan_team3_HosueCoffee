@@ -8,21 +8,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, a{
 }
 
 /* -------- icon -------- */
-.iconDuck{
-  width: 28px !important;
-  height: 28PX !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  transition: all .3s ease-in-out !important;
-}
-svg{
+ion-icon{
+  width: 30px !important;
+  height: 30px !important;
   cursor: pointer;
-}
-svg path{
   fill: $font_border_color !important;
   transition: all .2s ease-in-out !important;
 }
-svg:hover path{
+ion-icon:hover{
   fill: $secondary_color !important;
 }
 
@@ -186,6 +179,7 @@ $nav_li_height: 28px;
   }
   a{
     padding: 1rem;
+    display: flex;
     color: $font_border_color;
     text-decoration: none;
     transition: all .2s ease-in-out;

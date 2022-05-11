@@ -31,16 +31,16 @@
       <div class="navFirst" style="left: -260px;">
 
         <li class="closeSideNav webNone">
-          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13.41425 12.00025 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z"/></svg>
+          <ion-icon name="close-outline"></ion-icon>
         </li>
 
         <li class="webNone">
           <a class="" href="#">
-            <img class="iconDuck" src="../iconduck/user.svg" alt="">
+            <ion-icon name="person-outline"></ion-icon>
           </a>
           <p class="openMemberDetail">MEMBER</p>
           <a class="ms-3" href="#">
-            <img class="iconDuck" src="../iconduck/loginout.svg" alt="">
+            <ion-icon name="exit-outline"></ion-icon>
           </a>
         </li>
 
@@ -62,7 +62,7 @@
 
       <div class="openSideNav">
 
-        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m21 17c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .44771525 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.44771525-1-1s.44771525-1 1-1z" fill-rule="evenodd"/></svg>
+        <ion-icon name="menu-outline"></ion-icon>
 
       </div>
 
@@ -73,11 +73,10 @@
       <div>
 
         <li class="mobileNone"><a href="#"><button class="coffeeLightBtn">>> Order Online</button></a></li>
-        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
+        <li><a href="#"><ion-icon name="cart-outline"></ion-icon></a></li>
 
         <li class="mobileNone position-relative">
-          <a href=""><i class="fa-solid fa-user-large"></i></a>
+          <a href=""><ion-icon name="person-outline"></ion-icon></a>
           <p class="webUserInfo">
             <span><a href="">會員專區</a></span>
             <span><a href="">訂單查詢</a></span>
@@ -139,6 +138,10 @@
   
   <!---------- navbar js link ---------->
   <script src="../js/navbar.js"></script>
+
+  <!---------- ionicons js link ---------->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>

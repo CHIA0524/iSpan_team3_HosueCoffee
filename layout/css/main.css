@@ -9,26 +9,16 @@ body, h1, h2, h3, h4, h5, h6, p, span, a {
 }
 
 /* -------- icon -------- */
-.iconDuck {
-  width: 28px !important;
-  height: 28PX !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  -webkit-transition: all .3s ease-in-out !important;
-  transition: all .3s ease-in-out !important;
-}
-
-svg {
+ion-icon {
+  width: 30px !important;
+  height: 30px !important;
   cursor: pointer;
-}
-
-svg path {
   fill: #4C3410 !important;
   -webkit-transition: all .2s ease-in-out !important;
   transition: all .2s ease-in-out !important;
 }
 
-svg:hover path {
+ion-icon:hover {
   fill: #E5D8B7 !important;
 }
 
@@ -229,6 +219,9 @@ svg:hover path {
 
 .coffeeNavbar a {
   padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   color: #4C3410;
   text-decoration: none;
   -webkit-transition: all .2s ease-in-out;
