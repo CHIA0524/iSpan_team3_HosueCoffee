@@ -138,7 +138,7 @@
               <p>新北市 新店區中央路159號4F</p>
               <p>02-412-8869</p>
             </div>
-            <i class="openCardDetail fa-solid fa-circle-info"></i>
+            <ion-icon name="information-circle-outline"></ion-icon>
           </div>
           <div class="cardWrap">
             <img src="../img/01.jpg" alt="">
@@ -234,39 +234,17 @@
     
   </footer>
 
+  <!---------- jquery CDN ---------->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!---------- navbar js link ---------->
+  <script src="../js/navbar.js"></script>
+
+  <!---------- ionicons js link ---------->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
   <script>
-    const openSideNav = document.querySelector('.openSideNav');
-    const navFirst = document.querySelector('.navFirst');
-    const sideDark = document.querySelector('.sideDark');
-    const closeSideNav = document.querySelector('.closeSideNav');
-    
-    const openMemberDetail = document.querySelector('.openMemberDetail');
-    const memberDetail = document.querySelector('.memberDetail');
-
-    sideDark.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-    closeSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '-260px';
-      sideDark.style.display = 'none';
-      memberDetail.style.display = 'none';
-    })
-
-    openSideNav.addEventListener('click', ()=>{
-      navFirst.style.left = '0px';
-      sideDark.style.display = 'block';
-    });
-    openMemberDetail.addEventListener('click', ()=>{
-      if(memberDetail.style.display=='flex'){
-        memberDetail.style.display = 'none';
-      }
-      else if(memberDetail.style.display=='none'){
-        memberDetail.style.display = 'flex';
-        memberDetail.style.height = 'auto';
-      }
-    })
 
     const openCardDetail = document.querySelector('.openCardDetail');
     const cardDetail = document.querySelector('.cardDetail');

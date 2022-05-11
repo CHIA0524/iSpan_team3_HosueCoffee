@@ -13,13 +13,13 @@ ion-icon {
   width: 30px !important;
   height: 30px !important;
   cursor: pointer;
-  fill: #4C3410 !important;
+  fill: #4C3410;
   -webkit-transition: all .2s ease-in-out !important;
   transition: all .2s ease-in-out !important;
 }
 
 ion-icon:hover {
-  fill: #E5D8B7 !important;
+  fill: #E5D8B7;
 }
 
 /* -------- ScrollBar -------- */

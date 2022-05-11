@@ -12,11 +12,11 @@ ion-icon{
   width: 30px !important;
   height: 30px !important;
   cursor: pointer;
-  fill: $font_border_color !important;
+  fill: $font_border_color;
   transition: all .2s ease-in-out !important;
 }
 ion-icon:hover{
-  fill: $secondary_color !important;
+  fill: $secondary_color;
 }
 
 /* -------- ScrollBar -------- */
