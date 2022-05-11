@@ -8,24 +8,27 @@
   /* margin-left: 10rem; */
 }
 .addNum {
+  width: 90px;
   border: 1px solid #e4d2a3;
   border-radius: 10px;
-  width: 7rem;
-  height: 2rem;
+  display: flex ;
 }
-.addNum text {
-  width: 2rem;
+
+.addNum div{
   line-height: 2rem;
   text-align: center;
-  float: left;
+  width: 30px;
 }
 .addNum input {
-  width: 3rem;
-  height: 2rem;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1rem;
-  border: 1px solid #e4d2a3;
+  border: transparent;
+  outline: none;
+  width: 30px;
+}
+.NumL{
+  border-right:1px solid #e4d2a3;
+}
+.NumR{
+  border-left:1px solid #e4d2a3;
 }
 
 @media screen and (max-width: 800px) {
