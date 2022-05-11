@@ -8,7 +8,7 @@
     background-image: url(../imgs/Article00.svg);
 }
 
-h1{
+.title{
     font-size: 30px;
     font-weight:bolder;
 
@@ -19,7 +19,10 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
-    
+    position:relative;
+    right: 300px;
+    bottom: 30px;
+    padding-right: 10px;
 }
 
 p,span{

@@ -1,7 +1,9 @@
 .article-img{
     width:754px;
     height: 524px;
-    background-position: center center;
+    margin: auto;
+    /* position: relative;
+   position: center center; */
 }
 
 
