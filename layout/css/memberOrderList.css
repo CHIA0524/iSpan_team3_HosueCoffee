@@ -132,6 +132,11 @@
 table{
     cursor: pointer;
 }
+.QAbtn{
+    width: 40%;
+    float:right;
+    margin-right: 35px;
+}
 
 @media screen and (max-width:800px) {
     .mMember{
