@@ -1,0 +1,93 @@
+.spaceTop {
+  margin-bottom: 7rem;
+}
+
+.checkOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.process {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.processIn {
+  width: 50rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.processInBox {
+  background-color: #E4D2A3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px 0;
+  border-radius: 13px;
+}
+
+.processInBoxNon {
+  padding: 0;
+}
+
+.processInBoxLine {
+  background-color: #E4D2A3;
+  width: 101%;
+  height: 10px;
+  margin-top: 13px;
+}
+
+.listMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.listBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+  font-weight: 900;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.listBodyButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 25px;
+}
+
+.listpopo {
+  border: 1px solid;
+  border-right: none;
+  border-left: none;
+}
+
+.spaceBtn {
+  width: 20rem;
+}
+
+.spaceDelete {
+  width: 15rem;
+}
+/*# sourceMappingURL=styleCheckout.css.map */

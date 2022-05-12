@@ -1,0 +1,41 @@
+$colorMain: #E4D2A3;
+
+.spaceTop {
+    margin-bottom: 7rem;
+}
+
+.checkOut {
+    display: flex;
+    justify-content: center;
+}
+
+.process {
+    display: flex;
+    justify-content: center;
+}
+
+.processIn {
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+}
+
+.processInBox {
+    background-color: $colorMain;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    border-radius: 13px;
+
+}
+
+.processInBoxNon {
+    padding: 0;
+}
+
+.processInBoxLine {
+    background-color: $colorMain;
+    width: 101%;
+    height: 10px;
+    margin-top: 13px;
+}
