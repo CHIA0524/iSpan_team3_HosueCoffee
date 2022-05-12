@@ -24,6 +24,11 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
 <!-- <link rel="stylesheet" href="./css/style.css"> -->
 <link rel="stylesheet" href="./css/styleCheckout.css">
 <link rel="stylesheet" href="../css/main.css">
@@ -62,7 +67,7 @@
     </header>
 
     <main>
-
+        <!--流程圖 -->
         <div class="spaceTop row"></div>
         <div class="col-4 checkOut">
             <h2>結帳</h2>
@@ -80,149 +85,114 @@
                 <div class="col-2 processInBox">完成結帳</div>
             </div>
         </div>
-        <div  class="spaceTop"></div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="listpopo col-10">
-                <!-- list singe -->
-                <div class="payInfo">
-                    <hr>
-                    <div class="row d-flex align-items-center">
-                        <div class="col-2">
-                            <img src="./img/包裝 9.png" alt="">
-                        </div>
-                        <div class="col-4">
-                            <p>伊莎米 精選招牌特調(半磅)</p>
-                        </div>
-                        <div class="col-3 num d-flex">
-                            <p>數量：</p>
-                            <div class="addNum">
-                                <div class="NumL">-</div>
-                                <div><input type="text"></div>
-                                <div class="NumR">+</div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <p>刪除</p>
-                        </div>
-                        <div class="col-1">
-                            <p>$499</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row d-flex align-items-center">
-                        <div class="col-2">
-                            <img src="./img/包裝 9.png" alt="">
-                        </div>
-                        <div class="col-4">
-                            <p>伊莎米 精選招牌特調(半磅)</p>
-                        </div>
-                        <div class="col-3 num d-flex">
-                            <p>數量：</p>
-                            <div class="addNum">
-                                <div class="NumL">-</div>
-                                <div><input type="text"></div>
-                                <div class="NumR">+</div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <p>刪除</p>
-                        </div>
-                        <div class="col-1">
-                            <p>$499</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- 商品統計 -->
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-2">
-                            <h4>商品小計</h4>
-                        </div>
-                        <div class="col-1">
-                            <h4>$499</h4>
-                        </div>
-                    </div>
-                    <!-- 優惠碼 -->
-                    <div class="discountG">
-                        <div class="row">
-                            <div class="col-9"></div>
-                            <div class="col-2">
-                                <p>優惠碼使用</p>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-9"></div>
-                            <div class="col-3 discontInput ">
-                                <input type="text">
-                                <a href="">
-                                    <button class="btn btn-outline-secondary" type="button">✓</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 紅利點數 -->
-                    <div class="pointG">
-                        <div class="row">
-                            <div class="col-9"></div>
-                            <div class="col-3 ">
-                                <p>紅利點數使用</p>
-                                <p class="pointText">剩餘點數 99點 (可折扣99元）</p>
-                            </div>
-                        </div>
-        
-                        <div class="row ">
-                            <div class="col-9"></div>
-                            <div class="col-3 discontInput ">
-                                <input type="text">
-                                <a href="">
-                                    <button class="btn btn-outline-secondary" type="button">✓</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="check">
-                        <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
-                            </button></a>
-                    </div>
-        
+        <div class="spaceTop"></div>
+        <!-- list singe -->
+        <div class="listBody">
+            <div class="d-flex align-items-center ">
+                <div class="col-3">
+                    <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
+                <div class="col-4">
+                    <span>可可綿雲琪朵</span>
                 </div>
-            </main>
-        
-            <footer class="d-flex coffee-footer">
-                <div class="d-flex">
-                    <div class="mx-5">
-                        PRODUCT
-                        <li><a href="">coffee</a></li>
-                        <li><a href="">cups</a></li>
-                        <li><a href="">other</a></li>
+                <div class="d-flex col-2">
+                    <div class="quantityText">
+                        數量：
                     </div>
-                    <div class="mx-5">
-                        ABOUT US
-                        <li><a href="">news</a></li>
-                        <li><a href="">store</a></li>
-                        <li><a href="">FAQs</a></li>
+                    <div  class="d-flex numButton">
+                        <div class="btn buttonLeft">-</div>
+                        <div class="quantity"><p>1</p></div>
+                        <div class="btn buttonRight">+</div>
                     </div>
                 </div>
-                <div class="mx-5">
-                    <div class="d-flex">
-                        <i class="fa-regular fa-envelope"></i>
-                        <p>team3@house.coffee.com</p>
-                    </div>
-                    <div class="d-flex">
-                        <i class="fa-regular fa-phone"></i>
-                        <p>(07)333-3333</p>
-                    </div>
-                    <div class="d-flex">
-                        <i class="fa-solid fa-copyright"></i>
-                        <p>2022 . HOUSE COFFEE</p>
-                    </div>
+                <div class="col-2 delete">
+                    <a href=""><span>刪除</span></a>
                 </div>
-            <div class="col-1"></div>
+                <div class="col-1">
+                    $150
+                </div>
+            </div>
         </div>
-    </main>
+        <!-- list singe -->
+        <div class="listBody">
+            <div class="d-flex align-items-center ">
+                <div class="col-3">
+                    <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
+                </div>
+                <div class="col-4">
+                    <span>可可綿雲琪朵</span>
+                </div>
+                <div class="d-flex col-2">
+                    <div class="quantityText">
+                        數量：
+                    </div>
+                    <div  class="d-flex numButton">
+                        <div class="btn buttonLeft">-</div>
+                        <div class="quantity"><p>1</p></div>
+                        <div class="btn buttonRight">+</div>
+                    </div>
+                </div>
+                <div class="col-2 delete">
+                    <a href=""><span>刪除</span></a>
+                </div>
+                <div class="col-1">
+                    $150
+                </div>
+            </div>
+        </div>
+        <div class="listBody">
+            <div class="d-flex justify-content-end subtotal">
+                <div class="d-flex col-2"><h2>商品小計</h2></div>
+                <div class="d-flex col-1"><h2>$150</h2></div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="col-3">
+                    <p>優惠碼使用</p>
+                    <input type="text">
+                    <label>
+                        <input type="checkbox" value="confirm" />
+                </label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end points">
+                <div class="col-3">
+                    <p>紅利點數使用</p>
+                    <div class="d-flex">
+                        <p>剩餘紅利點數:</p>
+                        <p>30點</p>
+                        <p>可擇扣金額:</p>
+                        <p>000</p>
+                    </div>
+                    <input type="text">
+                    <input type="checkbox" name="" id="">
+                </div>
+            </div>
+        </div>
+        <div class="listBody">
+            <div class="d-flex justify-content-end">
+                <div class="col-3 Payment">
+                    <h3>付款方式</h3>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        請選擇
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">刷卡</a></li>
+                            <li><a class="dropdown-item" href="#">轉帳</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="col-2">
+                    <div class="btn PaymentLast">結帳</div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
     <footer class="d-flex coffeeFooter">
         <div class="d-flex">
             <div class="mx-5">
@@ -261,6 +231,9 @@
         document.querySelector('.sideDark').style.display = 'block';
     });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    
 </body>
 </html>
