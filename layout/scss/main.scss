@@ -46,7 +46,7 @@ $btn_font_size: 16px;
 
 .coffeeDarkBtn, .coffeeLightBtn{
   height: $btn_height;
-  padding: 3px 1rem;
+  padding: 3px 10px;
   color: white;
   font-size: $btn_font_size;
   font-weight: 600;
@@ -121,12 +121,14 @@ $nav_li_height: 28px;
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
-    top: 30px;
-    right: -6px;
+    top: 50px;
+    right: 0px;
     z-index: 1;
     a{
+      padding: 5px;
       color: white;
       font-weight: 600;
+      justify-content: center;
     }
     a:hover{
       color: $font_border_color;
@@ -146,6 +148,7 @@ $nav_li_height: 28px;
         height: 2px;
         background-color: #4C3410;
         position: absolute;
+        bottom: 25px;
         left: calc(50% - 25px);
         transition: all .2s ease-in-out;
       }
