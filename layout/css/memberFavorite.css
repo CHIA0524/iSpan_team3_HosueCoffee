@@ -49,16 +49,19 @@
 
 
 .card {
-    border: hidden;
+    border: 1px #E4D2A3 solid;
+    border-radius: 20px;
+    margin: 10px;
     width: 25rem;
-    padding-right: 2rem;
-    padding-bottom: 4rem;
+    padding: 2rem;
+   
     
 }
 
-.cardPrice {
-    margin-top: -1rem;
+.cardName{
+    padding-top: 1rem;
 }
+
 
 .package a :hover {
     opacity: 0.6;
@@ -75,32 +78,31 @@
     width: 79%;
 }
 
-        .cardPrice {
-            margin-top: -1rem;
-        }
+.cardPrice {
+    /* margin-top: 1rem; */
+}
 
-        .package a :hover {
-            opacity: 0.6;
-        }
+.package a :hover {
+    opacity: 0.6;
+}
 
-        .adminAside {
-            display: inline-block;
+.adminAside {
+    display: inline-block;
+}
 
-        }
+.pMain {
+    margin: 0 auto;
+    display: inline-block;
+    /* min-width: 800px; */
+}
 
-        .pMain {
-            margin: 0 auto;
-            display: inline-block;
-            /* min-width: 800px; */
-        }
+.type {
+    display: none;
+}
 
-        .type {
-            display: none;
-        }
-
-        .mShop {
-            display: none;
-        }
+.mShop {
+    display: none;
+}
 
 
 
