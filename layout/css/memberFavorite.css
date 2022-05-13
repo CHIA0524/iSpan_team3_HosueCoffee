@@ -105,34 +105,31 @@
 
 
         @media screen and (max-width:800px) {
-            .mShop {
+            .mMember{
                 display: block;
-                color: rgb(129, 117, 117);
-                font-size: 1.5rem;
-                text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-                padding: 3rem;
-
+                color:#A37025;
+            font-size: 1.5rem;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 3rem ;
+           
             }
-
-            .type {
+            .type{
                 padding-top: -1rem;
                 padding-bottom: 2rem;
                 display: flex;
                 justify-content: center;
             }
-
-            .typeDetail {
+            .typeDetail{
                 width: 20%;
-                display: block;
+                display: block;  
                 text-align: center;
                 border-radius: 20px;
                 border: 1px solid #E4D2A3;
                 color: #4C3410;
-
-
-
+              
+                
+           
             }
-
             .adminAside {
                 /*隱藏選單開始*/
                 max-height: 0;
@@ -149,13 +146,30 @@
                 z-index: 100;
                 transition: all 2.5s;
             }
-
-
-
+            .proList_m{
+                display: block;
+            }
+            .col-3None{
+                display: none;
+            }
+            
+            .memberEdit-w{
+                display: none;
+            }
+            .memberEdit-m{
+                display: block;
+                justify-content: center;
+            }
+            .proR{
+            border: 0;
+            
         }
-
-        @media screen and (max-width:600px) {
-            .card {
+            
+        
+          
+        }
+        @media screen and (max-width:600px)  {
+            .card{
                 width: 15rem;
             }
         }
