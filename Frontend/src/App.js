@@ -54,7 +54,7 @@ function App() {
           <div className="sideDark" onClick={sideDarkClick}></div>
           <div className="navFirst" style={{ left: '-260px' }}>
             <li className="closeSideNav webNone" onClick={closeSideNavClick}>
-              <IoCloseOutline />
+              <IoCloseOutline size={30}/>
             </li>
             <li className="webNone">
               <a className="" href="#">
