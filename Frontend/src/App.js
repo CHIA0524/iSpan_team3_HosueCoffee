@@ -18,10 +18,6 @@ import StoreIndex from './pages/store/StoreIndex'
 
 function App() {
 
-  const navFirst = document.querySelector('.navFirst');
-  const sideDark = document.querySelector('.sideDark');
-  const memberDetail = document.querySelector('.memberDetail');
-
   const openSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '0px';
     document.querySelector('.sideDark').style.display = 'block';
@@ -58,11 +54,11 @@ function App() {
             </li>
             <li className="webNone">
               <a className="" href="#">
-                <IoPersonOutline />
+                <IoPersonOutline size={25}/>
               </a>
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
               <a className="ms-3" href="#">
-                <IoExitOutline />
+                <IoExitOutline size={25}/>
               </a>
             </li>
             <div className="memberDetail" style={{display: 'none'}}>
@@ -79,17 +75,17 @@ function App() {
             <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           </div>
           <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
-            <IoMenuOutline />
+            <IoMenuOutline size={30}/>
           </div>
           <div>
             <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
           </div>
           <div>
             <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-            <li><a href="#"><IoCartOutline /></a></li>
+            <li><a href="#"><IoCartOutline size={30}/></a></li>
 
             <li className="mobileNone position-relative">
-              <a href=""><IoPersonOutline name="會員中心"/></a>
+              <a href=""><IoPersonOutline size={30}/></a>
               <p className="webUserInfo">
                 <span><a href="">會員專區</a></span>
                 <span><a href="">訂單查詢</a></span>
@@ -100,6 +96,7 @@ function App() {
           </div>
         </nav>
       </header>
+
       <Switch>
         <Route path="/store">
           <StoreIndex />
@@ -108,6 +105,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+
       <footer className="d-flex coffeeFooter">
         <div className="d-flex">
           <div className="mx-5">
@@ -125,15 +123,15 @@ function App() {
         </div>
         <div className="mx-5">
           <div className="d-flex">
-            <IoMailOutline />
+            <IoMailOutline size={20}/>
             <p>team3@house.coffee.com</p>
           </div>
           <div className="d-flex">
-            <IoCallOutline />
+            <IoCallOutline size={20}/>
             <p>(07)333-3333</p>
           </div>
           <div className="d-flex">
-            <BiCopyright />
+            <BiCopyright size={20}/>
             <p>2022 . HOUSE COFFEE</p>
           </div>
         </div>
