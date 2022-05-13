@@ -1,18 +1,14 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react'
+import React from 'react';
 
-function Home(){
+function Home(props){
   return(
     <>
       <div className="storeBanner"></div>
         <div className="storeIndex">
           <div>
-            <p>~NEWS</p>
-            <img src="./img/好室咖啡logo深色.svg" alt=""></img>
-            <p>~NEWS</p>
-            <span>最新消息</span>
+            <p>測試測試</p>
           </div>
-          
         </div>
     </>
   );

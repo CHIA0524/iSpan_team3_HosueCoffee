@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react'
+import React from 'react';
 import './mapStyle.scss';
+
+import logo from '../../logo.svg';
+import img01 from './img/storeIndex-img01.png';
+import img02 from './img/storeIndex-img02.png';
 
 function StoreIndex(props){
   return(
@@ -9,16 +13,16 @@ function StoreIndex(props){
         <div className="storeIndex">
           <div>
             <p>~NEWS</p>
-            <img src="./img/好室咖啡logo深色.svg" alt=""></img>
+            <img src={logo} alt=""></img>
             <p>~NEWS</p>
             <span>最新消息</span>
           </div>
           <div>
-            <img src="./img/storeIndex-img01.png" alt=""></img>
+            <img src={img01} alt=""></img>
             <span>門市查詢</span>
           </div>
           <div>
-            <img src="./img/storeIndex-img02.png" alt=""></img>
+            <img src={img02} alt=""></img>
             <span>門市服務</span>
           </div>
         </div>

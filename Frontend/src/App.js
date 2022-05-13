@@ -3,35 +3,66 @@ import logo from './logo.svg';
 import './App.scss';
 
 // icon
-import { CloseOutline } from 'react-ionicons'
-import { PersonOutline } from 'react-ionicons'
-import { ExitOutline } from 'react-ionicons'
-import { MenuOutline } from 'react-ionicons'
-import { CartOutline } from 'react-ionicons'
-import { CallOutline } from 'react-ionicons'
-import { MailOutline } from 'react-ionicons'
+import { IoCloseOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
+import { IoExitOutline } from "react-icons/io5";
+import { IoMenuOutline } from "react-icons/io5";
+import { IoCartOutline } from "react-icons/io5";
+import { IoCallOutline } from "react-icons/io5";
+import { IoMailOutline } from "react-icons/io5";
+import { BiCopyright } from "react-icons/bi";
 
 // 導入頁面
 import Home from './pages/home/Home'
 import StoreIndex from './pages/store/StoreIndex'
 
 function App() {
+
+  const navFirst = document.querySelector('.navFirst');
+  const sideDark = document.querySelector('.sideDark');
+  const memberDetail = document.querySelector('.memberDetail');
+
+  const openSideNavClick = ()=>{
+    document.querySelector('.navFirst').style.left = '0px';
+    document.querySelector('.sideDark').style.display = 'block';
+  }
+  const sideDarkClick = ()=>{
+    document.querySelector('.navFirst').style.left = '-260px';
+    document.querySelector('.sideDark').style.display = 'none';
+    document.querySelector('.memberDetail').style.display = 'none';
+  }
+  const closeSideNavClick = ()=>{
+    document.querySelector('.navFirst').style.left = '-260px';
+    document.querySelector('.sideDark').style.display = 'none';
+    document.querySelector('.memberDetail').style.display = 'none';
+  }
+
+  const openMemberDetailClick = ()=>{
+    if(document.querySelector('.memberDetail').style.display=='flex'){
+      document.querySelector('.memberDetail').style.display = 'none';
+    }
+    else if(document.querySelector('.memberDetail').style.display=='none'){
+      document.querySelector('.memberDetail').style.display = 'flex';
+      document.querySelector('.memberDetail').style.height = 'auto';
+    }
+  }
+
   return (
     <Router>
       <header className="App-header">
         <nav className="coffeeNavbar">
-          <div className="sideDark"></div>
+          <div className="sideDark" onClick={sideDarkClick}></div>
           <div className="navFirst" style={{ left: '-260px' }}>
-            <li className="closeSideNav webNone">
-              <CloseOutline />
+            <li className="closeSideNav webNone" onClick={closeSideNavClick}>
+              <IoCloseOutline />
             </li>
             <li className="webNone">
               <a className="" href="#">
-                <PersonOutline />
-                <p className="openMemberDetail">MEMBER</p>
+                <IoPersonOutline />
               </a>
+                <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
               <a className="ms-3" href="#">
-                <ExitOutline />
+                <IoExitOutline />
               </a>
             </li>
             <div className="memberDetail" style={{display: 'none'}}>
@@ -47,18 +78,18 @@ function App() {
             <li><Link to="/store">STORE<span>門市地圖</span></Link></li>
             <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           </div>
-          <div className="openSideNav">
-            <MenuOutline />
+          <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
+            <IoMenuOutline />
           </div>
           <div>
-            <li className="logo"><a href=""><img src={logo} alt="logo"></img></a></li>
+            <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
           </div>
           <div>
             <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-            <li><a href="#"><CartOutline /></a></li>
+            <li><a href="#"><IoCartOutline /></a></li>
 
             <li className="mobileNone position-relative">
-              <a href=""><PersonOutline /></a>
+              <a href=""><IoPersonOutline name="會員中心"/></a>
               <p className="webUserInfo">
                 <span><a href="">會員專區</a></span>
                 <span><a href="">訂單查詢</a></span>
@@ -94,15 +125,15 @@ function App() {
         </div>
         <div className="mx-5">
           <div className="d-flex">
-            <MailOutline />
+            <IoMailOutline />
             <p>team3@house.coffee.com</p>
           </div>
           <div className="d-flex">
-            <CallOutline />
+            <IoCallOutline />
             <p>(07)333-3333</p>
           </div>
           <div className="d-flex">
-            <i className="fa-solid fa-copyright"></i>
+            <BiCopyright />
             <p>2022 . HOUSE COFFEE</p>
           </div>
         </div>
