@@ -79,7 +79,7 @@
 }
 
 .cardPrice {
-    /* margin-top: 1rem; */
+    padding-bottom: 1rem;
 }
 
 .package a :hover {
@@ -103,7 +103,60 @@
 .mShop {
     display: none;
 }
+.addNum {
+    margin-top: -5px;
+    width: fit-content;
+    height: 40px;
+    border: 1px solid #e4d2a3;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  .addNum div {
+    line-height: 2.5rem;
+    text-align: center;
+    width: 45px;
+    height: 39px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .addNum .addNumDV{
+    width: 80px;
+}
+  .addNum input {
+    border: transparent;
+    height: 15px;
+    outline: none;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .NumL {
+    border-radius: 10px 0 0 10px ;
+    border-right: 1px solid #e4d2a3;
+  }
+  .NumR {
+    border-radius: 0 10px 10px 0 ;
+    border-left: 1px solid #e4d2a3;
+  }
+  .NumL:hover{
+    background-color: #e4d2a3;
+  }
+  .NumR:hover{
+    background-color: #e4d2a3;
+  }
 
+  .cardBuy{
+      width: 80px;
+      float:right;
+      border: 2px solid #e4d2a3;
+      background-color: white;
+      border-radius: 10px;
+      color: #e4d2a3;;
+
+      
+  }
 
 
         @media screen and (max-width:800px) {
