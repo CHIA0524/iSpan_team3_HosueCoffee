@@ -16,26 +16,29 @@
   text-decoration: none;
   border: 1px transparent solid;
   transition: all 0.2s ease;
+  padding-left: 5px;
 }
 
 .adminAside a:hover {
   border-left: 1px solid #e4d2a3;
+  border-spacing: 3px;
   color: #e4d2a3;
+  
+
 }
 
 .adminAside .maindir {
-  color: rgb(129, 117, 117);
-  font-size: larger;
+  font-size: 1.5rem;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
 }
 
 .adminAside ul {
-  padding-left: 6rem;
+  padding-left: 9rem;
 }
 
 .adminAside li {
   list-style: none;
+  line-height: 3rem;
 }
 
 .pMain {
@@ -53,6 +56,7 @@
   margin: 0 auto;
   display: inline-block;
   /* min-width: 800px; */
+
 }
 
 .type {
@@ -94,19 +98,20 @@
   background-color: #e4d2a3;
 }
 .moreInfo {
-  padding-top: 10rem;
-  display: inline-flex;
-  justify-content: space-evenly;
+  padding-top: 10rem ;
+  display: flex;
   align-content: center;
   align-items: center;
-  margin-bottom: 20rem;
+  margin-bottom: 20rem ;
 }
 .infoBtn img {
   width: 3rem;
 }
+
 .card {
   width: 18rem;
   border: hidden;
+  padding: 0 1rem 0 1rem;
 }
 .card img {
   width: 100%;
@@ -126,7 +131,7 @@
   width: 80%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1300px) {
   .mShop {
     display: block;
     color: rgb(129, 117, 117);
@@ -166,6 +171,16 @@
     /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
     z-index: 100;
     transition: all 2.5s;
+  }
+  .mHidden{
+    max-height: 0;
+    overflow: hidden;
+  }
+  .infoBtnR{
+    padding:0;
+  }
+  .title{
+    width: 50%;
   }
 }
 
