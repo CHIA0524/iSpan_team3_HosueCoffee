@@ -86,6 +86,12 @@ $colorMain: #E4D2A3;
     border-left: #E4D2A3 1px solid;
     border-right: #E4D2A3 1px solid;
 }
+.quantityText{
+    span{
+        font-size: 18px;
+    }
+    
+}
 
 .delete {
     a {
@@ -123,6 +129,7 @@ $colorMain: #E4D2A3;
     width: 7rem;
     margin-bottom: 2em;
 }
+
 
 @media (max-width: 600px) {
     .listBody {
