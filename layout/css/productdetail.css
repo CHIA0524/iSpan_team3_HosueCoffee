@@ -23,8 +23,6 @@
   border-left: 1px solid #e4d2a3;
   border-spacing: 3px;
   color: #e4d2a3;
-  
-
 }
 
 .adminAside .maindir {
@@ -56,7 +54,6 @@
   margin: 0 auto;
   display: inline-block;
   /* min-width: 800px; */
-
 }
 
 .type {
@@ -98,11 +95,11 @@
   background-color: #e4d2a3;
 }
 .moreInfo {
-  padding-top: 10rem ;
+  padding-top: 10rem;
   display: flex;
   align-content: center;
   align-items: center;
-  margin-bottom: 20rem ;
+  margin-bottom: 20rem;
 }
 .infoBtn img {
   width: 3rem;
@@ -172,15 +169,13 @@
     z-index: 100;
     transition: all 2.5s;
   }
-  .mHidden{
-    max-height: 0;
-    overflow: hidden;
-  }
-  .infoBtnR{
-    padding:0;
-  }
-  .title{
+
+  .title {
     width: 50%;
+  }
+
+  .pContent {
+    padding-top: 15px;
   }
 }
 
@@ -196,8 +191,23 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .card {
     width: 20rem;
+  }
+  .mHidden {
+    max-height: 0;
+    overflow: hidden;
+    /*隱藏選單end*/
+    position: absolute;
+    /*追隨.header*/
+    /*讓選單從左到右延伸start*/
+    right: 0;
+    left: 0;
+    /*讓選單從左到右延伸end*/
+    top: 67px;
+    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+    z-index: 100;
+    transition: all 2.5s;
   }
 }
