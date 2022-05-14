@@ -1,0 +1,321 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*banner*/
+/* -------------------- */
+
+/*brand appeal*/
+.appeal {
+    width: 60%;
+    color: #fff;
+    background: #E4D2A3;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 20px 20px;
+}
+
+.content {
+    text-align: center;
+    width: 70%;
+    padding: 80px;
+    
+    align-items: center;
+    letter-spacing: 3px;
+}
+
+#appealtitle {
+    padding: 10px;
+}
+
+.content p {
+    line-height: 30px;
+    color: #4D3410;
+}
+
+/* -------------------- */
+
+/* menu */
+.menu {
+    width: 80%;
+    padding: 80px;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu h1 {
+    line-height: 30px;
+    margin: 30px;
+    color: #E4D2A3;
+    box-shadow: 2px #555 5px;
+}
+
+.allmenu {
+    display: flex;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: center;
+    color: #fff;
+    padding: 30px;
+}
+
+.menuhover {
+    transition: .8s;
+    opacity: .9;
+}
+
+.menuhover:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.allmenu img {
+    border-bottom: 1px white solid;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+
+
+.menucard {
+    width: 250px;
+    background: #E4D2A3;
+    border-radius: 15px 15px 0 0;
+    padding: 50px;
+    line-height: 10px;
+    letter-spacing: 3px;
+}
+
+/* ------------------- */
+
+/* flagship products */
+.product {
+    background: #4D3410;
+    width: 100%;
+    height: 800px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.allproduct {
+    width: 70%;
+    margin: 30px;
+}
+
+.product h1 {
+    color: #fff;
+}
+
+#mainProductPhoto {
+    width: 200px;
+    height: auto;
+}
+
+.product1 {
+    padding: 30px;
+    width: 70%;
+    text-align: center;
+    color: #E4D2A3;
+    margin: 0px auto;
+    display: flex;
+    text-align: left;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.producttext{
+    width: 40%;
+}
+
+.productSel {
+    display: flex;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 30px;
+}
+
+.allproduct img{
+    width: 150px;
+    height: auto;
+}
+
+/* ------------------ */
+
+/* TODAY’S ARTICLE */
+.blog{
+    padding: 30px;
+}
+
+.blog h1{
+    color: #E4D2A3;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.allblog{
+    width: 80％;
+    margin: 0px auto;
+    display: flex;
+    text-align: center;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 30px;
+}
+
+.blogtext{
+    width: 250px;
+    height: 400px;
+    text-align: center;
+    color: #4D3410;
+    margin: 0px auto;
+    padding: 30px;
+    margin: 10px 10px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    border: 2px #ccc solid;
+    border-radius: 10px;
+}
+
+.blog hr{
+    color: #4D3410;
+}
+.blog img {
+    width: 150px;
+    height: auto;
+    box-shadow: 1px 1px 10px #ddd;
+}
+/* --------------------- */
+
+/* store */
+.store{
+    width: 50%;
+    height: 200px;
+    padding: 30px;
+    margin: 0px auto;
+    justify-content: center;
+}
+
+.store h1{
+    color: #E4D2A3;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.allstore{
+    width: 80％;
+    margin: 0px auto;
+    display: flex;
+    text-align: center;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-flow: row wrap;
+    padding: 30px;
+}
+
+#city, #store{
+    border: 2px #E4D2A3 solid;
+    border-radius: 20px;
+    background: #fff;
+    color: #E4D2A3;
+    width: 150px;
+    height: 35px;
+    text-align: center;
+}
+
+#storebtn{
+    border: 2px #E4D2A3 solid;
+    border-radius: 20px;
+    background: #fff;
+    color: #E4D2A3;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+}
+
+/* --------------------- */
+
+/* news & activity */
+.aside{
+    width: 80％;
+    margin: 0px auto;
+    display: flex;
+    text-align: center;
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-flow: row wrap;
+    padding: 30px;
+}
+
+.new{
+    width: 35%;
+    line-height: 50px;
+}
+
+.new h1{
+    color: #E4D2A3;
+}
+
+.new1 .new2 .new3.new4{
+    background: #555;
+    height: 40px;
+    color: #fff;
+    margin: 0px auto;
+    display: flex;
+    /* text-align: center; */
+    flex-grow: 1 100px;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-flow: row wrap;
+}
+
+.activity{
+    width: 35%;
+}
+
+.activity h1{
+    color: #E4D2A3;
+}
+/* --------------------- */
+
+
+/* about us */
+.aboutus{
+    background: #e4d2a3;
+    height: 350px;
+    margin: 0px auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    padding: 30px;
+}
+
+.aboutus h1{
+    justify-content: center;
+}
+
+.aboutus p{
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 30px;
+}
+/* --------------------- */

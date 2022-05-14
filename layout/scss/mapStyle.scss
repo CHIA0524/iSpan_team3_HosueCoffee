@@ -1,4 +1,4 @@
-@import 'main';
+@import 'baseVariable';
 
 
 // storeMap
@@ -8,53 +8,106 @@
   display: flex;
   flex-direction: row;
 }
+.storeSearch{
+  width: 100%;
+  height: 60px;
+  padding: 0 2rem;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.10);
+  input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+  }
+  input:focus{
+    outline: none;
+  }
+  svg{
+    cursor: pointer;
+  }
+}
 .cardGroupWrap{
-  width: 400px;
+  width: 375px;
   height: calc(100vh - 150px);
   position: relative;
   display: flex;
   flex-direction: row;
-  overflow-y: hidden;
+  overflow-x: hidden;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 .storeWrap{
-  width: 380px;
+  width: 375px;
   height: calc(100vh - 150px);
   padding: .1rem .5rem;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 .cardDetail{
-  width: 350px;
-  height: calc(100vh - 150px);
-  background: rgba($color: #000000, $alpha: .5);
+  width: 375px;
+  height: 100vh;
+  padding: 15px 40px;
+  background: white;
   position: absolute;
   top: 0;
-  left: -350px;
+  left: -400px;
+  transition: all .3s ease-in-out;
+  overflow: scroll;
+  // left: -350px;
+  li{
+    padding: 5px 0;
+    list-style: none;
+    font-weight: 600;
+    }
+  .closeCardDetail{
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  div{
+    li, h5{
+      text-align: left;
+      font-weight: 600;
+    }
+  }
+  .storeServeList{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.2rem;
+    row-gap: 5px;
+  }
+}
+.cardDetailOpenCss{
+  left: 0px;
 }
 .cardWrap{
-  width:360px;
+  width:350px;
   height:100px;
   margin-bottom: 5px;
-  background:#F8F1DE;
+  background: white;
   border-radius: 5px;
-  padding:20px;
+  padding:10px;
   display:flex;
   align-items: center;
   justify-content: space-between;
   transition: all .2s ease-in-out;
 }
 .cardWrap img{
+  width: 25%;
   height: 60px;
-  width: 75px;
   border-radius: 5px;
 }
 .cardWrap:hover{
-  box-shadow: 0px 0px 5px $font_border_color;
+  background: $main_color;
+  // box-shadow: 0px 0px 5px $font_border_color;
 }
 i{
+  width: 10%;
+  text-align: center;
   cursor: pointer;
 }
 .itemText{
@@ -72,7 +125,7 @@ i{
 }
 .mapWrap{
   width: calc(100% - 350px);
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 120px);
   background: #000;
 }
 
@@ -82,14 +135,24 @@ i{
   }
   .cardGroupWrap{
     width: auto;
-    margin: 1rem auto 0;
   }
   .mapWrap{
     width: 100%;
-    height: calc(100vh - 150px);
+    height: 60vh;
     background: #000;
   }
+  .cardDetail{
+    top: 800px;
+    background: $secondary_color;
+  }
+  .cardDetailOpenCss{
+    top: 0px;
+    left: calc(50% - 180px);
+  }
 }
+
+
+
 // storeIndex
 
 .storeBanner{

@@ -1,131 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!---------- custom style ---------->
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/mapStyle.css">
+  <!---------- custom style ---------->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/mapStyle.css">
 
-<!---------- fontawesome ---------->
-<link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+  <!---------- fontawesome ---------->
+  <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
 
-<!---------- google font ---------->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
+  <!---------- google font ---------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
 
-<!---------- bootstrap 5 ---------->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!---------- bootstrap 5 ---------->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<title>Document</title>
+  <title>Document</title>
 </head>
 <body>
-  <div class="sideDark"></div>
   <header>
     <nav class="coffeeNavbar">
+      <div class="sideDark"></div>
       <div class="navFirst" style="left: -260px;">
-        <li class="webNone navSideX">X</li>
-        <li class="webNone"><a href="#"><i class="fa-solid fa-user-large"><span>MEMBER<i class="fa-solid fa-user-large"></i></span></i></a></li>
+
+        <li class="closeSideNav webNone">
+          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13.41425 12.00025 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z"/></svg>
+        </li>
+
+        <li class="webNone">
+          <a class="" href="#">
+            <img class="iconDuck" src="../iconduck/user.svg" alt="">
+          </a>
+          <p class="openMemberDetail">MEMBER</p>
+          <a class="ms-3" href="#">
+            <img class="iconDuck" src="../iconduck/loginout.svg" alt="">
+          </a>
+        </li>
+
+        <div class="memberDetail" style="display: none;">
+          <li><a href="">訂單查詢</a></li>
+          <li><a href="">點餐訂單</a></li>
+          <li><a href="">問答中心</a></li>
+          <li><a href="">資料維護</a></li>
+          <li><a href="">密碼修改</a></li>
+        </div>
+
         <li><a href="#">HOME<span>首頁</span></a></li>
         <li><a href="#">MAP<span>門市地圖</span></a></li>
         <li><a href="#">BLOG<span>部落格</span></a></li>
         <li><a href="#">SHOP<span>網路商城</span></a></li>
         <li class="webNone"><a href="#"><button class="coffeeDarkBtn">>> Order Online</button></a></li>
+
       </div>
-      <div><span class="openNavSide">三</span></div>
+
+      <div class="openSideNav">
+
+        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m21 17c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .44771525 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.44771525-1-1s.44771525-1 1-1z" fill-rule="evenodd"/></svg>
+
+      </div>
+
       <div>
         <li><a href=""><img src="../img/好室咖啡logo深色.svg" alt=""></a></li>
       </div>
+
       <div>
+
         <li class="mobileNone"><a href="#"><button class="coffeeDarkBtn">>> Order Online</button></a></li>
         <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
         <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
-        <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
-        
+
+        <li class="mobileNone position-relative">
+          <a href=""><i class="fa-solid fa-user-large"></i></a>
+          <p class="webUserInfo">
+            <span><a href="">會員專區</a></span>
+            <span><a href="">訂單查詢</a></span>
+            <span><a href="">問答中心</a></span>
+            <span><a href="">登出</a></span>
+          </div>
+        </li>
+
       </div>
+
     </nav>
   </header>
+
   <div class="mapAndCardWrap">
-    <div class="cardGroupWrap">
-      <div class="cardDetail">
-          sjdsjdjkl
+    <div>
+      <div class="storeSearch">
+        <input class="store-search-input" name="search-for" placeholder="搜尋門市名稱或地址">
+        <a href="">
+          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m11 2c4.9705627 0 9 4.02943725 9 9 0 2.124779-.7363102 4.0775836-1.9676926 5.6171757l3.6747994 3.6757175c.3905243.3905243.3905243 1.0236893 0 1.4142136-.360484.3604839-.927715.3882135-1.3200062.0831886l-.0942074-.0831886-3.6757175-3.6747994c-1.5395921 1.2313824-3.4923967 1.9676926-5.6171757 1.9676926-4.97056275 0-9-4.0294373-9-9 0-4.97056275 4.02943725-9 9-9zm0 2c-3.86599325 0-7 3.13400675-7 7 0 3.8659932 3.13400675 7 7 7 3.8659932 0 7-3.1340068 7-7 0-3.86599325-3.1340068-7-7-7z" fill-rule="evenodd"/></svg>
+        </a>
       </div>
-      <div class="storeWrap">
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+      <div class="cardGroupWrap">
+        <div class="cardDetail">
+          <li class="closeCardDetail">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13.41425 12.00025 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z"/></svg>
+          </li>
+          <div>
+            <h5>營業時間</h5>
+            <li>星期一：休息</li>
+            <li>星期二：營業 8:00-22:00</li>
+            <li>星期三：營業 8:00-22:00</li>
+            <li>星期四：營業 8:00-22:00</li>
+            <li>星期五：營業 8:00-22:00</li>
+            <li>星期六：營業 8:00-22:00</li>
+            <li>星期日：休息</li>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
-        </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+          <br>
+          <div>
+            <h5>門市服務</h5>
+            <div class="storeServeList">
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+              <li><i class="fa-solid fa-user-large"></i></li>
+            </div>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
         </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+        <div class="storeWrap">
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <ion-icon name="information-circle-outline"></ion-icon>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
-        </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
-        </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
-        </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
-        </div>
-        <div class="cardWrap">
-          <img src="../img/01.jpg" alt="">
-          <div class="itemText">
-            <p>長榮店</p>
-            <p>新北市 新店區中央路159號4F</p>
-            <p>02-412-8869</p>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
           </div>
-          <i class="fa-solid fa-circle-info"></i>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div class="cardWrap">
+            <img src="../img/01.jpg" alt="">
+            <div class="itemText">
+              <p>長榮店</p>
+              <p>新北市 新店區中央路159號4F</p>
+              <p>02-412-8869</p>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
         </div>
-      </div>
+    </div>
     </div>
     <div class="mapWrap">
-
+      <!--地圖位置-->
     </div>
   </div>
-  <br>
-  <br>
 
   <footer class="d-flex coffeeFooter">
     <div class="d-flex">
@@ -159,12 +234,29 @@
     
   </footer>
 
+  <!---------- jquery CDN ---------->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!---------- navbar js link ---------->
+  <script src="../js/navbar.js"></script>
+
+  <!---------- ionicons js link ---------->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
   <script>
-    const openNavSide = document.querySelector('.openNavSide');
-    openNavSide.addEventListener('click', ()=>{
-      document.querySelector('.navFirst').style.left = '0px';
-      document.querySelector('.sideDark').style.display = 'block';
+
+    const openCardDetail = document.querySelector('.openCardDetail');
+    const cardDetail = document.querySelector('.cardDetail');
+    const closeCardDetail = document.querySelector('.closeCardDetail');
+
+    openCardDetail.addEventListener('click', ()=>{
+      cardDetail.classList.add("cardDetailOpenCss");
     });
+    closeCardDetail.addEventListener('click', ()=>{
+      cardDetail.classList.remove("cardDetailOpenCss");
+    });
+
   </script>
 
 </body>
