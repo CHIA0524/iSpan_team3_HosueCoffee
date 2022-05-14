@@ -170,13 +170,42 @@
   .col-wn img{
       width: 100%;
   }
-  .odname_m{
-      width: 80%;
-      margin: 0  auto;
-  }
-  .wn_money{
-      margin-left: 20px;
-  }
+  
+.wn_money{
+    display: inline-block;
+}
+/* .odname_m{
+    padding-top: 0  ;
+} */
+.wn_TTM{
+    display: inline-block;
+    text-align: right;
+}
+ /* .wnMD{
+    padding-bottom: 0;   
+ } */
+
+.TTmoney{
+    text-align: right;
+}
+.rwdHR{
+    color: #A37025;
+}
+.wnmain {
+   line-height: 2.5rem;
+}
+.toph2{
+    text-align: center;
+}
+.tophr{
+    margin: 0 auto;
+    width: 80%;
+    color: black;
+    border-top:2px black solid ;
+}
+.odfin{
+    line-height: 3rem;
+}
 
 
         @media screen and (max-width:800px) {
