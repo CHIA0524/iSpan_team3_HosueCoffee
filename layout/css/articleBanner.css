@@ -1,0 +1,61 @@
+.articleBanner{
+    width:100% ;
+    height: 500px;
+    position:relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/Article00.svg);
+}
+
+.title{
+    font-size: 30px;
+    font-weight:bolder;
+
+}
+
+
+.outsideLink{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    position:relative;
+    right: 300px;
+    bottom: 30px;
+    padding-right: 10px;
+}
+
+p,span{
+    font-size: 16px;
+}
+
+.recommend{
+    display: flex;
+    font-size: 30px;
+    font-weight:bolder;
+justify-content: center;
+}
+
+
+.recommendImg{
+    width: 200px;
+    height: 197px;   
+    image:url(""); 
+}
+
+.moreArticleLeft{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+
+}
+
+.moreArticleRight{
+width: 40px;
+height: 40px;
+display: flex;
+flex-direction: row;
+justify-content:flex-end;
+}

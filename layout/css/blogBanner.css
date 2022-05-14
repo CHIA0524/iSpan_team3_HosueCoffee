@@ -1,4 +1,4 @@
-.blog-banner{
+.blogBanner{
     position:relative;
     padding-top:10%;
     width:100% ;
@@ -7,11 +7,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* background-attachment:fixed; */
-    background-image: url(./imgs/banner.svg);
+    background-image: url(../img/banner.svg);
 }
 
 
-.banner-word{
+.bannerWord{
 position: relative;
 width: 166px;
 height:50px;

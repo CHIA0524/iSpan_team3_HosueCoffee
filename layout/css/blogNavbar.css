@@ -1,4 +1,4 @@
-.blog-nav{
+.blogNav{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -6,19 +6,19 @@
     
 }
 
-.nav-item {
+.navItem {
     list-style: none;
     
     align-items: center;
 }
 
-.nav-item a{
+.navItem a{
     text-decoration: none;
     
     font-size: 50px;
 }
 
-.nav-item a:hover{
+.navItem a:hover{
 color: #EDE1C1;
 
 }
