@@ -20,7 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
     <!---------- brandproduct style ---------->
-    <link rel="stylesheet" href="../css/memberFavorite.css">    
+    <link rel="stylesheet" href="../css/memberFavorite.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
 
 
 
@@ -124,7 +125,7 @@
                 </li>
                 <li>
                     <a class=" d-block  py-2 px-3" id="nowWeb" href="">我的收藏</a>
-                </li>
+                </li> 
 
             </ul>
 
@@ -308,6 +309,38 @@
         });
     </script>
 
+     <script>
+        let addSum=$('.addNumV').length
+        console.log(addSum);
+
+        for(i=1;i<=addSum;i++){
+
+            const addNumV = document.getElementById('addNumV_'+i);
+            const NumL = document.querySelector('#NumL_'+i);
+            const NumR= document.querySelector('#NumR_'+i);
+            
+            console.log("第"+i+"組初始"+addNumV.value) ;
+            
+                NumL.addEventListener('click',()=>{
+                    if(Number(addNumV.value)>1){
+                    addNumV.value=Number(addNumV.value)-1;
+                    console.log("第"+i+"組更新")
+                    }
+                 })
+            
+                NumR.addEventListener('click',()=>{
+                    addNumV.value=Number(addNumV.value)+1;
+                })
+
+                
+                
+                
+        }
+
+     
+
+    
+    </script>
 
 
 

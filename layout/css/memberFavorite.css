@@ -107,7 +107,7 @@
     margin-top: -5px;
     width: fit-content;
     height: 40px;
-    border: 1px solid #e4d2a3;
+    /* border: 1px solid #e4d2a3; */
     border-radius: 10px;
     display: inline-block;
   }
@@ -133,26 +133,34 @@
   }
   
   .NumL {
-    border-radius: 10px 0 0 10px ;
-    border-right: 1px solid #e4d2a3;
+    border-radius: 10px ;
+    border: 2px solid #e4d2a3;
+    background: #e4d2a3;
   }
   .NumR {
-    border-radius: 0 10px 10px 0 ;
-    border-left: 1px solid #e4d2a3;
+    border-radius: 10px ;
+    border: 2px solid #e4d2a3;
+    background: #e4d2a3;
   }
   .NumL:hover{
     background-color: #e4d2a3;
+    border:2px solid black;
   }
   .NumR:hover{
     background-color: #e4d2a3;
+    border:2px solid black;
   }
 
   .cardBuy{
+      margin-top: -5px;
+      height: 40px;
       width: 80px;
       float:right;
       border: 2px solid #e4d2a3;
       background-color: white;
       border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
       color: #e4d2a3;;
 
       
