@@ -167,6 +167,16 @@
 
       
   }
+  .col-wn img{
+      width: 100%;
+  }
+  .odname_m{
+      width: 80%;
+      margin: 0  auto;
+  }
+  .wn_money{
+      margin-left: 20px;
+  }
 
 
         @media screen and (max-width:800px) {
