@@ -16,17 +16,17 @@ import test from './img/01.jpg'
 
 function StoreCard(props){
 
-  const [storeCardData, setStoreCardData] = useState({});
-  let updatedValue = {};
-    updatedValue = {
-      "id":107001,
-      "name":"張佳蓉",
-      "birth":990101
-    };
-    setStoreCardData(data => ({
-      ...data,
-      ...updatedValue
-    }));
+  const [storeCardData, setStoreCardData] = useState('jkskhfj');
+  // let updatedValue = {};
+  //   updatedValue = {
+  //     "id":107001,
+  //     "name":"張佳蓉",
+  //     "birth":990101
+  //   };
+  //   setStoreCardData(data => ({
+  //     ...data,
+  //     ...updatedValue
+  //   }));
     
   return(
     <>

@@ -49,7 +49,6 @@
 }
 .cardDetail{
   width: 375px;
-  height: 100vh;
   padding: 15px 40px;
   background: white;
   position: absolute;
@@ -57,9 +56,12 @@
   left: -400px;
   transition: all .3s ease-in-out;
   overflow: scroll;
-  // left: -350px;
+  h5{
+    margin: 10px 0;
+  }
   li{
     padding: 5px 0;
+    margin-left: 10px;
     list-style: none;
     font-weight: 600;
     }
@@ -74,10 +76,14 @@
     }
   }
   .storeServeList{
+    margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 1.2rem;
     row-gap: 5px;
+    li{
+      margin: 0px;
+    }
   }
 }
 .cardDetailOpenCss{
