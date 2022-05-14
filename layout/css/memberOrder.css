@@ -1,0 +1,242 @@
+.adminAside {
+    padding-top: 2%;
+    padding-left: 3%;
+    width: 15%;
+    min-width: 120px;
+
+}
+
+.asideContent {
+    margin: 0 auto;
+    min-width: 400px;
+    width: 20%;
+    padding-left: 6rem;
+}
+.asideContent li{
+    margin: 20px 0;
+    list-style: none;
+    width: fit-content;
+    
+ 
+}
+
+.adminAside a {
+    color: #4C3410;
+    text-decoration: none;
+    border: 1px transparent solid;
+    transition: all 0.2s ease;
+}
+
+.adminAside a:hover {
+    border-left: 1px solid #E4D2A3;
+    color: #E4D2A3;
+}
+
+#nowWeb{
+    color: #E4D2A3;
+    font-weight: bolder;
+}
+
+.adminAside .maindir {
+    color: rgb(129, 117, 117);
+    font-size: larger;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    width: fit-content;
+}
+
+
+
+
+.card {
+    border: 1px #E4D2A3 solid;
+    border-radius: 20px;
+    margin: 10px;
+    width: 25rem;
+    padding: 2rem;
+   
+    
+}
+
+.cardName{
+    padding-top: 1rem;
+}
+
+
+.package a :hover {
+    opacity: 0.6;
+}
+
+.adminAside {
+    display: inline-block;
+
+}
+
+.pMain {
+    margin: 0 auto;
+    padding-top: 2%;
+    width: 79%;
+}
+
+.cardPrice {
+    padding-bottom: 1rem;
+}
+
+.package a :hover {
+    opacity: 0.6;
+}
+
+.adminAside {
+    display: inline-block;
+}
+
+.pMain {
+    margin: 0 auto;
+    display: inline-block;
+    /* min-width: 800px; */
+}
+
+.type {
+    display: none;
+}
+
+.mShop {
+    display: none;
+}
+.addNum {
+    margin-top: -5px;
+    width: fit-content;
+    height: 40px;
+    /* border: 1px solid #e4d2a3; */
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  .addNum div {
+    line-height: 2.5rem;
+    text-align: center;
+    width: 45px;
+    height: 39px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .addNum .addNumDV{
+    width: 80px;
+}
+  .addNum input {
+    border: transparent;
+    height: 15px;
+    outline: none;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .NumL {
+    border-radius: 10px ;
+    border: 2px solid #e4d2a3;
+    background: #e4d2a3;
+  }
+  .NumR {
+    border-radius: 10px ;
+    border: 2px solid #e4d2a3;
+    background: #e4d2a3;
+  }
+  .NumL:hover{
+    background-color: #e4d2a3;
+    border:2px solid black;
+  }
+  .NumR:hover{
+    background-color: #e4d2a3;
+    border:2px solid black;
+  }
+  .col-wn{
+      display: none;
+  }
+  .cardBuy{
+      margin-top: -5px;
+      height: 40px;
+      width: 80px;
+      float:right;
+      border: 2px solid #e4d2a3;
+      background-color: white;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #e4d2a3;;
+
+      
+  }
+
+
+        @media screen and (max-width:800px) {
+            .mMember{
+                display: block;
+                color:#A37025;
+            font-size: 1.5rem;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 3rem ;
+           
+            }
+            .type{
+                padding-top: -1rem;
+                padding-bottom: 2rem;
+                display: flex;
+                justify-content: center;
+            }
+            .typeDetail{
+                width: 20%;
+                display: block;  
+                text-align: center;
+                border-radius: 20px;
+                border: 1px solid #E4D2A3;
+                color: #4C3410;
+              
+                
+           
+            }
+            .adminAside {
+                /*隱藏選單開始*/
+                max-height: 0;
+                overflow: hidden;
+                /*隱藏選單end*/
+                position: absolute;
+                /*追隨.header*/
+                /*讓選單從左到右延伸start*/
+                right: 0;
+                left: 0;
+                /*讓選單從左到右延伸end*/
+                top: 67px;
+                /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+                z-index: 100;
+                transition: all 2.5s;
+            }
+            .proList_m{
+                display: block;
+            }
+            .col-3None{
+                display: none;
+            }
+            .col-wn{
+                display: block;
+            }
+            .memberEdit-w{
+                display: none;
+            }
+            .memberEdit-m{
+                display: block;
+                justify-content: center;
+            }
+            .proR{
+            border: 0;
+            
+        }
+            
+        
+          
+        }
+        @media screen and (max-width:600px)  {
+            .card{
+                width: 15rem;
+            }
+        }
