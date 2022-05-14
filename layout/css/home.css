@@ -3,6 +3,7 @@ body {
 }
 
 /*banner*/
+
 /* -------------------- */
 
 /*brand appeal*/
@@ -95,8 +96,9 @@ body {
 .product {
     background: #4D3410;
     width: 100%;
-    height: 800px;
+    height: 850px;
     margin: 0px auto;
+    padding: 30px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -108,33 +110,47 @@ body {
 .allProduct {
     width: 70%;
     margin: 30px;
+    padding: 30px 0;
 }
 
 .product h1 {
     color: #fff;
-}
-
-#mainProductPhoto {
-    width: 200px;
-    height: auto;
-}
-
-.product1 {
     padding: 30px;
+}
+
+.scrollDiv {
     width: 70%;
+    height: 450px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior:smooth;
+    white-space: nowrap;
+    justify-content: center;
+    margin: 0px auto;
+    flex-grow: 1 100px;
+    flex-flow: row wrap;
+    /* display: flex; */
+    /* text-align: center; */
+
+}
+
+.productscroll {
+    padding: 50px;
+    /* width: 70%; */
     text-align: center;
     color: #E4D2A3;
     margin: 0px auto;
     display: flex;
-    text-align: left;
     flex-grow: 1 100px;
-    justify-content: space-evenly;
-    flex-flow: row wrap;
+    justify-content: center;
+    flex-flow: column wrap;
     align-items: center;
+    display: inline-block;
 }
 
-.productText {
-    width: 40%;
+.productscroll img{
+    width: 600px;
+    height: auto;
 }
 
 .productSel {
@@ -143,12 +159,13 @@ body {
     justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
-    padding: 30px;
+    padding: 0 20px;
 }
 
-.allProduct img {
+.productSel img {
     width: 150px;
     height: auto;
+
 }
 
 /* ------------------ */
@@ -193,6 +210,12 @@ body {
     align-items: stretch;
     flex-flow: row wrap;
     padding: 30px;
+}
+
+#city option{
+    border: #E4D2A3;
+    color: #E4D2A3;
+    background: #fff;
 }
 
 #city,
@@ -242,12 +265,10 @@ body {
 
 .allNew {
     width: 100%;
-    height: 300px;
     margin: 0px auto;
     padding: 40px;
     display: flex;
     text-align: left;
-    /* flex-grow: 1 100px; */
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
@@ -259,24 +280,25 @@ body {
     background: #ccc;
     border-radius: 10px;
     border: 5px #fff solid;
-    height: 40px;
     color: #fff;
     margin: 0px auto;
-    text-align: left;
     padding: 30px;
 }
 
-.new h5 p {
-    margin: 0px auto;
-    display: flex;
-    flex-grow: 1 100px;
+.new h5  { 
+    display: inline-block;
     justify-content:center;
     align-items: center;
     flex-flow: row wrap;
-    padding: 30px;
     text-align: left;
-    /* align-items: center;
-    justify-content: center; */
+}
+
+.new .newTime  { 
+    display: inline-block;
+    justify-content:center;
+    align-items: center;
+    flex-flow: row wrap;
+    text-align: right;
 }
 
 .activity {
@@ -307,20 +329,26 @@ body {
     border: 6px #fff solid;
     border-radius: 10px;
     line-height: 15px;
-    padding: 50px 50px;
+    /* padding: 50px 50px; */
     margin: 0px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
 
 }
+.coupon1 p{
+    padding: 5px 10px;
+    margin: 10px 10px;
+    text-align: left;
+}
+
 
 .copy1 {
     width: 20%;
     height: 90px;
     background: #E4D2A3;
     color: #fff;
-    padding: 50px 50px;
+    /* padding: 50px 50px; */
     border: 6px #fff solid;
     border-radius: 10px;
     align-items: center;
@@ -330,40 +358,45 @@ body {
 }
 
 .copy1 p {
+    padding: 50px 50px;
     justify-content: center;
     text-align: center;
 
 }
-
 /* --------------------- */
 
 
 /* about us */
 .aboutUs {
     width: 100%;
-    height: 250px;
-    background: #e4d2a3;
+    height: 1158px;
+    background-image: url(/home/image/about\ us.png);
     margin: 0px auto;
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding: 30px;
-    padding: 50px;
+    padding: 200px;
+    opacity: 80%;
+    color: #ccc;
 }
 
-.aboutInner {
-    background: #fff;
-    border: #ccc;
-    border-radius: 20px;
+.aboutUs:hover{
+    transition: .5s;
+    opacity: 100%;
+    color: #4D3410;
 }
 
 .aboutUs h1 {
     justify-content: center;
+    padding: 100px;
 }
 
 .aboutUs p {
-    width: 50%;
+    width: 40%;
+    font-size: 20px;
+    letter-spacing: 10px;
     margin: 0px auto;
+    /* padding: 100px; */
     text-align: center;
     line-height: 30px;
 }

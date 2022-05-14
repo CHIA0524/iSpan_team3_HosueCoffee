@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX</title>
     <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="cript.js">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -16,6 +15,7 @@
 </head>
 
 <body>
+    <div class="sideBG"><img style="position: absolute; width: 2000px; height: 0px; left: 1368px; top: 1043px; font-size: 250px; transform: rotate(90deg); color: #fff;" src="./image/HOUSE COFFEE.png" alt=""></div>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -75,35 +75,43 @@
     <div class="product">
         <div class="allProduct">
             <h1>FLAGSHIP PRODUCTS</h1>
-            <div class="product1">
-                <img id="mainProductPhoto" src="/home/image/coffeebag01.png" alt="">
-                <div class="productText">
-                    <h4>伊莎米 精選招牌特調＄499</h4>
-                    <p>產地:肯亞</p>
-                    <p>中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型 相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。</p>
+
+            <div class="scrollDiv">
+                <div class="productscroll">
+                    <img id="scrollProduct1" src="/home/image/products scroll.png" alt="">
+                </div>
+                <div class="productscroll">
+                    <img id="scrollProduct2" src="/home/image/products scroll.png" alt="">
+                </div>
+                <div class="productscroll">
+                    <img id="scrollProduct3" src="/home/image/products scroll.png" alt="">
+                </div>
+                <div class="productscroll">
+                    <img id="scrollProduct4" src="/home/image/products scroll.png" alt="">
+                </div>
+                <div class="productscroll">
+                    <img id="scrollProduct5" src="/home/image/products scroll.png" alt="">
                 </div>
             </div>
+
             <div class="productSel">
-                <div class="product2">
-                    <img src="/home/image/coffeebag01.png" alt="">
-                    <!-- <h3>伊莎米 精選招牌特調＄599</h3>
-            <p>產地:肯亞<br>中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型  相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。</p> -->
+
+                <div id="product1">
+                    <a href="#scrollProduct1">
+                    <img src="/home/image/coffeebag01.png" alt=""></a>
                 </div>
-                <div class="product3">
-                    <img src="/home/image/coffeebag01.png" alt="">
-                    <!-- <h3>伊莎米 精選招牌特調＄699</h3>
-            <p>產地:肯亞<br>中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型  相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。</p> -->
-                </div>
-                <div class="product4">
-                    <img src="/home/image/coffeebag01.png" alt="">
-                    <!-- <h3>伊莎米 精選招牌特調＄799</h3>
-            <p>產地:肯亞<br>中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型  相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。</p> -->
-                </div>
-                <div class="product5">
-                    <img src="/home/image/coffeebag01.png" alt="">
-                    <!-- <h3>伊莎米 精選招牌特調＄899</h3>
-            <p>產地:肯亞<br>中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型  相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。</p> -->
-                </div>
+                <div id="product2">
+                    <a href="#scrollProduct2">
+                        <img src="/home/image/coffeebag01.png" alt=""></a>                </div>
+                <div id="product3">
+                    <a href="#scrollProduct3">
+                        <img src="/home/image/coffeebag01.png" alt=""></a>                </div>
+                <div id="product4">
+                    <a href="#scrollProduct4">
+                        <img src="/home/image/coffeebag01.png" alt=""></a>                </div>
+                <div id="product5">
+                    <a href="#scrollProduct5">
+                        <img src="/home/image/coffeebag01.png" alt=""></a>                </div>
             </div>
         </div>
     </div>
@@ -140,17 +148,17 @@
         <div class="new">
             <h1>NEWS</h1>
             <div class="allNew">
-                <div class="new1">
-                    <h5>台北店公休公告</h5><p>2022/06/17</p>
+                <div class="new1 row">
+                    <h5 class="col">台北店公休公告</h5><h5 class="newTime col">2022/06/17</h5> 
                 </div>
-                <div class="new1">
-                    <h5>台中店公休公告</h5><p>2022/06/17</p>
+                <div class="new1 row">
+                    <h5 class="col">台中店公休公告</h5><h5 class="newTime col">2022/06/17</h5> 
                 </div>
-                <div class="new1">
-                    <h5>台南店公休公告</h5><p>2022/06/17</p>
+                <div class="new1 row">
+                    <h5 class="col">台南店公休公告</h5><h5 class="newTime col">2022/06/17</h5> 
                 </div>
-                <div class="new1">
-                    <h5>高雄總店公休公告</h5><p>2022/06/17</p>
+                <div class="new1 row">
+                    <h5 class="col">高雄總店公休公告</h5><h5 class="newTime col">2022/06/17</h5> 
                 </div>
             </div>
         </div>
@@ -177,17 +185,18 @@
                 <div class="copy1">copy</div>
             </div>
         </div>
+        </div>
     </div>
     <div class="aboutUs">
-        <div class="aboutInner">
             <h1>ABOUT US</h1>
-        <p>由一群既熱愛喵星球也愛喝咖啡的三五好友，打造了一間友善動物且溫馨的咖啡店。不管是平日上班前來杯黑咖啡； 還是假日想找個舒服的咖啡店好好地喝上一杯對味的拿鐵度過美好的假日，歡迎來「coffee house咖啡好室」光臨。
-        </p>
-        </div>
+            <p>由一群既熱愛喵星球也愛喝咖啡的三五好友，打造了一間友善動物且溫馨的咖啡店。不管是平日上班前來杯黑咖啡； 還是假日想找個舒服的咖啡店好好地喝上一杯對味的拿鐵度過美好的假日，歡迎來「coffee
+                house咖啡好室」光臨。
+            </p>
     </div>
 
 
 
 </body>
+<link rel="stylesheet" href="script.js">
 
 </html>
