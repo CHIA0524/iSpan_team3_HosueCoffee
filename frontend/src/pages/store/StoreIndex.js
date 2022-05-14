@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 import React from 'react';
 import './mapStyle.scss';
 
@@ -6,7 +6,12 @@ import logo from '../../logo.svg';
 import img01 from './img/storeIndex-img01.png';
 import img02 from './img/storeIndex-img02.png';
 
+import StoreMap from './StoreMap';
+
 function StoreIndex(props){
+
+  let { path, url } = useRouteMatch();
+
   return(
     <>
       <div className="storeBanner"></div>
@@ -15,17 +20,22 @@ function StoreIndex(props){
             <p>~NEWS</p>
             <img src={logo} alt=""></img>
             <p>~NEWS</p>
-            <span>最新消息</span>
+            <a>最新消息</a>
           </div>
           <div>
             <img src={img01} alt=""></img>
-            <span>門市查詢</span>
+            <Link to={`${url}/map`}>門市查詢</Link>
           </div>
           <div>
             <img src={img02} alt=""></img>
-            <span>門市服務</span>
+            <a>門市服務</a>
           </div>
         </div>
+        <Switch>
+          <Route path={`${path}`}>
+            <StoreMap />
+          </Route>
+        </Switch>
     </>
   );
 }

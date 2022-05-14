@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 
-// icon
+// icons
 import { IoCloseOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
@@ -12,12 +12,13 @@ import { IoCallOutline } from "react-icons/io5";
 import { IoMailOutline } from "react-icons/io5";
 import { BiCopyright } from "react-icons/bi";
 
-// 導入頁面
-import Home from './pages/home/Home'
-import StoreIndex from './pages/store/StoreIndex'
+// pages
+import Home from './pages/home/Home';
+import StoreIndex from './pages/store/StoreIndex';
+import StoreMap from './pages/store/StoreMap';
 
 function App() {
-
+  
   const openSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '0px';
     document.querySelector('.sideDark').style.display = 'block';
@@ -98,6 +99,9 @@ function App() {
       </header>
 
       <Switch>
+        <Route path="/store/map">
+          <StoreMap />
+        </Route>
         <Route path="/store">
           <StoreIndex />
         </Route>
