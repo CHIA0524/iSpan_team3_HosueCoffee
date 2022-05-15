@@ -31,3 +31,51 @@
   line-height: 2rem;
   color: rgba(0, 0, 0, 0.25);
 }
+.mSteps {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .steps {
+    display: none;
+  }
+  .mSteps {
+    /* margin-top: -1rem; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 25px 0 25px 20px;
+  }
+
+  .mStep,
+  .mStepLine {
+    float: left;
+  }
+
+  .mStep {
+    display: block;
+    width: 3em;
+    height: 3rem;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1rem;
+    background: #a37025;
+  }
+
+  .mStepLine {
+    width: 6rem;
+    position: relative;
+    top: 1.5rem;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  .mStepNum {
+    line-height: 3rem;
+    color: white;
+  }
+  .mStepText {
+    width: 100px;
+    padding-top: 1rem;
+    margin-left: -1.5rem;
+  }
+}

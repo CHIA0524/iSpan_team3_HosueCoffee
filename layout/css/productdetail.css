@@ -210,4 +210,8 @@
     z-index: 100;
     transition: all 2.5s;
   }
+  .recProduct {
+    padding: 0 5rem;
+    width: 100%;
+  }
 }
