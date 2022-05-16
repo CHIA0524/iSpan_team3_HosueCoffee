@@ -36,7 +36,7 @@
 .card {
     border: 1px #E4D2A3 solid;
     border-radius: 20px;
-    margin: 0 20px 20px 0;
+    margin: 10px;
     width: 20rem;
     padding: 2rem;   
    
@@ -96,19 +96,19 @@
   .addNum div {
     line-height: 2.5rem;
     text-align: center;
-    width: 45px;
+    width: 2.8rem;
     height: 39px;
     cursor: pointer;
     display: inline-block;
   }
   .addNum .addNumDV{
-    width: 60px;
+    width: 4rem;
 }
   .addNum input {
     border: transparent;
     height: 15px;
     outline: none;
-    width: 30px;
+    width: 2rem;
     text-align: center;
     cursor: pointer;
   }
@@ -135,7 +135,7 @@
   .cardBuy{
       margin-top: -5px;
       height: 40px;
-      width: 80px;
+      width: 5rem;
       float:right;
       border: 2px solid #e4d2a3;
       background-color: white;
@@ -148,7 +148,7 @@
   }
 
 
-        @media screen and (max-width:800px) {
+        @media screen and (max-width:1000px) {
             .mMember{
                 display: block;
                 color:#A37025;
@@ -207,13 +207,13 @@
             .proR{
             border: 0;
             
-        }
-            
+            }
+         
         
           
         }
-        @media screen and (max-width:600px)  {
+        /* @media screen and (max-width:600px)  {
             .card{
                 width: 15rem;
             }
-        }
+        } */

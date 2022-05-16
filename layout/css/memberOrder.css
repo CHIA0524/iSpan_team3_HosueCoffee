@@ -191,11 +191,11 @@
 .proname{
     text-align: right   ;
 }
-.wninmg{
+.wnimg{
     width: 100%;
 }
 
-        @media screen and (max-width:800px) {
+        @media screen and (max-width:1000px) {
             .mMember{
                 display: block;
                 color:#A37025;

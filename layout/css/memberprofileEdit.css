@@ -111,6 +111,7 @@
 .memberNumber{
     margin :30px 0;
     text-align: center;
+    font-size: 1.5rem;
 }
 .memberEdit{
     display: block;
@@ -130,8 +131,14 @@
 .proList_m{
     display: none;
 }
+.col-wn{
+    display: none;
+}
+.proRight input{
+    width: 200px;
+}
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1000px) {
     .mMember{
         display: block;
         color:#A37025;
@@ -191,7 +198,9 @@
     border: 0;
     
 }
-    
+.col-wn{
+    display: block;
+}
 
   
 }
