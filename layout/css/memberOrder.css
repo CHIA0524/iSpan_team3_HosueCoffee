@@ -1,22 +1,12 @@
-/* .adminAside {
-    padding-top: 2%;
-    padding-left: 3%;
-    width: 15%;
-    min-width: 120px;
-
-} */
-
 .asideContent {
-    margin: 0 auto;
-    min-width: 400px;
-    width: 20%;
+    margin: 0 auto; 
 }
-.asideContent li{
-    margin: 20px 0;
-    /* line-height: 3rem; */
+
+
+.adminAside li{
     list-style: none;
+    line-height: 3rem;
     width: fit-content;
-    
  
 }
 
@@ -29,21 +19,20 @@
 }
 
 
-.adminAside a:hover {
+.adminAside a:hover{
     border-left: 1px solid #E4D2A3;
     color: #E4D2A3;
 }
 
 #nowWeb{
     color: #E4D2A3;
-    font-weight: bolder;
 }
 
 .adminAside .maindir {
     color: rgb(129, 117, 117);
-    font-size: larger;
+    font-size: 1.5rem;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
+    padding-bottom: 1rem;
     width: fit-content;
 }
 
@@ -74,11 +63,7 @@
 
 }
 
-/* .pMain {
-    margin: 0 auto;
-    padding-top: 2%;
-    width: 79%;
-} */
+
 
 .cardPrice {
     padding-bottom: 1rem;
@@ -95,7 +80,7 @@
 .pMain {
     margin: 0 auto;
     display: inline-block;
-    /* min-width: 800px; */
+    padding-bottom:2rem ;
 }
 
 .type {
@@ -109,7 +94,6 @@
     margin-top: -5px;
     width: fit-content;
     height: 40px;
-    /* border: 1px solid #e4d2a3; */
     border-radius: 10px;
     display: inline-block;
   }
@@ -176,16 +160,12 @@
 .wn_money{
     display: inline-block;
 }
-/* .odname_m{
-    padding-top: 0  ;
-} */
+
 .wn_TTM{
     display: inline-block;
     text-align: right;
 }
- /* .wnMD{
-    padding-bottom: 0;   
- } */
+
 
 .TTmoney{
     text-align: right;
