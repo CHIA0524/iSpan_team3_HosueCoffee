@@ -7,8 +7,6 @@
 
 .asideContent {
   margin: 0 auto;
-  min-width: 400px;
-  width: 20%;
 }
 
 .adminAside a {
@@ -42,10 +40,8 @@
   width: fit-content;
 }
 
-/* .pMain {
-  padding-top: 2%;
-} */
-.pMain img {
+.pMain {
+  padding-bottom: 2rem;
   width: 100%;
 }
 
@@ -108,14 +104,14 @@
   width: 3rem;
 }
 .pDetail {
-  display: inline-block;
-  width: 100%;
+  display: flex;
 }
 .mImg {
   width: 50%;
 }
 .pContent {
-  width: 40%;
+  width: 50%;
+  padding-left: 4rem;
 }
 
 .card {
@@ -126,9 +122,9 @@
 .card img {
   width: 100%;
 }
-.cardPrice {
+/* .cardPrice {
   margin-top: -1rem;
-}
+} */
 /* .title {
   margin: 11rem 0 -4rem 5rem;
   font-size: 1.5rem;
@@ -144,13 +140,15 @@
 
 .moreInfo {
   width: 80%;
+  margin: 0 auto;
 }
 .recProduct {
   font-size: 1.5rem;
   padding-bottom: 3rem;
+  padding-left: 3rem;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1400px) {
   .mShop {
     display: block;
     color: rgb(129, 117, 117);
@@ -192,24 +190,19 @@
     transition: all 2.5s;
   }
 
-  .pContent {
+  /* .pContent {
     padding-top: 15px;
-  }
+  } */
 }
 
-@media screen and (max-width: 1100px) {
-  .pDetail {
-    margin: 0 auto;
+@media screen and (max-width: 1000px) {
+  /* .pDetail {
+    margin: auto;
     display: inline-block;
-  }
-  /* .mImg {
-    width: 90%;
-  }
-  .pContent {
-    width: 90%;
   } */
+
   .pMain {
-    padding-left: 10%;
+    margin: 0 auto;
   }
   .package {
     margin-bottom: 2rem;
@@ -218,12 +211,9 @@
     padding: 0 20rem;
     width: 100%;
   }
-}
-
-@media screen and (max-width: 800px) {
-  .card {
-    width: 20rem;
-  }
+  /* .card {
+    width: 15rem;
+  } */
   .mHidden {
     max-height: 0;
     overflow: hidden;
@@ -243,5 +233,27 @@
     /* font-size: 1rem; */
     padding: 3rem 0 3rem 4rem;
     color: black;
+  }
+  .pDetail {
+    width: 90%;
+    margin: 0 auto;
+    display: inline-block;
+  }
+  /* .mImg {
+    width: 100%;
+    margin: 0 auto;
+  } */
+  .pDetail img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .pContent {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .pContent {
+    padding-top: 1rem;
+    padding-left: 0;
   }
 }

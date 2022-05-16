@@ -7,8 +7,6 @@
 
 .asideContent {
   margin: 0 auto;
-  min-width: 400px;
-  width: 20%;
 }
 
 .adminAside a {
@@ -42,9 +40,9 @@
   width: fit-content;
 }
 
-/* .pMain {
-  padding-top: 2%;
-} */
+.pMain {
+  padding-bottom: 2rem;
+}
 
 .card {
   border: hidden;
