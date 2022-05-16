@@ -1,9 +1,11 @@
 $colorMain: #E4D2A3;
 
 .spaceTop {
-    margin-bottom: 7rem;
+    margin-bottom:2em;
 }
-
+.spaceTop2{
+    margin-top:5em;
+}
 .checkOut {
     display: flex;
     justify-content: center;
@@ -38,4 +40,66 @@ $colorMain: #E4D2A3;
     width: 101%;
     height: 10px;
     margin-top: 13px;
+}
+
+
+.superman{
+    display: flex;
+    margin: 5em;
+}
+.people {
+    width:80%;
+    // margin: auto;
+    input{
+        width: 25em;
+        border: $colorMain 1px solid;
+    }
+}
+.store1{
+    width:80%;
+    // margin: auto;
+}
+.selectStore{
+    width:80%;
+    // margin: auto;
+}
+.hisstoryStore{
+    width:80%;
+    // margin: auto;
+    // display: none;
+}
+.hisstoryStoreName{
+    width:80%;
+    // margin: auto;
+}
+
+.totalCard{
+    background-color: $colorMain;
+    width: 100%;
+    border-radius: 20px;
+    padding: 1em;
+    
+}
+
+.PaymentLast {
+    border-radius: 10px;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    height: 2em;
+    text-align: center;
+}
+.body2{
+    display: flex;
+    margin-right: auto;
+    justify-content: flex-end;
+    height: 20em;
+}
+
+
+@media screen and (max-width:800px) {
+    .superman{
+        display: inline;
+    }
 }
