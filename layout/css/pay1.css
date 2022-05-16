@@ -5,6 +5,10 @@
 main {
   padding-bottom: 50px;
 }
+.payInfoContent {
+  display: flex;
+  align-items: center;
+}
 .paytext {
   font-size: 1.5rem;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -39,19 +43,19 @@ main {
 .NumR {
   border-left: 1px solid #e4d2a3;
 }
-.discountG {
-  padding-top: 2rem;
+
+.dInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-.discontInput {
-  margin-top: -10px;
-}
-.discontInput input {
+.dInput input {
   height: 2rem;
   width: 15rem;
   border-radius: 5px;
   border: 1px solid #e4d2a3;
 }
-.discontInput button {
+.dInput button {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
@@ -61,21 +65,24 @@ main {
   color: white;
 }
 
+.countTotal {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
 .btn-outline-secondary:hover {
   background: white;
   border: 1px solid #e4d2a3;
   color: #e4d2a3;
 }
 
-.pointG {
-  padding-top: 2rem;
-}
-.pointText {
-  /* margin-top: -1rem; */
-}
 .check {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.check a {
+  margin-left: 1rem;
 }
 .addCartBtn {
   margin-top: 4px;
@@ -92,51 +99,54 @@ main {
 .packageImg {
   width: 100%;
 }
+.mPayInfoContent {
+  display: none;
+}
 @media screen and (max-width: 800px) {
-  .mShop {
-    display: block;
-    color: rgb(129, 117, 117);
-    font-size: 1.5rem;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 3rem;
-  }
-
-  .type {
-    padding-top: -1rem;
-    padding-bottom: 2rem;
+  .mPayInfoContent {
     display: flex;
     justify-content: center;
   }
-
-  .typeDetail {
-    width: 20%;
-    display: block;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #e4d2a3;
-    color: #4c3410;
+  .dInput {
+    display: flex;
+    align-items: center;
   }
-
-  .adminAside {
-    /*隱藏選單開始*/
-    max-height: 0;
-    overflow: hidden;
-    /*隱藏選單end*/
-    position: absolute;
-    /*追隨.header*/
-    /*讓選單從左到右延伸start*/
-    right: 0;
-    left: 0;
-    /*讓選單從左到右延伸end*/
-    top: 67px;
-    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
-    z-index: 100;
-    transition: all 2.5s;
+  .dInput input {
+    width: 28rem;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 15rem;
+  .check {
+    display: flex;
+    justify-content: space-between;
+  }
+  .payInfo {
+    display: none;
+  }
+  .box a {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+  .mPayInfoContent .box {
+    margin: 3rem auto;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  .boxContent {
+    padding: 1rem 1rem;
+  }
+  .imgPart {
+    display: flex;
+    flex-direction: row;
+  }
+  .imgPart img {
+    width: 50%;
+    margin-right: 1rem;
+  }
+  .number {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
   }
 }
