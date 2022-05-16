@@ -1,9 +1,9 @@
-.adminAside {
+/* .adminAside {
   padding-top: 2%;
   padding-left: 3%;
   width: 30%;
   min-width: 120px;
-}
+} */
 
 .asideContent {
   margin: 0 auto;
@@ -29,22 +29,22 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.adminAside ul {
+/* .adminAside ul {
   padding-left: 9rem;
-}
+} */
 
 .adminAside li {
   list-style: none;
   line-height: 3rem;
 }
 
-.pMain {
+/* .pMain {
   padding-top: 2%;
-}
+} */
 
 .card {
   border: hidden;
-  width: 23rem;
+  width: 22rem;
   padding-right: 1rem;
   padding-bottom: 4rem;
 }
@@ -120,6 +120,6 @@
 
 @media screen and (max-width: 600px) {
   .card {
-    width: 15rem;
+    width: 18rem;
   }
 }
