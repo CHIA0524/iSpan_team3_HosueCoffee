@@ -188,7 +188,12 @@
 .odfin{
     line-height: 3rem;
 }
-
+.proname{
+    text-align: right   ;
+}
+.wninmg{
+    width: 100%;
+}
 
         @media screen and (max-width:800px) {
             .mMember{
