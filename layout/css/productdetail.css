@@ -1,9 +1,9 @@
-.adminAside {
+/* .adminAside {
   padding-top: 2%;
   padding-left: 3%;
   width: 30%;
   min-width: 120px;
-}
+} */
 
 .asideContent {
   margin: 0 auto;
@@ -21,27 +21,30 @@
 
 .adminAside a:hover {
   border-left: 1px solid #e4d2a3;
-  border-spacing: 3px;
   color: #e4d2a3;
 }
 
 .adminAside .maindir {
   font-size: 1.5rem;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  /* padding:10px; */
+  padding-bottom: 1rem;
+  width: fit-content;
 }
 
-.adminAside ul {
+/* .adminAside ul {
   padding-left: 9rem;
-}
+} */
 
 .adminAside li {
   list-style: none;
   line-height: 3rem;
+  width: fit-content;
 }
 
-.pMain {
+/* .pMain {
   padding-top: 2%;
-}
+} */
 .pMain img {
   width: 100%;
 }
