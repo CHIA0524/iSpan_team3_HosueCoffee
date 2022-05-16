@@ -71,7 +71,7 @@ main {
   padding-top: 2rem;
 }
 .pointText {
-  margin-top: -1rem;
+  /* margin-top: -1rem; */
 }
 .check {
   display: flex;
@@ -88,6 +88,9 @@ main {
 
 .addCart a :hover {
   background-color: #e4d2a3;
+}
+.packageImg {
+  width: 100%;
 }
 @media screen and (max-width: 800px) {
   .mShop {
