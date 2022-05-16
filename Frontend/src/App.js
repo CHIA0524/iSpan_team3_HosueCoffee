@@ -16,6 +16,7 @@ import { BiCopyright } from "react-icons/bi";
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
+import StoreMapTest from './pages/store/StoreMapTest';
 
 function App() {
   
@@ -99,6 +100,9 @@ function App() {
       </header>
 
       <Switch>
+        <Route path="/store/mapTest">
+          <StoreMapTest />
+        </Route>
         <Route path="/store/map">
           <StoreMap />
         </Route>

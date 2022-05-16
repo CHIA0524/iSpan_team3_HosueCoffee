@@ -24,18 +24,13 @@ function StoreIndex(props){
           </div>
           <div>
             <img src={img01} alt=""></img>
-            <Link to={`${url}/map`}>門市查詢</Link>
+            <Link to={"/store/map"}>門市查詢</Link>
           </div>
           <div>
             <img src={img02} alt=""></img>
-            <a>門市服務</a>
+            <Link to={"/store/mapTest"}>門市服務 測試資料</Link>
           </div>
         </div>
-        <Switch>
-          <Route path={`${path}`}>
-            <StoreMap />
-          </Route>
-        </Switch>
     </>
   );
 }

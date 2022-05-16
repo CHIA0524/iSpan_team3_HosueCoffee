@@ -40,6 +40,7 @@ function StoreCard(props){
           <p>02-412-8869</p>
         </div>
         <div onClick={()=>{
+          console.log(document.querySelectorAll(".itemText")[0].querySelectorAll("p")[0].innerHTML);
           props.setDataFromStoreCard(storeCardData);
           props.setCardDetailCss(`cardDetailOpenCss`);
         }}

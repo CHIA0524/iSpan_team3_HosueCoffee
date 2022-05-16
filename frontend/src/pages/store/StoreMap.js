@@ -17,12 +17,16 @@ function StoreMap(){
 
   // 開啟詳細選單(透過StoreCard傳送className)
   const [cardDetailCss, setCardDetailCss] = useState();
-  const [dataFromStoreCard, setDataFromStoreCard] = useState('')
-
-  // 關閉詳細選單
+  
+  // 關閉詳細選單 function
   const closeCardDetail = ()=>{
     setCardDetailCss(``)
   }
+
+
+  // 接收子組件資料，放到cardDetail
+  const [dataFromStoreCard, setDataFromStoreCard] = useState('')
+
 
   return(
     <>
