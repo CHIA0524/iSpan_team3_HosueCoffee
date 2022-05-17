@@ -22,7 +22,7 @@ main {
 }
 .payTotalCheck .box {
   width: 90%;
-  height: 400px;
+  height: 350px;
   border-radius: 20px;
   background: rgba(228, 210, 163, 0.4);
 }
@@ -47,39 +47,36 @@ main {
 }
 
 .totalInfo1 {
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   margin: 0 2rem;
   display: flex;
   justify-content: space-between;
   font-size: 1.3rem;
 }
-.totalInfo2 {
-  padding-top: 1rem;
-  margin: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.3rem;
+.totalInfo1 p {
+  margin-bottom: 1rem;
 }
 .totalInfo3 {
-  padding-top: 3rem;
+  padding-top: 1rem;
   margin: 0 2rem;
   display: flex;
   font-size: 1.3rem;
   justify-content: space-between;
 }
 .line {
-  margin: 1rem 2rem;
+  margin: 0 2rem;
   width: 90%;
   /* height: 1px; */
   border-top: solid 1px rgba(0, 0, 0, 0.46);
 }
 .finalPayBtn {
   margin-right: 1.5rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: flex-end;
 }
 .btn {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   border-radius: 5px;
   color: white;
   background-color: #4c3410;
@@ -127,7 +124,7 @@ h3 {
   }
   .mPayTotalCheck .box {
     width: 90%;
-    height: 300px;
+    height: 350px;
     border: 1px solid gray;
   }
   .mPayTotalCheck {
@@ -149,6 +146,9 @@ h3 {
   }
   .mText {
     display: block;
+  }
+  .mText h3 {
+    text-align: left;
   }
   .money p {
     text-align: right;
