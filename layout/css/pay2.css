@@ -1,5 +1,5 @@
 main {
-  padding-bottom: 50px;
+  padding-bottom: 2rem;
 }
 .paytext {
   font-size: 1.5rem;
@@ -8,14 +8,22 @@ main {
 }
 .payInfoStart {
   padding-top: 5rem;
+  display: flex;
 }
 .questInfo {
   padding-bottom: 3rem;
 }
+.payInfoFill {
+  width: 50%;
+  margin-right: 5rem;
+}
+.payTotalCheck {
+  width: 40%;
+}
 .payTotalCheck .box {
   width: 90%;
-  height: 450px;
-  border-radius: 64px;
+  height: 400px;
+  border-radius: 20px;
   background: rgba(228, 210, 163, 0.4);
 }
 .checkPart {
@@ -83,8 +91,17 @@ main {
   background-color: white;
   border: 1px solid #4c3410;
 }
+.radioS {
+  display: flex;
+}
+.mText {
+  display: none;
+}
+.mPayTotalCheck {
+  display: none;
+}
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .mShop {
     display: block;
     color: rgb(129, 117, 117);
@@ -92,49 +109,41 @@ main {
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 3rem;
   }
+  .payInfoStart {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+  }
 
-  .type {
-    padding-top: -1rem;
-    padding-bottom: 2rem;
+  .payInfoFill {
+    width: 100%;
+  }
+  .payTotalCheck {
+    display: none;
+  }
+  .mPayTotalCheck .box {
+    width: 90%;
+    height: 300px;
+    border: 1px solid gray;
+  }
+  .mPayTotalCheck {
+    margin-top: 2rem;
+    width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  .typeDetail {
-    width: 20%;
+  .radioS {
     display: block;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #e4d2a3;
-    color: #4c3410;
   }
-
-  .adminAside {
-    /*隱藏選單開始*/
-    max-height: 0;
-    overflow: hidden;
-    /*隱藏選單end*/
-    position: absolute;
-    /*追隨.header*/
-    /*讓選單從左到右延伸start*/
-    right: 0;
-    left: 0;
-    /*讓選單從左到右延伸end*/
-    top: 67px;
-    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
-    z-index: 100;
-    transition: all 2.5s;
+  .totalInfo1 {
+    padding-top: 1rem;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
   }
-}
-@media screen and (max-width: 1400px) {
-  .detail {
-    width: 100%;
-    display: inline-block;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 15rem;
+  .mText {
+    display: block;
   }
 }

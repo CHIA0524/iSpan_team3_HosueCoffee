@@ -66,9 +66,11 @@ main {
 }
 
 .countTotal {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2rem;
+
+  /* padding-bottom: 1rem; */
 }
 
 .btn-outline-secondary:hover {
@@ -102,17 +104,14 @@ main {
 .mPayInfoContent {
   display: none;
 }
+.pName {
+  margin-left: 1rem;
+}
+
 @media screen and (max-width: 800px) {
   .mPayInfoContent {
     display: flex;
     justify-content: center;
-  }
-  .dInput {
-    display: flex;
-    align-items: center;
-  }
-  .dInput input {
-    width: 28rem;
   }
   .check {
     display: flex;
@@ -125,16 +124,16 @@ main {
     display: flex;
     justify-content: flex-end;
     padding-right: 1rem;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
   }
   .mPayInfoContent .box {
     margin: 3rem auto;
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 10px;
+    width: 90%;
+    border: 1px solid rgb(94, 92, 92);
+    /* border-radius: 10px; */
   }
   .boxContent {
-    padding: 1rem 1rem;
+    padding: 0 1rem 1rem;
   }
   .imgPart {
     display: flex;
@@ -145,8 +144,65 @@ main {
     margin-right: 1rem;
   }
   .number {
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  .X {
+    margin-top: 1rem;
+  }
+  .mAddNum {
+    /* width: 50%; */
+  }
+  .mAddNum {
+    display: flex;
+  }
+  .mAddNum a button {
+    width: 1.5rem;
+    border-radius: 5px;
+    color: white;
+
+    background-color: #4c3410;
+    /* border: 1px solid #e4d2a3; */
+  }
+
+  .mAddNum a :hover {
+    background-color: #e4d2a3;
+    border: transparent;
+  }
+
+  .mAddNum input {
+    border: 0;
+    width: 10rem;
+    text-align: center;
+  }
+  .dInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dInput input {
+    height: 2rem;
+    width: 25rem;
+    border-radius: 5px;
+    border: 1px solid #e4d2a3;
+  }
+  .dInput button {
+    width: 2rem;
+    height: 2rem;
+    line-height: 1rem;
+    padding-top: 10px;
+    background: #e4d2a3;
+    border: transparent;
+    color: white;
+  }
+}
+@media screen and (min-width: 380px) {
+  .mAddNum input {
+    border: 0;
+    width: 5rem;
+    text-align: center;
   }
 }

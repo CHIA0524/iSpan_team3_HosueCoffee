@@ -146,7 +146,7 @@
                 <div class="col-2">
                     <img class="packageImg" src="./img/包裝 9.png" alt="">
                 </div>
-                <div class="col-4">
+                <div class="col-4 pName">
                     <p>伊莎米 精選招牌特調(半磅)</p>
                 </div>
                 <div class="col-3 num d-flex">
@@ -169,7 +169,7 @@
                 <div class="col-2">
                     <img class="packageImg" src="./img/包裝 9.png" alt="">
                 </div>
-                <div class="col-4">
+                <div class="col-4 pName">
                     <p>伊莎米 精選招牌特調(半磅)</p>
                 </div>
                 <div class="col-3 num d-flex">
@@ -192,7 +192,7 @@
         <!-- 手機版 -->
         <div class="mPayInfoContent">
             <div class="box">
-                <a href=""><img src="./img/Vector.png" alt=""></a>
+                <a href=""><img class="X" src="./img/Vector.png" alt=""></a>
                 <div class="boxContent">
                     <div class="imgPart">
                         <img class="packageImg" src="./img/包裝 9.png" alt="">
@@ -202,30 +202,19 @@
                         </div>
                     </div>
                     <div class="number">
-                        <div class="addNum">
-                            <div class="NumL">-</div>
-                            <div><input type="text"></div>
-                            <div class="NumR">+</div>
+                        <div class="mAddNum">
+                            <a href=""><button type="button" class="buttonNum" id="plus">+</button></a>
+                            <input class="num" type="text" id="text" value="1" />
+                            <a href=""><button type="button" class="buttonNum" id="subtract">-</button></a>
                         </div>
-
                         <h3>$499</h3>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
-
-
-
+        <!-- 折扣結帳區 -->
         <div class="dInput">
             <div>
-                <div class="countTotal">
-                    <h4>商品小計</h4>
-                    <h4>$499</h4>
-                </div>
                 <div>
                     <div class="dText">
                         <p>優惠碼使用</p>
@@ -249,9 +238,23 @@
                         </a>
                     </div>
                 </div>
+                <hr>
+                <div class="countTotal">
+                    <div>
+                        <h4>商品小計</h4>
+                        <h4>優惠券</h4>
+                        <h4>紅利折扣</h4>
+                    </div>
+                    <div>
+                        <h4>$499</h4>
+                        <h4>$499</h4>
+                        <h4>$499</h4>
+                    </div>
+                </div>
             </div>
         </div>
         <hr>
+
         <div class="check">
             <a href=""><button type="button" class="addCartBtn" id="subtract">繼續購物
                 </button></a>
