@@ -8,19 +8,64 @@
 
 .navItem {
     list-style: none;
-    
     align-items: center;
 }
 
-.navItem a{
-    text-decoration: none;
-    
-    font-size: 50px;
+.navItem a h3{
+    text-decoration: none;    
+    font-size: 18px;
 }
 
-.navItem a:hover{
+.navItem a p{
+    font-size: 14px;
+}
+
+
+.navItem a:hover h3{
 color: #EDE1C1;
 
 }
 
+/* .navItem h3:hover {
+    color: #EDE1C1;
+    
+    } */
 
+.navItem a h3{
+    text-align: center;
+}
+
+.navLink {
+text-decoration: none;
+}
+
+
+.blogType {
+    display: none;
+    height: 60px;
+    width:100%;
+  }
+
+
+@media screen and (max-width: 800px) {
+
+    .blogNav{
+        display: none;
+    }
+
+.blogType {
+    padding-top: -1rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+.typeSelect {
+    width: 20%;
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #e4d2a3;
+    color: #4c3410;
+  }
+}
