@@ -221,6 +221,7 @@
     background-color: #e4d2a3;
     border-radius: 50%;
     margin:0 0.5rem;
+    cursor: pointer;
   }
   .lmLogo i{
     font-size: 1.5rem;
@@ -237,7 +238,7 @@
     padding: 0.8rem 0;
   }
   .loginCM{
-    display: none;
+    display: none; 
     margin-bottom: 2rem;
   }
   .forget-m{
