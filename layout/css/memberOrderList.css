@@ -162,6 +162,54 @@ table{
     display: none;
 }
 
+.listnavbar{
+    border-bottom: 2px solid #E4D2A3;
+    box-sizing:content-box;
+    padding: 0; 
+    margin-bottom:10px ;
+}
+.listnavbar div{
+    cursor: pointer;
+    box-sizing: content-box;
+    width: 3.5rem;
+    padding:10px;
+    text-align: center;
+    display: inline-block ;
+    transition: 0.3s;
+}
+.listnavbar div:hover{
+    background: #E4D2A3;
+}
+#nowState{
+    background: #E4D2A3;
+}
+.state{
+    font-size: 1.5rem;
+}
+.listcard{
+    cursor: pointer;
+    padding: 2rem 0;
+    border-bottom: #E4D2A3 1px solid;
+    line-height: 2rem;
+    height: 12rem;
+    transition: 0.3s;
+}
+.listimg{
+    height: 8rem;
+    display: block;
+    margin: 0 auto;
+}
+.ttpiece{
+    padding-top: 3rem;
+    font-size: 1.2rem;
+    text-align: right;
+}
+.listdata{
+    padding-top:1rem ;
+}
+.listcard:hover{
+        /* background-color: rgba(228, 210, 163, 0.1); */
+    }
 
 @media screen and (max-width:1000px) {
     .mMember{
