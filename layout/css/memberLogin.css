@@ -40,18 +40,7 @@
   height: 600px;
 }
 
-.mLember1 {
-  height: 287px;
-  border-radius: 20px;
-  position: relative;
-  top: 40px;
-  right: -200px;
-}
-.member2 {
-  height: 139px;
-  position: relative;
-  top: -25px;
-}
+
 .liftW1 {
   position: relative;
   left: 50px;
@@ -131,7 +120,7 @@
   display: block;
 }
 .pmain{
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .mLcolor{
   color: #4C3410;
@@ -164,7 +153,18 @@
   cursor: pointer;
 }
 
-
+.member1 {
+  height: 287px;
+  border-radius: 20px;
+  position: relative;
+  top: 40px;
+  right: -200px;
+}
+.member2 {
+  height: 139px;
+  position: relative;
+  top: -25px;
+}
 
 @media screen and (max-width:1200px){
   .con3-None{
