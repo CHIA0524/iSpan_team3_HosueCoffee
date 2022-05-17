@@ -1,10 +1,11 @@
 $colorMain: #E4D2A3;
 $colorMain2: #7D704D;
-
-
+$colorMain3: #A37025;
+// 空白
 .spaceTop {
   margin-bottom:2em;
 }
+
 .spaceTop2{
   margin-top:5em;
 }
@@ -14,9 +15,22 @@ $colorMain2: #7D704D;
     justify-content: center;
 }
 
+.check2{
+  color: #000;
+  opacity:  0.25;
+}
+
+
+
+
+// 流程圖
+
 .process {
     display: flex;
     justify-content: center;
+}
+.processRWD{
+  display: none;
 }
 
 .processIn {
@@ -44,10 +58,20 @@ $colorMain2: #7D704D;
     height: 5px;
     margin-top: 13px;
 }
+
 .processInBoxwhite{
   color: white;
 }
 
+.processInBoxColor {
+  color: $colorMain3;
+}
+
+.processInBoxNum {
+  display: none;
+}
+
+// 訂單列表
 .listBody {
     width: 80%;
     margin: auto;
@@ -108,7 +132,8 @@ $colorMain2: #7D704D;
         span {
           color: black;
         }
-      } 
+  } 
+
   .deletestyle:hover{
       background-color: #E4D2A3;
   }
@@ -122,6 +147,12 @@ $colorMain2: #7D704D;
 .subtotal {
     margin-top: 2em;
     margin-bottom: 2em;
+    display: flex;
+    justify-content: end;
+    h4{
+      display: flex;
+      justify-content: end;
+    }
 }
 
 .points {
@@ -160,12 +191,13 @@ $colorMain2: #7D704D;
   display: flex;
   justify-content: end;
 }
+
 .payfun {
   display: flex;
   justify-content: end;
 }
 
-@media (max-width: 1024px) {
+@media (max-width:1024px) {
     .listBody {
         input {
             width: 5rem;
@@ -220,15 +252,80 @@ $colorMain2: #7D704D;
     .trash {
       display: block;
     }
-    
+    .check2{
+      display: none;
+    }
 }
-@media (max-width:600px) {
+
+@media (max-width:1024px) {
+  .PromoBody{
+    width: 100%;
+  }
   .Promo {
     justify-content: normal;
-    width: 100%;
     input{
+      width: 80%;
+    }
+  }
+  .Payment {
+    width: 100%;
+    .sel--black-panther{
       width: 100%;
     }
+    .sel__placeholder {
+      text-align: center;
+    }
+  }
+  .processInBox {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: $colorMain3;
+    border: #000 1px solid 0.25;
+    .check1{
+      display: none;
+    }
+  }
+  .processInBoxNum {
+    display: block;
+    color: white;
+  }
+  .processRWD{
+    display: flex;
+  }
+  .processInBoxLine {
+    height: 1px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    background-color: black;
+    opacity: 0.25;
+  }
+  .subtotal {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width:1024px) {
+  .listBody{
+    padding: 5px 0;
+  }
+
+  .listImg {
+    width: 4em;
+    height: 4em;
+    padding: 0;
+  }
+
+  .nameRotate {
+    margin-left: 0;
+    padding-left: 0;
+    width: 7em;
+  }
+
+  .processRWDcenter{
+    width: 6em;
+    white-space:nowrap;
   }
 }
 
@@ -240,7 +337,12 @@ $colorMain2: #7D704D;
     height: 1.5px;
     background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);
   }
-  
+
+  @media (max-width:600px) {
+    .rule {
+      width: 100%;
+    }
+  }
   /* ===== Select Box ===== */
   .sel {
     font-size: 10px;
@@ -336,7 +438,6 @@ $colorMain2: #7D704D;
     font-size:12px;
     margin-left: 5px;
     display: none;
-
   }
   
   ion-icon{

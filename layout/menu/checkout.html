@@ -98,23 +98,46 @@
     </header>
 
     <main>
-        <!-- 空白 -->
-        <div class="spaceTop row"></div>
-        <!--流程圖 -->
         <div class="col-4 checkOut">
             <h2>結帳</h2>
         </div>
+        <!-- 空白 -->
+        <div class="spaceTop row"></div>
+        <!--流程圖 -->
         <div class="process">
             <div class="processIn row">
-                <div class="processInBox processInBoxwhite col-2">確認商品</div>
+                <div class="processInBox processInBoxwhite col-2">
+                    <span class="processInBoxwhite check1">確認商品</span>
+                    <span class="processInBoxNum processInBoxwhite">1</span>
+                </div>
                 <div class="col-2 processInBoxNon">
                     <div class="processInBoxLine"></div>
                 </div>
-                <div class="col-2 processInBox">填寫資料</div>
+                <div class="col-2 processInBox processInBoxwhite">
+                    <span class="check2">填寫資料</span> 
+                    <span class="processInBoxNum processInBoxwhite ">2</span>
+                </div>
                 <div class="col-2 processInBoxNon">
                     <div class="processInBoxLine"></div>
                 </div>
-                <div class="col-2 processInBox">完成結帳</div>
+                <div class="col-2 processInBox processInBoxwhite">
+                    <span class="check2">完成結帳</span>
+                    <span class="processInBoxNum processInBoxwhite">3</span>
+                </div>
+            </div>
+        </div>
+        <!-- 流程圖RWD -->
+        <div class="process pt-2 processRWD">
+            <div class="">
+                <span class="processInBoxColor ">確認商品</span>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2 d-flex justify-content-center">
+                <span class="processRWDcenter d-flex align-items-end">填寫資料</span>
+            </div>
+            <div class="col-1"></div>
+            <div class="">
+                <span>完成結帳</span>
             </div>
         </div>
         <!-- 空白 -->
@@ -153,9 +176,9 @@
             </div>
         </div>
 
-        <!--訂單列表 -->
+        <!-- 訂單列表 -->
         <div class="listBody">
-            <div class="d-flex align-items-center ">
+            <div class="d-flex align-items-center justify-content-between">
                 <div class="col-3">
                     <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
@@ -176,16 +199,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2 ">
-                    <a href="" class="btn delete"><span>刪除</span></a>
+                <div class="col-2">
+                    <a href="" class="btn deletestyle delete"><span>刪除</span></a>
                     <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
                 </div>
+                
                 <div class="price">
-                    <p></p>$150
+                    $150
                 </div>
             </div>
         </div>
-
+        <!-- 優惠列表 -->
         <div class="listBody">
             <div class="Promo">
                 <div class="PromoBody">
@@ -196,8 +220,8 @@
                     </a>
                 </div>
             </div>
-            <div class="d-flex justify-content-end points">
-                <div class="col-3">
+            <div class="Promo">
+                <div class="PromoBody">
                     <p>紅利點數使用</p>
                     <div class="d-flex">
                         <p>可折扣點數:</p>
@@ -212,9 +236,10 @@
                 </div>
             </div>
         </div>
+        <!-- 付款方式下拉選單 -->
         <div class="listBody">
-            <div class="d-flex justify-content-end">
-                <div class="col-3 Payment">
+            <div class="Promo">
+                <div class="Payment">
                     <p>付款方式</p>
                     <div class="sel sel--black-panther">
                         <select name="select-profession" id="select-profession">
@@ -229,21 +254,38 @@
                     <hr class="rule">
                 </div>
             </div>
-            <div class="d-flex justify-content-end subtotal">
-                <div class="d-flex col-2">
+            <!-- 商品小計: -->
+            <div class="subtotal">
+                <div class="d-flex col-3">
                     <p>商品小計:</p>
                 </div>
-                <div class="d-flex">
+                <div class="totalPrice">
+                    <!-- 優惠碼折扣統計 -->
+                    <div class="d-flex justify-content-between">
+                        <h6>優惠碼折扣</h6>
+                        <h6>-25</h6>
+                    </div>
+                    <!-- 紅利折扣統計 -->
+                    <div class="d-flex justify-content-between mb-5">
+                        <h6>紅利折扣</h6>
+                        <h6>-25</h6>
+                    </div>
                     <h4 style="color: red;">$150</h2>
                 </div>
             </div>
-            <div class="d-flex justify-content-end">
-                <div class="col-2 d-flex justify-content-end">
+            <!-- 繼續購物按鈕 -->
+            <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-end">
+                    <div class="btn PaymentLast">
+                            繼續購物
+                    </div>
+                </div>
+                <!-- 結帳按鈕 -->
+                <div class="d-flex justify-content-end">
                     <div class="btn PaymentLast">
                             結帳
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -343,6 +385,17 @@
                   $currentSel.children('.sel__placeholder').text(txt);
                   $currentSel.children('select').prop('selectedIndex', index + 1);
                 });
+                </script>
+                <script>
+                    const upElement = document.querySelector('.buttonRight')
+                            
+                    const downElement = document.querySelector('.buttonLeft')
+
+                    upElement.addEventListener("click" , e => {
+                        const currenNumber = quantity ( NumberElement.textCountent);
+                        NumberElement.textCountent = currenNumber + 1;
+                    })
+                        
                 </script>
 </body>
 

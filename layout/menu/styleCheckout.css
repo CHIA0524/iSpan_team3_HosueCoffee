@@ -15,6 +15,11 @@
           justify-content: center;
 }
 
+.check2 {
+  color: #000;
+  opacity: 0.25;
+}
+
 .process {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,6 +27,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.processRWD {
+  display: none;
 }
 
 .processIn {
@@ -59,6 +68,14 @@
 
 .processInBoxwhite {
   color: white;
+}
+
+.processInBoxColor {
+  color: #A37025;
+}
+
+.processInBoxNum {
+  display: none;
 }
 
 .listBody {
@@ -146,6 +163,21 @@
 .subtotal {
   margin-top: 2em;
   margin-bottom: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.subtotal h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .points p {
@@ -253,17 +285,83 @@
   .trash {
     display: block;
   }
+  .check2 {
+    display: none;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .PromoBody {
+    width: 100%;
+  }
   .Promo {
     -webkit-box-pack: normal;
         -ms-flex-pack: normal;
             justify-content: normal;
-    width: 100%;
   }
   .Promo input {
+    width: 80%;
+  }
+  .Payment {
     width: 100%;
+  }
+  .Payment .sel--black-panther {
+    width: 100%;
+  }
+  .Payment .sel__placeholder {
+    text-align: center;
+  }
+  .processInBox {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: #A37025;
+    border: #000 1px solid 0.25;
+  }
+  .processInBox .check1 {
+    display: none;
+  }
+  .processInBoxNum {
+    display: block;
+    color: white;
+  }
+  .processRWD {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .processInBoxLine {
+    height: 1px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    background-color: black;
+    opacity: 0.25;
+  }
+  .subtotal {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .listBody {
+    padding: 5px 0;
+  }
+  .listImg {
+    width: 4em;
+    height: 4em;
+    padding: 0;
+  }
+  .nameRotate {
+    margin-left: 0;
+    padding-left: 0;
+    width: 7em;
+  }
+  .processRWDcenter {
+    width: 6em;
+    white-space: nowrap;
   }
 }
 
@@ -273,6 +371,12 @@
   height: 1.5px;
   background-image: -webkit-gradient(linear, left top, right top, from(#f0f0f0), color-stop(#c9bbae), to(#f0f0f0));
   background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);
+}
+
+@media (max-width: 600px) {
+  .rule {
+    width: 100%;
+  }
 }
 
 /* ===== Select Box ===== */
