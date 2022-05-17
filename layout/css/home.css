@@ -117,24 +117,22 @@ body {
     flex-grow: 1 100px;
     flex-flow: column wrap;
     display: flex;
-    /* margin: 30px;
-    padding: 30px 0; */
+    margin: 30px 0;
+    /* padding: 30px; */
 }
 
 .product h1 {
     color: #fff;
     padding: 30px 0;
+    margin: 0;
     text-align: center;
 }
 
 .scrollDiv {
-    width: 80%;
-    height: auto;
+    width: 70%;
+    height: 400px;
     overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    overflow: hidden;
-    white-space: nowrap;
+    overflow-y: scroll;
     justify-content: center;
     margin: 0px auto;
     flex-grow: 1 100px;
@@ -145,11 +143,10 @@ body {
 }
 
 .productscroll {
-    /* padding: 50px; */
+    margin: 30px 0;
     width: 70%;
     text-align: left;
     color: #E4D2A3;
-    margin: 0px auto;
     display: flex;
     flex-grow: 1 100px;
     justify-content: center;
@@ -163,20 +160,21 @@ body {
 
 .productdetail {
     width: 50%;
-    height: 250px;
+    height: auto;
     margin: 0px auto;
     display: flex;
     flex-grow: 1 100px;
-    justify-content: center;
+    justify-content: space-between;
     flex-flow: column wrap;
     align-items: center;
     text-align: left;
 }
 
-.productdetail p{
+.productdetail h5 h6 p {
     width: 100%;
     height: auto;
     margin: 10px;
+    word-wrap: break-word;
 }
 
 .productSel {
@@ -185,13 +183,17 @@ body {
     justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
-    padding: 0 20px;
+    padding: 30px;
 }
 
 .productSel img {
     width: 150px;
     height: auto;
 
+}
+
+.productBTN {
+    display: none;
 }
 
 /* ------------------ */
@@ -624,25 +626,102 @@ body {
 
     /* flagship products */
     .product {
+        background: #4D3410;
         width: 100%;
         height: auto;
-        background: #4D3410;
+        margin: 0px auto;
+        padding: 10px 0;
     }
 
     .allProduct {
-        width: 90%;
-        padding: 10px;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        margin: 10px 0;
+        /* padding: 30px; */
     }
 
     .product h1 {
-        color: #E4D2A3;
+        color: #fff;
+        padding: 30px 0;
+        margin: 0;
+        text-align: center;
     }
 
     .scrollDiv {
-        width: 100%;
+        width: 70%;
+        height: 450px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        /* text-align: center; */
+    }
+
+    .scrollDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+    .productscroll {
+        margin: 5px;
+        width: 100%;
+        text-align: center;
+        color: #E4D2A3;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .productscroll img {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .productdetail {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-between;
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: left;
+    }
+
+    .productdetail h5 h6 p {
+        width: 100%;
+        height: auto;
+        margin: 10px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .productBTN {
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .selBTN{
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        background: #fff;
+        border: 2px #E4D2A3 solid;
+        border-radius: 50%;
     }
 
     .productSel {
@@ -929,7 +1008,7 @@ body {
         text-align: center;
         align-items: center;
         justify-content: center;
-        /* padding-top: 50px; */
+        padding-top: 0;
         background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
         background-repeat: no-repeat;
         background-size: 100%;
@@ -939,7 +1018,8 @@ body {
     .aboutUsTest {
         width: 100%;
         height: auto;
-        margin: 60px;
+        margin: 0;
+        padding: 100px 0;
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -955,6 +1035,7 @@ body {
     .aboutUsTest h1 {
         justify-content: center;
         padding: 10px;
+        margin: 0;
     }
 
     .aboutUsTest p {
@@ -962,7 +1043,8 @@ body {
         font-size: 16px;
         letter-spacing: 3px;
         margin: 0px auto;
-        padding: 10px;
+        margin-bottom: 20px;
+        padding: 0;
         text-align: center;
         line-height: 30px;
     }
