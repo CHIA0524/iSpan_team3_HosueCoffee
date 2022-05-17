@@ -121,7 +121,7 @@
         <div class="spaceTop2"></div>
         <!-- 訂單列表 -->
         <div class="listBody">
-            <div class="d-flex align-items-center ">
+            <div class="d-flex align-items-center justify-content-between">
                 <div class="col-3">
                     <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
@@ -142,11 +142,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2 delete">
-                    <a href="" class="btn"><span>刪除</span></a>
+                <div class="col-2">
+                    <a href="" class="btn deletestyle delete"><span>刪除</span></a>
+                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
                 </div>
-                <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
-                <div class="col-1 price">
+                
+                <div class="price">
                     $150
                 </div>
             </div>
@@ -175,24 +176,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2 delete">
-                    <a href="" class="btn"><span>刪除</span></a>
+                <div class="col-2 ">
+                    <a href="" class="btn delete"><span>刪除</span></a>
+                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
                 </div>
-                <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
-                <div class="col-1 price">
-                    $150
+                <div class="price">
+                    <p></p>$150
                 </div>
             </div>
         </div>
 
         <div class="listBody">
-            <div class="d-flex justify-content-end">
-                <div class="col-3">
+            <div class="Promo">
+                <div class="PromoBody">
                     <p>優惠碼使用</p>
                     <input type="text">
-                    <label>
-                        <input type="checkbox" value="confirm" />
-                    </label>
+                    <a href="">
+                        <button class="btn btn-outline-secondary" type="button">✓</button>
+                    </a>
                 </div>
             </div>
             <div class="d-flex justify-content-end points">
@@ -205,7 +206,9 @@
                         <p>30點</p>
                     </div>
                     <input type="text">
-                    <input type="checkbox" name="" id="">
+                    <a href="">
+                        <button class="btn btn-outline-secondary" type="button">✓</button>
+                    </a>
                 </div>
             </div>
         </div>

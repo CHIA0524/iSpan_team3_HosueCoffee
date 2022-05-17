@@ -101,24 +101,24 @@ $colorMain2: #7D704D;
     
 }
 
-.delete {
-    a {
+.deletestyle {
         text-decoration: none;
         border: #E4D2A3 1px solid;
         letter-spacing: 2px;
-        
         span {
           color: black;
         }
-      }
-    }
-  .delete:hover{
-    a{
+      } 
+  .deletestyle:hover{
       background-color: #E4D2A3;
-    }
   }
 
-
+  .btn-outline-secondary{
+    background: white;
+    border: 1px solid #e4d2a3;
+    color: #e4d2a3;
+  }
+  
 .subtotal {
     margin-top: 2em;
     margin-bottom: 2em;
@@ -156,8 +156,16 @@ $colorMain2: #7D704D;
     background-color: white;
 }
 
+.Promo{
+  display: flex;
+  justify-content: end;
+}
+.payfun {
+  display: flex;
+  justify-content: end;
+}
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
     .listBody {
         input {
             width: 5rem;
@@ -197,7 +205,7 @@ $colorMain2: #7D704D;
       border: 0;
     }
     .price {
-      margin-left: 3em;
+      display: block;
     }
     .nameRotate{
       // align-items: center;
@@ -214,7 +222,15 @@ $colorMain2: #7D704D;
     }
     
 }
-
+@media (max-width:600px) {
+  .Promo {
+    justify-content: normal;
+    width: 100%;
+    input{
+      width: 100%;
+    }
+  }
+}
 
 // drowdown
 
@@ -323,6 +339,10 @@ $colorMain2: #7D704D;
 
   }
   
+  ion-icon{
+    font-size: 10px;
+  }
+
   .sel__box__options.selected::after {
     display: inline;
   }

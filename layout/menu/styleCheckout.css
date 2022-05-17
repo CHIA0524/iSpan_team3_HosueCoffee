@@ -123,18 +123,24 @@
   font-size: 18px;
 }
 
-.delete a {
+.deletestyle {
   text-decoration: none;
   border: #E4D2A3 1px solid;
   letter-spacing: 2px;
 }
 
-.delete a span {
+.deletestyle span {
   color: black;
 }
 
-.delete:hover a {
+.deletestyle:hover {
   background-color: #E4D2A3;
+}
+
+.btn-outline-secondary {
+  background: white;
+  border: 1px solid #e4d2a3;
+  color: #e4d2a3;
 }
 
 .subtotal {
@@ -174,7 +180,25 @@
   background-color: white;
 }
 
-@media (max-width: 800px) {
+.Promo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.payfun {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+@media (max-width: 1024px) {
   .listBody input {
     width: 5rem;
   }
@@ -212,7 +236,7 @@
     border: 0;
   }
   .price {
-    margin-left: 3em;
+    display: block;
   }
   .nameRotate {
     -webkit-box-orient: vertical;
@@ -228,6 +252,18 @@
   }
   .trash {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .Promo {
+    -webkit-box-pack: normal;
+        -ms-flex-pack: normal;
+            justify-content: normal;
+    width: 100%;
+  }
+  .Promo input {
+    width: 100%;
   }
 }
 
@@ -341,6 +377,10 @@
   font-size: 12px;
   margin-left: 5px;
   display: none;
+}
+
+ion-icon {
+  font-size: 10px;
 }
 
 .sel__box__options.selected::after {
