@@ -199,10 +199,14 @@ main {
     color: white;
   }
 }
-@media screen and (min-width: 380px) {
+@media screen and (max-width: 450px) {
   .mAddNum input {
-    border: 0;
     width: 5rem;
-    text-align: center;
+  }
+  .dInput input {
+    height: 2rem;
+    width: 18rem;
+    border-radius: 5px;
+    border: 1px solid #e4d2a3;
   }
 }

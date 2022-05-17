@@ -21,7 +21,7 @@
 }
 
 .stepLine {
-  width: 6rem;
+  width: 12rem;
   position: relative;
   top: 0.8rem;
   height: 5px;
@@ -44,7 +44,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    padding: 25px 0 25px 20px;
+    padding: 25px 0;
   }
 
   .mStep,
@@ -63,7 +63,7 @@
   }
 
   .mStepLine {
-    width: 6rem;
+    width: 7rem;
     position: relative;
     top: 1.5rem;
     height: 2px;
@@ -77,5 +77,10 @@
     width: 100px;
     padding-top: 1rem;
     margin-left: -1.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mStepLine {
+    width: 5.5rem;
   }
 }
