@@ -27,22 +27,17 @@ function StoreCard(props){
     fetchData();
   },[])
 
-  const [storeCardData, setStoreCardData] = useState([]);
 
   // 傳遞資料至父元素 cardDetail
   const sentDetailToCardDetail = useCallback((data)=>()=>{
-    console.log(data);
-    let { time, icon_group, serve_name } = data;
-    // console.log(document.querySelectorAll(".itemText")[dataIndex].querySelectorAll("p")[0].innerHTML);
-    console.log(time);
-    // console.log(icon_group);
-    console.log(serve_name);
-    setStoreCardData([time, icon_group]);
-    console.log(storeCardData);
-    props.setDataFromStoreCard(storeCardData);
+    let { times, icon_group, serve_name } = data;
+    let time = times.split(',');
+    let icon = icon_group.split(',');
+    let serve = serve_name.split(',');
+    props.setDataFromStoreCard([time, icon, serve]);
     props.setCardDetailCss(`cardDetailOpenCss`);
   },
-  [storeCardData]
+  []
   )
 
   return(

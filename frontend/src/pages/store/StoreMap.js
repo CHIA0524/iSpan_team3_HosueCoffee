@@ -25,9 +25,8 @@ function StoreMap(){
 
 
   // 接收子組件資料，放到cardDetail
-  const [dataFromStoreCard, setDataFromStoreCard] = useState([])
-
-  
+  const [dataFromStoreCard, setDataFromStoreCard] = useState([[],[],[]])
+  // console.log(dataFromStoreCard);
 
   return(
     <>
@@ -45,26 +44,24 @@ function StoreMap(){
                 <IoArrowBack />
               </li>
               <div>
-                {/* {console.log(dataFromStoreCard)} */}
-                <h5>{dataFromStoreCard}</h5>
                 <h5>營業時間</h5>
-                <li>星期一：休息</li>
-                <li>星期二：營業 8:00-22:00</li>
-                <li>星期三：營業 8:00-22:00</li>
-                <li>星期四：營業 8:00-22:00</li>
-                <li>星期五：營業 8:00-22:00</li>
-                <li>星期六：營業 8:00-22:00</li>
-                <li>星期日：休息</li>
+                {dataFromStoreCard[0].map((time, i)=>{
+                  return(
+                      <li key={i}>
+                      { time.includes('休息') ? time.substr(0, 6) : time}
+                      </li>
+                  )
+                })}
               </div>
               <br></br>
               <div>
                 <h5>門市服務</h5>
                 <div className="storeServeList">
-                  <li><i className="fa-solid fa-user-large"></i></li>
-                  <li><i className="fa-solid fa-user-large"></i></li>
-                  <li><i className="fa-solid fa-user-large"></i></li>
-                  <li><i className="fa-solid fa-user-large"></i></li>
-                  <li><i className="fa-solid fa-user-large"></i></li>
+                  {dataFromStoreCard[1].map((icon, i)=>{
+                    return(
+                      <li key={i}>{icon}</li>
+                    )
+                  })}
                 </div>
               </div>
             </div>
