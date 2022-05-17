@@ -637,7 +637,7 @@ body {
     /* TODAY’S ARTICLE */
     .blog {
         width: 100%;
-        /* padding: 30px; */
+        margin-top: 10px;
 
     }
 
@@ -646,7 +646,7 @@ body {
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 50px;
+        padding: 30px;
     }
 
     .allCard {
