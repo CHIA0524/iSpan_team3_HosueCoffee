@@ -16,8 +16,6 @@ import test from './img/01.jpg'
 
 function StoreCard(props){
 
-  const [storeCardData, setStoreCardData] = useState('jkskhfj');
-
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
@@ -29,17 +27,22 @@ function StoreCard(props){
     fetchData();
   },[])
 
+  const [storeCardData, setStoreCardData] = useState([]);
+
   // 傳遞資料至父元素 cardDetail
-  const sentDetailToCardDetail = useCallback((dataIndex)=>()=>{
-    console.log(dataIndex);
+  const sentDetailToCardDetail = useCallback((data)=>()=>{
+    console.log(data);
+    let { time, icon_group, serve_name } = data;
     // console.log(document.querySelectorAll(".itemText")[dataIndex].querySelectorAll("p")[0].innerHTML);
-    console.log(dataIndex.time);
-    console.log(dataIndex.icon_group);
-    console.log(dataIndex.serve_name);
+    console.log(time);
+    // console.log(icon_group);
+    console.log(serve_name);
+    setStoreCardData([time, icon_group]);
+    console.log(storeCardData);
     props.setDataFromStoreCard(storeCardData);
     props.setCardDetailCss(`cardDetailOpenCss`);
   },
-  []
+  [storeCardData]
   )
 
   return(
@@ -55,7 +58,7 @@ function StoreCard(props){
               <p>{`${store.city} ${store.address}`}</p>
               <p>{store.phone}</p>
             </div>
-            <div onClick={sentDetailToCardDetail(datas[i])}>
+            <div onClick={sentDetailToCardDetail(datas[(store.id-1)])}>
               <IoInformationCircleOutline size={25}/>
             </div>
           </div>

@@ -25,7 +25,7 @@ function StoreMap(){
 
 
   // 接收子組件資料，放到cardDetail
-  const [dataFromStoreCard, setDataFromStoreCard] = useState('')
+  const [dataFromStoreCard, setDataFromStoreCard] = useState([])
 
   
 
@@ -45,6 +45,8 @@ function StoreMap(){
                 <IoArrowBack />
               </li>
               <div>
+                {/* {console.log(dataFromStoreCard)} */}
+                <h5>{dataFromStoreCard}</h5>
                 <h5>營業時間</h5>
                 <li>星期一：休息</li>
                 <li>星期二：營業 8:00-22:00</li>
