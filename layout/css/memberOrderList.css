@@ -168,7 +168,7 @@ table{
     padding: 0; 
     margin-bottom:10px ;
 }
-.listnavbar div{
+.CState{
     cursor: pointer;
     box-sizing: content-box;
     width: 3.5rem;
@@ -176,8 +176,9 @@ table{
     text-align: center;
     display: inline-block ;
     transition: 0.3s;
+    margin: 0 auto;
 }
-.listnavbar div:hover{
+.CState:hover{
     background: #E4D2A3;
 }
 #nowState{
@@ -195,7 +196,8 @@ table{
     transition: 0.3s;
 }
 .listimg{
-    height: 8rem;
+    max-width: 100%;
+    max-height: 8rem;
     display: block;
     margin: 0 auto;
 }
@@ -207,9 +209,25 @@ table{
 .listdata{
     padding-top:1rem ;
 }
-.listcard:hover{
-        /* background-color: rgba(228, 210, 163, 0.1); */
-    }
+
+.rwdGT{
+    font-size: 1.5rem;
+}
+.col-wn{
+    display: none;
+}
+.toph2{
+    text-align: center;
+}
+.tophr{
+    margin: 0 auto;
+    width: 80%;
+    color: black;
+    border-top:2px black solid ;
+}
+.barwn{
+    width: 10%;
+}
 
 @media screen and (max-width:1000px) {
     .mMember{
@@ -256,9 +274,7 @@ table{
     .proList_m{
         display: block;
     }
-    .col-3None{
-        display: none;
-    }
+  
     
     .memberEdit-w{
         display: none;
@@ -271,7 +287,9 @@ table{
     border: 0;
     
 }
-    
+    .col-wn{
+        display: block;
+    }
     table{
         text-align: center;
     }
@@ -279,6 +297,27 @@ table{
         display: block;
         width: fit-content;
         margin: 0 auto;
+    }
+    .listcard{
+        cursor: pointer;
+        padding: 2rem 0;
+        border-bottom: #E4D2A3 1px solid;
+        line-height: 2rem;
+        height: 20rem;
+        transition: 0.3s;
+    }
+    .rwdData{
+        height: fit-content;
+    }
+    .listnavbar {
+       display: inline-flex;
+       border: 0;
+    }
+    .row{
+        margin: 0;
+    }
+    .col-3None{
+        display: none;
     }
   
 }
