@@ -193,7 +193,7 @@
                         <div class="d-flex numButton">
                             <div class="btn buttonLeft">-</div>
                             <div class="quantity">
-                                <p>1</p>
+                                <p class="quantityP">1</p>
                             </div>
                             <div class="btn buttonRight">+</div>
                         </div>
@@ -387,14 +387,19 @@
                 });
                 </script>
                 <script>
+
                     const upElement = document.querySelector('.buttonRight')
                             
                     const downElement = document.querySelector('.buttonLeft')
 
-                    upElement.addEventListener("click" , e => {
-                        const currenNumber = quantity ( NumberElement.textCountent);
+                    const NumberElement = downElement.querySelector('.quantityP')
+
+                    upElement.addEventListener("click" , a => {
+                        const currenNumber = quantityP (NumberElement.textCountent);
                         NumberElement.textCountent = currenNumber + 1;
-                    })
+                    });
+
+
                         
                 </script>
 </body>
