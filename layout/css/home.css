@@ -104,31 +104,32 @@ body {
 .product {
     background: #4D3410;
     width: 100%;
-    height: 850px;
+    height: auto;
     margin: 0px auto;
-    /* padding: 30px; */
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 50px 0;
 }
 
 .allProduct {
-    width: 70%;
-    margin: 30px;
-    padding: 30px 0;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin: 0px auto;
+    flex-grow: 1 100px;
+    flex-flow: column wrap;
+    display: flex;
+    /* margin: 30px;
+    padding: 30px 0; */
 }
 
 .product h1 {
     color: #fff;
-    padding: 30px;
+    padding: 30px 0;
+    text-align: center;
 }
 
 .scrollDiv {
-    width: 70%;
-    height: 450px;
+    width: 80%;
+    height: auto;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -138,28 +139,44 @@ body {
     margin: 0px auto;
     flex-grow: 1 100px;
     flex-flow: row wrap;
-    /* display: flex; */
+    display: flex;
     /* text-align: center; */
 
 }
 
 .productscroll {
-    padding: 50px;
-    /* width: 70%; */
-    text-align: center;
+    /* padding: 50px; */
+    width: 70%;
+    text-align: left;
     color: #E4D2A3;
+    margin: 0px auto;
+    display: flex;
+    flex-grow: 1 100px;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.productscroll img {
+    width: 300px;
+}
+
+.productdetail {
+    width: 50%;
+    height: 250px;
     margin: 0px auto;
     display: flex;
     flex-grow: 1 100px;
     justify-content: center;
     flex-flow: column wrap;
     align-items: center;
-    display: inline-block;
+    text-align: left;
 }
 
-.productscroll img {
-    width: 600px;
+.productdetail p{
+    width: 100%;
     height: auto;
+    margin: 10px;
 }
 
 .productSel {
@@ -456,7 +473,7 @@ body {
     align-items: center;
     justify-content: center;
     /* padding-top: 50px; */
-    opacity: 80%;
+    /* opacity: 80%; */
     background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -473,9 +490,9 @@ body {
     color: #ccc;
 }
 
-.aboutUsTest:hover {
+.aboutUsTest :hover {
     transition: .5s;
-    opacity: 100%;
+    /* opacity: 100%; */
     color: #4D3410;
 }
 
@@ -808,7 +825,7 @@ body {
         padding: 10px 30px;
     }
 
-    .newTime {
+    .new1 .newTime {
         text-align: center;
     }
 
@@ -913,7 +930,6 @@ body {
         align-items: center;
         justify-content: center;
         /* padding-top: 50px; */
-        opacity: 80%;
         background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
         background-repeat: no-repeat;
         background-size: 100%;
@@ -923,7 +939,7 @@ body {
     .aboutUsTest {
         width: 100%;
         height: auto;
-        padding: 120px 0;
+        margin: 60px;
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -932,7 +948,7 @@ body {
 
     .aboutUsTest:hover {
         transition: .5s;
-        opacity: 100%;
+        /* opacity: 100%; */
         color: #4D3410;
     }
 
