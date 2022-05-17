@@ -46,6 +46,10 @@
   border-radius: 13px;
 }
 
+.processInBoxwhite {
+  color: white;
+}
+
 .processInBoxNon {
   padding: 0;
 }
@@ -124,6 +128,12 @@
 @media screen and (max-width: 800px) {
   .superman {
     display: inline;
+  }
+}
+
+@media screen and (max-width: 990PX) {
+  .superman {
+    margin: 0px;
   }
 }
 /*# sourceMappingURL=checkout2.css.map */

@@ -1,8 +1,12 @@
 $colorMain: #E4D2A3;
+$colorMain2: #7D704D;
 
 
 .spaceTop {
-    margin-bottom: 7rem;
+  margin-bottom:2em;
+}
+.spaceTop2{
+  margin-top:5em;
 }
 
 .checkOut {
@@ -39,6 +43,9 @@ $colorMain: #E4D2A3;
     width: 100%;
     height: 5px;
     margin-top: 13px;
+}
+.processInBoxwhite{
+  color: white;
 }
 
 .listBody {
@@ -97,10 +104,20 @@ $colorMain: #E4D2A3;
 .delete {
     a {
         text-decoration: none;
-        color: #000;
+        border: #E4D2A3 1px solid;
+        letter-spacing: 2px;
+        
+        span {
+          color: black;
+        }
+      }
     }
+  .delete:hover{
+    a{
+      background-color: #E4D2A3;
+    }
+  }
 
-}
 
 .subtotal {
     margin-top: 2em;
@@ -124,23 +141,78 @@ $colorMain: #E4D2A3;
     }
 }
 
+.trash{
+  display: none;
+}
+
 .PaymentLast {
     border: $colorMain 2px solid;
     border-radius: 10px;
     width: 7rem;
     margin-bottom: 2em;
-
+    color: 	$colorMain2;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .listBody {
         input {
             width: 5rem;
         }
     }
+    .listImg {
+      width: 6em;
+      height: 6em;
+      padding: 0;
+    }
+    .amount {
+      display: none;
+    }
+    .quantityText {
+      display: none;
+    }
+    .delete {
+      display: none;
+    }
+    .numButton {
+      border-radius: 0;
+      border: 0;
+    }
+    .quantity {
+      border: 0;
+    }
+    .buttonLeft {
+      border-radius: 5px;
+      color: white;
+      background-color: $colorMain;
+      border: 0;
+    }
+    .buttonRight {
+      border-radius: 5px;
+      color: white;
+      background-color: $colorMain;
+      border: 0;
+    }
+    .price {
+      margin-left: 3em;
+    }
+    .nameRotate{
+      // align-items: center;
+      flex-direction: column;
+      padding-left: 2em;
+      width: 11em;
+    }
+    .coffeeName {
+      width: 8em;
+      padding-bottom: 10px;
+    }
+    .trash {
+      display: block;
+    }
+    
 }
 
 
@@ -163,17 +235,19 @@ $colorMain: #E4D2A3;
     position: relative;
     cursor: pointer;
     border: $colorMain 1px solid;
-    border-radius: 20px;
+    border-radius: 5px;
+    background: white;
   }
   
   .sel::before {
     position: absolute;
     content: '\f063';
     font-family: 'FontAwesome';
-    font-size: 2em;
-    color: $colorMain;
+    font-size: 1.5em;
+    color: white;
     right: 20px;
-    top: calc(50% - 0.5em);
+    top: calc(40% - 0.5em);
+    color: $colorMain;
   }
   
   .sel.active::before {
@@ -183,10 +257,11 @@ $colorMain: #E4D2A3;
   .sel__placeholder {
     display: block;
     font-family: 'Quicksand';
-    font-size: 2.3em;
+    font-size:16px;
     color: $colorMain;
-    padding: 0.2em 0.5em;
+    padding: 0.5em 1em;
     text-align: left;
+    margin-left: 15px;
     pointer-events: none;
     user-select: none;
     visibility: visible;
@@ -209,6 +284,7 @@ $colorMain: #E4D2A3;
   
   .sel.active .sel__placeholder::before {
     visibility: visible;
+    
   }
   
   .sel__box {
@@ -218,7 +294,7 @@ $colorMain: #E4D2A3;
     display: none;
     list-style-type: none;
     text-align: left;
-    font-size: 1em;
+    font-size: 12px;
     background-color: #FFF;
     width: calc(100% + 8px);
     box-sizing: border-box;
@@ -241,9 +317,10 @@ $colorMain: #E4D2A3;
   .sel__box__options::after {
     content: '\f00c';
     font-family: 'FontAwesome';
-    font-size: 0.5em;
+    font-size:12px;
     margin-left: 5px;
     display: none;
+
   }
   
   .sel__box__options.selected::after {
@@ -251,13 +328,11 @@ $colorMain: #E4D2A3;
   }
   
   .sel__box__options:hover {
-    background-color: #ebedef;
+    background-color: $colorMain;
+    color: white
   }
   
   /* ----- Select Box Black Panther ----- */
-  .sel {
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-  }
   
   .sel--black-panther {
     z-index: 3;

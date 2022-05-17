@@ -98,14 +98,15 @@
     </header>
 
     <main>
-        <!--流程圖 -->
+        <!-- 空白 -->
         <div class="spaceTop row"></div>
+        <!--流程圖 -->
         <div class="col-4 checkOut">
             <h2>結帳</h2>
         </div>
         <div class="process">
             <div class="processIn row">
-                <div class="processInBox col-2">確認商品</div>
+                <div class="processInBox processInBoxwhite col-2">確認商品</div>
                 <div class="col-2 processInBoxNon">
                     <div class="processInBoxLine"></div>
                 </div>
@@ -116,74 +117,75 @@
                 <div class="col-2 processInBox">完成結帳</div>
             </div>
         </div>
-        <div class="spaceTop"></div>
-        <!-- list singe -->
+        <!-- 空白 -->
+        <div class="spaceTop2"></div>
+        <!-- 訂單列表 -->
         <div class="listBody">
             <div class="d-flex align-items-center ">
                 <div class="col-3">
                     <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
-                <div class="col-4">
-                    <span>可可綿雲琪朵</span>
-                </div>
-                <div class="d-flex col-2">
-                    <div class="quantityText">
-                        <span>數量：</span>
+                <div class="col-6 d-flex nameRotate">
+                    <div class="col-6 coffeeName">
+                        <span>可可綿雲琪朵</span>
                     </div>
-                    <div class="d-flex numButton">
-                        <div class="btn buttonLeft">-</div>
-                        <div class="quantity">
-                            <p>1</p>
+                    <div class="d-flex col-6 amount">
+                        <div class="quantityText">
+                            數量：
                         </div>
-                        <div class="btn buttonRight">+</div>
+                        <div class="d-flex numButton">
+                            <div class="btn buttonLeft">-</div>
+                            <div class="quantity">
+                                <p>1</p>
+                            </div>
+                            <div class="btn buttonRight">+</div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-2 delete">
-                    <a href=""><span>刪除</span></a>
+                    <a href="" class="btn"><span>刪除</span></a>
                 </div>
-                <div class="col-1">
+                <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
+                <div class="col-1 price">
                     $150
                 </div>
             </div>
         </div>
-        <!-- list singe -->
+
+        <!--訂單列表 -->
         <div class="listBody">
             <div class="d-flex align-items-center ">
                 <div class="col-3">
                     <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
-                <div class="col-4">
-                    <span>可可綿雲琪朵</span>
-                </div>
-                <div class="d-flex col-2">
-                    <div class="quantityText">
-                        數量：
+                <div class="col-6 d-flex nameRotate">
+                    <div class="col-6 coffeeName">
+                        <span>可可綿雲琪朵</span>
                     </div>
-                    <div class="d-flex numButton">
-                        <div class="btn buttonLeft">-</div>
-                        <div class="quantity">
-                            <p>1</p>
+                    <div class="d-flex col-6 amount">
+                        <div class="quantityText">
+                            數量：
                         </div>
-                        <div class="btn buttonRight">+</div>
+                        <div class="d-flex numButton">
+                            <div class="btn buttonLeft">-</div>
+                            <div class="quantity">
+                                <p>1</p>
+                            </div>
+                            <div class="btn buttonRight">+</div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-2 delete">
-                    <a href=""><span>刪除</span></a>
+                    <a href="" class="btn"><span>刪除</span></a>
                 </div>
-                <div class="col-1">
+                <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
+                <div class="col-1 price">
                     $150
                 </div>
             </div>
         </div>
+
         <div class="listBody">
-            <div class="d-flex justify-content-end subtotal">
-                <div class="d-flex col-2">
-                    <h2>商品小計</h2>
-                </div>
-                <div class="d-flex col-1">
-                    <h2>$150</h2>
-                </div>
-            </div>
             <div class="d-flex justify-content-end">
                 <div class="col-3">
                     <p>優惠碼使用</p>
@@ -197,10 +199,10 @@
                 <div class="col-3">
                     <p>紅利點數使用</p>
                     <div class="d-flex">
-                        <p>剩餘紅利點數:</p>
+                        <p>可折扣點數:</p>
+                        <p style="color: red;">00</p>
+                        <p>/</p> 
                         <p>30點</p>
-                        <p>可擇扣金額:</p>
-                        <p>000</p>
                     </div>
                     <input type="text">
                     <input type="checkbox" name="" id="">
@@ -210,7 +212,7 @@
         <div class="listBody">
             <div class="d-flex justify-content-end">
                 <div class="col-3 Payment">
-                    <h3>付款方式</h3>
+                    <p>付款方式</p>
                     <div class="sel sel--black-panther">
                         <select name="select-profession" id="select-profession">
                             <option value="" disabled>付款方式</option>
@@ -224,9 +226,19 @@
                     <hr class="rule">
                 </div>
             </div>
+            <div class="d-flex justify-content-end subtotal">
+                <div class="d-flex col-2">
+                    <p>商品小計:</p>
+                </div>
+                <div class="d-flex">
+                    <h4 style="color: red;">$150</h2>
+                </div>
+            </div>
             <div class="d-flex justify-content-end">
                 <div class="col-2 d-flex justify-content-end">
-                    <div class="btn PaymentLast">結帳</div>
+                    <div class="btn PaymentLast">
+                            結帳
+                    </div>
                 </div>
 
             </div>

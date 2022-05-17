@@ -28,7 +28,9 @@ $colorMain: #E4D2A3;
     justify-content: center;
     padding: 5px 0;
     border-radius: 13px;
-
+}
+.processInBoxwhite{
+    color: white;
 }
 
 .processInBoxNon {
@@ -103,3 +105,9 @@ $colorMain: #E4D2A3;
         display: inline;
     }
 }
+@media screen and (max-width:990PX){
+    .superman{
+        margin: 0px;
+    }
+}
+

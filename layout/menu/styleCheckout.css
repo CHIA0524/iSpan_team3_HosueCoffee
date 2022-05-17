@@ -1,5 +1,9 @@
 .spaceTop {
-  margin-bottom: 7rem;
+  margin-bottom: 2em;
+}
+
+.spaceTop2 {
+  margin-top: 5em;
 }
 
 .checkOut {
@@ -51,6 +55,10 @@
   width: 100%;
   height: 5px;
   margin-top: 13px;
+}
+
+.processInBoxwhite {
+  color: white;
 }
 
 .listBody {
@@ -117,7 +125,16 @@
 
 .delete a {
   text-decoration: none;
-  color: #000;
+  border: #E4D2A3 1px solid;
+  letter-spacing: 2px;
+}
+
+.delete a span {
+  color: black;
+}
+
+.delete:hover a {
+  background-color: #E4D2A3;
 }
 
 .subtotal {
@@ -138,22 +155,79 @@
   margin-bottom: 1em;
 }
 
+.trash {
+  display: none;
+}
+
 .PaymentLast {
   border: #E4D2A3 2px solid;
   border-radius: 10px;
   width: 7rem;
   margin-bottom: 2em;
+  color: #7D704D;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: white;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .listBody input {
     width: 5rem;
+  }
+  .listImg {
+    width: 6em;
+    height: 6em;
+    padding: 0;
+  }
+  .amount {
+    display: none;
+  }
+  .quantityText {
+    display: none;
+  }
+  .delete {
+    display: none;
+  }
+  .numButton {
+    border-radius: 0;
+    border: 0;
+  }
+  .quantity {
+    border: 0;
+  }
+  .buttonLeft {
+    border-radius: 5px;
+    color: white;
+    background-color: #E4D2A3;
+    border: 0;
+  }
+  .buttonRight {
+    border-radius: 5px;
+    color: white;
+    background-color: #E4D2A3;
+    border: 0;
+  }
+  .price {
+    margin-left: 3em;
+  }
+  .nameRotate {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 2em;
+    width: 11em;
+  }
+  .coffeeName {
+    width: 8em;
+    padding-bottom: 10px;
+  }
+  .trash {
+    display: block;
   }
 }
 
@@ -174,17 +248,19 @@
   position: relative;
   cursor: pointer;
   border: #E4D2A3 1px solid;
-  border-radius: 20px;
+  border-radius: 5px;
+  background: white;
 }
 
 .sel::before {
   position: absolute;
   content: '\f063';
   font-family: 'FontAwesome';
-  font-size: 2em;
-  color: #E4D2A3;
+  font-size: 1.5em;
+  color: white;
   right: 20px;
-  top: calc(50% - 0.5em);
+  top: calc(40% - 0.5em);
+  color: #E4D2A3;
 }
 
 .sel.active::before {
@@ -195,10 +271,11 @@
 .sel__placeholder {
   display: block;
   font-family: 'Quicksand';
-  font-size: 12px;
+  font-size: 16px;
   color: #E4D2A3;
-  padding: 0.2em 0.5em;
+  padding: 0.5em 1em;
   text-align: left;
+  margin-left: 15px;
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -249,7 +326,7 @@
 .sel__box__options {
   display: list-item;
   font-family: 'Quicksand';
-  font-size: 12px;
+  font-size: 1.5em;
   color: #E4D2A3;
   padding: 0.5em 1em;
   -webkit-user-select: none;
@@ -261,8 +338,7 @@
 .sel__box__options::after {
   content: '\f00c';
   font-family: 'FontAwesome';
-  font-size: +
-  ;
+  font-size: 12px;
   margin-left: 5px;
   display: none;
 }
@@ -272,14 +348,11 @@
 }
 
 .sel__box__options:hover {
-  background-color: #ebedef;
+  background-color: #E4D2A3;
+  color: white;
 }
 
 /* ----- Select Box Black Panther ----- */
-.sel {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-}
-
 .sel--black-panther {
   z-index: 3;
 }
