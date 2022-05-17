@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // component
 import StoreCard from './StoreCard';
@@ -27,6 +27,7 @@ function StoreMap(){
   // 接收子組件資料，放到cardDetail
   const [dataFromStoreCard, setDataFromStoreCard] = useState('')
 
+  
 
   return(
     <>

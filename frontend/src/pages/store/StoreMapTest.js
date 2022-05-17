@@ -1,35 +1,17 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react';
-import { useState } from 'react';
-
-
-
-
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 
 function StoreMapTest(){
-  const [datas, setDatas ] = useState([]);
+  const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/`);
-  const results = [];
-
-  results = [
-    {
-      "name": "長榮"
-    },
-    {
-      "name": "長榮@"
-    },
-    {
-      "name": "長榮@33"
-    }
-  ];
-
+    const response = await fetch("http://localhost:3000/store/map");
+    const results = await response.json();
     setDatas(results);
   }
   useEffect(()=>{
     fetchData();
   },[])
-    console.log(results);
+
     return(
       <>
     <h3>Categories Page</h3> 
@@ -44,15 +26,17 @@ function StoreMapTest(){
   </thead>
   <tbody>
   {datas.length > 0 && datas.map((store,i)=>{
-    const {name} = store;
+    const {id, store_name,city} = store;
       return(
           <tr key={i}>
-            <td>{name}</td>
+            <td>{id}</td>
+            <td>{store_name}</td>
+            <td>{city}</td>
           </tr>
       )
   })}   
   </tbody>
 </Table></>
     )
-
+}
 export default StoreMapTest;

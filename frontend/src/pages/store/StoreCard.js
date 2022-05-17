@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // CSS
 import './mapStyle.scss';
@@ -17,18 +17,32 @@ import test from './img/01.jpg'
 function StoreCard(props){
 
   const [storeCardData, setStoreCardData] = useState('jkskhfj');
-  // let updatedValue = {};
-  //   updatedValue = {
-  //     "id":107001,
-  //     "name":"張佳蓉",
-  //     "birth":990101
-  //   };
-  //   setStoreCardData(data => ({
-  //     ...data,
-  //     ...updatedValue
-  //   }));
-    
-  return(
+
+  const sentDetailToCardDetail = (id)=>{
+    console.log(document.querySelectorAll(".itemText")[0].querySelectorAll("p")[0].innerHTML);
+    props.setDataFromStoreCard(storeCardData);
+    props.setCardDetailCss(`cardDetailOpenCss`);
+  }
+  
+  // 向後端請求資料
+  const [datas, setDatas ] = useState([])
+  const fetchData = async()=>{
+    const response = await fetch("http://localhost:3000/store/map");
+    const results = await response.json();
+    setDatas(results);
+  }
+  useEffect(()=>{
+    fetchData();
+  },[])
+
+  {datas.length > 0 && datas.map((store,i)=>{
+      return(
+          <tr key={i}>
+            <td>{store.id}</td>
+            <td>{store.store_name}</td>
+            <td>{store.city}</td>
+          </tr>
+      )return(
     <>
       <div className="cardWrap">
         <div>
@@ -50,6 +64,8 @@ function StoreCard(props){
       </div>
     </>
   );
+  })}
+  
 }
 
 export default StoreCard
