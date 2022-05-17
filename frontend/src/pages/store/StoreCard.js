@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 // CSS
 import './mapStyle.scss';
@@ -18,12 +18,6 @@ function StoreCard(props){
 
   const [storeCardData, setStoreCardData] = useState('jkskhfj');
 
-  const sentDetailToCardDetail = (id)=>{
-    console.log(document.querySelectorAll(".itemText")[0].querySelectorAll("p")[0].innerHTML);
-    props.setDataFromStoreCard(storeCardData);
-    props.setCardDetailCss(`cardDetailOpenCss`);
-  }
-  
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
@@ -35,37 +29,40 @@ function StoreCard(props){
     fetchData();
   },[])
 
-  {datas.length > 0 && datas.map((store,i)=>{
-      return(
-          <tr key={i}>
-            <td>{store.id}</td>
-            <td>{store.store_name}</td>
-            <td>{store.city}</td>
-          </tr>
-      )return(
+  // 傳遞資料至父元素 cardDetail
+  const sentDetailToCardDetail = useCallback((dataIndex)=>()=>{
+    console.log(dataIndex);
+    // console.log(document.querySelectorAll(".itemText")[dataIndex].querySelectorAll("p")[0].innerHTML);
+    console.log(dataIndex.time);
+    console.log(dataIndex.icon_group);
+    console.log(dataIndex.serve_name);
+    props.setDataFromStoreCard(storeCardData);
+    props.setCardDetailCss(`cardDetailOpenCss`);
+  },
+  []
+  )
+
+  return(
     <>
-      <div className="cardWrap">
-        <div>
-          <img src={test} alt="test"></img>
-        </div>
-        <div className="itemText">
-          <p>長榮店</p>
-          <p>新北市 新店區中央路159號4F</p>
-          <p>02-412-8869</p>
-        </div>
-        <div onClick={()=>{
-          console.log(document.querySelectorAll(".itemText")[0].querySelectorAll("p")[0].innerHTML);
-          props.setDataFromStoreCard(storeCardData);
-          props.setCardDetailCss(`cardDetailOpenCss`);
-        }}
-        >
-          <IoInformationCircleOutline size={25}/>
-        </div>
-      </div>
+      {datas.map((store,i)=>{
+        return(
+          <div className="cardWrap" key={i}>
+            <div>
+              <img src={test} alt="test"></img>
+            </div>
+            <div className="itemText">
+              <p>{store.store_name}</p>
+              <p>{`${store.city} ${store.address}`}</p>
+              <p>{store.phone}</p>
+            </div>
+            <div onClick={sentDetailToCardDetail(datas[i])}>
+              <IoInformationCircleOutline size={25}/>
+            </div>
+          </div>
+        )
+      })}
     </>
   );
-  })}
-  
 }
 
 export default StoreCard
