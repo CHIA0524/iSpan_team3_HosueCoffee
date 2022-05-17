@@ -8,25 +8,91 @@
     background-image: url(../img/Article00.svg);
 }
 
+
+    
 .title{
-    font-size: 30px;
+    font-size: 40px;
     font-weight:bolder;
 
 }
-
+.makeLinkDown{
+    display: flex;
+    flex-direction: column;
+}
 
 .outsideLink{
     display: flex;
     flex-direction: row;
-    justify-content:flex-end;
+    justify-content:right;
     position:relative;
-    right: 300px;
     bottom: 30px;
-    padding-right: 10px;
+    
 }
 
-p,span{
+.articleImg img{
+    width:100% ;
+}
+
+
+p{
     font-size: 16px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color:#000;
+}
+
+span{
+    font-size: 15px;
+}
+
+
+/* .recommendZone{
+    display: flex;
+} */
+
+.row{
+    flex-wrap: nowrap;
+}
+
+/* 返回按鈕 */
+.backBtn{
+display: inline-block;      
+position: relative;
+vertical-align: middle;
+width: 100px;
+height: 40px;
+font-size:16px;
+font-style: normal;
+font-family: 'Yantramanav';
+font-weight:bolder;
+text-align:center;
+color: #FFFFFF;
+background: #E4D2A3;
+border-radius: 30px;
+padding: 7px 10px 5px 10px;
+opacity: 0.8;
+}
+
+.backBtn a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* 返回按鈕動畫效果 */
+.backBtn:hover{
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.backBtn:active{
+    transform: scale(1);
+    box-shadow: inset 0 0 10px 1px rgba(209, 209, 209, 0.2);
+}
+
+.backBtn{
+    outline: 0;
+    cursor: pointer;
+    transition: .1s;
 }
 
 .recommend{
@@ -36,26 +102,70 @@ p,span{
 justify-content: center;
 }
 
-
-.recommendImg{
-    width: 200px;
-    height: 197px;   
-    image:url(""); 
+.recommendCard{
+    display:inline-block;
+    
 }
 
-.moreArticleLeft{
+
+.recommendImg img{
+    width: 200px;
+    height: 155px;   
+}
+
+.articleBtnLeft img{
     width: 40px;
     height: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
+ margin-left: 10rem;
+    
 
 }
 
-.moreArticleRight{
+.articleBtnRight img{
 width: 40px;
 height: 40px;
-display: flex;
-flex-direction: row;
-justify-content:flex-end;
 }
+
+/* Article的RWD */
+/* @media screen and (max-width: 1100px) {
+    
+/* p{
+    font-size: 16px;
+} */
+
+}  */
+
+
+@media screen and (max-width: 800px) {
+    
+
+    .makeLinkDown{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    
+    .outsideLink{
+        display: flex;
+        flex-direction: row;
+        justify-content:left;
+        position:relative;
+        top: 30px;
+        
+    }
+
+  
+    p{
+      font-size: 18px;
+  }
+  .recommendCard {
+    width: 20rem;
+  }
+
+  /*隱藏recommendCard */
+  .recHidden{
+    max-height: 0;
+    /* overflow: hidden; */
+    z-index: 100;
+    }
+
+  } 
