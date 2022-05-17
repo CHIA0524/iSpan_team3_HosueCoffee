@@ -1,10 +1,13 @@
 .asideContent {
     margin: 0 auto; 
 }
-.asideContent li{
+
+
+.adminAside li{
     list-style: none;
     line-height: 3rem;
     width: fit-content;
+ 
 }
 
 .adminAside a {
@@ -15,7 +18,8 @@
     padding-left: 5px;
 }
 
-.adminAside a:hover {
+
+.adminAside a:hover{
     border-left: 1px solid #E4D2A3;
     color: #E4D2A3;
 }
@@ -32,12 +36,17 @@
     width: fit-content;
 }
 
+
+
+
 .card {
     border: 1px #E4D2A3 solid;
     border-radius: 20px;
-    margin: 0 20px 20px 0;
-    width: 20rem;
-    padding: 2rem;     
+    margin: 10px;
+    width: 25rem;
+    padding: 2rem;
+   
+    
 }
 
 .cardName{
@@ -53,6 +62,7 @@
     display: inline-block;
 
 }
+
 
 
 .cardPrice {
@@ -195,7 +205,7 @@
     font-size: 25px;
     text-align: right;
 }
-@media screen and (max-width:800px) {
+@media screen and (max-width:1000px) {
     .mMember{
         display: block;
         color:#A37025;
