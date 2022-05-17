@@ -92,20 +92,20 @@
     </nav>
   </header>
   
- 
+ <div class="pmain">
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8 ">
+    <div class="col-2 con3-None"></div>
+    <div class="col ">
       <div class="memberLoginMain">
        
         <div class="row">
-          <div class="col-6 loginLift">
+          <div class="col loginLift">
             <img class="member1" src="../img/member/member_logoin_1.png" alt="">
             <img class="member2" src="../img/member/member_logoin_2.png" alt="">
             <h2 class="liftW1">登入會員</h2>
             <h2 class="liftW2">享受專屬優惠</h2>
           </div>
-          <div class="col-6 loginRight">
+          <div class="col loginRight">
             <div class="row">
               <div class="col-6 loginTop loginTopL"> <div class="loginWord lg1" onclick="Login()">LOGIN</div> </div>
               <div class="col-6 loginTop loginTopR"> <div class="loginWord lg2" onclick="SingIn()">SIGN IN</div> </div>
@@ -119,22 +119,28 @@
             <br>
             <br>
             <div class="loginInput loginInputL">
-      
-              <br>
-              <input type="text" size="30" placeholder="&ensp;會員帳號">
-              <br>
-              <input type="password" size="30" placeholder="&ensp;會員密碼">
-              <div class="row">
-                <div class="col-3"></div>
-                <div class="col-4"></div> 
-                <div id="forget" class="col-3">忘記密碼?</div>
-                <div class="col-2"></div>
+              <div class="LG">
+                <br>
+                <input type="text" size="30" placeholder="&ensp;會員帳號">
+                <br>
+                <input type="password" size="30" placeholder="&ensp;會員密碼">
+                <div class="row">
+                  <div class="col-3"></div>
+                  <div class="col-4"></div> 
+                  <div id="forget" class="col-3">忘記密碼?</div>
+                  <div class="col-2"></div>
+                </div>
+                <br>
+                <button>&ensp;登入&ensp;</button>
+                <hr>
+                <br>
+                <div class="GLoginL"><i class="fa-brands fa-google"></i>&ensp;使用Google登入</div>
               </div>
-              <br>
-              <button>&ensp;登入&ensp;</button>
-              <hr>
-              <br>
-              <div class="GLoginL"><i class="fa-brands fa-google"></i>&ensp;使用Google登入</div>
+              <div class="LG-F">
+                <input type="email" placeholder="請輸入註冊信箱">
+                <div class="fgBack mLcolor">返回</div>
+                <button>&ensp;送出&ensp;</button>
+              </div>
             </div>
           </div>
           <div class="col-6 loginMain2">
@@ -157,10 +163,50 @@
         </div>
     </div>
   </div>
-    <div class="col-2"></div>
+    <div class="col-2 con3-None"></div>
 
   </div>
-  <br>
+</div>
+<!-- 手機板頁面 -->
+<div class="pmain-m">
+  <div class="loginM">
+    <div class="MimgDiv" 
+    style="background-image: url(../img/member/member_logoin_1.png); 
+           background-size: cover; 
+           background-position:0% 50%;">
+    </div>
+    <div class="loginInput loginInputL">
+      <input type="text" size="30" placeholder="&ensp;會員帳號">
+      <input type="password" size="30" placeholder="&ensp;會員密碼">
+      <div class="mLcolor fgaa">忘記密碼</div>
+      <button>&ensp;登入&ensp;</button>
+      <div class="loginM-F">
+        <div class="lmLogo"><i class="fa-brands fa-google"></i></div>
+        <div class="lmLogo"><i class="fa-brands fa-facebook-f"></i></div>
+        <div class="newM mLcolor">註冊帳號</div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="loginCM">
+    <div class="loginInput loginInputL">
+      <input type="text" size="30" placeholder="&ensp;會員信箱">
+      <input type="text" size="30" placeholder="&ensp;會員帳號">
+      <input type="password" size="30" placeholder="&ensp;會員密碼">
+      <button>&ensp;註冊&ensp;</button>
+      <div class="loginM-F">
+        <div class="lmLogo"><i class="fa-brands fa-google"></i></div>
+        <div class="lmLogo"><i class="fa-brands fa-facebook-f"></i></div>
+        <div class="newL mLcolor">已有帳號</div>
+      </div>
+    </div>
+  </div> 
+  <div class="forget-m loginInput loginInputL">
+    <input type="email" placeholder="請輸入註冊信箱">
+    <div class="fgMBack mLcolor">返回</div>
+    <button>&ensp;送出&ensp;</button>
+  </div> 
+</div>
 
   <footer class="d-flex coffeeFooter">
     <div class="d-flex">
@@ -199,25 +245,52 @@
     loginleft.addEventListener('click', ()=>{
       document.querySelector('.loginMain1').style.right='-491px';
       document.querySelector('.loginMain1').style.transition='0.5s';
-      document.querySelector('.lg1').style.display='block';
-      document.querySelector('.lg2').style.display='block';
-      document.querySelector('.lg1').style.font='20px Comfortaa ';
-      document.querySelector('.lg1').style.padding='20px 0';
-      document.querySelector('.lg2').style.font='16px Comfortaa ';
-      document.querySelector('.lg2').style.padding='20px 0';
+      document.querySelector('.LG').style.display="block"
+      document.querySelector('.LG-F').style.display="none"
      
     });
     const loginright=document.querySelector('.lg2');
     loginright.addEventListener('click', ()=>{
       document.querySelector('.loginMain1 ').style.right='0px';
       document.querySelector('.loginMain1 ').style.transition='0.5s';
-      document.querySelector('.lg1').style.display='block';
-      document.querySelector('.lg2').style.display='block';
-      document.querySelector('.lg1').style.font='16px Comfortaa ';
-      document.querySelector('.lg1').style.padding='10px 0';
-      document.querySelector('.lg2').style.font='20px Comfortaa ';
-      document.querySelector('.lg2').style.padding='10px 0';
     });
+    const fg=document.querySelector('#forget');
+    fg.addEventListener('click',()=>{
+      document.querySelector('.LG').style.display="none"
+      document.querySelector('.LG-F').style.display="block"
+    })
+    const fgb=document.querySelector('.fgBack');
+    fgb.addEventListener('click',()=>{
+      document.querySelector('.LG').style.display="block"
+      document.querySelector('.LG-F').style.display="none"
+    })
+
+
+
+    const rwdNew=document.querySelector('.newM');
+    rwdNew.addEventListener('click',()=>{
+      document.querySelector('.loginM').style.display="none"
+      document.querySelector('.loginCM').style.display="block"
+      document.querySelector('.forget-m').style.display="none"
+    })
+    const rwdL=document.querySelector('.newL');
+    rwdL.addEventListener('click',()=>{
+      document.querySelector('.loginCM').style.display="none"
+      document.querySelector('.loginM').style.display="block"
+      document.querySelector('.forget-m').style.display="none"
+    })
+    const fgM=document.querySelector('.fgaa');
+    fgM.addEventListener('click',()=>{
+      document.querySelector('.loginCM').style.display="none"
+      document.querySelector('.loginM').style.display="none"
+      document.querySelector('.forget-m').style.display="block"
+    })
+    const fgMb=document.querySelector('.fgMBack');
+    fgMb.addEventListener('click',()=>{
+      document.querySelector('.loginCM').style.display="none"
+      document.querySelector('.loginM').style.display="block"
+    })
+  
 
     // function Login(){
     //   document.querySelector('.loginInputL').style.right='-491px'
