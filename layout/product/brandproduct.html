@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
     <!---------- brandproduct style ---------->
     <link rel="stylesheet" href="../css/brandproduct.css">
+    <link rel="stylesheet" href="../css/popup.css">
 
 
 
@@ -148,8 +149,9 @@
                 </ul>
 
             </aside>
+
             <main class="pMain col ">
-                <div class=" row justify-content-center">
+                <div class="row justify-content-center">
                     <div class="card mb-4">
                         <div class="package">
                             <a href=""><img class="card-img-top" src="./img/包裝 2.png" alt=""></a>
@@ -159,8 +161,24 @@
                                 <p>咖啡豆</p>
                             </div>
                             <div>
+                                <a href=""><img class="heartIcon" src="./img/heart.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
+                            </div>
+                        </div>
+                        <p class="cardPrice">$499</p>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="package">
+                            <a href="#popup1" class="button"><img class="card-img-top" src="./img/包裝 2.png" alt=""></a>
+                        </div>
+                        <div class="cardName d-flex justify-content-between">
+                            <div>
+                                <p>咖啡豆</p>
+                            </div>
+                            <div>
                                 <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
                             </div>
                         </div>
                         <p class="cardPrice">$499</p>
@@ -175,7 +193,7 @@
                             </div>
                             <div>
                                 <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
                             </div>
                         </div>
                         <p class="cardPrice">$499</p>
@@ -190,7 +208,7 @@
                             </div>
                             <div>
                                 <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
                             </div>
                         </div>
                         <p class="cardPrice">$499</p>
@@ -205,7 +223,7 @@
                             </div>
                             <div>
                                 <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
                             </div>
                         </div>
                         <p class="cardPrice">$499</p>
@@ -220,28 +238,49 @@
                             </div>
                             <div>
                                 <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
-                            </div>
-                        </div>
-                        <p class="cardPrice">$499</p>
-                    </div>
-                    <div class="card mb-4">
-                        <div class="package">
-                            <a href=""><img class="card-img-top" src="./img/包裝 2.png" alt=""></a>
-                        </div>
-                        <div class="cardName d-flex justify-content-between">
-                            <div>
-                                <p>咖啡豆</p>
-                            </div>
-                            <div>
-                                <a href=""><img src="./img/heart.png" alt=""></a>
-                                <a href=""><img src="./img/shopping-cart 1.png" alt=""></a>
+                                <a href="#popup1"><img src="./img/shopping-cart 1.png" alt=""></a>
                             </div>
                         </div>
                         <p class="cardPrice">$499</p>
                     </div>
                 </div>
+                <!-- popup 區 -->
+                <div id="popup1" class="popupShow">
+                    <div class="popup">
+                        <a class="close" href="#">&times;</a>
+                        <div class="productPopup">
+                            <div class="popBox">
+                                <div class="popBoxContent">
+                                    <div class="imgPart">
+                                        <img class="packageImg" src="./img/包裝 2.png" alt="">
+                                    </div>
+                                    <div class="popContent">
+                                        <div class="popText">
+                                            <p>伊莎米 </p>
+                                            <p>精選招牌特調(半磅)</p>
+                                            <p>$499</p>
+                                        </div>
+                                        <div class="popBtn">
+                                            <div class="addNum">
+                                                <a href=""><button type="button" class="buttonNum"
+                                                        id="subtract">-</button></a>
+                                                <input class="num" type="text" id="text" value="1" />
 
+                                                <a href=""><button type="button" class="buttonNum"
+                                                        id="plus">+</button></a>
+                                            </div>
+                                            <div class="addCart">
+                                                <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
+                                                    </button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </main>
         </div>
     </div>
