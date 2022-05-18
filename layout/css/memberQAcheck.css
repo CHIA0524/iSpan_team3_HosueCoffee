@@ -1,0 +1,290 @@
+@charset "UTF-8";
+/* -------- 顏色 -------- */
+/* -------- 字體 -------- */
+.asideContent {
+  margin: 0 auto; 
+}
+
+
+.adminAside li{
+  list-style: none;
+  line-height: 3rem;
+  width: fit-content;
+
+}
+
+.adminAside a {
+  color: #4C3410;
+  text-decoration: none;
+  border: 1px transparent solid;
+  transition: all 0.2s ease;
+  padding-left: 5px;
+}
+
+
+.adminAside a:hover{
+  border-left: 1px solid #E4D2A3;
+  color: #E4D2A3;
+}
+
+#nowWeb{
+  color: #E4D2A3;
+}
+
+.adminAside .maindir {
+  color: rgb(129, 117, 117);
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 1rem;
+  width: fit-content;
+}
+
+  .cardPrice {
+      margin-top: -1rem;
+  }
+
+  .package a :hover {
+      opacity: 0.6;
+  }
+
+  .adminAside {
+      display: inline-block;
+
+  }
+
+
+
+/* 彈跳視窗 */
+.popupWrap {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.popupBox {
+  padding: 100px 100px;
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+  -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  background: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+}
+
+.popupBox input, .popupBox select {
+  margin-bottom: 25px;
+}
+
+.popupBox .ansAddForm > *:not(:last-child):not(:first-child) {
+  width: 330px;
+  padding: .6rem 1rem;
+  margin-bottom: 35px;
+  border: 1.5px solid #4C3410;
+  outline: none;
+  -webkit-transition: var(--store-transition);
+  transition: var(--store-transition);
+}
+
+.popupBox .ansAddForm *:focus {
+  background: #EDE1C1;
+}
+
+.popupBox .ansAddForm a {
+  margin: 3rem;
+}
+
+.popupBox .ansAddForm textarea {
+  height: 200px;
+  resize: none;
+}
+
+.popupClose {
+  width: 50px;
+  line-height: 40px;
+  color: gray;
+  font-size: 32px;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  -webkit-transition: var(--store-transition);
+  transition: var(--store-transition);
+}
+
+.popupClose:hover {
+  color: black;
+}
+
+.popupTransformIn, .popupTransformOut {
+  display: block;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.popupTransformIn {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popupTransformOut {
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.ansWrap {
+  min-width: 70%;
+  padding-top: 2%;
+  /* padding-right: 10%; */
+}
+
+.memberAnsDetail {
+  padding-top: 2%;
+  /* margin: 0rem 3rem 0 0; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+.memberAnsDetail li {
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+.memberAnser {
+  padding: 1rem;
+  margin-top: 2%;
+  border: 1px solid #2B3034;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.memberAnser div {
+  padding: 1rem;
+  border-radius: 10px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.memberAnser div:hover {
+  background: #EDE1C1;
+}
+
+.memberAnser div:first-child {
+  text-align: right;
+}
+
+.memberAnser span {
+  font-size: smaller;
+}
+
+.memberAnserInout textarea {
+  height: 150px;
+  margin: 40px 0;
+  padding: 2rem;
+  border-radius: 10px;
+  resize: none;
+}
+/*# sourceMappingURL=member.css.map */
+@media screen and (max-width:1000px) {
+  .mMember{
+      display: block;
+      color:#A37025;
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 3rem ;
+ 
+  }
+  .type{
+      padding-top: -1rem;
+      padding-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+  }
+  .typeDetail{
+      width: 20%;
+      display: block;  
+      text-align: center;
+      border-radius: 20px;
+      border: 1px solid #E4D2A3;
+      color: #4C3410;
+    
+      
+ 
+  }
+  .adminAside {
+      /*隱藏選單開始*/
+      max-height: 0;
+      overflow: hidden;
+      /*隱藏選單end*/
+      position: absolute;
+      /*追隨.header*/
+      /*讓選單從左到右延伸start*/
+      right: 0;
+      left: 0;
+      /*讓選單從左到右延伸end*/
+      top: 67px;
+      /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+      z-index: 100;
+      transition: all 2.5s;
+      display: none;
+  }
+  .proList_m{
+      display: block;
+  }
+  .col-3None{
+      display: none;
+  }
+  
+  .memberEdit-w{
+      display: none;
+  }
+  .memberEdit-m{
+      display: block;
+      justify-content: center;
+  }
+  .proR{
+  border: 0;
+  
+  }
+  .proRight{
+      margin: 20px auto;
+  }
+  
+  .col-wn{
+      display: block;
+  }
+  .row{
+    margin: 0;
+  }
+}
+@media screen and (max-width:600px)  {
+  .card{
+      width: 15rem;
+  }
+}

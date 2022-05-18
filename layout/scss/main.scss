@@ -17,6 +17,7 @@ ion-icon{
 }
 ion-icon:hover{
   fill: $secondary_color;
+
 }
 
 /* -------- ScrollBar -------- */
@@ -129,6 +130,7 @@ $nav_li_height: 28px;
       color: white;
       font-weight: 600;
       justify-content: center;
+
     }
     a:hover{
       color: $font_border_color;
@@ -230,6 +232,7 @@ $nav_li_height: 28px;
 
 
 @media screen and (max-width:1000px){
+
   .closeSideNav{
     cursor: pointer;
     display: flex;

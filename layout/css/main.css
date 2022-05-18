@@ -14,12 +14,15 @@ ion-icon {
   height: 30px !important;
   cursor: pointer;
   fill: #4C3410;
+
   -webkit-transition: all .2s ease-in-out !important;
   transition: all .2s ease-in-out !important;
 }
 
+
 ion-icon:hover {
   fill: #E5D8B7;
+
 }
 
 /* -------- ScrollBar -------- */
@@ -50,6 +53,7 @@ ion-icon:hover {
 .coffeeDarkBtn, .coffeeLightBtn {
   height: 40px;
   padding: 3px 10px;
+
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -144,6 +148,7 @@ ion-icon:hover {
   position: absolute;
   top: 50px;
   right: 0px;
+
   z-index: 1;
 }
 
@@ -154,6 +159,7 @@ ion-icon:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+
 }
 
 .coffeeNavbar .webUserInfo a:hover {
@@ -177,6 +183,7 @@ ion-icon:hover {
   background-color: #4C3410;
   position: absolute;
   bottom: 25px;
+
   left: calc(50% - 25px);
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -227,6 +234,7 @@ ion-icon:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
   color: #4C3410;
   text-decoration: none;
   -webkit-transition: all .2s ease-in-out;

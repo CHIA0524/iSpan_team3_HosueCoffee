@@ -89,6 +89,7 @@
   height:100px;
   margin-bottom: 5px;
   background: white;
+
   border-radius: 5px;
   padding:10px;
   display:flex;
@@ -104,6 +105,7 @@
 .cardWrap:hover{
   background: $main_color;
   // box-shadow: 0px 0px 5px $font_border_color;
+
 }
 i{
   width: 10%;
