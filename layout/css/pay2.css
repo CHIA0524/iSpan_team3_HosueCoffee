@@ -27,7 +27,7 @@ main {
   background: rgba(228, 210, 163, 0.4);
 }
 .checkPart {
-  padding-left: 12rem;
+  padding-left: 11.5rem;
 }
 .buyerInfo input {
   width: 100%;
@@ -85,8 +85,8 @@ main {
 
 .btn-primary:hover {
   color: #4c3410;
-  background-color: white;
-  border: 1px solid #4c3410;
+  background-color: #e4d2a3;
+  border: 1px solid #e4d2a3;
 }
 .radioS {
   display: flex;

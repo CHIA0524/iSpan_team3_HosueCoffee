@@ -71,14 +71,17 @@
   border: 1px solid #e4d2a3;
 }
 
-.addNum a :hover {
+.addNum a :hover,
+.addCart a :hover {
   background-color: #e4d2a3;
+  color: white;
 }
 
 .addNum input {
   border: 0;
   width: 40px;
   text-align: center;
+  justify-content: ;
 }
 
 .addCartBtn {
@@ -90,9 +93,10 @@
   border: 1px solid #e4d2a3;
 }
 
-.addCart a :hover {
+/* .addCart a :hover {
   background-color: #e4d2a3;
-}
+  color: white;
+} */
 .moreInfo {
   padding-top: 10rem;
   display: flex;
@@ -106,9 +110,7 @@
 .pDetail {
   display: flex;
 }
-.mImg {
-  width: 50%;
-}
+
 .pContent {
   width: 50%;
   padding-left: 4rem;
@@ -196,13 +198,10 @@
 }
 
 @media screen and (max-width: 1000px) {
-  /* .pDetail {
-    margin: auto;
-    display: inline-block;
-  } */
-
   .pMain {
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
   .package {
     margin-bottom: 2rem;
@@ -211,9 +210,9 @@
     padding: 0 20rem;
     width: 100%;
   }
-  /* .card {
-    width: 15rem;
-  } */
+  .mImg {
+    width: 100%;
+  }
   .mHidden {
     max-height: 0;
     overflow: hidden;
@@ -231,7 +230,8 @@
   }
   .recProduct1 {
     /* font-size: 1rem; */
-    padding: 3rem 0 3rem 4rem;
+    display: flex;
+    justify-content: center;
     color: black;
   }
   .pDetail {
@@ -239,10 +239,7 @@
     margin: 0 auto;
     display: inline-block;
   }
-  /* .mImg {
-    width: 100%;
-    margin: 0 auto;
-  } */
+
   .pDetail img {
     display: block;
     width: 100%;
