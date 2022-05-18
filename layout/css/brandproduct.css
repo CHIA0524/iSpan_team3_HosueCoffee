@@ -4,7 +4,9 @@
   width: 30%;
   min-width: 120px;
 } */
-
+main {
+  position: relative;
+}
 .asideContent {
   margin: 0 auto;
 }
@@ -77,7 +79,7 @@
   display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .mShop {
     display: block;
     color: rgb(129, 117, 117);

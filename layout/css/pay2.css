@@ -21,7 +21,7 @@ main {
   width: 40%;
 }
 .payTotalCheck .box {
-  width: 90%;
+  width: 100%;
   height: 350px;
   border-radius: 20px;
   background: rgba(228, 210, 163, 0.4);
