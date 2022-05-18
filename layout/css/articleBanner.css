@@ -29,12 +29,10 @@
     
 }
 
-.articleImg img{
-    width:100% ;
-}
 
 
-p{
+
+article p{
     font-size: 16px;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -108,41 +106,55 @@ justify-content: center;
 }
 
 
+
 .recommendImg img{
     width: 200px;
-    height: 155px;   
+    height: 155px;
 }
 
-.articleBtnLeft img{
+.slideBtnLeft {
     width: 40px;
     height: 40px;
- margin-left: 10rem;
+    margin-left: 11rem;
+    margin-bottom: 1rem;
+    transition: .5s;
     
-
+    
 }
 
-.articleBtnRight img{
-width: 40px;
-height: 40px;
+.slideBtnRight {
+    width: 40px;
+    height: 40px;
+    margin-right: 12rem;
+    margin-bottom: 1rem;
+    transition: .5s;
 }
+
+
+
 
 /* Article的RWD */
-/* @media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) 
     
-/* p{
+/* p
     font-size: 16px;
-} */
+ */
 
-}  */
+/*   */ 
+
+.articleImg{
+    width:754px;
+    margin: auto;
+}
 
 
-@media screen and (max-width: 800px) {
     
-
+@media screen and (max-width: 1100px) {
     .makeLinkDown{
         display: flex;
         flex-direction:column-reverse;
     }
+    
     
     .outsideLink{
         display: flex;
@@ -153,19 +165,33 @@ height: 40px;
         
     }
 
-  
-    p{
-      font-size: 18px;
-  }
-  .recommendCard {
-    width: 20rem;
-  }
 
-  /*隱藏recommendCard */
-  .recHidden{
-    max-height: 0;
-    /* overflow: hidden; */
-    z-index: 100;
+    .article p{
+    font-size: 18px;
+    }
+    
+    .articleImg{
+        width: 100%;
+    }
+    .articleImg img{
+        width: 100%;
     }
 
-  } 
+    .recommendCard {
+    width: 20rem;
+    }
+
+  /*隱藏recommendCard */
+    .recHidden{
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 67px;
+    z-index: 100;
+    transition: all 2.5s;
+    }
+}
+
+
