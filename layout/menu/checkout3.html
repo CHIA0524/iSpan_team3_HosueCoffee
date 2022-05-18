@@ -22,7 +22,7 @@
     <!---------- custom style ---------->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/FAQsStyle.css">
-    <link rel="stylesheet" href="./css/styleCheckout.css">
+    <link rel="stylesheet" href="./css/Checkout3.css">
     <title>checkOut</title>
 </head>
 
@@ -107,7 +107,7 @@
         <div class="process">
             <div class="processIn row">
                 <div class="processInBox processInBoxwhite col-2">
-                    <span class="processInBoxwhite check1">確認商品</span>
+                    <span class="check2">確認商品</span>
                     <span class="processInBoxNum processInBoxwhite">1</span>
                 </div>
                 <div class="col-2 processInBoxNon">
@@ -115,13 +115,13 @@
                 </div>
                 <div class="col-2 processInBox processInBoxwhite">
                     <span class="check2">填寫資料</span> 
-                    <span class="processInBoxNum processInBoxwhite ">2</span>
+                    <span class="processInBoxNum processInBoxwhite">2</span>
                 </div>
                 <div class="col-2 processInBoxNon">
                     <div class="processInBoxLine"></div>
                 </div>
                 <div class="col-2 processInBox processInBoxwhite">
-                    <span class="check2">完成結帳</span>
+                    <span class="check1 processInBoxwhite">完成結帳</span>
                     <span class="processInBoxNum processInBoxwhite">3</span>
                 </div>
             </div>
@@ -129,7 +129,7 @@
         <!-- 流程圖RWD -->
         <div class="process pt-2 processRWD">
             <div class="">
-                <span class="processInBoxColor">確認商品</span>
+                <span class="">確認商品</span>
             </div>
             <div class="col-1"></div>
             <div class="col-2 d-flex justify-content-center">
@@ -137,41 +137,23 @@
             </div>
             <div class="col-1"></div>
             <div class="">
-                <span>完成結帳</span>
+                <span class="processInBoxColor">完成結帳</span>
             </div>
         </div>
+
         <!-- 空白 -->
+
         <div class="spaceTop2"></div>
-        <!-- 訂單列表 -->
-        <div class="listBody">
-            <div class="d-flex align-items-center justify-content-between">
-                <div class="col-3">
-                    <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
+        <!-- 編號 -->
+        <div class="member1">
+            <div class="memberBody">
+                <div class="memberNum">
+                    <span>會員編號:</span>
+                    <span>1234567</span>
                 </div>
-                <div class="col-6 d-flex nameRotate">
-                    <div class="col-6 coffeeName">
-                        <span>可可綿雲琪朵</span>
-                    </div>
-                    <div class="d-flex col-6 amount">
-                        <div class="quantityText">
-                            數量：
-                        </div>
-                        <div class="d-flex numButton">
-                            <div class="btn buttonLeft">-</div>
-                            <div class="quantity">
-                                1
-                            </div>
-                            <div class="btn buttonRight">+</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <a href="" class="btn deletestyle delete"><span>刪除</span></a>
-                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
-                </div>
-                
-                <div class="price">
-                    $150
+                <div class="memberNum">
+                    <span>訂單編號:</span>
+                    <span>7654321</span>
                 </div>
             </div>
         </div>
@@ -182,109 +164,63 @@
                 <div class="col-3">
                     <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
-                <div class="col-6 d-flex nameRotate">
+                <div class="col-3 nameRotate">
                     <div class="col-6 coffeeName">
                         <span>可可綿雲琪朵</span>
                     </div>
+                </div>
+                <div class="col-3  nameRotate">    
                     <div class="d-flex col-6 amount">
                         <div class="quantityText">
                             數量：
                         </div>
-                        <div class="d-flex numButton">
-                            <div class="btn buttonLeft">-</div>
-                            <div class="quantity">
+                        <div class="quantity">
                                 1
-                            </div>
-                            <div class="btn buttonRight">+</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
-                    <a href="" class="btn deletestyle delete"><span>刪除</span></a>
-                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
-                </div>
-                
                 <div class="price">
                     $150
                 </div>
             </div>
         </div>
-        <!-- 優惠列表 -->
+
         <div class="listBody">
-            <div class="Promo">
-                <div class="PromoBody">
-                    <p>優惠碼使用</p>
-                    <input type="text">
-                    <a href="">
-                        <button class="btn btn-outline-secondary" type="button">✓</button>
-                    </a>
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="col-3">
+                    <img class=" listImg" src="https://fakeimg.pl/180x180/eeeeee/aaa">
                 </div>
-            </div>
-            <div class="Promo">
-                <div class="PromoBody">
-                    <p>紅利點數使用</p>
-                    <div class="d-flex">
-                        <p>可折扣點數:</p>
-                        <p style="color: red;">00</p>
-                        <p>/</p> 
-                        <p>30點</p>
+                <div class="col-3 nameRotate">
+                    <div class="col-6 coffeeName">
+                        <span>可可綿雲琪朵</span>
                     </div>
-                    <input type="text">
-                    <a href="">
-                        <button class="btn btn-outline-secondary" type="button">✓</button>
-                    </a>
+                </div>
+                <div class="col-3  nameRotate">    
+                    <div class="d-flex col-6 amount">
+                        <div class="quantityText">
+                            數量：
+                        </div>
+                        <div class="quantity">
+                                1
+                        </div>
+                    </div>
+                </div>
+                <div class="price">
+                    $150
                 </div>
             </div>
         </div>
-        <!-- 付款方式下拉選單 -->
-        <div class="listBody">
-            <div class="Promo">
-                <div class="Payment">
-                    <p>付款方式</p>
-                    <div class="sel sel--black-panther">
-                        <select name="select-profession" id="select-profession">
-                            <option value="" disabled>付款方式</option>
-                            <option value="hacker">刷卡</option>
-                            <option value="gamer">轉帳</option>
-                            <option value="developer">linepay</option>
-                            <option value="programmer">測試</option>
-                            <option value="designer">測試</option>
-                        </select>
-                    </div>
-                    <hr class="rule">
+
+        <div>
+            <span>購買人資訊</span>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <span>姓名</span>
                 </div>
-            </div>
-            <!-- 商品小計: -->
-            <div class="subtotal">
-                <div class="d-flex col-3">
-                    <p>商品小計:</p>
-                </div>
-                <div class="totalPrice">
-                    <!-- 優惠碼折扣統計 -->
-                    <div class="d-flex justify-content-between">
-                        <h6>優惠碼折扣</h6>
-                        <h6>-25</h6>
-                    </div>
-                    <!-- 紅利折扣統計 -->
-                    <div class="d-flex justify-content-between mb-5">
-                        <h6>紅利折扣</h6>
-                        <h6>-25</h6>
-                    </div>
-                    <h4 style="color: red;">$150</h2>
-                </div>
-            </div>
-            <!-- 繼續購物按鈕 -->
-            <div class="d-flex justify-content-between">
-                <div class="d-flex justify-content-end">
-                    <div class="btn PaymentLast">
-                            繼續購物
-                    </div>
-                </div>
-                <!-- 結帳按鈕 -->
-                <div class="d-flex justify-content-end">
-                    <div class="btn PaymentLast">
-                            結帳
-                    </div>
+                <div>
+                    <span>羅志祥</span>
                 </div>
             </div>
         </div>
@@ -339,82 +275,6 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-            <script>/* ===== Logic for creating fake Select Boxes ===== */
-                $('.sel').each(function() {
-                  $(this).children('select').css('display', 'none');
-                  
-                  var $current = $(this);
-                  
-                  $(this).find('option').each(function(i) {
-                    if (i == 0) {
-                      $current.prepend($('<div>', {
-                        class: $current.attr('class').replace(/sel/g, 'sel__box')
-                      }));
-                      
-                      var placeholder = $(this).text();
-                      $current.prepend($('<span>', {
-                        class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
-                        text: placeholder,
-                        'data-placeholder': placeholder
-                      }));
-                      
-                      return;
-                    }
-                    
-                    $current.children('div').append($('<span>', {
-                      class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
-                      text: $(this).text()
-                    }));
-                  });
-                });
-                
-                // Toggling the `.active` state on the `.sel`.
-                $('.sel').click(function() {
-                  $(this).toggleClass('active');
-                });
-                
-                // Toggling the `.selected` state on the options.
-                $('.sel__box__options').click(function() {
-                  var txt = $(this).text();
-                  var index = $(this).index();
-                  
-                  $(this).siblings('.sel__box__options').removeClass('selected');
-                  $(this).addClass('selected');
-                  
-                  var $currentSel = $(this).closest('.sel');
-                  $currentSel.children('.sel__placeholder').text(txt);
-                  $currentSel.children('select').prop('selectedIndex', index + 1);
-                });
-                </script>
-                <script>
-
-                    const upElement = document.querySelector('.buttonRight')
-                            
-                    const downElement = document.querySelector('.buttonLeft')
-
-                    const NumberElement = document.querySelector('.quantity')
-
-                    upElement.addEventListener("click" , a => {
-
-                        const currenNumber = Number (NumberElement.textContent);
-
-                        NumberElement.textContent = currenNumber + 1;
-
-                    });
-                    
-                    downElement.addEventListener("click" , a => {
-
-                    const currenNumber = Number (NumberElement.textContent);
-
-                    
-                    if(Number(NumberElement.textContent) > 1  ){
-                        NumberElement.textContent = currenNumber - 1;
-
-                        }
-                    });
-
-                        
-                </script>
 </body>
 
 </html>

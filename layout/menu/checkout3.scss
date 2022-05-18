@@ -1,0 +1,207 @@
+$colorMain: #E4D2A3;
+$colorMain2: #7D704D;
+$colorMain3: #A37025;
+
+// 空白
+.spaceTop {
+  margin-bottom:2em;
+}
+
+.spaceTop2{
+  margin-top:5em;
+}
+
+.checkOut {
+    display: flex;
+    justify-content: center;
+}
+
+// 流程圖
+
+.process {
+  display: flex;
+  justify-content: center;
+}
+
+.processRWD{
+display: none;
+}
+
+.processIn {
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+}
+
+.processInBox {
+  background-color: $colorMain;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  border-radius: 13px;
+}
+
+.processInBoxNon {
+  padding: 0;
+}
+
+.processInBoxLine {
+  background-color: $colorMain;
+  width: 100%;
+  height: 5px;
+  margin-top: 13px;
+}
+
+.processInBoxwhite{
+color: white;
+}
+
+.processInBoxColor {
+color: $colorMain3;
+}
+
+.processInBoxNum {
+display: none;
+}
+
+.check2{
+color: #000;
+opacity:  0.25;
+}
+
+//流程圖RWD 
+
+@media (max-width:1024px) {
+  .processInBox {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: $colorMain3;
+    border: #000 1px solid 0.25;
+    .check1{
+      display: none;
+    }
+  }
+
+  .processInBoxNum {
+    display: block;
+    color: white;
+  }
+
+  .processInBoxLine {
+    height: 1px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    background-color: black;
+    opacity: 0.25;
+  }
+
+  .processRWD{
+    display: flex;
+  }
+
+  .processRWDcenter{
+    white-space:nowrap;
+  }
+  .check2{
+    display: none;
+  }
+}
+
+// 編號
+
+.member1{
+    margin: 3em 0;
+    padding: 1.5rem;
+    width: 80%;
+    margin: auto;
+}
+
+.memberNum{
+    width: 42%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
+}
+
+// 編號RWD
+@media (max-width:1024px) {
+    .member1 {
+        padding: 0;
+    }
+}
+
+
+// 訂單列表
+.listBody {
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 1em 0;
+
+    input {
+        border-radius: 5px;
+        border: 1px solid $colorMain;
+    }
+}
+
+.listImg {
+    padding: 1.5rem;
+}
+
+.nameRotate{
+    display: flex;
+}
+
+.quantityText {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    line-height: 2rem;
+    text-align: center;
+    width: 2rem;
+}
+
+
+
+  // list RWD
+  @media (max-width:1024px) {
+    .listBody {
+        input {
+            width: 5rem;
+        }
+  }
+  .listImg {
+      width: 6em;
+      height: 6em;
+      padding: 0;
+  }
+
+  .nameRotate{
+    padding-left: 2em;
+    width: 11em;
+  }
+
+
+
+  .quantityText {
+    // display: none;
+    width: 4em;
+  }
+  
+  .quantity {
+    border: 0;
+  }
+  
+  .price {
+    display: block;
+  }
+
+  .coffeeName {
+    width: 8em;
+    padding-bottom: 10px;
+  }
+}

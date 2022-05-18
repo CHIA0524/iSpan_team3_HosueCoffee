@@ -15,13 +15,6 @@ $colorMain3: #A37025;
     justify-content: center;
 }
 
-.check2{
-  color: #000;
-  opacity:  0.25;
-}
-
-
-
 
 // 流程圖
 
@@ -71,12 +64,55 @@ $colorMain3: #A37025;
   display: none;
 }
 
+.check2{
+  color: #000;
+  opacity:  0.25;
+}
+
+//流程圖RWD
+
+@media (max-width:1024px) {
+  .processInBox {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: $colorMain3;
+    border: #000 1px solid 0.25;
+    .check1{
+      display: none;
+    }
+  }
+
+  .processInBoxNum {
+    display: block;
+    color: white;
+  }
+
+  .processInBoxLine {
+    height: 1px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    background-color: black;
+    opacity: 0.25;
+  }
+
+  .processRWD{
+    display: flex;
+  }
+
+  .processRWDcenter{
+    white-space:nowrap;
+  }
+}
+
+
 // 訂單列表
 .listBody {
     width: 80%;
     margin: auto;
     border-top: 1px solid;
     border-bottom: 1px solid;
+    padding: 1em 0;
 
     input {
         border-radius: 5px;
@@ -88,6 +124,7 @@ $colorMain3: #A37025;
     padding: 1.5rem;
 }
 
+
 .numButton {
     border: #E4D2A3 1px solid;
     border-radius: 20px;
@@ -96,17 +133,7 @@ $colorMain3: #A37025;
 
 }
 
-.quantityText {
-    display: flex;
-    align-items: center;
-}
-
-.buttonLeft {
-    display: flex;
-    align-items: center;
-}
-
-.buttonRight {
+.quantityText ,.buttonLeft ,.buttonRight {
     display: flex;
     align-items: center;
 }
@@ -118,32 +145,105 @@ $colorMain3: #A37025;
     border-left: #E4D2A3 1px solid;
     border-right: #E4D2A3 1px solid;
 }
-.quantityText{
-    span{
-        font-size: 18px;
-    }
-    
-}
 
 .deletestyle {
-        text-decoration: none;
-        border: #E4D2A3 1px solid;
-        letter-spacing: 2px;
-        span {
-          color: black;
-        }
+    text-decoration: none;
+    border: #E4D2A3 1px solid;
+    letter-spacing: 2px;
+    span {
+      color: black;
+    }
+    &:hover{
+      background-color: #E4D2A3;
+    }
   } 
 
-  .deletestyle:hover{
-      background-color: #E4D2A3;
+.trash{
+    display: none;
   }
 
-  .btn-outline-secondary{
+  // list RWD
+  @media (max-width:1024px) {
+    .listBody {
+        input {
+            width: 5rem;
+        }
+  }
+  .listImg {
+      width: 6em;
+      height: 6em;
+      padding: 0;
+  }
+
+  .nameRotate{
+    flex-direction: column;
+    padding-left: 2em;
+    width: 11em;
+  }
+
+  .amount {
+    display: none;
+  }
+  .quantityText {
+    display: none;
+  }
+  .delete {
+    display: none;
+  }
+  .numButton {
+    border-radius: 0;
+    border: 0;
+  }
+  .quantity {
+    border: 0;
+  }
+  .buttonLeft {
+    border-radius: 5px;
+    color: white;
+    background-color: $colorMain;
+    border: 0;
+  }
+  .buttonRight {
+    border-radius: 5px;
+    color: white;
+    background-color: $colorMain;
+    border: 0;
+  }
+  .price {
+    display: block;
+  }
+
+  .coffeeName {
+    width: 8em;
+    padding-bottom: 10px;
+  }
+  .trash {
+    display: block;
+  }
+  .check2{
+    display: none;
+  }
+  }
+
+
+
+// 優惠列表
+
+.Promo{
+  display: flex;
+  justify-content: end;
+}
+
+.btn-outline-secondary{
     background: white;
     border: 1px solid #e4d2a3;
     color: #e4d2a3;
+    padding: 0px 5px 0 5px;
+
   }
   
+  // 商品小計
+
 .subtotal {
     margin-top: 2em;
     margin-bottom: 2em;
@@ -172,10 +272,6 @@ $colorMain3: #A37025;
     }
 }
 
-.trash{
-  display: none;
-}
-
 .PaymentLast {
     border: $colorMain 2px solid;
     border-radius: 10px;
@@ -187,74 +283,10 @@ $colorMain3: #A37025;
     background-color: white;
 }
 
-.Promo{
-  display: flex;
-  justify-content: end;
-}
 
 .payfun {
   display: flex;
   justify-content: end;
-}
-
-@media (max-width:1024px) {
-    .listBody {
-        input {
-            width: 5rem;
-        }
-    }
-    .listImg {
-      width: 6em;
-      height: 6em;
-      padding: 0;
-    }
-    .amount {
-      display: none;
-    }
-    .quantityText {
-      display: none;
-    }
-    .delete {
-      display: none;
-    }
-    .numButton {
-      border-radius: 0;
-      border: 0;
-    }
-    .quantity {
-      border: 0;
-    }
-    .buttonLeft {
-      border-radius: 5px;
-      color: white;
-      background-color: $colorMain;
-      border: 0;
-    }
-    .buttonRight {
-      border-radius: 5px;
-      color: white;
-      background-color: $colorMain;
-      border: 0;
-    }
-    .price {
-      display: block;
-    }
-    .nameRotate{
-      // align-items: center;
-      flex-direction: column;
-      padding-left: 2em;
-      width: 11em;
-    }
-    .coffeeName {
-      width: 8em;
-      padding-bottom: 10px;
-    }
-    .trash {
-      display: block;
-    }
-    .check2{
-      display: none;
-    }
 }
 
 @media (max-width:1024px) {
@@ -276,56 +308,10 @@ $colorMain3: #A37025;
       text-align: center;
     }
   }
-  .processInBox {
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    background-color: $colorMain3;
-    border: #000 1px solid 0.25;
-    .check1{
-      display: none;
-    }
-  }
-  .processInBoxNum {
-    display: block;
-    color: white;
-  }
-  .processRWD{
-    display: flex;
-  }
-  .processInBoxLine {
-    height: 1px;
-    margin-bottom: 5px;
-    margin-top: 15px;
-    background-color: black;
-    opacity: 0.25;
-  }
+  
   .subtotal {
     justify-content: space-between;
     width: 100%;
-  }
-}
-
-@media (max-width:1024px) {
-  .listBody{
-    padding: 5px 0;
-  }
-
-  .listImg {
-    width: 4em;
-    height: 4em;
-    padding: 0;
-  }
-
-  .nameRotate {
-    margin-left: 0;
-    padding-left: 0;
-    width: 7em;
-  }
-
-  .processRWDcenter{
-    width: 6em;
-    white-space:nowrap;
   }
 }
 
@@ -343,7 +329,7 @@ $colorMain3: #A37025;
       width: 100%;
     }
   }
-  /* ===== Select Box ===== */
+  
   .sel {
     font-size: 10px;
     display: inline-block;
