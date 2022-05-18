@@ -116,7 +116,8 @@ $nav_li_height: 28px;
   box-shadow: $nav_box_shadow;
   position: relative;
   z-index: 50;
-  
+  transition: all .3s ease-in-out;
+
   .sideDark{
     width: 100%;
     min-height: 100vh;
@@ -243,6 +244,7 @@ $nav_li_height: 28px;
     width: auto;
     height: 110px;
     margin: 1px 1rem;
+    transition: all .3s ease-in-out;
   }
 }
 
@@ -329,7 +331,7 @@ $nav_li_height: 28px;
   .coffeeNavbar{
     height: 90px;
     .logo a img{
-      width: 80px;
+      width: 90px;
     }
   }
 }

@@ -27,6 +27,7 @@ function App() {
   const closeSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
+    document.querySelector('.memberDetail').style.height = '0px';
   }
   const openMemberDetailClick = ()=>{
     if(document.querySelector('.memberDetail').style.height === '0px'){
