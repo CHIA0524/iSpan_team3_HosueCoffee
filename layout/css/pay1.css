@@ -115,6 +115,9 @@ main {
   background-color: #e4d2a3;
   color: white;
 }
+.dText {
+  margin-top: 2rem;
+}
 
 @media screen and (max-width: 800px) {
   .mPayInfoContent {
@@ -138,7 +141,7 @@ main {
     /* padding-top: 1rem; */
   }
   .mPayInfoContent .box {
-    margin: 3rem auto;
+    margin: 3rem auto 0;
     width: 100%;
     border: 1px solid rgb(94, 92, 92);
     /* border-radius: 10px; */
