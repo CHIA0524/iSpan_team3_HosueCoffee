@@ -146,6 +146,11 @@ $colorMain3: #A37025;
     border-right: #E4D2A3 1px solid;
 }
 
+.nameRotate {
+  width:40%;
+  display: flex;
+}
+
 .deletestyle {
     text-decoration: none;
     border: #E4D2A3 1px solid;
@@ -178,7 +183,7 @@ $colorMain3: #A37025;
   .nameRotate{
     flex-direction: column;
     padding-left: 2em;
-    width: 11em;
+    width: 8em;
   }
 
   .amount {

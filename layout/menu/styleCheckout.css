@@ -151,6 +151,13 @@
   border-right: #E4D2A3 1px solid;
 }
 
+.nameRotate {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .deletestyle {
   text-decoration: none;
   border: #E4D2A3 1px solid;
@@ -184,7 +191,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
     padding-left: 2em;
-    width: 11em;
+    width: 8em;
   }
   .amount {
     display: none;

@@ -118,7 +118,7 @@ opacity:  0.25;
 }
 
 .memberNum{
-    width: 42%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     margin: 2em 0;
@@ -204,4 +204,24 @@ opacity:  0.25;
     width: 8em;
     padding-bottom: 10px;
   }
+}
+
+//訂購人資訊
+
+.member2 {
+    margin: 3em 0;
+    padding: 1.5rem;
+    width: 80%;
+    margin: auto;
+}
+
+.memberBody2{
+margin-left: 8em;
+}
+
+.memberBodyIn {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
 }

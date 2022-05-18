@@ -121,7 +121,7 @@
 }
 
 .memberNum {
-  width: 42%;
+  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,5 +201,27 @@
     width: 8em;
     padding-bottom: 10px;
   }
+}
+
+.member2 {
+  margin: 3em 0;
+  padding: 1.5rem;
+  width: 80%;
+  margin: auto;
+}
+
+.memberBody2 {
+  margin-left: 8em;
+}
+
+.memberBodyIn {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3px;
 }
 /*# sourceMappingURL=checkout3.css.map */
