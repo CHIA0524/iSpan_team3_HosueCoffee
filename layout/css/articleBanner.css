@@ -114,22 +114,40 @@ justify-content: center;
 
 .slideBtnLeft {
     width: 40px;
-    height: 40px;
-    margin-left: 11rem;
+    /* margin-left: 11rem; */
     margin-bottom: 1rem;
     transition: .5s;
-    
-    
 }
 
 .slideBtnRight {
     width: 40px;
-    height: 40px;
-    margin-right: 12rem;
+    /* margin-right: 12rem; */
     margin-bottom: 1rem;
     transition: .5s;
 }
 
+.recommendCard .recommendImg {
+    /* display: block; */
+    margin: 0 auto;
+}
+.recommendCard .recommendImg img{
+    display: block;
+    margin: 0 auto;
+}
+.recommendCard p{
+    width: 200px;
+}
+.abc{
+    width: fit-content;
+    margin: 0 auto;
+}
+.abc123{
+    display: inline-block;
+    height: 100%;
+}
+.recommendCard{
+    margin: 0 20px;
+}
 
 
 
@@ -180,6 +198,8 @@ justify-content: center;
     .recommendCard {
     width: 20rem;
     }
+
+ 
 
   /*隱藏recommendCard */
     .recHidden{
