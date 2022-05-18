@@ -228,6 +228,9 @@ table{
 .barwn{
     width: 10%;
 }
+.ansAddBtn{
+    display: none;
+}
 
 @media screen and (max-width:1000px) {
     .mMember{
@@ -318,6 +321,9 @@ table{
     }
     .col-3None{
         display: none;
+    }
+    .ansAddBtn{
+        display: block;
     }
   
 }

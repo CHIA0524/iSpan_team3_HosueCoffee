@@ -1,44 +1,9 @@
 @charset "UTF-8";
 /* -------- 顏色 -------- */
 /* -------- 字體 -------- */
-.adminAside {
-  padding-top: 2%;
-  padding-left: 3%;
-  width: 30%;
-  min-width: 120px;
-}
 
-.asideContent {
-  margin: 0 auto;
-  min-width: 400px;
-  width: 20%;
-  padding-left: 6rem;
-}
 
-.asideContent li {
-  margin: 20px auto;
-  list-style: none;
-}
 
-.adminAside a {
-  color: #4C3410;
-  text-decoration: none;
-  border: 1px transparent solid;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-.adminAside a:hover {
-  border-left: 1px solid #E4D2A3;
-  color: #E4D2A3;
-}
-
-.adminAside .maindir {
-  color: #817575;
-  font-size: larger;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-}
 
 /* 彈跳視窗 */
 .popupWrap {
