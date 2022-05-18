@@ -45,27 +45,31 @@
   width: 375px;
   height: calc(100vh - 150px);
   padding: .1rem .5rem;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 .cardDetail{
   width: 375px;
-  height: 100vh;
-  padding: 15px 40px;
+  height: 100%;
+  padding: 15px 25px 40px 35px;
   background: white;
   position: absolute;
   top: 0;
   left: -400px;
   transition: all .3s ease-in-out;
   overflow: scroll;
-  // left: -350px;
+  h5{
+    margin: 10px 0;
+  }
   li{
     padding: 5px 0;
+    margin-left: 10px;
     list-style: none;
     font-weight: 600;
     }
   .closeCardDetail{
+    cursor: pointer;
     text-align: right;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   div{
@@ -75,17 +79,21 @@
     }
   }
   .storeServeList{
+    margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 1.2rem;
     row-gap: 5px;
+    li{
+      margin: 0px;
+    }
   }
 }
 .cardDetailOpenCss{
   left: 0px;
 }
 .cardWrap{
-  width:350px;
+  width:100%;
   height:100px;
   margin-bottom: 5px;
   background: white;
@@ -93,35 +101,41 @@
   padding:10px;
   display:flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   transition: all .2s ease-in-out;
-}
-.cardWrap img{
-  width: 25%;
-  height: 60px;
-  border-radius: 5px;
+  div:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    color: $font_border_color;
+  }
+  div:last-child:hover{
+    color: $nav_item_inactive;
+  }
+  img{
+    height: 60px;
+    border-radius: 5px;
+  }
+  .itemText{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p{
+      margin: 0;
+      font-size: 14px;
+    }
+    p:first-child{
+      font-size: 16px;
+    }
+  }
 }
 .cardWrap:hover{
   background: $main_color;
   // box-shadow: 0px 0px 5px $font_border_color;
-}
-i{
-  width: 10%;
-  text-align: center;
-  cursor: pointer;
-}
-.itemText{
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.itemText p{
-  margin: 0;
-  font-size: 14px;
-}
-.itemText p:first-child{
-  font-size: 16px;
 }
 .mapWrap{
   width: calc(100% - 350px);
@@ -186,10 +200,11 @@ i{
     img{
       transition: all .5s;
     }
-    span{
+    a{
       width: 100%;
       height: 300px;
-      color: white;
+      text-decoration: none;
+      color: white !important;
       font-size: 2rem;
       display: flex;
       align-items: center;
@@ -203,12 +218,12 @@ i{
     width: 20%;
   }
   div:first-child, div:nth-child(3){
-    span{
+    a{
       left: -100%;
     }
   }
   div:nth-child(2){
-    span{
+    a{
       right: -100%;
     }
   }
@@ -217,18 +232,18 @@ i{
     img{
       width: 25%;
     }
-    span{
+    a{
       left: 0;
     }
   }
   
   div:nth-child(2):hover{
-    span{
+    a{
       right: 0;
     }
   }
   div:nth-child(3):hover{
-    span{
+    a{
       left: 0;
     }
   }
@@ -249,12 +264,12 @@ i{
       }
     }
     div:nth-child(1), div:nth-child(3){
-      span{
+      a{
         left: 0;
       }
     }
     div:nth-child(2){
-      span{
+      a{
         right: 0;
       }
     }

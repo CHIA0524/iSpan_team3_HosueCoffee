@@ -17,25 +17,25 @@ $content_font: 'Yantramanav', "Microsoft JhengHei", sans-serif;
 
 
 /* -------- 修改標籤預設 -------- */
-body, h1, h2, h3, h4, h5, h6, p, span, a{
+body, h1, h2, h3, h4, h5, h6, p, span, li, a{
   font-family: $main_font;
   color: $font_border_color;
+  font-weight: 600;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all .2s ease-in-out;
 }
-
-/* -------- icon -------- */
-ion-icon{
-  width: 30px !important;
-  height: 30px !important;
-  cursor: pointer;
-  fill: $font_border_color;
-  transition: all .2s ease-in-out !important;
+li{
+  list-style: none;
 }
-ion-icon:hover{
+a{
+  text-decoration: none;
+}
+a:hover{
   fill: $secondary_color;
 }
+
 
 
 /* -------- ScrollBar -------- */
@@ -247,7 +247,7 @@ $nav_li_height: 28px;
 }
 
 
-@media screen and (max-width:800px){
+@media screen and (max-width:1000px){
   .closeSideNav{
     cursor: pointer;
     display: flex;
@@ -291,7 +291,7 @@ $nav_li_height: 28px;
       }
 
       .memberDetail{
-        display: none;
+        overflow: hidden;
         width: 100%;
         flex-direction: column;
         transition: all .3s ease-in-out;

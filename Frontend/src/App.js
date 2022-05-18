@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 
-// icon
+// icons
 import { IoCloseOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
@@ -12,34 +12,28 @@ import { IoCallOutline } from "react-icons/io5";
 import { IoMailOutline } from "react-icons/io5";
 import { BiCopyright } from "react-icons/bi";
 
-// 導入頁面
-import Home from './pages/home/Home'
-import StoreIndex from './pages/store/StoreIndex'
+// pages
+import Home from './pages/home/Home';
+import StoreIndex from './pages/store/StoreIndex';
+import StoreMap from './pages/store/StoreMap';
 
 function App() {
-
+  
+  // 手機板 navbar js
   const openSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '0px';
     document.querySelector('.sideDark').style.display = 'block';
   }
-  const sideDarkClick = ()=>{
-    document.querySelector('.navFirst').style.left = '-260px';
-    document.querySelector('.sideDark').style.display = 'none';
-    document.querySelector('.memberDetail').style.display = 'none';
-  }
   const closeSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
-    document.querySelector('.memberDetail').style.display = 'none';
   }
-
   const openMemberDetailClick = ()=>{
-    if(document.querySelector('.memberDetail').style.display=='flex'){
-      document.querySelector('.memberDetail').style.display = 'none';
+    if(document.querySelector('.memberDetail').style.height === '0px'){
+      document.querySelector('.memberDetail').style.height = '200px';
     }
-    else if(document.querySelector('.memberDetail').style.display=='none'){
-      document.querySelector('.memberDetail').style.display = 'flex';
-      document.querySelector('.memberDetail').style.height = 'auto';
+    else if(document.querySelector('.memberDetail').style.height === '200px'){
+      document.querySelector('.memberDetail').style.height = '0px';
     }
   }
 
@@ -47,31 +41,31 @@ function App() {
     <Router>
       <header className="App-header">
         <nav className="coffeeNavbar">
-          <div className="sideDark" onClick={sideDarkClick}></div>
+          <div className="sideDark" onClick={closeSideNavClick}></div>
           <div className="navFirst" style={{ left: '-260px' }}>
             <li className="closeSideNav webNone" onClick={closeSideNavClick}>
               <IoCloseOutline size={30}/>
             </li>
             <li className="webNone">
               <a className="" href="#">
-                <IoPersonOutline size={25}/>
+                <IoPersonOutline size={20} color={'#4C3410'}/>
               </a>
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
               <a className="ms-3" href="#">
-                <IoExitOutline size={25}/>
+                <IoExitOutline size={20} color={'#4C3410'}/>
               </a>
             </li>
-            <div className="memberDetail" style={{display: 'none'}}>
-              <li><a href="">訂單查詢</a></li>
-              <li><a href="">點餐訂單</a></li>
-              <li><a href="">問答中心</a></li>
-              <li><a href="">資料維護</a></li>
-              <li><a href="">密碼修改</a></li>
+            <div className="memberDetail" style={{height: '0px'}}>
+              <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
+              <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
+              <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
+              <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
+              <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
             </div>
-            <li><a href="#">HOME<span>首頁</span></a></li>
-            <li><a href="#">SHOP<span>網路商城</span></a></li>
-            <li><a href="#">BLOG<span>部落格</span></a></li>
-            <li><Link to="/store">STORE<span>門市地圖</span></Link></li>
+            <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
+            <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+            <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
+            <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
             <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           </div>
           <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
@@ -97,7 +91,13 @@ function App() {
         </nav>
       </header>
 
+      {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
+      {/* 記得載入頁面組件喔 */}
+      {/* 路徑長的往上放喔 */}
       <Switch>
+        <Route path="/store/map">
+          <StoreMap />
+        </Route>
         <Route path="/store">
           <StoreIndex />
         </Route>
