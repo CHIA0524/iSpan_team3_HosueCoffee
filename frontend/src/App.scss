@@ -291,7 +291,7 @@ $nav_li_height: 28px;
       }
 
       .memberDetail{
-        display: none;
+        overflow: hidden;
         width: 100%;
         flex-direction: column;
         transition: all .3s ease-in-out;

@@ -19,7 +19,7 @@ function StoreCard(props){
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
-    const response = await fetch("http://localhost:3000/store/map");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`);
     const results = await response.json();
     setDatas(results);
   }

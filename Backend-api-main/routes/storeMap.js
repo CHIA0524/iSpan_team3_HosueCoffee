@@ -5,7 +5,7 @@ const db = require('../modules/mysql_config');
 const upload = multer();
 
 
-//GET　http://localhost:3000/store/map
+//GET　http://localhost:3001/store/map
 
 router.route('/')
     .get(async (req,res,next)=>{

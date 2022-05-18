@@ -16,7 +16,6 @@ import { BiCopyright } from "react-icons/bi";
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
-import StoreMapTest from './pages/store/StoreMapTest';
 
 function App() {
   
@@ -28,15 +27,13 @@ function App() {
   const closeSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
-    document.querySelector('.memberDetail').style.display = 'none';
   }
   const openMemberDetailClick = ()=>{
-    if(document.querySelector('.memberDetail').style.display==='flex'){
-      document.querySelector('.memberDetail').style.display = 'none';
+    if(document.querySelector('.memberDetail').style.height === '0px'){
+      document.querySelector('.memberDetail').style.height = '200px';
     }
-    else if(document.querySelector('.memberDetail').style.display==='none'){
-      document.querySelector('.memberDetail').style.display = 'flex';
-      document.querySelector('.memberDetail').style.height = 'auto';
+    else if(document.querySelector('.memberDetail').style.height === '200px'){
+      document.querySelector('.memberDetail').style.height = '0px';
     }
   }
 
@@ -51,14 +48,14 @@ function App() {
             </li>
             <li className="webNone">
               <a className="" href="#">
-                <IoPersonOutline size={25}/>
+                <IoPersonOutline size={20} color={'#4C3410'}/>
               </a>
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
               <a className="ms-3" href="#">
-                <IoExitOutline size={25}/>
+                <IoExitOutline size={20} color={'#4C3410'}/>
               </a>
             </li>
-            <div className="memberDetail" style={{display: 'none'}}>
+            <div className="memberDetail" style={{height: '0px'}}>
               <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
               <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
               <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
@@ -98,9 +95,6 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
-        <Route path="/store/mapTest">
-          <StoreMapTest />
-        </Route>
         <Route path="/store/map">
           <StoreMap />
         </Route>
