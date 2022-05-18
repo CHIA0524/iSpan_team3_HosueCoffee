@@ -325,4 +325,10 @@ table{
     .card{
         width: 15rem;
     }
+    .col-2None{
+        display: none;
+    }
+    .CState{
+        padding: 0
+    }
 }

@@ -203,7 +203,7 @@
     border-radius: 50px;
     font-size: 25px;
     margin: 20px;
-    width: 20rem;
+    width: 17rem;
     color: white;
     background-color: #e4d2a3;
     border-style: none;
@@ -252,7 +252,7 @@
   .forget-m input {
     border-radius: 10px;
     height: 40px;
-    width: 70%;
+    width: 17rem;
     font-size: 20px;
     margin: 0 auto;
     border: 1px solid #E4D2A3;
@@ -260,9 +260,14 @@
     margin-top: 5rem;
     margin-bottom: 1rem;
   }
-  .forget-m div{
-    width: 20rem;
+  .forget-m .mldiv{
+    width: 17rem;
     margin: 0 auto;
+    
+  }
+  .forget-m .fgMBack{
+    width: fit-content;
+    margin-left: 15rem;
     text-align: right;
   }
 }
