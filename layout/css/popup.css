@@ -102,7 +102,7 @@
 }
 @media screen and (max-width: 700px) {
   .popup {
-    margin: 13rem auto;
+    margin: 10rem auto;
     width: 70%;
   }
   .popBoxContent {
