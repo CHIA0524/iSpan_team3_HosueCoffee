@@ -20,26 +20,21 @@ import StoreMapTest from './pages/store/StoreMapTest';
 
 function App() {
   
+  // 手機板 navbar js
   const openSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '0px';
     document.querySelector('.sideDark').style.display = 'block';
-  }
-  const sideDarkClick = ()=>{
-    document.querySelector('.navFirst').style.left = '-260px';
-    document.querySelector('.sideDark').style.display = 'none';
-    document.querySelector('.memberDetail').style.display = 'none';
   }
   const closeSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
     document.querySelector('.memberDetail').style.display = 'none';
   }
-
   const openMemberDetailClick = ()=>{
-    if(document.querySelector('.memberDetail').style.display=='flex'){
+    if(document.querySelector('.memberDetail').style.display==='flex'){
       document.querySelector('.memberDetail').style.display = 'none';
     }
-    else if(document.querySelector('.memberDetail').style.display=='none'){
+    else if(document.querySelector('.memberDetail').style.display==='none'){
       document.querySelector('.memberDetail').style.display = 'flex';
       document.querySelector('.memberDetail').style.height = 'auto';
     }
@@ -49,7 +44,7 @@ function App() {
     <Router>
       <header className="App-header">
         <nav className="coffeeNavbar">
-          <div className="sideDark" onClick={sideDarkClick}></div>
+          <div className="sideDark" onClick={closeSideNavClick}></div>
           <div className="navFirst" style={{ left: '-260px' }}>
             <li className="closeSideNav webNone" onClick={closeSideNavClick}>
               <IoCloseOutline size={30}/>
@@ -64,16 +59,16 @@ function App() {
               </a>
             </li>
             <div className="memberDetail" style={{display: 'none'}}>
-              <li><a href="">訂單查詢</a></li>
-              <li><a href="">點餐訂單</a></li>
-              <li><a href="">問答中心</a></li>
-              <li><a href="">資料維護</a></li>
-              <li><a href="">密碼修改</a></li>
+              <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
+              <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
+              <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
+              <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
+              <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
             </div>
-            <li><a href="#">HOME<span>首頁</span></a></li>
-            <li><a href="#">SHOP<span>網路商城</span></a></li>
-            <li><a href="#">BLOG<span>部落格</span></a></li>
-            <li><Link to="/store">STORE<span>門市地圖</span></Link></li>
+            <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
+            <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+            <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
+            <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
             <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           </div>
           <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
@@ -99,6 +94,9 @@ function App() {
         </nav>
       </header>
 
+      {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
+      {/* 記得載入頁面組件喔 */}
+      {/* 路徑長的往上放喔 */}
       <Switch>
         <Route path="/store/mapTest">
           <StoreMapTest />
