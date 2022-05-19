@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brand product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../nav&footer_example/layout_example.html">
+    <!---------- custom style ---------->
+    <link rel="stylesheet" href="../css/main.css">
+    <!---------- fontawesome ---------->
+    <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+
+    <!---------- google font ---------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap" rel="stylesheet">
+    <!---------- brandproduct style ---------->
+    <link rel="stylesheet" href="../css/pay3.css">
+    <link rel="stylesheet" href="../css/steps.css">
+
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="coffeeNavbar">
+            <div class="sideDark"></div>
+            <div class="navFirst" style="left: -260px;">
+
+                <li class="closeSideNav webNone">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m13.41425 12.00025 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z" />
+                    </svg>
+                </li>
+
+                <li class="webNone">
+                    <a class="" href="#">
+                        <img class="iconDuck" src="../iconduck/user.svg" alt="">
+                    </a>
+                    <p class="openMemberDetail">MEMBER</p>
+                    <a class="ms-3" href="#">
+                        <img class="iconDuck" src="../iconduck/loginout.svg" alt="">
+                    </a>
+                </li>
+
+                <div class="memberDetail" style="display: none;">
+                    <li><a href="">訂單查詢</a></li>
+                    <li><a href="">點餐訂單</a></li>
+                    <li><a href="">問答中心</a></li>
+                    <li><a href="">資料維護</a></li>
+                    <li><a href="">密碼修改</a></li>
+                </div>
+
+                <li><a href="#">HOME<span>首頁</span></a></li>
+                <li><a href="#">MAP<span>門市地圖</span></a></li>
+                <li><a href="#">BLOG<span>部落格</span></a></li>
+                <li><a href="#">SHOP<span>網路商城</span></a></li>
+                <li class="webNone"><a href="#"><button class="coffeeLightBtn">>> Order Online</button></a></li>
+
+            </div>
+
+            <div class="openSideNav">
+
+                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m21 17c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .4477153 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.4477153-1-1s.44771525-1 1-1zm0-6c.5522847 0 1 .44771525 1 1s-.4477153 1-1 1h-18c-.55228475 0-1-.44771525-1-1s.44771525-1 1-1z"
+                        fill-rule="evenodd" />
+                </svg>
+
+            </div>
+
+            <div>
+                <li class="logo"><a href=""><img src="../img/好室咖啡logo深色.svg" alt=""></a></li>
+            </div>
+
+            <div>
+
+                <li class="mobileNone"><a href="#"><button class="coffeeLightBtn">>> Order Online</button></a></li>
+                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li class="mobileNone"><a href="#"><i class="fa-solid fa-user-large"></i></a></li>
+
+                <li class="mobileNone position-relative">
+                    <a href=""><i class="fa-solid fa-user-large"></i></a>
+                    <p class="webUserInfo">
+                        <span><a href="">會員專區</a></span>
+                        <span><a href="">訂單查詢</a></span>
+                        <span><a href="">問答中心</a></span>
+                        <span><a href="">登出</a></span>
+            </div>
+            </li>
+
+            </div>
+
+        </nav>
+    </header>
+    <main class="container">
+        <div class="paytext">
+            <p>結帳</p>
+        </div>
+
+        <div class="steps">
+            <div class="step stepCompleted">
+                <div class="stepText">
+                    確認商品</div>
+            </div>
+            <div class="stepLine "></div>
+            <div class="step">
+                <div class="stepText">填寫資料</div>
+            </div>
+            <div class="stepLine"> </div>
+            <div class="step ">
+                <div class="stepText">購物完成</div>
+            </div>
+        </div>
+        <!-- 手機版 -->
+        <div class="mSteps">
+            <div class=" mStep">
+                <div class="  mStepNum">1</div>
+                <div class="mStepText">訂單確認</div>
+            </div>
+
+            <div class="mStepLine "></div>
+            <div class="mStep ">
+                <div class="mStepNum">2</div>
+                <div class="mStepText">資料填寫</div>
+            </div>
+            <div class="mStepLine "></div>
+
+            <div class="mStep  ">
+                <div class="mStepNum">3</div>
+                <div class="mStepText">購物完成</div>
+            </div>
+        </div>
+        <!-- 會員 -->
+        <div class="memNo">
+            <div class="memNoText">
+                <p>訂單編號:</p>
+                <p>00001</p>
+            </div>
+            <div class="memNoText">
+                <p>訂單時間:</p>
+                <p>2022/04/01</p>
+            </div>
+        </div>
+        <div class="Content">
+            <!-- 訂單資訊 -->
+            <div class="payInfo">
+                <hr>
+                <div class="d-flex align-items-center">
+                    <div class="col-2">
+                        <img class="packageImg" src="./img/包裝 9.png" alt="">
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-3 pName">
+                        <p>伊莎米 精選招牌特調(半磅)</p>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2 num d-flex">
+                        <p>數量：2</p>
+
+                    </div>
+                    <div class="col-2"></div>
+
+                    <div class="col-1">
+                        <p>$499</p>
+                    </div>
+                </div>
+                <hr>
+                <div class=" d-flex align-items-center">
+                    <div class="col-2">
+                        <img class="packageImg" src="./img/包裝 9.png" alt="">
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-3 pName">
+                        <p>伊莎米 精選招牌特調(半磅)</p>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2 num d-flex">
+                        <p>數量：2</p>
+
+                    </div>
+                    <div class="col-2"></div>
+
+                    <div class="col-1">
+                        <p>$499</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+            <!-- 個人資訊 -->
+            <div class="perInfo">
+                <div class="perInfoTextL">
+                    <p>取貨方式:</p>
+                    <p>付款編號:</p>
+                    <p>收件人資訊:</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p>留言備註:</p>
+                </div>
+                <div class="perInfoTextR">
+                    <p>自取</p>
+                    <p>匯款</p>
+                    <br>
+                    <p>姓名:XXX</p>
+                    <p>電話:XXX</p>
+                    <p>地址:XXX</p>
+                    <br>
+                    <p>XXXXXXXX</p>
+                </div>
+            </div>
+
+
+            <hr>
+            <!-- 付款總額 -->
+            <div class="pTitle">金額統計</div>
+            <div class="payDetail">
+                <div class="payDetailTextL">
+                    <p>小計加總</p>
+                    <p>運費</p>
+                    <p>優惠券折扣</p>
+                    <p>紅利點數折扣</p>
+                    <h5>結帳總額</h5>
+                </div>
+                <div class="payDetailTextR">
+                    <p>$998</p>
+                    <p>+$0</p>
+                    <p>-$100</p>
+                    <p>-$50</p>
+                    <h5>$898</h5>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版 -->
+        <div class="mContent">
+            <div class="mTitle">
+                <br>
+                <h5>商品名稱</h5>
+                <br>
+            </div>
+
+            <div class="mPayInfo">
+                <div class="box">
+                    <div>
+                        <img class="mImg" src="./img/包裝 9.png" alt="">
+                    </div>
+                    <div class="mPayInfoText">
+                        <p>伊莎米 精選招牌特調(半磅)</p>
+                        <p>數量：2</p>
+                        <div class="mPayMoney">
+                            <p>單價：100</p>
+                            <p class="R">小計：200</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mPayInfo">
+                <div class="box">
+                    <div>
+                        <img class="mImg" src="./img/包裝 9.png" alt="">
+                    </div>
+                    <div class="mPayInfoText">
+                        <p>伊莎米 精選招牌特調(半磅)</p>
+                        <p>數量：2</p>
+                        <div class="mPayMoney">
+                            <p>單價：100</p>
+                            <p class="R">小計：200</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <!-- 個人資訊 -->
+            <div class="pickUp">
+                <div class="pickUpL">
+                    <p>取貨方式:</p>
+                    <p>付款方式:</p>
+                    <p>備註內容:</p>
+                    <p></p>
+                </div>
+                <div class="pickUpR">
+                    <p>自取</p>
+                    <p>匯款</p>
+                    <p>精神崩潰的貓咪&想開解牠的女主人</p>
+                </div>
+            </div>
+            <hr>
+            <h5>收件人資訊</h5>
+            <div class="pickInfo">
+                <div class="pickInfoL">
+                    <p>姓名:</p>
+                    <p>手機:</p>
+                    <p>地址:</p>
+                </div>
+                <div class="pickInfoR">
+                    <p>蕭敬騰</p>
+                    <p>0918273907</p>
+                    <p>這個門市</p>
+                </div>
+            </div>
+            <hr>
+            <h5>結帳金額</h5>
+            <div class="mPayTotalCheck">
+
+                <div class="box">
+                    <div class="totalInfo1">
+                        <div>
+                            <p>商品小計</p>
+                            <p>運費</p>
+                            <p>優惠折扣</p>
+                            <p>紅利折扣</p>
+
+                        </div>
+                        <div class="money">
+                            <p>$1998</p>
+                            <p>自取</p>
+                            <p>$100</p>
+                            <p>$100</p>
+
+
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="totalInfo1">
+                        <div>
+                            <h3>結帳金額</h3>
+                        </div>
+                        <div>
+                            <h3>$898</h3>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="d-flex coffeeFooter">
+        <div class="d-flex">
+            <div class="mx-5">
+                PRODUCT
+                <li><a href="">coffee</a></li>
+                <li><a href="">cups</a></li>
+                <li><a href="">other</a></li>
+            </div>
+            <div class="mx-5">
+                ABOUT US
+                <li><a href="">news</a></li>
+                <li><a href="">store</a></li>
+                <li><a href="">FAQs</a></li>
+            </div>
+        </div>
+        <div class="mx-5">
+            <div class="d-flex">
+                <i class="fa-regular fa-envelope"></i>
+                <p>team3@house.coffee.com</p>
+            </div>
+            <div class="d-flex">
+                <i class="fa-regular fa-phone"></i>
+                <p>(07)333-3333</p>
+            </div>
+            <div class="d-flex">
+                <i class="fa-solid fa-copyright"></i>
+                <p>2022 . HOUSE COFFEE</p>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!-- bootstrap CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
