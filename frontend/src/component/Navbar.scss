@@ -26,6 +26,7 @@ $nav_li_height: 28px;
   position: relative;
   z-index: 50;
   transition: all .3s ease-in-out;
+  user-select: none;
 
   .sideDark{
     width: 100%;
@@ -43,18 +44,19 @@ $nav_li_height: 28px;
     height: 200px;
     padding: 25px 15px 15px;
     margin: 0;
-    background: no-repeat url('');
+    background: no-repeat url('./img/webUserInfo.svg');
     border-radius: 10px;
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
-    top: 50px;
-    right: 0px;
+    top: 55px;
+    right: 5px;
     z-index: 1;
     a{
       padding: 5px;
       color: white;
+      font-size: smaller;
       font-weight: 600;
       justify-content: center;
     }
@@ -64,7 +66,7 @@ $nav_li_height: 28px;
     :last-child{
       a{
         color: $nav_item_inactive;
-        font-size: larger;
+        font-size: medium;
       }
       a:hover{
         color: $font_border_color;

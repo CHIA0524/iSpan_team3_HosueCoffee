@@ -7,11 +7,11 @@ import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
 
 // member pages
-import MemberLogin from './pages/member/memberlogin';
-import Memberprofile from './pages/member/memberprofile';
-import MemberprofileEdit from './pages/member/memberprofileEdit';
-import MemberPassword from './pages/member/memberPassword';
-import MemberOrderList from './pages/member/memberOrderList';
+// import MemberLogin from './pages/member/memberlogin';
+// import Memberprofile from './pages/member/memberprofile';
+// import MemberprofileEdit from './pages/member/memberprofileEdit';
+// import MemberPassword from './pages/member/memberPassword';
+// import MemberOrderList from './pages/member/memberOrderList';
 
 // components
 import Navbar from './component/Navbar';
@@ -33,7 +33,7 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
-        <Route path="/member/OrderList">
+        {/* <Route path="/member/OrderList">
             <MemberOrderList />
           </Route>
         <Route path="/member/profileEdit">
@@ -47,7 +47,7 @@ function App() {
           </Route>
         <Route path="/memberLogin">
             <MemberLogin />
-        </Route>
+        </Route> */}
 
         <Route path="/" exact>
           <Home />
