@@ -15,6 +15,8 @@ import { BiCopyright } from "react-icons/bi";
 // 導入頁面
 import Home from './pages/home/Home'
 import StoreIndex from './pages/store/StoreIndex'
+import OnlineCheckPage from './pages/menu/OnlineCheckPage';
+
 
 function App() {
 
@@ -72,7 +74,7 @@ function App() {
             <li><a href="#">SHOP<span>網路商城</span></a></li>
             <li><a href="#">BLOG<span>部落格</span></a></li>
             <li><Link to="/store">STORE<span>門市地圖</span></Link></li>
-            <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+            <li className="webNone"><Link to="/store"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
           </div>
           <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
             <IoMenuOutline size={30}/>
@@ -81,7 +83,7 @@ function App() {
             <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
           </div>
           <div>
-            <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+            <li className="mobileNone"><Link to="/OnlineChecckPage"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
             <li><a href="#"><IoCartOutline size={30}/></a></li>
 
             <li className="mobileNone position-relative">
@@ -101,9 +103,12 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
-        <Route path="/" exact>
+        <Route path="/exact" >
           <Home />
         </Route>
+        <Route path="">
+          <OnlineCheckPage />
+        </Route> 
       </Switch>
 
       <footer className="d-flex coffeeFooter">

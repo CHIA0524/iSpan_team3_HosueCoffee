@@ -7,6 +7,7 @@ import logo from '../../logo.svg';
 import img01 from './img/storeIndex-img01.png';
 import img02 from './img/storeIndex-img02.png';
 
+
 function StoreIndex(props){
   return(
     <>

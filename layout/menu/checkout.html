@@ -114,7 +114,7 @@
                     <div class="processInBoxLine"></div>
                 </div>
                 <div class="col-2 processInBox processInBoxwhite">
-                    <span class="check2">填寫資料</span> 
+                    <span class="check2">填寫資料</span>
                     <span class="processInBoxNum processInBoxwhite ">2</span>
                 </div>
                 <div class="col-2 processInBoxNon">
@@ -141,7 +141,7 @@
             </div>
         </div>
         <!-- 空白 -->
-        <div class="spaceTop2"></div>
+        <div class="spaceTop"></div>
         <!-- 訂單列表 -->
         <div class="listBody">
             <div class="d-flex align-items-center justify-content-between">
@@ -167,9 +167,11 @@
                 </div>
                 <div class="delete1">
                     <a href="" class="btn deletestyle delete"><span>刪除</span></a>
-                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
+                    <div class="trash">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </div>
                 </div>
-                
+
                 <div class="price">
                     $150
                 </div>
@@ -201,9 +203,11 @@
                 </div>
                 <div class="delete1">
                     <a href="" class="btn deletestyle delete"><span>刪除</span></a>
-                    <div class="trash"><ion-icon name="trash-outline"></ion-icon></div>
+                    <div class="trash">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </div>
                 </div>
-                
+
                 <div class="price">
                     $150
                 </div>
@@ -226,7 +230,7 @@
                     <div class="d-flex">
                         <p>可折扣點數:</p>
                         <p style="color: red;">00</p>
-                        <p>/</p> 
+                        <p>/</p>
                         <p>30點</p>
                     </div>
                     <input type="text">
@@ -277,13 +281,13 @@
             <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-end">
                     <div class="btn PaymentLast">
-                            繼續購物
+                        繼續購物
                     </div>
                 </div>
                 <!-- 結帳按鈕 -->
                 <div class="d-flex justify-content-end">
                     <div class="btn PaymentLast">
-                            結帳
+                        結帳
                     </div>
                 </div>
             </div>
@@ -339,82 +343,83 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-            <script>/* ===== Logic for creating fake Select Boxes ===== */
-                $('.sel').each(function() {
-                  $(this).children('select').css('display', 'none');
-                  
-                  var $current = $(this);
-                  
-                  $(this).find('option').each(function(i) {
+        <script>/* ===== Logic for creating fake Select Boxes ===== */
+            $('.sel').each(function () {
+                $(this).children('select').css('display', 'none');
+
+                var $current = $(this);
+
+                $(this).find('option').each(function (i) {
                     if (i == 0) {
-                      $current.prepend($('<div>', {
-                        class: $current.attr('class').replace(/sel/g, 'sel__box')
-                      }));
-                      
-                      var placeholder = $(this).text();
-                      $current.prepend($('<span>', {
-                        class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
-                        text: placeholder,
-                        'data-placeholder': placeholder
-                      }));
-                      
-                      return;
+                        $current.prepend($('<div>', {
+                            class: $current.attr('class').replace(/sel/g, 'sel__box')
+                        }));
+
+                        var placeholder = $(this).text();
+                        $current.prepend($('<span>', {
+                            class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
+                            text: placeholder,
+                            'data-placeholder': placeholder
+                        }));
+
+                        return;
                     }
-                    
+
                     $current.children('div').append($('<span>', {
-                      class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
-                      text: $(this).text()
+                        class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
+                        text: $(this).text()
                     }));
-                  });
                 });
-                
-                // Toggling the `.active` state on the `.sel`.
-                $('.sel').click(function() {
-                  $(this).toggleClass('active');
-                });
-                
-                // Toggling the `.selected` state on the options.
-                $('.sel__box__options').click(function() {
-                  var txt = $(this).text();
-                  var index = $(this).index();
-                  
-                  $(this).siblings('.sel__box__options').removeClass('selected');
-                  $(this).addClass('selected');
-                  
-                  var $currentSel = $(this).closest('.sel');
-                  $currentSel.children('.sel__placeholder').text(txt);
-                  $currentSel.children('select').prop('selectedIndex', index + 1);
-                });
-                </script>
-                <script>
+            });
 
-                    const upElement = document.querySelector('.buttonRight')
-                            
-                    const downElement = document.querySelector('.buttonLeft')
+            // Toggling the `.active` state on the `.sel`.
+            $('.sel').click(function () {
+                $(this).toggleClass('active');
+            });
 
-                    const NumberElement = document.querySelector('.quantity')
+            // Toggling the `.selected` state on the options.
+            $('.sel__box__options').click(function () {
+                var txt = $(this).text();
+                var index = $(this).index();
 
-                    upElement.addEventListener("click" , a => {
+                $(this).siblings('.sel__box__options').removeClass('selected');
+                $(this).addClass('selected');
 
-                        const currenNumber = Number (NumberElement.textContent);
+                var $currentSel = $(this).closest('.sel');
+                $currentSel.children('.sel__placeholder').text(txt);
+                $currentSel.children('select').prop('selectedIndex', index + 1);
+            });
+        </script>
+        <script>
 
-                        NumberElement.textContent = currenNumber + 1;
+            const upElement = document.querySelector('.buttonRight')
 
-                    });
-                    
-                    downElement.addEventListener("click" , a => {
+            const downElement = document.querySelector('.buttonLeft')
 
-                    const currenNumber = Number (NumberElement.textContent);
+            const NumberElement = document.querySelector('.quantity')
 
-                    
-                    if(Number(NumberElement.textContent) > 1  ){
-                        NumberElement.textContent = currenNumber - 1;
+            upElement.addEventListener("click", a => {
 
-                        }
-                    });
+                const currenNumber = Number(NumberElement.textContent);
 
-                        
-                </script>
+                NumberElement.textContent = currenNumber + 1;
+
+            });
+
+            downElement.addEventListener("click", a => {
+
+                const currenNumber = Number(NumberElement.textContent);
+
+
+                if (Number(NumberElement.textContent) > 1) {
+
+                    NumberElement.textContent = currenNumber - 1;
+
+                }
+            });
+
+
+        </script>
 </body>
 
 </html>
