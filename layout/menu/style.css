@@ -40,7 +40,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: auto;
+  margin: 30px 0;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;

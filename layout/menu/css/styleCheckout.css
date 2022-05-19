@@ -22,6 +22,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
 .processRWD {
@@ -29,7 +30,7 @@
 }
 
 .processIn {
-  width: 50rem;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,7 +113,7 @@
 
 .listBody {
   width: 80%;
-  margin: auto;
+  margin: 0 30px;
   border-top: 1px solid;
   border-bottom: 1px solid;
   padding: 1em 0;

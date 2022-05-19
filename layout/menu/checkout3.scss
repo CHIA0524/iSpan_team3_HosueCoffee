@@ -28,7 +28,7 @@ display: none;
 }
 
 .processIn {
-  width: 50rem;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -135,7 +135,7 @@ opacity:  0.25;
 // 訂單列表
 .listBody {
   width: 80%;
-  margin: auto;
+  margin:0 30px;
   border-top: 1px solid;
   border-bottom: 1px solid;
   padding: 1em 0;
