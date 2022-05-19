@@ -17,6 +17,8 @@ import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
 
+import ShopIndex from './pages/shop/ShopIndex';
+
 function App() {
   
   // 手機板 navbar js
@@ -39,6 +41,7 @@ function App() {
   }
 
   return (
+    
     <Router>
       <header className="App-header">
         <nav className="coffeeNavbar">
@@ -64,7 +67,8 @@ function App() {
               <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
             </div>
             <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
-            <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+            {/* 連結修改 */}
+            <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
             <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
             <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
             <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
@@ -77,6 +81,8 @@ function App() {
           </div>
           <div>
             <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          
+            {/* 連結修改 */}
             <li><a href="#"><IoCartOutline size={30}/></a></li>
 
             <li className="mobileNone position-relative">
@@ -96,6 +102,9 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
+        <Route path="/shop">
+          <ShopIndex />
+        </Route>
         <Route path="/store/map">
           <StoreMap />
         </Route>
