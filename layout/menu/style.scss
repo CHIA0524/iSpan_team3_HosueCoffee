@@ -23,9 +23,9 @@ $colorMain3: #A37025;
 // aside
 
 .main1{
-    width: 20%;
-    // display: flex;
-    // justify-content: center;
+    width: 23%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .onlion {
@@ -34,16 +34,16 @@ $colorMain3: #A37025;
 }
 
 .main2 {
+    width: 65%;
     margin: auto;
 }
 
 .mainBody {
     display: flex;
     flex-wrap: wrap;
-    margin: 30px 0;
-    align-items: flex-end;
-    justify-content: end;
-
+    margin: auto;
+    // align-items: flex-start;
+    // justify-content: flex-start;
 }
 
 
@@ -112,7 +112,9 @@ $colorMain3: #A37025;
       height: 6em;
       padding: 0;
   }
-  
+  .main2 {
+      margin: 0 ;
+  }
   .nameRotate{
     flex-direction: column;
     // padding-left: 2em;
@@ -141,7 +143,8 @@ $colorMain3: #A37025;
   
   .coffeeName {
     width: 8em;
-    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
   }
   
   .quantityText1 {
@@ -393,20 +396,23 @@ a {
     .btn1 {
         display: none;
     }
+   
+    .body1 {
+        justify-content: center;
+    }
 
 }
 
 @media screen and (max-width: 376px){
-
+    // .main2{
+ 
+    // }
     .mainBody{
-        justify-content: normal;
+        justify-content: center;
     }
     .nameRotate {
         margin-left: 1em;
         display: flex;
         align-items: center;
-    }
-    .coffeeName {
-        padding: 0;
     }
     }

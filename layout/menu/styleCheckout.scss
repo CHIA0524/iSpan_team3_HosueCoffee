@@ -110,7 +110,7 @@ $colorMain3: #A37025;
 // 訂單列表
 .listBody {
     width: 80%;
-    margin: 0 30px;
+    margin: auto;
     border-top: 1px solid;
     border-bottom: 1px solid;
     padding: 1em 0;
@@ -169,8 +169,15 @@ $colorMain3: #A37025;
   }
 
   // list RWD
+    
+  @media (max-width:625px) {
+    .listBody {
+      margin: 0 30px 0 px;
+    }
+  }
   @media (max-width:1024px) {
     .listBody {
+      // margin: 0 30px;
         input {
             width: 5rem;
         }

@@ -22,7 +22,13 @@
 }
 
 .main1 {
-  width: 20%;
+  width: 23%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .onlion {
@@ -31,6 +37,7 @@
 }
 
 .main2 {
+  width: 65%;
   margin: auto;
 }
 
@@ -40,13 +47,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 30px 0;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  margin: auto;
 }
 
 .asideMenu ul {
@@ -108,6 +109,9 @@
     height: 6em;
     padding: 0;
   }
+  .main2 {
+    margin: 0;
+  }
   .nameRotate {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -133,7 +137,12 @@
   }
   .coffeeName {
     width: 8em;
-    padding-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .quantityText1 {
     width: 5em;
@@ -427,13 +436,18 @@ a:link {
   .btn1 {
     display: none;
   }
+  .body1 {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 @media screen and (max-width: 376px) {
   .mainBody {
-    -webkit-box-pack: normal;
-        -ms-flex-pack: normal;
-            justify-content: normal;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .nameRotate {
     margin-left: 1em;
@@ -443,9 +457,6 @@ a:link {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .coffeeName {
-    padding: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

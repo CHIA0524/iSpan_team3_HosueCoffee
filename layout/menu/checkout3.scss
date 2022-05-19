@@ -135,7 +135,7 @@ opacity:  0.25;
 // 訂單列表
 .listBody {
   width: 80%;
-  margin:0 30px;
+  margin:auto;
   border-top: 1px solid;
   border-bottom: 1px solid;
   padding: 1em 0;
@@ -179,6 +179,7 @@ display: flex;
 // list RWD
 @media (max-width:1024px) {
   .listBody {
+    // width: 100%;
       input {
           width: 5rem;
       }
@@ -319,3 +320,14 @@ margin-left: 8em;
     width: 100%;
   }
 }
+// @media (max-width:376px) {
+//   .member3,.member2,.member1, .listBody{
+//     margin:0 30px;
+//   }
+//   .memberBody {
+//     width: 100%;
+//   }
+//   .member2 {
+//    width: 80%;
+//    }
+// }
