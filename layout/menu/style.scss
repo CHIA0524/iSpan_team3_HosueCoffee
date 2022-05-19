@@ -395,5 +395,17 @@ a {
 
 }
 
+@media screen and (max-width: 376px){
 
-
+    .mainBody{
+        justify-content: normal;
+    }
+    .nameRotate {
+        margin-left: 1em;
+        display: flex;
+        align-items: center;
+    }
+    .coffeeName {
+        padding: 0;
+    }
+    }
