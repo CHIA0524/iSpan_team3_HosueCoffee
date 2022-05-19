@@ -17,6 +17,13 @@ import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
 
+//member
+import MemberLogin from './pages/member/memberlogin';
+import Memberprofile from './pages/member/memberprofile';
+import MemberprofileEdit from './pages/member/memberprofileEdit';
+import MemberPassword from './pages/member/memberPassword';
+import MemberOrderList from './pages/member/memberOrderList';
+
 function App() {
   
   // 手機板 navbar js
@@ -77,10 +84,10 @@ function App() {
           </div>
           <div>
             <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-            <li><a href="#"><IoCartOutline size={30}/></a></li>
+            <li><a><IoCartOutline size={30}/></a></li>
 
             <li className="mobileNone position-relative">
-              <a href=""><IoPersonOutline size={30}/></a>
+              <Link to="/memberLogin"><IoPersonOutline size={30}/></Link>
               <p className="webUserInfo">
                 <span><a href="">會員專區</a></span>
                 <span><a href="">訂單查詢</a></span>
@@ -99,9 +106,28 @@ function App() {
         <Route path="/store/map">
           <StoreMap />
         </Route>
-        <Route path="/store">
+
+      <Route path="/store">
           <StoreIndex />
         </Route>
+
+      <Route path="/member/memberOrderList">
+          <MemberOrderList />
+        </Route>
+      <Route path="/member/memberprofileEdit">
+          <MemberprofileEdit />
+        </Route>
+      <Route path="/member/memberPassword">
+          <MemberPassword />
+        </Route>
+      <Route path="/member/memberprofile">
+          <Memberprofile />
+        </Route>
+      <Route path="/memberLogin">
+          <MemberLogin />
+        </Route>
+        
+     
         <Route path="/" exact>
           <Home />
         </Route>
