@@ -83,7 +83,7 @@ function MemberLogin(){
                                             <div className="col-2"></div>
                                             </div>
                                             <br></br>
-                                            <Link to="/member/profile"><button>&ensp;登入&ensp;</button></Link>
+                                            <Link to="/profile"><button>&ensp;登入&ensp;</button></Link>
                                             <hr></hr>
                                             <br></br>
                                             <div className="GLoginL"><i className="fa-brands fa-google"></i>&ensp;使用Google登入</div>
@@ -128,7 +128,7 @@ function MemberLogin(){
                     <br></br>
                     <div className="mLcolor fgaa" onClick={fgM}>忘記密碼</div>
                     <br></br>
-                    <Link to="/member/profile"><button>&ensp;登入&ensp;</button></Link>
+                    <Link to="/profile"><button>&ensp;登入&ensp;</button></Link>
                     <div className="loginM-F">
                         <div className="lmLogo"><i className="fa-brands fa-google"></i></div>
                         <div className="lmLogo"><i className="fa-brands fa-facebook-f"></i></div>

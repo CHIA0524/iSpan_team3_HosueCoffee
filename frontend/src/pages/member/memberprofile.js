@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from "./memberAside";
+import MemberPassword from './memberPassword';
 import './memberprofile.css';
 function Memberprofile(){
     return(
@@ -10,6 +11,11 @@ function Memberprofile(){
         <div className="container">
         <div className="row">
            <MemberAside/>
+           <Switch>
+                <Route path={"/Password"}>
+                    <MemberPassword />
+                </Route>
+            </Switch>
             <main className="pMain row col">
             <div class="col-4 col-3None">
                     <div class="proList">
