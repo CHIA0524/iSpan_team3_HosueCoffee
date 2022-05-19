@@ -1,9 +1,12 @@
 @charset "UTF-8";
 /* -------- 顏色 -------- */
 /* -------- 字體 -------- */
+
 body, h1, h2, h3, h4, h5, h6, p, span, a {
   font-family: "Comfortaa", "Microsoft JhengHei", cursive;
   color: #4C3410;
+
+
   padding: 0;
   margin: 0;
 }
@@ -13,6 +16,7 @@ ion-icon {
   width: 30px !important;
   height: 30px !important;
   cursor: pointer;
+
   fill: #4C3410;
 
   -webkit-transition: all .2s ease-in-out !important;
@@ -22,6 +26,7 @@ ion-icon {
 
 ion-icon:hover {
   fill: #E5D8B7;
+
 
 }
 
@@ -38,7 +43,9 @@ ion-icon:hover {
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
+
   background: #E4D2A3;
+
   border-radius: 3px;
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -46,6 +53,7 @@ ion-icon:hover {
 
 /* Handle on hover */
 *::-webkit-scrollbar-thumb:hover {
+
   background: #A37025;
 }
 
@@ -54,26 +62,32 @@ ion-icon:hover {
   height: 40px;
   padding: 3px 10px;
 
+
+
   color: white;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+
   background: #A37025;
   border: none;
   border-radius: 10px;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+
 }
 
 .coffeeDarkBtn:hover {
   cursor: pointer;
   color: #4C3410;
   background: #DDB44A;
+
 }
 
 .coffeeLightBtn:hover {
   cursor: pointer;
   color: white;
+
   border: 4px solid #A37025;
   background: #A37025;
 }
@@ -81,6 +95,7 @@ ion-icon:hover {
 .coffeeLightBtn {
   color: #E4D2A3;
   border: 4px solid #E4D2A3;
+
   background: white;
 }
 
@@ -105,6 +120,7 @@ ion-icon:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
@@ -113,6 +129,7 @@ ion-icon:hover {
           box-sizing: border-box;
   -webkit-box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
+
   position: relative;
   z-index: 50;
 }
@@ -126,8 +143,10 @@ ion-icon:hover {
   top: 0;
   right: 0;
   z-index: 51;
+
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+
 }
 
 .coffeeNavbar .webUserInfo {
@@ -140,6 +159,7 @@ ion-icon:hover {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-pack: space-evenly;
@@ -149,6 +169,7 @@ ion-icon:hover {
   top: 50px;
   right: 0px;
 
+
   z-index: 1;
 }
 
@@ -157,6 +178,7 @@ ion-icon:hover {
   color: white;
   font-weight: 600;
   -webkit-box-pack: center;
+
       -ms-flex-pack: center;
           justify-content: center;
 
@@ -168,11 +190,13 @@ ion-icon:hover {
 
 .coffeeNavbar .webUserInfo :last-child a {
   color: #A37025;
+
   font-size: larger;
 }
 
 .coffeeNavbar .webUserInfo :last-child a:hover {
   color: #4C3410;
+
 }
 
 .coffeeNavbar .webUserInfo :last-child ::after {
@@ -180,6 +204,7 @@ ion-icon:hover {
   display: block;
   width: 0px;
   height: 2px;
+
   background-color: #4C3410;
   position: absolute;
   bottom: 25px;
@@ -187,6 +212,7 @@ ion-icon:hover {
   left: calc(50% - 25px);
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+
 }
 
 .coffeeNavbar .webUserInfo :last-child :hover::after {
@@ -215,6 +241,7 @@ ion-icon:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+
 }
 
 .coffeeNavbar div:nth-child(3) {
@@ -243,6 +270,7 @@ ion-icon:hover {
 
 .coffeeNavbar a:hover {
   color: #A37025;
+
 }
 
 .coffeeNavbar .navFirst li {
@@ -258,6 +286,7 @@ ion-icon:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+
       -ms-flex-direction: column;
           flex-direction: column;
   color: #DDB44A;
@@ -271,20 +300,39 @@ ion-icon:hover {
 
 .coffeeNavbar .navFirst li a:hover {
   color: #A37025;
+
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #ddb44a;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.coffeeNavbar .navFirst li a:hover {
+  color: #a37025;
+
 }
 
 .coffeeNavbar .navFirst li p {
   margin: 0;
   font-weight: 600;
+
   color: #4C3410;
 }
 
 .coffeeNavbar .navFirst li:nth-child(n+3):nth-child(-n+7) {
+
   height: 28px;
   line-height: 28px;
 }
 
+
 .coffeeNavbar .navFirst li:nth-child(n+3):nth-child(-n+7) a:hover {
+
   margin-top: -28px;
 }
 
@@ -301,8 +349,10 @@ ion-icon:hover {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: end;
+
         -ms-flex-pack: end;
             justify-content: flex-end;
+
   }
   .webNone {
     display: -webkit-box;
@@ -315,8 +365,10 @@ ion-icon:hover {
   .coffeeNavbar {
     position: relative;
     -webkit-box-pack: justify;
+
         -ms-flex-pack: justify;
             justify-content: space-between;
+
   }
   .coffeeNavbar div {
     width: 20%;
@@ -324,22 +376,27 @@ ion-icon:hover {
   .coffeeNavbar .navFirst {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+
         -ms-flex-direction: column;
             flex-direction: column;
+
     width: 260px;
     min-height: 100vh;
     text-align: start;
     -webkit-box-align: start;
+
         -ms-flex-align: start;
             align-items: flex-start;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
+
     padding: 1rem;
     background: white;
     position: fixed;
     top: 0;
     z-index: 100;
+
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
   }
@@ -353,6 +410,7 @@ ion-icon:hover {
             align-items: flex-start;
   }
   .coffeeNavbar .navFirst .openMemberDetail, .coffeeNavbar .navFirst .openNavSide {
+
     cursor: pointer;
   }
   .coffeeNavbar .navFirst .memberDetail {
@@ -360,17 +418,20 @@ ion-icon:hover {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+
         -ms-flex-direction: column;
             flex-direction: column;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
   }
   .coffeeNavbar .navFirst .memberDetail li:nth-child(n+1):nth-child(-n+5) {
+
     width: 180px;
     height: 30px;
     padding: 5px;
     margin: 5px auto 5px 10px;
   }
+
   .coffeeNavbar .navFirst .memberDetail li:nth-child(n+1):nth-child(-n+5) a {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -382,6 +443,7 @@ ion-icon:hover {
     color: #A37025;
   }
   .coffeeNavbar .navFirst li:nth-child(n+3):nth-child(-n+7) a:hover {
+
     margin-top: 0px;
   }
   .coffeeNavbar div:nth-child(3) {
@@ -409,10 +471,12 @@ ion-icon:hover {
   width: 330px;
   height: 40px;
   padding: 3px 1.5rem;
+
   border: 2px solid #EDE1C1;
   border-radius: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+
   outline: none;
 }
 
@@ -421,26 +485,32 @@ ion-icon:hover {
   width: 100%;
   height: 300px;
   padding-top: 3rem;
+
   color: #4C3410;
   background: #EDE1C1;
   list-style: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
+
       justify-content: space-around;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+
 }
 
 .coffeeFooter div:nth-child(2) div {
   -webkit-box-align: baseline;
+
       -ms-flex-align: baseline;
           align-items: baseline;
+
 }
 
 .coffeeFooter div:nth-child(2) div i {
@@ -456,6 +526,7 @@ ion-icon:hover {
 }
 
 .coffeeFooter a {
+
   color: #4C3410;
   text-decoration: none;
   -webkit-transition: all .2s ease-in-out;
@@ -464,6 +535,7 @@ ion-icon:hover {
 
 .coffeeFooter a:hover {
   color: #A37025;
+
 }
 
 @media screen and (max-width: 800px) {
@@ -471,6 +543,7 @@ ion-icon:hover {
     height: 500px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+
         -ms-flex-direction: column;
             flex-direction: column;
     -webkit-box-pack: space-evenly;
@@ -482,6 +555,7 @@ ion-icon:hover {
   }
   .coffeeFooter div {
     margin: .5rem;
+
   }
   .coffeeFooter div li {
     text-align: center;
@@ -489,8 +563,10 @@ ion-icon:hover {
   }
   .coffeeFooter div:nth-child(2) div {
     -webkit-box-pack: center;
+
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 /*# sourceMappingURL=main.css.map */
+
