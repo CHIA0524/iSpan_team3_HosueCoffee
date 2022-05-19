@@ -154,10 +154,13 @@
   padding: 1.5rem;
 }
 
-.nameRotate {
+.quantityText1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .quantityText {
@@ -175,6 +178,13 @@
   width: 2rem;
 }
 
+.nameRotate {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media (max-width: 1024px) {
   .listBody input {
     width: 5rem;
@@ -185,11 +195,21 @@
     padding: 0;
   }
   .nameRotate {
-    padding-left: 2em;
-    width: 11em;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 22em;
+  }
+  .amount {
+    display: none;
   }
   .quantityText {
-    width: 4em;
+    display: none;
+  }
+  .numButton {
+    border-radius: 0;
+    border: 0;
   }
   .quantity {
     border: 0;
@@ -200,6 +220,15 @@
   .coffeeName {
     width: 8em;
     padding-bottom: 10px;
+  }
+  .quantityText1 {
+    width: 5em;
+  }
+}
+
+@media (max-width: 376px) {
+  .nameRotate {
+    width: 8em;
   }
 }
 
@@ -223,5 +252,87 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 3px;
+}
+
+.memberBody3 {
+  width: 35%;
+}
+
+.member3 {
+  margin: 3em 0;
+  padding: 1.5rem;
+  width: 80%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.memberBodyIn2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3px;
+  padding: 1em 0;
+}
+
+.totalPrice {
+  color: red;
+  font-size: 32px;
+}
+
+.PaymentLast {
+  border-radius: 10px;
+  width: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  height: 2em;
+  text-align: center;
+  border: 1px solid #E4D2A3;
+}
+
+@media (max-width: 1024px) {
+  .memberNum {
+    width: 100%;
+  }
+  .member2 {
+    padding: 1em 0;
+  }
+  .memberBody2 {
+    margin-left: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .memberBodyIn {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .message {
+    padding: 0 5em;
+  }
+  .member3 {
+    padding: 1.5em 0;
+    width: 80%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: auto;
+  }
+  .memberBody3 {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=checkout3.css.map */

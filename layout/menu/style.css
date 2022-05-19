@@ -1,138 +1,37 @@
-@charset "UTF-8";
-.mainAside {
-  list-style: none;
+.body1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.mainAside a {
-  text-decoration: none;
-  color: black;
+.scrollBody {
+  width: 100%;
 }
 
-.adminAside {
-  padding-top: 2%;
-  padding-left: 3%;
-  width: 30%;
-  min-width: 120px;
+.scroll {
+  display: none;
 }
 
-.asideContent {
-  margin: 0 auto;
-  min-width: 400px;
+.scroll span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main1 {
   width: 20%;
 }
 
-.adminAside a {
-  color: #4C3410;
-  text-decoration: none;
-  border: 1px transparent solid;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+.onlion {
+  margin-bottom: 1em;
+  font-size: x-large;
 }
 
-.adminAside a:hover {
-  border-left: 1px solid #E4D2A3;
-  color: #E4D2A3;
-}
-
-.adminAside .maindir {
-  color: #817575;
-  font-size: larger;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-}
-
-.adminAside ul {
-  padding-left: 6rem;
-}
-
-.adminAside li {
-  list-style: none;
-}
-
-.pMain {
-  padding-top: 2%;
-}
-
-.card {
-  border: hidden;
-  width: 25rem;
-}
-
-.cardPrice {
-  margin-top: -1rem;
-}
-
-.package a :hover {
-  opacity: 0.6;
-}
-
-.adminAside {
-  display: inline-block;
-}
-
-.pMain {
-  margin: 0 auto;
-  display: inline-block;
-  /* min-width: 800px; */
-}
-
-.type {
-  display: none;
-}
-
-.mShop {
-  display: none;
-}
-
-@media screen and (max-width: 800px) {
-  .mShop {
-    display: block;
-    color: #817575;
-    font-size: 1.5rem;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 3rem;
-  }
-  .type {
-    padding-top: -1rem;
-    padding-bottom: 2rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .typeDetail {
-    width: 20%;
-    display: block;
-    text-align: center;
-    border-radius: 20px;
-    border: 1px solid #E4D2A3;
-    color: #4C3410;
-  }
-  .adminAside {
-    /*隱藏選單開始*/
-    max-height: 0;
-    overflow: hidden;
-    /*隱藏選單end*/
-    position: absolute;
-    /*追隨.header*/
-    /*讓選單從左到右延伸start*/
-    right: 0;
-    left: 0;
-    /*讓選單從左到右延伸end*/
-    top: 67px;
-    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
-    z-index: 100;
-    -webkit-transition: all 2.5s;
-    transition: all 2.5s;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    width: 15rem;
-  }
+.main2 {
+  margin: auto;
 }
 
 .mainBody {
@@ -141,37 +40,119 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin: auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-.mainBody a {
-  color: black;
+.asideMenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.asideMenu ul a {
   text-decoration: none;
 }
 
-.mainBody .card {
-  width: 15rem;
-  margin-left: 5rem;
+.asideMenu ul li {
+  padding: 1em 0;
 }
 
-.mainBody .card h2 {
-  margin-top: 1rem;
+.asideMenu ul li:hover {
+  border-left: 1px solid #E4D2A3;
+  color: #E4D2A3;
 }
 
-.mainBody .card img {
-  border: #E4D2A3 1px solid;
+.card {
+  margin: 2em;
+  border: 0;
 }
 
-.mainBody span {
-  font-size: large;
+.card a {
+  text-decoration: none;
 }
 
-.cardPrice {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 1rem;
+.cardpading {
+  padding: 1em 0;
+}
+
+.listBody {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .asideMenu {
+    display: none;
+  }
+  .card {
+    display: none;
+  }
+  .listBody {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .listBody input {
+    width: 5rem;
+  }
+  .listImg {
+    width: 6em;
+    height: 6em;
+    padding: 0;
+  }
+  .nameRotate {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 22em;
+  }
+  .amount {
+    display: none;
+  }
+  .quantityText {
+    display: none;
+  }
+  .numButton {
+    border-radius: 0;
+    border: 0;
+  }
+  .quantity {
+    border: 0;
+  }
+  .price {
+    display: block;
+  }
+  .coffeeName {
+    width: 8em;
+    padding-bottom: 10px;
+  }
+  .quantityText1 {
+    width: 5em;
+  }
+}
+
+@media (max-width: 376px) {
+  .nameRotate {
+    width: 8em;
+  }
+}
+
+@media (max-width: 800px) {
+  .scroll {
+    display: inline-block;
+    width: 20%;
+    height: 2em;
+    border: 1px solid #E4D2A3;
+    padding-top: 5px;
+  }
+  .scrollBody {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
 }
 /*# sourceMappingURL=style.css.map */

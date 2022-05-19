@@ -134,77 +134,102 @@ opacity:  0.25;
 
 // 訂單列表
 .listBody {
-    width: 80%;
-    margin: auto;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    padding: 1em 0;
+  width: 80%;
+  margin: auto;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 1em 0;
 
-    input {
-        border-radius: 5px;
-        border: 1px solid $colorMain;
-    }
+  input {
+      border-radius: 5px;
+      border: 1px solid $colorMain;
+  }
 }
 
 .listImg {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 
-.nameRotate{
-    display: flex;
+.quantityText1{
+  display: flex;
+  align-items: center;
 }
 
-.quantityText {
-    display: flex;
-    align-items: center;
+
+.quantityText{
+  display: flex;
+  align-items: center;
 }
 
 .quantity {
-    line-height: 2rem;
-    text-align: center;
-    width: 2rem;
+  line-height: 2rem;
+  text-align: center;
+
+  width: 2rem;
+}
+
+.nameRotate {
+width:40%;
+display: flex;
 }
 
 
 
-  // list RWD
-  @media (max-width:1024px) {
-    .listBody {
-        input {
-            width: 5rem;
-        }
-  }
-  .listImg {
-      width: 6em;
-      height: 6em;
-      padding: 0;
-  }
 
+// list RWD
+@media (max-width:1024px) {
+  .listBody {
+      input {
+          width: 5rem;
+      }
+}
+.listImg {
+    width: 6em;
+    height: 6em;
+    padding: 0;
+}
+
+.nameRotate{
+  flex-direction: column;
+  // padding-left: 2em;
+  width: 22em;
+}
+
+.amount {
+  display: none;
+}
+.quantityText {
+  display: none;
+}
+
+.numButton {
+  border-radius: 0;
+  border: 0;
+}
+.quantity {
+  border: 0;
+}
+
+.price {
+  display: block;
+}
+
+.coffeeName {
+  width: 8em;
+  padding-bottom: 10px;
+}
+
+.quantityText1 {
+  width: 5em;
+}
+} 
+
+@media (max-width:376px) {
   .nameRotate{
-    padding-left: 2em;
-    width: 11em;
-  }
-
-
-
-  .quantityText {
-    // display: none;
-    width: 4em;
-  }
-  
-  .quantity {
-    border: 0;
-  }
-  
-  .price {
-    display: block;
-  }
-
-  .coffeeName {
     width: 8em;
-    padding-bottom: 10px;
   }
 }
+
 
 //訂購人資訊
 
@@ -226,4 +251,71 @@ margin-left: 8em;
     padding: 3px;
 }
 
-.memberBody3 {}
+.memberBody3 {
+  width: 35%;
+}
+
+.member3 {
+  margin: 3em 0;
+  padding: 1.5rem;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: end;
+}
+.memberBodyIn2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    padding: 1em 0;
+}
+
+.totalPrice {
+  color: red;
+  font-size: 32px;
+}
+
+.PaymentLast {
+  border-radius: 10px;
+  width: 7rem;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  height: 2em;
+  text-align: center;
+  border: 1px solid $colorMain;
+}
+
+@media (max-width:1024px) {
+  .memberNum{
+    width: 100%;
+  }
+
+  .member2 {
+    padding:1em 0;
+    
+  }
+
+  .memberBody2 {
+    margin-left: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .memberBodyIn {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .message {
+    padding: 0 5em;
+  }
+  .member3 {
+    padding:1.5em 0;
+    width: 80%;
+    justify-content: space-between;
+    margin: auto;
+  }
+  .memberBody3{
+    width: 100%;
+  }
+}
