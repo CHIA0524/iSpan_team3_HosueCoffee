@@ -42,6 +42,7 @@ $colorMain3: #A37025;
     flex-wrap: wrap;
     margin: auto;
     align-items: flex-end;
+    justify-content: end;
 }
 
 
@@ -71,6 +72,7 @@ $colorMain3: #A37025;
 .card {
     margin: 2em;
     border: 0;
+    // z-index: 1;
     a{
         text-decoration:none;
     }
@@ -245,6 +247,152 @@ a {
 }
 .visible-xs {
 	display: none!important;
+}
+
+//  POPO
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 8em auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 30px;
+    width: 50%;
+    position: relative;
+    // transition: all 5s ease-in-out;
+    height: 60%;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    overflow: auto;
+  }
+
+  .popoimg {
+    //   width: 30%;
+      padding: 2em;
+  }
+
+  .content {
+      display: flex;
+  }
+  .content1 {
+    display: flex;
+    justify-content: center;
+  }
+  .content2 {
+      display: flex;
+      justify-content: end;
+      padding:0 2em;
+  }
+  .PaymentLast {
+    border-radius: 10px;
+    border: 1px solid $colorMain;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    height: 2em;
+    text-align: center;
+}
+.popupName {
+    h2{
+      display: flex;
+      padding-left:1em;
+    }
+}
+  .popotext {
+      padding: 2em;
+  }
+  .numButton {
+    border: #E4D2A3 1px solid;
+    border-radius: 20px;
+    height: 2em;
+    text-align: center;
+
+}
+
+.quantityText ,.buttonLeft ,.buttonRight {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    line-height: 2rem;
+    text-align: center;
+    width: 2rem;
+    border-left: #E4D2A3 1px solid;
+    border-right: #E4D2A3 1px solid;
+}
+.btn2 {
+    display: none;
+}
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 80%;
+      height: 80%;
+    }
+    .popoimg {
+        padding: 20px;
+    }
+    .popotext {
+        padding: 1em;
+    }
+    .overlay {
+        width: 100%;
+    }
+    .content1 {
+        justify-content: space-between;
+        padding-left: 2em;
+        align-items: flex-end
+    }
+    .numButton {
+        display: flex;
+    }
+    .btn2 {
+        display: flex;
+    }
+    .btn1 {
+        display: none;
+    }
+
 }
 
 

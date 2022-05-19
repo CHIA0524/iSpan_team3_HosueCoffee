@@ -188,6 +188,13 @@
   width: 80%;
 }
 
+.popupName h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 3em;
+}
+
 .hisstoryStore {
   width: 80%;
 }
