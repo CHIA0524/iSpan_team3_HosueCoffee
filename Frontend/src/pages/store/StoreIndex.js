@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
 import './mapStyle.scss';
 
+
 import logo from '../../logo.svg';
 import img01 from './img/storeIndex-img01.png';
 import img02 from './img/storeIndex-img02.png';
