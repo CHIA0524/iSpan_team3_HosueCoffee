@@ -9,11 +9,11 @@ function MemberAside(){
                     <p className="maindir">會員資料</p>
                     
                         <li>
-                        <Link to="/member/memberprofile">基本資料</Link>
+                        <Link to="/member/profile">基本資料</Link>
                         </li>
                     
                         <li>
-                            <Link to="/member/memberOrderList">訂單查詢</Link>
+                            <Link to="/member/OrderList">訂單查詢</Link>
                         </li>
                         <li>
                             <a href="">訂餐查詢</a>
@@ -25,7 +25,7 @@ function MemberAside(){
                             <a href="">問答中心</a>
                         </li>
                         <li>
-                            <Link to="/member/memberPassword">密碼管理</Link>
+                            <Link to="/member/Password">密碼管理</Link>
                         </li>
                         <li>
                             <a href="">我的收藏</a>

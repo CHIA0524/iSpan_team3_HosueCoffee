@@ -111,16 +111,16 @@ function App() {
           <StoreIndex />
         </Route>
 
-      <Route path="/member/memberOrderList">
+      <Route path="/member/OrderList">
           <MemberOrderList />
         </Route>
-      <Route path="/member/memberprofileEdit">
+      <Route path="/member/profileEdit">
           <MemberprofileEdit />
         </Route>
-      <Route path="/member/memberPassword">
+      <Route path="/member/Password">
           <MemberPassword />
         </Route>
-      <Route path="/member/memberprofile">
+      <Route path="/member/profile">
           <Memberprofile />
         </Route>
       <Route path="/memberLogin">
