@@ -1,8 +1,15 @@
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Comfortaa", "Microsoft JhengHei"
 }
 
+
+
+
+
+/* D E S K T O P    1440px */
+
 /*banner*/
+
 /* -------------------- */
 
 /*brand appeal*/
@@ -11,6 +18,7 @@ body {
     color: #fff;
     background: #E4D2A3;
     margin: 0px auto;
+    margin-bottom: 50px;
     display: flex;
     justify-content: center;
     border-radius: 0 0 20px 20px;
@@ -18,15 +26,16 @@ body {
 
 .content {
     text-align: center;
-    width: 70%;
+    width: 100%;
+    height: auto;
     padding: 80px;
-    
     align-items: center;
     letter-spacing: 3px;
 }
 
-#appealtitle {
+.content h1 {
     padding: 10px;
+    text-align: center;
 }
 
 .content p {
@@ -38,13 +47,14 @@ body {
 
 /* menu */
 .menu {
-    width: 80%;
-    padding: 80px;
+    width: 100%;
+    padding: 50px;
     text-align: center;
     align-items: center;
     /* justify-content: center; */
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 .menu h1 {
@@ -54,33 +64,33 @@ body {
     box-shadow: 2px #555 5px;
 }
 
-.allmenu {
+.allMenu {
     display: flex;
     flex-grow: 1 100px;
     justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
-    color: #fff;
     padding: 30px;
 }
 
-.menuhover {
+.menuHover {
     transition: .8s;
     opacity: .9;
 }
 
-.menuhover:hover {
+.menuHover:hover {
     transform: scale(1.1);
     opacity: 1;
 }
 
-.allmenu img {
+.allMenu img {
+    width: 250px;
     border-bottom: 1px white solid;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
 }
 
 
-.menucard {
+.menuCard {
     width: 250px;
     background: #E4D2A3;
     border-radius: 15px 15px 0 0;
@@ -89,52 +99,96 @@ body {
     letter-spacing: 3px;
 }
 
+.menuCard p {
+    width: 90px;
+    font-size: medium;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+
 /* ------------------- */
 
 /* flagship products */
 .product {
     background: #4D3410;
     width: 100%;
-    height: 800px;
+    height: auto;
     margin: 0px auto;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 30px 0;
 }
 
-.allproduct {
-    width: 70%;
-    margin: 30px;
+.allProduct {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin: 0px auto;
+    flex-grow: 1 100px;
+    flex-flow: column wrap;
+    display: flex;
+    margin: 30px 0;
+    /* padding: 30px; */
 }
 
 .product h1 {
     color: #fff;
-}
-
-#mainProductPhoto {
-    width: 200px;
-    height: auto;
-}
-
-.product1 {
-    padding: 30px;
-    width: 70%;
+    padding: 30px 0;
+    margin: 0;
     text-align: center;
-    color: #E4D2A3;
+}
+
+.scrollDiv {
+    width: 100%;
+    height: 350px;
+    /* overflow-x: scroll; */
+    overflow-y: scroll;
+    justify-content: center;
     margin: 0px auto;
-    display: flex;
-    text-align: left;
     flex-grow: 1 100px;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    display: flex;
+    /* text-align: center; */
+
+}
+
+.productscroll {
+    margin: 30px 0;
+    width: 70%;
+    text-align: left;
+    color: #E4D2A3;
+    display: flex;
+    flex-grow: 1 100px;
+    justify-content: center;
     flex-flow: row wrap;
     align-items: center;
 }
 
-.producttext{
-    width: 40%;
+.productscroll img {
+    width: 300px;
+}
+
+.productdetail {
+    width: 50%;
+    height: auto;
+    margin: 0px auto;
+    display: flex;
+    flex-grow: 1 100px;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    align-items: center;
+    text-align: left;
+}
+
+.productdetail h5 h6 p {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    word-wrap: break-word;
 }
 
 .productSel {
@@ -143,81 +197,112 @@ body {
     justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
 }
 
-.allproduct img{
+.productSel img {
     width: 150px;
     height: auto;
+
+}
+
+.productBTN {
+    display: none;
 }
 
 /* ------------------ */
 
 /* TODAY’S ARTICLE */
-.blog{
+.blog {
+    width: 100%;
     padding: 30px;
+    margin-bottom: 20px;
 }
 
-.blog h1{
+.blog h1 {
     color: #E4D2A3;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
 }
 
-.allblog{
-    width: 80％;
-    margin: 0px auto;
+.allCard {
     display: flex;
-    text-align: center;
     flex-grow: 1 100px;
     justify-content: space-evenly;
-    align-items: center;
     flex-flow: row wrap;
+    align-items: center;
+    /* color: #fff; */
     padding: 30px;
 }
 
-.blogtext{
-    width: 250px;
-    height: 400px;
-    text-align: center;
-    color: #4D3410;
-    margin: 0px auto;
-    padding: 30px;
-    margin: 10px 10px;
-    line-height: 20px;
-    letter-spacing: 3px;
-    border: 2px #ccc solid;
-    border-radius: 10px;
-}
-
-.blog hr{
-    color: #4D3410;
-}
-.blog img {
-    width: 150px;
+.cardBorder {
+    width: 30%;
     height: auto;
-    box-shadow: 1px 1px 10px #ddd;
+    border: 1px solid #E4D2A3;
+    box-sizing: border-box;
+    border-radius: 40px;
+    margin: 0 auto;
 }
+
+.cardImg img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.cardText {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.cardText h3 p {
+    margin-bottom: 0;
+}
+
+.cardInfo {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 30px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.cardInfo a {
+    color: #000;
+    /* text-decoration: none; */
+}
+
 /* --------------------- */
 
 /* store */
-.store{
+.store {
     width: 50%;
     height: 200px;
     padding: 30px;
     margin: 0px auto;
+    margin-bottom: 20px;
     justify-content: center;
 }
 
-.store h1{
+.store h1 {
     color: #E4D2A3;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.allstore{
+.allStore {
     width: 80％;
     margin: 0px auto;
     display: flex;
@@ -229,7 +314,14 @@ body {
     padding: 30px;
 }
 
-#city, #store{
+#city option {
+    border: #E4D2A3;
+    color: #E4D2A3;
+    background: #fff;
+}
+
+#city,
+#store {
     border: 2px #E4D2A3 solid;
     border-radius: 20px;
     background: #fff;
@@ -239,22 +331,24 @@ body {
     text-align: center;
 }
 
-#storebtn{
+#storeBtn {
     border: 2px #E4D2A3 solid;
     border-radius: 20px;
-    background: #fff;
-    color: #E4D2A3;
+    background: #E4D2A3;
+    color: #fff;
     width: 70px;
     height: 35px;
     text-align: center;
+    /* margin: 10px 0; */
 }
 
 /* --------------------- */
 
 /* news & activity */
-.aside{
+.aside {
     width: 80％;
     margin: 0px auto;
+    margin-bottom: 50px;
     display: flex;
     text-align: center;
     flex-grow: 1 100px;
@@ -264,19 +358,64 @@ body {
     padding: 30px;
 }
 
-.new{
-    width: 35%;
+.new {
+    width: 40%;
     line-height: 50px;
 }
 
-.new h1{
+.new h1 {
     color: #E4D2A3;
 }
 
-.new1 .new2 .new3.new4{
-    background: #555;
-    height: 40px;
+.allNew {
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+    padding: 30px;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.new1 {
+    width: 100%;
+    height: auto;
+    background: #ccc;
+    border-radius: 10px;
+    border: 5px #fff solid;
     color: #fff;
+    margin: 0px auto;
+    padding: 30px;
+}
+
+.new h5 {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    text-align: left;
+    margin: 0;
+}
+
+.new .newTime {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    text-align: right;
+}
+
+.activity {
+    width: 40%;
+}
+
+.activity h1 {
+    color: #E4D2A3;
+}
+
+.box1 {
     margin: 0px auto;
     display: flex;
     /* text-align: center; */
@@ -284,38 +423,1829 @@ body {
     justify-content: space-evenly;
     align-items: stretch;
     flex-flow: row wrap;
+    padding: 30px;
+    /* line-height: 30px; */
 }
 
-.activity{
-    width: 35%;
+.coupon1 {
+    width: 70%;
+    height: auto;
+    background: #E4D2A3;
+    /* border: 10px #fff solid; */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: left;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+
 }
 
-.activity h1{
-    color: #E4D2A3;
+.couponText {
+    padding: 10px;
 }
+
+.couponText h6 {
+    margin: 0;
+    color: #fff;
+    text-align: left;
+}
+
+.couponText p {
+    margin: 0;
+    text-align: left;
+    color: #fff;
+}
+
+.copy1 {
+    width: 25%;
+    height: auto;
+    background: #E4D2A3;
+    color: #fff;
+    padding: 20px 20px;
+    /* border: 10px #fff solid; */
+    border-radius: 5px;
+    align-items: center;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.copy1 p {
+    /* padding: 50px 50px; */
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+
+}
+
 /* --------------------- */
 
 
 /* about us */
-.aboutus{
-    background: #e4d2a3;
-    height: 350px;
+.aboutUs {
+    width: 100%;
+    height: auto;
     margin: 0px auto;
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding: 30px;
-    padding: 30px;
+    /* padding-top: 50px; */
+    /* opacity: 80%; */
+    background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center top, center bottom;
 }
 
-.aboutus h1{
+.aboutUsTest {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 23% 0;
+    text-align: center;
+    align-items: center;
     justify-content: center;
+    transition: .5s;
 }
 
-.aboutus p{
-    width: 50%;
-    margin: 0px auto;
+.aboutUsTest h1 {
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.aboutUsTest p {
+    width: 40%;
+    font-size: 18px;
+    letter-spacing: 5px;
+    margin: 0 auto;
+    padding: 0 10px 30px 10px;
     text-align: center;
     line-height: 30px;
+    color: #ccc;
 }
+
+
+
+
 /* --------------------- */
+
+
+/* go top button */
+.topBTN {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    /* display: none; */
+}
+
+
+.topBTN button {
+    width: 40px;
+    height: 40px;
+    /* background: linear-gradient(#E4D2A3 30%, #fff 90%, #E4D2A3 30%); */
+    border: 2px #c8b773 solid;
+    background: transparent;
+    border-radius: 50%;
+    padding: 0;
+    /* margin: 30px 30px; */
+    transition: .5s;
+}
+
+.topBTN i {
+    color: #c8b773;
+}
+
+.topBTN button:hover {
+    background: linear-gradient(180deg,
+            #fea 0%, #dc8 49%, #c8b773 51%,
+            #dc8 100%);
+    border-radius: 50%;
+    border: transparent;
+    /* margin: 30px 30px; */
+}
+
+.topBTN:hover i {
+    /* width: 42px;
+    height: 42px; */
+    color: #fff;
+}
+
+/* --------------------- */
+/* ----------D E S K T O P  style  end----------- */
+
+
+
+/* i P A D    1000px */
+@media screen and (max-width:1000px) {
+
+    /*brand appeal*/
+    .appeal {
+        width: 70%;
+        height: auto;
+        color: #fff;
+        background: #E4D2A3;
+        margin: 0px auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .content {
+        text-align: center;
+        width: 80%;
+        padding: 30px;
+        align-items: center;
+        letter-spacing: 1px;
+    }
+
+    #appealTitle {
+        padding: 10px;
+    }
+
+    .content p {
+        line-height: 30px;
+        color: #4D3410;
+    }
+
+    /* -------------------- */
+
+    /* menu */
+    .menu {
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        /* margin-left: auto;
+    margin-right: auto; */
+    }
+
+    .menu h1 {
+        /* line-height: 30px; */
+        margin: 0 auto;
+        color: #E4D2A3;
+        /* box-shadow: 2px #555 5px; */
+    }
+
+    .allMenu {
+        width: 100%;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        align-items: center;
+        padding: 20px 30px;
+    }
+
+    .menuHover {
+        transition: .8s;
+        opacity: .9;
+    }
+
+    .menuHover:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    .allMenu img {
+        width: 150px;
+        height: auto;
+        border-bottom: 1px white solid;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    }
+
+    .menuCard {
+        width: 150px;
+        height: 100px;
+        background: #E4D2A3;
+        border-radius: 10px 10px 0 0;
+        padding: 25px 0;
+        /* line-height: 10px; */
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .menuCard p {
+        width: 90px;
+        font-size: medium;
+        margin: 20px auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+    /* ------------------- */
+
+    /* flagship products */
+    .product {
+        background: #4D3410;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        padding: 30px 0;
+    }
+
+    .allProduct {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        margin: 10px 0;
+        /* padding: 30px; */
+    }
+
+    .product h1 {
+        color: #fff;
+        padding: 30px 0 0 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .scrollDiv {
+        width: 70%;
+        height: 450px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        /* text-align: center; */
+    }
+
+    .scrollDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+    .productscroll {
+        margin: 5px;
+        width: 100%;
+        text-align: center;
+        color: #E4D2A3;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .productscroll img {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .productdetail {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-between;
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: left;
+    }
+
+    .productdetail h5 h6 p {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .productBTN {
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 0 0 30px 0;
+    }
+
+    .selBTN {
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+        background: #fff;
+        border: 2px #E4D2A3 solid;
+        border-radius: 50%;
+    }
+
+    .productSel {
+        display: none;
+    }
+
+    /* ------------------ */
+
+    /* TODAY’S ARTICLE */
+    .blog {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .blog h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .allCard {
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        /* color: #fff; */
+        padding: 30px 0;
+    }
+
+    .cardBorder {
+        width: 30%;
+        height: auto;
+        border: 1px solid #E4D2A3;
+        box-sizing: border-box;
+        border-radius: 40px;
+        margin: 0 auto;
+    }
+
+    .cardImg img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .cardText {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .cardText h3 p {
+        margin-bottom: 0;
+    }
+
+    .cardInfo {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 30px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+    }
+
+    .cardInfo a {
+        color: #000;
+        /* text-decoration: none; */
+    }
+
+    /* --------------------- */
+
+    /* store */
+    .store {
+        width: 100%;
+        height: auto;
+        padding: 20px 0 50px 0;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .store h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 30px 30px 30px;
+        margin: 0;
+    }
+
+    .allStore {
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-flow: row;
+        padding: 10px 0;
+    }
+
+    /* .storeSelect {
+        margin: 0 50px;
+    } */
+
+    #city,
+    #store {
+        border: 2px #E4D2A3 solid;
+        border-radius: 20px;
+        background: #fff;
+        color: #E4D2A3;
+        width: 150px;
+        height: 35px;
+        text-align: center;
+        justify-content: center;
+        margin: 10px 0;
+
+    }
+
+    #storeBtn {
+        border-radius: 20px;
+        background: #E4D2A3;
+        color: #fff;
+        width: 70px;
+        height: 35px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* ------------------ */
+
+    /* news & activity */
+    .aside {
+        width: 100％;
+        margin: 0px auto;
+        /* display: flex; */
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        padding: 30px 0;
+    }
+
+    .new {
+        width: 100%;
+        height: auto;
+        /* line-height: 30px; */
+    }
+
+    .new h1 {
+        color: #E4D2A3;
+        margin-bottom: 0;
+    }
+
+    .allNew {
+        width: 50%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        padding: 30px 0;
+        display: flex;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+
+    .new1 {
+        background: #ccc;
+        /* border-radius: 10px; */
+        /* border: 5px #fff solid; */
+        color: #fff;
+        margin: 5px auto;
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        padding: 10px 30px;
+    }
+
+    .new1 .newTime {
+        text-align: center;
+    }
+
+    .new1 h5 {
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .activity {
+        width: 100%;
+    }
+
+    .activity h1 {
+        color: #E4D2A3;
+        margin: 0 30px;
+    }
+
+    .box1 {
+        width: 50%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        display: flex;
+        /* text-align: center; */
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-flow: row wrap;
+        padding: 30px 0;
+        /* padding-bottom: 30px; */
+        /* line-height: 30px; */
+    }
+
+    .coupon1 {
+        width: 70%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        padding: 20px 0;
+        margin: 5px 0;
+        text-align: left;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        line-height: 20px;
+
+    }
+
+    .couponText {
+        padding: 0 0 0 20px;
+    }
+
+    .couponText h6 {
+        padding: 0;
+        /* line-height: 10px; */
+        margin: 0 0 10px 0;
+        text-align: left;
+        letter-spacing: 2px;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .couponText p {
+        /* line-height: 10px; */
+        margin: 0 auto;
+        text-align: left;
+        font-size: 14px;
+        letter-spacing: 2px;
+        justify-content: center;
+
+    }
+
+    .copy1 {
+        width: 25%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        padding: 0;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        align-items: center;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .copy1 p {
+        padding: 0;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    /* --------------------- */
+
+    /* about us */
+    .aboutUs {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+        background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center top, center bottom;
+    }
+
+    .aboutUsTest {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 20% 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aboutUsTest h1 {
+        justify-content: center;
+        padding: 10px;
+        margin: 0;
+        color: #ccc;
+    }
+
+    .aboutUsTest p {
+        width: 40%;
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin: 0px auto;
+        margin-bottom: 20px;
+        padding: 0;
+        text-align: center;
+        line-height: 30px;
+        color: #ccc;
+    }
+
+    /* --------------------- */
+
+
+    /* go top button */
+    .topBTN {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        /* display: none; */
+    }
+
+
+    .topBTN button {
+        width: 40px;
+        height: 40px;
+        /* background: linear-gradient(#E4D2A3 30%, #fff 90%, #E4D2A3 30%); */
+        border: 2px #c8b773 solid;
+        background: transparent;
+        border-radius: 50%;
+        padding: 0;
+        /* margin: 30px 30px; */
+        transition: .5s;
+    }
+
+    .topBTN i {
+        color: #c8b773;
+    }
+
+    .topBTN button:hover {
+        background: linear-gradient(180deg,
+                #fea 0%, #dc8 49%, #c8b773 51%,
+                #dc8 100%);
+        border-radius: 50%;
+        border: transparent;
+        /* margin: 30px 30px; */
+    }
+
+    .topBTN:hover i {
+        /* width: 42px;
+        height: 42px; */
+        color: #fff;
+    }
+
+    /* -------------------- */
+
+
+}
+
+/* ----------i P A D  style  end----------- */
+
+
+
+/* M O B I L E    700px */
+@media screen and (max-width:700px) {
+
+    /*brand appeal*/
+    .appeal {
+        width: 100%;
+        height: auto;
+        color: #fff;
+        background: #E4D2A3;
+        margin: 0px auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .content {
+        text-align: center;
+        width: 90%;
+        padding: 30px;
+        align-items: center;
+        letter-spacing: 1px;
+    }
+
+    #appealTitle {
+        padding: 10px;
+    }
+
+    .content p {
+        line-height: 30px;
+        color: #4D3410;
+    }
+
+    /* -------------------- */
+
+    /* menu */
+    .menu {
+        width: 100%;
+        padding: 30px 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        /* margin-left: auto;
+    margin-right: auto; */
+    }
+
+    .menu h1 {
+        /* line-height: 30px; */
+        margin: 0 auto;
+        margin-top: 50px;
+        color: #E4D2A3;
+        /* box-shadow: 2px #555 5px; */
+    }
+
+    .allMenu {
+        width: 100%;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    .menuHover {
+        transition: .8s;
+        opacity: .9;
+    }
+
+    .menuHover:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    .allMenu img {
+        width: 100px;
+        height: auto;
+        border-bottom: 1px white solid;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    }
+
+    .menuCard {
+        width: 100px;
+        height: 60px;
+        background: #E4D2A3;
+        border-radius: 10px 10px 0 0;
+        padding: 25px 0;
+        /* line-height: 10px; */
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .menuCard p {
+        width: 90px;
+        font-size: small;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+    /* ------------------- */
+
+    /* flagship products */
+    .product {
+        background: #4D3410;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        padding: 10px 0;
+    }
+
+    .allProduct {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        margin: 10px 0;
+        /* padding: 30px; */
+    }
+
+    .product h1 {
+        color: #fff;
+        padding: 30px 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .scrollDiv {
+        width: 70%;
+        height: 450px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        /* text-align: center; */
+    }
+
+    .scrollDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+    .productscroll {
+        margin: 5px;
+        width: 100%;
+        text-align: center;
+        color: #E4D2A3;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .productscroll img {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .productdetail {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-between;
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: left;
+    }
+
+    .productdetail h5 h6 p {
+        width: 100%;
+        height: auto;
+        margin: 10px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .productBTN {
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .selBTN {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        background: #fff;
+        border: 2px #E4D2A3 solid;
+        border-radius: 50%;
+    }
+
+    .productSel {
+        display: none;
+    }
+
+    /* ------------------ */
+
+    /* TODAY’S ARTICLE */
+    .blog {
+        width: 100%;
+        margin-top: 20px;
+
+    }
+
+    .blog h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .allCard {
+        width: 100％;
+        margin: 0px auto;
+        display: inline-block;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding: 0 20px;
+    }
+
+    .allCard .cardBorder:not(:first-child) {
+        display: none;
+    }
+
+    .cardBorder {
+        width: 50%;
+        height: auto;
+        /* padding: 30px 0px; */
+        border: 1px solid #E4D2A3;
+        box-sizing: border-box;
+        border-radius: 40px;
+        margin: 0 auto;
+    }
+
+    .cardImg img {
+        width: 90%;
+        height: auto;
+        border-radius: 5px;
+        align-items: center;
+        /* margin: 0 auto; */
+        padding: 30px 0;
+    }
+
+    .cardImg,
+    .cardText,
+    .cardInfo {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .cardInfo {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+    }
+
+    .cardInfo a {
+        text-decoration: none;
+    }
+
+    /* --------------------- */
+
+    /* store */
+    .store {
+        width: 50%;
+        height: auto;
+        padding: 50px 0;
+        margin: 0px auto;
+        justify-content: center;
+    }
+
+    .store h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .allStore {
+        width: 100％;
+        margin: 0px auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding: 0 20px;
+    }
+
+    #city,
+    #store {
+        border: 2px #E4D2A3 solid;
+        border-radius: 20px;
+        background: #fff;
+        color: #E4D2A3;
+        width: 150px;
+        height: 35px;
+        text-align: center;
+        justify-content: center;
+        margin: 10px 0;
+
+    }
+
+    #storeBtn {
+        border-radius: 20px;
+        background: #E4D2A3;
+        color: #fff;
+        width: 70px;
+        height: 35px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* ------------------ */
+
+    /* news & activity */
+    .aside {
+        width: 100％;
+        margin: 0px auto;
+        /* display: flex; */
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        /* padding: 30px; */
+    }
+
+    .new {
+        width: 100%;
+        height: auto;
+        /* line-height: 30px; */
+    }
+
+    .new h1 {
+        color: #E4D2A3;
+        margin-bottom: 0;
+    }
+
+    .allNew {
+        width: 50%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        /* padding: 30px; */
+        display: flex;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+
+    .new1 {
+        background: #ccc;
+        /* border-radius: 10px; */
+        /* border: 5px #fff solid; */
+        color: #fff;
+        margin: 5px auto;
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        padding: 10px 30px;
+    }
+
+    .new1 .newTime {
+        text-align: center;
+    }
+
+    .new1 h5 {
+        font-size: 16px;
+        letter-spacing: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        text-align: center;
+        margin: 0;
+    }
+
+    .activity {
+        width: 100%;
+    }
+
+    .activity h1 {
+        color: #E4D2A3;
+        margin: 0 30px;
+    }
+
+    .box1 {
+        width: 50%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        display: flex;
+        /* text-align: center; */
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-flow: row wrap;
+        /* padding-bottom: 30px; */
+        /* line-height: 30px; */
+    }
+
+    .coupon1 {
+        width: 65%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        padding: 20px 0;
+        margin: 5px 0;
+        text-align: left;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        line-height: 20px;
+
+    }
+
+    .couponText {
+        padding: 0 0 0 20px;
+    }
+
+    .couponText h6 {
+        /* padding: 10px 10px;
+    margin: 10px 10px; */
+        /* line-height: 10px; */
+        margin: 0 auto;
+        text-align: left;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    .couponText p {
+        /* line-height: 10px; */
+        margin: 0 auto;
+        text-align: left;
+        font-size: 14px;
+        justify-content: center;
+
+    }
+
+    .copy1 {
+        width: 30%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        padding: 0;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        align-items: center;
+        margin: 5px 0 5px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .copy1 p {
+        padding: 0;
+        font-size: 12px;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    /* --------------------- */
+
+    /* about us */
+    .aboutUs {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+        background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center top, center bottom;
+    }
+
+    .aboutUsTest {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 25% 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aboutUsTest h1 {
+        justify-content: center;
+        padding: 10px;
+        margin: 0;
+        color: #ccc;
+    }
+
+    .aboutUsTest p {
+        width: 50%;
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin: 0px auto;
+        margin-bottom: 10px;
+        padding: 0;
+        text-align: center;
+        line-height: 30px;
+        color: #ccc;
+    }
+
+    /* --------------------- */
+
+}
+
+/* ----------M O B I L E  style  end----------- */
+
+
+
+/* M O B I L E    410px */
+@media screen and (max-width:410px) {
+
+    /*brand appeal*/
+    .appeal {
+        width: 100%;
+        height: auto;
+        color: #fff;
+        background: #E4D2A3;
+        margin: 0px auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .content {
+        text-align: center;
+        width: 90%;
+        padding: 30px;
+        align-items: center;
+        letter-spacing: 1px;
+    }
+
+    #appealTitle {
+        padding: 10px;
+    }
+
+    .content p {
+        line-height: 30px;
+        color: #4D3410;
+    }
+
+    /* -------------------- */
+
+    /* menu */
+    .menu {
+        width: 100%;
+        padding: 30px 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        /* margin-left: auto;
+    margin-right: auto; */
+    }
+
+    .menu h1 {
+        /* line-height: 30px; */
+        margin: 0 auto;
+        color: #E4D2A3;
+        /* box-shadow: 2px #555 5px; */
+    }
+
+    .allMenu {
+        width: 100%;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .menuHover {
+        transition: .8s;
+        opacity: .9;
+    }
+
+    .menuHover:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    .allMenu img {
+        width: 100px;
+        height: auto;
+        border-bottom: 1px white solid;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    }
+
+    .menuCard {
+        width: 100px;
+        height: 60px;
+        background: #E4D2A3;
+        border-radius: 10px 10px 0 0;
+        padding: 25px 0;
+        /* line-height: 10px; */
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .menuCard p {
+        width: 90px;
+        font-size: small;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+    /* ------------------- */
+
+    /* flagship products */
+    .product {
+        background: #4D3410;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        padding: 10px 0;
+    }
+
+    .allProduct {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        margin: 10px 0;
+        /* padding: 30px; */
+    }
+
+    .product h1 {
+        color: #fff;
+        padding: 30px 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .scrollDiv {
+        width: 70%;
+        height: 450px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        justify-content: center;
+        margin: 0px auto;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        display: flex;
+        /* text-align: center; */
+    }
+
+    .scrollDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+    .productscroll {
+        margin: 5px;
+        width: 100%;
+        text-align: center;
+        color: #E4D2A3;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: center;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .productscroll img {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .productdetail {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-between;
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: left;
+    }
+
+    .productdetail h5 h6 p {
+        width: 100%;
+        height: auto;
+        margin: 10px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .productBTN {
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .selBTN {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        background: #fff;
+        border: 2px #E4D2A3 solid;
+        border-radius: 50%;
+    }
+
+    .productSel {
+        display: none;
+    }
+
+    /* ------------------ */
+
+    /* TODAY’S ARTICLE */
+    .blog {
+        width: 100%;
+        margin-top: 10px;
+
+    }
+
+    .blog h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .allCard {
+        width: 100％;
+        margin: 0px auto;
+        display: inline-block;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding: 0 20px;
+    }
+
+    .allCard .cardBorder:not(:first-child) {
+        display: none;
+    }
+
+    .cardBorder {
+        width: 90%;
+        height: auto;
+        /* padding: 30px 0px; */
+        border: 1px solid #E4D2A3;
+        box-sizing: border-box;
+        border-radius: 40px;
+        margin: 0 auto;
+    }
+
+    .cardImg img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        align-items: center;
+        /* margin: 0 auto; */
+        padding: 30px 0;
+    }
+
+    .cardImg,
+    .cardText,
+    .cardInfo {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .cardInfo {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+    }
+
+    .cardInfo a {
+        text-decoration: none;
+    }
+
+    /* --------------------- */
+
+    /* store */
+    .store {
+        width: 50%;
+        height: auto;
+        padding: 50px 0;
+        margin: 0px auto;
+        justify-content: center;
+    }
+
+    .store h1 {
+        color: #E4D2A3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 0 30px 0;
+    }
+
+    .allStore {
+        width: 100％;
+        margin: 0px auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding: 0 20px;
+    }
+
+    #city,
+    #store {
+        border: 2px #E4D2A3 solid;
+        border-radius: 20px;
+        background: #fff;
+        color: #E4D2A3;
+        width: 150px;
+        height: 35px;
+        text-align: center;
+        justify-content: center;
+        margin: 10px 0;
+
+    }
+
+    #storeBtn {
+        border-radius: 20px;
+        background: #E4D2A3;
+        color: #fff;
+        width: 70px;
+        height: 35px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* ------------------ */
+
+    /* news & activity */
+    .aside {
+        width: 100％;
+        margin: 0px auto;
+        /* display: flex; */
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        /* padding: 30px; */
+    }
+
+    .new {
+        width: 100%;
+        height: auto;
+        /* line-height: 30px; */
+    }
+
+    .new h1 {
+        color: #E4D2A3;
+        margin-bottom: 0;
+    }
+
+    .allNew {
+        width: 80%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        /* padding: 30px; */
+        display: flex;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+
+    .new1 {
+        background: #ccc;
+        /* border-radius: 10px; */
+        /* border: 5px #fff solid; */
+        color: #fff;
+        margin: 5px auto;
+        text-align: center;
+        flex-grow: 1 100px;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        padding: 10px 30px;
+    }
+
+    .new1 .newTime {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .new1 h5 {
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        text-align: center;
+        margin: 0;
+    }
+
+    .activity {
+        width: 100%;
+    }
+
+    .activity h1 {
+        color: #E4D2A3;
+        margin: 0 30px;
+    }
+
+    .box1 {
+        width: 80%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        display: flex;
+        /* text-align: center; */
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-flow: row wrap;
+        /* padding-bottom: 30px; */
+        /* line-height: 30px; */
+    }
+
+    .coupon1 {
+        width: 55%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        padding: 15px 0;
+        margin: 5px 0 5px 0;
+        text-align: left;
+        /* display: flex; */
+        justify-content: space-around;
+        align-items: center;
+        line-height: 20px;
+
+    }
+
+    .couponText {
+        margin: 0 auto;
+    }
+
+    .couponText h6 {
+        /* padding: 10px 10px;
+    margin: 10px 10px; */
+        /* line-height: 10px; */
+        margin: 0 0 5px 0;
+        text-align: left;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    .couponText p {
+        /* line-height: 10px; */
+        margin: 0 auto;
+        text-align: left;
+        font-size: 14px;
+        justify-content: center;
+
+    }
+
+    .copy1 {
+        width: 20%;
+        height: auto;
+        background: #E4D2A3;
+        color: #fff;
+        padding: 50px 50px;
+        /* border: 5px #fff solid; */
+        border-radius: 5px;
+        align-items: center;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .copy1 p {
+        /* padding: 50px 50px; */
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    /* --------------------- */
+
+    /* about us */
+    .aboutUs {
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+        background-image: url(../home/image/cathead.png), url(../home/image/cattail.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center top, center bottom;
+    }
+
+    .aboutUsTest {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 25% 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aboutUsTest h1 {
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        color: #ccc;
+    }
+
+    .aboutUsTest p {
+        width: 80%;
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin: 0px auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: center;
+        line-height: 18px;
+        color: #ccc;
+    }
+
+    /* --------------------- */
+
+}
+
+/* ----------M O B I L E  style  end----------- */
