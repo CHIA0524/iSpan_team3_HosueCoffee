@@ -18,13 +18,17 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function StoreMapCardWrap(){
   
-
+  // 載入指示器用
+  const [isLoading, setIsLoading] = useState(false)
 
   // 接收子組件資料，放到cardDetail
   const [data, setData] = useState([]);
   
   // 搜尋框內容 state
   const [searchText, setSearchText] = useState('');
+
+  // 錯誤訊息用
+  const [error, setError] = useState('')
 
   const defaultProps = {
     center: {
@@ -48,7 +52,7 @@ function StoreMapCardWrap(){
     } catch (e) {
       // 作錯誤處理
       console.log(e)
-      setData(e.message)
+      setError(e.message)
     }
   }
 
@@ -69,15 +73,34 @@ function StoreMapCardWrap(){
     } catch (e) {
       // 作錯誤處理
       console.log(e)
-      setData(e.message)
+      setError(e.message)
     }
   }
-  useEffect(() => {
 
+  const spinner = (
+    <div className='mapSpinner'>
+      <div className="spinner-grow" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    </div>
+  )
+
+  useEffect(() => {
+    setIsLoading(true)
     // 向伺服器要求get資料
     fetchData()
   }, [])
 
+  // 自動於x秒後關掉指示動畫
+  useEffect(() => {
+    // 如果是true(有呈現的情況)
+    if (isLoading) {
+      // 關起載入指示動畫(延後1.5秒關閉)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
+    }
+  }, [isLoading])
   
   return(
     <>
@@ -89,18 +112,22 @@ function StoreMapCardWrap(){
               name="search-for"
               placeholder="搜尋門市名稱或地址"
               onChange={(e)=>{
+                setSearchText(e.target.value)
+                setIsLoading(true)
                 fetchFilterData(e.target.value)
               }}
             >
             </input>
 
             <div onClick={()=>{
+              setIsLoading(true)
               fetchFilterData(searchText)
             }}>
               <FiSearch />
             </div>
           </div>
-          <StoreCardWrap data={data}/>
+          {isLoading ? spinner : <StoreCardWrap data={data}/> }
+          
         </div>
         <div className="mapWrap">
           {/* <GoogleMapReact
