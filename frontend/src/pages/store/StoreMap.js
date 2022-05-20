@@ -30,10 +30,10 @@ function StoreMap(){
   
   const defaultProps = {
     center: {
-      lat: 10.99835602,
-      lng: 77.01502627
+      lat: 25.04,
+      lng: 121.50
     },
-    zoom: 11
+    zoom: 16
   };
   return(
     <>
@@ -72,14 +72,13 @@ function StoreMap(){
                 </div>
               </div>
             </div>
-            <div className="storeWrap">
-              <StoreCard setDataFromStoreCard={setDataFromStoreCard} setCardDetailCss={setCardDetailCss}/>
-            </div>
+            <StoreCard setDataFromStoreCard={setDataFromStoreCard} setCardDetailCss={setCardDetailCss}/>
+            
           </div>
         </div>
         <div className="mapWrap">
           <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.GMAP_API_KEY }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
           >

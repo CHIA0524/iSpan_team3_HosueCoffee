@@ -42,7 +42,7 @@ function StoreCard(props){
   )
 
   return(
-    <>
+    <div className="storeWrap">
       {datas.map((store,i)=>{
         return(
           <div className="cardWrap" key={i}>
@@ -60,7 +60,7 @@ function StoreCard(props){
           </div>
         )
       })}
-    </>
+    </div>
   );
 }
 
