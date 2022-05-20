@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
+import MemberBack from './memberBack';
 import './memberQAcheck.css'
 function MemberQAcheck(){
     return(
         <>
-                <div className="mMember">
-        <p>&lt;&ensp;會員中心</p>
-    </div>
+               <MemberBack/>
 
     
     <div class="container">

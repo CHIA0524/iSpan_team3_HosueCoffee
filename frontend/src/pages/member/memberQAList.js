@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
 import MemberQACard from './memberQACard';
+import MemberBack from './memberBack';
 import { AiFillEye } from "react-icons/ai";
 import './memberOrderList.css'
 import './popup.css'
 function MemberQAList(){
     return(
         <>
-        <div className="mMember">
-            <p>&lt;&ensp;會員中心</p>
-        </div>
+        <MemberBack/>
         <div className="container">
       <div className="row">
         <MemberAside/>
@@ -32,7 +31,7 @@ function MemberQAList(){
                             <th className="col-3None" scope="col">提問類型</th>
                             <th scope="col">主旨</th>
                             <th scope="col">回復狀態</th>
-                            <th scope="col" >更新時間</th>
+                            <th className="col-3None" scope="col" >更新時間</th>
                             <th scope="col">查看</th>
                           </tr>
                               <MemberQACard/>

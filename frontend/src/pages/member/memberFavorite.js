@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
+import MemberBack from './memberBack';
 import './memberFavorite.css'
 import FavoriteCard from './FavoriteCard';
 function MemberFavorite(){
     return(
         <>
-             <div className="mMember col-wn">
-            <p>&lt;&ensp;會員中心</p>
-            </div>
+             <MemberBack/>
             <div className="container">
         <div className="row">
         <MemberAside/>

@@ -4,9 +4,6 @@ import './memberprofile.css';
 function Memberprofile(){
     return(
         <>
-        <div className="mMember"> 
-        <p>&lt;&ensp;會員中心</p>
-        </div>
         <div className="container">
         <div className="row">
            <MemberAside/>

@@ -43,17 +43,20 @@ function Navbar (){
               <a className="" href="#">
                 <IoPersonOutline size={20} color={'#4C3410'}/>
               </a>
+              <Link to="/member/Profile">
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
+                </Link>
               <a className="ms-3" href="#">
                 <IoExitOutline size={20} color={'#4C3410'}/>
               </a>
             </li>
             <div className="memberDetail" style={{height: '0px'}}>
-              <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-              <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
-              <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
-              <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
-              <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
+              {/* <li><Link to="/member/OrderList">個人資料</Link></li> */}
+              <li><Link to="/member/OrderList">訂單查詢</Link></li>
+              <li><Link to="/member/DrinkOList">點餐訂單</Link></li>
+              <li><Link to="/member/QAList">問答中心</Link></li>
+              <li><Link to="/member/Password">密碼修改</Link></li>
+              <li><Link to="/member/Favorite">我的收藏</Link></li>
             </div>
             <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
             <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>

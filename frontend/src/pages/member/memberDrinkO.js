@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
 import DrinkOCard from './DrinkOCard';
+import MemberBack from './memberBack';
 import './memberAside.css'
 import './memberOrder.css'
 function MemberDrinkO(){
     return(
         <>
-        <div className="mMember col-wn">
-        <p>&lt;&ensp;會員中心</p>
-        </div>
+        <MemberBack/>
         <div className="col-wn">
             <h2 className="toph2">訂單詳細</h2>
             <br></br>
