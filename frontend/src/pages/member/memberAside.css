@@ -33,6 +33,7 @@
 .pMain {
     margin: 0 auto;
     padding-bottom:2rem ;
+    min-height: 55vh;
 }
 .col-wn{
     display: none;

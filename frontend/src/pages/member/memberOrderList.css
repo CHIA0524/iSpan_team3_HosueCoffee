@@ -18,9 +18,7 @@
 }
 
 
-.tbTime{
-    text-align: center;
-}
+
 
 table{
     cursor: pointer;
@@ -132,5 +130,10 @@ a:hover .listcard{
     }
     .CState{
         padding: 0
+    }
+}
+@media screen and (max-width:375px)  {
+    .ttpiece{
+        font-size: 0.8rem;
     }
 }

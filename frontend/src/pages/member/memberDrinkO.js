@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
-import OrderCard from './orderCard';
+import DrinkOCard from './DrinkOCard';
 import './memberAside.css'
 import './memberOrder.css'
-function MemberOrder(){
+function MemberDrinkO(){
     return(
         <>
         <div className="mMember col-wn">
@@ -28,7 +28,7 @@ function MemberOrder(){
                                 <p>訂單編號:</p>
                             </div>
                             <div className="col">
-                                <p>00001</p>
+                                <p>00002</p>
                                 <br></br>
                             </div>
                             <div className="col-8"></div>
@@ -41,8 +41,8 @@ function MemberOrder(){
                             
                         <div className="payInfo">
                             <hr></hr>
-                            <OrderCard/>
-                            <OrderCard/>
+                            <DrinkOCard/>
+                            <DrinkOCard/>
                             </div>
                             
                            
@@ -189,4 +189,4 @@ function MemberOrder(){
         </>
     )
 }
-export default MemberOrder;
+export default MemberDrinkO;
