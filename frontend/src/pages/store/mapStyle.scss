@@ -32,7 +32,7 @@
 }
 .cardGroupWrap{
   width: 375px;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 120px);
   position: relative;
   display: flex;
   flex-direction: row;
@@ -43,7 +43,7 @@
 }
 .storeWrap{
   width: 375px;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 120px);
   padding: .1rem .5rem;
   overflow-x: hidden;
 }

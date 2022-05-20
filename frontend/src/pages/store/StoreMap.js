@@ -24,10 +24,11 @@ function StoreMap(){
   const [cardDetailCss, setCardDetailCss] = useState();
   
   // 接收子組件資料，放到cardDetail
-  const [dataFromStoreCard, setDataFromStoreCard] = useState([[],[],[]])
-  // console.log(dataFromStoreCard);
+  const [dataFromStoreCard, setDataFromStoreCard] = useState([[],[],[]]);
   
-  
+  // 搜尋框內容 state
+  const [searchText, setSearchText] = useState('');
+
   const defaultProps = {
     center: {
       lat: 25.04,
@@ -40,10 +41,21 @@ function StoreMap(){
       <div className="mapAndCardWrap">
         <div>
           <div className="storeSearch">
-            <input className="store-search-input" name="search-for" placeholder="搜尋門市名稱或地址"></input>
-            <a href="">
+            <input
+              className="store-search-input"
+              name="search-for"
+              placeholder="搜尋門市名稱或地址"
+              onChange={(e)=>{
+                setSearchText(e.target.value)
+              }}
+            ></input>
+            <div
+              onClick={()=>{
+                
+              }}
+            >
               <FiSearch />
-            </a>
+            </div>
           </div>
           <div className="cardGroupWrap">
             <div className={`cardDetail ${cardDetailCss}`}>
@@ -72,7 +84,11 @@ function StoreMap(){
                 </div>
               </div>
             </div>
-            <StoreCard setDataFromStoreCard={setDataFromStoreCard} setCardDetailCss={setCardDetailCss}/>
+            <StoreCard
+              setDataFromStoreCard={setDataFromStoreCard}
+              setCardDetailCss={setCardDetailCss}
+              searchText={searchText}
+            />
             
           </div>
         </div>

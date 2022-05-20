@@ -17,6 +17,7 @@ import test from './img/01.jpg';
 
 function StoreCard(props){
 
+  const { setDataFromStoreCard, setCardDetailCss, searchText } = props; 
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
@@ -26,7 +27,7 @@ function StoreCard(props){
   }
   useEffect(()=>{
     fetchData();
-  },[])
+  },[setDatas])
 
 
   // 傳遞資料至父元素 cardDetail
@@ -35,8 +36,8 @@ function StoreCard(props){
     let time = times.split(',');
     let icon = icon_group.split(',');
     let serve = serve_name.split(',');
-    props.setDataFromStoreCard([time, icon, serve]);
-    props.setCardDetailCss(`cardDetailOpenCss`);
+    setDataFromStoreCard([time, icon, serve]);
+    setCardDetailCss(`cardDetailOpenCss`);
   },
   []
   )
