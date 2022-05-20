@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
+
 // CSS
 import './mapStyle.scss';
 
@@ -8,7 +9,7 @@ import './mapStyle.scss';
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 // img
-import test from './img/01.jpg'
+import test from './img/01.jpg';
 
 /*---------------- import結束 ----------------*/
 

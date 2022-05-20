@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+// googlemaps
+import GoogleMapReact from 'google-map-react';
+
 // component
 import StoreCard from './StoreCard';
 
@@ -12,22 +15,26 @@ import './mapStyle.scss';
 import { FiSearch } from "react-icons/fi";
 import { IoArrowBack } from "react-icons/io5";
 
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 
 function StoreMap(){
-
+  
   // 開啟詳細選單(透過StoreCard傳送className)
   const [cardDetailCss, setCardDetailCss] = useState();
   
-  // 關閉詳細選單 function
-  const closeCardDetail = ()=>{
-    setCardDetailCss(``)
-  }
-
-
   // 接收子組件資料，放到cardDetail
   const [dataFromStoreCard, setDataFromStoreCard] = useState([[],[],[]])
   // console.log(dataFromStoreCard);
-
+  
+  
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627
+    },
+    zoom: 11
+  };
   return(
     <>
       <div className="mapAndCardWrap">
@@ -40,7 +47,7 @@ function StoreMap(){
           </div>
           <div className="cardGroupWrap">
             <div className={`cardDetail ${cardDetailCss}`}>
-              <li className="closeCardDetail" onClick={closeCardDetail}>
+              <li className="closeCardDetail" onClick={()=>{setCardDetailCss(``)}}>
                 <IoArrowBack />
               </li>
               <div>
@@ -71,6 +78,17 @@ function StoreMap(){
           </div>
         </div>
         <div className="mapWrap">
+          <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.GMAP_API_KEY }}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+          >
+          <AnyReactComponent
+            lat={59.955413}
+            lng={30.337844}
+            text="My Marker"
+          />
+          </GoogleMapReact>
         </div>
       </div>
     </>
