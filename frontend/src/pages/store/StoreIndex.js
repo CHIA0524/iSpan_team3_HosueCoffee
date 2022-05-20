@@ -6,7 +6,6 @@ import logo from '../../component/img/logo.svg';
 import img01 from './img/storeIndex-img01.png';
 import img02 from './img/storeIndex-img02.png';
 
-import StoreMap from './StoreMap';
 
 function StoreIndex(props){
 

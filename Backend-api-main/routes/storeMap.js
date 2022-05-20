@@ -17,14 +17,14 @@ router.route('/')
 
 
 //GET http://localhost:3001/store/map?
-// router.route('/:searchText')
-//     .get(async (req,res,next)=>{
-//         const searchText = '%' + req.params.searchText + '%';
-//         const sql = 
-//         "SELECT store.id, `store_name`, `city`, `address`, `phone`, group_concat( DISTINCT dow, ':', `status_name`, ' ', LEFT(start_time, 5), '-', LEFT(end_time, 5) ORDER BY store_time.id) AS `times`, group_concat( DISTINCT `icon` order by ss_ssi.ssi_id) AS `icon_group`, group_concat( DISTINCT `serve_name` order by ss_ssi.ssi_id) AS `serve_name` FROM `store` LEFT JOIN `store_time` ON store_time.fk_store_id = store.id LEFT JOIN (SELECT `fk_store_id`, store_serve_icon.id as ssi_id, `icon`, `serve_name` FROM `store_serve` LEFT JOIN `store_serve_icon` on `fk_serve_id` = store_serve_icon.id WHERE serve_status = 1) AS ss_ssi ON ss_ssi.fk_store_id = store.id WHERE store_name like '" + searchText + "' or address like '" + searchText + "' GROUP BY store.id ORDER BY id";
-//         const [datas] = await db.query(sql);
-//         res.json(datas);
-//     })
+router.route('/:keyword')
+    .get(async (req,res,next)=>{
+        const keyword = '%' + req.params.keyword + '%';
+        const sql = 
+        "SELECT store.id, `store_name`, `city`, `address`, `phone`, group_concat( DISTINCT dow, ':', `status_name`, ' ', LEFT(start_time, 5), '-', LEFT(end_time, 5) ORDER BY store_time.id) AS `times`, group_concat( DISTINCT `icon` order by ss_ssi.ssi_id) AS `icon_group`, group_concat( DISTINCT `serve_name` order by ss_ssi.ssi_id) AS `serve_name` FROM `store` LEFT JOIN `store_time` ON store_time.fk_store_id = store.id LEFT JOIN (SELECT `fk_store_id`, store_serve_icon.id as ssi_id, `icon`, `serve_name` FROM `store_serve` LEFT JOIN `store_serve_icon` on `fk_serve_id` = store_serve_icon.id WHERE serve_status = 1) AS ss_ssi ON ss_ssi.fk_store_id = store.id WHERE store_name like '" + keyword + "' or address like '" + keyword + "' or city like '" + keyword + "' GROUP BY store.id ORDER BY id";
+        const [datas] = await db.query(sql);
+        res.json(datas);
+    })
 
 module.exports = router;
 

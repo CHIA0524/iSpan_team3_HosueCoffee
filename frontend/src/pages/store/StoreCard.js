@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
-
 // CSS
 import './mapStyle.scss';
 
@@ -9,7 +8,7 @@ import './mapStyle.scss';
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 // img
-import test from './img/01.jpg';
+import test from './img/01.jpg'
 
 /*---------------- import結束 ----------------*/
 
@@ -17,34 +16,23 @@ import test from './img/01.jpg';
 
 function StoreCard(props){
 
-  const { setDataFromStoreCard, setCardDetailCss, searchText } = props; 
-  // 向後端請求資料
-  const [datas, setDatas ] = useState([])
-  const fetchData = async()=>{
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`);
-    const results = await response.json();
-    setDatas(results);
-  }
-  useEffect(()=>{
-    fetchData();
-  },[setDatas])
-
-
+  const { data } = props;
+  
   // 傳遞資料至父元素 cardDetail
-  const sentDetailToCardDetail = useCallback((data)=>()=>{
+  const sentDetailToCardDetail  = useCallback((data)=>()=>{
     let { times, icon_group, serve_name } = data;
     let time = times.split(',');
     let icon = icon_group.split(',');
     let serve = serve_name.split(',');
-    setDataFromStoreCard([time, icon, serve]);
-    setCardDetailCss(`cardDetailOpenCss`);
+    props.setDataFromStoreCard([time, icon, serve]);
+    props.setCardDetailCss(`cardDetailOpenCss`);
   },
   []
   )
 
   return(
-    <div className="storeWrap">
-      {datas.map((store,i)=>{
+    <div className='storeWrap'>
+      {data.map((store,i)=>{
         return(
           <div className="cardWrap" key={i}>
             <div>
@@ -55,7 +43,7 @@ function StoreCard(props){
               <p>{`${store.city} ${store.address}`}</p>
               <p>{store.phone}</p>
             </div>
-            <div onClick={sentDetailToCardDetail(datas[(store.id-1)])}>
+            <div onClick={sentDetailToCardDetail (data[(store.id-1)])}>
               <IoInformationCircleOutline size={25}/>
             </div>
           </div>
