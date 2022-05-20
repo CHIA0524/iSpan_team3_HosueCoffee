@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 function MemberLogin(){
@@ -83,7 +84,7 @@ function MemberLogin(){
                                             <div className="col-2"></div>
                                             </div>
                                             <br></br>
-                                            <Link to="/profile"><button>&ensp;登入&ensp;</button></Link>
+                                            <Link to="/member/Profile"><button>&ensp;登入&ensp;</button></Link>
                                             <hr></hr>
                                             <br></br>
                                             <div className="GLoginL"><i className="fa-brands fa-google"></i>&ensp;使用Google登入</div>

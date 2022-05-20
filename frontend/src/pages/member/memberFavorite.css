@@ -1,37 +1,6 @@
 
-.asideContent {
-    margin: 0 auto; 
-}
-.asideContent li{
-    list-style: none;
-    line-height: 3rem;
-    width: fit-content;
-}
 
-.adminAside a {
-    color: #4C3410;
-    text-decoration: none;
-    border: 1px transparent solid;
-    transition: all 0.2s ease;
-    padding-left: 5px;
-}
 
-.adminAside a:hover {
-    border-left: 1px solid #E4D2A3;
-    color: #E4D2A3;
-}
-
-#nowWeb{
-    color: #E4D2A3;
-}
-
-.adminAside .maindir {
-    color: rgb(129, 117, 117);
-    font-size: 1.5rem;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-bottom: 1rem;
-    width: fit-content;
-}
 
 .card {
     border: 1px #E4D2A3 solid;
@@ -52,10 +21,7 @@
     opacity: 0.6;
 }
 
-.adminAside {
-    display: inline-block;
 
-}
 
 
 .cardPrice {

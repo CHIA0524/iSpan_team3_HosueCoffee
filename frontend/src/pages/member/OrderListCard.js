@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
+
 function OrderListCard(){
     return(
         <>
+            <Link to={'/member/Order'}>
             <div className="listcard row">
                         <div className="col-3 listdata col-3None">
                             <div className="state">已完成</div>
@@ -30,6 +33,7 @@ function OrderListCard(){
                             <div className="col-3 ttpiece col-wn">共?件</div>
                         </div>
                 </div>
+                </Link>
         </>
     )
 }

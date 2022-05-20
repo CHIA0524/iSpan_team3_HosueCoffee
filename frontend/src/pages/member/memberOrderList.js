@@ -17,7 +17,7 @@ function MemberOrderList(){
         <br></br>
     </div>
 
-    
+     
     <div className="container">
       <div className="row">
         <MemberAside/>

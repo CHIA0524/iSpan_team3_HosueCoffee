@@ -65,11 +65,11 @@ function MemberPassword(){
                       </div>
                         <br></br>
                     </div>
-                    <Link to="/member/memberprofile">
+                    <Link to="/member/Profile">
                     <button className="memberEdit memberEdit-w">修改密碼</button>
                     </Link>
 
-                    <Link to="/member/memberprofile">
+                    <Link to="/member/Profile">
                     <button className="memberEdit memberEdit-m">修改</button>
                     </Link>
                

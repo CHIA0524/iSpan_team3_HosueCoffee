@@ -9,10 +9,11 @@ import StoreMap from './pages/store/StoreMap';
 
 // member pages
 import MemberLogin from './pages/member/memberlogin';
-import Memberprofile from './pages/member/memberprofile';
 import MemberprofileEdit from './pages/member/memberprofileEdit';
 import MemberPassword from './pages/member/memberPassword';
+import Memberprofile from './pages/member/memberprofile';
 import MemberOrderList from './pages/member/memberOrderList';
+import MemberOrder from './pages/member/memberOrder';
 
 // components
 import Navbar from './pages/component/Navbar';
@@ -38,10 +39,11 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
-        <Route  path="/OrderList" component={MemberOrderList}></Route>
-        <Route  path="/profileEdit" component={MemberprofileEdit}></Route>
-          <Route path="/profile" component={Memberprofile}></Route>
-        <Route path="/Password" component={MemberPassword}></Route>
+        <Route  path="/member/Order" component={MemberOrder}></Route>
+        <Route  path="/member/OrderList" component={MemberOrderList}></Route>
+        <Route  path="/member/profileEdit" component={MemberprofileEdit}></Route>
+          <Route path="/member/Profile" component={Memberprofile}></Route>
+        <Route path="/member/Password" component={MemberPassword}></Route>
         <Route  path="/memberLogin" component={MemberLogin}></Route>
 
         <Route path="/" exact>

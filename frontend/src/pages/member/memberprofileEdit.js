@@ -17,7 +17,7 @@ function MemberprofileEdit(){
                 
                 <div class="col-4 col-3None">
                     <div class="proList">
-                        <div class="memberPhoto">
+                        <div class="memberPhotoE">
                             <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
                             <div class="changePhoto">修改照片</div>
                         </div>
@@ -80,11 +80,11 @@ function MemberprofileEdit(){
                         </div>
                         <br></br>
                     </div>
-                    <Link to="/member/memberprofile">
+                    <Link to="/member/Profile">
                     <button class="memberEdit memberEdit-w">儲存修改</button>
                     </Link>
                     
-                    <Link to="/member/memberprofile">
+                    <Link to="/member/Profile">
                     <button class="memberEdit memberEdit-m">修改</button>
                     </Link>
                
