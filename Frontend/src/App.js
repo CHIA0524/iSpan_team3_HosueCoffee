@@ -16,6 +16,8 @@ import { BiCopyright } from "react-icons/bi";
 import Home from './pages/home/Home'
 import StoreIndex from './pages/store/StoreIndex'
 import OnlineCheckPage from './pages/menu/OnlineCheckPage';
+import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
+import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
 
 
 function App() {
@@ -74,7 +76,7 @@ function App() {
             <li><a href="#">SHOP<span>網路商城</span></a></li>
             <li><a href="#">BLOG<span>部落格</span></a></li>
             <li><Link to="/store">STORE<span>門市地圖</span></Link></li>
-            <li className="webNone"><Link to="/store"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
+            <li className="webNone"><Link to="/online"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
           </div>
           <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
             <IoMenuOutline size={30}/>
@@ -83,7 +85,7 @@ function App() {
             <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
           </div>
           <div>
-            <li className="mobileNone"><Link to="/OnlineChecckPage"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
+            <li className="mobileNone"><Link to="/OnlineCheckPage"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
             <li><a href="#"><IoCartOutline size={30}/></a></li>
 
             <li className="mobileNone position-relative">
@@ -106,9 +108,16 @@ function App() {
         <Route path="/exact" >
           <Home />
         </Route>
-        <Route path="">
+        <Route path="/OnlineCheckPage">
           <OnlineCheckPage />
         </Route> 
+        <Route path="/OnlineCheckPage2">
+          <OnlineCheckPage2 />
+        </Route> 
+        <Route path="/OnlineCheckPage3">
+          <OnlineCheckPage3 />
+        </Route> 
+
       </Switch>
 
       <footer className="d-flex coffeeFooter">

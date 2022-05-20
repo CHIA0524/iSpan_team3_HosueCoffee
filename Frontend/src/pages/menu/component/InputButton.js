@@ -1,18 +1,21 @@
 import React from 'react';
-import '../styleCheckout.scss'
+import '../Checkout2.scss'
+
+
 
 
 const InputButton = () => (
 
-    <>
-        <input type="text"/>
-            <a href="/">
-                <button  className="btn btn-outline-secondary" type="button">✓</button>
-            </a>
-    </>
 
+
+        <div>
+            <span>姓名:</span><br/>
+            <input type="text" name="" id="" value=""  placeholder="name"/>
+            <p></p>
+        </div>
 
 
 )
+
 
 export default InputButton

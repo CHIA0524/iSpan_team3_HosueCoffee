@@ -1,10 +1,11 @@
 import React from 'react';
-import Process from './Process';
-import ProcessRwd from './ProcessRwd';
-import Space from './Space';
-import List from './Lisst';
-import Promo from './Promo';
-import Pay from './Pay';
+import Space from './component/Space';
+import Process from './Page1/Process';
+import ProcessRwd from './Page1/ProcessRwd';
+import List from './Page1/Lisst';
+import Promo from './Page1/Promo';
+import Pay from './Page1/Pay';
+
 
 
 
@@ -22,7 +23,6 @@ const OnlineCheckPage = ( ) => (
                 <List/>
                 <Promo/>
                 <Pay/>
-            
         </>
 
 

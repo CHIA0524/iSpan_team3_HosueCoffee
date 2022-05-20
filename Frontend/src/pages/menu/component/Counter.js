@@ -8,11 +8,21 @@ const Counter = () => {
 
     let [quantity, setquantity] = useState(1)
 
+    let buttonsub = null
+
+    if(quantity > 1){
+
+        buttonsub = <div className="btn buttonLeft" onClick={() => { setquantity(quantity - 1) }}>-</div>
+
+    }else{
+
+        buttonsub =  <div className="btn buttonLeft">-</div>
+    }
+
     return (
+        
         <div className="d-flex numButton">
-
-            <div className="btn buttonLeft" onClick={() => { setquantity(quantity - 1) }}>-</div>
-
+            {buttonsub}
             <div className="quantity">
                 {quantity}
             </div>
@@ -20,10 +30,6 @@ const Counter = () => {
         </div>
 
     )
-
-
-
 }
-
 
 export default Counter

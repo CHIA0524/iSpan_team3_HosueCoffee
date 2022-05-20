@@ -113,10 +113,6 @@
   }
 }
 
-.together {
-  margin: 0 30px;
-}
-
 .superman {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,6 +255,9 @@
 @media (max-width: 600px) {
   .rule {
     width: 100%;
+  }
+  .together {
+    margin: 0 30px;
   }
 }
 

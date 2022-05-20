@@ -110,9 +110,9 @@ opacity:  0.25;
 
 // 資料列表
 
-.together {
-  margin: 0 30px;
-}
+// .together {
+//   margin: auto;
+// }
 .superman{
     display: flex;
     align-items: center;
@@ -259,6 +259,9 @@ opacity:  0.25;
   @media (max-width:600px) {
     .rule {
       width: 100%;
+    }
+    .together{
+      margin: 0 30px;
     }
   }
   // 選單
