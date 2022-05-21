@@ -123,12 +123,10 @@ main {
   .mPayInfoContent {
     display: flex;
     justify-content: center;
-    margin: 0 30px;
   }
   .check {
     display: flex;
     justify-content: space-between;
-    margin: 0 30px;
   }
   .check a {
     margin-left: 0;
@@ -199,12 +197,11 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin: 0 30px; */
   }
 
   .dInput input {
     height: 2rem;
-    width: 20rem;
+    width: 29rem;
     border-radius: 5px;
     border: 1px solid #e4d2a3;
   }
@@ -224,7 +221,7 @@ main {
   }
   .dInput input {
     height: 2rem;
-    width: 17rem;
+    width: 19.5rem;
     border-radius: 5px;
     border: 1px solid #e4d2a3;
   }

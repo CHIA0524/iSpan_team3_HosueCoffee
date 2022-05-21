@@ -1,0 +1,262 @@
+/* .adminAside {
+  padding-top: 2%;
+  padding-left: 3%;
+  width: 30%;
+  min-width: 120px;
+} */
+
+.asideContent {
+  margin: 0 auto;
+}
+
+.adminAside a {
+  color: #4c3410;
+  text-decoration: none;
+  border: 1px transparent solid;
+  transition: all 0.2s ease;
+  padding-left: 5px;
+}
+
+.adminAside a:hover {
+  border-left: 1px solid #e4d2a3;
+  color: #e4d2a3;
+}
+
+.adminAside .maindir {
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  /* padding:10px; */
+  padding-bottom: 1rem;
+  width: fit-content;
+}
+
+/* .adminAside ul {
+  padding-left: 9rem;
+} */
+
+.adminAside li {
+  list-style: none;
+  line-height: 3rem;
+  width: fit-content;
+}
+
+.pMain {
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.adminAside {
+  display: inline-block;
+}
+
+.pMain {
+  margin: 0 auto;
+  display: inline-block;
+  /* min-width: 800px; */
+}
+
+.type {
+  display: none;
+}
+
+.mShop {
+  display: none;
+}
+
+.addNum a button {
+  width: 1.5rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+
+.addNum a :hover,
+.addCart a :hover {
+  background-color: #e4d2a3;
+  color: white;
+}
+
+.addNum input {
+  border: 0;
+  width: 40px;
+  text-align: center;
+  justify-content: ;
+}
+
+.addCartBtn {
+  margin-top: 4px;
+  width: 9rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+.addCart {
+  margin: 0;
+}
+
+/* .addCart a :hover {
+  background-color: #e4d2a3;
+  color: white;
+} */
+.moreInfo {
+  padding-top: 10rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 20rem;
+}
+.infoBtn img {
+  width: 3rem;
+}
+.pDetail {
+  display: flex;
+}
+
+.pContent {
+  width: 50%;
+  padding-left: 4rem;
+}
+
+.card {
+  width: 18rem;
+  border: hidden;
+  padding: 0 1rem 0 1rem;
+}
+.card img {
+  width: 100%;
+}
+/* .cardPrice {
+  margin-top: -1rem;
+} */
+/* .title {
+  margin: 11rem 0 -4rem 5rem;
+  font-size: 1.5rem;
+} */
+.card {
+  display: inline-block;
+}
+.recProduct1 {
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+  color: transparent;
+}
+
+.moreInfo {
+  width: 80%;
+  margin: 0 auto;
+}
+.recProduct {
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+}
+.infoBtn {
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .mShop {
+    display: block;
+    color: rgb(129, 117, 117);
+    font-size: 1.5rem;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 3rem;
+  }
+
+  .type {
+    padding-top: -1rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .typeDetail {
+    width: 20%;
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #e4d2a3;
+    color: #4c3410;
+  }
+
+  .adminAside {
+    /*隱藏選單開始*/
+    max-height: 0;
+    overflow: hidden;
+    /*隱藏選單end*/
+    position: absolute;
+    /*追隨.header*/
+    /*讓選單從左到右延伸start*/
+    right: 0;
+    left: 0;
+    /*讓選單從左到右延伸end*/
+    top: 67px;
+    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+    z-index: 100;
+    transition: all 2.5s;
+  }
+
+  .pContent {
+    whitespace: 'pre-wrap';
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .pMain {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .rPackage {
+    margin-bottom: 2rem;
+  }
+  .recProduct {
+    padding: 0 20rem;
+    width: 100%;
+  }
+  .mImg {
+    width: 100%;
+  }
+  .mHidden {
+    max-height: 0;
+    overflow: hidden;
+    /*隱藏選單end*/
+    position: absolute;
+    /*追隨.header*/
+    /*讓選單從左到右延伸start*/
+    right: 0;
+    left: 0;
+    /*讓選單從左到右延伸end*/
+    top: 67px;
+    /*把menu-list位置移到.header下方。點擊menu滑出/因沒設header高度，所以用開發者工具看高多少*/
+    z-index: 100;
+    transition: all 2.5s;
+  }
+  .recProduct1 {
+    /* font-size: 1rem; */
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+  .pDetail {
+    width: 90%;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .pDetail img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .pContent {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .pContent {
+    padding-top: 1rem;
+    padding-left: 0;
+  }
+}
