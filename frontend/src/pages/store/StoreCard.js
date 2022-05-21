@@ -19,12 +19,8 @@ function StoreCard(props){
   const { data } = props;
   
   // 傳遞資料至父元素 cardDetail
-  const sentDetailToCardDetail  = useCallback((data)=>()=>{
-    let { phone, times, icon_group, serve_name } = data;
-    let time = times.split(',');
-    let icon = icon_group.split(',');
-    let serve = serve_name.split(',');
-    props.setDataFromStoreCard([phone, time, icon, serve]);
+  const sentDetailToCardDetail  = useCallback((index)=>()=>{
+    props.setIndex(index);
     props.setCardDetailCss(`cardDetailOpenCss`);
   },
   []
@@ -44,7 +40,7 @@ function StoreCard(props){
               <p>{store.address}</p>
               {/* <p>{store.phone}</p> */}
             </div>
-            <div onClick={sentDetailToCardDetail (data[(store.id-1)])}>
+            <div onClick={sentDetailToCardDetail (store.id-1)}>
               <IoInformationCircleOutline size={25}/>
             </div>
           </div>
