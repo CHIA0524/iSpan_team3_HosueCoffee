@@ -35,10 +35,6 @@ function MemberQAList(){
                             <th scope="col">查看</th>
                           </tr>
                               <MemberQACard/>
-                              <MemberQACard/>
-                              <MemberQACard/>
-                              <MemberQACard/>
-                              <MemberQACard/> 
                       </table>
                       <div className="QAbtn-M">
                         <a href="#popupWrap" className="popupOpen">

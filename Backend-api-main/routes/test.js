@@ -10,8 +10,9 @@ console.log(process.env.MYSQL_DB)
 router.route('/')
     .get(async(req,res,next)=>{
         const sql=
-        "select*from users;";
-        const [data]=await db.query(sql)
+        "SELECT * FROM `user_ask`"; 
+        const [datas]=await db.query(sql);
+        res.json(datas);
 
     })
 module.exports = router;

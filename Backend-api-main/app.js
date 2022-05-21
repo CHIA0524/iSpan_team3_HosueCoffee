@@ -34,8 +34,8 @@ app.use('/categories',categoriesRouter);
 //http://localhost:3001/products
 app.use('/products',productsRouter);
 
-app.use('/store/map',storeMapRouter);
 app.use('/test',testRouter);
+app.use('/store/map',storeMapRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
