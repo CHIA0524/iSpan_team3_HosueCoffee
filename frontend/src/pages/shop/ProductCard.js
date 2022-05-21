@@ -26,9 +26,7 @@ function ProductCard(){
           <div className="pCardWrap" key={i}>
              <div className="card mb-4">
                  <div className="package">
-                    <div to= "/shop/ProductDetail" onClick{()=>{
-                        
-                    }}>
+                    <div to= "/shop/ProductDetail" onClick={() => this.handleClick()}>
                     <img className="card-img-top" src={require('./img/包裝 2.png')} alt="1"></img>
                     </div>
                  </div>
