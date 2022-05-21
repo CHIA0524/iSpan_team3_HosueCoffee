@@ -3,6 +3,10 @@ const router = express.Router();
 const multer = require('multer');
 const db = require('../modules/mysql_config');
 const upload = multer();
+require("dotenv").config();
+
+console.log(process.env.MYSQL_DB)
+console.log(process.env.MYSQL_DB)
 
 
 //GET　http://localhost:3001/store/map
