@@ -2,18 +2,18 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 // googlemaps
-// import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 
 // component
 import StoreCardWrap from './StoreCardWrap'
+import StoreCardSearch from './StoreCardSearch';
 
 // CSS
 import './mapStyle.scss';
 
-// icons
-import { FiSearch } from "react-icons/fi";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+const AnyReactComponent = ({ text }) => <div className='mapMaker'>{text}</div>;
 
 
 function StoreMapCardWrap(){
@@ -24,8 +24,8 @@ function StoreMapCardWrap(){
   // 接收子組件資料，放到cardDetail
   const [data, setData] = useState([]);
   
-  // 搜尋框內容 state
-  const [searchText, setSearchText] = useState('');
+  // 接收子組件資料，放到cardDetail
+  const [searchText, setSearchText] = useState([]);
 
   // 錯誤訊息用
   const [error, setError] = useState('')
@@ -106,42 +106,31 @@ function StoreMapCardWrap(){
     <>
       <div className="mapAndCardWrap">
         <div>
-          <div className="storeSearch">
-            <input
-              className="store-search-input"
-              name="search-for"
-              placeholder="搜尋門市名稱或地址"
-              onChange={(e)=>{
-                setSearchText(e.target.value)
-                setIsLoading(true)
-                fetchFilterData(e.target.value)
-              }}
-            >
-            </input>
 
-            <div onClick={()=>{
-              setIsLoading(true)
-              fetchFilterData(searchText)
-            }}>
-              <FiSearch />
-            </div>
-          </div>
+          <StoreCardSearch
+            setSearchText={setSearchText}
+            setIsLoading={setIsLoading}
+            fetchFilterData={fetchFilterData}
+          />
+          
           {isLoading ? spinner : <StoreCardWrap data={data}/> }
           
         </div>
+
         <div className="mapWrap">
-          {/* <GoogleMapReact
+          <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
           >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
+            lat={25.04}
+            lng={121.50}
+            text=""
           />
-          </GoogleMapReact> */}
+          </GoogleMapReact>
         </div>
+        
       </div>
     </>
   );

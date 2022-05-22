@@ -1,18 +1,29 @@
-@import '../../component/base';
+@import '../../component/_base';
 
 
 
 
 // storeMap
-
+.mapMaker{
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 6px solid $font_border_color;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
 .mapSpinner{
   width: 375px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 185px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .mapAndCardWrap{
   margin-top: -3rem;
   display: flex;
@@ -42,7 +53,7 @@
 }
 .cardGroupWrap{
   width: 375px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 185px);
   position: relative;
   display: flex;
   flex-direction: row;
@@ -53,7 +64,7 @@
 }
 .storeWrap{
   width: 375px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 185px);
   padding: .1rem .5rem;
   overflow-x: hidden;
 }
@@ -151,9 +162,13 @@
   width: calc(100% - 350px);
   // height: calc(100vh - 120px);
   background: #000;
+  transition: all .3s ease-in-out;
 }
 
 @media screen and (max-width:800px) {
+  .mapSpinner{
+    width: 100%;
+  }
   .mapAndCardWrap{
     flex-direction: column-reverse;
   }
