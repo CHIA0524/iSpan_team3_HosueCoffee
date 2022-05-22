@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay1.css';
 import './component/steps1.css';
-import pInfo from './component/pInfo';
+import PInfo from './component/PInfo';
+import Steps from './component/Steps';
 
 
 
@@ -12,44 +13,9 @@ function Pay1(){
   return(
       <>
        <div class="container">
-        <div class="paytext">
-             <p>結帳</p>
-          </div>
-          <div class="steps">
-              <div class="step stepCompleted">
-                  <div class="stepText1">
-                      確認商品</div>
-              </div>
-              <div class="stepLine "></div>
-              <div class="step">
-                  <div class="stepText2">填寫資料</div>
-              </div>
-              <div class="stepLine"> </div>
-              <div class="step ">
-                  <div class="stepText3">購物完成</div>
-              </div>
-          </div>
+           <Steps />
         
-
-           <div class="mSteps">
-               <div class=" mStep1">
-                   <div class="  mStepNum1">1</div>
-                   <div class="mStepText1">訂單確認</div>
-               </div>
-   
-               <div class="mStepLine "></div>
-               <div class="mStep2 ">
-                   <div class="mStepNum2">2</div>
-                   <div class="mStepText2">資料填寫</div>
-               </div>
-               <div class="mStepLine "></div>
-   
-               <div class="mStep3  ">
-                   <div class="mStepNum3">3</div>
-                   <div class="mStepText3">購物完成</div>
-           </div>
-        </div>
-           <pInfo />
+           <PInfo />
 
             {/* <!-- 折扣結帳區 --> */}
             <div class="dInput">
@@ -97,8 +63,8 @@ function Pay1(){
             <div class="check">
                 <a href=""><button type="button" class="addCartBtn" id="subtract">繼續購物
                     </button></a>
-                <a href=""><button type="button" class="addCartBtn" id="subtract">下一步
-                    </button></a>
+                <Link href="" to= "/shoppingCart/Pay2"><button type="button" class="addCartBtn" id="subtract">下一步
+                    </button></Link>
             </div>
      </div>
      </>

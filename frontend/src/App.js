@@ -22,6 +22,9 @@ import ShopIndex from './pages/shop/ShopIndex';
 import ProductDetail from './pages/shop/ProductDetail'; 
 
 import Pay1 from './pages/shoppingCart/Pay1';
+import Pay2 from './pages/shoppingCart/Pay2';
+import Pay3 from './pages/shoppingCart/Pay3';
+
 
 
 function App() {
@@ -108,7 +111,13 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
-      <Route path="/shoppingCart">
+      <Route path="/shoppingCart/pay3">
+          <Pay3 />
+        </Route>
+        <Route path="/shoppingCart/pay2">
+          <Pay2 />
+        </Route>
+       <Route path="/shoppingCart">
           <Pay1 />
         </Route>
        <Route path="/shop/ProductDetail">

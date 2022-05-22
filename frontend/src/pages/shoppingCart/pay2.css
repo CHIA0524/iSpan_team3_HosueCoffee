@@ -1,0 +1,158 @@
+main {
+  padding-bottom: 2rem;
+}
+.paytext {
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  /* margin-left: 10rem; */
+}
+.payInfoStart {
+  padding-top: 5rem;
+  display: flex;
+}
+.questInfo {
+  padding-bottom: 3rem;
+}
+.payInfoFill {
+  width: 50%;
+  margin-right: 5rem;
+}
+.payTotalCheck {
+  width: 40%;
+}
+.payTotalCheck .box {
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+  background: rgba(228, 210, 163, 0.4);
+}
+.checkPart {
+  padding-left: 11.5rem;
+}
+.buyerInfo input {
+  width: 80%;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.receiverInfo {
+  margin-top: 3rem;
+}
+.receiverInfo input {
+  width: 80%;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.noteInfo {
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.totalInfo1 {
+  padding-top: 1.5rem;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+}
+.totalInfo1 p {
+  margin-bottom: 1rem;
+}
+.totalInfo3 {
+  padding-top: 1rem;
+  margin: 0 2rem;
+  display: flex;
+  font-size: 1.3rem;
+  justify-content: space-between;
+}
+.line {
+  margin: 0 2rem;
+  width: 90%;
+  /* height: 1px; */
+  border-top: solid 1px rgba(0, 0, 0, 0.46);
+}
+.finalPayBtn {
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  margin-top: 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #4c3410;
+  border: 1px solid #4c3410;
+}
+
+.btn-primary:hover {
+  color: #4c3410;
+  background-color: #e4d2a3;
+  border: 1px solid #e4d2a3;
+}
+.radioS {
+  display: flex;
+}
+.mText {
+  display: none;
+}
+.mPayTotalCheck {
+  display: none;
+}
+.money p,
+h3 {
+  text-align: right;
+}
+
+@media screen and (max-width: 1000px) {
+  .mShop {
+    display: block;
+    color: rgb(129, 117, 117);
+    font-size: 1.5rem;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 3rem;
+  }
+  .payInfoStart {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .payInfoFill {
+    width: 100%;
+    margin: 0 30px;
+  }
+  .payTotalCheck {
+    display: none;
+  }
+  .mPayTotalCheck .box {
+    width: 90%;
+    height: 350px;
+    border: 1px solid gray;
+  }
+  .mPayTotalCheck {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .radioS {
+    display: block;
+  }
+  .totalInfo1 {
+    padding-top: 1rem;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+  }
+  .mText {
+    display: block;
+  }
+  .mText h3 {
+    text-align: left;
+  }
+  .money p {
+    text-align: right;
+  }
+}
