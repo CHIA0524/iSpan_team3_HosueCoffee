@@ -27,7 +27,7 @@ function StoreCardSearch(props){
         setIsLoading(true)
         fetchFilterData(setSearchText)
       }}>
-        <FiSearch />
+        <FiSearch size={20}/>
       </div>
     </div>
   )

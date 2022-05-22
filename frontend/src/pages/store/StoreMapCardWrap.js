@@ -10,25 +10,29 @@ import StoreCardSearch from './StoreCardSearch';
 
 // CSS
 import './mapStyle.scss';
+import { Tween } from 'jquery';
 
 
 
-const AnyReactComponent = ({ text }) => <div className='mapMaker'>{text}</div>;
+const AnyReactComponent = ({ text }) => <div className='mapMark'>{text}</div>;
 
 
 function StoreMapCardWrap(){
   
   // 載入指示器用
-  const [isLoading, setIsLoading] = useState(false)
+  const [ isLoading, setIsLoading ] = useState(false)
 
-  // 接收子組件資料，放到cardDetail
-  const [data, setData] = useState([]);
+  // 儲存資料庫資料
+  const [ data, setData ] = useState([]);
+  
+  // 儲存資料庫資料的經緯度
+  const [ lanlngArray, setlanlngArray ] = useState([]);
   
   // 接收子組件資料，放到cardDetail
-  const [searchText, setSearchText] = useState([]);
+  const [ searchText, setSearchText ] = useState([]);
 
   // 錯誤訊息用
-  const [error, setError] = useState('')
+  const [ error, setError ] = useState('')
 
   const defaultProps = {
     center: {
@@ -70,6 +74,37 @@ function StoreMapCardWrap(){
       if (Array.isArray(results)) {
         setData(results)
       }
+
+      const API_KEY = process.env.REACT_APP_GMAP_API_KEY;
+      const LANGUAGE = "zh-Tw";
+      const REGION = "TW";
+      const GOOGLE_API = "https://maps.googleapis.com/maps/api/geocode/json";
+      
+      let lanlng = [];
+
+      for (let i = 0; i < results.length; i++) {
+        let address = results[i].address;
+        let url = `${GOOGLE_API}?address=${encodeURIComponent(address)}&key=&language=${LANGUAGE}&region=${encodeURIComponent(REGION)}`;
+        const GEOresponse = await fetch(url).catch(() =>
+          Promise.reject(new Error("Error fetching data"))
+        );
+        const GEOresults = await GEOresponse.json().catch(() => {
+          console.log("Error parsing server response");
+          return Promise.reject(new Error("Error parsing server response"));
+        });
+        if (GEOresults.status === "OK") {
+          console.log(GEOresults);
+          return GEOresults;
+        }
+        console.log(
+          `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
+          true
+        );
+        // return Promise.reject(
+        //   new Error(
+        //     `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`
+        //   )
+      }
     } catch (e) {
       // 作錯誤處理
       console.log(e)
@@ -107,27 +142,31 @@ function StoreMapCardWrap(){
       <div className="mapAndCardWrap">
         <div>
 
+          {/* 搜尋框 */}
           <StoreCardSearch
             setSearchText={setSearchText}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
           />
           
+          {/* 門市卡片 */}
           {isLoading ? spinner : <StoreCardWrap data={data}/> }
           
         </div>
-
+        
+        {/* 地圖 */}
         <div className="mapWrap">
           <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
           >
-          <AnyReactComponent
-            lat={25.04}
-            lng={121.50}
-            text=""
-          />
+            {/* 地圖地點的mark */}
+            <AnyReactComponent
+              lat={25.04}
+              lng={121.50}
+              text=""
+            />
           </GoogleMapReact>
         </div>
         

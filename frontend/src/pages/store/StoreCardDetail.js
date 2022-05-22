@@ -9,8 +9,8 @@ function StoreCardDetail(props){
   const { dataDetail, cardDetailCss, setCardDetailCss } = props;
   if (dataDetail){
     const { times, icon_group } = dataDetail;
-    var time = times.split(',');
-    var icon = icon_group.split(',');
+    var storeTime = times.split(',');
+    var storeIcon = icon_group.split(',');
   }
 
   return(
@@ -26,7 +26,7 @@ function StoreCardDetail(props){
       <div>
         <h5>營業時間</h5>
         {
-          time ? time.map((time, i)=>{
+          storeTime ? storeTime.map((time, i)=>{
             return(
               <li key={i}>
               { time.includes('休息') ? time.substr(0, 6) : time}
@@ -40,7 +40,7 @@ function StoreCardDetail(props){
         <h5>門市服務</h5>
         <div className="storeServeList">
           {
-            icon ? icon.map((icon, i)=>{
+            storeIcon ? storeIcon.map((icon, i)=>{
               return(
                 <li key={i} dangerouslySetInnerHTML={{__html:icon}}></li>
               )
