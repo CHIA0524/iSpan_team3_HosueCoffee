@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './pay1.css';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 
 
 

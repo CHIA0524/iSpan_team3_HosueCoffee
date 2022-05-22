@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import './brandproduct.css';
+import '../brandproduct.css';
 import './popup.css';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
-import ProductDetail from './ProductDetail';
+import ProductDetail from '../ProductDetail';
+import popup from './popup';
 
 
 function ProductCard(){
@@ -19,6 +20,13 @@ function ProductCard(){
     useEffect(()=>{
       fetchData();
     },[])
+
+    const gotoPD = ()=>{
+     window.location.assign("/shop/ProductDetail");
+    }
+  
+    const [buttonpopup,setButtonpopup] = useState(false);
+
   return(
     <>
        {datas.map((pCard,i)=>{
@@ -26,8 +34,8 @@ function ProductCard(){
           <div className="pCardWrap" key={i}>
              <div className="card mb-4">
                  <div className="package">
-                    <div to= "/shop/ProductDetail" onClick={() => this.handleClick()}>
-                    <img className="card-img-top" src={require('./img/包裝 2.png')} alt="1"></img>
+                    <div to= "/shop/ProductDetail" onClick={gotoPD}>
+                    <img className="card-img-top" src={require('../img/包裝 2.png')} alt="1"></img>
                     </div>
                  </div>
                  <div className="cardName d-flex justify-content-between">
@@ -36,7 +44,9 @@ function ProductCard(){
                       </div>
                       <div>
                            <Link to=""> <AiOutlineHeart size={20}/></Link>
-                           <Link to=""> <AiOutlineShoppingCart size={20}/></Link>
+                           <button to="" onClick={() => setButtonpopup(true) }> <AiOutlineShoppingCart size={20}/></button>
+                           <popup trigger={buttonpopup}>
+                           </popup>
                       </div>
                       </div>
               </div>

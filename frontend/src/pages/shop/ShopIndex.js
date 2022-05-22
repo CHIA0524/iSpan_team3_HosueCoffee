@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './brandproduct.css';
-import './popup.css';
-import ProductCard from './ProductCard';
-import Aside from './Aside';
+import './component/popup.css';
+import ProductCard from './component/ProductCard';
+import Aside from './component/Aside';
 
 
 function ShopIndex(){

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import './productdetail.css';
+import '../productdetail.css';
 
 
 function RecCard(){
@@ -9,7 +9,7 @@ function RecCard(){
     <>
           <div class="rPackage">
              <Link to="/shop/ProductDetail/1">
-               <img class="card-img-top" src={require('./img/包裝 2.png')} alt=""></img>
+               <img class="card-img-top" src={require('../img/包裝 2.png')} alt=""></img>
                </Link>
           </div>
           <div>

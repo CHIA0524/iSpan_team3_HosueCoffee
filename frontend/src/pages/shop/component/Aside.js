@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import './brandproduct.css';
+import '../brandproduct.css';
 
 function Aside(){
 

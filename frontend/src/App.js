@@ -18,7 +18,8 @@ import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
 
 import ShopIndex from './pages/shop/ShopIndex';
-import ProductDetail from './pages/shop/ProductDetail';
+import ProductDetail from './pages/shop/ProductDetail'; 
+import pay1 from './pages/shoppingCart/pay1';
 
 
 function App() {
@@ -86,7 +87,7 @@ function App() {
             <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           
             {/* 連結修改 */}
-            <li><a href="#"><IoCartOutline size={30}/></a></li>
+            <li><Link to="/shoppingCart" onClick={closeSideNavClick}><IoCartOutline size={30}/></Link></li>
 
             <li className="mobileNone position-relative">
               <a href=""><IoPersonOutline size={30}/></a>

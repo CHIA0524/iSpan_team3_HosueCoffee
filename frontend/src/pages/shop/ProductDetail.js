@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import Aside from './Aside';
+import Aside from './component/Aside';
 import './productdetail.css';
-import RecCard from './RecCard';
+import RecCard from './component/RecCard';
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
 
