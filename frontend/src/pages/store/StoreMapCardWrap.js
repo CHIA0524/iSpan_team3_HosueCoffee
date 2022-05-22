@@ -28,8 +28,8 @@ function StoreMapCardWrap(){
   // 儲存資料庫資料的經緯度
   const [ lanlngArray, setlanlngArray ] = useState([]);
   
-  // 接收子組件資料，放到cardDetail
-  const [ searchText, setSearchText ] = useState([]);
+  // 接收子組件資料，取得搜尋之值
+  const [ searchText, setSearchText ] = useState('');
 
   // 錯誤訊息用
   const [ error, setError ] = useState('')
@@ -79,7 +79,7 @@ function StoreMapCardWrap(){
       const LANGUAGE = "zh-Tw";
       const REGION = "TW";
       const GOOGLE_API = "https://maps.googleapis.com/maps/api/geocode/json";
-      
+
       let lanlng = [];
 
       for (let i = 0; i < results.length; i++) {
@@ -150,8 +150,11 @@ function StoreMapCardWrap(){
           />
           
           {/* 門市卡片 */}
-          {isLoading ? spinner : <StoreCardWrap data={data}/> }
-          
+          {isLoading ? spinner :
+            <StoreCardWrap
+              data={data}
+            />
+          }
         </div>
         
         {/* 地圖 */}

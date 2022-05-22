@@ -8,8 +8,8 @@ import StoreCardDetail from './StoreCardDetail';
 function StoreCardWrap(props){
 
   const { data } = props;
-  const [ index, setIndex ] = useState(2);
-  const dataDetail = data[index];
+  const [ detailIndex, setDetailIndex ] = useState(2);
+  const dataDetail = data[detailIndex];
 
   // 開啟詳細選單(透過StoreCard傳送className)
   const [cardDetailCss, setCardDetailCss] = useState();
@@ -25,7 +25,7 @@ function StoreCardWrap(props){
 
       <StoreCard
         data={data}
-        setIndex={setIndex}
+        setDetailIndex={setDetailIndex}
         setCardDetailCss={setCardDetailCss}
       />
       
