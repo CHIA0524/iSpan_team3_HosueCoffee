@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 
+
 // icons
 import { IoCloseOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
@@ -19,7 +20,8 @@ import StoreMap from './pages/store/StoreMap';
 
 import ShopIndex from './pages/shop/ShopIndex';
 import ProductDetail from './pages/shop/ProductDetail'; 
-import pay1 from './pages/shoppingCart/pay1';
+
+import Pay1 from './pages/shoppingCart/Pay1';
 
 
 function App() {
@@ -106,6 +108,9 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
+      <Route path="/shoppingCart">
+          <Pay1 />
+        </Route>
        <Route path="/shop/ProductDetail">
           <ProductDetail />
         </Route>

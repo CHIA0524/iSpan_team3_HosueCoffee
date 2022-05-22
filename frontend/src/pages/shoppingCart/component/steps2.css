@@ -27,7 +27,12 @@
   height: 5px;
   background-color: #e4d2a3;
 }
-.stepText {
+.stepText2 {
+  line-height: 2rem;
+  color: white;
+}
+.stepText1,
+.stepText3 {
   line-height: 2rem;
   color: rgba(0, 0, 0, 0.25);
 }
@@ -52,7 +57,7 @@
     float: left;
   }
 
-  .mStep {
+  .mStep2 {
     display: block;
     width: 3em;
     height: 3rem;
@@ -61,26 +66,46 @@
     font-size: 1rem;
     background: #a37025;
   }
+  .mStep1,
+  .mStep3 {
+    display: block;
+    width: 3em;
+    height: 3rem;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1rem;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
 
   .mStepLine {
-    width: 16rem;
+    width: 7.5rem;
     position: relative;
     top: 1.5rem;
     height: 2px;
     background-color: rgba(0, 0, 0, 0.25);
   }
-  .mStepNum {
+  .mStepNum2 {
     line-height: 3rem;
     color: white;
   }
-  .mStepText {
+  .mStepText2 {
     width: 100px;
     padding-top: 1rem;
     margin-left: -1.5rem;
   }
+  .mStepNum1,
+  .mStepNum3 {
+    line-height: 3rem;
+    color: rgba(0, 0, 0, 0.25);
+  }
+  .mStepText1,
+  .mStepText3 {
+    display: none;
+  }
 }
 @media screen and (max-width: 400px) {
   .mStepLine {
-    width: 5.5rem;
+    width: 5rem;
   }
 }
