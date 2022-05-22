@@ -1,7 +1,23 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 function MemberLogin(){
+    const [datas,setDatas] = useState([])
+    const fetchData=async()=>{
+        const response = await fetch("http://localhost:3001/account")
+        const results=await response.json();
+        setDatas(results);
+    }
+    useEffect(()=>{
+        fetchData();
+    },[])
+    
+    {datas.length> 0 && datas.map((category,i)=>{
+        const{member_id,member_account,member_password,member_mail,member_start}=category;
+        console.log('帳號:'+member_account+'密碼:'+member_password);
+        
+    })}
+
     const Login = ()=>{
         document.querySelector('.loginMain1').style.right='-491px';
         document.querySelector('.loginMain1').style.transition='0.5s';
@@ -75,9 +91,9 @@ function MemberLogin(){
                                         <div className="LG">
                                             <br></br>
                                             <form method=''>
-                                            <input type="text" size="30" placeholder="&ensp;會員帳號" name='account'></input>
+                                            <input type="text" size="30" placeholder="&ensp;會員帳號" name='member_account'></input>
                                             <br></br>
-                                            <input type="password" size="30" placeholder="&ensp;會員密碼" name='password'></input>
+                                            <input type="password" size="30" placeholder="&ensp;會員密碼" name='member_password'></input>
                                             <div className="row">
                                             <div className="col-3"></div>
                                             <div className="col-4"></div> 
@@ -85,7 +101,7 @@ function MemberLogin(){
                                             <div className="col-2"></div>
                                             </div>
                                             <br></br>
-                                            <Link to="/member/Profile"><button>&ensp;登入&ensp;</button></Link>
+                                            <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link>
                                            {/* <button>&ensp;登入&ensp;</button> */}
                                             </form>
                                             <hr></hr>

@@ -15,4 +15,12 @@ router.route('/')
         res.json(datas);
 
     })
+// router.route('/')
+//     .get(async(req,res,next)=>{
+//         const sql=
+//         "SELECT * FROM `members` where member_accont='member_accont' AND member_password='member_password'"; 
+//         const [datas]=await db.query(sql);
+//         res.json(datas);
+
+//     })
 module.exports = router;
