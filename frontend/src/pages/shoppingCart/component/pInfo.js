@@ -1,5 +1,5 @@
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import '../pay1.css';
 
 
