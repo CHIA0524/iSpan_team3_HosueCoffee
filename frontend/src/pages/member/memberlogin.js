@@ -74,9 +74,10 @@ function MemberLogin(){
                                     <div className="loginInput loginInputL">
                                         <div className="LG">
                                             <br></br>
-                                            <input type="text" size="30" placeholder="&ensp;會員帳號"></input>
+                                            <form method=''>
+                                            <input type="text" size="30" placeholder="&ensp;會員帳號" name='account'></input>
                                             <br></br>
-                                            <input type="password" size="30" placeholder="&ensp;會員密碼"></input>
+                                            <input type="password" size="30" placeholder="&ensp;會員密碼" name='password'></input>
                                             <div className="row">
                                             <div className="col-3"></div>
                                             <div className="col-4"></div> 
@@ -85,14 +86,18 @@ function MemberLogin(){
                                             </div>
                                             <br></br>
                                             <Link to="/member/Profile"><button>&ensp;登入&ensp;</button></Link>
+                                           {/* <button>&ensp;登入&ensp;</button> */}
+                                            </form>
                                             <hr></hr>
                                             <br></br>
                                             <div className="GLoginL"><i className="fa-brands fa-google"></i>&ensp;使用Google登入</div>
                                         </div>
                                         <div className="LG-F">
-                                            <input type="email" placeholder="請輸入註冊信箱"></input>
+                                            <form>
+                                            <input type="email" placeholder="請輸入註冊信箱" name='FMail'></input>
                                             <div className="fgBack mLcolor" onClick={fgb}>返回</div>
                                             <button>&ensp;送出&ensp;</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -101,13 +106,15 @@ function MemberLogin(){
                                     <br></br>
                                     <div className="loginInput loginInputR">
                                     <br></br>
-                                    <input type="email" size="30" placeholder="&ensp;會員信箱"></input>
+                                    <form>
+                                    <input type="email" size="30" placeholder="&ensp;會員信箱" name='Create_Mail'></input>
                                     <br></br>
-                                    <input type="text" size="30" placeholder="&ensp;會員帳號"></input>
+                                    <input type="text" size="30" placeholder="&ensp;會員帳號" name='Create_Account'></input>
                                     <br></br>
-                                    <input type="password" size="30" placeholder="&ensp;會員密碼"></input>
+                                    <input type="password" size="30" placeholder="&ensp;會員密碼" name='Create_Password'></input>
                                     <br></br>
                                     <button>&ensp;註冊&ensp;</button>
+                                    </form>
                                     <hr></hr>
                                     <br></br>
                                     <div className="GLoginR"><i className="fa-brands fa-google"></i>&ensp;使用Google註冊</div>
@@ -123,6 +130,7 @@ function MemberLogin(){
                     <div className="MimgDiv">
                     </div>
                     <div className="loginInput loginInputL">
+                    <form>
                     <input type="text" size="25" placeholder="&ensp;會員帳號"></input>
                     <br></br>
                     <input type="password" size="25" placeholder="&ensp;會員密碼"></input>
@@ -130,6 +138,7 @@ function MemberLogin(){
                     <div className="mLcolor fgaa" onClick={fgM}>忘記密碼</div>
                     <br></br>
                     <Link to="/profile"><button>&ensp;登入&ensp;</button></Link>
+                    </form>
                     <div className="loginM-F">
                         <div className="lmLogo"><i className="fa-brands fa-google"></i></div>
                         <div className="lmLogo"><i className="fa-brands fa-facebook-f"></i></div>
@@ -140,13 +149,15 @@ function MemberLogin(){
 
                 <div className="loginCM">
                     <div className="loginInput loginInputL">
-                    <input type="text" size="25" placeholder="&ensp;會員信箱"></input>
-                    <br></br>
-                    <input type="text" size="25" placeholder="&ensp;會員帳號"></input>
-                    <br></br>
-                    <input type="password" size="25" placeholder="&ensp;會員密碼"></input>
-                    <br></br>
-                    <button>&ensp;註冊&ensp;</button>
+                    <form>
+                        <input type="text" size="25" placeholder="&ensp;會員信箱" name='Create_Mail'></input>
+                        <br></br>
+                        <input type="text" size="25" placeholder="&ensp;會員帳號" name='Create_Account'></input>
+                        <br></br>
+                        <input type="password" size="25" placeholder="&ensp;會員密碼" name='Create_Password'></input>
+                        <br></br>
+                        <button>&ensp;註冊&ensp;</button>
+                    </form>
                     <div className="loginM-F">
                         <div className="lmLogo"><i className="fa-brands fa-google"></i></div>
                         <div className="lmLogo"><i className="fa-brands fa-facebook-f"></i></div>
@@ -156,9 +167,11 @@ function MemberLogin(){
                     </div>
                 </div> 
                 <div className="forget-m loginInput loginInputL">
-                    <input type="email" size="25" placeholder="請輸入註冊信箱"></input>
-                    <div className="mldiv"><div className="fgMBack mLcolor" onClick={fgMb}>返回</div></div>
-                    <button>&ensp;送出&ensp;</button>
+                    <form>
+                        <input type="email" size="25" placeholder="請輸入註冊信箱" name='Create_Mail'></input>
+                        <div className="mldiv"><div className="fgMBack mLcolor" onClick={fgMb}>返回</div></div>
+                        <button>&ensp;送出&ensp;</button>
+                    </form>
                 </div> 
                 </div>
             
