@@ -15,6 +15,15 @@ router.route('/')
         res.json(datas);
 
     })
+router.route('/:member_id')
+    .get(async(req,res,next)=>{
+        const keyword = req.params.member_id
+        const sql=
+        "SELECT * FROM `members`"; 
+        const [datas]=await db.query(sql);
+        res.json(datas);
+
+    })
 // router.route('/')
 //     .get(async(req,res,next)=>{
 //         const sql=
