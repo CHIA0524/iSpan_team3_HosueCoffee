@@ -32,7 +32,7 @@ function ShopIndex(){
                             <div class="popBox">
                                 <div class="popBoxContent">
                                     <div class="imgPart">
-                                        <img class="packageImg" src="./img/包裝 2.png" alt=""></img>
+                                        <img class="packageImg" src={require('./img/包裝 2.png')} alt=""></img>
                                     </div>
                                     <div class="popContent">
                                         <div class="popText">
@@ -41,15 +41,15 @@ function ShopIndex(){
                                             <p>$499</p>
                                         </div>
                                         <div class="popBtn">
-                                            <div class="addNum">
+                                            <div class="popAddNum">
                                                 <a href=""><button type="button" class="buttonNum"
                                                         id="subtract">-</button></a>
-                                                <input class="num" type="text" id="text" value="1" />
+                                                <input class="popnum" type="text" id="text" value="1" />
 
                                                 <a href=""><button type="button" class="buttonNum"
                                                         id="plus">+</button></a>
                                             </div>
-                                            <div class="addCart">
+                                            <div class="popAddCart">
                                                 <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
                                                     </button></a>
                                             </div>

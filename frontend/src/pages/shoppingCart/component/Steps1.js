@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import { VscChromeClose } from "react-icons/vsc";
+import './steps.css';
 
 
-function Steps(){
+
+function Steps1(){
 
   return(
     <>
@@ -21,7 +23,7 @@ function Steps(){
             </div>
             <div class="stepLine"> </div>
             <div class="step ">
-                <div class="stepText3">購物完成</div>
+                <div class="stepText2">購物完成</div>
             </div>
         </div>
         {/* <!-- 手機版 --> */}
@@ -33,14 +35,14 @@ function Steps(){
 
             <div class="mStepLine "></div>
             <div class="mStep2 ">
-                <div class="mStepNum2">2</div>
-                <div class="mStepText2">資料填寫</div>
+                <div class=" mStepNum2">2</div>
+                <div class=" mStepText2" >資料填寫</div>
             </div>
             <div class="mStepLine "></div>
 
-            <div class="mStep3  ">
-                <div class="mStepNum3">3</div>
-                <div class="mStepText3">購物完成</div>
+            <div class="mStep2  ">
+                <div class="mStepNum2">3</div>
+                <div class="mStepText2">購物完成</div>
             </div>
         </div>
      
@@ -49,4 +51,4 @@ function Steps(){
   );
 }
 
-export default Steps
+export default Steps1

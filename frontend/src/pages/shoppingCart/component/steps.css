@@ -27,12 +27,11 @@
   height: 5px;
   background-color: #e4d2a3;
 }
-.stepText2 {
+.stepText1 {
   line-height: 2rem;
   color: white;
 }
-.stepText1,
-.stepText3 {
+.stepText2 {
   line-height: 2rem;
   color: rgba(0, 0, 0, 0.25);
 }
@@ -57,7 +56,7 @@
     float: left;
   }
 
-  .mStep2 {
+  .mStep1 {
     display: block;
     width: 3em;
     height: 3rem;
@@ -66,8 +65,7 @@
     font-size: 1rem;
     background: #a37025;
   }
-  .mStep1,
-  .mStep3 {
+  .mStep2 {
     display: block;
     width: 3em;
     height: 3rem;
@@ -85,22 +83,20 @@
     height: 2px;
     background-color: rgba(0, 0, 0, 0.25);
   }
-  .mStepNum2 {
+  .mStepNum1 {
     line-height: 3rem;
     color: white;
   }
-  .mStepText2 {
+  .mStepText1 {
     width: 100px;
     padding-top: 1rem;
     margin-left: -1.5rem;
   }
-  .mStepNum1,
-  .mStepNum3 {
+  .mStepNum2 {
     line-height: 3rem;
     color: rgba(0, 0, 0, 0.25);
   }
-  .mStepText1,
-  .mStepText3 {
+  .mStepText2 {
     display: none;
   }
 }

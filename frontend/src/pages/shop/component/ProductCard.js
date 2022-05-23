@@ -44,13 +44,16 @@ function ProductCard(){
                       </div>
                       <div>
                            <Link to=""> <AiOutlineHeart size={20}/></Link>
-                           <button to="" onClick={() => setButtonpopup(true) }> <AiOutlineShoppingCart size={20}/></button>
-                           <popup trigger={buttonpopup}>
-                           </popup>
+                           
+                           <a href="#popup1">
+                           <AiOutlineShoppingCart size={20}/>
+                           </a>
+                           
                       </div>
                       </div>
               </div>
               <div className="cardPrice">
+              
               <p>${pCard.price}</p>
               </div>
           </div>

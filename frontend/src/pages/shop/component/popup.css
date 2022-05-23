@@ -1,14 +1,10 @@
-
 @charset "UTF-8";
 /* -------- 顏色 -------- */
 /* -------- 字體 -------- */
 
-
-
-
 /* 彈跳視窗 */
 .popupWrap {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: none;
   position: fixed;
@@ -22,7 +18,7 @@
   -webkit-transform: translate(-50%, -50%) scale(0.6);
   transform: translate(-50%, -50%) scale(0.6);
   -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   background: #fff;
   text-align: center;
@@ -30,29 +26,30 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
   top: 55%;
   left: 50%;
 }
 
-.popupBox input, .popupBox select {
+.popupBox input,
+.popupBox select {
   margin-bottom: 25px;
 }
 
 .popupBox .ansAddForm > *:not(:last-child):not(:first-child) {
   width: 330px;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   margin-bottom: 35px;
-  border: 1.5px solid #4C3410;
+  border: 1.5px solid #4c3410;
   outline: none;
   -webkit-transition: var(--store-transition);
   transition: var(--store-transition);
 }
 
 .popupBox .ansAddForm *:focus {
-  background: #EDE1C1;
+  background: #ede1c1;
 }
 
 .popupBox .ansAddForm a {
@@ -82,7 +79,8 @@
   color: black;
 }
 
-.popupTransformIn, .popupTransformOut {
+.popupTransformIn,
+.popupTransformOut {
   display: block;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -122,7 +120,7 @@
   padding: 1rem;
   background: #fff;
   border-radius: 5px;
-  width: 50%;
+  width: 40%;
   position: relative;
   /* transition: all 5s ease-in-out; */
 }
@@ -153,9 +151,9 @@
 .popBoxContent {
   display: flex;
 }
-/* .imgPart {
-  width: 100%;
-} */
+.imgPart {
+  /* width: 100%; */
+}
 .popContent {
   display: flex;
   flex-direction: column;
@@ -166,7 +164,7 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-.addNum a button {
+.popAddNum a button {
   width: 1.5rem;
   border-radius: 5px;
   color: #4c3410;
@@ -174,11 +172,11 @@
   border: 1px solid #e4d2a3;
 }
 
-.addNum a :hover {
+.popAddNum a :hover {
   background-color: #e4d2a3;
 }
 
-.addNum input {
+.popAddNum input {
   border: 0;
   width: 40px;
   text-align: center;
@@ -192,19 +190,36 @@
   border: 1px solid #e4d2a3;
 }
 
-.addCart a :hover {
+.popAddCart a :hover {
   background-color: #e4d2a3;
 }
 .popBtn {
   display: flex;
 }
-.addCart {
+.popAddCart {
   margin-left: 4rem;
 }
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 1000px) {
+  .popup {
+    min-width: 680px;
+  }
+  .packImg {
+    min-width: 280px;
+  }
+  .popBtn {
+    min-width: 296px;
+  }
+  .popAddCart {
+    margin-left: 1rem;
+  }
+  .popAddNum {
+    min-width: 88px;
+  }
+} */
+@media screen and (max-width: 1200px) {
   .popup {
     margin: 10rem auto;
-    width: 70%;
+    width: 300px;
   }
   .popBoxContent {
     width: 90%;
@@ -215,12 +230,15 @@
     display: block;
     margin-top: 1rem;
   }
-  .addCart {
+  .popAddCart {
     margin-left: 0;
     margin-top: 2rem;
   }
   .imgPart img {
     width: 90%;
+  }
+  .popAddCart {
+    margin-left: 1rem;
   }
   .popText p {
     font-size: 1rem;

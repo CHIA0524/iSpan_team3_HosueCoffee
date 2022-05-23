@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay2.css';
-import './component/steps2.css';
-import Steps from './component/Steps';
+// import './component/steps2.css';
+import Steps2 from './component/Steps2';
 
 
 
@@ -12,7 +12,7 @@ function Pay2(){
   return(
       <>
        <div class="container main">
-       <Steps />
+       <Steps2 />
               <div class="payInfoStart detail">
                   <div class="payInfoFill">
                       <div class="questInfo">

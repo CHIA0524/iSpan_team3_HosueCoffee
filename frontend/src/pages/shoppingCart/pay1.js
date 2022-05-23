@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay1.css';
-import './component/steps1.css';
+// import './component/steps1.css';
 import PInfo from './component/PInfo';
-import Steps from './component/Steps';
+import Steps1 from './component/Steps1';
 
 
 
@@ -13,7 +13,7 @@ function Pay1(){
   return(
       <>
        <div class="container main">
-           <Steps />
+           <Steps1 />
            <PInfo />
             {/* <!-- 折扣結帳區 --> */}
             <div class="dInput">
