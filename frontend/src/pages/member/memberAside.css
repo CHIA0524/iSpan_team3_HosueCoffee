@@ -50,6 +50,9 @@
     color: black;
     border-top:2px black solid ;
 }
+.adminAside .active{
+    color:#E4D2A3;
+}
 
 @media screen and (max-width:1000px) {
     .col-wn{

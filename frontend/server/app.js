@@ -1,11 +1,18 @@
 const express = require('express');
-const router = express.Router();
-const multer = require('multer');
-const db = require('../../modules/mysql_config');
-const upload = multer();
-require("dotenv").config();
-
-router.post('/account',function(req, res) {
+const db=require('./config/db')
+const app = express();
+const port = 3001; // your server port
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+app.listen(port, () => {
+  console.log(`RUN http://localhost:${port}`)
+});
+db.query('select * from members', function(err, rows) {
+    if (err) throw err;
+    console.log('Response: ', rows);
+  });
+  app.post("../src/pages/member/memberlogin", function(req, res) {
     const { member_account, member_password } = req.body;
     db.query(
       `SELECT * FROM members WHERE member_account='${member_account}' AND member_password='${member_password}'`,
@@ -17,6 +24,3 @@ router.post('/account',function(req, res) {
       }
     );
   });
-
-
-module.exports = router;

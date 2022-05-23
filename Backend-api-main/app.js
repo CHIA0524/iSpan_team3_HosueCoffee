@@ -14,7 +14,7 @@ const storeMapRouter = require('./routes/storeMap');
 const testRouter = require('./routes/test');
 const accountRouter = require('./routes/member/Login');
 const profileRouter =require('./routes/member/profile');
-
+const db=require('./modules/mysql_config')
 var app = express();
 
 // view engine setup

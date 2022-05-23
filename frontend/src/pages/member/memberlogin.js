@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 function MemberLogin(){
     const [member_account, setmember_account] = useState("");
-    const [member_password, setmember_Password] = useState("");
+    const [member_password, setmember_password] = useState("");
     const loginBTN = (e) => {
     if (member_account !== "" && member_password !== "") {
       axios
-      .post('http://localhost:3001/account', {
+      .post('http://localhost:3001/signin', {
         member_account: member_account,
         member_password: member_password,
         })
@@ -26,6 +26,7 @@ function MemberLogin(){
       alert("請輸入密碼!");
     }
   };
+
     
 
     const Login = ()=>{
@@ -69,9 +70,10 @@ function MemberLogin(){
         document.querySelector('.loginM').style.display="block"
       }
 
-     
+  
   
     return(
+      
         <>
             <div className="pmain">
                 <div className="row">
@@ -100,10 +102,10 @@ function MemberLogin(){
                                     <div className="loginInput loginInputL">
                                         <div className="LG">
                                             <br></br>
-                                            <form method=''>
-                                            <input type="text" size="30" placeholder="&ensp;會員帳號" name='member_account'></input>
+                                            <form method='get' >
+                                            <input type="text" size="30" placeholder="&ensp;會員帳號" id='member_account' name='member_account'></input>
                                             <br></br>
-                                            <input type="password" size="30" placeholder="&ensp;會員密碼" name='member_password'></input>
+                                            <input type="password" size="30" placeholder="&ensp;會員密碼" id='member_password' name='member_password'></input>
                                             <div className="row">
                                             <div className="col-3"></div>
                                             <div className="col-4"></div> 
