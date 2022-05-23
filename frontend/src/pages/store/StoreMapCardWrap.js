@@ -162,8 +162,10 @@ function StoreMapCardWrap(){
           >
             {/* 地圖地點的mark */}
             {data.map((latlng, i)=>{
+              let lat = latlng.lat;
+              let lng = latlng.lng;
               return(
-                <AnyReactComponent key={i} lat={latlng.lat} lng={latlng.lat.lng} text="" />
+                <AnyReactComponent key={i} lat={lat} lng={lng} text="" />
               )
             })}
           </GoogleMapReact>
