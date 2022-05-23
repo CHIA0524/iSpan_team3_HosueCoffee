@@ -10,7 +10,6 @@ import StoreCardSearch from './StoreCardSearch';
 
 // CSS
 import './mapStyle.scss';
-import { Tween } from 'jquery';
 
 
 
@@ -24,9 +23,7 @@ function StoreMapCardWrap(){
 
   // 儲存資料庫資料
   const [ data, setData ] = useState([]);
-  
-  // 儲存資料庫資料的經緯度
-  const [ lanlngArray, setlanlngArray ] = useState([]);
+  // console.log(data);
   
   // 接收子組件資料，取得搜尋之值
   const [ searchText, setSearchText ] = useState('');
@@ -39,7 +36,7 @@ function StoreMapCardWrap(){
       lat: 25.04,
       lng: 121.50
     },
-    zoom: 16
+    zoom: 20
   };
 
   const fetchData = async (keyword) => {
@@ -52,6 +49,35 @@ function StoreMapCardWrap(){
       // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
       if (Array.isArray(results)) {
         setData(results)
+      }
+
+      const API_KEY = process.env.REACT_APP_GMAP_API_KEY;
+      const LANGUAGE = "zh-Tw";
+      const REGION = "TW";
+      const GOOGLE_API = "https://maps.googleapis.com/maps/api/geocode/json";
+
+      // 檢查地址資料是否有經緯度
+      for (let i = 0; i < results.length; i++) {
+        if(results[i].lat === null || results[i].lng === null || results[i].lat === '' || results[i].lng === ''){
+          let address = results[i].address;
+          let url = `${GOOGLE_API}?address=${encodeURIComponent(address)}&key=${API_KEY}&language=${LANGUAGE}&region=${encodeURIComponent(REGION)}`;
+          const GEOresponse = await fetch(url).catch(() =>
+            Promise.reject(new Error("Error fetching data"))
+          );
+          const GEOresults = await GEOresponse.json().catch(() => {
+            console.log("Error parsing server response");
+            return Promise.reject(new Error("Error parsing server response"));
+          });
+          if (GEOresults.status === "OK") {
+            console.log(GEOresults);
+            const updateLanLng = await fetch(`${process.env.REACT_APP_API_URL}/store/map/${i+1}/${GEOresults.results[0].geometry.location.lat}/${GEOresults.results[0].geometry.location.lng}`, {method: "PUT"});
+            console.log(await updateLanLng.json());
+          }
+          console.log(
+            `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
+            true
+          )
+        }
       }
     } catch (e) {
       // 作錯誤處理
@@ -75,36 +101,6 @@ function StoreMapCardWrap(){
         setData(results)
       }
 
-      const API_KEY = process.env.REACT_APP_GMAP_API_KEY;
-      const LANGUAGE = "zh-Tw";
-      const REGION = "TW";
-      const GOOGLE_API = "https://maps.googleapis.com/maps/api/geocode/json";
-
-      let lanlng = [];
-
-      for (let i = 0; i < results.length; i++) {
-        let address = results[i].address;
-        let url = `${GOOGLE_API}?address=${encodeURIComponent(address)}&key=&language=${LANGUAGE}&region=${encodeURIComponent(REGION)}`;
-        const GEOresponse = await fetch(url).catch(() =>
-          Promise.reject(new Error("Error fetching data"))
-        );
-        const GEOresults = await GEOresponse.json().catch(() => {
-          console.log("Error parsing server response");
-          return Promise.reject(new Error("Error parsing server response"));
-        });
-        if (GEOresults.status === "OK") {
-          console.log(GEOresults);
-          return GEOresults;
-        }
-        console.log(
-          `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
-          true
-        );
-        // return Promise.reject(
-        //   new Error(
-        //     `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`
-        //   )
-      }
     } catch (e) {
       // 作錯誤處理
       console.log(e)
@@ -165,11 +161,11 @@ function StoreMapCardWrap(){
           defaultZoom={defaultProps.zoom}
           >
             {/* 地圖地點的mark */}
-            <AnyReactComponent
-              lat={25.04}
-              lng={121.50}
-              text=""
-            />
+            {data.map((latlng, i)=>{
+              return(
+                <AnyReactComponent key={i} lat={latlng.lat} lng={latlng.lat.lng} text="" />
+              )
+            })}
           </GoogleMapReact>
         </div>
         

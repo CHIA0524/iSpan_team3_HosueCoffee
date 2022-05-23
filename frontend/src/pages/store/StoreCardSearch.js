@@ -24,6 +24,7 @@ function StoreCardSearch(props){
       </input>
 
       <div onClick={()=>{
+        setSearchText(setSearchText)
         setIsLoading(true)
         fetchFilterData(setSearchText)
       }}>
