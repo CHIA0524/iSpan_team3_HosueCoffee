@@ -4,14 +4,17 @@ import MemberAside from "./memberAside";
 import './memberprofile.css';
 function Memberprofile(){
     const [datas,setDatas] = useState([])
+    const id=10002
     const fetchData=async()=>{
-        const response = await fetch("http://localhost:3001/profile")
+        const response = await fetch(`http://localhost:3001/profile/`+id)
         const results=await response.json();
         setDatas(results);
     }
     useEffect(()=>{
         fetchData();
     },[])
+    
+
     
     
     return(
@@ -24,7 +27,6 @@ function Memberprofile(){
         {datas.length> 0 && datas.map((category,i)=>{    
             const{member_account,member_name,member_nick,member_birth,member_phone,member_mail,member_address}=category;
             console.log(category);
-            i=1;
             return(
                 <>
             <div className="col-4 col-3None">

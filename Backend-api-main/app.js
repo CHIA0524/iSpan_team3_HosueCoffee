@@ -39,6 +39,7 @@ app.use('/test',testRouter);
 app.use('/store/map',storeMapRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
+// app.use(`/profile/:member_id`,profileRouter);
 app.use(`/account/:member_id`,accountRouter);
 
 // catch 404 and forward to error handler
