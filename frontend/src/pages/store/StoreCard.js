@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 // img
-import test from './img/01.jpg'
+import test from './img/01.jpg';
 
 
 
@@ -18,7 +18,6 @@ function StoreCard(props){
     (index)=>()=>{
       props.setDetailIndex(index);
       props.setCardDetailCss(`cardDetailOpenCss`);
-      console.log(index);
     }
   )
 
@@ -27,7 +26,8 @@ function StoreCard(props){
     (index)=>()=>{
       let setLat = Number(data[index].lat);
       let setLng = Number(data[index].lng);
-      props.setCenter({lat: setLat, lng: setLng })
+      props.setCenter({lat: setLat, lng: setLng });
+      props.setZoom(18)
     }, []
   )
 
@@ -35,7 +35,7 @@ function StoreCard(props){
     <div className='storeWrap'>
       {data.map((store,i)=>{
         return(
-          <div className="cardWrap" key={i} onClick={sentCardIndex(store.id-1)}>
+          <div className="cardWrap" key={i} onClick={sentCardIndex(i)}>
             <div>
               <img src={test} alt="test"></img>
             </div>
@@ -45,7 +45,7 @@ function StoreCard(props){
               <p>{store.address}</p>
               {/* <p>{store.phone}</p> */}
             </div>
-            <div onClick={sentDetailToCardDetail(store.id-1)}>
+            <div onClick={sentDetailToCardDetail(i)}>
               <IoInformationCircleOutline size={25}/>
             </div>
           </div>

@@ -148,6 +148,7 @@ function StoreMapCardWrap(){
             <StoreCardWrap
               data={data}
               setCenter={setCenter}
+              setZoom={setZoom}
             />
           }
         </div>
@@ -159,7 +160,6 @@ function StoreMapCardWrap(){
             center={center}
             zoom={zoom}
           >
-            {console.log(center)}
             {/* 地圖地點的mark */}
             {data.map((latlng, i)=>{
               let lat = Number(latlng.lat);
@@ -169,7 +169,7 @@ function StoreMapCardWrap(){
                   key={i}
                   lat={lat}
                   lng={lng}
-                  text=""
+                  text="哈哈"
                 />
               )
             })}
