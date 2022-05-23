@@ -1,5 +1,6 @@
-main {
+.main {
   padding-bottom: 2rem;
+  width: 80%;
 }
 .paytext {
   font-size: 1.5rem;

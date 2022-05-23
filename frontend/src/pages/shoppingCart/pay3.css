@@ -2,8 +2,9 @@
   width: 80%;
   display: flex;
 } */
-main {
+.main {
   padding-bottom: 50px;
+  width: 80%;
 }
 .paytext {
   font-size: 1.5rem;

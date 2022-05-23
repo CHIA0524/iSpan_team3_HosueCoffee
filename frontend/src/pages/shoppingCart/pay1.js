@@ -12,11 +12,9 @@ function Pay1(){
    
   return(
       <>
-       <div class="container">
+       <div class="container main">
            <Steps />
-        
            <PInfo />
-
             {/* <!-- 折扣結帳區 --> */}
             <div class="dInput">
                 <div>
@@ -27,7 +25,7 @@ function Pay1(){
                         <div>
                             <input type="text"/>
                             <a href="">
-                                <button class="btn btn-outline-secondary" type="button">✓</button>
+                                <button class="btn1 btn-outline-secondary" type="button">✓</button>
                             </a>
                         </div>
                     </div>
@@ -39,7 +37,7 @@ function Pay1(){
                         <div>
                             <input type="text"/>
                             <a href="">
-                                <button class="btn btn-outline-secondary" type="button">✓</button>
+                                <button class="btn1 btn-outline-secondary" type="button">✓</button>
                             </a>
                         </div>
                     </div>

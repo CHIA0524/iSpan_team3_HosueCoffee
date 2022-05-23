@@ -2,8 +2,9 @@
   width: 80%;
   display: flex;
 } */
-main {
+.main {
   padding-bottom: 50px;
+  width: 80%;
 }
 .payInfoContent {
   display: flex;
@@ -60,7 +61,7 @@ main {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   background: #e4d2a3;
   border: transparent;
   color: white;
@@ -117,6 +118,13 @@ main {
 }
 .dText {
   margin-top: 2rem;
+}
+.btn1 {
+  /* margin-top: 1rem; */
+  border-radius: 5px;
+  color: white;
+  background-color: #4c3410;
+  border: 1px solid #4c3410;
 }
 
 @media screen and (max-width: 800px) {

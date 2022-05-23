@@ -11,7 +11,7 @@ function Pay2(){
    
   return(
       <>
-       <div class="container ">
+       <div class="container main">
        <Steps />
               <div class="payInfoStart detail">
                   <div class="payInfoFill">
