@@ -103,6 +103,11 @@
 h3 {
   text-align: right;
 }
+.nextBtn {
+  display: flex;
+  justify-content: end;
+  margin-right: 1rem;
+}
 
 @media screen and (max-width: 1000px) {
   .mShop {

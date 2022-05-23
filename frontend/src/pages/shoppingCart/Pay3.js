@@ -29,8 +29,7 @@ function Pay3(){
                  {/* <!-- 訂單資訊 --> */}
                  <div class="payInfo">
                      <hr></hr>
-                     <SimplePInfo />
-                     </div>
+                     <SimplePInfo /> 
                  </div>
      
      
@@ -87,10 +86,8 @@ function Pay3(){
                      <h5>商品名稱</h5>
                      <br></br>
                  </div>
-     
-                 <SimplePInfo />
-                 
-     
+                 {/* <SimplePInfo /> */}
+         
                  <br></br>
                  <hr></hr>
                  {/* <!-- 個人資訊 --> */}
@@ -155,7 +152,7 @@ function Pay3(){
                      </div>
                  </div>
              </div>
-             
+             </div>   
      </>
   );
 }

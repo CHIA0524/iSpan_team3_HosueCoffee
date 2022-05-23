@@ -10,7 +10,7 @@ function SimplePInfo(){
     <>
            <div class="d-flex align-items-center">
                     <div class="col-2">
-                        <img class="packageImg" src="./img/包裝 9.png" alt=""></img>
+                        <img class="packageImg" src="../img/包裝 9.png" alt=""></img>
                     </div>
                     <div class="col-1"></div>
                     <div class="col-3 pName">
@@ -31,7 +31,7 @@ function SimplePInfo(){
       <div class="mPayInfo">
                 <div class="box">
                     <div>
-                        <img class="mImg" src="./img/包裝 9.png" alt=""></img>
+                        <img class="mImg" src="../img/包裝 9.png" alt=""></img>
                     </div>
                     <div class="mPayInfoText">
                         <p>伊莎米 精選招牌特調(半磅)</p>

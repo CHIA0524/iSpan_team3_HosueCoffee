@@ -98,7 +98,7 @@ function Pay2(){
                                   <h3>$898</h3>
                               </div>
                           </div>
-                          <Link href="" to= "/shoppingCart/pay3">
+                          <Link href="" to= "/shoppingCart/pay3" className="nextBtn">
                               <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
                           </Link>
       

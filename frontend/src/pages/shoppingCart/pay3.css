@@ -68,6 +68,9 @@
 .mContent {
   display: none;
 }
+.mPayInfoText {
+  display: none;
+}
 
 @media screen and (max-width: 800px) {
   .Content {
