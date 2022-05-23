@@ -5,7 +5,11 @@ import { VscChromeClose } from "react-icons/vsc";
 import AddNumBtn from './AddNumBtn';
 
 
-function PInfo(){
+function PInfo(props){
+const [ finalTotal, setfinalTotal ]= useState('')
+
+console.log(setfinalTotal)
+console.log(finalTotal)
 
   return(
     <>
@@ -43,7 +47,7 @@ function PInfo(){
                                 <p>精選招牌特調(半磅)</p>
                             </div>
                         </div>
-                        <AddNumBtn />
+                        <AddNumBtn setfinalTotal= {setfinalTotal}/>
                     </div>
                 </div>
             </div>

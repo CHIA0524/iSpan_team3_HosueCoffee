@@ -183,6 +183,7 @@
   border: 0;
   width: 30px;
   text-align: center;
+  line-height: 2rem;
 }
 .popAddCartBtn {
   margin-top: 4px;

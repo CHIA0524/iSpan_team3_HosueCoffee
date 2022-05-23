@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import "../pay1.css";
 
-function AddNumBtn(){
+function AddNumBtn(props){
   const[total, setTotal]= useState(1)
-  
+  const{setfinalTotal} = props
   return( 
       <>
         <div className="col-3 numberDesk ">
             <p>數量：</p>
             <div className="addNum">
                 <button className="NumL" onClick={() =>{if(total>1){
-                    setTotal(total - 1)}}}>-</button>
+                    setTotal(total - 1)
+                    }}}>-</button>
                 <div>{total}</div>
                 <button className="NumR" onClick={() =>{
-                    setTotal(total + 1)}
+                    setTotal(total + 1)
+                    setfinalTotal(total + 1)}
                 }>+</button>
              </div>
         </div>
