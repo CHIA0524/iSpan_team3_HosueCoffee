@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
-import MemberQACard from './memberQACard';
+import MemberQACard from './componend/memberQACard';
 import MemberBack from './memberBack';
 import { AiFillEye } from "react-icons/ai";
 import './memberOrderList.css'

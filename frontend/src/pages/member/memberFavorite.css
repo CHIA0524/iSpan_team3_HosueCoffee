@@ -47,6 +47,7 @@
     height: 39px;
     cursor: pointer;
     display: inline-block;
+    user-select:none;
   }
   .addNum .addNumDV{
     width: 4rem;

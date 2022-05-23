@@ -21,7 +21,6 @@ function MemberQACard(){
                 if(ans ==""){
                     ans_type="未回覆"
                 }
-                console.log(CREATEd_at);
                 return(
                     <tr key={i}>
                         <td className="col-3None" scope="row">{id}</td>

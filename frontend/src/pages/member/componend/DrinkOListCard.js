@@ -19,13 +19,13 @@ function DrinkOListCard(){
                       <div className="col-4 col-wn rwdGT ttpiece">&gt;</div>
                       <div className="col row">
                           <div className="col-3">
-                              <img className="listimg" src={require('./img/飲品.png')} alt=""></img>
+                              <img className="listimg" src={require('../img/飲品.png')} alt=""></img>
                           </div>
                           <div className="col-3">
-                              <img className="listimg" src={require('./img/飲品.png')}  alt=""></img>
+                              <img className="listimg" src={require('../img/飲品.png')}  alt=""></img>
                           </div>
                               <div className="col-3">
-                                  <img className="listimg" src={require('./img/飲品.png')}  alt=""></img>
+                                  <img className="listimg" src={require('../img/飲品.png')}  alt=""></img>
                               </div>
                           
                           <div className="col-3 ttpiece col-3None">共?件&gt;</div>

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
-import DrinkOListCard from './DrinkOListCard';
+import DrinkOListCard from './componend/DrinkOListCard';
 import MemberBack from './memberBack';
 import './memberOrderList.css'
 function MemberDrinkOList(){

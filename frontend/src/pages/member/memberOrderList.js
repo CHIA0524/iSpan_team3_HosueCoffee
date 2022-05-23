@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from "./memberAside";
-import OrderListCard from './OrderListCard';
+import OrderListCard from './componend/OrderListCard';
 import './memberOrderList.css'
 function MemberOrderList(){
     return(
