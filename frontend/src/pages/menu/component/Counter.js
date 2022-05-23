@@ -7,9 +7,9 @@ import '../styleCheckout.scss'
 const Counter = (props) => {
 
     let [quantity, setquantity] = useState(1)
+
     const {setCounter1}  = props
 
-    // let [Counter,setCounter] = useState('quantity')
 
     let buttonsub = null
 
