@@ -13,7 +13,7 @@ import './mapStyle.scss';
 
 
 
-const AnyReactComponent = ({ text }) => <div className='mapMark'>{text}</div>;
+const AnyReactComponent = ({ text }) => <div className='mapMarker'>{text}</div>;
 
 
 function StoreMapCardWrap(){
@@ -31,13 +31,11 @@ function StoreMapCardWrap(){
   // 錯誤訊息用
   const [ error, setError ] = useState('')
 
-  const defaultProps = {
-    center: {
-      lat: 25.04,
-      lng: 121.50
-    },
-    zoom: 20
-  };
+  const [ center, setCenter ] = useState({
+    lat: 24.9725821,
+    lng: 121.5297745,
+  });
+  const [ zoom, setZoom ] = useState(14);
 
   const fetchData = async (keyword) => {
     //向遠端伺服器get資料
@@ -59,7 +57,7 @@ function StoreMapCardWrap(){
       // 檢查地址資料是否有經緯度
       for (let i = 0; i < results.length; i++) {
         if(results[i].lat === null || results[i].lng === null || results[i].lat === '' || results[i].lng === ''){
-          let address = results[i].address;
+          let address = results[i].city + results[i].area + results[i].address;
           let url = `${GOOGLE_API}?address=${encodeURIComponent(address)}&key=${API_KEY}&language=${LANGUAGE}&region=${encodeURIComponent(REGION)}`;
           const GEOresponse = await fetch(url).catch(() =>
             Promise.reject(new Error("Error fetching data"))
@@ -149,6 +147,7 @@ function StoreMapCardWrap(){
           {isLoading ? spinner :
             <StoreCardWrap
               data={data}
+              setCenter={setCenter}
             />
           }
         </div>
@@ -156,21 +155,26 @@ function StoreMapCardWrap(){
         {/* 地圖 */}
         <div className="mapWrap">
           <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
+            center={center}
+            zoom={zoom}
           >
+            {console.log(center)}
             {/* 地圖地點的mark */}
             {data.map((latlng, i)=>{
-              let lat = latlng.lat;
-              let lng = latlng.lng;
+              let lat = Number(latlng.lat);
+              let lng = Number(latlng.lng);
               return(
-                <AnyReactComponent key={i} lat={lat} lng={lng} text="" />
+                <AnyReactComponent
+                  key={i}
+                  lat={lat}
+                  lng={lng}
+                  text=""
+                />
               )
             })}
           </GoogleMapReact>
         </div>
-        
       </div>
     </>
   );

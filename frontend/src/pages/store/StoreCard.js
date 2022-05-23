@@ -1,16 +1,11 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
-// CSS
-import './mapStyle.scss';
-
 // icons
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 // img
 import test from './img/01.jpg'
-
-/*---------------- import結束 ----------------*/
 
 
 
@@ -28,9 +23,11 @@ function StoreCard(props){
   )
 
   // 傳遞被點擊之門市卡 index 至父元素
-  const sentCardIIndex  = useCallback(
+  const sentCardIndex  = useCallback(
     (index)=>()=>{
-      console.log(index);
+      let setLat = Number(data[index].lat);
+      let setLng = Number(data[index].lng);
+      props.setCenter({lat: setLat, lng: setLng })
     }, []
   )
 
@@ -38,7 +35,7 @@ function StoreCard(props){
     <div className='storeWrap'>
       {data.map((store,i)=>{
         return(
-          <div className="cardWrap" key={i} onClick={sentCardIIndex(store.id-1)}>
+          <div className="cardWrap" key={i} onClick={sentCardIndex(store.id-1)}>
             <div>
               <img src={test} alt="test"></img>
             </div>

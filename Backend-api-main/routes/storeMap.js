@@ -32,7 +32,7 @@ router.route('/:id/:lat/:lng')
         res.json(output);
     })
 
-//GET http://localhost:3001/store/map?keyword
+//GET http://localhost:3001/store/map/keyword
 router.route('/:keyword')
     .get(async (req,res,next)=>{
         const keyword = '%' + req.params.keyword + '%';
