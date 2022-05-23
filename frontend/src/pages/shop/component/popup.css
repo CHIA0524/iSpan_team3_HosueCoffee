@@ -120,7 +120,7 @@
   padding: 1rem;
   background: #fff;
   border-radius: 5px;
-  width: 40%;
+  width: 50%;
   position: relative;
   /* transition: all 5s ease-in-out; */
 }
@@ -164,7 +164,10 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-.popAddNum a button {
+.popAddNum {
+  display: flex;
+}
+.popAddNum button {
   width: 1.5rem;
   border-radius: 5px;
   color: #4c3410;
@@ -172,16 +175,16 @@
   border: 1px solid #e4d2a3;
 }
 
-.popAddNum a :hover {
+.popAddNum button :hover {
   background-color: #e4d2a3;
 }
 
-.popAddNum input {
+.popAddNum div {
   border: 0;
-  width: 40px;
+  width: 30px;
   text-align: center;
 }
-.addCartBtn {
+.popAddCartBtn {
   margin-top: 4px;
   width: 9rem;
   border-radius: 5px;

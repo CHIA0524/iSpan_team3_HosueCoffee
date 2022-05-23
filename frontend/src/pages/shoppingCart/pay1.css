@@ -15,7 +15,7 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   /* margin-left: 10rem; */
 }
-.num {
+.numberDesk {
   display: flex;
   flex-direction: row;
 }
@@ -28,22 +28,29 @@
   display: flex;
 }
 
-.addNum div {
+.addNum button {
   line-height: 2rem;
   text-align: center;
   width: 30px;
+  background: transparent;
+  border-top: transparent;
+  border-bottom: transparent;
 }
-.addNum input {
+
+.addNum div {
   border: transparent;
   width: 30px;
   text-align: center;
+  line-height: 2rem;
   height: 1rem;
 }
 .NumL {
   border-right: 1px solid #e4d2a3;
+  border-left: transparent;
 }
 .NumR {
   border-left: 1px solid #e4d2a3;
+  border-right: transparent;
 }
 
 .dInput {
@@ -126,8 +133,14 @@
   background-color: #4c3410;
   border: 1px solid #4c3410;
 }
+.number {
+  display: none;
+}
 
 @media screen and (max-width: 800px) {
+  .numberDesk {
+    display: none;
+  }
   .mPayInfoContent {
     display: flex;
     justify-content: center;
@@ -180,7 +193,7 @@
   .mAddNum {
     display: flex;
   }
-  .mAddNum a button {
+  .mAddNum .buttonNum {
     width: 1.5rem;
     border-radius: 5px;
     color: white;
@@ -189,15 +202,16 @@
     /* border: 1px solid #e4d2a3; */
   }
 
-  .mAddNum a :hover {
+  .mAddNum .buttonNum:hover {
     background-color: #e4d2a3;
     border: transparent;
   }
 
-  .mAddNum input {
+  .mAddNum div {
     border: 0;
-    width: 10rem;
+    width: 12rem;
     text-align: center;
+    border: transparent;
   }
   .dInput {
     width: 100%;

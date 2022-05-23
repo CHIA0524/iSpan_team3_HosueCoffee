@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './brandproduct.css';
 import './component/popup.css';
@@ -6,7 +7,7 @@ import Aside from './component/Aside';
 
 
 function ShopIndex(){
-
+    const[total, setTotal]= useState(1)
 
   return(
     <>
@@ -42,12 +43,10 @@ function ShopIndex(){
                                         </div>
                                         <div class="popBtn">
                                             <div class="popAddNum">
-                                                <a href=""><button type="button" class="buttonNum"
-                                                        id="subtract">-</button></a>
-                                                <input class="popnum" type="text" id="text" value="1" />
-
-                                                <a href=""><button type="button" class="buttonNum"
-                                                        id="plus">+</button></a>
+                                              <button class="buttonNum" onClick={() =>{if(total>1){ setTotal(total - 1)}}}>-</button>
+                                              <div>{total}</div>
+                                              <button class="buttonNum" onClick={() =>{
+                                              setTotal(total + 1)}} >+</button>
                                             </div>
                                             <div class="popAddCart">
                                                 <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車

@@ -14,6 +14,8 @@ function Pay1(){
       <>
        <div class="container main">
            <Steps1 />
+           <hr></hr>
+           <PInfo />
            <PInfo />
             {/* <!-- 折扣結帳區 --> */}
             <div class="dInput">
