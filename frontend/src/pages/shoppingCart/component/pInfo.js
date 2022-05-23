@@ -6,10 +6,8 @@ import AddNumBtn from './AddNumBtn';
 
 
 function PInfo(props){
-const [ finalTotal, setfinalTotal ]= useState('')
+const [ finalTotal, setfinalTotal ]= useState('1')
 
-console.log(setfinalTotal)
-console.log(finalTotal)
 
   return(
     <>
@@ -23,13 +21,14 @@ console.log(finalTotal)
                         <p>伊莎米 精選招牌特調(半磅)</p>
                     </div>
                   
-                        <AddNumBtn />
+                        <AddNumBtn setfinalTotal= {setfinalTotal} />
                   
                     <div class="col-2">
                         <p>刪除</p>
                     </div>
                     <div class="col-1">
-                        <p>$499</p>
+
+                        <p>${499* Number(finalTotal)}</p>
                     </div>
                 </div>
                 <hr></hr>

@@ -3,7 +3,8 @@ import "../pay1.css";
 
 function AddNumBtn(props){
   const[total, setTotal]= useState(1)
-  const{setfinalTotal} = props
+//   const{setfinalTotal} = props
+  const {setfinalTotal }= props
   return( 
       <>
         <div className="col-3 numberDesk ">
@@ -11,6 +12,7 @@ function AddNumBtn(props){
             <div className="addNum">
                 <button className="NumL" onClick={() =>{if(total>1){
                     setTotal(total - 1)
+                    setfinalTotal(total - 1)
                     }}}>-</button>
                 <div>{total}</div>
                 <button className="NumR" onClick={() =>{
@@ -24,12 +26,14 @@ function AddNumBtn(props){
                   <div class="number">
                      <div class="mAddNum">
                          <button className="buttonNum" onClick={() =>{if(total>1){
-                         setTotal(total - 1)}}}>-</button>
+                         setTotal(total - 1)
+                         }}}>-</button>
                          <div>{total}</div>
                         <button className="buttonNum"onClick={() =>{
-                         setTotal(total + 1)}} >+</button>
+                         setTotal(total + 1)
+                         }} >+</button>
                      </div>
-                     <h3>$499</h3>
+                     <h3>${499* Number(total)}</h3>
                    </div>         
 </>
 )
