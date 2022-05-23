@@ -4,7 +4,7 @@ import './App.scss';
 // pages
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
-import StoreMap from './pages/store/StoreMap';
+import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
 
 // member pages
 // import MemberLogin from './pages/member/memberlogin';
@@ -28,7 +28,7 @@ function App() {
       {/* 路徑長的往上放喔 */}
       <Switch>
         <Route path="/store/map">
-          <StoreMap />
+          <StoreMapCardWrap />
         </Route>
         <Route path="/store">
           <StoreIndex />
