@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import Space from './component/Space';
 import Process from './Page1/Process';
 import ProcessRwd from './Page1/ProcessRwd';
@@ -13,9 +14,14 @@ import Pay from './Page1/Pay';
 
 
 
-const OnlineCheckPage = ( ) => (
+const OnlineCheckPage = ( ) => {
 
-        <>
+
+    let [pricetotal, setpricetotal] = useState('')
+            console.log(pricetotal, setpricetotal)
+        return (
+
+            <>
                 <Space/>
 
                 <Process/>
@@ -24,18 +30,19 @@ const OnlineCheckPage = ( ) => (
 
                 <Space/>
 
-                <List/>
+                <List setpricetotal= {setpricetotal}/>
 
                 <List/>
 
                 <Promo/>
 
                 <Pay/>
+            </>
+        )
 
-        </>
 
+    }
 
-)
 
 
 

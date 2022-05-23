@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useState} from 'react';
 import '../styleCheckout.scss'
 import Fakeing from '../Fakeimg150.png'
 import Counter from '../component/Counter';
@@ -10,11 +10,13 @@ const List = (props) => {
 
     let[Counter1, setCounter1] = useState('')
 
-    let price1 =Number(150)
 
-    const pricetotal =  price1*Number(Counter1)
+    let setpricetotal1 =  100*Number(Counter1)
 
-    let {setList}  = props
+    const {setpricetotal}  = props
+    
+    
+    console.log (props)
 
 
     return(
@@ -41,8 +43,8 @@ const List = (props) => {
                 </div>
                 </div>
 
-                <div className="price">
-                    {pricetotal}   
+                <div className="price" onChange={()=>setpricetotal1}>
+                    {setpricetotal1}   
                 </div>
             </div>
         </div>
