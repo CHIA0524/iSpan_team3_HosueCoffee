@@ -86,7 +86,7 @@ function Pay3(){
                      <h5>商品名稱</h5>
                      <br></br>
                  </div>
-                 {/* <SimplePInfo /> */}
+                 <SimplePInfo />
          
                  <br></br>
                  <hr></hr>

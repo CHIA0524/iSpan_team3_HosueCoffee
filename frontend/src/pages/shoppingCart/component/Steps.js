@@ -43,29 +43,7 @@ function Steps(){
                 <div class="mStepText3">購物完成</div>
             </div>
         </div>
-      {/* 手機版 */}
-            <div class="mPayInfoContent">
-                <div class="box">
-                    <Link href=""><VscChromeClose size={20} /></Link>
-                    <div class="boxContent">
-                        <div class="imgPart">
-                            <img class="packageImg" src={require('../img/包裝 9.png')}alt=""></img>
-                            <div>
-                                <p>伊莎米 </p>
-                                <p>精選招牌特調(半磅)</p>
-                            </div>
-                        </div>
-                        <div class="number">
-                            <div class="mAddNum">
-                                <Link href=""><button type="button" class="buttonNum" id="plus">+</button></Link>
-                                <input class="num" type="text" id="text" value="" />
-                                <Link href=""><button type="button" class="buttonNum" id="subtract">-</button></Link>
-                            </div>
-                            <h3>$499</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+     
       
   </>
   );

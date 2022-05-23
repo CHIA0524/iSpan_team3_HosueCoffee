@@ -68,7 +68,7 @@
 .mContent {
   display: none;
 }
-.mPayInfoText {
+.mPayInfoFinal {
   display: none;
 }
 
@@ -84,7 +84,7 @@
     width: 100%;
     margin: 30px 0;
   }
-  .mPayInfo {
+  .mPayInfoFinal {
     width: 100%;
     margin-bottom: 2rem;
   }
