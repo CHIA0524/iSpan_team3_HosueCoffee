@@ -5,25 +5,19 @@ const db = require('../../modules/mysql_config');
 const upload = multer();
 require("dotenv").config();
 
-console.log(process.env.MYSQL_DB)
+router.route('/account')
+.post(function(req, res) {
+    const { member_account, member_password } = req.body;
+    db.query(
+      `SELECT * FROM members WHERE member_account='${member_account}' AND member_password='${member_password}'`,
+      function(err, rows, fields) {
+        if (rows.length === 0) {
+          return res.send({ error: 'ACCOUNT_NOT_EXIST' });
+        };
+        return res.send({ message: 'LOGIN_SUCCESSFULLY' });
+      }
+    );
+  });
 
-router.route('/')
-    .get(async(req,res,next)=>{
-        const sql=
-        "SELECT * FROM `members`"; 
-        // "select `member_id`,`member_account`,`member_name`,`member_nick`,`member_birth`,`member_photo` from members join members_data on members.member_id = members_data.md_member_id";
-        const [datas]=await db.query(sql);
-        res.json(datas);
-
-    })
-router.route(`/:member_id`)
-    .get(async(req,res,next)=>{
-        const keyword = req.params.member_id
-        const sql=
-        "SELECT * FROM `members`"; 
-        const [datas]=await db.query(sql);
-        res.json(datas);
-
-    })
 
 module.exports = router;

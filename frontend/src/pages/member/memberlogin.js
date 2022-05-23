@@ -1,22 +1,32 @@
 import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 function MemberLogin(){
-    const [datas,setDatas] = useState([])
-    const fetchData=async()=>{
-        const response = await fetch("http://localhost:3001/account")
-        const results=await response.json();
-        setDatas(results);
+    const [member_account, setmember_account] = useState("");
+    const [member_password, setmember_Password] = useState("");
+    const loginBTN = (e) => {
+    if (member_account !== "" && member_password !== "") {
+      axios
+      .post('http://localhost:3001/account', {
+        member_account: member_account,
+        member_password: member_password,
+        })
+        .then((res) => {
+          alert("登入成功!");
+        })
+        .catch((e) => {
+          if (e.response.error) {
+            alert("帳號或密碼錯誤！");
+          }
+        });
+    } else if (member_account === "") {
+      alert("請輸入帳號!");
+    } else {
+      alert("請輸入密碼!");
     }
-    useEffect(()=>{
-        fetchData();
-    },[])
+  };
     
-    {datas.length> 0 && datas.map((category,i)=>{
-        const{member_id,member_account,member_password,member_mail,member_start}=category;
-        console.log('帳號:'+member_account+'密碼:'+member_password);
-        
-    })}
 
     const Login = ()=>{
         document.querySelector('.loginMain1').style.right='-491px';
@@ -101,8 +111,8 @@ function MemberLogin(){
                                             <div className="col-2"></div>
                                             </div>
                                             <br></br>
-                                            <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link>
-                                           {/* <button>&ensp;登入&ensp;</button> */}
+                                            {/* <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link> */}
+                                           <button onClick={loginBTN}>&ensp;登入&ensp;</button>
                                             </form>
                                             <hr></hr>
                                             <br></br>

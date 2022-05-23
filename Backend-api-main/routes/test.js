@@ -5,7 +5,7 @@ const db = require('../modules/mysql_config');
 const upload = multer();
 require("dotenv").config();
 
-console.log(process.env.MYSQL_DB)
+
 
 router.route('/')
     .get(async(req,res,next)=>{
