@@ -9,9 +9,13 @@ const List = (props) => {
 
 
     let[Counter1, setCounter1] = useState('')
+
     let price1 =Number(150)
 
-    const {setList}  = props
+    const pricetotal =  price1*Number(Counter1)
+
+    let {setList}  = props
+
 
     return(
     <div className="list">
@@ -38,7 +42,7 @@ const List = (props) => {
                 </div>
 
                 <div className="price">
-                    {price1*Number(Counter1)}   
+                    {pricetotal}   
                 </div>
             </div>
         </div>
