@@ -15,69 +15,6 @@
           justify-content: center;
 }
 
-.process {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.processRWD {
-  display: none;
-}
-
-.processIn {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.processInBox {
-  background-color: #E4D2A3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 5px 0;
-  border-radius: 13px;
-}
-
-.processInBoxNon {
-  padding: 0;
-}
-
-.processInBoxLine {
-  background-color: #E4D2A3;
-  width: 100%;
-  height: 5px;
-  margin-top: 13px;
-}
-
-.processInBoxwhite {
-  color: white;
-}
-
-.processInBoxColor {
-  color: #A37025;
-}
-
-.processInBoxNum {
-  display: none;
-}
-
-.check2 {
-  color: #000;
-  opacity: 0.25;
-}
-
 @media (max-width: 1024px) {
   .processInBox {
     width: 2em;

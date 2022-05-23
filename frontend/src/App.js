@@ -46,9 +46,10 @@ function App() {
         <Route path="/OnlineCheckPage3">
           <OnlineCheckPage3 />
         </Route>
-        <Route path="/MenuIndex">
+        <Route path="/Menu">
           <MenuIndex />
         </Route>
+
 
 
 

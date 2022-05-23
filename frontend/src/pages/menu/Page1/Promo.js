@@ -7,7 +7,7 @@ const Promo = () => (
 
 
         
-    <div  className="listBody">
+    <div  className="list">
         <div  className="Promo">
             <div  className="PromoBody">
                 <p>優惠碼使用</p>

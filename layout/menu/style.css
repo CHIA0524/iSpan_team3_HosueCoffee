@@ -117,7 +117,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 22em;
+    /* width: 22em; */
   }
   .amount {
     display: none;

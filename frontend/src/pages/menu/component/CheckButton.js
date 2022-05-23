@@ -7,7 +7,7 @@ const CheckButton = () => (
     <>
         <input type="text"/>
             <a href="/">
-                <button  className="btn btn-outline-secondary" type="button">✓</button>
+                <button className="btn btn-outline-secondary" type="button">✓</button>
             </a>
     </>
 

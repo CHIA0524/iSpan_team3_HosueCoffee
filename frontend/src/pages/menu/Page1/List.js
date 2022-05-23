@@ -1,12 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 import '../styleCheckout.scss'
 import Fakeing from '../Fakeimg150.png'
 import Counter from '../component/Counter';
-import Delete from '../component/Delete';
+import Button from '../component/Button';
 
-const List = () => (
+const List = (props) => {
 
-    <div className="listBody">
+
+    let[Counter1, setCounter1] = useState('')
+    let price1 =Number(150)
+
+    const {setList}  = props
+
+    return(
+    <div className="list">
             <div className="d-flex align-items-center justify-content-between">
                 <div className="col-3">
                     <img className="listImg" src={Fakeing} alt="fake" />
@@ -19,17 +27,23 @@ const List = () => (
                         <div className="quantityText">
                             數量：
                         </div>
-                        <Counter/>
+                        <Counter setCounter1={setCounter1}/>
                     </div>
                 </div>
-                <Delete/>
+                <div className="delete1">
+                    <Button name="刪除" herf="/"/>
+                <div className="trash">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </div>
+                </div>
 
                 <div className="price">
-                    $150
+                    {price1*Number(Counter1)}   
                 </div>
             </div>
         </div>
-
 )
+    }
+
 
 export default List

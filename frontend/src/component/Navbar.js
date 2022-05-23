@@ -68,8 +68,8 @@ function Navbar (){
             <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
           </div>
           <div>
-            <li className="mobileNone"><Link to="/OnlineCheckPage"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
-            <li><a><IoCartOutline size={30}/></a></li>
+            <li className="mobileNone"><Link to="/Menu"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
+            <li><Link to="/OnlineCheckPage"><IoCartOutline size={30}/></Link></li>
 
             <li className="mobileNone position-relative">
               <Link to="/memberLogin"><IoPersonOutline size={30}/></Link>

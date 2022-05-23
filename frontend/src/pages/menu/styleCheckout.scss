@@ -28,7 +28,7 @@ $colorMain3: #A37025;
 }
 
 .processIn {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
 }
@@ -39,6 +39,7 @@ $colorMain3: #A37025;
     justify-content: center;
     padding: 5px 0;
     border-radius: 13px;
+    width: 20%;
 
 }
 
@@ -104,11 +105,14 @@ $colorMain3: #A37025;
   .processRWDcenter{
     white-space:nowrap;
   }
+  .processIn {
+    width: 100%;
+  }
 }
 
 
 // 訂單列表
-.listBody {
+.list {
     width: 80%;
     margin: auto;
     border-top: 1px solid;

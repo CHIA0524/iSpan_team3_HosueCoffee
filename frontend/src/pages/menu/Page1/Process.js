@@ -1,31 +1,23 @@
 import React from 'react';
 import '../styleCheckout.scss'
+import ProcessBoxBright from '../component/ProcessBoxBright';
+import ProcessBoxLine from '../component/ProcessBoxLine';
+import ProcessBoxDark from '../component/ProcessBoxDark';
 
 
 const Process = () => (
     
+
     <div className="process">
         <div className="processIn row">
-            <div className="processInBox processInBoxwhite col-2">
-                <span className="processInBoxwhite check1">確認商品</span>
-                <span className="processInBoxNum processInBoxwhite">1</span>
-            </div>
-            <div className="col-2 processInBoxNon">
-                <div className="processInBoxLine"></div>
-            </div>
-            <div className="col-2 processInBox processInBoxwhite">
-                <span className="check2">填寫資料</span> 
-                <span className="processInBoxNum processInBoxwhite ">2</span>
-            </div>
-            <div className="col-2 processInBoxNon">
-                <div className="processInBoxLine"></div>
-            </div>
-            <div className="col-2 processInBox processInBoxwhite">
-                <span className="check2">完成結帳</span>
-                <span className="processInBoxNum processInBoxwhite">3</span>
-            </div>
+            <ProcessBoxBright name="確認商品" number="1"/>
+            <ProcessBoxLine/>
+            <ProcessBoxDark name="填寫資料" number="2"/>
+            <ProcessBoxLine/>
+            <ProcessBoxDark name="完成結帳" number="3"/>
         </div>
     </div>
+
 );
 
 

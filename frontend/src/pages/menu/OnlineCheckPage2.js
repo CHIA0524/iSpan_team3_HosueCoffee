@@ -11,6 +11,8 @@ import './checkout2.scss'
 const OnlineCheckPage2 = () => (
     
     <>
+
+    
         <Space/>
         <Process2/>
         <Process2RWD/>

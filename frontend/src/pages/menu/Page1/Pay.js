@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
 import '../styleCheckout.scss';
 import Dropdown from "../component/Dropdown ";
@@ -9,10 +9,14 @@ import Dropdown from "../component/Dropdown ";
 
 
 
-const Pay = () => (
+const Pay = () => {
+
+        const [list, setList] = useState('')
 
 
-        <div className="listBody">
+
+        return (
+        <div className="list">
             <div className="Promo">
                 <div className="Payment">
                     <p>付款方式</p>
@@ -57,9 +61,9 @@ const Pay = () => (
             </div>
         </div>
 
-
-    
 )
+    
+        }
 
 
 

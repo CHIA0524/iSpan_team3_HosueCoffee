@@ -10,7 +10,7 @@ const Button = (props) => (
 
         
 
-        <a href="/" className="btn deletestyle delete">
+        <a href={props.herf} className="btn deletestyle delete">
             <span>{props.name}</span>
         </a>
 
@@ -18,3 +18,4 @@ const Button = (props) => (
 )
 
 export default Button
+
