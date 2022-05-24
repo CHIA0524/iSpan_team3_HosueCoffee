@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay2.css';
 // import './component/steps2.css';
@@ -7,17 +7,82 @@ import Steps2 from './component/Steps2';
 
 
 
-function Pay2(){
-   const[ name, setName] = useState('')
-   const[ phone, setPhone] = useState('')
-   const[ email, setEmail] = useState('')
-   const[ address, setAddress] = useState('')
 
+function Pay2(){
+   const [fields, setFields] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+  })
+ // 記錄欄位錯誤訊自用的狀態
+ const [fieldErrors, setFieldErrors] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+  })
+
+
+  // 每個表單輸入時觸發onChange使用
+  const handleChange = (e) => {
+    // console.log(e.target.type, e.target.name, e.target.value)
+
+    // 步驟1+2
+    const newData = { ...fields, [e.target.name]: e.target.value }
+
+    // 步驟3: 設定回原狀態
+    setFields(newData)
+  }
+
+  // 表單通過html5驗証時會呼叫
+  const handleSubmit = (e) => {
+    // 阻擋表單預設行為
+    e.preventDefault()
+
+    const formData = new FormData(e.target)
+    console.log(formData.get('name'))
+    console.log(formData.get('email'))
+    // 獲取同名稱的checkbox
+    console.log(formData.getAll('likeList'))
+
+    // 送到伺服器…ajax…fetch...
+    console.log('這裡送出表單資料到伺服器了')
+  }
+
+    // 表單出現不合法的html5驗証時會呼叫
+    const handleInvalid = (e) => {
+    // 阻擋表單預設行為(錯誤的泡泡訊息)
+    e.preventDefault()
+
+    const newFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: e.target.validationMessage,
+    }
+
+    setFieldErrors(newFieldErrors)
+
+    //console.log(e.target.validationMessage)
+  }
+
+  // 當整個表單有變動時會觸發
+  // 只是為了暫時清除錯誤訊息而已
+  const handleFormChange = (e) => {
+    const newFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: '',
+    }
+    setFieldErrors(newFieldErrors)
+  }
   return(
       <>
        <div class="container main">
        <Steps2 />
-          <form>
+          <form
+           onSubmit={handleSubmit}
+        onInvalid={handleInvalid}
+        onChange={handleFormChange}
+        >
               <div class="payInfoStart detail">
                   <div class="payInfoFill">
                       <div class="questInfo">
@@ -56,38 +121,34 @@ function Pay2(){
                           <input type="text" 
                           placeholder="姓名"
                           name= "name"
-                          value={name}
-                          onChange={(e) => {
-                          setName(e.target.value)
-                        }}
+                          value={fields.name}
+                          onChange={handleChange}
                         required
                           />
-                          <input type="text" 
+                          {fieldErrors.name !== '' && (
+                          <div className="error">{fieldErrors.name}</div>
+                          )}
+                          <input type="tel" 
                           placeholder="手機"
                           name= "phone"
-                          value={phone}
-                          onChange={(e) => {
-                          setPhone(e.target.value)  
-                          }}  
+                          value={fields.phone}
+                          onChange={handleChange}
                           required
+                          minLength={10}
                           />
-                          <input type="text" 
+                          <input type="email" 
                           placeholder="信箱"
-                          name= "email"
-                          value={email}
-                          onChange={(e) => {
-                          setEmail(e.target.value)  
-                          }}
-                          required
+                          name="email"
+                          value={fields.email}
+                          onChange={handleChange}
+                        required
                           />
                           <input type="text" 
                           placeholder="地址"
                           name= "address"
-                          value={address}
-                          onChange={(e) => {
-                          setAddress(e.target.value)  
-                          }}
-                        required
+                          value={fields.address}
+                          onChange={handleChange}
+                          required
                           />
                       </div>
                       <div class="form-check">
@@ -135,10 +196,13 @@ function Pay2(){
                                   <h3>$898</h3>
                               </div>
                           </div>
-                          <Link href="" to= "/shoppingCart/pay3" className="nextBtn">
-                              <button type="submit" class="btn btn-primary btn-lg btn-block">結帳</button>
-                          </Link>
-                         
+                             {/* <div className="nextBtn">
+                              <button type="submit" class="btn btn-primary btn-lg btn-block "><NavLink href="" to= "/shoppingCart/pay3" className="btnName">結帳 </NavLink></button>
+                              </div> */}
+                              <div className="nextBtn" //onSubmit={toPay3}
+                              >
+                              <button type="submit" class="btn btn-primary btn-lg btn-block ">結帳 </button>
+                              </div>
       
                       </div>
                   </div>

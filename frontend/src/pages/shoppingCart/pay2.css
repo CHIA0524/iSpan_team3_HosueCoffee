@@ -80,13 +80,22 @@
 .btn {
   margin-top: 1rem;
   border-radius: 5px;
-  color: white;
   background-color: #4c3410;
   border: 1px solid #4c3410;
 }
+.nextBtn {
+  display: flex;
+  justify-content: end;
+  margin-right: 1rem;
+}
+.btnName {
+  color: white;
+}
+.btnName:hover {
+  color: #4c3410;
+}
 
 .btn-primary:hover {
-  color: #4c3410;
   background-color: #e4d2a3;
   border: 1px solid #e4d2a3;
 }
@@ -102,11 +111,6 @@
 .money p,
 h3 {
   text-align: right;
-}
-.nextBtn {
-  display: flex;
-  justify-content: end;
-  margin-right: 1rem;
 }
 
 @media screen and (max-width: 1000px) {
