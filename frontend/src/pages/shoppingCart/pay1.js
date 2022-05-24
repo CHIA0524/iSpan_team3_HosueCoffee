@@ -1,15 +1,23 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay1.css';
-// import './component/steps1.css';
 import PInfo from './component/PInfo';
 import Steps1 from './component/Steps1';
 
 
 
 
-function Pay1(){
-   
+function Pay1(props){
+    
+    const [ subTotal, setsubTotal ]= useState('1')
+    
+    const [ totalCash, setTotalCash ] = useState(0);
+    
+
+    const cash = (price) => {
+        setTotalCash( 499 * Number(subTotal));
+      }
+      console.log(cash)
   return(
       <>
        <div class="container main">
@@ -51,7 +59,7 @@ function Pay1(){
                             <h4>紅利折扣</h4>
                         </div>
                         <div class="money">
-                            <h4>$1499</h4>
+                            <h4>${totalCash}</h4>
                             <h4>$499</h4>
                             <h4>$499</h4>
                         </div>

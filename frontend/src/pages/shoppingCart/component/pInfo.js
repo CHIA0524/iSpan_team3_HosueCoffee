@@ -3,50 +3,67 @@ import { useState, useEffect, useCallback } from 'react';
 import '../pay1.css';
 import { VscChromeClose } from "react-icons/vsc";
 import AddNumBtn from './AddNumBtn';
+import Delsweetalert from './Delsweetalert';
+
+
 
 
 function PInfo(props){
-const [ finalTotal, setfinalTotal ]= useState('1')
+    // 小計
+const [ subTotal, setsubTotal ]= useState('1')
 
 
-  return(
+ 
+    // const removePinfo=()=>{
+    //  if(window.confirm("確定要刪除此商品媽？")== true){
+    //     window.alert("商品已刪除");
+        
+    // }else{
+    //      window.alert("商品未刪除");
+        
+    // }}
+
+
+
+return(
     <>
-            <div class="payInfo">
+            <div className="payInfo">
                 
-                <div class="payInfoContent">
-                    <div class="col-2">
-                        <img class="packageImg" src={require('../img/包裝 9.png')} alt=""></img>
+                <div className="payInfoContent">
+                    <div className="col-2">
+                        <img className="packageImg" src={require('../img/包裝 9.png')} alt=""></img>
                     </div>
-                    <div class="col-4 pName">
+                    <div className="col-4 pName">
                         <p>伊莎米 精選招牌特調(半磅)</p>
                     </div>
                   
-                        <AddNumBtn setfinalTotal= {setfinalTotal} />
+                        <AddNumBtn setsubTotal= {setsubTotal} />
                   
-                    <div class="col-2">
-                        <p>刪除</p>
+                    <div className="col-2">
+                        <button className="deletBtn" onClick={Delsweetalert}>刪除</button>
                     </div>
-                    <div class="col-1">
+                    <div className="col-1">
 
-                        <p>${499* Number(finalTotal)}</p>
+                        <p>${499* Number(subTotal)}</p>
                     </div>
                 </div>
                 <hr></hr>
                 
             </div>
       {/* 手機版 */}
-            <div class="mPayInfoContent">
-                <div class="box">
+            <div className="mPayInfoContent">
+                <div className="box">
                     <Link href=""><VscChromeClose size={20} /></Link>
-                    <div class="boxContent">
-                        <div class="imgPart">
-                            <img class="packageImg" src={require('../img/包裝 9.png')}alt=""></img>
+                    <div className="boxContent">
+                        <div className="imgPart">
+                            <img className="packageImg" src={require('../img/包裝 9.png')}alt=""></img>
                             <div>
                                 <p>伊莎米 </p>
                                 <p>精選招牌特調(半磅)</p>
                             </div>
                         </div>
-                        <AddNumBtn setfinalTotal= {setfinalTotal}/>
+                        <AddNumBtn setfinalTotal= {setsubTotal}/>
+
                     </div>
                 </div>
             </div>

@@ -136,6 +136,11 @@
 .number {
   display: none;
 }
+.deletBtn {
+  border: none;
+  background: none;
+  color: #4c3410;
+}
 
 @media screen and (max-width: 800px) {
   .numberDesk {

@@ -120,7 +120,7 @@
   padding: 1rem;
   background: #fff;
   border-radius: 5px;
-  width: 50%;
+  width: 760px;
   position: relative;
   /* transition: all 5s ease-in-out; */
 }
@@ -203,23 +203,7 @@
 .popAddCart {
   margin-left: 4rem;
 }
-/* @media screen and (max-width: 1000px) {
-  .popup {
-    min-width: 680px;
-  }
-  .packImg {
-    min-width: 280px;
-  }
-  .popBtn {
-    min-width: 296px;
-  }
-  .popAddCart {
-    margin-left: 1rem;
-  }
-  .popAddNum {
-    min-width: 88px;
-  }
-} */
+
 @media screen and (max-width: 1200px) {
   .popup {
     margin: 10rem auto;

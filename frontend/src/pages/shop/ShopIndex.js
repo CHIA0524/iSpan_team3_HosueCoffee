@@ -7,7 +7,7 @@ import Aside from './component/Aside';
 
 
 function ShopIndex(){
-    const[total, setTotal]= useState(1)
+    const[amount, setAmount]= useState(1)
 
   return(
     <>
@@ -43,10 +43,10 @@ function ShopIndex(){
                                         </div>
                                         <div class="popBtn">
                                             <div class="popAddNum">
-                                              <button class="buttonNum" onClick={() =>{if(total>1){ setTotal(total - 1)}}}>-</button>
-                                              <div>{total}</div>
+                                              <button class="buttonNum" onClick={() =>{if(amount>1){ setAmount(amount - 1)}}}>-</button>
+                                              <div>{amount}</div>
                                               <button class="buttonNum" onClick={() =>{
-                                              setTotal(total + 1)}} >+</button>
+                                              setAmount(amount + 1)}} >+</button>
                                             </div>
                                             <div class="popAddCart">
                                                 <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車

@@ -8,11 +8,16 @@ import Steps2 from './component/Steps2';
 
 
 function Pay2(){
-   
+   const[ name, setName] = useState('')
+   const[ phone, setPhone] = useState('')
+   const[ email, setEmail] = useState('')
+   const[ address, setAddress] = useState('')
+
   return(
       <>
        <div class="container main">
        <Steps2 />
+          <form>
               <div class="payInfoStart detail">
                   <div class="payInfoFill">
                       <div class="questInfo">
@@ -48,10 +53,42 @@ function Pay2(){
                       </div>
                       <div class="buyerInfo">
                           <p>購買人資料</p>
-                          <input type="text" placeholder="姓名"/>
-                          <input type="text" placeholder="手機"/>
-                          <input type="text" placeholder="信箱"/>
-                          <input type="text" placeholder="地址"/>
+                          <input type="text" 
+                          placeholder="姓名"
+                          name= "name"
+                          value={name}
+                          onChange={(e) => {
+                          setName(e.target.value)
+                        }}
+                        required
+                          />
+                          <input type="text" 
+                          placeholder="手機"
+                          name= "phone"
+                          value={phone}
+                          onChange={(e) => {
+                          setPhone(e.target.value)  
+                          }}  
+                          required
+                          />
+                          <input type="text" 
+                          placeholder="信箱"
+                          name= "email"
+                          value={email}
+                          onChange={(e) => {
+                          setEmail(e.target.value)  
+                          }}
+                          required
+                          />
+                          <input type="text" 
+                          placeholder="地址"
+                          name= "address"
+                          value={address}
+                          onChange={(e) => {
+                          setAddress(e.target.value)  
+                          }}
+                        required
+                          />
                       </div>
                       <div class="form-check">
                           <input class="form-check-input" type="checkbox" value=""       id="flexCheckChecked" checked/>
@@ -99,12 +136,13 @@ function Pay2(){
                               </div>
                           </div>
                           <Link href="" to= "/shoppingCart/pay3" className="nextBtn">
-                              <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
+                              <button type="submit" class="btn btn-primary btn-lg btn-block">結帳</button>
                           </Link>
-      
+                         
       
                       </div>
                   </div>
+                 
                   {/* <!-- 手機版小計 --> */}
                   <div class="mText">
                       <hr></hr>
@@ -149,6 +187,7 @@ function Pay2(){
                   </div>
       
               </div>
+    </form>
     </div>
      </>
   );
