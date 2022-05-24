@@ -5,18 +5,11 @@ const db = require('../../modules/mysql_config');
 const upload = multer();
 require("dotenv").config();
 
-router.post('/account',function(req, res) {
-    const { member_account, member_password } = req.body;
-    db.query(
-      `SELECT * FROM members WHERE member_account='${member_account}' AND member_password='${member_password}'`,
-      function(err, rows, fields) {
-        if (rows.length === 0) {
-          return res.send({ error: 'ACCOUNT_NOT_EXIST' });
-        };
-        return res.send({ message: 'LOGIN_SUCCESSFULLY' });
-      }
-    );
-  });
+router.get('/checkName',async (req,res,next)=>{
+  const sql = `SELECT Count(*) as total FROM members WHERE member_account=?`
+  const [datas] = await db.query(sql,[req.query.member_account]);
+  res.json(datas[0]);
+})
 
 
 module.exports = router;

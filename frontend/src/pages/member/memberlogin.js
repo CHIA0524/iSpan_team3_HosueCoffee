@@ -4,28 +4,22 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 function MemberLogin(){
     const [member_account, setmember_account] = useState("");
+    const [nameMessage, setNameMessage] = useState("");
     const [member_password, setmember_password] = useState("");
-    const loginBTN = (e) => {
-    if (member_account !== "" && member_password !== "") {
-      axios
-      .post('http://localhost:3001/signin', {
-        member_account: member_account,
-        member_password: member_password,
-        })
-        .then((res) => {
-          alert("登入成功!");
-        })
-        .catch((e) => {
-          if (e.response.error) {
-            alert("帳號或密碼錯誤！");
-          }
-        });
-    } else if (member_account === "") {
-      alert("請輸入帳號!");
-    } else {
-      alert("請輸入密碼!");
+   
+    const handleValueChange=(e)=>{
+      setmember_account(e.target.value);
     }
-  };
+    const handleCheckName=async ()=>{
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${member_account}`);
+      const results = await response.json();
+      if(results.total === 0){
+          setNameMessage("帳號錯誤");
+      }else{
+          setNameMessage("帳號存在");
+      }
+
+    }
 
     
 
@@ -103,9 +97,10 @@ function MemberLogin(){
                                         <div className="LG">
                                             <br></br>
                                             <form method='get' >
-                                            <input type="text" size="30" placeholder="&ensp;會員帳號" id='member_account' name='member_account'></input>
+                                            <input type="text" size="30" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} onBlur={handleCheckName}></input>
+                                            <div>{nameMessage || "輸入帳號"}</div>
                                             <br></br>
-                                            <input type="password" size="30" placeholder="&ensp;會員密碼" id='member_password' name='member_password'></input>
+                                            <input type="password" size="30" placeholder="&ensp;會員密碼" value={member_password} name='member_password'></input>
                                             <div className="row">
                                             <div className="col-3"></div>
                                             <div className="col-4"></div> 
@@ -114,7 +109,7 @@ function MemberLogin(){
                                             </div>
                                             <br></br>
                                             {/* <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link> */}
-                                           <button onClick={loginBTN}>&ensp;登入&ensp;</button>
+                                           <button>&ensp;登入&ensp;</button>
                                             </form>
                                             <hr></hr>
                                             <br></br>

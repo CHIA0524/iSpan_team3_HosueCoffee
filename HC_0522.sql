@@ -26,7 +26,7 @@ VALUE
 ('DR03','abc123456','DR03@gmail.com.tw'),
 ('NR06','abc123456','NR06@gmail.com.tw');
 select*from members;
-
+SELECT Count(*) as total FROM members WHERE member_account='LH44';
 CREATE TABLE `members_data`(
 	`md_member_id` INT PRIMARY KEY ,
 	`member_name` varchar(50) not null,
@@ -43,6 +43,7 @@ value
 ('10002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭',''),
 ('10003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','');
 select `member_id`,`member_account`,`member_name`,`member_nick`,`member_birth`,`member_photo` from members join members_data on members.member_id = members_data.md_member_id;
+select `member_account`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_mail`,`member_address`from members join members_data on members.member_id = members_data.md_member_id where member_id= 10001;
 CREATE TABLE `users`(
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,

@@ -19,7 +19,6 @@ import MemberDrinkOList from './pages/member/memberDrinkOList';
 import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
-import One from './pages/work/one';
 
 // components
 import Navbar from './pages/component/Navbar';
@@ -56,7 +55,6 @@ function App() {
         <Route path="/member/Profile" component={Memberprofile}></Route>
         <Route path="/member/Password" component={MemberPassword}></Route>
         <Route  path="/memberLogin" component={MemberLogin}></Route>
-        <Route  path="/one" component={One}></Route>
 
         <Route path="/" exact>
           <Home />

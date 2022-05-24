@@ -4,7 +4,8 @@ import { AiFillEye } from "react-icons/ai";
 function MemberQACard(){
     const [datas,setDatas] = useState([])
     const fetchData=async()=>{
-        const response = await fetch("http://localhost:3001/test")
+        console.log(process.env.REACT_APP_API_URL);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/test`)
         const results=await response.json();
         setDatas(results);
     }
