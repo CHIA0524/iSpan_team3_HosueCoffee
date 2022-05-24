@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch ,NavLink} from 'react-router-dom';
 import './memberAside.css'
 import { useState } from 'react';
 function MemberAside(){
@@ -17,29 +17,11 @@ function MemberAside(){
                         {menuItem.map((v,i) => {
                             return(
                                 <li key={v.id} onClick={() => {setActiveIndex(i)}} >
-                                    <Link to={v.goto} className={activeIndex === i ? 'active' : ''}>{v.titel}</Link>
+                                    <NavLink className={activeIndex === i ? 'active' : ''}  to={v.goto}>{v.titel}</NavLink>
                                 </li>
 
                             )
                         })}
-                        
-{/*                     
-                        <li>
-                            <Link to="/member/OrderList">訂單查詢</Link>
-                        </li>
-                        <li>
-                            <Link to="/member/DrinkOList">訂餐查詢</Link>
-                        </li>
-                        <li>
-                            <Link to="/member/QAList">問答中心</Link> 
-                        </li>
-                        <li>
-                            <Link to="/member/Password">密碼管理</Link>
-                        </li>
-                        <li>
-                        <Link to="/member/Favorite">我的收藏</Link>
-                        </li> */}
-
                 </ul>
 
             </aside>
