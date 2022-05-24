@@ -8,11 +8,14 @@ import './checkout2.scss'
 
 
 
-const OnlineCheckPage2 = () => (
+const OnlineCheckPage2 = () => {
     
-    <>
 
-    
+
+    return (
+
+
+    <>
         <Space/>
         <Process2/>
         <Process2RWD/>
@@ -28,6 +31,6 @@ const OnlineCheckPage2 = () => (
     
 )
 
-
+}
 
 export default OnlineCheckPage2

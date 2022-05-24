@@ -40,7 +40,7 @@ const Pay = () => {
                         <h6>紅利折扣</h6>
                         <h6>-25</h6>
                     </div>
-                    <h4 style={{color: 'red'}}>{123}</h4>
+                    <h4 style={{color: 'red'}}>1</h4>
                 </div>
             </div>
             

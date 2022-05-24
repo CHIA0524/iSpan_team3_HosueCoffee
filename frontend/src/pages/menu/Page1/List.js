@@ -10,13 +10,13 @@ const List = (props) => {
 
     let[Counter1, setCounter1] = useState('')
 
+    const price = 100
 
-    let setpricetotal1 =  100*Number(Counter1)
+    const {setpricetotal1} = props
+    // let setpricetotal1 =  100*Number(Counter1)
 
-    const {setpricetotal}  = props
+
     
-    
-    console.log (props)
 
 
     return(
@@ -33,7 +33,7 @@ const List = (props) => {
                         <div className="quantityText">
                             數量：
                         </div>
-                        <Counter setCounter1={setCounter1}/>
+                        <Counter setCounter1={setCounter1} setpricetotal1= {setpricetotal1} price= {price}/>
                     </div>
                 </div>
                 <div className="delete1">
@@ -43,7 +43,7 @@ const List = (props) => {
                 </div>
                 </div>
 
-                <div className="price" onChange={()=>setpricetotal1}>
+                <div className="price">
                     {setpricetotal1}   
                 </div>
             </div>

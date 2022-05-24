@@ -8,7 +8,10 @@ const Counter = (props) => {
 
     let [quantity, setquantity] = useState(1)
 
-    const {setCounter1}  = props
+    const {setCounter1, price ,setpricetotal1}  = props
+
+    
+
 
 
     let buttonsub = null
@@ -20,6 +23,7 @@ const Counter = (props) => {
                         onClick={() => { 
                             setquantity(quantity - 1) 
                             setCounter1(quantity - 1)
+                            setpricetotal1(Number(price*setCounter1))
                         }}>-</div>
 
     }else{
