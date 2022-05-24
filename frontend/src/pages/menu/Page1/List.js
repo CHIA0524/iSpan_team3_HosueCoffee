@@ -15,7 +15,15 @@ const List = (props) => {
     const {setpricetotal1} = props
     // let setpricetotal1 =  100*Number(Counter1)
 
-
+    const product = [
+        {
+        id:'',
+        drink_name:'',
+        url:'',
+        price:'',
+        content:'',
+    }
+    ]
     
 
 
