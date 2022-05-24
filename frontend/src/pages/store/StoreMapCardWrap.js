@@ -8,12 +8,11 @@ import StoreCardSearch from './StoreCardSearch';
 
 // CSS
 import './mapStyle.scss';
+import Logo from './img/好室咖啡logo深色.svg'
 
 // googlemaps
 import GoogleMapReact from 'google-map-react';
 
-
-const AnyReactComponent = ({ text }) => <div className='mapMarker'>{text}</div>;
 
 
 function StoreMapCardWrap(){
@@ -24,9 +23,6 @@ function StoreMapCardWrap(){
   // 儲存資料庫資料
   const [ data, setData ] = useState([]);
   // console.log(data);
-  
-  // 接收子組件資料，取得搜尋之值
-  const [ searchText, setSearchText ] = useState('');
 
   // 錯誤訊息用
   const [ error, setError ] = useState('')
@@ -38,8 +34,13 @@ function StoreMapCardWrap(){
     lng: 121.5297745,
   });
   const [ zoom, setZoom ] = useState(14);
+  const StoreMarker = ({ text }) => <div className='mapMarker'><img src={Logo} alt="marker"></img>{text}</div>;
+  const handleMarkerClick = (index)=>{
+    console.log(index);
+    // setCenter(({lat: thisLat, lng: thisLng}))
+  };
 
-  //向遠端伺服器get資料
+  // 向遠端伺服器get資料
   const fetchData = async (keyword) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
@@ -86,7 +87,7 @@ function StoreMapCardWrap(){
     }
   }
 
-  //向遠端伺服器get資料
+  // 向遠端伺服器get資料 (過濾)
   const fetchFilterData = async (keyword) => {
     try {
       const response = await fetch(
@@ -141,7 +142,6 @@ function StoreMapCardWrap(){
 
           {/* 搜尋框 */}
           <StoreCardSearch
-            setSearchText={setSearchText}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
           />
@@ -167,30 +167,38 @@ function StoreMapCardWrap(){
               mapRef.current = map;
               console.log(mapRef.current);
             }}
-            onChange={({ zoom, bounds }) => {
-              console.log('assa');
-              setZoom(zoom);
-              setCenter([
-                bounds.nw.lng,
-                bounds.se.lat,
-                bounds.se.lng,
-                bounds.nw.lat
-              ]);
-            }}
+            // onChange={({ zoom, bounds }) => {
+            //   console.log('移動了地圖');
+            //   setZoom(zoom);
+            //   setCenter([
+            //     bounds.nw.lng,
+            //     bounds.se.lat,
+            //     bounds.se.lng,
+            //     bounds.nw.lat
+            //   ]);
+            // }}
+            onChildClick={(key) => console.log(key, 'haha')}
           >
             {/* 地圖地點的mark */}
-            {data.map((latlng, i)=>{
-              let lat = Number(latlng.lat);
-              let lng = Number(latlng.lng);
+            {/* {data.map((latlng, i)=>{
+              let thisLat = Number(latlng.lat);
+              let thisLng = Number(latlng.lng);
               return(
-                <AnyReactComponent
+                <StoreMarker
                   key={i}
-                  lat={lat}
-                  lng={lng}
+                  lat={thisLat}
+                  lng={thisLng}
                   text="哈哈"
+                  // onClick={handleMarkerClick(i)}
                 />
               )
-            })}
+            })} */}
+            <StoreMarker
+                  lat={24.9725821}
+                  lng={121.5297745}
+                  text="哈哈"
+                  // onClick={handleMarkerClick(i)}
+                />
           </GoogleMapReact>
         </div>
       </div>

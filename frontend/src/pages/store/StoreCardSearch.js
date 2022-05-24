@@ -6,8 +6,8 @@ import { FiSearch } from "react-icons/fi";
 
 function StoreCardSearch(props){
 
-  const { setSearchText, setIsLoading, fetchFilterData } = props;
-
+  const { setIsLoading, fetchFilterData } = props;
+  const [ searchText, setSearchText ] = useState('');
 
   return(
     <div className="storeSearch">
@@ -23,10 +23,10 @@ function StoreCardSearch(props){
       >
       </input>
 
-      <div onClick={()=>{
-        setSearchText(setSearchText)
+      <div onClick={(e)=>{
+        console.log(searchText);
         setIsLoading(true)
-        fetchFilterData(setSearchText)
+        fetchFilterData(searchText)
       }}>
         <FiSearch size={20}/>
       </div>

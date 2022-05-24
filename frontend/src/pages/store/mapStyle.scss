@@ -159,7 +159,8 @@
   // box-shadow: 0px 0px 5px $font_border_color;
 }
 .mapWrap{
-  width: calc(100% - 350px);
+  width: 100%;
+  // width: calc(100% - 350px);
   // height: calc(100vh - 120px);
   background: #000;
   transition: all .3s ease-in-out;

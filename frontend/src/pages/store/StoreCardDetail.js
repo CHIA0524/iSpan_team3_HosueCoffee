@@ -29,7 +29,7 @@ function StoreCardDetail(props){
           storeTime ? storeTime.map((time, i)=>{
             return(
               <li key={i}>
-              { time.includes('休息') ? time.substr(0, 6) : time}
+              { time.includes('休息') ? time.replace(':', '：').substr(0, 6) : time.replace(':', '：')}
               </li>
             )
           }) :''
