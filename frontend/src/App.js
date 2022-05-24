@@ -14,48 +14,35 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
 // import MemberOrderList from './pages/member/memberOrderList';
 
 // components
-import Navbar from './component/Navbar';
+import NavbarHome from './component/NavbarHome';
 import Footer from './component/Footer';
 
 function App() {
   return (
     <Router>
-      
-      <Navbar />
-      
-      {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
-      {/* 記得載入頁面組件喔 */}
-      {/* 路徑長的往上放喔 */}
+
+      {/* 首頁 Navbar 不同 */}
+      <Route path="/" exact>
+        <NavbarHome/>
+        <Home />
+      </Route>
+
+
+
+      {/* 其他頁面請載這裡 */}
       <Switch>
+
         <Route path="/store/map">
           <StoreMapCardWrap />
         </Route>
         <Route path="/store">
           <StoreIndex />
         </Route>
-        {/* <Route path="/member/OrderList">
-            <MemberOrderList />
-          </Route>
-        <Route path="/member/profileEdit">
-            <MemberprofileEdit />
-          </Route>
-        <Route path="/member/Password">
-            <MemberPassword />
-          </Route>
-        <Route path="/member/profile">
-            <Memberprofile />
-          </Route>
-        <Route path="/memberLogin">
-            <MemberLogin />
-        </Route> */}
-
-        <Route path="/" exact>
-          <Home />
-        </Route>
+        
       </Switch>
 
-      <Footer />
-      
+      <Footer/>
+
     </Router>
 
   );

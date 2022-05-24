@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-
-// googlemaps
-import GoogleMapReact from 'google-map-react';
+import { useState, useEffect, useRef } from 'react';
 
 // component
+import Navbar from '../../component/Navbar';
 import StoreCardWrap from './StoreCardWrap'
 import StoreCardSearch from './StoreCardSearch';
 
 // CSS
 import './mapStyle.scss';
 
+// googlemaps
+import GoogleMapReact from 'google-map-react';
 
 
 const AnyReactComponent = ({ text }) => <div className='mapMarker'>{text}</div>;
@@ -31,14 +31,16 @@ function StoreMapCardWrap(){
   // 錯誤訊息用
   const [ error, setError ] = useState('')
 
+  // map 使用
+  const mapRef = useRef();
   const [ center, setCenter ] = useState({
     lat: 24.9725821,
     lng: 121.5297745,
   });
   const [ zoom, setZoom ] = useState(14);
 
+  //向遠端伺服器get資料
   const fetchData = async (keyword) => {
-    //向遠端伺服器get資料
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
 
@@ -84,8 +86,8 @@ function StoreMapCardWrap(){
     }
   }
 
+  //向遠端伺服器get資料
   const fetchFilterData = async (keyword) => {
-    //向遠端伺服器get資料
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/store/map/` + keyword
@@ -133,6 +135,7 @@ function StoreMapCardWrap(){
   
   return(
     <>
+      <Navbar/>
       <div className="mapAndCardWrap">
         <div>
 
@@ -159,6 +162,21 @@ function StoreMapCardWrap(){
             bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
             center={center}
             zoom={zoom}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map }) => {
+              mapRef.current = map;
+              console.log(mapRef.current);
+            }}
+            onChange={({ zoom, bounds }) => {
+              console.log('assa');
+              setZoom(zoom);
+              setCenter([
+                bounds.nw.lng,
+                bounds.se.lat,
+                bounds.se.lng,
+                bounds.nw.lat
+              ]);
+            }}
           >
             {/* 地圖地點的mark */}
             {data.map((latlng, i)=>{

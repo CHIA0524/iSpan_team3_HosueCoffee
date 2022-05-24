@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Route, Link, Switch, useRouteMatch } from 'rea
 import React from 'react';
 import './mapStyle.scss';
 
+import Navbar from '../../component/Navbar';
 import logo from '../../component/img/logo.svg';
 import img01 from './img/storeIndex-img01.png';
 import img02 from './img/storeIndex-img02.png';
-
 
 function StoreIndex(props){
 
@@ -13,6 +13,7 @@ function StoreIndex(props){
 
   return(
     <>
+      <Navbar/>
       <div className="storeBanner"></div>
         <div className="storeIndex">
           <div>
