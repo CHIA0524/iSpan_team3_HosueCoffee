@@ -10,7 +10,7 @@ import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-function Navbar2 (){
+function NavbarHome (){
 
   // 手機板 navbar js
   const openSideNavClick = ()=>{
@@ -86,4 +86,4 @@ function Navbar2 (){
   )
 }
 
-export default Navbar2
+export default NavbarHome
