@@ -4,11 +4,6 @@ import { useState, useEffect, useCallback } from 'react';
 // icons
 import { IoInformationCircleOutline } from "react-icons/io5";
 
-// img
-import test from './img/01.jpg';
-
-
-
 function StoreCard(props){
 
   const { data } = props;
@@ -30,27 +25,34 @@ function StoreCard(props){
       props.setZoom(18)
     }, []
   )
-
   return(
     <div className='storeWrap'>
-      {data.map((store,i)=>{
-        return(
-          <div className="cardWrap" key={i} onClick={sentCardIndex(i)}>
-            <div>
-              <img src={test} alt="test"></img>
+      {
+        data.length === 0
+        ? 
+        <div className='d-flex justify-content-center' style={{height: '300px'}}>無搜尋結果</div> 
+        :
+        data.map((store,i)=>{
+          let num = i + 1;
+          let imgPath = './img/' + num + '.jpg';
+          return(
+            <div className="cardWrap" key={i} onClick={sentCardIndex(i)}>
+              <div>
+                <img src={require(`${imgPath}`)} alt="test"></img>
+              </div>
+              <div className="itemText">
+                <p>{store.store_name}</p>
+                <p>{store.city}</p>
+                <p>{store.address}</p>
+                {/* <p>{store.phone}</p> */}
+              </div>
+              <div onClick={sentDetailToCardDetail(i)}>
+                <IoInformationCircleOutline size={25}/>
+              </div>
             </div>
-            <div className="itemText">
-              <p>{store.store_name}</p>
-              <p>{store.city}</p>
-              <p>{store.address}</p>
-              {/* <p>{store.phone}</p> */}
-            </div>
-            <div onClick={sentDetailToCardDetail(i)}>
-              <IoInformationCircleOutline size={25}/>
-            </div>
-          </div>
-        )
-      })}
+          )
+        })
+      }
     </div>
   );
 }

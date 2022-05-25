@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
 // component
-import Navbar from '../../component/Navbar';
 import StoreCardWrap from './StoreCardWrap'
 import StoreCardSearch from './StoreCardSearch';
 
@@ -18,14 +17,14 @@ import GoogleMapReact from 'google-map-react';
 function StoreMapCardWrap(){
   
   // 載入指示器用
-  const [ isLoading, setIsLoading ] = useState(false)
+  const [ isLoading, setIsLoading ] = useState(false);
 
   // 儲存資料庫資料
   const [ data, setData ] = useState([]);
   // console.log(data);
 
   // 錯誤訊息用
-  const [ error, setError ] = useState('')
+  const [ error, setError ] = useState('');
 
   // map 使用
   const mapRef = useRef();
@@ -34,7 +33,7 @@ function StoreMapCardWrap(){
     lng: 121.5297745,
   });
   const [ zoom, setZoom ] = useState(14);
-  const StoreMarker = ({ text }) => <div className='mapMarker'><img src={Logo} alt="marker"></img>{text}</div>;
+  const StoreMarker = () => <div className='mapMarker'></div>;
   const handleMarkerClick = (index)=>{
     console.log(index);
     // setCenter(({lat: thisLat, lng: thisLng}))
@@ -166,20 +165,20 @@ function StoreMapCardWrap(){
               mapRef.current = map;
               console.log(mapRef.current);
             }}
-            // onChange={({ zoom, bounds }) => {
-            //   console.log('移動了地圖');
-            //   setZoom(zoom);
-            //   setCenter([
-            //     bounds.nw.lng,
-            //     bounds.se.lat,
-            //     bounds.se.lng,
-            //     bounds.nw.lat
-            //   ]);
-            // }}
+            onChange={({ zoom, bounds }) => {
+              console.log('移動了地圖');
+              setZoom(zoom);
+              setCenter([
+                bounds.nw.lng,
+                bounds.se.lat,
+                bounds.se.lng,
+                bounds.nw.lat
+              ]);
+            }}
             onChildClick={(key) => console.log(key, 'haha')}
           >
             {/* 地圖地點的mark */}
-            {/* {data.map((latlng, i)=>{
+            {data.map((latlng, i)=>{
               let thisLat = Number(latlng.lat);
               let thisLng = Number(latlng.lng);
               return(
@@ -187,17 +186,16 @@ function StoreMapCardWrap(){
                   key={i}
                   lat={thisLat}
                   lng={thisLng}
-                  text="哈哈"
                   // onClick={handleMarkerClick(i)}
                 />
               )
-            })} */}
-            <StoreMarker
-                  lat={24.9725821}
-                  lng={121.5297745}
-                  text="哈哈"
-                  // onClick={handleMarkerClick(i)}
-                />
+            })}
+            {/* <StoreMarker
+              lat={24.9725821}
+              lng={121.5297745}
+              text="哈哈"
+              // onClick={handleMarkerClick(i)}
+            /> */}
           </GoogleMapReact>
         </div>
       </div>
