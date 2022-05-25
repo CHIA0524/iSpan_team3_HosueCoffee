@@ -7,7 +7,15 @@ import Popup from "./MenuIndex/Popup";
 import Pagination from "./MenuIndex/Pagination";
 
 
-const MenuIndex = () => (
+
+
+
+
+
+
+
+
+const MenuIndex = () => {
 
 //    <div className="scrollBody">
 //     <div className="asd">
@@ -31,47 +39,52 @@ const MenuIndex = () => (
 // </div>
 
 
-<div className="bodyMenu">
-    <MenuAside/>
+
+return(
+
+
+            <div className="bodyMenu">
+                <MenuAside/>
+                
+                <div className="main2">
+                    <div className="mainBody">
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+                        
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+
+                        <MenuCard/>
+                        <MenuCardRwd />
+                        <Popup/>
+
+                    </div>   
+                    <Pagination/>
+                </div>
+            </div>
+
+
+
+
     
-    <div className="main2">
-        <div className="mainBody">
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-            
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-
-            <MenuCard/>
-            <MenuCardRwd />
-            <Popup/>
-
-        </div>   
-        <Pagination/>
-    </div>
-</div>
-
-
-
-
-
 
 )
-
+    
+}
 
 
 export default MenuIndex
