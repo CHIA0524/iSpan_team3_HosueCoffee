@@ -13,7 +13,6 @@ function StoreIndex(props){
 
   return(
     <>
-      <Navbar/>
       <div className="storeBanner"></div>
         <div className="storeIndex">
           <div>

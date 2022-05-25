@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
 import React from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss'
@@ -11,6 +11,13 @@ import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
 function Navbar (){
+
+  let homeCSS ;
+  let getURL = useLocation();
+  console.log(getURL);
+  if(getURL.pathname==='/'){
+    homeCSS = {background: 'transparent', boxShadow: 'none', position: 'fixed', marginButtom: '0', top: '0'}
+  }
 
   // 手機板 navbar js
   const openSideNavClick = ()=>{
@@ -33,7 +40,7 @@ function Navbar (){
 
   return(
     <header className="App-header">
-      <nav className="coffeeNavbar">
+      <nav className="coffeeNavbar" style={homeCSS}>
         <div className="sideDark" onClick={closeSideNavClick}></div>
         <div className="navFirst" style={{ left: '-260px' }}>
           <li className="closeSideNav webNone" onClick={closeSideNavClick}>

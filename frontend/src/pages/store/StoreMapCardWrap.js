@@ -135,7 +135,6 @@ function StoreMapCardWrap(){
   
   return(
     <>
-      <Navbar/>
       <div className="mapAndCardWrap">
         <div>
 

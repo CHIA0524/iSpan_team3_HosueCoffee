@@ -14,22 +14,20 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
 // import MemberOrderList from './pages/member/memberOrderList';
 
 // components
-import NavbarHome from './component/NavbarHome';
+import Navbar from './component/Navbar';
 import Footer from './component/Footer';
 
 function App() {
   return (
     <Router>
 
-      {/* 首頁 Navbar 不同 */}
-      <Route path="/" exact>
-        <NavbarHome/>
-        <Home />
-      </Route>
+      <Navbar/>
 
 
+      {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
+      {/* 記得載入頁面組件喔 */}
+      {/* 路徑長的往上放喔 */}
 
-      {/* 其他頁面請載這裡 */}
       <Switch>
 
         <Route path="/store/map">
@@ -38,7 +36,10 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
-        
+        <Route path="/" exact>
+        <Home />
+        </Route>
+
       </Switch>
 
       <Footer/>
