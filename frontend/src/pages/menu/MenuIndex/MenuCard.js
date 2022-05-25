@@ -21,23 +21,26 @@ const MenuCard = () => {
       fetchData();
     },[])
 
+
+    
+
     return(
         <>
        {datas.map((mu,i)=>{
-           let img1 =mu.url;
+           let img1 =(mu.url);
+            let price = (mu.price)
 
-        console.log(img1);
     return(
-    <div className="card" key={i} >
+    <div className="card" key={i}>
         <a href="#popup1">
             <div className="">
-                <img src= {require('./img/美式咖啡.jpg')} alt=""/>
+            <img src= {require('./img/'+img1+'.jpg')} alt=""/>
             </div>
             <div className="cardpading">
                 <span>{mu.drink_name}</span>
             </div>
             <div className="d-flex justify-content-between cardpading">
-                <span className="d-flex align-items-center">$150</span>
+                <span className="d-flex align-items-center">{'$'+price}</span>
                 <span>
                     <AiOutlineHeart/>
                 </span>
