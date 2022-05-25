@@ -11,19 +11,19 @@ const List = (props) => {
     let[Counter1, setCounter1] = useState('')
 
     const price = 100
-
+    console.log(Counter1)
     const {setpricetotal1} = props
     // let setpricetotal1 =  100*Number(Counter1)
 
-    const product = [
-        {
-        id:'',
-        drink_name:'',
-        url:'',
-        price:'',
-        content:'',
-    }
-    ]
+    // const product = [
+    //     {
+    //     id:'',
+    //     drink_name:'',
+    //     url:'',
+    //     price:'',
+    //     content:'',
+    // }
+    // ]
     
 
 

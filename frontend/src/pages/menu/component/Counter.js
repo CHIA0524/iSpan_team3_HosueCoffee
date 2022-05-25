@@ -8,10 +8,10 @@ const Counter = (props) => {
 
     let [quantity, setquantity] = useState(1)
 
-    const {setCounter1, price ,setpricetotal1}  = props
+    const {setdrinkCounter}  = props
+
 
     
-
 
 
     let buttonsub = null
@@ -20,11 +20,12 @@ const Counter = (props) => {
 
         buttonsub = <div 
                         className="btn buttonLeft" 
-                        onClick={() => { 
-                            setquantity(quantity - 1) 
-                            setCounter1(quantity - 1)
-                            setpricetotal1(Number(price*setCounter1))
-                        }}>-</div>
+                        onClick={ () => { 
+                            setquantity(quantity - 1)
+                            // setCounter1(quantity - 1)
+                            setdrinkCounter(quantity - 1)
+                        }}
+                        >-</div>
 
     }else{
 
@@ -41,8 +42,10 @@ const Counter = (props) => {
             <div
                 className="btn buttonRight"
                 onClick={() => {
-                    setquantity(quantity + 1);
-                    setCounter1(quantity+1)}}
+                    setquantity(quantity + 1)
+                    setdrinkCounter(quantity + 1)
+                    // setCounter1(quantity+1)
+                }}
             >+</div>
         </div>
 

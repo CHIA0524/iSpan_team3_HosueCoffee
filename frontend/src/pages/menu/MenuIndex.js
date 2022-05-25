@@ -1,4 +1,5 @@
 import React from "react";
+import{useState,useEffect} from "react";
 import "./style.scss"
 import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
@@ -38,10 +39,10 @@ const MenuIndex = () => {
 //     </div>
     
 // </div>
+        //     const [popup, setpopup] = useState() 
 
-
-
-return(
+        // console.log(popup)
+return( 
 
 
             <div className="bodyMenu">
@@ -49,6 +50,7 @@ return(
                 
                 <div className="main2">
                     <div className="mainBody">
+
                         <MenuCard/>
                         <MenuCardRwd />
                         <Popup/>
