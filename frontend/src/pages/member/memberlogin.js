@@ -26,12 +26,13 @@ function MemberLogin(){
 
     }
     const loginBTN=async()=>{
-        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login?member_account=${member_account},?member_password=${member_password}`);
+        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}?member_password=${member_password}`);
         
         const results = await login.json();
         console.log(results)
         if(results.total===1){
             alert('成功登入');
+            window.location.assign("http://localhost:3000/member/Profile");
         }else{
             alert('帳號密碼錯誤');
         }
