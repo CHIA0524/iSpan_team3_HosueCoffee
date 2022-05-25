@@ -120,7 +120,7 @@ function App() {
        <Route path="/shoppingCart">
           <Pay1 />
         </Route>
-       <Route path="/shop/ProductDetail">
+       <Route path="/shop/ProductDetail/:id">
           <ProductDetail />
         </Route>
         <Route path="/shop">

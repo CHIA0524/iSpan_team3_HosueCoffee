@@ -15,11 +15,11 @@ const upload = multer();
         res.json(datas);
     })
 
-    router.route('/ProductDetail/:id')
+    router.route('/ProductDetail/id')
     .get(async (req,res,next)=>{
         const id = req.params.id;
         const sql = "SELECT products.id,`type_name`, `p_name`, `price`, `content`, `url` FROM `products` JOIN `product_types` ON product_types.id = products.fk_product_types WHERE products.id= ?";
-        const [datas] = await db.query(sql,[id]);
+        const [datas] = await db.query(sql,[req.query.id]);
        res.json(datas);
       //  res.send(`讀取${id}的資料`)
     })

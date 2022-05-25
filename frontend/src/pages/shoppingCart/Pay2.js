@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import './pay2.css';
 // import './component/steps2.css';
 import Steps2 from './component/Steps2';
+import Pay3 from './Pay3';
 
 
 
@@ -14,6 +15,10 @@ function Pay2(){
     phone: '',
     email: '',
     address: '',
+    Rname: '',
+    Rphone: '',
+    Remail: '',
+    Raddress: '',
   })
  // 記錄欄位錯誤訊自用的狀態
  const [fieldErrors, setFieldErrors] = useState({
@@ -21,8 +26,13 @@ function Pay2(){
     phone: '',
     email: '',
     address: '',
-  })
+    Rname: '',
+    Rphone: '',
+    Remail: '',
+    Raddress: '',
 
+  })
+  
 
   // 每個表單輸入時觸發onChange使用
   const handleChange = (e) => {
@@ -41,14 +51,28 @@ function Pay2(){
     e.preventDefault()
 
     const formData = new FormData(e.target)
-    console.log(formData.get('name'))
-    console.log(formData.get('email'))
     // 獲取同名稱的checkbox
-    console.log(formData.getAll('likeList'))
+    console.log(formData.getAll('paymethod'))
+    console.log(formData.getAll('pickupmethod'))
+    
+    console.log(formData.get('name'))
+    console.log(formData.get('phone'))
+    console.log(formData.get('email'))
+    console.log(formData.get('address'))
+
+    console.log(formData.get('Rname'))
+    console.log(formData.get('Rphone'))
+    console.log(formData.get('Remail'))
+    console.log(formData.get('Raddress'))
 
     // 送到伺服器…ajax…fetch...
     console.log('這裡送出表單資料到伺服器了')
+   
+    // 如果都輸入完成，頁面跳轉
+    
   }
+
+  
 
     // 表單出現不合法的html5驗証時會呼叫
     const handleInvalid = (e) => {
@@ -74,49 +98,73 @@ function Pay2(){
     }
     setFieldErrors(newFieldErrors)
   }
+  
+    //自取匯款選擇
+    const Pickup1 = ()=>{
+         document.querySelector('.shiptohome').style.display="block"
+         document.querySelector('.storepick').style.display="none"
+    }
+
+    const Pickup2 = ()=>{
+        document.querySelector('.storepick').style.display="block"
+        document.querySelector('.shiptohome').style.display="none"
+        }
+    
+
+    
+    const shipSame = ()=>{
+         document.querySelector('.receiverInfo').style.display="none"
+         }
+   
+
+
   return(
       <>
-       <div class="container main">
+       <div className="container main">
        <Steps2 />
           <form
            onSubmit={handleSubmit}
-        onInvalid={handleInvalid}
-        onChange={handleFormChange}
+           onInvalid={handleInvalid}
+           onChange={handleFormChange}
         >
-              <div class="payInfoStart detail">
-                  <div class="payInfoFill">
-                      <div class="questInfo">
+              <div className="payInfoStart detail">
+                  <div className="payInfoFill">
+                      <div className="questInfo">
                           <div>付款方式</div>
-                          <div class="radioS">
-                              <div class="form-check checkPart">
-                                  <input class="form-check-input" type="radio"       name="paymethod" id="inlineRadio1"
-                                      value="option1"/>
-                                  <label label class="form-check-label" for="inlineRadio1">匯款</label>
+                          <div className="radioS">
+                              <div className="form-check checkPart">
+                                  <input className="form-check-input" type="radio"       name="paymethod" id="cash"
+                                      value="cash" />
+                                  <label label className="form-check-label" for="cash">匯款</label>
                               </div>
-                              <div class="form-check  checkPart">
-                                  <input class="form-check-input" type="radio"       name="paymethod" id="inlineRadio2"
-                                      value="option2"/>
-                                  <label class="form-check-label" for="inlineRadio2">信用卡</label>
+                              <div className="form-check  checkPart">
+                                  <input className="form-check-input" type="radio"       name="paymethod" id="card"
+                                      value="card"/>
+                                  <label className="form-check-label" for="card">信用卡</label>
                               </div>
                           </div>
                       </div>
-                      <div class="questInfo">
+                      <div className="questInfo">
                           <div>取貨方式</div>
-                          <div class="radioS">
-                              <div class="form-check  checkPart">
-                                  <input class="form-check-input" type="radio"       name="pickupmethod" id="inlineRadio1"
-                                      value="option1"/>
-                                  <label class="form-check-label" for="inlineRadio1">自取</label>
+                          <div className="radioS">
+                              <div className="form-check  checkPart">
+                                  <input className="form-check-input" type="radio"       name="pickupmethod" id="store"
+                                      value="storepickup" onClick={Pickup2} 
+                                    //   onChange={handleInputChange}
+                                      />
+                                  <label className="form-check-label" for="store">自取</label>
                               </div>
-                              <div class="form-check  checkPart">
-                                  <input class="form-check-input" type="radio"       name="pickupmethod" id="inlineRadio2"
-                                      value="option2"/>
-                                  <label class="form-check-label" for="inlineRadio2">宅配 + 80</label>
+                              <div className="form-check  checkPart">
+                                  <input className="form-check-input" type="radio"       name="pickupmethod" id="home"
+                                      value="shiptohome" onClick={Pickup1}
+                                    //   onChange={handleInputChange}
+                                      />
+                                  <label className="form-check-label" for="home" >宅配 + 80</label>
                               </div>
                           </div>
       
                       </div>
-                      <div class="buyerInfo">
+                      <div className="buyerInfo">
                           <p>購買人資料</p>
                           <input type="text" 
                           placeholder="姓名"
@@ -135,7 +183,11 @@ function Pay2(){
                           onChange={handleChange}
                           required
                           minLength={10}
+                          maxLength={10}
                           />
+                           {fieldErrors.phone !== '' && (
+                          <div className="error">{fieldErrors.phone}</div>
+                          )}
                           <input type="email" 
                           placeholder="信箱"
                           name="email"
@@ -143,80 +195,148 @@ function Pay2(){
                           onChange={handleChange}
                         required
                           />
+                          {fieldErrors.email !== '' && (
+                          <div className="error">{fieldErrors.email}</div>
+                          )}
                           <input type="text" 
                           placeholder="地址"
                           name= "address"
                           value={fields.address}
                           onChange={handleChange}
-                          required
                           />
                       </div>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value=""       id="flexCheckChecked" checked/>
-                          <label class="form-check-label" for="flexCheckChecked">
-                              收件人資料與顧客資料相同
-                          </label>
+                 
+                      <div className="pickup"  >
+                           <div className="shiptohome">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox"      value=""id="flexCheckChecked" onClick={shipSame} />
+                                    <label className="form-check-label" for="flexCheckChecked">
+                                        收件人資料與顧客資料相同
+                                    </label>
+                                </div>
+                                <div className="receiverInfo">
+                
+                                    <p>收件人資料</p>
+                                    <input type="text" 
+                                     placeholder="姓名"
+                                     name= "Rname"
+                                     value={fields.Rname}
+                                     onChange={handleChange}
+                                     required
+                                     />
+                                     {fieldErrors.Rname !== '' && (
+                                     <div className="error">{fieldErrors.Rname}</div>
+                                     )}
+                                     
+                                     <input type="tel" 
+                                      placeholder="手機"
+                                      name= "Rphone"
+                                      value={fields.Rphone}
+                                      onChange={handleChange}
+                                      required
+                                      minLength={10}
+                                      maxLength={10}
+                                      />
+                                       {fieldErrors.Rphone !== '' && (
+                                      <div className="error">{fieldErrors.Rphone}</div>
+                                      )}
+                                      
+                                     <input type="email" 
+                                     placeholder="信箱"
+                                     name="Remail"
+                                     value={fields.Remail}
+                                     onChange={handleChange}
+                                     required
+                                     />
+                                     {fieldErrors.Remail !== '' && (
+                                     <div className="error">{fieldErrors.Remail}</div>
+                                     )}
+                                     <input type="text" 
+                                      placeholder="地址"
+                                      name= "Raddress"
+                                      value={fields.Raddress}
+                                      onChange={handleChange}
+                                      required
+                                      />
+                                       {fieldErrors.Raddress !== '' && (
+                                     <div className="error">{fieldErrors.Raddress}</div>
+                                     )}
+                                </div>
+                            </div>
+                           <div className="storepick">
+                           <p>門市選擇</p>
+                           
+                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
+                            <option selected>縣市</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                           </select>
+                           <p></p>
+                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
+                            <option selected>地區</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                           </select>
+                          
+            
+                           </div>
                       </div>
-                      <div class="receiverInfo">
-      
-                          <p>收件人資料</p>
-                          <input type="text" placeholder="姓名"/>
-                          <input type="text" placeholder="手機"/>
-                          <input type="text" placeholder="信箱"/>
-                          <input type="text" placeholder="地址"/>
-                      </div>
-                      <div class="noteInfo">
+                      <div className="noteInfo">
                           <p>備註</p>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
                   </div>
       
-                  <div class="payTotalCheck">
-                      <div class="box">
-                          <div class="totalInfo1">
+                  <div className="payTotalCheck">
+                      <div className="box">
+                          <div className="totalInfo1">
                               <div>
                                   <p>商品小計</p>
                                   <p>運費</p>
                                   <p>優惠折扣</p>
                                   <p>紅利折扣</p>
                               </div>
-                              <div class="money">
+                              <div className="money">
                                   <p>$1998</p>
                                   <p>自取</p>
                                   <p>$100</p>
                                   <p>$100</p>
                               </div>
                           </div>
-                          <div class="line"></div>
-                          <div class="totalInfo3">
+                          <div className="line"></div>
+                          <div className="totalInfo3">
                               <div>
                                   <h3>結帳金額</h3>
                               </div>
-                              <div class="money">
+                              <div className="money">
                                   <h3>$898</h3>
                               </div>
                           </div>
                              {/* <div className="nextBtn">
-                              <button type="submit" class="btn btn-primary btn-lg btn-block "><NavLink href="" to= "/shoppingCart/pay3" className="btnName">結帳 </NavLink></button>
+                              <button type="submit" className="btn btn-primary btn-lg btn-block "><NavLink href="" to= "/shoppingCart/pay3" className="btnName">結帳 </NavLink></button>
                               </div> */}
-                              <div className="nextBtn" //onSubmit={toPay3}
+                              <div className="nextBtn" 
+                            //   onSubmit={toPay3}
                               >
-                              <button type="submit" class="btn btn-primary btn-lg btn-block ">結帳 </button>
+                              <button type="submit" className="btn btn-primary btn-lg btn-block " onSubmit={handleSubmit}
+                              >結帳 </button>
                               </div>
       
                       </div>
                   </div>
                  
                   {/* <!-- 手機版小計 --> */}
-                  <div class="mText">
+                  <div className="mText">
                       <hr></hr>
                       <br></br>
                       <h3>金額總計</h3>
                   </div>
-                  <div class="mPayTotalCheck">
+                  <div className="mPayTotalCheck">
       
-                      <div class="box">
-                          <div class="totalInfo1">
+                      <div className="box">
+                          <div className="totalInfo1">
                               <div>
                                   <p>商品小計</p>
                                   <p>運費</p>
@@ -224,7 +344,7 @@ function Pay2(){
                                   <p>紅利折扣</p>
       
                               </div>
-                              <div class="money">
+                              <div className="money">
                                   <p>$1998</p>
                                   <p>自取</p>
                                   <p>$100</p>
@@ -233,8 +353,8 @@ function Pay2(){
       
                               </div>
                           </div>
-                          <div class="line"></div>
-                          <div class="totalInfo1">
+                          <div className="line"></div>
+                          <div className="totalInfo1">
                               <div>
                                   <h3>結帳金額</h3>
                               </div>
@@ -243,7 +363,7 @@ function Pay2(){
                               </div>
                           </div>
                           <Link href="" to= "/shoppingCart/pay3">
-                              <button type="button" class="btn btn-primary btn-lg btn-block">結帳</button>
+                              <button type="button" className="btn btn-primary btn-lg btn-block">結帳</button>
                           </Link>
       
       

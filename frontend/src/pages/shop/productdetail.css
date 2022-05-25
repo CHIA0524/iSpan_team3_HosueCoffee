@@ -63,7 +63,7 @@
   display: none;
 }
 
-.addNum a button {
+.addNum1 a button {
   width: 1.5rem;
   border-radius: 5px;
   color: #4c3410;
@@ -71,13 +71,13 @@
   border: 1px solid #e4d2a3;
 }
 
-.addNum a :hover,
+.addNum1 a :hover,
 .addCart a :hover {
   background-color: #e4d2a3;
   color: white;
 }
 
-.addNum input {
+.addNum1 input {
   border: 0;
   width: 40px;
   text-align: center;
@@ -114,9 +114,16 @@
   display: flex;
 }
 
-.pContent {
+.pContentInfo {
   width: 50%;
   padding-left: 4rem;
+}
+.productName {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.pContentInfo h4 {
+  margin-bottom: 1rem;
 }
 
 .card {
@@ -198,7 +205,7 @@
     transition: all 2.5s;
   }
 
-  .pContent {
+  .pContentInfo {
     whitespace: 'pre-wrap';
   }
 }
@@ -251,11 +258,11 @@
     width: 100%;
     margin: 0 auto;
   }
-  .pContent {
+  .pContentInfo {
     width: 100%;
     margin: 0 auto;
   }
-  .pContent {
+  .pContentInfo {
     padding-top: 1rem;
     padding-left: 0;
   }

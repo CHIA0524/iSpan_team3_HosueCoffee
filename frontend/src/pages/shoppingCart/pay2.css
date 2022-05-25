@@ -34,6 +34,7 @@
   width: 80%;
   line-height: 2rem;
   margin-bottom: 2rem;
+  /* margin-top: 0rem; */
 }
 .receiverInfo {
   margin-top: 3rem;
@@ -46,6 +47,18 @@
 .noteInfo {
   margin-top: 3rem;
   width: 80%;
+}
+.shiptohome {
+  display: none;
+}
+.storepick {
+  display: none;
+}
+.storepick select {
+  width: 80%;
+}
+.storepick p {
+  margin-bottom: 1rem;
 }
 
 .totalInfo1 {
@@ -111,6 +124,11 @@
 .money p,
 h3 {
   text-align: right;
+}
+.error {
+  margin-top: -2rem;
+  font-size: 1rem;
+  color: red;
 }
 
 @media screen and (max-width: 1000px) {
