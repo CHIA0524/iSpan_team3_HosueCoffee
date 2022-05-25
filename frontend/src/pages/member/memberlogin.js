@@ -15,7 +15,9 @@ function MemberLogin(){
     }
     const handleCheckName=async ()=>{
       const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${member_account}`);
+      console.log(process.env.REACT_APP_API_URL);
       const results = await response.json();
+      console.log(results)
       if(results.total === 0){
           setNameMessage("帳號錯誤");
       }else{
@@ -24,8 +26,10 @@ function MemberLogin(){
 
     }
     const loginBTN=async()=>{
-        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login?member_account=${member_account}member_password=${member_password}`);
+        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login?member_account=${member_account},?member_password=${member_password}`);
+        
         const results = await login.json();
+        console.log(results)
         if(results.total===1){
             alert('成功登入');
         }else{
