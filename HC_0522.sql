@@ -2,7 +2,7 @@ drop database team3;
 create schema team3;
 use team3;
 
-
+SELECT * FROM members WHERE member_account=`lh44` OR member_password=?;
 -- select*from user_ask;
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者

@@ -10,6 +10,9 @@ function MemberLogin(){
     const handleValueChange=(e)=>{
       setmember_account(e.target.value);
     }
+    const handleValueChange2=(e)=>{
+      setmember_password(e.target.value);
+    }
     const handleCheckName=async ()=>{
       const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${member_account}`);
       const results = await response.json();
@@ -20,7 +23,15 @@ function MemberLogin(){
       }
 
     }
-
+    const loginBTN=async()=>{
+        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login?member_account=${member_account}member_password=${member_password}`);
+        const results = await login.json();
+        if(results.total===1){
+            alert('成功登入');
+        }else{
+            alert('帳號密碼錯誤');
+        }
+    }
     
 
     const Login = ()=>{
@@ -96,11 +107,11 @@ function MemberLogin(){
                                     <div className="loginInput loginInputL">
                                         <div className="LG">
                                             <br></br>
-                                            <form method='get' >
+                                            <form >
                                             <input type="text" size="30" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} onBlur={handleCheckName}></input>
                                             <div>{nameMessage || "輸入帳號"}</div>
                                             <br></br>
-                                            <input type="password" size="30" placeholder="&ensp;會員密碼" value={member_password} name='member_password'></input>
+                                            <input type="password" size="30" placeholder="&ensp;會員密碼" value={member_password} name='member_password' onChange={handleValueChange2}></input>
                                             <div className="row">
                                             <div className="col-3"></div>
                                             <div className="col-4"></div> 
@@ -109,7 +120,7 @@ function MemberLogin(){
                                             </div>
                                             <br></br>
                                             {/* <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link> */}
-                                           <button>&ensp;登入&ensp;</button>
+                                           <button onClick={loginBTN}>&ensp;登入&ensp;</button>
                                             </form>
                                             <hr></hr>
                                             <br></br>
