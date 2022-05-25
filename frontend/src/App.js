@@ -44,7 +44,7 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
-        <Route  path="/member/QAcheck" component={MemberQAcheck}></Route>
+        <Route  path="/member/QAcheck/:id" component={MemberQAcheck}></Route>
         <Route  path="/member/QAList" component={MemberQAList}></Route>
         <Route  path="/member/DrinkO" component={MemberDrinkO}></Route>
         <Route  path="/member/DrinkOList" component={MemberDrinkOList}></Route>
