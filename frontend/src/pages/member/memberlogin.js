@@ -46,6 +46,7 @@ function MemberLogin(props){
             alert('成功登入');
             setAuth(!auth)
             setThismemberid(results.member_id)
+            localStorage.setItem(!auth, results.member_id)
             // window.location.assign("http://localhost:3000/member/QAcheck/1");
         }else{
             alert('帳號密碼錯誤');
