@@ -16,7 +16,7 @@ import { BiCopyright } from "react-icons/bi";
 // pages
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
-import StoreMap from './pages/store/StoreMap';
+// import StoreMap from './pages/store/StoreMap';
 
 import ShopIndex from './pages/shop/ShopIndex';
 import ProductDetail from './pages/shop/ProductDetail'; 
@@ -126,9 +126,9 @@ function App() {
         <Route path="/shop">
           <ShopIndex />
         </Route>
-        <Route path="/store/map">
+        {/* <Route path="/store/map">
           <StoreMap />
-        </Route>
+        </Route> */}
         <Route path="/store">
           <StoreIndex />
         </Route>

@@ -8,6 +8,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 // import MultipleItems from './component/MultipleItems';
 // import RecSlider from './component/RecSlider';
 // import RRRSlider from './component/RRRSlider';
+import Slider from "react-slick";
 
 
 
@@ -15,6 +16,15 @@ import { IoIosArrowDropright } from "react-icons/io";
 
 
 function ProductDetail(){
+  const [width, setWidth] = useState(600);
+  const [display, setDisaplay] = useState(true);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1
+  };
   const params=useParams();
   //抓網址後的id
   console.log(params)
@@ -75,9 +85,37 @@ function ProductDetail(){
 
                     </div>
 
-                   
-                 <div className="moreInfo ">
-                      <div className="Box">
+      <div className="moreInfo ">
+        <div className="Box">
+          <div>
+            <div
+              style={{
+                width: width + "px",
+                display: display ? "block" : "none"
+              }}
+            >
+              <Slider {...settings}>
+                <div>
+                  <h3>1</h3>
+                </div>
+                <div>
+                  <h3>2</h3>
+                </div>
+                <div>
+                  <h3>3</h3>
+                </div>
+                <div>
+                  <h3>4</h3>
+                </div>
+                <div>
+                  <h3>5</h3>
+                </div>
+                <div>
+                  <h3>6</h3>
+                </div>
+              </Slider>
+            </div>
+          </div>
                         {/* <div className="boxText">推薦商品</div>
                           <div className="infoInline">
                             <div className="infoBtn">
