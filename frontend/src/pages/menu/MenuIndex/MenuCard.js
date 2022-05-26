@@ -15,7 +15,7 @@ const MenuCard = () => {
 
     const fetchData = async()=>{
 
-                        const response = await fetch('http://localhost:3301/menu');
+                        const response = await fetch('http://localhost:3002/menu');
 
                         const results = await response.json();
                                         setDatas(results);
@@ -45,7 +45,7 @@ const MenuCard = () => {
         <div className="card" key={i}>
             <a href={id}>
                 <div className="">
-                    <img src= {require('./img/'+img1+'.jpg')} alt=""/>
+                    <img src={require('./img/'+ img1 +'.jpg')} alt=""/>
                 </div>
                 <div className="cardpading">
                     <span>{mu.drink_name}</span>

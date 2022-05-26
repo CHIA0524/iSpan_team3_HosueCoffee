@@ -5,7 +5,7 @@ import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
 import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
-import Pagination from "./MenuIndex/Pagination";
+// import Pagination from "./MenuIndex/Pagination";
 // import Pagination from '@mui/material/Pagination';
 
 
@@ -76,7 +76,7 @@ return(
                         <Popup/>
 
                     </div>   
-                    <Pagination />
+                    {/* <Pagination /> */}
                 </div>
             </div>
 

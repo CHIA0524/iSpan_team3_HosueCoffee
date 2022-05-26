@@ -277,14 +277,17 @@ a {
   }
   
   .popup {
-    margin: 8em auto;
+    margin: 15em auto;
     padding: 20px;
     background: #fff;
     border-radius: 30px;
-    width: 50%;
+    width: 30%;
     position: relative;
     // transition: all 5s ease-in-out;
-    height: 60%;
+    // height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .popup h2 {
@@ -307,18 +310,17 @@ a {
     color: $colorMain;
   }
 
-  .popup .content {
-    overflow: auto;
-  }
+
 
   .popoimg {
-    max-width: 15em;
-    max-height: 15em;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     padding: 1em;
+    margin-top: 1em;
     img {
         width: 100%;
         height: 100%;
@@ -327,17 +329,20 @@ a {
 
   .content {
       display: flex;
+      align-items: flex-start;
   }
   .content1 {
     display: flex;
     justify-content: center;
+    margin-left: 5em;
+
   }
   .content2 {
       display: flex;
-      justify-content: end;
-      padding:0 2em;
+      justify-content: space-between;
+      align-items: flex-end;
   }
-  .PaymentLast {
+  .PaymentLast1 {
     border-radius: 10px;
     border: 1px solid $colorMain;
     width: 7rem;
@@ -347,12 +352,23 @@ a {
     height: 2em;
     text-align: center;
 }
+
+
+
 .popupName {
     h2{
       display: flex;
       padding-left:1em;
     }
 }
+.popupNameTop {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
   .popotext {
       padding: 2em;
   }
