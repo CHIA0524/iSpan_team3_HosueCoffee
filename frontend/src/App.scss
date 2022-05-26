@@ -64,6 +64,8 @@ $btn_font_size: 16px;
 
 .coffeeDarkBtn, .coffeeLightBtn{
   height: $btn_height;
+  display: flex;
+  align-items: center;
   padding: 3px 10px;
   color: white;
   font-size: $btn_font_size;

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 
 import { GoogleMap, useJsApiLoader, Marker, } from '@react-google-maps/api'
+import { Link } from 'react-router-dom'
 
 
 const containerStyle = {
@@ -13,6 +14,8 @@ const containerStyle = {
 function StoreMap(props){
 
   const { data, center, zoom, setCenter, setZoom } = props
+  console.log(data);
+  const [ markerIndex, setMarkerIndex ] = useState(1)
 
   // map 使用
   const mapRef = useRef()
@@ -32,10 +35,11 @@ function StoreMap(props){
   const onUnmount = useCallback(function callback(map) {
     setMap(null)
   }, [])
-  const onZoomChange = useCallback(function callback(map) {
-    setZoom(10)
-    console.log(zoom)
-  }, [])
+  const onZoomChanged = (e)=>{
+    setTimeout(() => {
+      setZoom(map.getZoom())
+    }, 100)
+  }
 
   useEffect(() => {
     if (map) {
@@ -52,7 +56,7 @@ function StoreMap(props){
         zoom={zoom}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        onZoomChange={onZoomChange}
+        onZoomChanged={onZoomChanged}
       >
         {data.map((latlng, i)=>{
           let thisLat = Number(latlng.lat)
@@ -67,6 +71,16 @@ function StoreMap(props){
         })}
       </GoogleMap>
       ) : <></>}
+      <div className='markerInfo' style={{background: 'white', bottom: '-150px'}}>
+        {data[markerIndex]
+        ?
+        <>
+          <p>{data[markerIndex].store_name}</p>
+          <p>{data[markerIndex].phone}</p>
+        </>
+        : ''}
+        <Link to="/stor" className='coffeeDarkBtn'>享喝咖啡</Link>
+      </div>
     </div>
   )
 }

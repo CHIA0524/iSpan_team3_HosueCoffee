@@ -170,6 +170,20 @@
   // height: calc(100vh - 120px);
   background: #000;
   transition: all .3s ease-in-out;
+  position: relative;
+  // overflow: hidden;
+  .markerInfo{
+    // width: 20%;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: absolute;
+    left: 40%;
+  }
 }
 
 @media screen and (max-width:800px) {
