@@ -1,13 +1,13 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from 'react'
+import { useState, useEffect } from 'react'
 
 // icons
-import { FiSearch } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi"
 
 function StoreCardSearch(props){
 
-  const { setIsLoading, fetchFilterData } = props;
-  const [ searchText, setSearchText ] = useState('');
+  const { setIsLoading, fetchFilterData } = props
+  const [ searchText, setSearchText ] = useState('')
 
   return(
     <div className="storeSearch">
@@ -24,7 +24,8 @@ function StoreCardSearch(props){
       </input>
 
       <div onClick={(e)=>{
-        console.log(searchText);
+        console.log(searchText)
+        // setSearchText('')
         setIsLoading(true)
         fetchFilterData(searchText)
       }}>

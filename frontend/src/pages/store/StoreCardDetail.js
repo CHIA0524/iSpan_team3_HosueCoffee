@@ -1,16 +1,16 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from 'react'
+import { useState, useEffect } from 'react'
 
 // icons
-import { IoArrowBack } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5"
 
 function StoreCardDetail(props){
 
-  const { dataDetail, cardDetailCss, setCardDetailCss } = props;
+  const { dataDetail, cardDetailCss, setCardDetailCss } = props
   if (dataDetail){
-    const { times, icon_group } = dataDetail;
-    var storeTime = times.split(',');
-    var storeIcon = icon_group.split(',');
+    const { times, icon_group } = dataDetail
+    var storeTime = times.split(',')
+    var storeIcon = icon_group.split(',')
   }
 
   return(

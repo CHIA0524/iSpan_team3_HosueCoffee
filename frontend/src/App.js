@@ -1,21 +1,21 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import './App.scss';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import './App.scss'
 
 // pages
-import Home from './pages/home/Home';
-import StoreIndex from './pages/store/StoreIndex';
-import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
+import Home from './pages/home/Home'
+import StoreIndex from './pages/store/StoreIndex'
+import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // member pages
-// import MemberLogin from './pages/member/memberlogin';
-// import Memberprofile from './pages/member/memberprofile';
-// import MemberprofileEdit from './pages/member/memberprofileEdit';
-// import MemberPassword from './pages/member/memberPassword';
-// import MemberOrderList from './pages/member/memberOrderList';
+// import MemberLogin from './pages/member/memberlogin'
+// import Memberprofile from './pages/member/memberprofile'
+// import MemberprofileEdit from './pages/member/memberprofileEdit'
+// import MemberPassword from './pages/member/memberPassword'
+// import MemberOrderList from './pages/member/memberOrderList'
 
 // components
-import Navbar from './component/Navbar';
-import Footer from './component/Footer';
+import Navbar from './component/Navbar'
+import Footer from './component/Footer'
 
 function App() {
   return (
@@ -30,6 +30,9 @@ function App() {
 
       <Switch>
 
+        {/* <Route path="/store/maptest">
+          <StoreMapCardWraptest />
+        </Route> */}
         <Route path="/store/map">
           <StoreMapCardWrap />
         </Route>
@@ -46,7 +49,7 @@ function App() {
 
     </Router>
 
-  );
+  )
 }
 
 export default App;
