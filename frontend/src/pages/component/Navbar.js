@@ -55,13 +55,13 @@ function Navbar (props){
               <IoCloseOutline size={30}/>
             </li>
             <li className="webNone">
-              <a className="" href="#">
-                <IoPersonOutline size={20} color={'#4C3410'}/>
-              </a>
               <Link to="/member/Profile">
+                <IoPersonOutline size={20} color={'#4C3410'}/>
+              </Link>
+              <a className="" href="#">
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
-                </Link>
-              <a className="ms-3" href="#">
+              </a>
+              <a className="ms-3" href="#" onClick={loginOUT}>
                 <IoExitOutline size={20} color={'#4C3410'}/>
               </a>
             </li>
@@ -92,16 +92,18 @@ function Navbar (props){
             <li className="mobileNone position-relative">
               <Link to="/member"><IoPersonOutline size={30}/></Link>
               <p className="webUserInfo">
-                <span><a href="">會員專區</a></span>
-                <span><a href="">訂單查詢</a></span>
-                <span><a href="">問答中心</a></span>
+                <span><Link to="/member">會員專區</Link></span>
+                <span><Link to="OrderList">訂單查詢</Link></span>
+                <span><Link to="/member/QAList">問答中心</Link></span>
                 <span><a onClick={loginOUT}>登出</a></span>
               </p>
             </li>
           </div>
         </nav>
       </header>
+      /* 以上是已登入狀態 */
       :
+      /* 以下是未登入狀態 */
       <header className="App-header">
         <nav className="coffeeNavbar">
           <div className="sideDark" onClick={closeSideNavClick}></div>
@@ -110,24 +112,23 @@ function Navbar (props){
               <IoCloseOutline size={30}/>
             </li>
             <li className="webNone">
-              <a className="" href="#">
+              <Link to="/member">
                 <IoPersonOutline size={20} color={'#4C3410'}/>
-              </a>
-              <Link to="/member/Profile">
+              </Link>
+              <Link to="/member">
                 <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
                 </Link>
-              <a className="ms-3" href="#">
+              {/* <a className="ms-3" href="#">
                 <IoExitOutline size={20} color={'#4C3410'}/>
-              </a>
+              </a> */}
             </li>
-            <div className="memberDetail" style={{height: '0px'}}>
-              {/* <li><Link to="/member/OrderList">個人資料</Link></li> */}
+            {/* <div className="memberDetail" style={{height: '0px'}}>
               <li><Link to="/member/OrderList">訂單查詢</Link></li>
               <li><Link to="/member/DrinkOList">點餐訂單</Link></li>
               <li><Link to="/member/QAList">問答中心</Link></li>
               <li><Link to="/member/Password">密碼修改</Link></li>
               <li><Link to="/member/Favorite">我的收藏</Link></li>
-            </div>
+            </div> */}
             <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
             <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
             <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
