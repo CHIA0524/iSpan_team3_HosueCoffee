@@ -103,7 +103,7 @@ function MemberLogin(props){
     return(
       
         <>
-         {auth ? <Link to="/member/Profile"></Link>:<div>
+         {auth ? <Welcome/>:<div>
          <div className="pmain">
                 <div className="row">
                     <div className="col ">
