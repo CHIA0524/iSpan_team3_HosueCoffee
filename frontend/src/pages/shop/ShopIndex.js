@@ -25,14 +25,14 @@ function ShopIndex(){
 
   return(
     <>
-     {datas.map((pCard,i)=>{
+     {/* {datas.map((pCard,i)=>{
          console.log(pCard.id);
          
          const img1=(pCard.p_name);
-         const id='#'+(pCard.id);
+         const id='#'+(pCard.id); */}
           
-        return(
-          <div key={pCard.id}>
+        {/* return( */}
+          {/* <div key={pCard.id}> */}
         
                     <div class="mShop">
                         <p>商店</p>
@@ -52,11 +52,11 @@ function ShopIndex(){
                             </main>
                         </div>
                         </div>
-           </div>         
+           {/* </div>         
                     )
-      })}
+       })} */}
      </>
-  );
+  ); 
 }
 
 export default ShopIndex

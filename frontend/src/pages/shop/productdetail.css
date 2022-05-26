@@ -183,6 +183,9 @@
   height: 100%;
   overflow: hidden;
 }
+.MRec {
+  display: none;
+}
 
 @media screen and (max-width: 1400px) {
   .mShop {
@@ -286,5 +289,13 @@
   .pContentInfo {
     padding-top: 1rem;
     padding-left: 0;
+  }
+  .DRec {
+    display: none;
+  }
+  .MRec {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
   }
 }

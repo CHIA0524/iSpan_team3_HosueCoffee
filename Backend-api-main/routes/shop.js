@@ -23,6 +23,7 @@ const upload = multer();
        res.json(datas);
       //  res.send(`讀取${id}的資料`)
     })
+
     
 
 module.exports = router;

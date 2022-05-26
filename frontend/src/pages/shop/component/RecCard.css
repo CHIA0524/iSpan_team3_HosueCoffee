@@ -1,0 +1,63 @@
+.RText {
+  font-size: 2rem;
+  margin: 0 40%;
+  margin-bottom: 2rem;
+}
+/* Slider */
+.slick-loading .slick-list {
+  background: transparent;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+
+  position: absolute;
+  top: 50%;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  cursor: pointer;
+
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+
+  opacity: 0.75;
+  color: black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  padding-right: 2rem;
+}
+
+.slick-next {
+  padding-left: 2rem;
+}
+
+.slick-dots {
+  display: none;
+}
+.slick-dots li {
+  display: none;
+}

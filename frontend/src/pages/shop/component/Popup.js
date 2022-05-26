@@ -11,7 +11,7 @@ function Popup(){
 
     const params=useParams();
     //抓網址後的id
-    console.log(params)
+    // console.log(params)
       // 向後端請求資料
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{
@@ -24,28 +24,20 @@ function Popup(){
     },[])
         
     if(datas.length>0){
-      console.log(datas[0]);
+      // console.log(datas[0]);
       const PD=datas[0];
-      const{id,p_name,price,}=PD
+      const{id,p_name,price}=PD
     //   console.log(p_name);
+    // console.log(id);
     
     const img1=(p_name);
-    console.log(id);
+    const pid='#'+(id);
   
     
     return(
       <>
-       {datas.map((pCard,i)=>{
-         console.log(pCard.id);
-         
-         const img1=(pCard.p_name);
-         const id='#'+(pCard.id);
-          
-        return(
-          
-          <div className="pCardWrap" key={pCard.id}>
              {/* <!-- popup 區 --> */}
-             <div id={id} class="popupShow">
+             <div id={pid} class="popupShow">
                     <div class="popup">
                         <a class="close" href="#">&times;</a>
                         <div class="productPopup">
@@ -78,9 +70,9 @@ function Popup(){
 
                     </div>
                 </div>
-          </div>
+          
           )
-      })}
+     
   </>
   );
 }}

@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import '../productdetail.css';
 import ProductDetail from '../ProductDetail';
 import Slider from "react-slick";
-import './RecCard.css';
+import './MRecCard.css';
 
 
 
 
-function RecCard(){
+function MRecCard(){
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
@@ -22,23 +22,19 @@ function RecCard(){
 
 
   // 輪播
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(280);
   const [display, setDisaplay] = useState(true);
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
+  };
   
-  };
-  const responsive = {
-    
-   
-  };
 
   return(
     <>
-     <div className="moreInfo ">
+     <div className="mMoreInfo ">
         <div className="Box">
           <div>
             <div
@@ -47,8 +43,8 @@ function RecCard(){
                 display: display ? "block" : "none"
               }}
              >
-             <div className="RText">推薦商品</div>
-              <Slider {...settings} {...responsive}>
+             <div className="MRText">推薦商品</div>
+              <Slider {...settings} >
                       {datas.map((PCard,i)=>{
                         console.log(PCard.id);
                
@@ -81,4 +77,4 @@ function RecCard(){
   );
 }
 
-export default RecCard
+export default MRecCard
