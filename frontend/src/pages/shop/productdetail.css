@@ -126,12 +126,12 @@
   margin-bottom: 1rem;
 }
 
-.card {
+.recCard {
   width: 18rem;
   border: hidden;
   padding: 0 1rem 0 1rem;
 }
-.card img {
+.recCard img {
   width: 100%;
 }
 /* .cardPrice {
@@ -141,7 +141,7 @@
   margin: 11rem 0 -4rem 5rem;
   font-size: 1.5rem;
 } */
-.card {
+.recCard {
   display: inline-block;
 }
 .recProduct1 {
@@ -151,8 +151,20 @@
 }
 
 .moreInfo {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+}
+.moreInfo .Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boxText {
+  font-size: 2rem;
+}
+.infoInline {
+  display: flex;
+  flex-direction: row;
 }
 .recProduct {
   font-size: 1.5rem;
@@ -161,6 +173,15 @@
 }
 .infoBtn {
   margin-top: 3rem;
+}
+.mImg {
+  width: 516px;
+  height: 519px;
+}
+.mImg img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1400px) {

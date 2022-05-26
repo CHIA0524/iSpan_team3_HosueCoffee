@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Link, Switch ,useParams} from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Component } from 'react';
 import Aside from './component/Aside';
 import './productdetail.css';
 import RecCard from './component/RecCard';
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
+// import MultipleItems from './component/MultipleItems';
+import RecSlider from './component/RecSlider';
 
 
 
@@ -24,27 +26,30 @@ function ProductDetail(){
     useEffect(()=>{
       fetchData();
     },[])
-            if(datas.length>0){
-            console.log(datas[0]);
-            const PD=datas[0];
-            const{id,p_name,price,content}=PD
-            console.log(p_name);
+        
+    if(datas.length>0){
+      console.log(datas[0]);
+      const PD=datas[0];
+      const{id,p_name,price,content}=PD
+      console.log(p_name);
+    
+    const img1=(p_name);
 
     return(
       <>
-            <div class="mShop">
+            <div className="mShop">
               <p>商店</p>
              </div>
 
-          <div class="container">
-            <div class="row">
+          <div className="container">
+            <div className="row">
              <Aside />
-                <main class="pMain col">
-                    <div class="pDetail  ">
-                        <div class="mImg">
-                        <img class="card-img-top" src={require('./img/包裝 8.png')} alt=""></img>
+                <main className="pMain col">
+                    <div className="pDetail  ">
+                        <div className="mImg">
+                          <img className="card-img-top" src={require('./img/'+img1+'.jpg')} alt=""></img>
                         </div>
-                        <div class="pContentInfo">
+                        <div className="pContentInfo">
                             <p className="productName">{p_name}</p>
                             <h4>＄{price}</h4>
                             <div  dangerouslySetInnerHTML={{__html: content}}/>
@@ -52,15 +57,15 @@ function ProductDetail(){
                             <div/>
                             <br></br>
                             <p>數量</p>
-                            <div class="addNum1">
-                                <a href=""><button type="button" class="buttonNum" >-</button></a>
-                                <input class="num" type="text" id="text" value="1" />
-                                <a href=""><button type="button" class="buttonNum" >+</button></a>
+                            <div className="addNum1">
+                                <a href=""><button type="button" className="buttonNum" >-</button></a>
+                                <input className="num" type="text" id="text" value="1" />
+                                <a href=""><button type="button" className="buttonNum" >+</button></a>
                             </div>
                             <br></br>
 
-                            <div class="addCart">
-                                <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
+                            <div className="addCart">
+                                <a href=""><button type="button" className="addCartBtn" id="subtract">加入購物車
                                     </button></a>
                             </div>
                         </div>
@@ -68,29 +73,27 @@ function ProductDetail(){
 
                     </div>
 
-                    <div>
-                    <div class="moreInfo ">
-                            <div class="infoBtn">
+                    {/* <div> */}
+                    {/* <div className="moreInfo ">
+                      <div className="Box">
+                        <div className="boxText">推薦商品</div>
+                          <div className="infoInline">
+                            <div className="infoBtn">
                                 <a href=""><IoIosArrowDropleft size={40}/></a>
                             </div>
-                            <div class="card ">
-                                <div class="recProduct1">推薦商品</div>
-                                <RecCard />
+                            <MultipleItems/>                                     
+                            <div className="infoBtn ">
+                             <a href=""><IoIosArrowDropright size={40}/></a>
                             </div>
-                            <div class="card mHidden">
-                                <div class="recProduct ">推薦商品</div>
-                                <RecCard />
+                           </div>
+                         </div>
+                      </div>
+                    </div> */}
 
-                            </div>
-                            <div class="card  mHidden">
-                                <div class="recProduct1">推薦商品</div>
-                                <RecCard />
-
-                            </div>
-                            <div class="infoBtn "><a href=""><IoIosArrowDropright size={40}/></a></div>
-
-                        </div>
+                    <div className="moreInfo ">
+                    <RecSlider/>   
                     </div>
+
                     </main>
             </div>
         </div>
@@ -102,8 +105,24 @@ function ProductDetail(){
 
     
       </>
-    );
+    )
   }
   }
   
+  
   export default ProductDetail
+
+//   <div className="card ">
+//   <div className="recProduct1">推薦商品</div>  
+//     <RecCard />
+// </div>
+// <div className="card mHidden">
+//   <div className="recProduct ">推薦商品</div>
+//   {/* <RecCard /> */}
+
+// </div>
+// <div className="card  mHidden">
+//   <div className="recProduct1">推薦商品</div>
+//   {/* <RecCard /> */}
+
+// </div>

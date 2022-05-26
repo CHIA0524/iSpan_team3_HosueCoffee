@@ -28,14 +28,18 @@ function ProductCard(){
       <>
        {datas.map((pCard,i)=>{
          console.log(pCard.id);
+         
+         const img1=(pCard.p_name);
           
         return(
           
           <div className="pCardWrap" key={pCard.id}>
-             <div className="card mb-4">
+             <div className="card shopCard mb-4">
                  <div className="package">
                     <Link to= {`/shop/ProductDetail/${pCard.id}`}>
-                    <img className="card-img-top" src={require('../img/包裝 2.png')} alt="1"></img>
+                    <div className='pImg'>
+                    <img className="card-img-top " src={require('../img/'+img1+'.jpg')} alt=""></img>
+                    </div>
                     </Link>
                  </div>
                  <div className="cardName d-flex justify-content-between">

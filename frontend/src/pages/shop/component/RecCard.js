@@ -22,9 +22,11 @@ function RecCard(){
     <>
        {datas.map((PCard,i)=>{
          console.log(PCard.id);
+       
           
          return(
              <div className="pCardWrap" key={PCard.id}>
+             <div className="card recCard">
              <div class="rPackage">
                 <Link to= {`/shop/ProductDetail/${PCard.id}`}>
                   <img class="card-img-top" src={require('../img/包裝 2.png')} alt=""></img>
@@ -33,6 +35,7 @@ function RecCard(){
              <div>
                  <p>{PCard.p_name}</p>
                  <p class="rCardPrice">${PCard.price}</p>
+             </div>
              </div>
              </div>
         )
