@@ -73,8 +73,8 @@ function ProductDetail(){
 
                     </div>
 
-                    {/* <div> */}
-                    {/* <div className="moreInfo ">
+                    {/* <div>  */}
+                 {/* <div className="moreInfo ">
                       <div className="Box">
                         <div className="boxText">推薦商品</div>
                           <div className="infoInline">
@@ -90,9 +90,9 @@ function ProductDetail(){
                       </div>
                     </div> */}
 
-                    <div className="moreInfo ">
+                    {/* <div className="moreInfo ">
                     <RecSlider/>   
-                    </div>
+                    </div> */}
 
                     </main>
             </div>

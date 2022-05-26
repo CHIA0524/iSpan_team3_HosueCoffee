@@ -10,7 +10,7 @@ const upload = multer();
     router.route('/')
     .get(async (req,res,next)=>{
         const sql = 
-        "SELECT products.id,`type_name`, `p_name`, `price`, `content`, `url`  FROM `products` JOIN `product_types` ON product_types.id = products.fk_product_types";
+        "SELECT products.id,`type_name`, `p_name`, `price`, `content`, `url`  FROM `products` JOIN `product_types` ON product_types.id = products.fk_product_types ";
         const [datas] = await db.query(sql);
         res.json(datas);
     })

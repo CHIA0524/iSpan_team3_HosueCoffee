@@ -4,6 +4,7 @@ import './brandproduct.css';
 import './component/popup.css';
 import ProductCard from './component/ProductCard';
 import Aside from './component/Aside';
+import Popup from './component/Popup';
 
 
 function ShopIndex(){
@@ -15,7 +16,7 @@ function ShopIndex(){
       // 向後端請求資料
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{
-      const response = await fetch(`http://localhost:3001/shop#id?id=${params.id}`);
+      const response = await fetch(`http://localhost:3001/shop`);
       const results = await response.json();
       setDatas(results);
     }
@@ -24,13 +25,12 @@ function ShopIndex(){
     },[])
         
     if(datas.length>0){
-      console.log(datas[0]);
+    //   console.log(datas[0]);
       const PD=datas[0];
-      const{id,p_name,price,content}=PD
+      const{id,p_name,price,}=PD
     //   console.log(p_name);
     
     const img1=(p_name);
-    // const id =(id);
     console.log(id);
   
     
@@ -51,40 +51,7 @@ function ShopIndex(){
                     <ProductCard />
                    
                 </div>
-                {/* <!-- popup 區 --> */}
-                <div id={id} class="popupShow">
-                    <div class="popup">
-                        <a class="close" href="#">&times;</a>
-                        <div class="productPopup">
-                            <div class="popBox">
-                                <div class="popBoxContent">
-                                    <div class="imgPart">
-                                        <img class="packageImg" src={require('./img/'+img1+'.jpg')} alt=""></img>
-                                    </div>
-                                    <div class="popContent">
-                                        <div class="popText">
-                                            <p>{p_name} </p>
-                                            <p>${price}</p>
-                                        </div>
-                                        <div class="popBtn">
-                                            <div class="popAddNum">
-                                              <button class="buttonNum" onClick={() =>{if(amount>1){ setAmount(amount - 1)}}}>-</button>
-                                              <div>{amount}</div>
-                                              <button class="buttonNum" onClick={() =>{
-                                              setAmount(amount + 1)}} >+</button>
-                                            </div>
-                                            <div class="popAddCart">
-                                                <a href=""><button type="button" class="addCartBtn" id="subtract">加入購物車
-                                                    </button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <Popup/>
             </main>
         </div>
     </div>

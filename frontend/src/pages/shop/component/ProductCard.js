@@ -49,6 +49,7 @@ function ProductCard(){
                       </div>
                       <div>
                            <Link to=""> <AiOutlineHeart size={20}/></Link>
+
                            <a href={id}>
                            <AiOutlineShoppingCart size={20}/>
                            </a>
@@ -61,6 +62,7 @@ function ProductCard(){
               <p>${pCard.price}</p>
               </div>
           </div>
+          
           )
       })}
   </>

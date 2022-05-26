@@ -49,7 +49,7 @@ main {
 .shopCard {
   border: hidden;
   width: 21rem;
-  padding-right: 1rem;
+  /* padding-right: 1rem; */
   /* padding-bottom: 4rem; */
 }
 
