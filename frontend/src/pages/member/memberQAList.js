@@ -9,8 +9,7 @@ import './popup.css'
 import { useState } from 'react';
 function MemberQAList(props){
   const{auth}=props;
-  const{thismemberid}=props;
-  const aaa=thismemberid;
+  const thismemberid=localStorage.getItem(true);
  
   console.log(123);
   console.log(thismemberid);
@@ -43,7 +42,7 @@ function MemberQAList(props){
                             <th className="col-3None" scope="col" >更新時間</th>
                             <th scope="col">查看</th>
                           </tr>
-                              <MemberQACard aaa={aaa}/>
+                              <MemberQACard />
                       </table>
                       <div className="QAbtn-M">
                         <a href="#popupWrap" className="popupOpen">

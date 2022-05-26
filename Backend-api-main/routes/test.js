@@ -11,8 +11,7 @@ router.route('/')
     .get(async(req,res,next)=>{
         const sql=
         "SELECT * FROM `user_ask` where fk_member_id=?"; 
-        const [datas]=await db.query(sql,[req.query.fk_member_id
-        ]);
+        const [datas]=await db.query(sql,[req.query.fk_member_id]);
         res.json(datas);
 
     })

@@ -28,12 +28,17 @@ import React from 'react';
 import MemberQACard from './pages/member/componend/memberQACard';
 
 function App() {
-  const [auth,setAuth]=useState(false)
-  const [thismemberid,setThismemberid]=useState()
+  const [auth,setAuth]=useState(localStorage.getItem(true))
+  // if(!localStorage.getItem(true) && typeof localStorage.getItem(true) != "undefined" && localStorage.getItem(true) != 0){
+  //   // typeof localStorage.getItem(true) != "undefined" 排除了 undefined；
+  //   // localStorage.getItem(true) != 0 排除了数字零和 false。
+  //   document.querySelector('.webUserInfo').style.display="none"
+  // }
+  
   return (
     <Router>
       
-      <Navbar />
+      <Navbar auth={auth}/>
       
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
@@ -51,47 +56,47 @@ function App() {
         
 
         <Route  path="/member/QAcheck/:id">
-        <MemberQAcheck auth={auth} thismemberid={thismemberid}/>
+        <MemberQAcheck auth={auth} />
         </Route>
 
         <Route  path="/member/QAList">
-        <MemberQAList auth={auth} thismemberid={thismemberid}/>
+        <MemberQAList auth={auth} />
         </Route>
 
         <Route  path="/member/DrinkO">
-        <MemberDrinkO auth={auth} thismemberid={thismemberid}/>
+        <MemberDrinkO auth={auth} />
         </Route>
 
         <Route  path="/member/DrinkOList">
-        <MemberDrinkOList auth={auth} thismemberid={thismemberid}/>
+        <MemberDrinkOList auth={auth} />
         </Route>
 
         <Route  path="/member/Favorite">
-        <MemberFavorite auth={auth} thismemberid={thismemberid}/>
+        <MemberFavorite auth={auth} />
         </Route>
 
         <Route  path="/member/Order">
-        <MemberOrder auth={auth} thismemberid={thismemberid}/>
+        <MemberOrder auth={auth} />
         </Route>
 
         <Route  path="/member/OrderList">
-        <MemberOrderList auth={auth} thismemberid={thismemberid}/>
+        <MemberOrderList auth={auth} />
         </Route>
 
         <Route  path="/member/profileEdit">
-        <MemberprofileEdit auth={auth} thismemberid={thismemberid}/>
+        <MemberprofileEdit auth={auth} />
         </Route>
 
         <Route path="/member/Profile">
-        <Memberprofile auth={auth} thismemberid={thismemberid}/>
+        <Memberprofile auth={auth} />
         </Route>
 
         <Route path="/member/Password">
-        <MemberPassword auth={auth} thismemberid={thismemberid}/>
+        <MemberPassword auth={auth} />
         </Route>
 
-        <Route  path="/memberLogin">
-        <MemberLogin setAuth={setAuth} auth={auth} setThismemberid={setThismemberid} thismemberid={thismemberid}/>
+        <Route  path="/member">
+        <MemberLogin setAuth={setAuth} auth={auth} />
         </Route>
         
 

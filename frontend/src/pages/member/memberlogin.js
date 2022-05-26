@@ -3,13 +3,13 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
-import Welcome from './memberWelcom';
+import Memberprofile from './memberprofile';
+// import Welcome from './memberWelcom';
 function MemberLogin(props){
     const [member_account, setmember_account] = useState("");
     const [nameMessage, setNameMessage] = useState("");
     const [member_password, setmember_password] = useState("");
     const {auth,setAuth} = props;  
-    const {thismemberid,setThismemberid} = props;  
     // const [datas,setDatas] = useState([])
 
    
@@ -44,10 +44,9 @@ function MemberLogin(props){
             console.log(results);
             // alert(results.member_id);
             alert('成功登入');
-            setAuth(!auth)
-            setThismemberid(results.member_id)
+            setAuth(true)
             localStorage.setItem(!auth, results.member_id)
-            // window.location.assign("http://localhost:3000/member/QAcheck/1");
+            window.location.assign("http://localhost:3000/member/profile");
         }else{
             alert('帳號密碼錯誤');
             // setAuth(!auth)
@@ -103,7 +102,7 @@ function MemberLogin(props){
     return(
       
         <>
-         {auth ? <Welcome/>:<div>
+         {auth ? <Memberprofile/>:<div>
          <div className="pmain">
                 <div className="row">
                     <div className="col ">
