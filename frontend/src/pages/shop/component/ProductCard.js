@@ -7,22 +7,9 @@ import { AiOutlineHeart } from "react-icons/ai";
 import ProductDetail from '../ProductDetail';
 
 
-function ProductCard(){
-    
-    // 向後端請求資料
-    const [datas, setDatas ] = useState([])
-    const fetchData = async()=>{
-      const response = await fetch('http://localhost:3001/shop');
-      const results = await response.json();
-      setDatas(results);
-    }
-    useEffect(()=>{
-      fetchData();
-    },[])
-    
-   
-    
-    const [buttonpopup,setButtonpopup] = useState(false);
+function ProductCard(props){
+    const {datas} = props;
+   const [buttonpopup,setButtonpopup] = useState(false);
     
     return(
       <>
@@ -44,14 +31,13 @@ function ProductCard(){
                     </Link>
                  </div>
                  <div className="cardName d-flex justify-content-between">
-                     <div>
-                          <p>{pCard.p_name}</p>
+                     <div >
+                          <p className="pText">{pCard.p_name}</p>
                       </div>
                       <div>
-                           <Link to=""> <AiOutlineHeart size={20}/></Link>
-
+                           <Link to=""> <AiOutlineHeart size={23}/></Link>
                            <a href={id}>
-                           <AiOutlineShoppingCart size={20}/>
+                           <AiOutlineShoppingCart size={23}/>
                            </a>
                            
                       </div>
@@ -59,7 +45,7 @@ function ProductCard(){
               </div>
               <div className="cardPrice">
               
-              <p>${pCard.price}</p>
+              <p className="pText">${pCard.price}</p>
               </div>
           </div>
           

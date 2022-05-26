@@ -97,6 +97,9 @@ main {
 .pCardWrap {
   width: fit-content;
 }
+.pText {
+  font-size: 1.3rem;
+}
 
 @media screen and (max-width: 1000px) {
   .mShop {

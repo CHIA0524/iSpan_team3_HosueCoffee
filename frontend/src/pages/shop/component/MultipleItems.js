@@ -11,17 +11,17 @@ export default class MultipleItems extends Component {
       className: "center",
       centerMode: true,
       infinite: true,
-      centerPadding: "10px",
+      centerPadding: "2rem",
       slidesToShow: 3,
       speed: 500,
-      rows: 2,
-      slidesPerRow: 2
+      rows: 3,
+      slidesPerRow: 3
     };
     return (
       <div>
         <h2> 推薦商品 </h2>
         <Slider {...settings}>
-          <div>
+          <div >
           <RecCard/>
           </div>
         </Slider>

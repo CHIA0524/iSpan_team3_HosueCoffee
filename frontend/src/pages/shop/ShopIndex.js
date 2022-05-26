@@ -10,54 +10,53 @@ import Popup from './component/Popup';
 function ShopIndex(){
     const[amount, setAmount]= useState(1)
 
-    const params=useParams();
-    //抓網址後的id
-    console.log(params)
-      // 向後端請求資料
-    const [datas, setDatas ] = useState([])
-    const fetchData = async()=>{
-      const response = await fetch(`http://localhost:3001/shop`);
-      const results = await response.json();
-      setDatas(results);
-    }
-    useEffect(()=>{
-      fetchData();
-    },[])
-        
-    if(datas.length>0){
-    //   console.log(datas[0]);
-      const PD=datas[0];
-      const{id,p_name,price,}=PD
-    //   console.log(p_name);
-    
-    const img1=(p_name);
-    console.log(id);
+     // 向後端請求資料
+     const [datas, setDatas ] = useState([])
+     const fetchData = async()=>{
+       const response = await fetch('http://localhost:3001/shop');
+       const results = await response.json();
+       setDatas(results);
+     }
+     useEffect(()=>{
+       fetchData();
+     },[])
   
     
 
   return(
     <>
-    <div class="mShop">
-        <p>商店</p>
-    </div>
-    
-
-    <div class="container">
-        <div class="row">
-            <Aside />
-
-            <main class="pMain col ">
-                <div class="row justify-content-center">
-                    <ProductCard />
-                   
-                </div>
-                <Popup/>
-            </main>
-        </div>
-    </div>
-    </>
+     {datas.map((pCard,i)=>{
+         console.log(pCard.id);
+         
+         const img1=(pCard.p_name);
+         const id='#'+(pCard.id);
+          
+        return(
+          <div key={pCard.id}>
+        
+                    <div class="mShop">
+                        <p>商店</p>
+                    </div>
+                    
+                
+                    <div class="container">
+                        <div class="row">
+                            <Aside />
+                
+                            <main class="pMain col ">
+                                <div class="row justify-content-center">
+                                    <ProductCard datas={datas}/>  
+                                </div>                                
+                                <Popup datas={datas}/>
+                               
+                            </main>
+                        </div>
+                        </div>
+           </div>         
+                    )
+      })}
+     </>
   );
-}
 }
 
 export default ShopIndex

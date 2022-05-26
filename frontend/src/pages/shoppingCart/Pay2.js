@@ -133,7 +133,7 @@ function Pay2(){
                           <div>付款方式</div>
                           <div className="radioS">
                               <div className="form-check checkPart">
-                                  <input className="form-check-input" type="radio"       name="paymethod" id="cash"
+                                  <input className="form-check-input" type="radio"      name="paymethod" id="cash"
                                       value="cash" />
                                   <label label className="form-check-label" for="cash">匯款</label>
                               </div>

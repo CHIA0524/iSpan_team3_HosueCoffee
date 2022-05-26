@@ -6,7 +6,9 @@ import RecCard from './component/RecCard';
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
 // import MultipleItems from './component/MultipleItems';
-import RecSlider from './component/RecSlider';
+// import RecSlider from './component/RecSlider';
+// import RRRSlider from './component/RRRSlider';
+
 
 
 
@@ -73,27 +75,29 @@ function ProductDetail(){
 
                     </div>
 
-                    {/* <div>  */}
-                 {/* <div className="moreInfo ">
+                   
+                 <div className="moreInfo ">
                       <div className="Box">
-                        <div className="boxText">推薦商品</div>
+                        {/* <div className="boxText">推薦商品</div>
                           <div className="infoInline">
                             <div className="infoBtn">
                                 <a href=""><IoIosArrowDropleft size={40}/></a>
-                            </div>
-                            <MultipleItems/>                                     
-                            <div className="infoBtn ">
+                            </div> */}
+                            {/* <MultipleItems/>                                      */}
+                            {/* <div className="infoBtn ">
                              <a href=""><IoIosArrowDropright size={40}/></a>
                             </div>
                            </div>
-                         </div>
+                         </div> */}
                       </div>
-                    </div> */}
+                    </div> 
 
                     {/* <div className="moreInfo ">
                     <RecSlider/>   
                     </div> */}
-
+                    {/* <div className="moreInfo ">
+                    <RRRSlider/>   
+                    </div> */}
                     </main>
             </div>
         </div>
