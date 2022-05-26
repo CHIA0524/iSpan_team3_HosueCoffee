@@ -30,6 +30,7 @@ function ProductCard(){
          console.log(pCard.id);
          
          const img1=(pCard.p_name);
+         const id='#'+(pCard.id);
           
         return(
           
@@ -48,8 +49,7 @@ function ProductCard(){
                       </div>
                       <div>
                            <Link to=""> <AiOutlineHeart size={20}/></Link>
-                           
-                           <a href="#popup1">
+                           <a href={id}>
                            <AiOutlineShoppingCart size={20}/>
                            </a>
                            
