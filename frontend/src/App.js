@@ -24,6 +24,7 @@ import ProductDetail from './pages/shop/ProductDetail';
 import Pay1 from './pages/shoppingCart/Pay1';
 import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
+import RecCard from './pages/shop/component/RecCard';
 
 
 
@@ -111,6 +112,9 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
+      <Route path="/RecCard">
+          <RecCard />
+        </Route>
       <Route path="/shoppingCart/pay3">
           <Pay3 />
         </Route>

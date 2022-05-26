@@ -49,6 +49,7 @@ function Pay2(){
   const handleSubmit = (e) => {
     // 阻擋表單預設行為
     e.preventDefault()
+    // console.log(123);
 
     const formData = new FormData(e.target)
     // 獲取同名稱的checkbox
@@ -113,7 +114,14 @@ function Pay2(){
 
     
     const shipSame = ()=>{
+        const a=document.querySelector('.checkaaa').checked
+        console.log(a)
+        if(a==true){
          document.querySelector('.receiverInfo').style.display="none"
+        }else{
+            document.querySelector('.receiverInfo').style.display="block"
+
+        }
          }
    
 
@@ -133,7 +141,7 @@ function Pay2(){
                           <div>付款方式</div>
                           <div className="radioS">
                               <div className="form-check checkPart">
-                                  <input className="form-check-input" type="radio"      name="paymethod" id="cash"
+                                  <input className="form-check-input " type="radio"      name="paymethod" id="cash"
                                       value="cash" />
                                   <label label className="form-check-label" for="cash">匯款</label>
                               </div>
@@ -150,13 +158,13 @@ function Pay2(){
                               <div className="form-check  checkPart">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="store"
                                       value="storepickup" onClick={Pickup2} 
-                                    //   onChange={handleInputChange}
+                                    //   onChange={handleInputChange} 
                                       />
                                   <label className="form-check-label" for="store">自取</label>
                               </div>
                               <div className="form-check  checkPart">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="home"
-                                      value="shiptohome" onClick={Pickup1}
+                                      value="shiptohome" onClick={Pickup1} 
                                     //   onChange={handleInputChange}
                                       />
                                   <label className="form-check-label" for="home" >宅配 + 80</label>
@@ -209,7 +217,7 @@ function Pay2(){
                       <div className="pickup"  >
                            <div className="shiptohome">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox"      value=""id="flexCheckChecked" onClick={shipSame} />
+                                    <input className="form-check-input checkaaa" type="checkbox"      value=""id="flexCheckChecked" onClick={shipSame} />
                                     <label className="form-check-label" for="flexCheckChecked">
                                         收件人資料與顧客資料相同
                                     </label>

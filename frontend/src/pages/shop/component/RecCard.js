@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import '../productdetail.css';
 import ProductDetail from '../ProductDetail';
+import Slider from "react-slick";
+
 
 
 
@@ -16,16 +18,36 @@ function RecCard(){
   useEffect(()=>{
     fetchData();
   },[])
-  
+  const [width, setWidth] = useState(600);
+  const [display, setDisaplay] = useState(true);
+  // 輪播
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1
+  };
 
   return(
     <>
-       {datas.map((PCard,i)=>{
-         console.log(PCard.id);
+     <div className="moreInfo ">
+        <div className="Box">
+          <div>
+            <div
+              style={{
+                width: width + "px",
+                display: display ? "block" : "none"
+              }}
+            >
+              <Slider {...settings}>
+              {datas.map((PCard,i)=>{
+                console.log(PCard.id);
        
           
-         return(
-             <div className="pCardWrap" key={PCard.id}>
+          return(
+       
+                <div>
+                <div className="pCardWrap" key={PCard.id}>
              <div className="card recCard">
              <div class="rPackage">
                 <Link to= {`/shop/ProductDetail/${PCard.id}`}>
@@ -38,8 +60,15 @@ function RecCard(){
              </div>
              </div>
              </div>
-        )
-      })}
+                </div>
+                )
+              })}  
+              </Slider>
+            </div>
+          </div>
+          </div>
+          </div>
+       
     </>
   );
 }
