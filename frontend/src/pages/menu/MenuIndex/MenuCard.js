@@ -1,7 +1,8 @@
-import React, { useState ,useEffect} from "react";
+import React, {  useEffect} from "react";
 // import{useState,useEffect} from "react";
 import "../style.scss"
 import {AiOutlineHeart} from 'react-icons/ai';
+import { useState } from "react/cjs/react.production.min";
 
 
 
@@ -15,6 +16,12 @@ const MenuCard = (props) => {
 
     // 異步回調
     useEffect(() => {},[srtdrinkId]);
+
+
+    const [css,setcss] = useState()
+
+
+    const popupCss = "visibility: visible ;opacity: 1;"
 
     // 接收父層資料
     const {datas} = props

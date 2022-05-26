@@ -13,6 +13,7 @@ const MenuCardRwd = () => {
                         const response = await fetch('http://localhost:3002/menu');
 
                         const results = await response.json();
+                        
                                         setDatas(results);
                     }
 

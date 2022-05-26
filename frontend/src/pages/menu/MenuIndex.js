@@ -7,7 +7,7 @@ import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
 // import Pagination from "./MenuIndex/Pagination";
 // import Pagination from '@mui/material/Pagination';
-import Siled from "./MenuIndex/Siled";
+
 
 
 
@@ -26,7 +26,7 @@ const MenuIndex = () => {
 
         const fetchData = async()=>{
     
-                            const response = await fetch('http://localhost:3002/menu');
+                            const response = await fetch('http://localhost:3301/menu');
     
                             const results = await response.json();
                                             setDatas(results);
@@ -45,8 +45,8 @@ const MenuIndex = () => {
     
         // console.log(drinkQuantity)   //TODO  Counter的值傳到LIST 
     
-    
- 
+        const popupCss = "visibility: visible ;opacity: 1;"
+
 
         return( 
             <>   
@@ -59,7 +59,9 @@ const MenuIndex = () => {
                 <div className="main2">
                     <div className="mainBody">
 
-                        <MenuCard datas={datas} srtdrinkId={srtdrinkId}/>
+                        <MenuCard datas={datas} srtdrinkId={srtdrinkId} onClick={()=>{
+                document.getElementsByClassName(Popup)
+            }}/>
 
                         <MenuCardRwd datas={datas} />
 
@@ -68,7 +70,7 @@ const MenuIndex = () => {
                     </div>   
                     {/* <Pagination /> */}
 
-                    <Siled/>
+
                 </div>
             </div>
             </>   
