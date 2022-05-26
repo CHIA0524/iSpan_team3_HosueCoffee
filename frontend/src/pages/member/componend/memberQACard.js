@@ -1,11 +1,14 @@
 import React,{useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { AiFillEye } from "react-icons/ai";
-function MemberQACard(){
+function MemberQACard(props){
     const [datas,setDatas] = useState([])
+    const {aaa}=props
+    console.log(456);
+    console.log(aaa);
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/test`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/test?fk_member_id=${aaa}`)
         const results=await response.json();
         setDatas(results);
     }

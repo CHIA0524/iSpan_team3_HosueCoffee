@@ -2,12 +2,21 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from './memberAside';
 import MemberQACard from './componend/memberQACard';
 import MemberBack from './memberBack';
+import Member404 from './member404';
 import { AiFillEye } from "react-icons/ai";
 import './memberOrderList.css'
 import './popup.css'
-function MemberQAList(){
+import { useState } from 'react';
+function MemberQAList(props){
+  const{auth}=props;
+  const{thismemberid}=props;
+  const aaa=thismemberid;
+ 
+  console.log(123);
+  console.log(thismemberid);
     return(
         <>
+        {auth? <div>
         <MemberBack/>
         <div className="container">
       <div className="row">
@@ -34,7 +43,7 @@ function MemberQAList(){
                             <th className="col-3None" scope="col" >更新時間</th>
                             <th scope="col">查看</th>
                           </tr>
-                              <MemberQACard/>
+                              <MemberQACard aaa={aaa}/>
                       </table>
                       <div className="QAbtn-M">
                         <a href="#popupWrap" className="popupOpen">
@@ -67,8 +76,11 @@ function MemberQAList(){
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src='./popup.js'></script>
+        </div>:<Member404/>}
+        
+    
         </>
     )
-
+  
 }
 export default MemberQAList

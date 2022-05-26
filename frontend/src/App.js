@@ -25,9 +25,11 @@ import MemberQAcheck from './pages/member/memberQAcheck';
 import Navbar from './pages/component/Navbar';
 import Footer from './pages/component/Footer';
 import React from 'react';
+import MemberQACard from './pages/member/componend/memberQACard';
 
 function App() {
   const [auth,setAuth]=useState(false)
+  const [thismemberid,setThismemberid]=useState()
   return (
     <Router>
       
@@ -49,47 +51,47 @@ function App() {
         
 
         <Route  path="/member/QAcheck/:id">
-        <MemberQAcheck auth={auth}/>
+        <MemberQAcheck auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/QAList">
-        <MemberQAList/>
+        <MemberQAList auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/DrinkO">
-        <MemberDrinkO/>
+        <MemberDrinkO auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/DrinkOList">
-        <MemberDrinkOList/>
+        <MemberDrinkOList auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/Favorite">
-        <MemberFavorite/>
+        <MemberFavorite auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/Order">
-        <MemberOrder/>
+        <MemberOrder auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/OrderList">
-        <MemberOrderList/>
+        <MemberOrderList auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/member/profileEdit">
-        <MemberprofileEdit/>
+        <MemberprofileEdit auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route path="/member/Profile">
-        <Memberprofile/>
+        <Memberprofile auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route path="/member/Password">
-        <MemberPassword/>
+        <MemberPassword auth={auth} thismemberid={thismemberid}/>
         </Route>
 
         <Route  path="/memberLogin">
-        <MemberLogin setAuth={setAuth} auth={auth}/>
+        <MemberLogin setAuth={setAuth} auth={auth} setThismemberid={setThismemberid} thismemberid={thismemberid}/>
         </Route>
         
 

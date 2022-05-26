@@ -3,11 +3,13 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
+import Welcome from './memberWelcom';
 function MemberLogin(props){
     const [member_account, setmember_account] = useState("");
     const [nameMessage, setNameMessage] = useState("");
     const [member_password, setmember_password] = useState("");
     const {auth,setAuth} = props;  
+    const {thismemberid,setThismemberid} = props;  
     // const [datas,setDatas] = useState([])
 
    
@@ -43,6 +45,7 @@ function MemberLogin(props){
             // alert(results.member_id);
             alert('成功登入');
             setAuth(!auth)
+            setThismemberid(results.member_id)
             // window.location.assign("http://localhost:3000/member/QAcheck/1");
         }else{
             alert('帳號密碼錯誤');
@@ -95,11 +98,12 @@ function MemberLogin(props){
       }
 
   
-  
+    //   
     return(
       
         <>
-            <div className="pmain">
+         {auth ? <Link to="/member/Profile"></Link>:<div>
+         <div className="pmain">
                 <div className="row">
                     <div className="col ">
                         <div className="memberLoginMain">
@@ -144,7 +148,8 @@ function MemberLogin(props){
                                             }}>{auth?"登出":"登入"}</button> */}
                                             
                                             {/* <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link> */}
-                                           <button type='button' onClick={loginBTN}>&ensp; {auth ? '已登入':'登入'}&ensp;</button>
+                                           {/* <button type='button' onClick={loginBTN}>&ensp; {auth ? '已登入':'登入'}&ensp;</button> */}
+                                           <button type='button' onClick={loginBTN}>&ensp;登入&ensp;</button>
                                             </form>
                                             <hr></hr>
                                             <br></br>
@@ -189,13 +194,13 @@ function MemberLogin(props){
                     </div>
                     <div className="loginInput loginInputL">
                     <form>
-                    <input type="text" size="25" placeholder="&ensp;會員帳號"></input>
+                    <input type="text" size="25" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} onBlur={handleCheckName}></input>
                     <br></br>
-                    <input type="password" size="25" placeholder="&ensp;會員密碼"></input>
+                    <input type="password" size="25" placeholder="&ensp;會員密碼" value={member_password} onChange={handleValueChange2}></input>
                     <br></br>
                     <div className="mLcolor fgaa" onClick={fgM}>忘記密碼</div>
                     <br></br>
-                    <Link to="/profile"><button>&ensp;登入&ensp;</button></Link>
+                    <button type='button' onClick={loginBTN}>&ensp;登入&ensp;</button>
                     </form>
                     <div className="loginM-F">
                         <div className="lmLogo"><i className="fa-brands fa-google"></i></div>
@@ -232,6 +237,8 @@ function MemberLogin(props){
                     </form>
                 </div> 
                 </div>
+         </div>}
+            
             
         </>
     )

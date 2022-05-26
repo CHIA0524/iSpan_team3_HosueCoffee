@@ -2,21 +2,23 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import MemberAside from "./memberAside";
 import './memberprofile.css';
-function Memberprofile(){
+function Memberprofile(props){
     const [datas,setDatas] = useState([])
-    const id=10002
+    const {thismemberid}=props
     const fetchData=async()=>{
-        const response = await fetch(`http://localhost:3001/profile/`+id)
+        console.log(process.env.REACT_APP_API_URL);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/profile?member_id=${thismemberid}`)
         const results=await response.json();
         setDatas(results);
     }
+
     useEffect(()=>{
         fetchData();
     },[])
     
-
-    
-    
+    if(datas.length >0 ){
+        const profile=datas[0]
+        const{member_account,member_name,member_nick,member_birth,member_phone,member_mail,member_address}=profile;
     return(
         <>
         <div className="container">
@@ -24,11 +26,9 @@ function Memberprofile(){
            <MemberAside/>
       
             <main className="pMain row col">
-        {datas.length> 0 && datas.map((category,i)=>{    
-            const{member_account,member_name,member_nick,member_birth,member_phone,member_mail,member_address}=category;
-            console.log(category);
-            return(
-                <>
+        
+            
+                
             <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhoto"><img   src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
@@ -48,7 +48,7 @@ function Memberprofile(){
                         </div>
                         <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;{member_name}</div>
                         <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;{member_nick}</div>
-                        <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;{member_birth}</div>
+                        <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;{member_birth.slice(0,10)}</div>
                         <div className="proRight">手機號碼:&emsp;&emsp; {member_phone}</div>
                         <div className="proRight">電子信箱:&emsp;&emsp; {member_mail}</div>
                         <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; {member_address} </div>
@@ -62,10 +62,10 @@ function Memberprofile(){
                     </Link>
                
                 </div>
-                </>
-            )
+                
             
-        })}
+            
+        
                 
             </main> 
         </div>   
@@ -74,6 +74,7 @@ function Memberprofile(){
         <br></br>
         </>
     )
+    }
 
 }
 

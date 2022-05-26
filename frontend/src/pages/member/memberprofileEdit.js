@@ -1,9 +1,27 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { useState,useEffect } from 'react';
+
 import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
 
-function MemberprofileEdit(){
+function MemberprofileEdit(props){
+  const [datas,setDatas] = useState([])
+  const {thismemberid}=props
+  const fetchData=async()=>{
+      console.log(process.env.REACT_APP_API_URL);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile?member_id=${thismemberid}`)
+      const results=await response.json();
+      setDatas(results);
+  }
+
+  useEffect(()=>{
+      fetchData();
+  },[])
+  
+  if(datas.length >0 ){
+      const profile=datas[0]
+      const{member_account,member_name,member_nick,member_birth,member_phone,member_mail,member_address}=profile;
     return(
         <>
     
@@ -34,16 +52,16 @@ function MemberprofileEdit(){
                                 <div className="changePhoto">修改照片</div>
                             </div>
                             <div className="memberNumber">
-                                <div >Jack123</div>
+                                <div>{member_account}</div>
                             </div>
                         </div>
                         <div className="col-3None">
-                            <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text"></input></div>
-                            <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text"></input></div>
-                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="text"></input></div>
-                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text"></input></div>
-                            <div className="proRight">電子信箱:&emsp;&emsp; <input type="text"></input></div>
-                            <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text"></input> </div>
+                            <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text" value={member_name}></input></div>
+                            <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text" value={member_nick}></input></div>
+                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="text" value={member_birth.slice(0,10)}></input></div>
+                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={member_phone}></input></div>
+                            <div className="proRight">電子信箱:&emsp;&emsp; <input type="text" value={member_mail}></input></div>
+                            <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text" value={member_address}></input> </div>
                         </div>
                         <div className="col-wn">
                           <div className="proRight">
@@ -98,5 +116,6 @@ function MemberprofileEdit(){
     
     </>
     )
+  }
 }
 export default MemberprofileEdit;
