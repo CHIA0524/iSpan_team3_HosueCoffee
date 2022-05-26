@@ -5,6 +5,7 @@ import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberQAcheck.css'
  function MemberQAcheck(props){
+   const{auth}=props
   const params = useParams()
    const [datas,setDatas] = useState([])
 
@@ -35,6 +36,8 @@ import './memberQAcheck.css'
 
     return(
         <>
+        <h1>users</h1>
+        {auth ? '已登入':'尚未登入'}
                <MemberBack/>
 
            

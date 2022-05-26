@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { AiFillEye } from "react-icons/ai";
-function MemberQACard(props){
+function MemberQACard(){
     const [datas,setDatas] = useState([])
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);

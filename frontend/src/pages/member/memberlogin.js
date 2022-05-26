@@ -1,11 +1,15 @@
 import React,{useEffect,useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
-function MemberLogin(){
+function MemberLogin(props){
     const [member_account, setmember_account] = useState("");
     const [nameMessage, setNameMessage] = useState("");
     const [member_password, setmember_password] = useState("");
+    const {auth,setAuth} = props;  
+    // const [datas,setDatas] = useState([])
+
    
     const handleValueChange=(e)=>{
       setmember_account(e.target.value);
@@ -17,7 +21,6 @@ function MemberLogin(){
       const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${member_account}`);
       console.log(process.env.REACT_APP_API_URL);
       const results = await response.json();
-      console.log(results)
       if(results.total === 0){
           setNameMessage("帳號錯誤");
       }else{
@@ -26,16 +29,27 @@ function MemberLogin(){
 
     }
     const loginBTN=async()=>{
-        const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}?member_password=${member_password}`);
+        const loginTF = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginTF/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
         
-        const results = await login.json();
-        console.log(results)
-        if(results.total===1){
+       
+        
+        const resultsTF = await loginTF.json();
+        console.log(resultsTF);
+        // console.log(results);
+        if(resultsTF.total===1){
+            const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+            const results = await login.json();
+            console.log(results);
+            // alert(results.member_id);
             alert('成功登入');
-            window.location.assign("http://localhost:3000/member/Profile");
+            setAuth(!auth)
+            // window.location.assign("http://localhost:3000/member/QAcheck/1");
         }else{
             alert('帳號密碼錯誤');
+            // setAuth(!auth)
+
         }
+
     }
     
 
@@ -124,8 +138,13 @@ function MemberLogin(){
                                             <div className="col-2"></div>
                                             </div>
                                             <br></br>
+                                            {/* <button  onClick={()=>{
+                                                setAuth(!auth)
+
+                                            }}>{auth?"登出":"登入"}</button> */}
+                                            
                                             {/* <Link to="/member/Profile"><button >&ensp;登入&ensp;</button></Link> */}
-                                           <button onClick={loginBTN}>&ensp;登入&ensp;</button>
+                                           <button type='button' onClick={loginBTN}>&ensp; {auth ? '已登入':'登入'}&ensp;</button>
                                             </form>
                                             <hr></hr>
                                             <br></br>
