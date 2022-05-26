@@ -12,7 +12,7 @@ const OnlineCheckPage2 = () => {
     
 
 
-    return (
+    return (    
 
 
     <>

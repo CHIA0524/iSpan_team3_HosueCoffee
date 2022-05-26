@@ -10,10 +10,6 @@ const Counter = (props) => {
 
     const {setdrinkCounter}  = props
 
-
-    
-
-
     let buttonsub = null
 
     if(quantity > 1){

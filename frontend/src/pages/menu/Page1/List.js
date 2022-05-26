@@ -24,9 +24,9 @@ const List = (props) => {
     //     content:'',
     // }
     // ]
-    
+        const  value = localStorage.settings
 
-
+    console.log(value)
     return(
     <div className="list">
             <div className="d-flex align-items-center justify-content-between">

@@ -7,7 +7,7 @@ import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
 // import Pagination from "./MenuIndex/Pagination";
 // import Pagination from '@mui/material/Pagination';
-
+import Siled from "./MenuIndex/Siled";
 
 
 
@@ -18,76 +18,70 @@ import Popup from "./MenuIndex/Popup";
 
 
 const MenuIndex = () => {
+        // 抓到點擊菜單品項的id
+        const [drinkId, srtdrinkId] = useState()
 
-//    <div className="scrollBody">
-//     <div className="asd">
-//         <div className="scroll">
-//             <span>全部</span>
-//         </div>
-//         <div  className="scroll">
-//             <span>全部</span>
-//         </div>
-//         <div className="scroll">
-//             <span>全部</span>
-//         </div>
-//         <div className="scroll">
-//             <span>全部</span>
-//         </div>
-//         <div className="scroll">
-//             <span>全部</span>
-//         </div>
-//     </div>
+        //從後端抓資料
+        const [datas, setDatas ] = useState([])
+
+        const fetchData = async()=>{
     
-// </div>
-        //     const [popup, setpopup] = useState() 
+                            const response = await fetch('http://localhost:3002/menu');
+    
+                            const results = await response.json();
+                                            setDatas(results);
+                        }
+    
+        useEffect(()=>{
+    
+            fetchData();
+    
+        },[])
+    
+        
+        // const [drinkCounter, setdrinkCounter] = useState()
+    
+        // const drinkQuantity = drinkCounter
+    
+        // console.log(drinkQuantity)   //TODO  Counter的值傳到LIST 
+    
+    
+ 
 
-        // console.log(popup)
-return( 
+        return( 
+            <>   
 
-
+            
             <div className="bodyMenu">
+
                 <MenuAside/>
                 
                 <div className="main2">
                     <div className="mainBody">
 
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
+                        <MenuCard datas={datas} srtdrinkId={srtdrinkId}/>
 
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
+                        <MenuCardRwd datas={datas} />
 
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
-
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
-                        
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
-
-                        <MenuCard/>
-                        <MenuCardRwd />
-                        <Popup/>
+                        <Popup datas={datas}  drinkId={drinkId}/>
 
                     </div>   
                     {/* <Pagination /> */}
+
+                    <Siled/>
                 </div>
             </div>
+            </>   
+        )
 
 
 
 
-    
 
-)
-    
-}
+
+        }
+
+
 
 
 export default MenuIndex

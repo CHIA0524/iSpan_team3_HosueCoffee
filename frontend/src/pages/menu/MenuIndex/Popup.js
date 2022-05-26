@@ -9,64 +9,34 @@ import Counter from "../component/Counter";
 
 
 const Popup = (props) => {
-    
-            //從後端抓資料
-    const [datas, setDatas ] = useState([])
 
-    const fetchData = async()=>{
+        // 接收父層資料
+        const {datas} = props
 
-                        const response = await fetch('http://localhost:3002/menu');
+        const{drinkId} = props
 
-                        const results = await response.json();
-                                        setDatas(results);
-                    }
+        console.log(drinkId)   //TODO  Counter的值傳到LIST 
 
-    useEffect(()=>{
+        const [drinkCounter, setdrinkCounter] = useState() 
 
-        fetchData();
-
-    },[])
-
-    
-    const [drinkCounter, setdrinkCounter] = useState()
-
-    
-
-
-    const price = drinkCounter
-
-    console.log(price)
-    return(
-
-        <>
-            {/* 將資料存成變數 */}
-        {datas.map((mu,i)=>{
-
-            let drinkMame =(mu.drink_name);
-
-            let menuContent = (mu.content);
-
-            // 用商品id設為div的id
-            let id = (mu.id)
-
-
+        // console.log(datas);
             
             return(
 
-                <div  id={id}  className="overlay" key={id}>
+                <div  className="overlay" >
                     <div className="popup">
                         <a className="close" href="/menu">&times;</a>
                         <div className="content">
                             <div className="popoimg">
-                                <img src={require('./img/'+drinkMame+'.jpg')}alt=""/>
+                                <img src=""alt=""/>
                             </div>
                             <div className="popupNameTop">
                                 <div className="popupName">
-                                    <h2>{drinkMame}</h2>
+                                    <h2>123</h2>
                                 </div>
                                 <div className="popotext">
                                     <span>
-                                    {menuContent}
+                                
                                     </span>
                                 </div>
                                 <div className="content1">
@@ -85,17 +55,10 @@ const Popup = (props) => {
                     </div>
                 </div>
 
+                )
 
 
-)
-}
 
-
-)}
-
-
-</>
-
-);}
+;}
 
 export default Popup

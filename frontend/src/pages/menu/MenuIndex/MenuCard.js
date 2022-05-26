@@ -1,5 +1,5 @@
-import React from "react";
-import{useState,useEffect} from "react";
+import React, { useState ,useEffect} from "react";
+// import{useState,useEffect} from "react";
 import "../style.scss"
 import {AiOutlineHeart} from 'react-icons/ai';
 
@@ -8,66 +8,55 @@ import {AiOutlineHeart} from 'react-icons/ai';
 
 
 
-const MenuCard = () => {
+const MenuCard = (props) => {
 
-        // 從後端抓資料
-    const [datas, setDatas ] = useState([]);
+    // 傳遞點擊id
+    const {srtdrinkId} = props
 
-    const fetchData = async()=>{
+    // 異步回調
+    useEffect(() => {},[srtdrinkId]);
 
-                        const response = await fetch('http://localhost:3002/menu');
-
-                        const results = await response.json();
-                                        setDatas(results);
-                    }
-
-    useEffect(()=>{
-
-        fetchData();
-
-    },[]);
-
+    // 接收父層資料
+    const {datas} = props
 
     return(
-
-        <>
-            {/* 後端抓出來的資料存成變數 */}
+    <>
+        {/* 印出資料 */}
         {datas.map((mu,i)=>{
 
-            let img1 =(mu.drink_name);
+        const img1 = (mu.drink_name)
 
-            let price = (mu.price);
-            // 抓到popoup視窗的id
-            let id = `#`+(mu.id)
+        return(
 
-    return(
-
-        <div className="card" key={i}>
-            <a href={id}>
+        <div 
+            className="card" 
+            type="button" 
+            key={mu.id}  
+            onClick={()=>{
+                srtdrinkId((mu.id))
+            }}>
+            <div>
                 <div className="">
                     <img src={require('./img/'+ img1 +'.jpg')} alt=""/>
                 </div>
-                <div className="cardpading">
+                <div className="cardpa">
                     <span>{mu.drink_name}</span>
-                </div>
-                <div className="d-flex justify-content-between cardpading">
-                    <span className="d-flex align-items-center">{'$'+price}</span>
                     <span>
                         <AiOutlineHeart/>
                     </span>
                 </div>
-            </a>
+                <div className="d-flex justify-content-between cardpading">
+                    <span className="d-flex align-items-center">${mu.price}</span>
+                </div>
+            </div>    
         </div>
+                )
+                
+                        })}
+    </>   
+        )    
+}
 
-            )}
-
-
-        )}
-
-
-        </>
-
-);}
 
 
 
