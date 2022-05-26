@@ -6,11 +6,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../img/Article00.svg);
+    
 }
 
 
     
-.title{
+.title h1{
     font-size: 40px;
     font-weight:bolder;
 
@@ -167,7 +168,7 @@ justify-content: center;
 
 
     
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
     .makeLinkDown{
         display: flex;
         flex-direction:column-reverse;

@@ -24,8 +24,6 @@
     <!---------- custom style ---------->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/blogBanner.css">
-    <link rel="stylesheet" href="../css/blogNavbar.css">
-    <link rel="stylesheet" href="../css/blogCard.css">
 
 </head>
 
@@ -98,24 +96,20 @@
       </header>
 
 
+    <section>
+        <div class="blogBanner"></div>
 
-    <div class="blogBanner">
-    </div>
+
+    
+        <div class="bannerWord">咖啡手札</div>
+   
 
 
-    <br/>
-    <br/>
-<div class="container">
-    <div class="bannerWord">咖啡手札</div>
-</div>
-<br/>
-<br/>
-<br/>
 
-    <div class="container">
+
         <!-- 行動裝置板選單 -->
-        <div class="blogType">
-            <select class="form-select form-select-sm typeSelect">
+        <div class="blogType container">
+            <select class="form-select typeSelect">
                 <option selected>文章類別</option>
                 <option value="1">咖啡篇</option>
                 <option value="2">咖啡豆篇</option>
@@ -127,57 +121,45 @@
         </div>
 
 
+        <div class="blogNav justify-content">
+            <ul>
+                <li class="navItem">
+                    <a class="navLink active" aria-current="page" href="#">
+                        <h3>咖啡篇</h3>
+                        <h3>coffee</h3>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a class="navLink" href="#">
+                        <h3>咖啡豆篇</h3>
+                        <h3>coffee bean</h3>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a class="navLink" href="#">
+                        <h3>沖煮篇</h3>
+                        <h3>pour over</h3>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a class="navLink" href="#">
+                        <h3>名人專欄篇</h3>
+                        <h3>celebrity</h3>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a class="navLink" href="#">
+                        <h3>好物分享篇</h3>
+                        <h3>share</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-        <ul class="blogNav justify-content">
-            <li class="navItem">
-                <a class="navLink active" aria-current="page" href="#">
-                    <h3>咖啡篇</h3>
-                    <h3>coffee</h3>
-                </a>
-            </li>
-            <li class="navItem">
-                <a class="navLink" href="#">
-                    <h3>咖啡豆篇</h3>
-                    <h3>coffee bean</h3>
-                </a>
-            </li>
-            <li class="navItem">
-                <a class="navLink" href="#">
-                    <h3>沖煮篇</h3>
-                    <h3>pour over</h3>
-                </a>
-            </li>
-            <li class="navItem">
-                <a class="navLink" href="#">
-                    <h3>名人專欄篇</h3>
-                    <h3>celebrity</h3>
-                </a>
-            </li>
-            <li class="navItem">
-                <a class="navLink" href="#">
-                    <h3>好物分享篇</h3>
-                    <h3>share</h3>
-                </a>
-            </li>
-        </ul>
-    </div>
 
-    <br/>
-    <br/>
 
-    <!-- <nav class="blog-nav">
-    <ul class="d-flex">
-    <li><a href=""><h3>咖啡篇</h3></a></li>
-    <li><a href=""><h3>咖啡豆篇</h3></a></li>
-    <li><a href=""><h3>沖煮篇</h3></a></li>
-    <li><a href=""><h3>名人專欄篇</h3></a></li>
-    <li><a href=""><h3>好物分享篇</h3></a></li>
-    </ul>
-</nav> -->
-
-    <div class="cardZone">
-        <div class="container">
-            <div class="row row-cols-md-2">
+        <div class="cardZone container">
+            <div class="row  row-cols-1 row-cols-md-2">
                 <div class="col-lg-4">
                     <div class="cardBorder">
                         <div class="cardImg"></div>
@@ -312,15 +294,12 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    </section>
+
+
+
     <!---------- footer start ---------->
     <footer class="d-flex coffeeFooter">
         <div class="d-flex">
