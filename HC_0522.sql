@@ -126,7 +126,7 @@ VALUES
 ('10003','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
 ('10004','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
 ('10005','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('100006','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('10006','其他','假世界冠軍','Max不是真的世界冠軍',''),
 ('10007','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
 ('10008','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
 ('10009','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
@@ -985,7 +985,8 @@ iDrip – 錐形濾掛咖啡包
 不亞於手沖咖啡的濾掛咖啡包，有了世界冠軍咖啡大師的把關、iDrip 的獨家設計、以及各界人士的強力推薦，更讓 iDrip 濾掛咖啡包成為生活新品味，隨時隨地都能擁有一杯完美的精品好咖啡！' ,'./img/5share50001.jpg');
 
 
-
+SELECT * FROM `user_ask` where fk_member_id=10001;
+select `member_account`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_mail`,`member_address`from members join members_data on members.member_id = members_data.md_member_id where member_id= 10001;
 -- 文章照片
 -- CREATE TABLE `blog_photos`(
 --   `id` INT AUTO_INCREMENT PRIMARY KEY, 
