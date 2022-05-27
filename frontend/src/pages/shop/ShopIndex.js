@@ -8,7 +8,13 @@ import Popup from './component/Popup';
 
 
 function ShopIndex(){
-    const[amount, setAmount]= useState(1)
+  //抓到點擊商品的id
+const [productId, setProductId] = useState(2)
+console.log(productId)
+//控制ＰＯＰＵＰ的ＣＳＳ
+const [css, setcss] = useState()
+
+const[amount, setAmount]= useState(1)
 
      // 向後端請求資料
      const [datas, setDatas ] = useState([])
@@ -45,9 +51,9 @@ function ShopIndex(){
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
                                 </div>                                
-                                <Popup datas={datas}/>
+                                <Popup datas={datas} productId={productId} setcss={setcss} css={css}/>
                                
                             </main>
                         </div>

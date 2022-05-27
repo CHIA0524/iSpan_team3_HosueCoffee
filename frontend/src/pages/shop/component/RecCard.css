@@ -37,7 +37,7 @@
 .slick-prev:before,
 .slick-next:before {
   font-family: 'slick';
-  font-size: 20px;
+  font-size: 40px;
   line-height: 1;
 
   opacity: 0.75;
@@ -47,12 +47,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-prev {
-  padding-right: 2rem;
+.slick-prev:after {
+  padding-right: 3rem;
 }
 
-.slick-next {
-  padding-left: 2rem;
+.slick-next:before {
+  padding-left: 1rem;
 }
 
 .slick-dots {

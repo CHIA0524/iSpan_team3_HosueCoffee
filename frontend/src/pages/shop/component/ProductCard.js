@@ -8,17 +8,17 @@ import ProductDetail from '../ProductDetail';
 
 
 function ProductCard(props){
-    const {datas} = props;
+    const {datas, setcss, setProductId,} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
+   
     
     return(
       <>
        {datas.map((pCard,i)=>{
-         console.log(pCard.id);
+         {/* console.log(pCard.id); */}
          
          const img1=(pCard.p_name);
          const id='#'+(pCard.id);
-          
         return(
           
           <div className="pCardWrap" key={pCard.id}>
@@ -34,11 +34,18 @@ function ProductCard(props){
                      <div >
                           <p className="pText">{pCard.p_name}</p>
                       </div>
-                      <div>
-                           <Link to=""> <AiOutlineHeart size={23}/></Link>
-                           <a href={id}>
-                           <AiOutlineShoppingCart size={23}/>
-                           </a>
+                      <div className="pIcon">
+                           <div to=""> <AiOutlineHeart size={24}/></div>
+                           
+                           
+                           <div className="d-flex shoppingCart" key={pCard.id}
+                           type="button" onClick={() => {
+                             setProductId(pCard.id)
+                            setcss({visibility: 'visible' , opacity : '1'})
+                           }}
+                           >
+                           <AiOutlineShoppingCart size={24}  />
+                           </div>
                            
                       </div>
                       </div>

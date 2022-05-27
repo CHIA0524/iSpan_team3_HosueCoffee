@@ -151,8 +151,17 @@
 .popBoxContent {
   display: flex;
 }
-.imgPart {
-  /* width: 100%; */
+.PimgPart {
+  width: 376px;
+  height: 400px;
+}
+.PimgPart img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .popContent {
   display: flex;
@@ -206,11 +215,13 @@
 
 @media screen and (max-width: 1200px) {
   .popup {
+    display: flex;
+    flex-direction: row;
     margin: 10rem auto;
     width: 300px;
   }
   .popBoxContent {
-    width: 90%;
+    /* width: 90%; */
     display: inline-block;
     margin-left: 1rem;
   }
@@ -222,8 +233,13 @@
     margin-left: 0;
     margin-top: 2rem;
   }
-  .imgPart img {
+  .PimgPart {
+    width: 250px;
+    height: 150px;
+  }
+  .PimgPart img {
     width: 90%;
+    height: 90%;
   }
   .popAddCart {
     margin-left: 1rem;

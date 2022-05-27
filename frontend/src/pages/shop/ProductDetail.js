@@ -32,7 +32,7 @@ function ProductDetail(props){
     }
     useEffect(()=>{
       fetchData();
-    },[])
+    },[params.id])
         
     if(datas.length>0){
       console.log(datas[0]);

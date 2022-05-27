@@ -11,6 +11,9 @@ import './RecCard.css';
 function RecCard(){
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
+  console.log('-------');
+  console.log(datas);
+   console.log('-------');
   const fetchData = async()=>{
     const response = await fetch('http://localhost:3001/shop');
     const results = await response.json();
@@ -22,7 +25,7 @@ function RecCard(){
 
   
   // 輪播
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(750);
   const [display, setDisaplay] = useState(true);
   const settings = {
     dots: true,
@@ -55,7 +58,7 @@ function RecCard(){
                              <div className="pCardWrap" key={PCard.id}>
                                 <div className="card recCard">
                                    <div class="rPackage">
-                                     <Link to= {`/shop/ProductDetail/${PCard.id}`}>
+                                    <Link to= {`/shop/ProductDetail/${PCard.id}`}>
                                      <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt=""></img>
                                      </Link>
                                     </div>
