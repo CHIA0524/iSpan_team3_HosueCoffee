@@ -1,11 +1,47 @@
 -- drop database team3;
-create schema team3;
-use team3;
+create schema HouseCoffee;
+use HouseCoffee;
 
 
 
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者
+CREATE TABLE `members`(
+	`member_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `member_account` varchar(20) NOT NULL UNIQUE,
+    `member_password` varchar(20) NOT NULL,
+    `member_mail` varchar(255) NOT NULL UNIQUE,
+    `member_start` TIMESTAMP DEFAULT NOW()
+);
+ALTER TABLE `members` AUTO_INCREMENT=10001;
+INSERT INTO `members`(`member_account`,`member_password`,`member_mail`)
+VALUE
+('LH44','abc123456','LH44@gmail.com.tw'),
+('VB77','abc123456','VB77@gmail.com.tw'),
+('GR63','abc123456','GR63@gmail.com.tw'),
+('CL16','abc123456','CL16@gmail.com.tw'),
+('CS55','abc123456','CS55@gmail.com.tw'),
+('MS47','abc123456','MS47@gmail.com.tw'),
+('LN04','abc123456','LN04@gmail.com.tw'),
+('DR03','abc123456','DR03@gmail.com.tw'),
+('NR06','abc123456','NR06@gmail.com.tw');
+
+CREATE TABLE `members_data`(
+	`md_member_id` INT PRIMARY KEY ,
+	`member_name` varchar(50) not null,
+    `member_nick` varchar(50),
+    `member_birth` date not null,
+    `member_phone` VARCHAR(10) NOT NULL UNIQUE,
+    `member_address` varchar(200) Not Null,
+    `member_photo` varchar(200),
+    foreign KEY (`md_member_id`) references members(member_id)
+);
+insert into `members_data`(`md_member_id`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_address`,`member_photo`)
+value
+('10001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥',''),
+('10002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭',''),
+('10003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','');
+
 CREATE TABLE `users`(
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
@@ -60,41 +96,41 @@ VALUES
 -- 會員提問
 CREATE TABLE `user_ask`(
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `fk_user_id` INT NOT NULL,
+  `fk_member_id` INT NOT NULL,
+  `ask_type` VARCHAR(10) Not Null,
   `main` VARCHAR(25) NOT NULL,
   `ask` VARCHAR(200) NOT NULL,
   `ans` VARCHAR(200),
   `CREATEd_at` TIMESTAMP DEFAULT NOW(),
-  foreign KEY (`fk_user_id`) references users(id)
+  foreign KEY (`fk_member_id`) references members(member_id)
 );
-INSERT INTO `user_ask`(`fk_user_id`, `main`,`ask`,`ans`)
+INSERT INTO `user_ask`(`fk_member_id`,`ask_type`, `main`,`ask`,`ans`)
 VALUES
-('1','買一送一','請問買一送一要同品項嗎?',''),
-('1','運費','請問合計運費會因為重量增加而改變運費，還是單次運費就是固定的呢?','不會喔，單筆若一起寄送，運費都是固定的，不會因為重量增加而改變，但有可能體積超出寄送規定，而分開寄出，若發生此問題，客服會主動向您聯絡'),
-('2','大小包','咖啡豆有分大小包嗎?',''),
-('3','我強不強','我是不是最強的車手?','是，你是'),
-('4','車隊問題','今年會在哪個車隊','Mercedes-AMG Petronas F1 Team'),
-('5','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('6','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('7','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('8','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('9','假世界冠軍','Max不是的世界冠軍','沒錯他不是'),
-('10','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('11','假世界冠軍','Max不是真的世界冠軍',''),
-('12','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('13','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('14','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('15','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('16','假世界冠軍','Max不是真的世界冠軍',''),
-('17','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('18','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('19','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
-('20','假世界冠軍','Max不是真的世界冠軍',''),
-('21','最多世界冠軍','我爸是不是擁有最多世界冠軍的車手',''),
-('22','打折?','世界冠軍買咖啡有打折嗎?',''),
-('23','代言問題','我想代言你們品牌方便嗎?',''),
-('24','適用','有賣試用包嗎?','');
-
+('10001','優惠活動','買一送一','請問買一送一要同品項嗎?',''),
+('10001','運費相關','運費','請問合計運費會因為重量增加而改變運費，還是單次運費就是固定的呢?','不會喔，單筆若一起寄送，運費都是固定的，不會因為重量增加而改變，但有可能體積超出寄送規定，而分開寄出，若發生此問題，客服會主動向您聯絡'),
+('10002','商品相關','大小包','咖啡豆有分大小包嗎?',''),
+('10003','其他','我強不強','我是不是最強的車手?','是，你是'),
+('10004','其他','車隊問題','今年會在哪個車隊','Mercedes-AMG Petronas F1 Team'),
+('10005','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10006','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10007','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10008','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10009','其他','假世界冠軍','Max不是的世界冠軍','沒錯他不是'),
+('10002','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10003','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('10002','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10003','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10004','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10005','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10006','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('10007','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10008','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10009','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('10002','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('10001','其他','最多世界冠軍','我爸是不是擁有最多世界冠軍的車手',''),
+('10002','其他','打折?','世界冠軍買咖啡有打折嗎?',''),
+('10003','其他','代言問題','我想代言你們品牌方便嗎?',''),
+('10004','其他','適用','有賣試用包嗎?','');
 
 
 --------------------------------------------------------------------------------------------------------------------------------
