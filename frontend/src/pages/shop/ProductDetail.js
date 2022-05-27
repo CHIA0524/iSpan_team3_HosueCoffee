@@ -13,8 +13,13 @@ import Slider from "react-slick";
 
 
 
-function ProductDetail(){
-  
+function ProductDetail(props){
+  // 數量變數
+  const[amount, setAmount]= useState(1)
+ //   const{setfinalTotal} = props
+ // 計算總數量
+  const {setsubTotal  }= props
+
   const params=useParams();
   //抓網址後的id
   console.log(params)
@@ -60,9 +65,15 @@ function ProductDetail(){
                             <br></br>
                             <p>數量</p>
                             <div className="addNum1">
-                                <a href=""><button type="button" className="buttonNum" >-</button></a>
-                                <input className="num" type="text" id="text" value="1" />
-                                <a href=""><button type="button" className="buttonNum" >+</button></a>
+                            <button onClick={() =>{if(amount>1){
+                               setAmount(amount - 1)
+                               setsubTotal(amount - 1)
+                               }}}>-</button>
+                                <div className="NTotal">{amount}</div>
+                                <button className="NumR" onClick={() =>{
+                                setAmount(amount + 1)
+                                setsubTotal(amount + 1)}
+                                }>+</button>
                             </div>
                             <br></br>
 

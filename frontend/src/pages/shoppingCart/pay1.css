@@ -164,7 +164,8 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 1rem;
-    /* padding-top: 1rem; */
+    padding-top: 0.5rem;
+    margin-right: -0.5rem;
   }
   .mPayInfoContent .box {
     margin: 3rem auto 0;
@@ -228,7 +229,7 @@
 
   .dInput input {
     height: 2rem;
-    width: 29rem;
+    width: 28rem;
     border-radius: 5px;
     border: 1px solid #e4d2a3;
   }
@@ -236,7 +237,7 @@
     width: 2rem;
     height: 2rem;
     line-height: 1rem;
-    padding-top: 10px;
+    padding-top: 1px;
     background: #e4d2a3;
     border: transparent;
     color: white;
@@ -248,8 +249,14 @@
   }
   .dInput input {
     height: 2rem;
-    width: 19.5rem;
+    width: 13rem;
     border-radius: 5px;
     border: 1px solid #e4d2a3;
+  }
+  .mPName p {
+    font-size: 15px;
+  }
+  .mAddNum {
+    width: 50%;
   }
 }

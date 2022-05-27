@@ -11,6 +11,7 @@ import Pay3 from './Pay3';
 
 function Pay2(){
    const [fields, setFields] = useState({
+    paymethod: '',
     name: '',
     phone: '',
     email: '',
@@ -22,6 +23,7 @@ function Pay2(){
   })
  // 記錄欄位錯誤訊自用的狀態
  const [fieldErrors, setFieldErrors] = useState({
+    paymethod: '',
     name: '',
     phone: '',
     email: '',
@@ -100,16 +102,16 @@ function Pay2(){
     setFieldErrors(newFieldErrors)
   }
   
-    //自取匯款選擇
-    const Pickup1 = ()=>{
-         document.querySelector('.shiptohome').style.display="block"
-         document.querySelector('.storepick').style.display="none"
-    }
+    //自取宅配選擇
+    // const Pickup1 = ()=>{
+    //      document.querySelector('.shiptohome').style.display="block"
+    //      document.querySelector('.storepick').style.display="none"
+    // }
 
-    const Pickup2 = ()=>{
-        document.querySelector('.storepick').style.display="block"
-        document.querySelector('.shiptohome').style.display="none"
-        }
+    // const Pickup2 = ()=>{
+    //     document.querySelector('.storepick').style.display="block"
+    //     document.querySelector('.shiptohome').style.display="none"
+    //     }
     
 
     
@@ -141,36 +143,40 @@ function Pay2(){
                           <div>付款方式</div>
                           <div className="radioS">
                               <div className="form-check checkPart">
-                                  <input className="form-check-input " type="radio"      name="paymethod" id="cash"
+                                  <input className="form-check-input " type="radio"      name="paymethod" id="cash" required
                                       value="cash" />
                                   <label label className="form-check-label" for="cash">匯款</label>
                               </div>
                               <div className="form-check  checkPart">
-                                  <input className="form-check-input" type="radio"       name="paymethod" id="card"
-                                      value="card"/>
+                                  <input className="form-check-input" type="radio"  name="paymethod" id="card"
+                                      value="card" required/>
                                   <label className="form-check-label" for="card">信用卡</label>
                               </div>
                           </div>
+                          {fieldErrors.name !== '' && (
+                          <div className="error">{fieldErrors.paymethod}</div>
+                          )}
                       </div>
                       <div className="questInfo">
-                          <div>取貨方式</div>
+                          <div>取貨方式 </div>
                           <div className="radioS">
                               <div className="form-check  checkPart">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="store"
-                                      value="storepickup" onClick={Pickup2} 
-                                    //   onChange={handleInputChange} 
+                                      value="storepickup" required //onClick={Pickup2} 
                                       />
-                                  <label className="form-check-label" for="store">自取</label>
+                                  <label className="form-check-label" for="store">郵局 + 80</label>
                               </div>
-                              <div className="form-check  checkPart">
+                              <div className="form-check  checkPart1">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="home"
-                                      value="shiptohome" onClick={Pickup1} 
-                                    //   onChange={handleInputChange}
+                                      value="shiptohome"  required //onClick={Pickup1} 
                                       />
-                                  <label className="form-check-label" for="home" >宅配 + 80</label>
+                                  <label className="form-check-label" for="home" >黑貓 + 100</label>
                               </div>
                           </div>
-      
+                              {fieldErrors.name !== '' && (
+                          <div className="error">{fieldErrors.pickupmethod}</div>
+                          )}
+                          
                       </div>
                       <div className="buyerInfo">
                           <p>購買人資料</p>

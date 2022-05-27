@@ -63,7 +63,10 @@
   display: none;
 }
 
-.addNum1 a button {
+.addNum1 {
+  display: flex;
+}
+.addNum1 button {
   width: 1.5rem;
   border-radius: 5px;
   color: #4c3410;
@@ -71,17 +74,17 @@
   border: 1px solid #e4d2a3;
 }
 
-.addNum1 a :hover,
-.addCart a :hover {
+.addNum1 button:hover {
   background-color: #e4d2a3;
   color: white;
 }
 
-.addNum1 input {
+.NTotal {
   border: 0;
   width: 40px;
   text-align: center;
   justify-content: center;
+  line-height: 2rem;
 }
 
 .addCartBtn {

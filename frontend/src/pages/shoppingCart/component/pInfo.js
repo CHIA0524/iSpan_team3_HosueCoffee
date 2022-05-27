@@ -8,6 +8,7 @@ import Delsweetalert from './Delsweetalert';
 
 
 
+
 function PInfo(props){
     // 小計
 const [ subTotal, setsubTotal ]= useState('1')
@@ -27,6 +28,7 @@ const [ subTotal, setsubTotal ]= useState('1')
 
 return(
     <>
+        <div className="payInfoAll">
             <div className="payInfo">
                 
                 <div className="payInfoContent">
@@ -53,13 +55,13 @@ return(
       {/* 手機版 */}
             <div className="mPayInfoContent">
                 <div className="box">
-                    <Link href=""><VscChromeClose size={20} /></Link>
+                    <Link href="" onClick={Delsweetalert}><VscChromeClose size={20} /></Link>
                     <div className="boxContent">
                         <div className="imgPart">
                             <img className="packageImg" src={require('../img/包裝 9.png')}alt=""></img>
-                            <div>
-                                <p>伊莎米 </p>
-                                <p>精選招牌特調(半磅)</p>
+                            <div className="mPName">
+                                <p>伊莎米 精選招牌特調(半磅)</p>
+                                
                             </div>
                         </div>
                         <AddNumBtn setfinalTotal= {setsubTotal}/>
@@ -67,7 +69,7 @@ return(
                     </div>
                 </div>
             </div>
-      
+       </div> 
   </>
   );
 }

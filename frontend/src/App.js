@@ -112,9 +112,6 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
-      <Route path="/RecCard">
-          <RecCard />
-        </Route>
       <Route path="/shoppingCart/pay3">
           <Pay3 />
         </Route>

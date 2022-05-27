@@ -25,7 +25,7 @@ removePinfo.fire({
             '商品已刪除.',
             'success'
             )
-            document.querySelector('.payInfo').remove();
+            document.querySelector('.payInfoAll').remove();
     } else if (
       /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel

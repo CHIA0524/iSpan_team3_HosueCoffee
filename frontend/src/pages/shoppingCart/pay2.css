@@ -30,6 +30,9 @@
 .checkPart {
   padding-left: 11.5rem;
 }
+.checkPart1 {
+  padding-left: 9.5rem;
+}
 .buyerInfo input {
   width: 80%;
   line-height: 2rem;
@@ -182,5 +185,8 @@ h3 {
   }
   .money p {
     text-align: right;
+  }
+  .checkPart1 {
+    padding-left: 11.5rem;
   }
 }
