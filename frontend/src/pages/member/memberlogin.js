@@ -10,7 +10,7 @@ function MemberLogin(props){
     const [nameMessage, setNameMessage] = useState("");
     const [member_password, setmember_password] = useState("");
     const {auth,setAuth} = props;  
-    // const [datas,setDatas] = useState([])
+    const {memberData,setMemberData} = props;  
 
    
     const handleValueChange=(e)=>{
@@ -42,10 +42,18 @@ function MemberLogin(props){
             const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
             const results = await login.json();
             console.log(results);
-            // alert(results.member_id);
+            setAuth(!auth);
+            localStorage.setItem("true", results.member_id);
+            localStorage.setItem("account", results.member_account);
+            localStorage.setItem("mail", results.member_mail);
+            localStorage.setItem("name", results.member_name);
+            localStorage.setItem("nick", results.member_nick);
+            localStorage.setItem("birth", results.member_birth);
+            localStorage.setItem("phone", results.member_phone);
+            localStorage.setItem("address", results.member_address);
+            localStorage.setItem("photo", results.photo);
+
             alert('成功登入');
-            setAuth(true)
-            localStorage.setItem(!auth, results.member_id)
             window.location.assign("http://localhost:3000/member/profile");
         }else{
             alert('帳號密碼錯誤');
@@ -96,6 +104,8 @@ function MemberLogin(props){
         document.querySelector('.loginCM').style.display="none"
         document.querySelector('.loginM').style.display="block"
       }
+
+        console.log(memberData);
 
   
     //   

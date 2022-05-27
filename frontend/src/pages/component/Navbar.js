@@ -21,10 +21,10 @@ function Navbar (props){
 
   }
   
-  const thismemberid=localStorage.getItem(true);
-  console.log("這是bar");
-  console.log(thismemberid);
-  console.log("這是bar");
+  // const thismemberid=localStorage.getItem(true);
+  // console.log("這是bar");
+  // console.log(thismemberid);
+  // console.log("這是bar");
 
   // 手機板 navbar js
   const openSideNavClick = ()=>{

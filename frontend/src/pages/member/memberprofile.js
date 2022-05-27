@@ -4,9 +4,11 @@ import MemberAside from "./memberAside";
 import './memberprofile.css';
 function Memberprofile(props){
     const [datas,setDatas] = useState([])
-    const thismemberid=localStorage.getItem(true);
-    console.log('-----')
-    console.log(localStorage.getItem(true));
+    const {memberData}=props;
+    console.log(11111111)
+    console.log(memberData)
+    console.log(22222222)
+    const thismemberid=localStorage.getItem("true");
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
         const response = await fetch(`${process.env.REACT_APP_API_URL}/profile?member_id=${thismemberid}`)

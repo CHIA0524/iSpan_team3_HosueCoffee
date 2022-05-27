@@ -5,35 +5,34 @@ import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
 
-function MemberprofileEdit(props){
-  const [datas,setDatas] = useState([])
-  const thismemberid=localStorage.getItem(true);
-  const fetchData=async()=>{
-      console.log(process.env.REACT_APP_API_URL);
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile?member_id=${thismemberid}`)
-      const results=await response.json();
-      setDatas(results);
+function MemberprofileEdit(){
+  const thismemberid=localStorage.getItem("true");
+  const account=localStorage.getItem("account");
+
+  const [UPname,setUPname]=useState(localStorage.getItem("name"))
+  const [UPnick,setUPnick]=useState(localStorage.getItem("nick"))
+  const [UPbirth,setUPbirth]=useState(localStorage.getItem("birth"))
+  const [UPphone,setUPphone]=useState(localStorage.getItem("phone"))
+  const [UPaddress,setUPaddress]=useState(localStorage.getItem("address"))
+
+  const ChangeName=(e)=>{
+    setUPname(e.target.value);
   }
-
-  useEffect(()=>{
-      fetchData();
-  },[])
-
+  const ChangeNick=(e)=>{
+    setUPnick(e.target.value);
+  }
+  const ChangeBirth=(e)=>{
+    setUPbirth(e.target.value);
+  }
+  const ChangePhone=(e)=>{
+    setUPphone(e.target.value);
+  }
+  const ChangeAddress=(e)=>{
+    setUPaddress(e.target.value);
+  }
   
-  if(datas.length >0 ){
-    const profile=datas[0]
-    var{member_account,member_name,member_nick,member_birth,member_phone,member_address}=profile;
-    const nameChang=(e)=>{}
-    const nickChang=(e)=>{}
-    const birthChang=(e)=>{}
-    const phoneChang=(e)=>{}
-    const addressChang=(e)=>{}
-    const EditBTN=async()=>{
-    //   console.log(member_name);
-    //   const response = await fetch(`${process.env.REACT_APP_API_URL}/UPdata?member_id=${thismemberid}&member_neme=${member_name}&member_nick=${member_nick}&member_birth=${member_birth}&member_phone=${member_phone}&member_address=${member_address}`)
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?member_name=${member_name}`)
-      const results=await response.json();
-      setDatas(results);
+    const EditBTN=()=>{
+
     }
     return(
         <>
@@ -53,7 +52,7 @@ function MemberprofileEdit(props){
                         </div>
                         <div className="memberNumber">
                             <div >會員帳號</div>
-                            <div >{member_account}</div>
+                            <div >{"member_account"}</div>
                         </div>
                     </div>
                 </div>
@@ -66,15 +65,15 @@ function MemberprofileEdit(props){
                                 <div className="changePhoto">修改照片</div>
                             </div>
                             <div className="memberNumber">
-                                <div>{member_account}</div>
+                                <div>{"member_account"}</div>
                             </div>
                         </div>
                         <div className="col-3None">
-                            <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text" value={member_name} onChange={nameChang}></input></div>
-                            <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text" value={member_nick} onChange={nickChang}></input></div>
-                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={member_birth.slice(0,10)} onChange={birthChang}></input></div>
-                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={member_phone} maxlength="10" pattern="09\d{8}" onChange={phoneChang}></input></div>
-                            <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text" value={member_address} onChange={addressChang}></input> </div>
+                            <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPname}  onChange={ChangeName}></input></div>
+                            <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPnick} onChange={ChangeNick}></input></div>
+                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={UPbirth} onChange={ChangeBirth}></input></div>
+                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={UPphone} maxlength="10" pattern="09\d{8}" onChange={ChangePhone}></input></div>
+                            <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text" value={UPaddress} onChange={ChangeAddress}></input> </div>
                         </div>
                       
                         <button type='button' onClick={EditBTN} className="memberEdit memberEdit-w">儲存修改</button>
@@ -125,6 +124,6 @@ function MemberprofileEdit(props){
     
     </>
     )
-  }
+  
 }
 export default MemberprofileEdit;

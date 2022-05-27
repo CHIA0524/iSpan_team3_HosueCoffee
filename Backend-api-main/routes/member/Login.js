@@ -29,7 +29,7 @@ router.post('/LoginTF',async (req,res,next)=>{
 
 router.post('/Login',async (req,res,next)=>{
   console.log(req.query.member_account);
-  const sql = `SELECT * FROM members WHERE member_account=? and member_password=?`
+  const sql = `select * from members join members_data on members.member_id = members_data.md_member_id WHERE member_account=? and member_password=?`
   const [data] =  await db.query(sql,[req.query.member_account,req.query.member_password]);
   console.log(data)
   res.json(data[0]);

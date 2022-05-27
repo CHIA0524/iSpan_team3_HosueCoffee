@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
 import { useState } from 'react';
 
@@ -25,10 +24,9 @@ import MemberQAcheck from './pages/member/memberQAcheck';
 import Navbar from './pages/component/Navbar';
 import Footer from './pages/component/Footer';
 import React from 'react';
-import MemberQACard from './pages/member/componend/memberQACard';
 
 function App() {
-  const [auth,setAuth]=useState(localStorage.getItem(true))
+  const [auth,setAuth]=useState(localStorage.getItem(true));
   // if(!localStorage.getItem(true) && typeof localStorage.getItem(true) != "undefined" && localStorage.getItem(true) != 0){
   //   // typeof localStorage.getItem(true) != "undefined" 排除了 undefined；
   //   // localStorage.getItem(true) != 0 排除了数字零和 false。

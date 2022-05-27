@@ -9,7 +9,7 @@ import './popup.css'
 import { useState } from 'react';
 function MemberQAList(props){
   const{auth}=props;
-  const thismemberid=localStorage.getItem(true);
+  const thismemberid=localStorage.getItem("true");
  
   console.log(123);
   console.log(thismemberid);
