@@ -47,15 +47,15 @@ function MRecCard(){
               <Slider {...settings} >
                       {datas.map((PCard,i)=>{
                         console.log(PCard.id);
-               
+                        const img1=(PCard.p_name);
                         return(
                
-                        <div>
+                          <div>
                              <div className="pCardWrap" key={PCard.id}>
                                 <div className="card recCard">
                                    <div class="rPackage">
                                      <Link to= {`/shop/ProductDetail/${PCard.id}`}>
-                                     <img class="card-img-top" src={require('../img/包裝 2.png')} alt=""></img>
+                                     <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt=""></img>
                                      </Link>
                                     </div>
                                 <div>

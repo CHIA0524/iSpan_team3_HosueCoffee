@@ -20,7 +20,7 @@ function RecCard(){
     fetchData();
   },[])
 
-
+  
   // 輪播
   const [width, setWidth] = useState(800);
   const [display, setDisaplay] = useState(true);
@@ -29,13 +29,10 @@ function RecCard(){
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-  
-  };
-  const responsive = {
     
-   
   };
-
+  
+  
   return(
     <>
      <div className="moreInfo ">
@@ -48,10 +45,10 @@ function RecCard(){
               }}
              >
              <div className="RText">推薦商品</div>
-              <Slider {...settings} {...responsive}>
+              <Slider {...settings}>
                       {datas.map((PCard,i)=>{
                         console.log(PCard.id);
-               
+                       const img1=(PCard.p_name);
                         return(
                
                         <div>
@@ -59,7 +56,7 @@ function RecCard(){
                                 <div className="card recCard">
                                    <div class="rPackage">
                                      <Link to= {`/shop/ProductDetail/${PCard.id}`}>
-                                     <img class="card-img-top" src={require('../img/包裝 2.png')} alt=""></img>
+                                     <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt=""></img>
                                      </Link>
                                     </div>
                                 <div>

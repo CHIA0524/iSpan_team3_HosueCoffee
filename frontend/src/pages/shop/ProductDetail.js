@@ -95,7 +95,7 @@ function ProductDetail(props){
             </div>
         </div>
        
-          )
+          
       
         
      
