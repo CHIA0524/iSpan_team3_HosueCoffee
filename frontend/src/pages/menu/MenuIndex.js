@@ -5,8 +5,9 @@ import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
 import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
-// import Pagination from "./MenuIndex/Pagination";
-// import Pagination from '@mui/material/Pagination';
+import Slider1 from "./component/Slider1";
+
+
 
 
 
@@ -18,61 +19,52 @@ import Popup from "./MenuIndex/Popup";
 
 
 const MenuIndex = () => {
+
         // 抓到點擊菜單品項的id
-        const [drinkId, srtdrinkId] = useState()
+        const [drinkId, setdrinkId] = useState(2)
+
+        //控制POPUP的CSS
+        const [css,setcss] = useState()
 
         //從後端抓資料
         const [datas, setDatas ] = useState([])
 
         const fetchData = async()=>{
     
-                            const response = await fetch('http://localhost:3301/menu');
+                            const response = await fetch('http://localhost:3002/menu');
     
                             const results = await response.json();
                                             setDatas(results);
                         }
-    
         useEffect(()=>{
     
             fetchData();
     
-        },[])
+            },[])
     
         
-        // const [drinkCounter, setdrinkCounter] = useState()
-    
-        // const drinkQuantity = drinkCounter
-    
-        // console.log(drinkQuantity)   //TODO  Counter的值傳到LIST 
-    
-        const popupCss = "visibility: visible ;opacity: 1;"
-
-
         return( 
+            
             <>   
 
-            
             <div className="bodyMenu">
-
                 <MenuAside/>
-                
                 <div className="main2">
+                    <div className="">
+                    <Slider1/>
+                    </div>
                     <div className="mainBody">
-
-                        <MenuCard datas={datas} srtdrinkId={srtdrinkId} onClick={()=>{
-                document.getElementsByClassName(Popup)
-            }}/>
-
+                        <MenuCard 
+                            datas={datas}
+                            setdrinkId={setdrinkId}
+                            setcss={setcss}
+                        />
                         <MenuCardRwd datas={datas} />
-
-                        <Popup datas={datas}  drinkId={drinkId}/>
-
+                        <Popup datas={datas}  drinkId={drinkId} css={css} setcss={setcss}/>
                     </div>   
-                    {/* <Pagination /> */}
-
-
                 </div>
             </div>
+
             </>   
         )
 

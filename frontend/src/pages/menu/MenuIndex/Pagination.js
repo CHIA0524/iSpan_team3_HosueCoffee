@@ -8,35 +8,13 @@ import "../style.scss"
 const Pagination = () => {
 
 
+        
+
+        
     
-    const fakeData = [...Array(102).keys()].map((key) => ({
-        id: key,
-        title: `${key}`,
-      }));
-
-
-      const [datas, setDatas ] = useState([])
-      const fetchData = async()=>{
-        const response = await fetch('http://localhost:3002/menu');
-        const results = await response.json();
-        setDatas(results);
-      }
-      useEffect(()=>{
-        fetchData();
-      },[])
-  
-  
-      
-  
-      return(
-          <>
-         {datas.map((mu,i)=>{
-             
-
-             const total = (mu.id)
 
         return(
-<div className="pagination_rounded" key={i}>
+<div className="pagination_rounded">
     <ul>
         <li>
             <a href="/" className="prev"> <i className="fa fa-angle-left" aria-hidden="true"></i> Prev </a>
@@ -62,9 +40,8 @@ const Pagination = () => {
 
 
 
-)
-})}
-</>
+
+
 
 );
     }

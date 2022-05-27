@@ -1,50 +1,39 @@
 import React from 'react';
-import { useState} from 'react';
+// import { useState,useEffect} from 'react';
 import '../styleCheckout.scss'
 
 
 
 const Counter = (props) => {
 
-    let [quantity, setquantity] = useState(1)
+    
 
-    const {setdrinkCounter}  = props
-
+    const {setdrinkCounter, drinkCounter}  = props
+    
     let buttonsub = null
 
-    if(quantity > 1){
-
-        buttonsub = <div 
-                        className="btn buttonLeft" 
-                        onClick={ () => { 
-                            setquantity(quantity - 1)
-                            // setCounter1(quantity - 1)
-                            setdrinkCounter(quantity - 1)
-                        }}
-                        >-</div>
-
-    }else{
-
+    if(drinkCounter > 1){buttonsub = <div 
+                                        className="btn buttonLeft" 
+                                        onClick={ () => { 
+                                            setdrinkCounter(drinkCounter - 1)
+                                        }}>-</div>
+    }
+    else{
         buttonsub =  <div className="btn buttonLeft">-</div>
     }
-
     return (
-        
         <div className="d-flex numButton">
             {buttonsub}
             <div className="quantity">
-            {quantity}
+            {drinkCounter}
             </div>
             <div
                 className="btn buttonRight"
                 onClick={() => {
-                    setquantity(quantity + 1)
-                    setdrinkCounter(quantity + 1)
-                    // setCounter1(quantity+1)
-                }}
-            >+</div>
-        </div>
 
+                    setdrinkCounter(drinkCounter + 1)
+                }}>+</div>
+        </div>
     )
 }
 

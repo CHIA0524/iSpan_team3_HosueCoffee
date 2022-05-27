@@ -1,8 +1,8 @@
-import React, {  useEffect} from "react";
+import {React, useEffect} from "react";
 // import{useState,useEffect} from "react";
 import "../style.scss"
 import {AiOutlineHeart} from 'react-icons/ai';
-import { useState } from "react/cjs/react.production.min";
+
 
 
 
@@ -11,57 +11,49 @@ import { useState } from "react/cjs/react.production.min";
 
 const MenuCard = (props) => {
 
-    // 傳遞點擊id
-    const {srtdrinkId} = props
+    // 傳遞點擊id    // 接收父層資料
+    const {setdrinkId, setcss, datas} = props
 
     // 異步回調
-    useEffect(() => {},[srtdrinkId]);
-
-
-    const [css,setcss] = useState()
-
-
-    const popupCss = "visibility: visible ;opacity: 1;"
-
-    // 接收父層資料
-    const {datas} = props
+    useEffect(() => {},[setdrinkId]);
 
     return(
-    <>
-        {/* 印出資料 */}
-        {datas.map((mu,i)=>{
+        <>
+            {/* 印出資料 */}
+            {datas.map((mu,i)=>{
 
-        const img1 = (mu.drink_name)
+            const img1 = (mu.drink_name)
 
-        return(
+            return(
 
-        <div 
-            className="card" 
-            type="button" 
-            key={mu.id}  
-            onClick={()=>{
-                srtdrinkId((mu.id))
-            }}>
-            <div>
-                <div className="">
-                    <img src={require('./img/'+ img1 +'.jpg')} alt=""/>
-                </div>
-                <div className="cardpa">
-                    <span>{mu.drink_name}</span>
-                    <span>
-                        <AiOutlineHeart/>
-                    </span>
-                </div>
-                <div className="d-flex justify-content-between cardpading">
-                    <span className="d-flex align-items-center">${mu.price}</span>
-                </div>
-            </div>    
-        </div>
-                )
-                
-                        })}
-    </>   
-        )    
+            <div 
+                className="card" 
+                type="button" 
+                key={mu.id}  
+                onClick={()=>{
+                    setdrinkId((mu.id))
+                    setcss({visibility: 'visible' ,opacity:'1'})
+                }}>
+                <div>
+                    <div className="imgdiv">
+                        <img src={require('./img/'+ img1 +'.jpg')} alt=""/>
+                    </div>
+                    <div className="cardpa">
+                        <span>{mu.drink_name}</span>
+                        <span>
+                            <AiOutlineHeart size={20} />
+                        </span>
+                    </div>
+                    <div className="d-flex justify-content-between cardpading">
+                        <span className="d-flex align-items-center">${mu.price}</span>
+                    </div>
+                </div>    
+            </div>
+                    )
+                    
+            })}
+        </>   
+    )    
 }
 
 
