@@ -7,7 +7,9 @@ import StoreCardSearch from './StoreCardSearch'
 import StoreMap from './StoreMap'
 
 // CSS
-import './mapStyle.scss'
+import './Style_WebMap.scss'
+import './Style_MobileMap.scss'
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 
 function StoreMapCardWrap(){
@@ -28,6 +30,11 @@ function StoreMapCardWrap(){
     lng: 121.5297745,
   });
   const [ zoom, setZoom ] = useState(14)
+  const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
+
+  // 側欄使用
+  const [ asideCSS, setAsideCSS ] = useState('0px')
+  const [ iconRotate, setIconRotate ] = useState('rotate(180deg)')
 
   // 向遠端伺服器get資料
   const fetchData = async (keyword) => {
@@ -110,7 +117,7 @@ function StoreMapCardWrap(){
   }
 
   const spinner = (
-    <div className='mapSpinner'>
+    <div className='storeSpinner'>
       <div className="spinner-grow" role="status">
         <span className="sr-only">Loading...</span>
       </div>
@@ -133,11 +140,23 @@ function StoreMapCardWrap(){
       }, 1500)
     }
   }, [isLoading])
-  
+
+  // 監測視窗寬度
+  useEffect(()=>{ 
+    window.addEventListener('resize',()=>{
+      // console.log(window.innerWidth);
+      if (window.innerWidth <= 500) {
+        setAsideCSS('-300px')
+      }else{
+        setAsideCSS('-375px')
+      }
+    });
+  },[]);
+
   return(
     <>
       <div className="mapAndCardWrap">
-        <div>
+        <div className='asideCardSearch' style={{left: asideCSS}}>
 
           {/* 搜尋框 */}
           <StoreCardSearch
@@ -151,16 +170,43 @@ function StoreMapCardWrap(){
               data={data}
               setCenter={setCenter}
               setZoom={setZoom}
+              setMarkerInfoCSS={setMarkerInfoCSS}
             />
           }
+          <div
+            className='storeOpenAside coffeeLightBtn'
+            onClick={()=>{
+              if (asideCSS === '0px'){
+                // console.log(window.innerWidth);
+                if (window.innerWidth <= 500) {
+                  setAsideCSS('-300px')
+                }else{
+                  setAsideCSS('-375px')
+                }
+                setIconRotate('rotate(0deg)')
+              }else{
+                setAsideCSS('0px')
+                setIconRotate('rotate(180deg)')
+              }
+            }}
+          >
+            <MdKeyboardArrowRight size={30} style={{transform: iconRotate, transition: 'all .5s'}}/>
+          </div>
+
         </div>
-        
+
+
         <StoreMap
           data={data}
           center={center}
           zoom={zoom}
           setCenter={setCenter}
           setZoom={setZoom}
+          markerInfoCSS={markerInfoCSS}
+          setMarkerInfoCSS={setMarkerInfoCSS}
+          asideCSS={asideCSS}
+          setAsideCSS={setAsideCSS}
+          setIconRotate={setIconRotate}
         />
       </div>
     </>

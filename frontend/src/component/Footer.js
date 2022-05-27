@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
 import React from 'react';
 import './Footer.scss'
 
@@ -8,9 +8,14 @@ import { IoMailOutline } from "react-icons/io5";
 import { BiCopyright } from "react-icons/bi";
 
 function Footer (){
-
+  let storeCSS ;
+  let getURL = useLocation();
+  if(getURL.pathname==='/store'){
+    storeCSS = {display: 'none'}
+  }
+  
   return(
-    <footer className="d-flex coffeeFooter">
+    <footer className="coffeeFooter" style={storeCSS}>
       <div className="d-flex">
         <div className="mx-5">
           PRODUCT

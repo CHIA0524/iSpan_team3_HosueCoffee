@@ -25,6 +25,7 @@ function StoreCard(props){
       props.setZoom(18)
     }, []
   )
+  
   return(
     <div className='storeWrap'>
       {

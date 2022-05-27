@@ -1,9 +1,14 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './App.scss'
 
-// pages
+// components
+import Navbar from './component/Navbar'
+import Footer from './component/Footer'
+
+// home pages
 import Home from './pages/home/Home'
-import StoreIndex from './pages/store/StoreIndex'
+
+// store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // member pages
@@ -13,9 +18,6 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 // import MemberPassword from './pages/member/memberPassword'
 // import MemberOrderList from './pages/member/memberOrderList'
 
-// components
-import Navbar from './component/Navbar'
-import Footer from './component/Footer'
 
 function App() {
   return (
@@ -30,18 +32,9 @@ function App() {
 
       <Switch>
 
-        {/* <Route path="/store/maptest">
-          <StoreMapCardWraptest />
-        </Route> */}
-        <Route path="/store/map">
-          <StoreMapCardWrap />
-        </Route>
-        <Route path="/store">
-          <StoreIndex />
-        </Route>
-        <Route path="/" exact>
-        <Home />
-        </Route>
+        <Route path="/store"><StoreMapCardWrap /></Route>
+        
+        <Route path="/" exact><Home /></Route>
 
       </Switch>
 

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react'
 import React from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss'
@@ -37,6 +38,16 @@ function Navbar (){
       document.querySelector('.memberDetail').style.height = '0px';
     }
   }
+
+  // 監測視窗寬度
+  useEffect(()=>{ 
+    window.addEventListener('resize',()=>{
+      // console.log(window.innerWidth);
+      if (window.innerWidth >= 1000) {
+        document.querySelector('.sideDark').style.display = 'none';
+      }
+    });
+  },[]);
 
   return(
     <header className="App-header">
