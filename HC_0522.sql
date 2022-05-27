@@ -1,12 +1,12 @@
 drop database team3;
 create schema team3;
 use team3;
-
+UPDATE members_data SET member_name='路易斯 漢米爾頓',member_nick='8次世界冠軍',member_birth='1985-01-07',member_phone='0909444444',member_address='英國' WHERE fk_member_id='10001';
 -- SELECT * FROM members WHERE member_account=`lh44` OR member_password=?;
 -- SELECT Count(*) as total FROM members WHERE member_account='LH44' AND member_password='';
 
 -- select*from user_ask;
-UPDATE members SET member_password='abc' WHERE member_id='10001';
+--  UPDATE members SET member_password='abc' WHERE member_id='10001';
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者
 CREATE TABLE `members`(
@@ -31,22 +31,20 @@ VALUE
 select*from members;
 SELECT Count(*) as total FROM members WHERE member_account='LH44';
 CREATE TABLE `members_data`(
-	`md_member_id` INT PRIMARY KEY ,
+	`fk_member_id` INT PRIMARY KEY ,
 	`member_name` varchar(50) not null,
     `member_nick` varchar(50),
     `member_birth` date not null,
     `member_phone` VARCHAR(10) NOT NULL UNIQUE,
     `member_address` varchar(200) Not Null,
     `member_photo` varchar(200),
-    foreign KEY (`md_member_id`) references members(member_id)
+    foreign KEY (`fk_member_id`) references members(member_id)
 );
-insert into `members_data`(`md_member_id`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_address`,`member_photo`)
+insert into `members_data`(`fk_member_id`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_address`,`member_photo`)
 value
 ('10001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥',''),
 ('10002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭',''),
 ('10003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','');
-select `member_id`,`member_account`,`member_name`,`member_nick`,`member_birth`,`member_photo` from members join members_data on members.member_id = members_data.md_member_id;
-select `member_account`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_mail`,`member_address`from members join members_data on members.member_id = members_data.md_member_id where member_id= 10001;
 CREATE TABLE `users`(
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
@@ -986,8 +984,6 @@ iDrip – 錐形濾掛咖啡包
 不亞於手沖咖啡的濾掛咖啡包，有了世界冠軍咖啡大師的把關、iDrip 的獨家設計、以及各界人士的強力推薦，更讓 iDrip 濾掛咖啡包成為生活新品味，隨時隨地都能擁有一杯完美的精品好咖啡！' ,'./img/5share50001.jpg');
 
 
-SELECT * FROM `user_ask` where fk_member_id=10001;
-select `member_account`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_mail`,`member_address`from members join members_data on members.member_id = members_data.md_member_id where member_id= 10001;
 -- 文章照片
 -- CREATE TABLE `blog_photos`(
 --   `id` INT AUTO_INCREMENT PRIMARY KEY, 

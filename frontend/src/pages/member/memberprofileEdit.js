@@ -30,10 +30,33 @@ function MemberprofileEdit(){
   const ChangeAddress=(e)=>{
     setUPaddress(e.target.value);
   }
-  
-    const EditBTN=()=>{
+    const phone_re = /^09[0-9]{8}$/;
+    const EditBTN=async()=>{
+      if(! phone_re.test(UPphone)){
+        alert("手機格式錯誤");
+      }else{
+        if(UPname.length>0 && UPphone.length==10){
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}`);
 
-    }
+          localStorage.removeItem("name")
+          localStorage.removeItem("nick")
+          localStorage.removeItem("birth")
+          localStorage.removeItem("phone")
+          localStorage.removeItem("address")
+
+          localStorage.setItem("name", UPname);
+          localStorage.setItem("nick", UPnick);
+          localStorage.setItem("birth", UPbirth);
+          localStorage.setItem("phone", UPphone);
+          localStorage.setItem("address", UPaddress);
+          alert("資料修改成功")
+          window.location.assign("http://localhost:3000/member/profile");
+        }else{
+          alert("姓名為空");
+
+        }
+  }
+}
     return(
         <>
     
@@ -52,7 +75,7 @@ function MemberprofileEdit(){
                         </div>
                         <div className="memberNumber">
                             <div >會員帳號</div>
-                            <div >{"member_account"}</div>
+                            <div >{account}</div>
                         </div>
                     </div>
                 </div>
