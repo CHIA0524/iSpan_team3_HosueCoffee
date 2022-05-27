@@ -50,7 +50,7 @@ function Memberprofile(props){
                         </div>
                         <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;{member_name}</div>
                         <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;{member_nick}</div>
-                        <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;{member_birth.slice(0,10)}</div>
+                        <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;{member_birth}</div>
                         <div className="proRight">手機號碼:&emsp;&emsp; {member_phone}</div>
                         <div className="proRight">電子信箱:&emsp;&emsp; {member_mail}</div>
                         <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; {member_address} </div>

@@ -6,6 +6,7 @@ use team3;
 -- SELECT Count(*) as total FROM members WHERE member_account='LH44' AND member_password='';
 
 -- select*from user_ask;
+UPDATE members SET member_password='abc' WHERE member_id='10001';
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者
 CREATE TABLE `members`(

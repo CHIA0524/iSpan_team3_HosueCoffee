@@ -29,9 +29,18 @@ router.route(`/UPdata`)
     .get(async(req,res,next)=>{
         console.log(req.query.member_id);
         const sql=
-        "UPDATA members_data SET member_name=?,member_nick=?,member_birth=?,member_phone=?,member_address=? where member_id=?"
-        const [datas]=await db.query(sql,[req.query.member_id],[req.query.member_neme],[req.query.member_nick]
-                                        ,[req.query.member_birth],[req.query.member_phone],[req.query.member_address]);
+        "select * From members_data where member_neme=?"
+        const [datas]=await db.query(sql,[req.query.member_neme]);
+        console.log(datas)
+        res.json(datas);
+
+    })
+    router.route(`/aaa`)
+    .get(async(req,res,next)=>{
+        console.log(req.query.member_id);
+        const sql=
+        "UPDATE members_data SET member_name=?,member_nick=?,member_birth=?,member_phone=?,member_address=? where member_id=?"
+        const [datas]=await db.query(sql,[req.query.member_id],[req.query.member_neme],[req.query.member_nick],[req.query.member_birth],[req.query.member_phone],[req.query.member_address]);
         console.log(datas)
         res.json(datas);
 

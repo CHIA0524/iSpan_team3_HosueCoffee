@@ -29,7 +29,9 @@ function MemberprofileEdit(props){
     const phoneChang=(e)=>{}
     const addressChang=(e)=>{}
     const EditBTN=async()=>{
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/UPdata?member_id=${thismemberid}&?member_neme=${member_name}&?member_nick=${member_nick}&?member_birth=${member_birth}&?member_phone=${member_phone}&?member_address=${member_address}`)
+    //   console.log(member_name);
+    //   const response = await fetch(`${process.env.REACT_APP_API_URL}/UPdata?member_id=${thismemberid}&member_neme=${member_name}&member_nick=${member_nick}&member_birth=${member_birth}&member_phone=${member_phone}&member_address=${member_address}`)
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/aaa?member_name=${member_name}`)
       const results=await response.json();
       setDatas(results);
     }
