@@ -25,10 +25,11 @@ router.route(`/`)
         res.json(datas);
 
     })
-router.route(`/UPdate/:member_neme`)
+router.route(`/UPdate`)
     .get(async(req,res,next)=>{
-        // console.log(req.query.member_neme);
-        const member_name=decodeURIComponent(req.query.member_neme);
+        console.log(req.query.member_name);
+        const member_name=decodeURIComponent(req.query.member_name);
+        console.log("member_name")
         console.log(member_name)
         // const sql=
         // "select * From members_data where member_neme=?"

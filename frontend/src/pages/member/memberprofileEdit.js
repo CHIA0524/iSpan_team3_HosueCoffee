@@ -31,7 +31,7 @@ function MemberprofileEdit(props){
     const EditBTN=async()=>{
     //   console.log(member_name);
     //   const response = await fetch(`${process.env.REACT_APP_API_URL}/UPdata?member_id=${thismemberid}&member_neme=${member_name}&member_nick=${member_nick}&member_birth=${member_birth}&member_phone=${member_phone}&member_address=${member_address}`)
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/UPdate/${member_name}`)
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?member_name=${member_name}`)
       const results=await response.json();
       setDatas(results);
     }
