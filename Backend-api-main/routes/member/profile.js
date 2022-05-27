@@ -25,14 +25,16 @@ router.route(`/`)
         res.json(datas);
 
     })
-router.route(`/UPdata`)
+router.route(`/UPdate/:member_neme`)
     .get(async(req,res,next)=>{
-        console.log(req.query.member_id);
-        const sql=
-        "select * From members_data where member_neme=?"
-        const [datas]=await db.query(sql,[req.query.member_neme]);
-        console.log(datas)
-        res.json(datas);
+        // console.log(req.query.member_neme);
+        const member_name=decodeURIComponent(req.query.member_neme);
+        console.log(member_name)
+        // const sql=
+        // "select * From members_data where member_neme=?"
+        // const [datas]=await db.query(sql,[req.query.member_neme]);
+        // console.log(datas)
+        // res.json(datas);
 
     })
     router.route(`/aaa`)
