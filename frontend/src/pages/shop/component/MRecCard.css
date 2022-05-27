@@ -1,6 +1,6 @@
 .MRText {
   font-size: 1.5rem;
-  margin: 0 30%;
+  margin-left: 8rem;
   margin-bottom: 2rem;
 }
 /* Slider */
@@ -37,7 +37,7 @@
 .slick-prev:before,
 .slick-next:before {
   font-family: 'slick';
-  font-size: 20px;
+  font-size: 40px;
   line-height: 1;
 
   opacity: 0.75;
@@ -46,13 +46,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.slick-prev {
+/* 
+ .slick-prev {
   padding-right: 1rem;
-}
+} */
 
-.slick-next {
-  padding-left: 1rem;
+.slick-next:before {
+  padding-left: 0.5rem;
 }
 
 .slick-dots {

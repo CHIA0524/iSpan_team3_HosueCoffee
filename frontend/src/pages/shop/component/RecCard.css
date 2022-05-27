@@ -47,12 +47,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-prev:after {
-  padding-right: 3rem;
-}
+/* .slick-prev:after {
+  padding-right: 1rem;
+} */
 
 .slick-next:before {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 .slick-dots {
@@ -60,4 +60,11 @@
 }
 .slick-dots li {
   display: none;
+}
+.slick-initialized {
+  /* width: 800px; */
+  margin-left: 2rem;
+}
+.slick-list {
+  margin-left: 1rem;
 }

@@ -39,7 +39,7 @@ function RecCard(){
   return(
     <>
      <div className="moreInfo ">
-        <div className="Box">
+       
           <div>
             <div
               style={{
@@ -75,7 +75,7 @@ function RecCard(){
             </div>
           </div>
         </div>
-      </div>
+     
        
     </>
   );
