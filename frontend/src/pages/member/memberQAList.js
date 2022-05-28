@@ -8,8 +8,18 @@ import './memberOrderList.css'
 import './popup.css'
 import { useState } from 'react';
 function MemberQAList(props){
-  const{auth}=props;
-  const thismemberid=localStorage.getItem("true");
+    
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
+    const thismemberid=localStorage.getItem("true");
+  
+
+    
  
   console.log(123);
   console.log(thismemberid);

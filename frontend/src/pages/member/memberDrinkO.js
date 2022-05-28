@@ -4,7 +4,14 @@ import DrinkOCard from './componend/DrinkOCard';
 import MemberBack from './memberBack';
 import './memberAside.css'
 import './memberOrder.css'
-function MemberDrinkO(){
+function MemberDrinkO(props){
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
     return(
         <>
         <MemberBack/>

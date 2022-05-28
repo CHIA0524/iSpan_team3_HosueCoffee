@@ -5,7 +5,14 @@ import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
 
-function MemberprofileEdit(){
+function MemberprofileEdit(props){
+  const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
   const thismemberid=localStorage.getItem("true");
   const account=localStorage.getItem("account");
 
@@ -84,17 +91,17 @@ function MemberprofileEdit(){
                     <form>
                         <div className="proList_m">
                             <div className="memberPhoto">
-                                <img  src="../img/member/memberphoto.jpg" alt="會員照片"></img>
+                                <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
                                 <div className="changePhoto">修改照片</div>
                             </div>
                             <div className="memberNumber">
-                                <div>{"member_account"}</div>
+                                <div>{account}</div>
                             </div>
                         </div>
                         <div className="col-3None">
                             <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPname}  onChange={ChangeName}></input></div>
                             <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPnick} onChange={ChangeNick}></input></div>
-                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={UPbirth} onChange={ChangeBirth}></input></div>
+                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={UPbirth} onChange={ChangeBirth} readonly ></input></div>
                             <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={UPphone} maxlength="10" pattern="09\d{8}" onChange={ChangePhone}></input></div>
                             <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text" value={UPaddress} onChange={ChangeAddress}></input> </div>
                         </div>
@@ -105,32 +112,32 @@ function MemberprofileEdit(){
                         <div className="col-wn">
                           <div className="proRight">
                             <div>姓名:</div>
-                            <input type="text"></input>
+                            <input type="text"  value={UPname}  onChange={ChangeName}></input>
                             <br></br>
                           </div>
                           <div className="proRight">
                             <div>暱稱:</div>
-                            <input type="text"></input>
+                            <input type="text" value={UPnick} onChange={ChangeNick}></input>
                             <br></br>
                           </div>
                           <div className="proRight">
                             <div>生日:</div>
-                            <input type="date"></input>
+                            <input type="date"  value={UPbirth} onChange={ChangeBirth} readonly ></input>
                             <br></br>
                           </div>
                           <div className="proRight">
                             <div>手機號碼:</div>
-                            <input type="text"></input>
+                            <input type="text" value={UPphone} maxlength="10" pattern="09\d{8}" onChange={ChangePhone}></input>
                             <br></br>
                           </div>
                           <div className="proRight">
                             <div>地址:</div>
-                            <input type="text"></input>
+                            <input type="text" value={UPaddress} onChange={ChangeAddress}></input>
                             <br></br>
                           </div>
                         </div>
                         <br></br>
-                    <button className="memberEdit memberEdit-m">修改</button>
+                    <button className="memberEdit memberEdit-m" onClick={EditBTN}>修改</button>
                     </form>
                   </div>
                     

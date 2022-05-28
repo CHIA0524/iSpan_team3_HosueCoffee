@@ -4,7 +4,14 @@ import MemberBack from './memberBack';
 import OrderCard from './componend/orderCard';
 import './memberAside.css'
 import './memberOrder.css'
-function MemberOrder(){
+function MemberOrder(props){
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
     return(
         <>
         <MemberBack/>

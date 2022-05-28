@@ -3,7 +3,14 @@ import MemberAside from './memberAside';
 import DrinkOListCard from './componend/DrinkOListCard';
 import MemberBack from './memberBack';
 import './memberOrderList.css'
-function MemberDrinkOList(){
+function MemberDrinkOList(props){
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
     return(
         <>
                 <MemberBack/>

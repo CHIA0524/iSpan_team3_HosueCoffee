@@ -170,7 +170,9 @@
   background-size: cover; 
   background-position:0% 50%;
 }
-
+.CKN{
+  color: #e4d2a3;
+}
 @media screen and (max-width:1200px){
   .con3-None{
     display: none;

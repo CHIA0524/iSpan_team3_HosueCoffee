@@ -1,12 +1,10 @@
 drop database team3;
 create database team3;
 use team3;
--- UPDATE members_data SET member_name='路易斯 漢米爾頓',member_nick='8次世界冠軍',member_birth='1985-01-07',member_phone='0909444444',member_address='英國' WHERE fk_member_id='10001';
--- SELECT * FROM members WHERE member_account=`lh44` OR member_password=?;
--- SELECT Count(*) as total FROM members WHERE member_account='LH44' AND member_password='';
+-- select * from members;
+select * from members_data ;
 
--- select*from user_ask;
---  UPDATE members SET member_password='abc' WHERE member_id='10001';
+-- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者
 CREATE TABLE `members`(
@@ -19,17 +17,16 @@ CREATE TABLE `members`(
 ALTER TABLE `members` AUTO_INCREMENT=100001;
 INSERT INTO `members`(`member_account`,`member_password`,`member_mail`)
 VALUE
-('LH44','abc123456','LH44@gmail.com.tw'),
-('VB77','abc123456','VB77@gmail.com.tw'),
-('GR63','abc123456','GR63@gmail.com.tw'),
-('CL16','abc123456','CL16@gmail.com.tw'),
-('CS55','abc123456','CS55@gmail.com.tw'),
-('MS47','abc123456','MS47@gmail.com.tw'),
-('LN04','abc123456','LN04@gmail.com.tw'),
-('DR03','abc123456','DR03@gmail.com.tw'),
-('NR06','abc123456','NR06@gmail.com.tw');
-select*from members;
-SELECT Count(*) as total FROM members WHERE member_account='LH44';
+('LH44','abc123456','LH44@gmail.com'),
+('VB77','abc123456','VB77@gmail.com'),
+('GR63','abc123456','GR63@gmail.com'),
+('CL16','abc123456','CL16@gmail.com'),
+('CS55','abc123456','CS55@gmail.com'),
+('MS47','abc123456','MS47@gmail.com'),
+('LN04','abc123456','LN04@gmail.com'),
+('DR03','abc123456','DR03@gmail.com'),
+('NR06','abc123456','NR06@gmail.com');
+
 CREATE TABLE `members_data`(
 	`fk_member_id` INT PRIMARY KEY ,
 	`member_name` varchar(50) not null,
@@ -45,7 +42,6 @@ value
 ('100001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥',''),
 ('100002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭',''),
 ('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','');
-select*from members_data;
 CREATE TABLE `users`(
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
@@ -138,7 +134,6 @@ VALUES
 ('100003','其他','代言問題','我想代言你們品牌方便嗎?',''),
 ('100004','其他','適用','有賣試用包嗎?','');
 
-select * from member_QA;
 
 --------------------------------------------------------------------------------------------------------------------------------
 -- 商品類別
@@ -1040,8 +1035,6 @@ iDrip – 錐形濾掛咖啡包
 
 
 -- 文章列表
-SELECT blogs.id as id, url, title,CREATEd_at
-FROM  blogs ORDER BY blogs.id ;
 
 
 

@@ -2,7 +2,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MemberAside from "./memberAside";
 import OrderListCard from './componend/OrderListCard';
 import './memberOrderList.css'
-function MemberOrderList(){
+function MemberOrderList(props){
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
     return(
         <>
             <div className="mMember col-wn">

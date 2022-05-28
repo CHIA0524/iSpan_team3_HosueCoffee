@@ -4,10 +4,13 @@ import MemberAside from "./memberAside";
 import './memberprofile.css';
 function Memberprofile(props){
     const [datas,setDatas] = useState([])
-    const {memberData}=props;
-    console.log(11111111)
-    console.log(memberData)
-    console.log(22222222)
+    const{auth}=props;
+    const {dataCheck}=props;
+    if(!auth){
+      window.location.assign("http://localhost:3000/member")
+    }if(!dataCheck){
+      window.location.assign("http://localhost:3000/member/NewData");
+    }
     const thismemberid=localStorage.getItem("true");
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
@@ -50,12 +53,22 @@ function Memberprofile(props){
                                 <div >Jack123</div>
                             </div>
                         </div>
-                        <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;{member_name}</div>
-                        <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;{member_nick}</div>
-                        <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;{member_birth}</div>
-                        <div className="proRight">手機號碼:&emsp;&emsp; {member_phone}</div>
-                        <div className="proRight">電子信箱:&emsp;&emsp; {member_mail}</div>
-                        <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; {member_address} </div>
+                        <div className="col-3None">
+                            <div className="proRight ">姓名:&emsp;&emsp;&emsp;&emsp;{member_name}</div>
+                            <div className="proRight ">暱稱:&emsp;&emsp;&emsp;&emsp;{member_nick}</div>
+                            <div className="proRight ">生日:&emsp;&emsp;&emsp;&emsp;{member_birth}</div>
+                            <div className="proRight ">手機號碼:&emsp;&emsp;{member_phone}</div>
+                            <div className="proRight ">電子信箱:&emsp;&emsp;{member_mail}</div>
+                            <div className="proRight ">地址:&emsp;&emsp;&emsp;&emsp; {member_address} </div>
+                        </div>
+                        <div className="proRight col-wn">
+                            <div className="proRight_show">姓名:&emsp;&emsp;&emsp;&emsp;{member_name}</div>
+                            <div className="proRight_show">暱稱:&emsp;&emsp;&emsp;&emsp;{member_nick}</div>
+                            <div className="proRight_show">生日:&emsp;&emsp;&emsp;&emsp;{member_birth}</div>
+                            <div className="proRight_show">手機號碼:&emsp;&emsp;{member_phone}</div>
+                            <div className="proRight_show">電子信箱:&emsp;&emsp;{member_mail}</div>
+                            <div className="proRight_show">地址:&emsp;&emsp;&emsp;&emsp; {member_address} </div>
+                        </div>
                         <br></br>
                     </div>
                     <Link to={'/member/profileEdit'}>

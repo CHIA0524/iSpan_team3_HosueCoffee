@@ -9,6 +9,7 @@ import StoreMap from './pages/store/StoreMap';
 
 // member pages
 import MemberLogin from './pages/member/memberlogin';
+import MemberNewData from './pages/member/memberNewData';
 import MemberprofileEdit from './pages/member/memberprofileEdit';
 import MemberPassword from './pages/member/memberPassword';
 import Memberprofile from './pages/member/memberprofile';
@@ -26,17 +27,14 @@ import Footer from './pages/component/Footer';
 import React from 'react';
 
 function App() {
-  const [auth,setAuth]=useState(localStorage.getItem(true));
-  // if(!localStorage.getItem(true) && typeof localStorage.getItem(true) != "undefined" && localStorage.getItem(true) != 0){
-  //   // typeof localStorage.getItem(true) != "undefined" 排除了 undefined；
-  //   // localStorage.getItem(true) != 0 排除了数字零和 false。
-  //   document.querySelector('.webUserInfo').style.display="none"
+  const [auth,setAuth]=useState(localStorage.getItem("true"));
+  const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // }
   
   return (
     <Router>
       
-      <Navbar auth={auth}/>
+      <Navbar auth={auth} />
       
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
@@ -54,47 +52,50 @@ function App() {
         
 
         <Route  path="/member/QAcheck/:id">
-        <MemberQAcheck auth={auth} />
+        <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/QAList">
-        <MemberQAList auth={auth} />
+        <MemberQAList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/DrinkO">
-        <MemberDrinkO auth={auth} />
+        <MemberDrinkO auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/DrinkOList">
-        <MemberDrinkOList auth={auth} />
+        <MemberDrinkOList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/Favorite">
-        <MemberFavorite auth={auth} />
+        <MemberFavorite auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/Order">
-        <MemberOrder auth={auth} />
+        <MemberOrder auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/OrderList">
-        <MemberOrderList auth={auth} />
+        <MemberOrderList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/profileEdit">
-        <MemberprofileEdit auth={auth} />
+        <MemberprofileEdit auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/Profile">
-        <Memberprofile auth={auth} />
+        <Memberprofile auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/Password">
-        <MemberPassword auth={auth} />
+        <MemberPassword auth={auth} dataCheck={dataCheck}/>
+        </Route>
+        <Route path="/member/NewData">
+        <MemberNewData auth={auth} dataCheck={dataCheck} setDataCheck={setDataCheck}/>
         </Route>
 
         <Route  path="/member">
-        <MemberLogin setAuth={setAuth} auth={auth} />
+        <MemberLogin setAuth={setAuth} auth={auth} dataCheck={dataCheck} setDataCheck={setDataCheck}/>
         </Route>
         
 

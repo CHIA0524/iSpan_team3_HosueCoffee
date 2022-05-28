@@ -6,6 +6,10 @@ import MemberBack from './memberBack';
 import './memberQAcheck.css'
  function MemberQAcheck(props){
    const{auth}=props
+   const {dataCheck}=props;
+    if(!dataCheck){
+        window.location.assign("http://localhost:3000/member/NewData");
+    }
   const params = useParams()
    const [datas,setDatas] = useState([])
 

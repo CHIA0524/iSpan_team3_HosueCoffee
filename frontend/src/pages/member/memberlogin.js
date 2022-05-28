@@ -6,11 +6,22 @@ import './memberLogin.css'
 import Memberprofile from './memberprofile';
 // import Welcome from './memberWelcom';
 function MemberLogin(props){
-    const [member_account, setmember_account] = useState("");
-    const [nameMessage, setNameMessage] = useState("");
-    const [member_password, setmember_password] = useState("");
     const {auth,setAuth} = props;  
-    const {memberData,setMemberData} = props;  
+    const {dataCheck,setDataCheck}=props
+    if(auth){
+      window.location.assign("http://localhost:3000/member/profile")
+    }
+    
+    const [member_account, setmember_account] = useState("");
+    const [new_mb_mail,setNew_mb_mail]=useState("")
+    const [new_mb_account,setNew_mb_account]=useState("")
+    const [new_mb_password,setNew_mb_password]=useState("")
+
+    const [accountMessage, setAccounteMessage] = useState("");
+    const [mailMessage, setMailMessage] = useState("");
+    const [PWMessage, setPWMessage] = useState("");
+    const [member_password, setmember_password] = useState("");
+    
 
    
     const handleValueChange=(e)=>{
@@ -19,17 +30,7 @@ function MemberLogin(props){
     const handleValueChange2=(e)=>{
       setmember_password(e.target.value);
     }
-    const handleCheckName=async ()=>{
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${member_account}`);
-      console.log(process.env.REACT_APP_API_URL);
-      const results = await response.json();
-      if(results.total === 0){
-          setNameMessage("帳號錯誤");
-      }else{
-          setNameMessage("帳號存在");
-      }
 
-    }
     const loginBTN=async()=>{
         const loginTF = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginTF/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
         
@@ -39,29 +40,144 @@ function MemberLogin(props){
         console.log(resultsTF);
         // console.log(results);
         if(resultsTF.total===1){
-            const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
-            const results = await login.json();
-            console.log(results);
-            setAuth(!auth);
-            localStorage.setItem("true", results.member_id);
-            localStorage.setItem("account", results.member_account);
-            localStorage.setItem("mail", results.member_mail);
-            localStorage.setItem("name", results.member_name);
-            localStorage.setItem("nick", results.member_nick);
-            localStorage.setItem("birth", results.member_birth);
-            localStorage.setItem("phone", results.member_phone);
-            localStorage.setItem("address", results.member_address);
-            localStorage.setItem("photo", results.photo);
 
-            alert('成功登入');
-            window.location.assign("http://localhost:3000/member/profile");
+            const loginData = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginData/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+            const results = await loginData.json();
+            const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+            const loginMid = await loginid.json();
+            console.log(loginMid.member_address)
+            localStorage.setItem("true", loginMid.member_id);
+            localStorage.setItem("account", loginMid.member_account);
+            localStorage.setItem("mail", loginMid.member_mail);
+            setAuth(!auth);
+            if(results.total===1){
+                const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+                const results = await login.json();
+                console.log(results);
+                localStorage.setItem("name", results.member_name);
+                localStorage.setItem("nick", results.member_nick);
+                localStorage.setItem("birth", results.member_birth);
+                localStorage.setItem("phone", results.member_phone);
+                localStorage.setItem("address", results.member_address);
+                localStorage.setItem("photo", results.photo);
+                localStorage.setItem("dataCheck", "資料完整");
+
+                setDataCheck(!dataCheck)
+                alert('成功登入');
+                window.location.assign("http://localhost:3000/member/profile");
+        }else{
+            alert('成功登入 但基本資料尚未完整');
+            window.location.assign("http://localhost:3000/member/NewData");
+            }
         }else{
             alert('帳號密碼錯誤');
             // setAuth(!auth)
 
         }
-
     }
+        const ChangenewML=(e)=>{
+            setNew_mb_mail(e.target.value);
+          }
+        const ChangenewAC=(e)=>{
+            setNew_mb_account(e.target.value);
+          }
+        const ChangenewPW=(e)=>{
+            setNew_mb_password(e.target.value);
+          }
+        const mail_re = /[\w-]+@([\w-]+\.)+[\w-]+/;; 
+
+        const CheckNewML=async ()=>{
+            if(!mail_re.test(new_mb_mail)){
+                setMailMessage("信箱格式錯誤");
+            }else{
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${new_mb_mail}`);
+                console.log(process.env.REACT_APP_API_URL);
+                const results = await response.json();
+                if(results.total === 0 ){
+                    setMailMessage("信箱可使用");
+                    document.querySelector('.CKNmail').style.color="#e4d2a3"
+                }else{
+                    setMailMessage("信箱已被註冊");
+                }
+        }
+      
+        }
+        const account_re =/^(?=.*[0-9\!@#\$%\^&amp;\*])(?=.*[a-zA-Z]).{4,20}$/; 
+
+        const CheckNewAC=async ()=>{
+            if(!account_re.test(new_mb_account)){
+                setAccounteMessage("帳號需4~20字英文數字組合");
+            }else{
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${new_mb_account}`);
+            console.log(process.env.REACT_APP_API_URL);
+            const results = await response.json();
+            if(results.total === 0){
+                setAccounteMessage("帳號可使用");
+                document.querySelector('.CKNaccount').style.color="#e4d2a3"
+            }else{
+                setAccounteMessage("帳號已被註冊");
+            }
+            }
+      
+        }
+
+        const password_re =/^(?=.*[0-9\!@#\$%\^&amp;\*])(?=.*[a-zA-Z]).{8,20}$/; 
+        //密碼格式驗證
+        const  CheckNewPW=()=>{
+            if(password_re.test(new_mb_password)){
+                setPWMessage("密碼符合")
+                document.querySelector('.CKNpassword').style.color="#e4d2a3"
+            }else{
+                setPWMessage("密碼需8~20英文數字組合")
+                
+            }
+
+        } 
+
+        const CRnewMember=async ()=>{
+            if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
+            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
+            
+            const CRNM2 = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM2/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
+            console.log(process.env.REACT_APP_API_URL);
+            const resulta = await CRNM2.json();
+            console.log(resulta)
+            setMailMessage("請輸入信箱");
+            setAccounteMessage("請輸入帳號");
+            setPWMessage("密碼需8~20英文數字組合");
+            alert("註冊成功，請直接登入")
+
+            //滑過去登入頁面
+            document.querySelector('.loginMain1').style.right='-491px';
+            document.querySelector('.loginMain1').style.transition='0.5s';
+            document.querySelector('.LG').style.display="block"
+            document.querySelector('.LG-F').style.display="none"
+            //手機板跳回登入頁
+            document.querySelector('.loginCM').style.display="none"
+            document.querySelector('.loginM').style.display="block"
+            document.querySelector('.forget-m').style.display="none"
+
+
+            //跳到新的畫面
+            }else{ 
+                console.log("錯誤")
+                if(mailMessage != "信箱可使用"){
+                    console.log("mail錯誤")
+                    document.querySelector('.CKNmail').style.color="red"
+                    
+                }if(accountMessage != "帳號可使用"){
+                    console.log("account錯誤")
+                    document.querySelector('.CKNaccount').style.color="red"
+                    
+                }if(PWMessage != "密碼符合"){
+                    console.log("password錯誤")
+                    document.querySelector('.CKNpassword').style.color="red"
+
+            }
+        }
+
+        }
+    
     
 
     const Login = ()=>{
@@ -105,14 +221,13 @@ function MemberLogin(props){
         document.querySelector('.loginM').style.display="block"
       }
 
-        console.log(memberData);
 
   
     //   
     return(
       
         <>
-         {auth ? <Memberprofile/>:<div>
+      
          <div className="pmain">
                 <div className="row">
                     <div className="col ">
@@ -141,8 +256,7 @@ function MemberLogin(props){
                                         <div className="LG">
                                             <br></br>
                                             <form >
-                                            <input type="text" size="30" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} onBlur={handleCheckName}></input>
-                                            <div>{nameMessage || "輸入帳號"}</div>
+                                            <input type="text" size="30" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} ></input>
                                             <br></br>
                                             <input type="password" size="30" placeholder="&ensp;會員密碼" value={member_password} name='member_password' onChange={handleValueChange2}></input>
                                             <div className="row">
@@ -180,13 +294,17 @@ function MemberLogin(props){
                                     <div className="loginInput loginInputR">
                                     <br></br>
                                     <form>
-                                    <input type="email" size="30" placeholder="&ensp;會員信箱" name='Create_Mail'></input>
+                                    <input type="email" size="30" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
+                                    <div className='CKN CKNmail'>{mailMessage || "請輸入信箱"}</div>
+
+                                    <input type="text" size="30" placeholder="&ensp;會員帳號" name='Create_Account' value={new_mb_account} onChange={ChangenewAC} onBlur={CheckNewAC}></input>
+                                    <div className='CKN CKNaccount'>{accountMessage || "帳號需4~20字英文數字組合"}</div>
+
+                                    <input type="password" size="30" placeholder="&ensp;會員密碼" name='Create_Password' value={new_mb_password} onChange={ChangenewPW} onBlur={CheckNewPW}></input>
+                                    <div className='CKN CKNpassword'>{PWMessage || "密碼需8~20英文數字組合"}</div>
                                     <br></br>
-                                    <input type="text" size="30" placeholder="&ensp;會員帳號" name='Create_Account'></input>
-                                    <br></br>
-                                    <input type="password" size="30" placeholder="&ensp;會員密碼" name='Create_Password'></input>
-                                    <br></br>
-                                    <button>&ensp;註冊&ensp;</button>
+
+                                    <button type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
                                     </form>
                                     <hr></hr>
                                     <br></br>
@@ -204,7 +322,7 @@ function MemberLogin(props){
                     </div>
                     <div className="loginInput loginInputL">
                     <form>
-                    <input type="text" size="25" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange} onBlur={handleCheckName}></input>
+                    <input type="text" size="25" placeholder="&ensp;會員帳號" value={member_account} name='member_account' onChange={handleValueChange}></input>
                     <br></br>
                     <input type="password" size="25" placeholder="&ensp;會員密碼" value={member_password} onChange={handleValueChange2}></input>
                     <br></br>
@@ -223,13 +341,13 @@ function MemberLogin(props){
                 <div className="loginCM">
                     <div className="loginInput loginInputL">
                     <form>
-                        <input type="text" size="25" placeholder="&ensp;會員信箱" name='Create_Mail'></input>
+                        <input type="text" size="25" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
                         <br></br>
-                        <input type="text" size="25" placeholder="&ensp;會員帳號" name='Create_Account'></input>
+                        <input type="text" size="25" placeholder="&ensp;會員帳號" name='Create_Account' value={new_mb_account} onChange={ChangenewAC} onBlur={CheckNewAC}></input>
                         <br></br>
-                        <input type="password" size="25" placeholder="&ensp;會員密碼" name='Create_Password'></input>
+                        <input type="password" size="25" placeholder="&ensp;會員密碼" name='Create_Password' value={new_mb_password} onChange={ChangenewPW} onBlur={CheckNewPW}></input>
                         <br></br>
-                        <button>&ensp;註冊&ensp;</button>
+                        <button  type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
                     </form>
                     <div className="loginM-F">
                         <div className="lmLogo"><i className="fa-brands fa-google"></i></div>
@@ -243,11 +361,11 @@ function MemberLogin(props){
                     <form>
                         <input type="email" size="25" placeholder="請輸入註冊信箱" name='Create_Mail'></input>
                         <div className="mldiv"><div className="fgMBack mLcolor" onClick={fgMb}>返回</div></div>
-                        <button>&ensp;送出&ensp;</button>
+                        <button >&ensp;送出&ensp;</button>
                     </form>
                 </div> 
                 </div>
-         </div>}
+         
             
             
         </>
