@@ -18,19 +18,19 @@ function MemberQACard(props){
         <>
         
             {datas.length> 0 && datas.map((category,i)=>{
-                const{id,ask_type,main,ans,CREATEd_at}=category;
+                const{QA_id,ask_type,ask_title,ans,CREATEd_at}=category;
                 var ans_type="已回復";
                 if(ans ==""){
                     ans_type="未回覆"
                 }
                 return(
-                    <tr key={id}>
-                        <td className="col-3None" scope="row">{id}</td>
+                    <tr key={QA_id}>
+                        <td className="col-3None" scope="row">{QA_id}</td>
                         <td className="col-3None">{ask_type}</td>
-                        <td>{main}</td> 
+                        <td>{ask_title}</td> 
                         <td>{ans_type}</td>
                         <td className="tbTime col-3None">{CREATEd_at.slice(0,10)}</td>
-                        <td><Link to={`/member/QAcheck/${id}`}><AiFillEye size={40}/></Link></td>
+                        <td><Link to={`/member/QAcheck/${QA_id}`}><AiFillEye size={40}/></Link></td>
                     </tr>
                 )
             })}

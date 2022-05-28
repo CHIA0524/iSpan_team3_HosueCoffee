@@ -10,7 +10,7 @@ require("dotenv").config();
 router.route('/')
     .get(async(req,res,next)=>{
         const sql=
-        "SELECT * FROM `user_ask` where fk_member_id=?"; 
+        "SELECT * FROM `member_QA` where fk_member_id=?"; 
         const [datas]=await db.query(sql,[req.query.fk_member_id]);
         res.json(datas);
 
@@ -18,8 +18,8 @@ router.route('/')
 router.route('/id')
     .get(async(req,res,next)=>{
         const sql=
-        "SELECT * FROM `user_ask` where id=?"; 
-        const [datas] = await db.query(sql,[req.query.id]);
+        "SELECT * FROM `member_QA` where QA_id=?"; 
+        const [datas] = await db.query(sql,[req.query.QA_id]);
         res.json(datas);
 
     })

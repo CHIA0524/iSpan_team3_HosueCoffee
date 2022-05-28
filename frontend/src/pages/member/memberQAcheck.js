@@ -11,7 +11,7 @@ import './memberQAcheck.css'
 
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/test/id?id=${params.id}`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/test/id?QA_id=${params.id}`)
         const results=await response.json();  
       
        setDatas(results);
@@ -27,7 +27,7 @@ import './memberQAcheck.css'
     if(datas.length >0 ){
       console.log((datas[0].id));
       const QA=datas[0];
-      const{id,ask_type,main,ask,ans}=QA;
+      const{QA_id,ask_type,ask_title,ask,ans}=QA;
                 var ans_type="已回復";
                 if(ans ==""){
                     ans_type="未回覆"
@@ -55,10 +55,10 @@ import './memberQAcheck.css'
             </div>
             
             <div>
-              <li>{id}</li> 
+              <li>{QA_id}</li> 
               <li>{ans_type}</li>
               <li>{ask_type}</li>
-              <li>{main}</li>
+              <li>{ask_title}</li>
             </div>
           </div>
           <div>

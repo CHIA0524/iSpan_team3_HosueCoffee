@@ -5,6 +5,7 @@ import MemberBack from './memberBack';
 import './memberPassword.css'
 import { duration } from '@mui/material';
 function MemberPassword(){
+  const account=localStorage.getItem("account");
   const [member_password, setmember_password] = useState("");
   const [member_passwordN, setmember_passwordN] = useState("");
   const [member_passwordN2, setmember_passwordN2] = useState("");
@@ -101,7 +102,7 @@ function MemberPassword(){
                         <div className="memberPhoto"><img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
                         <div className="memberNumber">
                             <div >會員帳號</div>
-                            <div >Jack123</div>
+                            <div >{account}</div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,7 @@ function MemberPassword(){
                             <div className="memberPhoto"><img src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
                             
                             <div className="memberNumber">
-                                <div >Jack123</div>
+                                <div >{account}</div>
                             </div>
                         </div>
                         <div>
