@@ -160,14 +160,14 @@ function MemberPassword(props){
                                     <div className='newpassword'> 
                                     <div className="proRight">
                                       <div>新密碼:</div>
-                                      <input type="text" onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
+                                      <input type="password" onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
                                       <div>{passwordMessageN || "需為英文數字8~20字組合"}</div>
                                       <br></br>
                                     </div>
 
                                     <div className="proRight">
                                       <div>確認新密碼:</div>
-                                      <input type="text" value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>
+                                      <input type="password" value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>
                                       <div>{passwordMessageN2 || "請再次輸入新密碼"}</div>
                                       <br></br>
                                     </div>

@@ -13,6 +13,7 @@ function MemberLogin(props){
     }
     
     const [member_account, setmember_account] = useState("");
+    const [member_password, setmember_password] = useState("");
     const [new_mb_mail,setNew_mb_mail]=useState("")
     const [new_mb_account,setNew_mb_account]=useState("")
     const [new_mb_password,setNew_mb_password]=useState("")
@@ -20,7 +21,6 @@ function MemberLogin(props){
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
     const [PWMessage, setPWMessage] = useState("");
-    const [member_password, setmember_password] = useState("");
     
 
    
@@ -142,6 +142,8 @@ function MemberLogin(props){
             console.log(process.env.REACT_APP_API_URL);
             const resulta = await CRNM2.json();
             console.log(resulta)
+            setmember_account(new_mb_account);
+            setmember_password(new_mb_password);
             setMailMessage("請輸入信箱");
             setAccounteMessage("請輸入帳號");
             setPWMessage("密碼需8~20英文數字組合");
@@ -152,13 +154,11 @@ function MemberLogin(props){
             document.querySelector('.loginMain1').style.transition='0.5s';
             document.querySelector('.LG').style.display="block"
             document.querySelector('.LG-F').style.display="none"
+
             //手機板跳回登入頁
             document.querySelector('.loginCM').style.display="none"
             document.querySelector('.loginM').style.display="block"
             document.querySelector('.forget-m').style.display="none"
-
-
-            //跳到新的畫面
             }else{ 
                 console.log("錯誤")
                 if(mailMessage != "信箱可使用"){
