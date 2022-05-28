@@ -6,7 +6,7 @@ function AddNumBtn(props){
   const[amount, setAmount]= useState(1)
 //   const{setfinalTotal} = props
 // 計算總數量
-  const {setsubTotal  }= props
+  const {setsubTotal }= props
   return( 
       <>
         <div className="col-3 numberDesk ">

@@ -12,6 +12,11 @@ function Pay1(props){
     const [ subTotal, setsubTotal ]= useState('1')
     
     const [ totalCash, setTotalCash ] = useState(0);
+
+   
+
+    
+    
     
 
     const cash = (price) => {
@@ -59,7 +64,7 @@ function Pay1(props){
                             <h4>紅利折扣</h4>
                         </div>
                         <div class="money">
-                            <h4>${totalCash}</h4>
+                            <h4>${setTotalCash}</h4>
                             <h4>$499</h4>
                             <h4>$499</h4>
                         </div>

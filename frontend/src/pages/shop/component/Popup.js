@@ -17,7 +17,8 @@ function Popup(props){
     if(datas.length>0){
       console.log(productId);
       
-    
+   
+
  
   
     

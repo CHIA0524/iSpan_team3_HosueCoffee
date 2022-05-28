@@ -13,6 +13,7 @@ function PInfo(props){
     // 小計
 const [ subTotal, setsubTotal ]= useState('1')
 
+const {setTotalCash} = props;
 
  
     // const removePinfo=()=>{
@@ -46,7 +47,8 @@ return(
                     </div>
                     <div className="col-1">
 
-                        <p>${499* Number(subTotal)}</p>
+                        <p>${499* Number(subTotal)}
+                        {499* Number(setTotalCash)}</p>
                     </div>
                 </div>
                 <hr></hr>
