@@ -10,23 +10,12 @@ const List = (props) => {
 
     let[Counter1, setCounter1] = useState('')
 
-    const price = 100
-    console.log(Counter1)
-    const {setpricetotal1} = props
-    // let setpricetotal1 =  100*Number(Counter1)
+    
+    
 
-    // const product = [
-    //     {
-    //     id:'',
-    //     drink_name:'',
-    //     url:'',
-    //     price:'',
-    //     content:'',
-    // }
-    // ]
-        const  value = localStorage.settings
 
-    console.log(value)
+
+
     return(
     <div className="list">
             <div className="d-flex align-items-center justify-content-between">
@@ -41,7 +30,7 @@ const List = (props) => {
                         <div className="quantityText">
                             數量：
                         </div>
-                        <Counter setCounter1={setCounter1} setpricetotal1= {setpricetotal1} price= {price}/>
+                        <Counter/>
                     </div>
                 </div>
                 <div className="delete1">
@@ -52,7 +41,7 @@ const List = (props) => {
                 </div>
 
                 <div className="price">
-                    {setpricetotal1}   
+                    {/* {setpricetotal1}    */}
                 </div>
             </div>
         </div>

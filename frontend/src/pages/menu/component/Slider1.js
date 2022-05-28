@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import "/node_modules/slick-carousel/slick/slick.scss"; 
+import "./slick.scss"; 
 import "/node_modules/slick-carousel/slick/slick-theme.scss";
 
 
@@ -14,7 +14,7 @@ const Slider1 = ()=> {
 
 
 
-   
+
 
     const settings = {
         dots: true,
@@ -23,11 +23,9 @@ const Slider1 = ()=> {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        adaptiveHeight: true,
-        display: true, 
-        adaptiveHeight:true,
+        adaptiveHeight: true
         
-      };
+    };
 
 
           const img1 = 'https://chivas.idlcloud.com/stage/basic_uploads/sir-trevor/622a3eac25c93.jpeg'

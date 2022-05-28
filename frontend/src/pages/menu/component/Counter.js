@@ -8,13 +8,14 @@ const Counter = (props) => {
 
     
 
-    const {setdrinkCounter, drinkCounter}  = props
+    const {setdrinkCounter, drinkCounter, setCounter1}  = props
     
     let buttonsub = null
 
     if(drinkCounter > 1){buttonsub = <div 
                                         className="btn buttonLeft" 
                                         onClick={ () => { 
+                                            // setCounter1(drinkCounter - 1)
                                             setdrinkCounter(drinkCounter - 1)
                                         }}>-</div>
     }
@@ -25,12 +26,12 @@ const Counter = (props) => {
         <div className="d-flex numButton">
             {buttonsub}
             <div className="quantity">
-            {drinkCounter}
+            {drinkCounter}{setCounter1}
             </div>
             <div
                 className="btn buttonRight"
                 onClick={() => {
-
+                    // setCounter1(drinkCounter + 1)
                     setdrinkCounter(drinkCounter + 1)
                 }}>+</div>
         </div>

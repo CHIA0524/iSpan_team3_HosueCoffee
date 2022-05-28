@@ -5,7 +5,7 @@ import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
 import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
-import Slider1 from "./component/Slider1";
+// import Slider1 from "./component/Slider1";
 
 
 
@@ -31,7 +31,7 @@ const MenuIndex = () => {
 
         const fetchData = async()=>{
     
-                            const response = await fetch('http://localhost:3002/menu');
+                            const response = await fetch('http://localhost:3301/menu');
     
                             const results = await response.json();
                                             setDatas(results);
@@ -50,10 +50,10 @@ const MenuIndex = () => {
             <div className="bodyMenu">
                 <MenuAside/>
                 <div className="main2">
-                    <div className="">
-                    <Slider1/>
-                    </div>
                     <div className="mainBody">
+                        <div className="silder1">
+                            {/* <Slider1/> */}   {/* TODO Silder待完成*/} 
+                        </div>
                         <MenuCard 
                             datas={datas}
                             setdrinkId={setdrinkId}
