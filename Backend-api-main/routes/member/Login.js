@@ -30,8 +30,8 @@ router.get('/checkPassword',async (req,res,next)=>{
 })
 
 router.get('/checkPhone',async (req,res,next)=>{
-  const sql = `SELECT Count(*) as total FROM members_data WHERE  member_phone=?`
-  const [datas] = await db.query(sql,[req.query.member_password,req.query.member_phone]);
+  const sql = `SELECT Count(*) as total FROM members_data WHERE member_phone=?`
+  const [datas] = await db.query(sql,[req.query.member_phone]);
   console.log(datas)
   res.json(datas[0]);
 })
