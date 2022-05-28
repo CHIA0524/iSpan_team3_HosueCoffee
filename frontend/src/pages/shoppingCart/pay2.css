@@ -51,12 +51,12 @@
   margin-top: 3rem;
   width: 80%;
 }
-.shiptohome {
+/* .shiptohome {
   display: none;
-}
-.storepick {
+} */
+/* .storepick {
   display: none;
-}
+} */
 .storepick select {
   width: 80%;
 }

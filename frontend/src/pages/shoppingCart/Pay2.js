@@ -116,7 +116,7 @@ function Pay2(){
 
     
     const shipSame = ()=>{
-        const a=document.querySelector('.checkaaa').checked
+        const a=document.querySelector('.sameAddress').checked
         console.log(a)
         if(a==true){
          document.querySelector('.receiverInfo').style.display="none"
@@ -125,6 +125,19 @@ function Pay2(){
 
         }
          }
+    const [shipgopay,setShipgopay]=useState("請選擇運送方式");
+    const shipprice = ()=>{
+     const b = document.querySelector('.postoffice').checked
+     console.log(b)
+     if(b==true){
+        // document.getElementById("sprice").innerHTML = 80
+        setShipgopay(80)
+    }
+    else{
+        // document.getElementById("sprice").innerHTML = 100
+        setShipgopay(100)
+     }
+      }     
    
 
 
@@ -160,15 +173,15 @@ function Pay2(){
                       <div className="questInfo">
                           <div>取貨方式 </div>
                           <div className="radioS">
-                              <div className="form-check  checkPart">
-                                  <input className="form-check-input" type="radio"       name="pickupmethod" id="store"
-                                      value="storepickup" required //onClick={Pickup2} 
+                              <div className="form-check  checkPart ">
+                                  <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="store"
+                                      value="postoffice" required  onClick={shipprice}  
                                       />
                                   <label className="form-check-label" for="store">郵局 + 80</label>
                               </div>
                               <div className="form-check  checkPart1">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="home"
-                                      value="shiptohome"  required //onClick={Pickup1} 
+                                      value="blackcat"  required onClick={shipprice}
                                       />
                                   <label className="form-check-label" for="home" >黑貓 + 100</label>
                               </div>
@@ -223,7 +236,7 @@ function Pay2(){
                       <div className="pickup"  >
                            <div className="shiptohome">
                                 <div className="form-check">
-                                    <input className="form-check-input checkaaa" type="checkbox"      value=""id="flexCheckChecked" onClick={shipSame} />
+                                    <input className="form-check-input sameAddress" type="checkbox"      value=""id="flexCheckChecked" onClick={shipSame} />
                                     <label className="form-check-label" for="flexCheckChecked">
                                         收件人資料與顧客資料相同
                                     </label>
@@ -277,7 +290,7 @@ function Pay2(){
                                      )}
                                 </div>
                             </div>
-                           <div className="storepick">
+                           {/* <div className="storepick">
                            <p>門市選擇</p>
                            
                            <select class="form-select form-select-sm " aria-label=".form-select-sm ">
@@ -295,7 +308,7 @@ function Pay2(){
                            </select>
                           
             
-                           </div>
+                           </div> */}
                       </div>
                       <div className="noteInfo">
                           <p>備註</p>
@@ -314,7 +327,7 @@ function Pay2(){
                               </div>
                               <div className="money">
                                   <p>$1998</p>
-                                  <p>自取</p>
+                                  <p className="sprice">${shipgopay}</p>
                                   <p>$100</p>
                                   <p>$100</p>
                               </div>
