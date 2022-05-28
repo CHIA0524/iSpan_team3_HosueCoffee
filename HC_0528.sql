@@ -2,8 +2,8 @@ drop database team3;
 create database team3;
 use team3;
 -- select * from members;
-select * from members_data ;
-
+-- select * from members_data ;
+-- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
 -- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
 --------------------------------------------------------------------------------------------------------------------------------
 -- 使用者

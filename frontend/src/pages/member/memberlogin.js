@@ -144,9 +144,9 @@ function MemberLogin(props){
             console.log(resulta)
             setmember_account(new_mb_account);
             setmember_password(new_mb_password);
-            setMailMessage("請輸入信箱");
-            setAccounteMessage("請輸入帳號");
-            setPWMessage("密碼需8~20英文數字組合");
+            setNew_mb_mail("");
+            setNew_mb_account("");
+            setNew_mb_password("");
             alert("註冊成功，請直接登入")
 
             //滑過去登入頁面
@@ -304,7 +304,7 @@ function MemberLogin(props){
                                     <div className='CKN CKNpassword'>{PWMessage || "密碼需8~20英文數字組合"}</div>
                                     <br></br>
 
-                                    <button type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
+                                    <button className='CRBTN' type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
                                     </form>
                                     <hr></hr>
                                     <br></br>
