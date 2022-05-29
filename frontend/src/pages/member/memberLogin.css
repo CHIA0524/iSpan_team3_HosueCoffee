@@ -170,6 +170,10 @@
   background-size: cover; 
   background-position:0% 50%;
 }
+.loginInputL .RWDSignIntput{
+  margin-top:2rem ;
+  margin-bottom: 0.5rem;
+}
 .CKN{
   color: #e4d2a3;
 }

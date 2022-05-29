@@ -96,6 +96,7 @@ function MemberLogin(props){
                 if(results.total === 0 ){
                     setMailMessage("信箱可使用");
                     document.querySelector('.CKNmail').style.color="#e4d2a3"
+                    document.querySelector('.CKNmail_m').style.color="#4C3410"
                 }else{
                     setMailMessage("信箱已被註冊");
                 }
@@ -114,6 +115,7 @@ function MemberLogin(props){
             if(results.total === 0){
                 setAccounteMessage("帳號可使用");
                 document.querySelector('.CKNaccount').style.color="#e4d2a3"
+                document.querySelector('.CKNaccount_m').style.color="#4C3410"
             }else{
                 setAccounteMessage("帳號已被註冊");
             }
@@ -127,6 +129,7 @@ function MemberLogin(props){
             if(password_re.test(new_mb_password)){
                 setPWMessage("密碼符合")
                 document.querySelector('.CKNpassword').style.color="#e4d2a3"
+                document.querySelector('.CKNpassword_m').style.color="#4C3410"
             }else{
                 setPWMessage("密碼需8~20英文數字組合")
                 
@@ -164,17 +167,23 @@ function MemberLogin(props){
                 if(mailMessage != "信箱可使用"){
                     console.log("mail錯誤")
                     document.querySelector('.CKNmail').style.color="red"
+                    document.querySelector('.CKNmail_m').style.color="red"
                     
                 }if(accountMessage != "帳號可使用"){
-                    console.log("account錯誤")
+                    console.log("account錯誤") 
                     document.querySelector('.CKNaccount').style.color="red"
+                    document.querySelector('.CKNaccount_m').style.color="red"
                     
                 }if(PWMessage != "密碼符合"){
                     console.log("password錯誤")
                     document.querySelector('.CKNpassword').style.color="red"
+                    document.querySelector('.CKNpassword_m').style.color="red"
 
             }
         }
+
+
+        
 
         }
     
@@ -295,7 +304,7 @@ function MemberLogin(props){
                                     <br></br>
                                     <form>
                                     <input type="email" size="30" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
-                                    <div className='CKN CKNmail'>{mailMessage || "請輸入信箱"}</div>
+                                    <div className='CKN CKNmail '>{mailMessage || "請輸入信箱"}</div>
 
                                     <input type="text" size="30" placeholder="&ensp;會員帳號" name='Create_Account' value={new_mb_account} onChange={ChangenewAC} onBlur={CheckNewAC}></input>
                                     <div className='CKN CKNaccount'>{accountMessage || "帳號需4~20字英文數字組合"}</div>
@@ -341,12 +350,16 @@ function MemberLogin(props){
                 <div className="loginCM">
                     <div className="loginInput loginInputL">
                     <form>
-                        <input type="text" size="25" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
-                        <br></br>
-                        <input type="text" size="25" placeholder="&ensp;會員帳號" name='Create_Account' value={new_mb_account} onChange={ChangenewAC} onBlur={CheckNewAC}></input>
-                        <br></br>
-                        <input type="password" size="25" placeholder="&ensp;會員密碼" name='Create_Password' value={new_mb_password} onChange={ChangenewPW} onBlur={CheckNewPW}></input>
-                        <br></br>
+
+                        <input className='RWDSignIntput' type="text" size="25" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
+                        <div className=' CKNmail CKNmail_m'>{mailMessage || "請輸入信箱"}</div>
+
+                        <input className='RWDSignIntput' type="text" size="25" placeholder="&ensp;會員帳號" name='Create_Account' value={new_mb_account} onChange={ChangenewAC} onBlur={CheckNewAC}></input>
+                        <div className=' CKNaccount CKNaccount_m'>{accountMessage || "帳號需4~20字英文數字組合"}</div>
+
+                        <input className='RWDSignIntput' type="password" size="25" placeholder="&ensp;會員密碼" name='Create_Password' value={new_mb_password} onChange={ChangenewPW} onBlur={CheckNewPW}></input>
+                        <div className='CKNpassword CKNpassword_m'>{PWMessage || "密碼需8~20英文數字組合"}</div>
+
                         <button  type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
                     </form>
                     <div className="loginM-F">
