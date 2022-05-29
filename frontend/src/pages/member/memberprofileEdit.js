@@ -8,10 +8,14 @@ import './memberprofileEdit.css';
 function MemberprofileEdit(props){
   const{auth}=props;
     const {dataCheck}=props;
+    console.log("---------")
+    console.log(dataCheck)
+    console.log(!dataCheck)
+    console.log("---------")
     if(!auth){
-      window.location.assign("http://localhost:3000/member")
+      window.location.replace("http://localhost:3000/member")
     }if(!dataCheck){
-      window.location.assign("http://localhost:3000/member/NewData");
+      window.location.replace("http://localhost:3000/member/NewData");
     }
   const thismemberid=localStorage.getItem("true");
   const account=localStorage.getItem("account");
@@ -57,7 +61,7 @@ function MemberprofileEdit(props){
           localStorage.setItem("phone", UPphone);
           localStorage.setItem("address", UPaddress);
           alert("資料修改成功")
-          window.location.assign("http://localhost:3000/member/profile");
+          window.location.replace("http://localhost:3000/member/profile");
         }else{
           alert("姓名為空");
 

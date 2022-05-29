@@ -11,10 +11,11 @@ function MemberQAList(props){
     
     const{auth}=props;
     const {dataCheck}=props;
+    console.log(auth);
     if(!auth){
-      window.location.assign("http://localhost:3000/member")
+      window.location.replace("http://localhost:3000/member")
     }if(!dataCheck){
-      window.location.assign("http://localhost:3000/member/NewData");
+      window.location.replace("http://localhost:3000/member/NewData");
     }
     const thismemberid=localStorage.getItem("true");
   

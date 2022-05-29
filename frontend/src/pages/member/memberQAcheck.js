@@ -8,7 +8,7 @@ import './memberQAcheck.css'
    const{auth}=props
    const {dataCheck}=props;
     if(!dataCheck){
-        window.location.assign("http://localhost:3000/member/NewData");
+        window.location.replace("http://localhost:3000/member/NewData");
     }
   const params = useParams()
    const [datas,setDatas] = useState([])

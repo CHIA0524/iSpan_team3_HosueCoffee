@@ -9,7 +9,7 @@ import { check } from 'prettier';
 function MemberNewData(props){
   const{auth}=props;
     if(!auth){
-      window.location.assign("http://localhost:3000/member")
+      window.location.replace("http://localhost:3000/member")
     }
   var today = new Date();
   var dd = today.getDate();
@@ -134,7 +134,7 @@ function MemberNewData(props){
           localStorage.setItem("dataCheck", "資料完整");
           setDataCheck(!dataCheck)
           alert("資料新增成功")
-          window.location.assign("http://localhost:3000/member/profile");
+          window.location.replace("http://localhost:3000/member/profile");
         }if(nameMessage!="感謝填寫姓名"){
           document.querySelector(".NewName").style.color="red";
 

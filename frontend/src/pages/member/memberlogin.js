@@ -7,9 +7,15 @@ import Memberprofile from './memberprofile';
 // import Welcome from './memberWelcom';
 function MemberLogin(props){
     const {auth,setAuth} = props;  
+    //登入狀態，修改登入
     const {dataCheck,setDataCheck}=props
+    //登入狀態，修改登入
+    // if(dataCheck!=true){
+    //     window.location.replace("http://localhost:3000/member/NewData");
+    // }
     if(auth){
-      window.location.assign("http://localhost:3000/member/profile")
+       //登入，轉向個人基本資料
+        window.location.replace("http://localhost:3000/member/profile")
     }
     
     const [member_account, setmember_account] = useState("");
@@ -49,7 +55,6 @@ function MemberLogin(props){
             localStorage.setItem("true", loginMid.member_id);
             localStorage.setItem("account", loginMid.member_account);
             localStorage.setItem("mail", loginMid.member_mail);
-            setAuth(!auth);
             if(results.total===1){
                 const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
                 const results = await login.json();
@@ -61,13 +66,14 @@ function MemberLogin(props){
                 localStorage.setItem("address", results.member_address);
                 localStorage.setItem("photo", results.photo);
                 localStorage.setItem("dataCheck", "資料完整");
-
-                setDataCheck(!dataCheck)
+                
                 alert('成功登入');
-                window.location.assign("http://localhost:3000/member/profile");
+                setAuth(!auth);
+                setDataCheck(!dataCheck)
+                window.location.replace("http://localhost:3000/member/profile");
         }else{
             alert('成功登入 但基本資料尚未完整');
-            window.location.assign("http://localhost:3000/member/NewData");
+            window.location.replace("http://localhost:3000/member/NewData");
             }
         }else{
             alert('帳號密碼錯誤');
@@ -236,8 +242,9 @@ function MemberLogin(props){
     return(
       
         <>
-      
-         <div className="pmain">
+        {auth ?<Memberprofile/> :
+        <div>
+        <div className="pmain">
                 <div className="row">
                     <div className="col ">
                         <div className="memberLoginMain">
@@ -378,6 +385,12 @@ function MemberLogin(props){
                     </form>
                 </div> 
                 </div>
+        </div>
+        }
+       
+        
+      
+         
          
             
             
