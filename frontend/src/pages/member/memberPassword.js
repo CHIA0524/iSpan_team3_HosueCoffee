@@ -57,7 +57,7 @@ function MemberPassword(props){
       setpasswordMessageN("密碼符合")
       document.querySelector('.passwordMessageRedN').style.color="#4C3410"
       document.querySelector('.passwordMessageRedN_m').style.color="#4C3410"
-    }if(member_passwordN==oldpassword){
+    }else if(member_passwordN==oldpassword){
       setpasswordMessageN("不可與舊密碼相同")
     }else{
       setpasswordMessageN("需為英文數字8~20字組合")
@@ -66,19 +66,20 @@ function MemberPassword(props){
 
   }
   const handleCheckPasswordN2=()=>{
-    if(member_passwordN==member_passwordN2 && member_passwordN2!=""){
+    if(member_passwordN==member_passwordN2){
       setpasswordMessageN2("新密碼對比正確");
       document.querySelector('.passwordMessageRedN2').style.color="#4C3410"
       document.querySelector('.passwordMessageRedN2_m').style.color="#4C3410"
-    }if(member_passwordN==member_passwordN2 && member_passwordN2!=""&& member_passwordN==oldpassword){
-      setpasswordMessageN2("新密碼對比正確，但不可與舊密碼相同");
-
     }else{
-      // console.log("新密碼對比錯誤")
+      if(member_passwordN==member_passwordN2 && member_passwordN2!=""&& member_passwordN==oldpassword){
+        setpasswordMessageN2("新密碼對比正確，但不可與舊密碼相同");
+  
+      }else{
       setpasswordMessageN2("新密碼對比錯誤");
-      // document.querySelector(".memberEditP").style.display="none";
+      
     }
   }
+}
   const changPW=async ()=>{
     if(passwordMessage=='舊密碼正確' && passwordMessageN=="密碼符合" && passwordMessageN2=="新密碼對比正確"){
     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/changePassword?member_password=${member_passwordN}&member_id=${thismemberid}`);
@@ -141,12 +142,12 @@ function MemberPassword(props){
                               
                               <div className='newpassword'>  
                               <div className="proRight_pw" >新密碼:&emsp;&emsp;&emsp;&emsp;
-                                    <input type="password" value={member_passwordN} onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
+                                    <input type="text" value={member_passwordN} onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
                               </div>
                               <div className='passwordMessageRedN'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{passwordMessageN || "需為英文數字8~20字組合"}</div>
                               
                               <div className="proRight_pw newpassword2">確認新密碼:&emsp;&emsp;
-                                    <input type="password"  value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>  
+                                    <input type="text"  value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>  
                               </div>
                                <div className='passwordMessageRedN2' >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{passwordMessageN2 || "請再次輸入新密碼"}</div>
                                <br></br>
@@ -166,7 +167,7 @@ function MemberPassword(props){
                                     <div className='newpassword'> 
                                     <div className="proRight">
                                       <div>新密碼:</div>
-                                      <input type="password" onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
+                                      <input type="password" value={member_passwordN} onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
                                       <div className='passwordMessageRedN passwordMessageRedN_m'>{passwordMessageN || "需為英文數字8~20字組合"}</div>
                                       <br></br>
                                     </div>
