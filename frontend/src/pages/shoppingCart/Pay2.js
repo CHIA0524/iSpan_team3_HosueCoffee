@@ -10,121 +10,134 @@ import Pay3 from './Pay3';
 
 
 function Pay2(){
-   const [fields, setFields] = useState({
-    paymethod: '',
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
-    Rname: '',
-    Rphone: '',
-    Remail: '',
-    Raddress: '',
-  })
- // 記錄欄位錯誤訊自用的狀態
- const [fieldErrors, setFieldErrors] = useState({
-    paymethod: '',
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
-    Rname: '',
-    Rphone: '',
-    Remail: '',
-    Raddress: '',
 
-  })
-  
+   const [name,setName]=useState()
+   const [phone,setPhone]=useState()
+   const [email,setEmail]=useState()
+   const [address,setAddress]=useState()
+   const [Rname,setRName]=useState()
+   const [Rphone,setRPhone]=useState()
+   const [Remail,setREmail]=useState()
+   const [Raddress,setRAddress]=useState()
 
-  // 每個表單輸入時觸發onChange使用
-  const handleChange = (e) => {
-    // console.log(e.target.type, e.target.name, e.target.value)
+   //顯示錯誤訊息
+   const [nameMessage,setNameMessage]=useState()
+   const [phoneMessage,setPhoneMessage]=useState()
+   const [emailMessage,setEmailMessage]=useState()
+   const [addressMessage,setAddressMessage]=useState()
 
-    // 步驟1+2
-    const newData = { ...fields, [e.target.name]: e.target.value }
+   const [RnameMessage,setRNameMessage]=useState()
+   const [RphoneMessage,setRPhoneMessage]=useState()
+   const [RemailMessage,setREmailMessage]=useState()
+   const [RaddressMessage,setRAddressMessage]=useState()
 
-    // 步驟3: 設定回原狀態
-    setFields(newData)
-  }
 
-  // 表單通過html5驗証時會呼叫
-  const handleSubmit = (e) => {
-    // 阻擋表單預設行為
-    e.preventDefault()
-    // console.log(123);
-
-    const formData = new FormData(e.target)
-    // 獲取同名稱的checkbox
-    console.log(formData.getAll('paymethod'))
-    console.log(formData.getAll('pickupmethod'))
-    
-    console.log(formData.get('name'))
-    console.log(formData.get('phone'))
-    console.log(formData.get('email'))
-    console.log(formData.get('address'))
-
-    console.log(formData.get('Rname'))
-    console.log(formData.get('Rphone'))
-    console.log(formData.get('Remail'))
-    console.log(formData.get('Raddress'))
-
-    // 送到伺服器…ajax…fetch...
-    console.log('這裡送出表單資料到伺服器了')
-   
-    // 如果都輸入完成，頁面跳轉
-    
-  }
-
-  
-
-    // 表單出現不合法的html5驗証時會呼叫
-    const handleInvalid = (e) => {
-    // 阻擋表單預設行為(錯誤的泡泡訊息)
-    e.preventDefault()
-
-    const newFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
+   const Iname=(e)=>{
+    setName(e.target.value);
+     }
+   const Iphone=(e)=>{
+    setPhone(e.target.value);
+     }
+   const Iemail=(e)=>{
+    setEmail(e.target.value);
+     }
+   const Iaddress=(e)=>{
+    setAddress(e.target.value);
+     }
+    const RIname=(e)=>{
+    setRName(e.target.value);
     }
-
-    setFieldErrors(newFieldErrors)
-
-    //console.log(e.target.validationMessage)
-  }
-
-  // 當整個表單有變動時會觸發
-  // 只是為了暫時清除錯誤訊息而已
-  const handleFormChange = (e) => {
-    const newFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: '',
+    const RIphone=(e)=>{
+    setRPhone(e.target.value);
+     }
+    const RIemail=(e)=>{
+    setREmail(e.target.value);
     }
-    setFieldErrors(newFieldErrors)
-  }
-  
-    //自取宅配選擇
-    // const Pickup1 = ()=>{
-    //      document.querySelector('.shiptohome').style.display="block"
-    //      document.querySelector('.storepick').style.display="none"
-    // }
-
-    // const Pickup2 = ()=>{
-    //     document.querySelector('.storepick').style.display="block"
-    //     document.querySelector('.shiptohome').style.display="none"
-    //     }
+    const RIaddress=(e)=>{
+    setRAddress(e.target.value);
+    }   
+        // console.log(name)
+      
+        //驗證 
+        const Wrongname=()=>{
+            if(!name){
+                setNameMessage("請輸入姓名")
+            }else{
+                setNameMessage("")
+            }
+        }   
+        const Wrongphone=()=>{
+            if(!phone){
+                setPhoneMessage("請輸入手機")
+            }else{
+                setPhoneMessage("")
+            }
+        }  
+        const Wrongemail=()=>{
+            if(!email){
+                setEmailMessage("請輸入信箱")
+            }else{
+                setEmailMessage("")
+            }
+        }
+        const Wrongaddress=()=>{
+            if(!address){
+                setAddressMessage("請輸入地址")
+            }else{
+                setAddressMessage("")
+            }
+        }
+        const WrongRname=()=>{
+            if(!Rname){
+                setRNameMessage("請輸入姓名")
+            }else{
+                setRNameMessage("")
+            }
+        }   
+        const WrongRphone=()=>{
+            if(!Rphone){
+                setRPhoneMessage("請輸入手機")
+            }else{
+                setRPhoneMessage("")
+            }
+        }  
+        const WrongRemail=()=>{
+            if(!Remail){
+                setREmailMessage("請輸入信箱")
+            }else{
+                setREmailMessage("")
+            }
+        }
+        const WrongRaddress=()=>{
+            if(!Raddress){
+                setRAddressMessage("請輸入地址")
+            }else{
+                setRAddressMessage("")
+            }
+        }
     
 
-    
-    const shipSame = ()=>{
+       //相同運送地址 
+       const shipSame = ()=>{
         const a=document.querySelector('.sameAddress').checked
+        
         console.log(a)
         if(a==true){
          document.querySelector('.receiverInfo').style.display="none"
+         setRName(name)
+         setRPhone(phone)
+         setREmail(email)
+         setRAddress(address)
         }else{
             document.querySelector('.receiverInfo').style.display="block"
-
+            setRName("")
+            setRPhone("")
+            setREmail("")
+            setRAddress("")
         }
          }
+    
+         //運費選擇
     const [shipgopay,setShipgopay]=useState("請選擇運送方式");
     const shipprice = ()=>{
      const b = document.querySelector('.postoffice').checked
@@ -146,9 +159,9 @@ function Pay2(){
        <div className="container main">
        <Steps2 />
           <form
-           onSubmit={handleSubmit}
-           onInvalid={handleInvalid}
-           onChange={handleFormChange}
+        //    onSubmit={handleSubmit}
+        //    onInvalid={handleInvalid}
+        //    onChange={handleFormChange}
         >
               <div className="payInfoStart detail">
                   <div className="payInfoFill">
@@ -166,9 +179,7 @@ function Pay2(){
                                   <label className="form-check-label" for="card">信用卡</label>
                               </div>
                           </div>
-                          {fieldErrors.name !== '' && (
-                          <div className="error">{fieldErrors.paymethod}</div>
-                          )}
+                         
                       </div>
                       <div className="questInfo">
                           <div>取貨方式 </div>
@@ -186,9 +197,7 @@ function Pay2(){
                                   <label className="form-check-label" for="home" >黑貓 + 100</label>
                               </div>
                           </div>
-                              {fieldErrors.name !== '' && (
-                          <div className="error">{fieldErrors.pickupmethod}</div>
-                          )}
+                          
                           
                       </div>
                       <div className="buyerInfo">
@@ -196,41 +205,45 @@ function Pay2(){
                           <input type="text" 
                           placeholder="姓名"
                           name= "name"
-                          value={fields.name}
-                          onChange={handleChange}
+                          value={name}
+                          onChange={Iname}
+                          onBlur={Wrongname}
                         required
                           />
-                          {fieldErrors.name !== '' && (
-                          <div className="error">{fieldErrors.name}</div>
-                          )}
+                          <div className="error">{nameMessage}</div>
+                         
+
                           <input type="tel" 
                           placeholder="手機"
                           name= "phone"
-                          value={fields.phone}
-                          onChange={handleChange}
+                          value={phone}
+                          onChange={Iphone}
                           required
                           minLength={10}
                           maxLength={10}
+                          onBlur={Wrongphone}
                           />
-                           {fieldErrors.phone !== '' && (
-                          <div className="error">{fieldErrors.phone}</div>
-                          )}
+                          <div className="error">{phoneMessage}</div>
+                        
                           <input type="email" 
                           placeholder="信箱"
                           name="email"
-                          value={fields.email}
-                          onChange={handleChange}
+                          value={email}
+                          onChange={Iemail}
                         required
+                          onBlur={Wrongemail}
                           />
-                          {fieldErrors.email !== '' && (
-                          <div className="error">{fieldErrors.email}</div>
-                          )}
+                          <div className="error">{emailMessage}</div>
+                         
                           <input type="text" 
                           placeholder="地址"
                           name= "address"
-                          value={fields.address}
-                          onChange={handleChange}
+                          value={address}
+                          onChange={Iaddress}
+                        required
+                          onBlur={Wrongaddress}
                           />
+                          <div className="error">{addressMessage}</div>
                       </div>
                  
                       <div className="pickup"  >
@@ -247,47 +260,49 @@ function Pay2(){
                                     <input type="text" 
                                      placeholder="姓名"
                                      name= "Rname"
-                                     value={fields.Rname}
-                                     onChange={handleChange}
+                                     value={Rname}
+                                     onChange={RIname}
                                      required
+                                     onBlur={WrongRname}
                                      />
-                                     {fieldErrors.Rname !== '' && (
-                                     <div className="error">{fieldErrors.Rname}</div>
-                                     )}
+                                   <div className="error">{RnameMessage}</div>
+                                     
+                                     
                                      
                                      <input type="tel" 
                                       placeholder="手機"
                                       name= "Rphone"
-                                      value={fields.Rphone}
-                                      onChange={handleChange}
+                                      value={Rphone}
+                                      onChange={RIphone}
                                       required
                                       minLength={10}
                                       maxLength={10}
+                                      onBlur={WrongRphone}
                                       />
-                                       {fieldErrors.Rphone !== '' && (
-                                      <div className="error">{fieldErrors.Rphone}</div>
-                                      )}
+                                    <div className="error">{RphoneMessage}</div>
+                                      
                                       
                                      <input type="email" 
                                      placeholder="信箱"
                                      name="Remail"
-                                     value={fields.Remail}
-                                     onChange={handleChange}
+                                     value={Remail}
+                                     onChange={RIemail}
                                      required
+                                      onBlur={WrongRemail}
                                      />
-                                     {fieldErrors.Remail !== '' && (
-                                     <div className="error">{fieldErrors.Remail}</div>
-                                     )}
+                                   <div className="error">{RemailMessage}</div>
+                                    
                                      <input type="text" 
                                       placeholder="地址"
                                       name= "Raddress"
-                                      value={fields.Raddress}
-                                      onChange={handleChange}
+                                      value={Raddress}
+                                      onChange={RIaddress}
                                       required
+                                      onBlur={WrongRaddress}
                                       />
-                                       {fieldErrors.Raddress !== '' && (
-                                     <div className="error">{fieldErrors.Raddress}</div>
-                                     )}
+                                    <div className="error">{RaddressMessage}</div>
+
+                                   
                                 </div>
                             </div>
                            {/* <div className="storepick">
@@ -347,7 +362,8 @@ function Pay2(){
                               <div className="nextBtn" 
                             //   onSubmit={toPay3}
                               >
-                              <button type="submit" className="btn btn-primary btn-lg btn-block " onSubmit={handleSubmit}
+                              <button type="submit" className="btn btn-primary btn-lg btn-block " 
+                            //   onSubmit={handleSubmit}
                               >結帳 </button>
                               </div>
       

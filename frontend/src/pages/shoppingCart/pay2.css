@@ -132,6 +132,7 @@ h3 {
   margin-top: -2rem;
   font-size: 1rem;
   color: red;
+  height: 2rem;
 }
 
 @media screen and (max-width: 1000px) {
