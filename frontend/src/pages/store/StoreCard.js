@@ -23,6 +23,7 @@ function StoreCard(props){
       let setLng = Number(data[index].lng)
       props.setCenter({lat: setLat, lng: setLng })
       props.setZoom(18)
+      props.setMarkerInfoCSS('-150px')
     }, []
   )
   

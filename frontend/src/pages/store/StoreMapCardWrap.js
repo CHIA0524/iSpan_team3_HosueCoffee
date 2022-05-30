@@ -29,12 +29,12 @@ function StoreMapCardWrap(){
     lat: 24.9725821,
     lng: 121.5297745,
   });
-  const [ zoom, setZoom ] = useState(14)
+  const [ zoom, setZoom ] = useState(18)
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
 
   // 側欄使用
   const [ asideCSS, setAsideCSS ] = useState('0px')
-  const [ iconRotate, setIconRotate ] = useState('rotate(180deg)')
+  const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
 
   // 向遠端伺服器get資料
   const fetchData = async (keyword) => {
@@ -84,6 +84,15 @@ function StoreMapCardWrap(){
             `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
             true
           )
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
+
+          const results = await response.json()
+          
+          // 載入資料後設定到狀態中
+          // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
+          if (Array.isArray(results)) {
+            setData(results)
+          }
           
         }
       }
@@ -113,6 +122,7 @@ function StoreMapCardWrap(){
       // 作錯誤處理
       console.log(e)
       setError(e.message)
+      console.log(error);
     }
   }
 
@@ -162,6 +172,7 @@ function StoreMapCardWrap(){
           <StoreCardSearch
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
+            setMarkerInfoCSS={setMarkerInfoCSS}
           />
           
           {/* 門市卡片 */}

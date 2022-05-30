@@ -191,7 +191,8 @@ $nav_li_height: 28px;
       position: fixed;
       top: 0;
       z-index: 100;
-      transition: all .3s ease-in-out;
+      // opacity: 0;
+      // transition: all .3s ease-in-out;
       li{
         width: 200px;
         margin: .9rem auto;
