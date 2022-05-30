@@ -15,17 +15,16 @@ function PInfo(props){
     // 小計
     // const [ ptotal, setPtotal ]= useState(0)
     const {setPtotal, ptotal } = props
-
+    // const m = pmoney* Number(subTotal)
   
 
 //   const{setfinalTotal} = props
 // 計算總數量
 //   const {subTotal,setsubTotal }= props
+const pmoney=499
   // console.log(subTotal)
-  const pmoney=499
 //   const {ptotal,setPtotal }= props
 useEffect(()=>{
-    
 },[])
 
 
@@ -61,7 +60,7 @@ return(
                          <button className="NumR" onClick={() =>{
 
                              setsubTotal(subTotal + 1)
-                            //  setPtotal(pmoney*(subTotal+ 1))
+                             setPtotal(pmoney*(subTotal+ 1))
                              setPtotal(ptotal+pmoney)
 
                            }
@@ -75,6 +74,7 @@ return(
                         <button className="deletBtn" onClick={Delsweetalert}>刪除</button>
                     </div>
                     <div className="col-1">
+                         
 
                         <p >${pmoney* Number(subTotal)}
                         </p>
@@ -107,7 +107,6 @@ return(
                         </div>
                         <h3>${pmoney* Number(subTotal)}</h3>
                       </div>   
-                        {/* <AddNumBtn setfinalTotal= {setsubTotal}/> */}
 
                     </div>
                 </div>

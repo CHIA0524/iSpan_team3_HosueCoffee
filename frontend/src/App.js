@@ -112,14 +112,14 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <Switch>
-      <Route path="/shoppingCart/pay3">
+      {/* <Route path="/shoppingCart/pay3">
           <Pay3 />
         </Route>
         <Route path="/shoppingCart/pay2">
           <Pay2 />
-        </Route>
+        </Route> */}
        <Route path="/shoppingCart">
-          <Pay1 />
+          <Pay1/>
         </Route>
        <Route path="/shop/ProductDetail/:id">
           <ProductDetail />

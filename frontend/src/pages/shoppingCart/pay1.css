@@ -92,7 +92,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.check a {
+.check div {
   margin-left: 1rem;
 }
 .addCartBtn {
@@ -102,6 +102,10 @@
   color: #4c3410;
   background-color: transparent;
   border: 1px solid #e4d2a3;
+}
+.btnWords {
+  display: flex;
+  justify-content: center;
 }
 
 .addCart a :hover {
@@ -140,6 +144,10 @@
   border: none;
   background: none;
   color: #4c3410;
+}
+.payTwo,
+.payThree {
+  display: none;
 }
 
 @media screen and (max-width: 800px) {

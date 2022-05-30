@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './pay3.css';
-// import './component/steps3.css';
 import Steps3 from './component/Steps3';
 import SimplePInfo from './component/SimplePInfo';
 
