@@ -81,7 +81,7 @@ function Navbar (){
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
         </div>
-        <div className="openSideNav" style={{cursor: 'pointer'}} onClick={openSideNavClick}>
+        <div className="openSideNav" onClick={openSideNavClick}>
           <IoMenuOutline size={30}/>
         </div>
         <div>
