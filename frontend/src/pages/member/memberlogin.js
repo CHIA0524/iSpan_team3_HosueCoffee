@@ -4,28 +4,28 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 import Memberprofile from './memberprofile';
-// import Welcome from './memberWelcom';
+
 function MemberLogin(props){
     const {auth,setAuth} = props;  
-    //登入狀態，修改登入
-    const {dataCheck,setDataCheck}=props
-    //登入狀態，修改登入
-    // if(dataCheck!=true){
-    //     window.location.replace("http://localhost:3000/member/NewData");
-    // }
+    
+  
     const [member_account, setmember_account] = useState("");
     const [member_password, setmember_password] = useState("");
+    //設定登入時帳號密碼的value
+
     const [new_mb_mail,setNew_mb_mail]=useState("")
     const [new_mb_account,setNew_mb_account]=useState("")
     const [new_mb_password,setNew_mb_password]=useState("")
+    //^設定註冊時信箱帳號密碼的value^
 
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
     const [PWMessage, setPWMessage] = useState("");     
+    //^設定註冊時的提示訊息^
 
     if(auth){
-       //登入，轉向個人基本資料
         window.location.replace("http://localhost:3000/member/profile")
+        //^如果已經登入，轉向個人基本資料^
     }else{
     
     
@@ -37,95 +37,68 @@ function MemberLogin(props){
     const handleValueChange2=(e)=>{
       setmember_password(e.target.value);
     }
-
-    const loginBTN=async()=>{
-        const loginTF = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginTF/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
-        
-       
-        
-        const resultsTF = await loginTF.json();
-        console.log(resultsTF);
-        // console.log(results);
-        if(resultsTF.total===1){
-
-            const loginData = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginData/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
-            const results = await loginData.json();
-            const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
-            const loginMid = await loginid.json();
-            console.log(loginMid.member_address)
-            localStorage.setItem("true", loginMid.member_id);
-            localStorage.setItem("dataCheck", "資料完整");
-            localStorage.setItem("account", loginMid.member_account);
-            localStorage.setItem("mail", loginMid.member_mail);
-            if(results.total===1){
-                const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
-                const results = await login.json();
-                console.log(results);
-                localStorage.setItem("name", results.member_name);
-                localStorage.setItem("nick", results.member_nick);
-                localStorage.setItem("birth", results.member_birth);
-                localStorage.setItem("phone", results.member_phone);
-                localStorage.setItem("address", results.member_address);
-                localStorage.setItem("photo", results.photo);
-                
-                alert('成功登入');
-                setAuth(!auth);
-                setDataCheck(!dataCheck)
-                window.location.replace("http://localhost:3000/member/profile");
-        }else{
-            localStorage.removeItem("dataCheck")
-            alert('成功登入 但基本資料尚未完整');
-            window.location.replace("http://localhost:3000/member/NewData");
-            }
-        }else{
-            alert('帳號密碼錯誤');
-            // setAuth(!auth)
-
-        }
+    //^讓登入2個input可以修改^
+  
+    const ChangenewML=(e)=>{
+        setNew_mb_mail(e.target.value);
     }
-        const ChangenewML=(e)=>{
-            setNew_mb_mail(e.target.value);
-          }
-        const ChangenewAC=(e)=>{
-            setNew_mb_account(e.target.value);
-          }
-        const ChangenewPW=(e)=>{
-            setNew_mb_password(e.target.value);
-          }
+    const ChangenewAC=(e)=>{
+        setNew_mb_account(e.target.value);
+    }
+    const ChangenewPW=(e)=>{
+        setNew_mb_password(e.target.value);
+    }
+    //讓註冊3個input可以修改
+
         const mail_re = /[\w-]+@([\w-]+\.)+[\w-]+/;; 
+        //^E-mail驗證格式^
 
         const CheckNewML=async ()=>{
             if(!mail_re.test(new_mb_mail)){
                 setMailMessage("信箱格式錯誤");
             }else{
+            //^格式驗證通過^
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${new_mb_mail}`);
                 console.log(process.env.REACT_APP_API_URL);
+                //^取得資料庫使否有這筆EMAIL，若有回傳1，沒有回傳0^
                 const results = await response.json();
                 if(results.total === 0 ){
+                //^如果接收到0^
                     setMailMessage("信箱可使用");
+                    //^提示訊息顯示"信箱可使用"^
                     document.querySelector('.CKNmail').style.color="#e4d2a3"
+                    //修改網頁版提示訊息顏色為正常顏色
                     document.querySelector('.CKNmail_m').style.color="#4C3410"
+                    //修改手機版提示訊息顏色為正常顏色
                 }else{
+                //^如果接收到1^
                     setMailMessage("信箱已被註冊");
+                    //^提示訊息顯示"信箱已被註冊"^
                 }
         }
       
         }
         const account_re =/^(?=.*[0-9\!@#\$%\^&amp;\*])(?=.*[a-zA-Z]).{4,20}$/; 
+        //^帳號驗證格式 英文+數字 4~20字^
 
         const CheckNewAC=async ()=>{
             if(!account_re.test(new_mb_account)){
                 setAccounteMessage("帳號需4~20字英文數字組合");
             }else{
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${new_mb_account}`);
-            console.log(process.env.REACT_APP_API_URL);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${new_mb_account}`);
+                console.log(process.env.REACT_APP_API_URL);
+                //^取得資料庫使否有這筆帳號，若有回傳1，沒有回傳0^
             const results = await response.json();
             if(results.total === 0){
                 setAccounteMessage("帳號可使用");
+                //^提示訊息顯示"帳號可使用"^
                 document.querySelector('.CKNaccount').style.color="#e4d2a3"
+                //修改網頁版提示訊息顏色為正常顏色
                 document.querySelector('.CKNaccount_m').style.color="#4C3410"
+                //修改手機版提示訊息顏色為正常顏色
             }else{
                 setAccounteMessage("帳號已被註冊");
+                //^提示訊息顯示"帳號已被註冊"^
             }
             }
       
@@ -136,29 +109,37 @@ function MemberLogin(props){
         const  CheckNewPW=()=>{
             if(password_re.test(new_mb_password)){
                 setPWMessage("密碼符合")
+                //^提示訊息顯示"密碼符合"^
+                
                 document.querySelector('.CKNpassword').style.color="#e4d2a3"
+                //修改網頁版提示訊息顏色為正常顏色
                 document.querySelector('.CKNpassword_m').style.color="#4C3410"
+                //修改手機版提示訊息顏色為正常顏色
             }else{
                 setPWMessage("密碼需8~20英文數字組合")
-                
+                //^提示訊息顯示"密碼需8~20英文數字組合"^
             }
 
         } 
 
         const CRnewMember=async ()=>{
+        //點擊註冊按鈕
             if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
+            //判斷3個提示訊息是否都符合註冊條件
             const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
+            //CRNM 為新增新的資料，沒有回傳值
             
-            const CRNM2 = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM2/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
-            console.log(process.env.REACT_APP_API_URL);
-            const resulta = await CRNM2.json();
-            console.log(resulta)
             setmember_account(new_mb_account);
             setmember_password(new_mb_password);
+            //將剛剛註冊的帳號密碼寫入登入的欄位
+
             setNew_mb_mail("");
             setNew_mb_account("");
             setNew_mb_password("");
+            //清空註冊的3個欄位
+
             alert("註冊成功，請直接登入")
+            
 
             //滑過去登入頁面
             document.querySelector('.loginMain1').style.right='-491px';
@@ -171,21 +152,25 @@ function MemberLogin(props){
             document.querySelector('.loginM').style.display="block"
             document.querySelector('.forget-m').style.display="none"
             }else{ 
-                console.log("錯誤")
+            //以下將不符合資格的提示改為紅色
+               
                 if(mailMessage != "信箱可使用"){
-                    console.log("mail錯誤")
                     document.querySelector('.CKNmail').style.color="red"
+                    //將網頁版提示改為紅色
                     document.querySelector('.CKNmail_m').style.color="red"
+                    //將手機版提示改為紅色
                     
                 }if(accountMessage != "帳號可使用"){
-                    console.log("account錯誤") 
                     document.querySelector('.CKNaccount').style.color="red"
+                    //將網頁版提示改為紅色
                     document.querySelector('.CKNaccount_m').style.color="red"
+                    //將手機版提示改為紅色
                     
                 }if(PWMessage != "密碼符合"){
-                    console.log("password錯誤")
                     document.querySelector('.CKNpassword').style.color="red"
+                    //將網頁版提示改為紅色
                     document.querySelector('.CKNpassword_m').style.color="red"
+                    //將手機版提示改為紅色
 
             }
         }
@@ -193,49 +178,213 @@ function MemberLogin(props){
 
         
 
+        }  
+
+        const loginBTN=async()=>{
+            // 點擊登入
+            const loginTF = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginTF/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+            //判斷帳號密碼是否正確，如果正確回傳1
+           
+            
+            const resultsTF = await loginTF.json();
+            console.log(resultsTF);
+            // console.log(results);
+            if(resultsTF.total===1){
+    
+                const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+                const loginMid = await loginid.json();
+                //取的登入的會員編號帳號信箱
+                localStorage.setItem("true", loginMid.member_id);
+                localStorage.setItem("account", loginMid.member_account);
+                localStorage.setItem("mail", loginMid.member_mail);
+                //將會員編號寫入localStorage的true，帳號信箱也分別寫入
+
+                localStorage.setItem("dataCheck", "資料完整");
+                //先將dataCheck，設定為資料完整
+                const loginData = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginData/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+                const results = await loginData.json();
+                //判斷登入的會員是否有基本資料，有的話回傳1，沒有回傳0
+                if(results.total===1){
+                    const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+                    const results = await login.json();
+                    //取得登入的會員 的基本資料
+                    console.log(results);
+                    localStorage.setItem("name", results.member_name);
+                    localStorage.setItem("nick", results.member_nick);
+                    localStorage.setItem("birth", results.member_birth);
+                    localStorage.setItem("phone", results.member_phone);
+                    localStorage.setItem("address", results.member_address);
+                    localStorage.setItem("photo", results.photo);
+                    //將會員基本資料分別寫入localStorage
+                    
+                    alert('成功登入');
+                    // setAuth(!auth); 這不需要因為它本身useState是由 localStorage去驗證
+                    // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
+                    
+                    window.location.replace("http://localhost:3000/member/profile");
+                    //轉向會員基本資料頁面
+            }else{
+            //如果沒有基本資料
+                localStorage.removeItem("dataCheck")
+                //清除localStorage內的dataCheck
+                alert('成功登入 但基本資料尚未完整');
+                //跳出訊息
+                window.location.replace("http://localhost:3000/member/NewData");
+                //轉向填寫資料頁面
+                }
+            }else{
+                alert('帳號密碼錯誤');
+                // setAuth(!auth)
+    
+            }
         }
+
+
     
     
 
     const Login = ()=>{
+        //^點擊上方LOGIN^
+
         document.querySelector('.loginMain1').style.right='-491px';
+        //^將LOGIN畫面滑進來^
         document.querySelector('.loginMain1').style.transition='0.5s';
+        //^動畫0.5秒^
         document.querySelector('.LG').style.display="block"
+        //^顯示登入畫面^
         document.querySelector('.LG-F').style.display="none"
+        //^隱藏忘記密碼畫面^
+
+        document.querySelector('.loginM').style.display="block"
+        //^"顯示"手機板忘記密碼畫面^
+        document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="none"
+        //^隱藏手機板忘記密碼畫面^
       }
+
     const SingIn = ()=>{
+        //^點擊上方SINGIN^
+
         document.querySelector('.loginMain1 ').style.right='0px';
+        //^將LOGIN畫面滑出去^
         document.querySelector('.loginMain1 ').style.transition='0.5s';
+        //^動畫0.5秒^
+
+        document.querySelector('.loginM').style.display="none"
+        //^隱藏手機板登入畫面^
+        document.querySelector('.loginCM').style.display="block"
+        //^"顯示"手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="none"
+        //^隱藏手機板忘記密碼畫面^
       }
+
       const fg = ()=>{
+      //^LOGIN頁面 點擊忘記密碼^
+
         document.querySelector('.LG').style.display="none"
+        //^顯示忘記密碼畫面^
         document.querySelector('.LG-F').style.display="block"
+        //^隱藏登入畫面^
+
+        document.querySelector('.loginM').style.display="none"
+        //^隱藏手機板登入畫面^
+        document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="block"
+        //^"顯示"手機板忘記密碼畫面^
       }
+
       const fgb = ()=>{
-        document.querySelector('.LG').style.display="block"
+      //^忘記密碼頁面 點擊返回^
+        
+        document.querySelector('.LG').style.display="block" 
+        //^顯示登入畫面^
         document.querySelector('.LG-F').style.display="none"
+        //^隱藏忘記密碼畫面^
+
+        document.querySelector('.loginM').style.display="block"
+        //^"顯示"手機板登入畫面^
+        document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="none"
+        //^隱藏手機板忘記密碼畫面^
       }
   
   
   
       const rwdNew = () =>{
+        //手機板點擊 註冊帳號
+
         document.querySelector('.loginM').style.display="none"
+        //^隱藏手機板登入畫面^
         document.querySelector('.loginCM').style.display="block"
+        //^"顯示"手機板註冊畫面^
         document.querySelector('.forget-m').style.display="none"
+        //^隱藏手機板忘記密碼畫面^
+
+        document.querySelector('.loginMain1 ').style.right='0px';
+        //^將LOGIN畫面滑出去^
+        document.querySelector('.loginMain1 ').style.transition='0.5s';
+        //^動畫0.5秒^
+
+        
       }
+
       const rwdL=()=>{
-        document.querySelector('.loginCM').style.display="none"
+        //點擊手機板已有帳號
+        
+
         document.querySelector('.loginM').style.display="block"
+        //^"顯示"手機板忘記密碼畫面^
+        document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
         document.querySelector('.forget-m').style.display="none"
-      }
+        //^隱藏手機板忘記密碼畫面^
+
+        document.querySelector('.loginMain1').style.right='-491px';
+        //^將LOGIN畫面滑進來^
+        document.querySelector('.loginMain1').style.transition='0.5s';
+        //^動畫0.5秒^
+        document.querySelector('.LG').style.display="block"
+        //^顯示登入畫面^
+        document.querySelector('.LG-F').style.display="none"
+        //^隱藏忘記密碼畫面^
+       
+            }
+    
+        
+      
+
       const fgM=()=>{
-        document.querySelector('.loginCM').style.display="none"
+
         document.querySelector('.loginM').style.display="none"
-        document.querySelector('.forget-m').style.display="block"
-      }
-      const fgMb=()=>{
+        //^隱藏手機板登入畫面^
         document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="block"
+        //^"顯示"手機板忘記密碼畫面^
+
+        document.querySelector('.LG').style.display="none"
+        //^顯示忘記密碼畫面^
+        document.querySelector('.LG-F').style.display="block"
+        //^隱藏登入畫面^
+
+    }
+
+    const fgMb=()=>{
+
         document.querySelector('.loginM').style.display="block"
+        //^"顯示"手機板登入畫面^
+        document.querySelector('.loginCM').style.display="none"
+        //^隱藏手機板註冊畫面^
+        document.querySelector('.forget-m').style.display="none"
+        //^隱藏手機板忘記密碼畫面^
+
+        document.querySelector('.LG').style.display="block" 
+        //^顯示登入畫面^
+        document.querySelector('.LG-F').style.display="none"
+        //^隱藏忘記密碼畫面^
       }
 
 

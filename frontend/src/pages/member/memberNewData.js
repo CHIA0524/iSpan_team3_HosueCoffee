@@ -27,14 +27,13 @@ function MemberNewData(props){
 
   const thismemberid=localStorage.getItem("true");
   const account=localStorage.getItem("account");
-  const {dataCheck,setDataCheck}=props
 
 
-  const [UPname,setUPname]=useState(localStorage.getItem("name"))
-  const [UPnick,setUPnick]=useState(localStorage.getItem("nick"))
-  const [UPbirth,setUPbirth]=useState(localStorage.getItem("birth"))
-  const [UPphone,setUPphone]=useState(localStorage.getItem("phone"))
-  const [UPaddress,setUPaddress]=useState(localStorage.getItem("address"))
+  const [UPname,setUPname]=useState("")
+  const [UPnick,setUPnick]=useState("")
+  const [UPbirth,setUPbirth]=useState("")
+  const [UPphone,setUPphone]=useState("")
+  const [UPaddress,setUPaddress]=useState("")
 
   const [nameMessage,setNameMessage]=useState();
   const [nickMessage,setNickMessage]=useState();
@@ -123,7 +122,8 @@ function MemberNewData(props){
       if(nameMessage=="感謝填寫姓名" && birthMessage=="感謝填寫生日" && phoneMessage=="感謝填寫手機號碼"&& addressMessage=="感謝填寫地址"){
        
           const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/Newdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}`);
-
+        
+          
        
 
           localStorage.setItem("name", UPname);
@@ -132,7 +132,6 @@ function MemberNewData(props){
           localStorage.setItem("phone", UPphone);
           localStorage.setItem("address", UPaddress);
           localStorage.setItem("dataCheck", "資料完整");
-          setDataCheck(!dataCheck)
           alert("資料新增成功")
           window.location.replace("http://localhost:3000/member/profile");
         }if(nameMessage!="感謝填寫姓名"){

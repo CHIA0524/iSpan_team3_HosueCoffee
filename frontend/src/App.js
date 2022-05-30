@@ -29,14 +29,18 @@ import React from 'react';
 
 function App() {
   const [auth,setAuth]=useState(localStorage.getItem("true"));
+  //判斷是否登入，若localhost storage內沒有"true"，就是沒有登入狀態，若有"true"，true的值會是會員ID
+  //若有需要判斷會員是否有登入的頁面，在下方引入時記得加上 auth={auth}
+
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
-  // }
+  // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
   
   return (
     <Router>
       
+      {/* 在Navbar放入是否登入，用來改變點擊會員是否會出現列表 */}
       <Navbar auth={auth} />
-      
+
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
@@ -95,11 +99,11 @@ function App() {
         <MemberPassword auth={auth} dataCheck={dataCheck}/>
         </Route>
         <Route path="/member/NewData">
-        <MemberNewData auth={auth} dataCheck={dataCheck} setDataCheck={setDataCheck}/>
+        <MemberNewData auth={auth} dataCheck={dataCheck} />
         </Route>
 
         <Route  path="/member">
-        <MemberLogin setAuth={setAuth} auth={auth} dataCheck={dataCheck} setDataCheck={setDataCheck}/>
+        <MemberLogin auth={auth} dataCheck={dataCheck} />
         </Route>
         
 

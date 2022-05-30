@@ -197,6 +197,7 @@
   .MimgDiv{
     overflow: hidden;
     height: 133px;
+    margin-top: -3rem;
     margin-bottom: 2rem;
   }
   .coffeeNavbar{
