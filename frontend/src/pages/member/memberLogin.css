@@ -99,6 +99,10 @@
   background-color: #e4d2a3;
   border-style: none;
 }
+.loginPmain{
+  padding: 0;
+  width: 100%;
+}
 
 .loginInputL hr {
   color: #615a51;

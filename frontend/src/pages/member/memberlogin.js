@@ -21,7 +21,7 @@ function MemberLogin(props){
 
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
-    const [PWMessage, setPWMessage] = useState("");
+    const [PWMessage, setPWMessage] = useState("");     
 
     if(auth){
        //登入，轉向個人基本資料
@@ -246,8 +246,8 @@ function MemberLogin(props){
         <>
         {/* {auth ?<Memberprofile/> :
         <div> */}
-        <div className="pmain">
-                <div className="row">
+        <div className="pmain ">
+                <div className="row loginPmain">
                     <div className="col ">
                         <div className="memberLoginMain">
                             <div className="row">
