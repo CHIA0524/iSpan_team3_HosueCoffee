@@ -11,6 +11,9 @@ import Home from './pages/home/Home'
 // store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
+//blog pages
+import Blog from './pages/blog/Blog'
+
 // member pages
 // import MemberLogin from './pages/member/memberlogin'
 // import Memberprofile from './pages/member/memberprofile'
