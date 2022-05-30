@@ -154,7 +154,7 @@ function StoreMapCardWrap(){
   // 監測視窗寬度
   useEffect(()=>{ 
     window.addEventListener('resize',()=>{
-      // console.log(window.innerWidth);
+      setIconRotate('rotate(0deg)')
       if (window.innerWidth <= 500) {
         setAsideCSS('-300px')
       }else{
