@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 // component
 import StoreCardWrap from './StoreCardWrap'
@@ -202,6 +202,7 @@ function StoreMapCardWrap(){
             }}
           >
             <MdKeyboardArrowRight size={30} style={{transform: iconRotate, transition: 'all .5s'}}/>
+
           </div>
 
         </div>

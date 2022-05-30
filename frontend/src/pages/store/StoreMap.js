@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 
-import { GoogleMap, useJsApiLoader, Marker, } from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 import { Link } from 'react-router-dom'
 
 import catmarker from './img/marker.svg';
-
+import StoreMapClusterer from './StoreMapClusterer';
 
 function StoreMap(props){
   
@@ -38,7 +38,6 @@ function StoreMap(props){
   const thisData = data
 
   // map 使用
-  const mapRef = useRef()
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -51,7 +50,7 @@ function StoreMap(props){
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     setMap(map)
-  }, [])
+  }, [center])
   
   const onUnmount = useCallback(function callback(map) {
     setMap(null)
@@ -78,7 +77,7 @@ function StoreMap(props){
       }else if (markerInfoCSS === '100px'){
         setMarkerInfoCSS('-150px')
       }
-    }, [markerInfoCSS, data]
+    }, [thisData, setCenter, setZoom, markerInfoCSS, setMarkerInfoCSS]
   )
 
   const mapOnClick = ()=>{
@@ -97,7 +96,7 @@ function StoreMap(props){
     if (map) {
       map.panTo(center)
     }
-  }, [center])
+  }, [center, map])
     
   
   return(
@@ -128,6 +127,7 @@ function StoreMap(props){
             />
           )
         })}
+          <StoreMapClusterer data={data}/>
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>
