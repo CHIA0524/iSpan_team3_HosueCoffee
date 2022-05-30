@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 // component
 import StoreCardWrap from './StoreCardWrap'
@@ -154,7 +154,7 @@ function StoreMapCardWrap(){
   // 監測視窗寬度
   useEffect(()=>{ 
     window.addEventListener('resize',()=>{
-      // console.log(window.innerWidth);
+      setIconRotate('rotate(0deg)')
       if (window.innerWidth <= 500) {
         setAsideCSS('-300px')
       }else{
@@ -202,6 +202,7 @@ function StoreMapCardWrap(){
             }}
           >
             <MdKeyboardArrowRight size={30} style={{transform: iconRotate, transition: 'all .5s'}}/>
+
           </div>
 
         </div>

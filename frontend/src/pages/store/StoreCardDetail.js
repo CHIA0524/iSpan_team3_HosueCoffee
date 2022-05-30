@@ -8,9 +8,10 @@ function StoreCardDetail(props){
 
   const { dataDetail, cardDetailCss, setCardDetailCss } = props
   if (dataDetail){
-    const { times, icon_group } = dataDetail
+    const { times, icon_group, serve_name } = dataDetail
     var storeTime = times.split(',')
     var storeIcon = icon_group.split(',')
+    var storeIconName = serve_name.split(',')
   }
 
   return(
@@ -42,7 +43,7 @@ function StoreCardDetail(props){
           {
             storeIcon ? storeIcon.map((icon, i)=>{
               return(
-                <li key={i} dangerouslySetInnerHTML={{__html:icon}}></li>
+                <li key={i} dangerouslySetInnerHTML={{__html:icon}} title={storeIconName[i]}></li>
               )
             }) : ''
           }
