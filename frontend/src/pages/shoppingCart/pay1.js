@@ -9,27 +9,26 @@ import Steps1 from './component/Steps1';
 
 function Pay1(props){
     
-    const [ subTotal, setsubTotal ]= useState('1')
-    
-    const [ totalCash, setTotalCash ] = useState(0);
+    // const [ subTotal, setsubTotal ]= useState(1)
+    // const [ totalCash, setTotalCash ] = useState(1);
+    const[a,setA]=useState(0);
+    const [ ptotal, setPtotal ]= useState(0)
+    // const {setPtotal, ptotal } = props
 
-   
-
     
-    
-    
-
-    const cash = (price) => {
-        setTotalCash( 499 * Number(subTotal));
-      }
-      console.log(cash)
+    // const cash = (price) => {
+    //     setTotalCash( 499 * Number(subTotal));
+    //   }
+    //   console.log(cash)
   return(
       <>
        <div class="container main">
            <Steps1 />
            <hr></hr>
-           <PInfo />
-           <PInfo />
+           <PInfo setPtotal={setPtotal} ptotal={ptotal} 
+        
+           />
+           <PInfo setPtotal={setPtotal} ptotal={ptotal} />
             {/* <!-- 折扣結帳區 --> */}
             <div class="dInput">
                 <div>
@@ -64,7 +63,7 @@ function Pay1(props){
                             <h4>紅利折扣</h4>
                         </div>
                         <div class="money">
-                            <h4>${setTotalCash}</h4>
+                            <h4>${ptotal}</h4>
                             <h4>$499</h4>
                             <h4>$499</h4>
                         </div>

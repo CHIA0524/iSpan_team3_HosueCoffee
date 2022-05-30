@@ -10,22 +10,32 @@ import Delsweetalert from './Delsweetalert';
 
 
 function PInfo(props){
+    // 數量變數
+    const [ subTotal, setsubTotal ]= useState(1)
     // 小計
-const [ subTotal, setsubTotal ]= useState('1')
+    // const [ ptotal, setPtotal ]= useState(0)
+    const {setPtotal, ptotal } = props
 
-const {setTotalCash} = props;
+  
 
- 
-    // const removePinfo=()=>{
-    //  if(window.confirm("確定要刪除此商品媽？")== true){
-    //     window.alert("商品已刪除");
-        
-    // }else{
-    //      window.alert("商品未刪除");
-        
-    // }}
+//   const{setfinalTotal} = props
+// 計算總數量
+//   const {subTotal,setsubTotal }= props
+  // console.log(subTotal)
+  const pmoney=499
+//   const {ptotal,setPtotal }= props
+useEffect(()=>{
+    
+},[])
 
 
+    // const totalPrice = () => {
+    //     let total = 0
+    //     for (let i = 0; i < productsInOrder.length; i++) {
+    //       total += productsInOrder[i].count * productsInOrder[i].price
+    //     }
+    //     return total
+    //   }
 
 return(
     <>
@@ -39,16 +49,35 @@ return(
                     <div className="col-4 pName">
                         <p>伊莎米 精選招牌特調(半磅)</p>
                     </div>
+                    <div className="col-3 numberDesk ">
+                     <p>數量：</p>
+                     <div className="addNum">
+                         <button className="NumL" onClick={() =>{if(subTotal>1){
+                             setsubTotal(subTotal - 1)
+                             setPtotal(ptotal-pmoney)
+                            
+                             }}}>-</button>
+                         <div>{subTotal}</div>
+                         <button className="NumR" onClick={() =>{
+
+                             setsubTotal(subTotal + 1)
+                            //  setPtotal(pmoney*(subTotal+ 1))
+                             setPtotal(ptotal+pmoney)
+
+                           }
+                         }>+</button>
+                      </div>
+                      </div>
                   
-                        <AddNumBtn setsubTotal= {setsubTotal} />
-                  
+                        {/* <AddNumBtn subTotal={subTotal} setsubTotal= {setsubTotal} ptotal={ptotal} setPtotal={setPtotal}/> */}
+                   
                     <div className="col-2">
                         <button className="deletBtn" onClick={Delsweetalert}>刪除</button>
                     </div>
                     <div className="col-1">
 
-                        <p>${499* Number(subTotal)}
-                        {499* Number(setTotalCash)}</p>
+                        <p >${pmoney* Number(subTotal)}
+                        </p>
                     </div>
                 </div>
                 <hr></hr>
@@ -66,7 +95,19 @@ return(
                                 
                             </div>
                         </div>
-                        <AddNumBtn setfinalTotal= {setsubTotal}/>
+                        <div class="number">
+                        <div class="mAddNum">
+                            <button className="buttonNum" onClick={() =>{if(subTotal>1){
+                            setsubTotal(subTotal - 1)
+                            }}}>-</button>
+                            <div>{subTotal}</div>
+                           <button className="buttonNum"onClick={() =>{
+                            setsubTotal(subTotal + 1)
+                            }} >+</button>
+                        </div>
+                        <h3>${pmoney* Number(subTotal)}</h3>
+                      </div>   
+                        {/* <AddNumBtn setfinalTotal= {setsubTotal}/> */}
 
                     </div>
                 </div>

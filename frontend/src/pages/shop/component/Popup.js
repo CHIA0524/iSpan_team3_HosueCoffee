@@ -29,8 +29,11 @@ function Popup(props){
                     <div class="popup">
                         <div class="close"  
                         onClick={() =>{
-                          setcss({visibility: 'hidden' , opscity : '0'}      )                  
-                        }}>&times;</div>
+                          setcss({visibility: 'hidden' , opscity : '0'} ) 
+                          setAmount (1)
+                          
+                          }}
+                        >&times;</div>
                         <div class="productPopup">
                             <div class="popBox">
                                 <div class="popBoxContent">

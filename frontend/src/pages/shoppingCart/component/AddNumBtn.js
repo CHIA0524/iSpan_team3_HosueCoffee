@@ -6,7 +6,10 @@ function AddNumBtn(props){
   const[amount, setAmount]= useState(1)
 //   const{setfinalTotal} = props
 // 計算總數量
-  const {setsubTotal }= props
+  const {subTotal,setsubTotal }= props
+  // console.log(subTotal)
+  const pmoney=499
+  const {ptotal,setPtotal }= props
   return( 
       <>
         <div className="col-3 numberDesk ">
@@ -15,11 +18,14 @@ function AddNumBtn(props){
                 <button className="NumL" onClick={() =>{if(amount>1){
                     setAmount(amount - 1)
                     setsubTotal(amount - 1)
+                    setPtotal(pmoney*(amount - 1))
                     }}}>-</button>
                 <div>{amount}</div>
                 <button className="NumR" onClick={() =>{
                     setAmount(amount + 1)
-                    setsubTotal(amount + 1)}
+                    setsubTotal(amount + 1)
+                    setPtotal(pmoney*(amount+ 1))
+                  }
                 }>+</button>
              </div>
         </div>
