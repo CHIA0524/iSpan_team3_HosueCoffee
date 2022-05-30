@@ -29,12 +29,12 @@ function StoreMapCardWrap(){
     lat: 24.9725821,
     lng: 121.5297745,
   });
-  const [ zoom, setZoom ] = useState(14)
+  const [ zoom, setZoom ] = useState(18)
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
 
   // 側欄使用
   const [ asideCSS, setAsideCSS ] = useState('0px')
-  const [ iconRotate, setIconRotate ] = useState('rotate(180deg)')
+  const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
 
   // 向遠端伺服器get資料
   const fetchData = async (keyword) => {

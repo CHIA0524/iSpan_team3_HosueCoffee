@@ -23,6 +23,7 @@ function Navbar (){
   // 手機板 navbar js
   const openSideNavClick = ()=>{
     document.querySelector('.navFirst').style.left = '0px';
+    document.querySelector('.navFirst').style.transition = 'all .3s ease-in-out';
     document.querySelector('.sideDark').style.display = 'block';
   }
   const closeSideNavClick = ()=>{
@@ -44,6 +45,7 @@ function Navbar (){
     window.addEventListener('resize',()=>{
       // console.log(window.innerWidth);
       if (window.innerWidth >= 1000) {
+        document.querySelector('.navFirst').style.transition = '';
         document.querySelector('.sideDark').style.display = 'none';
       }
     });
