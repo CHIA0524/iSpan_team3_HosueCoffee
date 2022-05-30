@@ -7,13 +7,6 @@ function Memberprofile(props){
     const [datas,setDatas] = useState([])
     const{auth}=props;
     const {dataCheck}=props;
-    if(!auth){
-        window.location.replace("http://localhost:3000/member");
-    }
-    if(!dataCheck){
-        window.location.replace("http://localhost:3000/member/NewData");
-
-    }
     const thismemberid=localStorage.getItem("true");
     const member_account=useState(localStorage.getItem("account"))
     const member_name=useState(localStorage.getItem("name"))
@@ -22,6 +15,13 @@ function Memberprofile(props){
     const member_phone=useState(localStorage.getItem("phone"))
     const member_mail=useState(localStorage.getItem("mail"))
     const member_address=useState(localStorage.getItem("address"))
+    if(!auth){
+        window.location.replace("http://localhost:3000/member");
+    }if(!dataCheck){
+        window.location.replace("http://localhost:3000/member/NewData");
+
+    }else{
+
 
     // if(dataCheck!=true){
     //     window.location.replace("http://localhost:3000/member/NewData");
@@ -101,7 +101,7 @@ function Memberprofile(props){
         
         </>
     )
-    // }
+    }
 
 }
 

@@ -13,11 +13,6 @@ function MemberLogin(props){
     // if(dataCheck!=true){
     //     window.location.replace("http://localhost:3000/member/NewData");
     // }
-    if(auth){
-       //登入，轉向個人基本資料
-        window.location.replace("http://localhost:3000/member/profile")
-    }
-    
     const [member_account, setmember_account] = useState("");
     const [member_password, setmember_password] = useState("");
     const [new_mb_mail,setNew_mb_mail]=useState("")
@@ -27,6 +22,12 @@ function MemberLogin(props){
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
     const [PWMessage, setPWMessage] = useState("");
+
+    if(auth){
+       //登入，轉向個人基本資料
+        window.location.replace("http://localhost:3000/member/profile")
+    }else{
+    
     
 
    
@@ -53,6 +54,7 @@ function MemberLogin(props){
             const loginMid = await loginid.json();
             console.log(loginMid.member_address)
             localStorage.setItem("true", loginMid.member_id);
+            localStorage.setItem("dataCheck", "資料完整");
             localStorage.setItem("account", loginMid.member_account);
             localStorage.setItem("mail", loginMid.member_mail);
             if(results.total===1){
@@ -65,13 +67,13 @@ function MemberLogin(props){
                 localStorage.setItem("phone", results.member_phone);
                 localStorage.setItem("address", results.member_address);
                 localStorage.setItem("photo", results.photo);
-                localStorage.setItem("dataCheck", "資料完整");
                 
                 alert('成功登入');
                 setAuth(!auth);
                 setDataCheck(!dataCheck)
                 window.location.replace("http://localhost:3000/member/profile");
         }else{
+            localStorage.removeItem("dataCheck")
             alert('成功登入 但基本資料尚未完整');
             window.location.replace("http://localhost:3000/member/NewData");
             }
@@ -242,8 +244,8 @@ function MemberLogin(props){
     return(
       
         <>
-        {auth ?<Memberprofile/> :
-        <div>
+        {/* {auth ?<Memberprofile/> :
+        <div> */}
         <div className="pmain">
                 <div className="row">
                     <div className="col ">
@@ -309,7 +311,7 @@ function MemberLogin(props){
                                     <br></br>
                                     <div className="loginInput loginInputR">
                                     <br></br>
-                                    <form>
+                                    {/* <form>   */}
                                     <input type="email" size="30" placeholder="&ensp;會員信箱" name='Create_Mail' value={new_mb_mail} onChange={ChangenewML} onBlur={CheckNewML}></input>
                                     <div className='CKN CKNmail '>{mailMessage || "請輸入信箱"}</div>
 
@@ -321,7 +323,7 @@ function MemberLogin(props){
                                     <br></br>
 
                                     <button className='CRBTN' type='button' onClick={CRnewMember}>&ensp;註冊&ensp;</button>
-                                    </form>
+                                    {/* </form> */}
                                     <hr></hr>
                                     <br></br>
                                     <div className="GLoginR"><i className="fa-brands fa-google"></i>&ensp;使用Google註冊</div>
@@ -385,8 +387,8 @@ function MemberLogin(props){
                     </form>
                 </div> 
                 </div>
-        </div>
-        }
+        {/* </div>
+        } */}
        
         
       
@@ -397,7 +399,7 @@ function MemberLogin(props){
         </>
     )
     
-    
+}   
     
 
 }

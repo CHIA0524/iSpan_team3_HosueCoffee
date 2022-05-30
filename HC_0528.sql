@@ -1,6 +1,7 @@
 drop database team3;
 create database team3;
 use team3;
+select*from members;
 -- select * from members;
 -- select * from members_data ;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
@@ -133,6 +134,7 @@ VALUES
 ('100002','其他','打折?','世界冠軍買咖啡有打折嗎?',''),
 ('100003','其他','代言問題','我想代言你們品牌方便嗎?',''),
 ('100004','其他','適用','有賣試用包嗎?','');
+
 
 
 --------------------------------------------------------------------------------------------------------------------------------
