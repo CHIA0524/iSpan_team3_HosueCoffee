@@ -118,3 +118,4 @@ dist
 # vscode
 .vs
 frontend/yarn.lock
+*.lock
