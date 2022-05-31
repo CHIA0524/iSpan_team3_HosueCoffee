@@ -52,11 +52,9 @@ function Navbar(props) {
   const openMemberDetailClick = () => {
     if (document.querySelector('.memberDetail').style.height === '0px') {
       document.querySelector('.memberDetail').style.height = '200px';
-      window.scrollTo(0, 0);
     }
     else if (document.querySelector('.memberDetail').style.height === '200px') {
       document.querySelector('.memberDetail').style.height = '0px';
-      window.scrollTo(0, 0);
     }
   }
 
