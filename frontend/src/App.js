@@ -6,6 +6,8 @@ import { useState } from 'react';
 // components
 import Navbar from './component/Navbar';
 import Footer from './component/Footer';
+//回到頁面最上層套件
+import ScrollToTop from './component/ScrollToTop';
 
 // pages
 import Home from './pages/home/Home';
@@ -56,7 +58,7 @@ function App() {
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
 
-      
+      <ScrollToTop/>
       <Switch>
       
         {/* 以下是會員頁面 */}
