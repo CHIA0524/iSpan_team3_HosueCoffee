@@ -120,3 +120,4 @@ dist
 
 # .lock
 *.lock
+frontend/package-lock.json

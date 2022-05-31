@@ -3,7 +3,7 @@ import { useState } from 'react';
 import MemberAside from "./memberAside";
 import MemberBack from './memberBack';
 import './memberPassword.css'
-import { duration } from '@mui/material';
+
 function MemberPassword(props){
   const{auth}=props;
     const {dataCheck}=props;
