@@ -10,7 +10,7 @@ const upload = multer();
     router.route('/')
     .get(async (req,res,next)=>{
         const sql = 
-        "SELECT products.id,`type_name`, `p_name`, `price`, `content`, `url`  FROM `products` JOIN `product_types` ON product_types.id = products.fk_product_types order by products.id";
+        "SELECT * FROM `products` order by p_id";
         const [datas] = await db.query(sql);
         res.json(datas);
     })
@@ -18,7 +18,7 @@ const upload = multer();
     router.route('/ProductDetail/id')
     .get(async (req,res,next)=>{
         const id = req.params.id;
-        const sql = "SELECT products.id,`type_name`, `p_name`, `price`, `content`, `url` FROM `products` JOIN `product_types` ON product_types.id = products.fk_product_types WHERE products.id= ?";
+        const sql = "SELECT * FROM `products` WHERE p_id= ?";
         const [datas] = await db.query(sql,[req.query.id]);
        res.json(datas);
       //  res.send(`讀取${id}的資料`)

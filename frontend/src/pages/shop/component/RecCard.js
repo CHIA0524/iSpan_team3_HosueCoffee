@@ -49,22 +49,22 @@ function RecCard(){
              >
              <div className="RText">推薦商品</div>
               <Slider {...settings}>
-                      {datas.map((PCard,i)=>{
-                        console.log(PCard.id);
+                      {datas.map((PCard,p_id)=>{
+                        console.log(PCard.p_id);
                        const img1=(PCard.p_name);
                         return(
                
                         <div>
-                             <div className="pCardWrap" key={PCard.id}>
+                             <div className="pCardWrap" key={PCard.p_id}>
                                 <div className="card recCard">
                                    <div class="rPackage">
-                                    <Link to= {`/shop/ProductDetail/${PCard.id}`}>
+                                    <Link to= {`/shop/ProductDetail/${PCard.p_id}`}>
                                      <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt=""></img>
                                      </Link>
                                     </div>
                                 <div>
                                  <p>{PCard.p_name}</p>
-                                 <p class="rCardPrice">${PCard.price}</p>
+                                 <p class="rCardPrice">${PCard.p_price}</p>
                              </div>
                         </div>
                        </div>

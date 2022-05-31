@@ -21,13 +21,13 @@ function ProductCard(props){
          {/* console.log(pCard.id); */}
          
          const img1=(pCard.p_name);
-         const id='#'+(pCard.id);
+         const id='#'+(pCard.p_id);
         return(
           
           <div className="pCardWrap" key={pCard.id}>
              <div className="card shopCard mb-4">
                  <div className="package">
-                    <Link to= {`/shop/ProductDetail/${pCard.id}`}>
+                    <Link to= {`/shop/ProductDetail/${pCard.p_id}`}>
                     <div className='pImg'>
                     <img className="card-img-top " src={require('../img/'+img1+'.jpg')} alt=""></img>
                     </div>
@@ -41,9 +41,9 @@ function ProductCard(props){
                            <div to=""> <AiOutlineHeart size={24}/></div>
                            
                            
-                           <div className="d-flex shoppingCart" key={pCard.id}
+                           <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
-                             setProductId(pCard.id)
+                             setProductId(pCard.p_id-200000)
                             setcss({visibility: 'visible' , opacity : '1'})
                            }}
                            >
@@ -55,7 +55,7 @@ function ProductCard(props){
               </div>
               <div className="cardPrice">
               
-              <p className="pText">${pCard.price}</p>
+              <p className="pText">${pCard.p_price}</p>
               </div>
           </div>
           

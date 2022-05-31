@@ -7,8 +7,8 @@ import MRecCard from './component/MRecCard';
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
-
-
+import { useCart} from "react-use-cart";
+import AddSweet from './component/AddSweet';
 
 
 
@@ -37,10 +37,12 @@ function ProductDetail(props){
     if(datas.length>0){
       console.log(datas[0]);
       const PD=datas[0];
-      const{id,p_name,price,content}=PD
+      const{p_id,p_name,p_price,content}=PD
       console.log(p_name);
     
     const img1=(p_name);
+    
+   
     
 
     return(
@@ -59,7 +61,7 @@ function ProductDetail(props){
                         </div>
                         <div className="pContentInfo">
                             <p className="productName">{p_name}</p>
-                            <h4>＄{price}</h4>
+                            <h4>＄{p_price}</h4>
                             <div  dangerouslySetInnerHTML={{__html: content}}/>
                             <br></br>
                             <div/>
@@ -80,7 +82,7 @@ function ProductDetail(props){
 
                             <div className="addCart">
                                 <div button type="button" className="addCartBtn" id="subtract" 
-                                // onClick={() => this.addToCart(product) }
+                             onClick={AddSweet}
                                 ><p className="addCartText">加入購物車</p>
                                     </div>
                             </div>
