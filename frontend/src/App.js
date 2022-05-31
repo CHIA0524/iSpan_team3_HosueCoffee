@@ -4,7 +4,6 @@ import './App.scss';
 // pages
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
-import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
 
 // member pages
 // import MemberLogin from './pages/member/memberlogin';
@@ -16,12 +15,16 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap';
 // components
 import Navbar from './component/Navbar';
 import Footer from './component/Footer';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [ bannerHeight, setBannerHeight ] = useState()
+
   return (
     <Router>
 
-      <Navbar/>
+      <Navbar bannerHeight={bannerHeight}/>
 
 
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
@@ -30,14 +33,11 @@ function App() {
 
       <Switch>
 
-        <Route path="/store/map">
-          <StoreMapCardWrap />
-        </Route>
         <Route path="/store">
           <StoreIndex />
         </Route>
         <Route path="/" exact>
-        <Home />
+        <Home setBannerHeight={setBannerHeight}/>
         </Route>
 
       </Switch>

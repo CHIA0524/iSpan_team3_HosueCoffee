@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss';
@@ -11,16 +11,31 @@ import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-function Navbar() {
-  let homeCSS;
+function Navbar(props) {
+
+  // 首頁 Navbar 樣式
+  const { bannerHeight } = props
+  const [ pageYOffset, setPageYOffset ] = useState()
   let getURL = useLocation();
-  console.log(getURL);
-  if (getURL.pathname === '/') {
-    homeCSS = { display: 'flex', background: 'transparent', boxShadow: 'none', position: 'fixed', marginButtom: '0', top: '0' ,visibility: 'hidden'}
-  }
-
-  //home Navbar FiexdTop when Onscroll
-
+  window.addEventListener('scroll',()=>{
+    setPageYOffset(window.pageYOffset)
+  })
+  useEffect(()=>{
+    if (getURL.pathname === '/') {
+      document.querySelector('.coffeeNavbar').style.position = 'absolute'
+      document.querySelector('.coffeeNavbar').style.top = '-125px'
+        if (pageYOffset >= bannerHeight) {
+          document.querySelector('.coffeeNavbar').style.position = 'fixed'
+          document.querySelector('.coffeeNavbar').style.top = '0px'
+        }else{
+          document.querySelector('.coffeeNavbar').style.top = '-125px'
+        }
+      
+    }else{
+      document.querySelector('.coffeeNavbar').style.position = 'relative'
+      document.querySelector('.coffeeNavbar').style.top = '0px'
+    }
+  },[bannerHeight, getURL.pathname, pageYOffset]);
 
 
   // 手機板 navbar js
@@ -32,20 +47,23 @@ function Navbar() {
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
     document.querySelector('.memberDetail').style.height = '0px';
+    window.scrollTo(0, 0);
   }
   const openMemberDetailClick = () => {
     if (document.querySelector('.memberDetail').style.height === '0px') {
       document.querySelector('.memberDetail').style.height = '200px';
+      window.scrollTo(0, 0);
     }
     else if (document.querySelector('.memberDetail').style.height === '200px') {
       document.querySelector('.memberDetail').style.height = '0px';
+      window.scrollTo(0, 0);
     }
   }
 
 
   return (
     <header className="App-header">
-      <nav className="coffeeNavbar fixed_nav" id="coffeeNavbar" style={homeCSS}>
+      <nav className="coffeeNavbar fixed_nav" id="coffeeNavbar" style={{position: '', top: ''}}>
         <div className="sideDark" onClick={closeSideNavClick}></div>
         <div className="navFirst" style={{ left: '-260px' }}>
           <li className="closeSideNav webNone" onClick={closeSideNavClick}>

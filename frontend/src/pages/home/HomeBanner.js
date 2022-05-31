@@ -6,7 +6,19 @@ import banner01 from './image/banner01.jpg';
 import banner02 from './image/banner02.jpg';
 import banner03 from './image/banner03.jpg';
 
-function homeBanner(){
+function HomeBanner(props){
+
+    const { setBannerHeight } = props
+
+    window.addEventListener('load',()=>{
+        let bannerHeight = document.getElementById('carouselExampleControls').clientHeight;
+        setBannerHeight(bannerHeight)
+    })
+    window.addEventListener('resize',()=>{
+        let bannerHeight = document.getElementById('carouselExampleControls').clientHeight;
+        setBannerHeight(bannerHeight)
+    })
+
     return(
         <div id="carouselExampleControls" className="codeinfo__carousel carousel slide"data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -34,4 +46,4 @@ function homeBanner(){
     )
 }
 
-export default homeBanner
+export default HomeBanner

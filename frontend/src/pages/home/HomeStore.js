@@ -7,7 +7,7 @@ function homeStore(){
         <div class="store">
                 <h1>STORE</h1>
                 <div class="allStore">
-                    <div class="storeSelect">
+                    {/* <div class="storeSelect">
                         <select name="city" id="city">
                             <option value="" disabled selected>選擇縣市</option>
                             <option value="tainan">台南</option>
@@ -24,7 +24,7 @@ function homeStore(){
                             <option value="store4">門市4</option>
                             <option value="store5">門市5</option>
                         </select>
-                    </div>
+                    </div> */}
                     <button id="storeBtn" type="button">搜尋</button>
                 </div>
             </div>

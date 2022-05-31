@@ -21,7 +21,7 @@ function Home(props) {
     return (
         <Router>
 
-            <HomeBanner />
+            <HomeBanner setBannerHeight={props.setBannerHeight}/>
 
             <HomeAppeal />
 

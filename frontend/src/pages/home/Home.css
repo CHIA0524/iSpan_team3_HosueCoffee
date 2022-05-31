@@ -2,12 +2,12 @@ body {
     font-family: "Comfortaa", "Microsoft JhengHei" !important;
 }
 
-.scrollDiv::-webkit-scrollbar,
+/* .scrollDiv::-webkit-scrollbar,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
     visibility: hidden !important;
-}
+} */
 
 /* D E S K T O P    1440px */
 
