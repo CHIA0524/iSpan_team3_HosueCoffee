@@ -480,6 +480,11 @@ p {
     cursor: pointer;
 }
 
+.copyText button {
+    background: none;
+    border: transparent;
+}
+
 /* .copyText button:active {
     background: #f3dfae;
 } */
