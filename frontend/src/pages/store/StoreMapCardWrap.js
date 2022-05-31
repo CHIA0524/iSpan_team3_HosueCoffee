@@ -84,17 +84,15 @@ function StoreMapCardWrap(){
             `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
             true
           )
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
-
-          const results = await response.json()
+          
           
           // 載入資料後設定到狀態中
           // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
-          if (Array.isArray(results)) {
-            setData(results)
-          }
           
         }
+      }
+      if (Array.isArray(results)) {
+        setData(results)
       }
     } catch (e) {
       // 作錯誤處理
