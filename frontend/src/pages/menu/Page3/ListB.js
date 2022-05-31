@@ -1,6 +1,6 @@
 import React from "react";
 import '../checkout3.scss'
-import Fakeing from '../Fakeimg150.png'
+
 
 
 const ListB = () => (
@@ -8,7 +8,7 @@ const ListB = () => (
         <div className="listBody">
             <div className="d-flex align-items-center justify-content-between">
                 <div className="col-3">
-                    <img className=" listImg" src={Fakeing} alt="fake"/>
+                    {/* <img className=" listImg" src={Fakeing} alt="fake"/> */}
                 </div>
                 <div className="nameRotate">
                     <div className="col-6 coffeeName">

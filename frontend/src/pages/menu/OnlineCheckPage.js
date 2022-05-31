@@ -19,11 +19,12 @@ import Pay from './Page1/Pay';
 const OnlineCheckPage = () => {
 
         let[pricetotal1, setpricetotal1] = useState('')
+        
         const [datas, setDatas ] = useState([])
 
         const fetchData = async()=>{
     
-                        const response = await fetch('http://localhost:3002/menu');
+                        const response = await fetch('http://localhost:3301/menu');
 
                         const results = await response.json();
                                         setDatas(results);

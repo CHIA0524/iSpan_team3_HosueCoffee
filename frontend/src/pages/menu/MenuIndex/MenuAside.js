@@ -6,7 +6,6 @@ import "../style.scss"
 const MenuAside = () => (
 
 
-    
     <div className="asideMenu main1">
         <aside>
             <div className="onlion">

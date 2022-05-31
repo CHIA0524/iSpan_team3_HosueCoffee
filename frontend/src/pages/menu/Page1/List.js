@@ -1,6 +1,5 @@
 import {createContext, useState }from "react";
 import '../styleCheckout.scss'
-import Fakeing from '../Fakeimg150.png'
 import Counter from '../component/Counter';
 import Button from '../component/Button';
 
@@ -15,30 +14,42 @@ const List = (props) => {
     // console.log(datas);
     // const datas = useContext(MenuContext)
 
+
     const datas1 = JSON.parse(localStorage.getItem('gifts'))
 
     const {datas} = props
-
-    console.log(datas1);
+        console.log(datas1);
+        console.log(datas);
+    // if datas1的ID = datas1的ID
     
-    console.log(datas);
+    // if(datas1的ID = datas1的ID 就要渲染datas1的資料)
+    
+        // for i=0 i小於datas的id i++ 如果data1ID = datasID 渲染
+
+    return(
+        
+        <>
+            {/* 印出資料 */}
+            {datas.map((datas,i)=>{
+
+// console.log(datas);
 
     return(
 
-    <div className="list">
+    <div className="list" key={i}>
             <div className="d-flex align-items-center justify-content-between">
                 <div className="col-3">
-                    <img className="listImg" src={Fakeing} alt="fake"/>
+                    {/* <img className="listImg" src={require('./img/'+ datas +'.jpg')} alt="fake"/> */}
                 </div>
                 <div className="nameRotate">
                     <div className="col-6 coffeeName">
-                        <span>{datas1.id}</span>
+                        <span>{datas.drink_name}</span>
                     </div>
                     <div className="d-flex col-6 amount">
                         <div className="quantityText">
                             數量：
                         </div>
-                        <Counter/>
+                        <Counter />
                     </div>
                 </div>
                 <div className="delete1">
@@ -52,8 +63,18 @@ const List = (props) => {
                 </div>
             </div>
         </div>
-)
-    }
+    )
+
+
+})}
+
+</>   
+
+)   
+}
+
+
+
 
 
 export default List
