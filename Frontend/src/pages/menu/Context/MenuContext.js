@@ -12,8 +12,7 @@ import react from "react";
 // const [asd,setasd] = useState()
 
 const MenuValue = {
-    drinkCounter:'4',
-    drinkId:'2',
+    
 }
 
 

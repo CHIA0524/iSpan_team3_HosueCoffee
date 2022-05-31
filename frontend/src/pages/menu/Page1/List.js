@@ -15,10 +15,16 @@ const List = (props) => {
     // console.log(datas);
     // const datas = useContext(MenuContext)
 
+    const datas1 = JSON.parse(localStorage.getItem('gifts'))
 
+    const {datas} = props
 
+    console.log(datas1);
+    
+    console.log(datas);
 
     return(
+
     <div className="list">
             <div className="d-flex align-items-center justify-content-between">
                 <div className="col-3">
@@ -26,7 +32,7 @@ const List = (props) => {
                 </div>
                 <div className="nameRotate">
                     <div className="col-6 coffeeName">
-                        <span>name</span>
+                        <span>{datas1.id}</span>
                     </div>
                     <div className="d-flex col-6 amount">
                         <div className="quantityText">
@@ -41,7 +47,6 @@ const List = (props) => {
                     <ion-icon name="trash-outline"></ion-icon>
                 </div>
                 </div>
-
                 <div className="price">
                     {/* {setpricetotal1}    */}
                 </div>

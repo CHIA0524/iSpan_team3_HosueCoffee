@@ -28,7 +28,7 @@ const MenuCardRwd = (props) => {
                     setdrinkId((mu.id))
                     setcss({visibility: 'visible' ,opacity:'1'})
                 }}>
-                    <div className="col-3">
+                    <div className="listRwdImg">
                         <img className=" listImg"src={require('./img/'+ img1 +'.jpg')} alt=""/>
                     </div>
                     <div className="nameRotateRwd">
