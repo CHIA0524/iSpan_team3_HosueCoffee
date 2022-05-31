@@ -2,8 +2,7 @@ body {
     font-family: "Comfortaa", "Microsoft JhengHei" !important;
 }
 
-.scrollDiv 
-::-webkit-scrollbar,
+.scrollDiv::-webkit-scrollbar,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
@@ -13,6 +12,10 @@ body {
 /* D E S K T O P    1440px */
 
 /*banner*/
+.carousel-control-next {
+    z-index: 0;
+}
+
 /* -------------------- */
 
 /*brand appeal*/
@@ -45,6 +48,7 @@ body {
     line-height: 30px;
     color: #4D3410;
 }
+
 /* -------------------- */
 
 /* menu */
@@ -77,6 +81,7 @@ body {
 .menuHover {
     transition: .8s;
     opacity: .9;
+    cursor: pointer;
 }
 
 .menuHover:hover {
@@ -110,6 +115,7 @@ body {
     letter-spacing: 1px;
     color: #fff;
 }
+
 /* ------------------- */
 
 /* flagship products */
@@ -143,8 +149,8 @@ body {
 .scrollDiv {
     width: 100%;
     height: 350px;
-    /* overflow-x: scroll; */
-    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
     justify-content: center;
     margin: 0px auto;
     flex-grow: 1 100px;
@@ -161,6 +167,7 @@ body {
     justify-content: center;
     flex-flow: row wrap;
     align-items: center;
+    cursor: pointer;
 }
 
 .productscroll img {
@@ -195,17 +202,20 @@ p {
     justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
-    padding: 20px;
+    padding: 0 120px;
 }
 
 .productSel img {
     width: 150px;
     height: auto;
+    cursor: pointer;
 }
 
 .productBTN {
     display: none;
+    cursor: pointer;
 }
+
 /* ------------------ */
 
 /* TODAY’S ARTICLE */
@@ -239,6 +249,7 @@ p {
     box-sizing: border-box;
     border-radius: 40px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .cardImg img {
@@ -276,6 +287,7 @@ p {
 .cardInfo a {
     color: #000;
 }
+
 /* --------------------- */
 
 /* store */
@@ -322,6 +334,7 @@ p {
     width: 150px;
     height: 35px;
     text-align: center;
+    cursor: pointer;
 }
 
 #storeBtn {
@@ -332,7 +345,9 @@ p {
     width: 70px;
     height: 35px;
     text-align: center;
+    cursor: pointer;
 }
+
 /* --------------------- */
 
 /* news & activity */
@@ -449,7 +464,7 @@ p {
     color: #fff;
 }
 
-.copy1 {
+.copyText {
     width: 25%;
     height: auto;
     background: #E4D2A3;
@@ -462,13 +477,48 @@ p {
     margin-right: 20px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
-.copy1 p {
+/* .copyText button:active {
+    background: #f3dfae;
+} */
+
+/* .copyText button::before {
+    content: "已複製完成";
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: #E4D2A3;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+.copyText button::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 25px;
+    width: 10px;
+    height: 10px;
+    background: #E4D2A3;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.copyText.active button::after,
+.copyText.active button::before {
+    display: block;
+} */
+
+.copyText p {
     margin: 0;
     justify-content: center;
     text-align: center;
 }
+
 /* --------------------- */
 
 
@@ -514,6 +564,7 @@ p {
     line-height: 30px;
     color: #ccc;
 }
+
 /* --------------------- */
 
 /* go top button */
@@ -549,6 +600,7 @@ p {
 .topBTN:hover i {
     color: #fff;
 }
+
 /* --------------------- */
 /* ----------D E S K T O P  style  end----------- */
 
@@ -568,6 +620,7 @@ p {
         padding: 30px;
         letter-spacing: 1px;
     }
+
     /* -------------------- */
 
     /* menu */
@@ -608,6 +661,7 @@ p {
     .menuCard p {
         margin: 20px auto;
     }
+
     /* ------------------- */
 
     /* flagship products */
@@ -682,6 +736,7 @@ p {
     .allCard {
         padding: 30px 0;
     }
+
     /* --------------------- */
 
     /* store */
@@ -712,6 +767,7 @@ p {
     #storeBtn {
         margin: 10px 0;
     }
+
     /* ------------------ */
 
     /* news & activity */
@@ -800,10 +856,11 @@ p {
         justify-content: center;
     }
 
-    .copy1 {
+    .copyText {
         padding: 0;
         margin: 5px 0;
     }
+
     /* --------------------- */
 
     /* about us */
@@ -826,11 +883,13 @@ p {
         margin-bottom: 20px;
         padding: 0;
     }
+
     /* --------------------- */
 
     /* go top button */
     /* -------------------- */
 }
+
 /* ----------i P A D  style  end----------- */
 
 
@@ -848,6 +907,7 @@ p {
         padding: 30px;
         letter-spacing: 1px;
     }
+
     /* -------------------- */
 
     /* menu */
@@ -869,7 +929,7 @@ p {
     }
 
     .allMenu img {
-        width: 120px;
+        width: 100px;
         height: auto;
     }
 
@@ -883,8 +943,10 @@ p {
     }
 
     .menuCard p {
+        margin: 0 auto;
         font-size: 12px;
     }
+
     /* ------------------- */
 
     /* flagship products */
@@ -996,6 +1058,7 @@ p {
     .cardInfo a {
         text-decoration: none;
     }
+
     /* --------------------- */
 
     /* store */
@@ -1027,6 +1090,7 @@ p {
     #storeBtn {
         margin: 10px 0;
     }
+
     /* ------------------ */
 
     /* news & activity */
@@ -1115,12 +1179,12 @@ p {
         justify-content: center;
     }
 
-    .copy1 {
+    .copyText {
         padding: 0;
         margin: 5px 0 5px 0;
     }
 
-    .copy1 p {
+    .copyText p {
         font-size: 12px;
     }
 
@@ -1147,9 +1211,11 @@ p {
         margin-bottom: 10px;
         padding: 0;
     }
+
     /* --------------------- */
 
 }
+
 /* ----------M O B I L E  style  end----------- */
 
 
@@ -1167,6 +1233,7 @@ p {
         padding: 30px;
         letter-spacing: 1px;
     }
+
     /* -------------------- */
 
     /* menu */
@@ -1188,7 +1255,7 @@ p {
     .allMenu img {
         width: 100px;
         height: auto;
-        
+
     }
 
     .menuCard {
@@ -1205,6 +1272,7 @@ p {
         font-size: 12px;
         margin: 0 auto;
     }
+
     /* ------------------- */
 
     /* flagship products */
@@ -1244,7 +1312,9 @@ p {
         width: 100%;
     }
 
-    .productdetail h5, h6, p {
+    .productdetail h5,
+    h6,
+    p {
         text-align: center;
     }
 
@@ -1269,6 +1339,7 @@ p {
     .productSel {
         display: none;
     }
+
     /* ------------------ */
 
     /* TODAY’S ARTICLE */
@@ -1346,6 +1417,7 @@ p {
     #storeBtn {
         margin: 10px 0;
     }
+
     /* ------------------ */
 
     /* news & activity */
@@ -1440,11 +1512,12 @@ p {
         justify-content: center;
     }
 
-    .copy1 {
+    .copyText {
         width: 20%;
         padding: 50px 50px;
         margin: 5px 0;
     }
+
     /* --------------------- */
 
     /* about us */
@@ -1472,4 +1545,5 @@ p {
     /* --------------------- */
 
 }
+
 /* ----------M O B I L E  style  end----------- */

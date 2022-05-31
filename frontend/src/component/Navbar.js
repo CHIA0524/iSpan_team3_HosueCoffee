@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
 import React from 'react';
+import { useEffect } from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss';
 
@@ -15,9 +16,12 @@ function Navbar() {
   let getURL = useLocation();
   console.log(getURL);
   if (getURL.pathname === '/') {
-    homeCSS = { display: 'none', boxShadow: 'none', position: 'absolute', marginButtom: '0', top: '0' }
+    homeCSS = { display: 'flex', background: 'transparent', boxShadow: 'none', position: 'fixed', marginButtom: '0', top: '0' ,visibility: 'hidden'}
   }
-  
+
+  //home Navbar FiexdTop when Onscroll
+
+
 
   // 手機板 navbar js
   const openSideNavClick = () => {
