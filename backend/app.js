@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
-const storeMapRouter = require('./routes/storeMap');
+const storeRouter = require('./routes/store');
 
 
 const testRouter = require('./routes/member/test');
@@ -40,7 +40,7 @@ app.use('/categories',categoriesRouter);
 app.use('/products',productsRouter);
 
 app.use('/test',testRouter);
-app.use('/store/map',storeMapRouter);
+app.use('/store',storeRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
 
