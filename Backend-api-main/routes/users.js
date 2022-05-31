@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/checkName',async (req,res,next)=>{
-  const sql = `SELECT Count(*) as total FROM members WHERE member_account=?`
-  const [datas] = await db.query(sql,[req.query.member_account]);
+  const sql = `SELECT Count(*) as total FROM employees WHERE FirstName=?`
+  const [datas] = await db.query(sql,[req.query.name]);
   res.json(datas[0]);
 })
 
