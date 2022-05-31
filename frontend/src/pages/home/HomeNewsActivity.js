@@ -2,7 +2,6 @@ import { doc } from 'prettier';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
-// import Swal from 'sweetalert2'
 
 function homeNewActivity() {
     //   let copyText = document.querySelector(".copyText");
@@ -16,8 +15,11 @@ function homeNewActivity() {
     //           copyText.classList.remove("active");
     //       },2500);
     //   });
-
-
+   
+        const myCopy = () => {
+            alert('saved');
+        }
+    
 
     return (
         <div class="aside">
@@ -52,7 +54,7 @@ function homeNewActivity() {
                             <p>活動日期<br />2022/05/01-2022/05/20</p>
                         </div>
                     </div>
-                    <div class="copyText" >
+                    <div class="copyText" onClick={myCopy}>
                         SAVE
                     </div>
                     <div class="coupon1">
@@ -61,7 +63,7 @@ function homeNewActivity() {
                             <p>活動日期<br />2022/05/01-2022/05/20</p>
                         </div>
                     </div>
-                    <div class="copyText" >
+                    <div class="copyText" onClick={myCopy}>
                         SAVE
                     </div>
                     <div class="coupon1">
@@ -70,7 +72,7 @@ function homeNewActivity() {
                             <p>活動日期<br />2022/05/01-2022/05/20</p>
                         </div>
                     </div>
-                    <div class="copyText" >
+                    <div class="copyText" onClick={myCopy}>
                         SAVE
                     </div>
                 </div>
