@@ -1,5 +1,7 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, } from 'react-router-dom';
+import {useState,useContext,createContext} from 'react';
 import './App.scss';
+import MenuContext from './pages/menu/Context/MenuContext';
 
 // pages
 import Home from './pages/home/Home';
@@ -37,6 +39,7 @@ function App() {
         <Route path="/store">
           <StoreIndex />
         </Route>
+        <MenuContext.Provider value={MenuContext}>
         <Route path="/OnlineCheckPage">
           <OnlineCheckPage />
         </Route>
@@ -49,6 +52,7 @@ function App() {
         <Route path="/Menu">
           <MenuIndex />
         </Route>
+        </MenuContext.Provider>
 
 
 

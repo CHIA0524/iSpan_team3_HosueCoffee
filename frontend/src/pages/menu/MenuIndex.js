@@ -51,16 +51,25 @@ const MenuIndex = () => {
                 <MenuAside/>
                 <div className="main2">
                     <div className="mainBody">
-                        <div className="silder1">
-                            {/* <Slider1/> */}   {/* TODO Silder待完成*/} 
-                        </div>
+                        {/* <div className="silder1"> */}
+                            {/* <Slider1/>   TODO Silder待完成  */}
+                        {/* </div> */}
                         <MenuCard 
                             datas={datas}
                             setdrinkId={setdrinkId}
                             setcss={setcss}
                         />
-                        <MenuCardRwd datas={datas} />
-                        <Popup datas={datas}  drinkId={drinkId} css={css} setcss={setcss}/>
+                        <MenuCardRwd 
+                            datas={datas}
+                            setdrinkId={setdrinkId}
+                            setcss={setcss} 
+                        />
+                        <Popup 
+                            datas={datas}  
+                            drinkId={drinkId} 
+                            css={css} 
+                            setcss={setcss}
+                        />
                     </div>   
                 </div>
             </div>

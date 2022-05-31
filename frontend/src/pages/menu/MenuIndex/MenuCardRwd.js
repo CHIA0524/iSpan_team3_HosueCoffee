@@ -4,62 +4,46 @@ import "../style.scss"
 
 
 
-const MenuCardRwd = () => {
+const MenuCardRwd = (props) => {
 
-    const [datas, setDatas ] = useState([])
+    const {setdrinkId, setcss, datas} = props
 
-    const fetchData = async()=>{
-
-                        const response = await fetch('http://localhost:3002/menu');
-
-                        const results = await response.json();
-                        
-                                        setDatas(results);
-                    }
-
-    useEffect(()=>{
-
-        fetchData();
-
-    },[])
 
 
     return(
-
         <>
+            {/* 印出資料 */}
+            {datas.map((mu,i)=>{
 
-        {datas.map((mu,i)=>{
-
-            let drinkMame =(mu.drink_name);
-
-            let price = (mu.price);
+            const img1 = (mu.drink_name)
 
 
 
     return(
 
-            <div className="listBody"  key={i}>
-                <div className="d-flex align-items-center justify-content-between">
+            <div className="listBodyRwd" >
+                <div className="d-flex align-items-center justify-content-between cardRwd" type="button" 
+                key={mu.id}  
+                onClick={()=>{
+                    setdrinkId((mu.id))
+                    setcss({visibility: 'visible' ,opacity:'1'})
+                }}>
                     <div className="col-3">
-                        <img className=" listImg" src={require('./img/'+drinkMame+'.jpg')} alt=""/>
+                        <img className=" listImg"src={require('./img/'+ img1 +'.jpg')} alt=""/>
                     </div>
-                    <div className="nameRotate">
-                        <div className="col-6 coffeeName">
-                            <span>{drinkMame}</span>
-                        </div>
+                    <div className="nameRotateRwd">
+                            <span >{mu.drink_name}</span>
                     </div>
                     <div className="price">
-                    {'$'+price}
+                    ${mu.price}
                     </div>
                 </div>
             </div>
 
 )
-
-
+                    
 })}
-</>
-
-);
+</>   
+)    
 }
 export default MenuCardRwd

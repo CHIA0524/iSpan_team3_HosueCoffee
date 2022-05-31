@@ -1,7 +1,9 @@
 import React from "react";
-import{useState} from "react";
+import{useState,} from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import "../style.scss";
 import Counter from "../component/Counter";
+import MenuContext from "../Context/MenuContext";
 
 
 
@@ -14,22 +16,32 @@ const Popup = (props) => {
         const {datas, drinkId, css, setcss} = props
     
         const [drinkCounter, setdrinkCounter] = useState(1) 
-        
-        if(datas.length>0){
+        // 準備傳至OnlineCheckPage
+        // console.log(drinkCounter, drinkId); 
+
+
+        if(datas.length > 0){
     
             return(
-                    <div  className="overlay" style={css}>
+                    <div className="overlay" style={css}>
                         <div className="popup">
-                            <div className="close" onClick={()=>{setdrinkCounter(1)
-                                                                setcss({visibility: 'hidden' ,opacity:'0'})
-                                                                }}>&times;</div>
+                            <div className="close" 
+                                onClick={()=>{setdrinkCounter(1)
+                                            setcss({visibility: 'hidden', opacity: '0'})
+                                        }}
+                            >&times;
+                            </div>
                             <div className="content">
                                 <div className="popoimg">
-                                    <img src={require('./img/'+ datas[drinkId-1].url +'.jpg')}alt=""/>
+                                    <img src={require('./img/'+ datas[drinkId-1].url +'.jpg')}
+                                        alt=""   
+                                    />
                                 </div>
                                 <div className="popupNameTop">
                                     <div className="popupName">
-                                        <h2>{datas[drinkId-1].drink_name}</h2>
+                                        <h2>
+                                            {datas[drinkId-1].drink_name}
+                                        </h2>
                                     </div>
                                     <div className="popotext">
                                         <span>
@@ -39,13 +51,20 @@ const Popup = (props) => {
                                     <div className="content1">
                                         <div className="content2 btn2">
                                             <div className="d-flex justify-content-end mt-4">
-                                                <div className="btn PaymentLast1 mt-1">加入購物車</div>
+                                                <div className="btn PaymentLast1 mt-1"
+                                                    onClick={() => {}}> 
+                                                    加入購物車
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="content2 btn1">
-                                        <Counter setdrinkCounter={setdrinkCounter}  drinkCounter={drinkCounter} />
-                                        <div className="btn PaymentLast1 mt-1">加入購物車</div>
+                                        <Counter setdrinkCounter={setdrinkCounter}  drinkCounter={drinkCounter} 
+                                        />
+                                            <div className="btn PaymentLast1 mt-1"
+                                                onClick={()=> {}}>
+                                                    加入購物車
+                                            </div>
                                     </div>
                                 </div>
                             </div>
