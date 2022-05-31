@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 
-import { GoogleMap, useJsApiLoader, Marker, } from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 import { Link } from 'react-router-dom'
 
 import catmarker from './img/marker.svg';
-
+import StoreMapClusterer from './StoreMapClusterer';
 
 function StoreMap(props){
   
@@ -32,13 +32,12 @@ function StoreMap(props){
     height: 'calc(100vh - 125px)'
   })
 
-  const { data, center, zoom, setCenter, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
+  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
   const [ markerIndex, setMarkerIndex ] = useState(1)
 
   const thisData = data
 
   // map 使用
-  const mapRef = useRef()
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -51,7 +50,7 @@ function StoreMap(props){
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     setMap(map)
-  }, [])
+  }, [center])
   
   const onUnmount = useCallback(function callback(map) {
     setMap(null)
@@ -61,29 +60,26 @@ function StoreMap(props){
     setTimeout(() => {
       setZoom(map.getZoom())
       setMarkerInfoCSS('-150px')
-    }, 100)
+    }, 50)
   }
-
-  useEffect(() => {
-    if (map) {
-      map.panTo(center)
-    }
-  }, [center])
-
+  
   const markerOnClick  = useCallback(
     (index)=>()=>{
-      // let thisLat = Number(thisData[index].lat)
-      // let thisLng = Number(thisData[index].lng)
-      // setCenter({lat: thisLat, lng: thisLng})
+      let thisLat = Number(thisData[index].lat)
+      let thisLng = Number(thisData[index].lng)
+      setCenter({lat: thisLat, lng: thisLng})
       setMarkerIndex(index)
+      setZoom(18)
       if (markerInfoCSS === '-150px'){
-        setMarkerInfoCSS('100px')
-      }else if (markerInfoCSS === '100px')(
+        setTimeout(() => {
+          setMarkerInfoCSS('100px')
+        }, 110)
+      }else if (markerInfoCSS === '100px'){
         setMarkerInfoCSS('-150px')
-      )
-    }, [markerInfoCSS]
+      }
+    }, [thisData, setCenter, setZoom, markerInfoCSS, setMarkerInfoCSS]
   )
-  
+
   const mapOnClick = ()=>{
     setMarkerInfoCSS('-150px')
     if(asideCSS === '0px'){
@@ -92,17 +88,30 @@ function StoreMap(props){
     }
   }
 
+  const onDragEnd = ()=>{
+    setMarkerInfoCSS('-150px')
+  }
+
+  useEffect(() => {
+    if (map) {
+      map.panTo(center)
+    }
+  }, [center, map])
+    
+  
   return(
     <div className="mapWrap">
       {isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
+        defaultZoom={14}
         center={center}
         zoom={zoom}
         onLoad={onLoad}
         onUnmount={onUnmount}
         onZoomChanged={onZoomChanged}
         onClick={mapOnClick}
+        onDragEnd={onDragEnd}
       >
         {data.map((latlng, i)=>{
           let thisLat = Number(latlng.lat)
@@ -118,6 +127,7 @@ function StoreMap(props){
             />
           )
         })}
+          <StoreMapClusterer data={data}/>
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>

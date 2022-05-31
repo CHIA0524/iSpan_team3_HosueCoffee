@@ -117,3 +117,6 @@ dist
 
 # vscode
 .vs
+
+# .lock
+*.lock

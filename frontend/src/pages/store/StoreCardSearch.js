@@ -19,6 +19,7 @@ function StoreCardSearch(props){
           setSearchText(e.target.value)
           setIsLoading(true)
           fetchFilterData(e.target.value)
+          props.setMarkerInfoCSS('-150px')
         }}
       >
       </input>
