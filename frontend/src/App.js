@@ -19,6 +19,9 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
 
+//blog pages
+import Blog from './pages/blog/Blog'
+
 // member pages
 import MemberLogin from './pages/member/memberlogin';
 import MemberNewData from './pages/member/memberNewData';
