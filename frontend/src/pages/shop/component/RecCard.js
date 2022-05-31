@@ -24,7 +24,7 @@ function RecCard(){
   },[])
 
   
-  // 輪播
+  // 輪播 更改寬度
   const [width, setWidth] = useState(750);
   const [display, setDisaplay] = useState(true);
   const settings = {
@@ -49,6 +49,7 @@ function RecCard(){
              >
              <div className="RText">推薦商品</div>
               <Slider {...settings}>
+                 {/* 連資料庫 */}
                       {datas.map((PCard,p_id)=>{
                         console.log(PCard.p_id);
                        const img1=(PCard.p_name);

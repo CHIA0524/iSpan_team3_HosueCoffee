@@ -43,6 +43,7 @@ function ProductCard(props){
                            
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
+                             //因id從200001開始，故需扣除，才能使popup抓到
                              setProductId(pCard.p_id-200000)
                             setcss({visibility: 'visible' , opacity : '1'})
                            }}
