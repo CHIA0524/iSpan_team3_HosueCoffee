@@ -1,0 +1,289 @@
+.memberLoginMain {
+  background: #cdcdcd;
+  width: 958px;
+  height: 600px;
+  border-radius: 20px;
+  box-shadow: rgb(124, 124, 124) 20px 10px 5px;
+  margin: 0 auto;
+}
+
+.loginTop {
+  height: 50px; 
+  text-align: center;
+}
+.loginTopL {
+  background-color: #efecea;
+  color: black;
+}
+.loginTopR {
+  background-color: #615a51;
+  border-radius: 0 20px 0 0;
+  color: #e5e5e5;
+}
+.loginWord {
+  display: block;
+  font:16px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.loginLift {
+  overflow: hidden;
+  border-radius: 20px 0 0 20px;
+  background: #cdcdcd;
+  z-index: 10;
+  position: relative;
+}
+.loginRight {
+  background: #615a51;
+  border-radius: 0 20px 20px 0;
+  height: 600px;
+}
+
+
+.liftW1 {
+  position: relative;
+  left: 50px;
+  font-weight: bolder;
+}
+.liftW2 {
+  position: relative;
+  left: 250px;
+  font-weight: bolder;
+}
+.loginMain {
+  position: relative;
+  overflow: hidden;
+  top: -550px;
+  height: 550px;
+}
+
+.loginMain2 {
+  box-shadow: rgb(124, 124, 124) 10px 10px 5px;
+}
+
+.loginMain1 {
+  background-color: #efecea;
+  position: relative;
+  border-radius: 0 0 20px 0;
+  right: -491px;
+}
+
+.loginInput {
+  text-align: center;
+}
+
+.loginInput input {
+  border-radius: 10px;
+  height: 40px;
+  font-size: 20px;
+  margin: 20px;
+  border-style: none;
+}
+.loginInputL button {
+  border-radius: 50px;
+  font-size: 25px;
+  margin: 20px;
+  width: 200px;
+  color: #e4d2a3;
+  background-color: #615a51;
+  border-style: none;
+}
+
+.loginInputR button {
+  border-radius: 50px;
+  font-size: 25px;
+  margin: 20px;
+  width: 200px;
+  color: white;
+  background-color: #e4d2a3;
+  border-style: none;
+}
+.loginPmain{
+  padding: 0;
+  width: 100%;
+}
+
+.loginInputL hr {
+  color: #615a51;
+  width: 400px;
+  margin: 20px auto;
+}
+.loginInputR hr {
+  color: #efecea;
+  width: 400px;
+  margin: 20px auto;
+}
+.GLoginR {
+  color: #615a51;
+}
+.GLoginR {
+  color: white;
+}
+.forget {
+  display: block;
+}
+.pmain{
+  margin-bottom: 3rem;
+}
+.mLcolor{
+  color: #4C3410;
+  cursor: pointer;
+}
+.pmain-m{
+  display: none;
+  margin-bottom: 2rem;
+}
+.LG-F{
+  display: none;
+}
+.LG-F input {
+  border-radius: 10px;
+  height: 40px;
+  width: 70%;
+  font-size: 20px;
+  margin: 0 auto;
+  border: 1px solid #E4D2A3;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+.LG-F div{
+  width: 20rem;
+  margin: 0 auto;
+  text-align: right;
+}
+#forget{
+  cursor: pointer;
+}
+
+.member1 {
+  height: 287px;
+  border-radius: 20px;
+  position: relative;
+  top: 40px;
+  right: -200px;
+}
+.member2 {
+  height: 139px;
+  position: relative;
+  top: -25px;
+}
+.MimgDiv{
+  background-image: url("./img/member_logoin_1.png");
+  background-size: cover; 
+  background-position:0% 50%;
+}
+.loginInputL .RWDSignIntput{
+  margin-top:2rem ;
+  margin-bottom: 0.5rem;
+}
+.CKN{
+  color: #e4d2a3;
+}
+@media screen and (max-width:1200px){
+  .con3-None{
+    display: none;
+  }
+}
+@media screen and (max-width:1000px){
+  .pmain{
+    display: none;
+  }
+  .pmain-m{
+    display: block;
+    margin-bottom: 2rem;
+  }
+  .MimgDiv{
+    overflow: hidden;
+    height: 133px;
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+  }
+  .coffeeNavbar{
+    margin-bottom: 0;
+  }
+  .loginInput{
+    margin-bottom: 2rem;
+  }
+  .loginInputL input{
+    border: 1px solid #E4D2A3;
+    margin-bottom: 2rem;
+  }
+  .loginInputL input{
+    border: 1px solid #E4D2A3;
+    margin-bottom: 2rem;
+  }
+ 
+  .loginInputL button {
+    border-radius: 50px;
+    font-size: 25px;
+    margin: 20px;
+    width: 17rem;
+    color: white;
+    background-color: #e4d2a3;
+    border-style: none;
+    margin-bottom: 2rem;
+  }
+  .loginM-F{
+    width: 20rem;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .lmLogo{
+    width: 3rem;
+    height: 3rem;
+    background-color: #e4d2a3;
+    border-radius: 50%;
+    margin:0 0.5rem;
+    cursor: pointer;
+  }
+  .lmLogo i{
+    font-size: 1.5rem;
+    padding-top:0.8rem;
+  }
+  .newM{
+    width: 11rem;
+    text-align: right;
+    padding: 0.8rem 0;
+  }
+  .newL{
+    width: 11rem;
+    text-align: right;
+    padding: 0.8rem 0;
+  }
+  .loginCM{
+    display: none; 
+    margin-bottom: 2rem;
+  }
+  .forget-m{
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: none;
+  }
+  .forget-m button{
+    width: 15rem;
+  }
+  .forget-m input {
+    border-radius: 10px;
+    height: 40px;
+    width: 17rem;
+    font-size: 20px;
+    margin: 0 auto;
+    border: 1px solid #E4D2A3;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+  }
+  .forget-m .mldiv{
+    width: 17rem;
+    margin: 0 auto;
+    
+  }
+  .forget-m .fgMBack{
+    width: fit-content;
+    margin-left: 14rem;
+    text-align: right;
+  }
+}

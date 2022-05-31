@@ -4,22 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
-const cors = require('cors')
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
 const storeMapRouter = require('./routes/storeMap');
+
 const menuRouter = require('./routes/menu');
 
+const testRouter = require('./routes/member/test');
+const accountRouter = require('./routes/member/Login');
+const profileRouter =require('./routes/member/profile');
+const db=require('./modules/mysql_config')
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +38,10 @@ app.use('/categories',categoriesRouter);
 //http://localhost:3001/products
 app.use('/products',productsRouter);
 
+app.use('/test',testRouter);
 app.use('/store/map',storeMapRouter);
+app.use('/account',accountRouter);
+app.use(`/profile`,profileRouter);
 
 app.use('/menu',menuRouter);
 
@@ -55,5 +62,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
