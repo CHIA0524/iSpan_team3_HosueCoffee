@@ -26,6 +26,10 @@ const[amount, setAmount]= useState(1)
      useEffect(()=>{
        fetchData();
      },[])
+     const handleClick = (pCard)=>{
+     console.log(pCard)
+
+   }
   
     
 

@@ -132,7 +132,7 @@ h3 {
 .error {
   margin-top: -2rem;
   font-size: 1rem;
-  color: red;
+  color: transparent;
   height: 2rem;
 }
 

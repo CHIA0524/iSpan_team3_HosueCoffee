@@ -7,16 +7,15 @@ import Steps1 from './component/Steps1';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
-// <----------pay3----------->
-import Pay3 from './Pay3';
-import './pay3.css';
-import Steps3 from './component/Steps3';
-import SimplePInfo from './component/SimplePInfo';
-
 
 
 
 function Pay1(props){
+
+    //回去繼續購物
+    const keepshopping = ()=>{
+        window.location.assign("http://localhost:3000/shop")
+         }  
 
     //按下一步跳pay2
        const nextStep = ()=>{
@@ -32,12 +31,43 @@ function Pay1(props){
          
     //按下一步跳pay3
     const complete = ()=>{
-        if (nameMessage=""){
-        document.querySelector('.payTwo').style.display="none"
-        document.querySelector('.payOne').style.display="none"
-        document.querySelector('.payThree').style.display="block"
-     }
-    }      
+        const a=document.querySelector('.sameAddress').checked
+        if(a==true){
+            setRName(name)
+            setRPhone(phone)
+            setREmail(email)
+            setRAddress(address)
+            if (nameMessage=="" ){
+           
+            window.location.replace("http://localhost:3000/shoppingCart/pay3")
+           }else{
+                 document.querySelector(".errorname").style.color="red";
+                 document.querySelector(".errorphone").style.color="red";
+                 document.querySelector(".erroremail").style.color="red";
+                 document.querySelector(".erroraddress").style.color="red";
+                 document.querySelector(".errorRname").style.color="red";
+                 document.querySelector(".errorRphone").style.color="red";
+                 document.querySelector(".errorRemail").style.color="red";
+                 document.querySelector(".errorRaddress").style.color="red";
+        }
+        }else{
+            if (nameMessage=="" ){    
+            window.location.replace("http://localhost:3000/shoppingCart/pay3")          
+               }else{
+                 document.querySelector(".errorname").style.color="red";
+                 document.querySelector(".errorphone").style.color="red";
+                 document.querySelector(".erroremail").style.color="red";
+                 document.querySelector(".erroraddress").style.color="red";
+                 document.querySelector(".errorRname").style.color="red";
+                 document.querySelector(".errorRphone").style.color="red";
+                 document.querySelector(".errorRemail").style.color="red";
+                 document.querySelector(".errorRaddress").style.color="red";
+            }
+        }
+
+        }
+        
+
 // <----------pay1----------->
     // const [ subTotal, setsubTotal ]= useState(1)
     // const [ totalCash, setTotalCash ] = useState(1);
@@ -61,15 +91,16 @@ function Pay1(props){
     const [Raddress,setRAddress]=useState()
  
     //顯示錯誤訊息
-    const [nameMessage,setNameMessage]=useState()
-    const [phoneMessage,setPhoneMessage]=useState()
-    const [emailMessage,setEmailMessage]=useState()
-    const [addressMessage,setAddressMessage]=useState()
+  
+    const [nameMessage,setNameMessage]=useState("請輸入姓名")
+    const [phoneMessage,setPhoneMessage]=useState("請輸入手機")
+    const [emailMessage,setEmailMessage]=useState("請輸入信箱")
+    const [addressMessage,setAddressMessage]=useState("請輸入地址")
  
-    const [RnameMessage,setRNameMessage]=useState()
-    const [RphoneMessage,setRPhoneMessage]=useState()
-    const [RemailMessage,setREmailMessage]=useState()
-    const [RaddressMessage,setRAddressMessage]=useState()
+    const [RnameMessage,setRNameMessage]=useState("請輸入姓名")
+    const [RphoneMessage,setRPhoneMessage]=useState("請輸入手機")
+    const [RemailMessage,setREmailMessage]=useState("請輸入信箱")
+    const [RaddressMessage,setRAddressMessage]=useState("請輸入地址")
  
  
     const Iname=(e)=>{
@@ -98,10 +129,12 @@ function Pay1(props){
      }   
      // console.log(name)
        
-         //驗證 
+         //驗證
+      
          const Wrongname=()=>{
              if(!name){
                  setNameMessage("請輸入姓名")
+                 document.querySelector(".errorname").style.color="red";
              }else{
                  setNameMessage("")
              }
@@ -109,49 +142,56 @@ function Pay1(props){
          const Wrongphone=()=>{
              if(!phone){
                  setPhoneMessage("請輸入手機")
-             }else{
+                 document.querySelector(".errorphone").style.color="red";
+                }else{
                  setPhoneMessage("")
              }
          }  
          const Wrongemail=()=>{
              if(!email){
                  setEmailMessage("請輸入信箱")
-             }else{
+                 document.querySelector(".erroremail").style.color="red";
+                }else{
                  setEmailMessage("")
              }
          }
          const Wrongaddress=()=>{
              if(!address){
                  setAddressMessage("請輸入地址")
-             }else{
+                 document.querySelector(".erroraddress").style.color="red";
+                }else{
                  setAddressMessage("")
              }
          }
          const WrongRname=()=>{
              if(!Rname){
                  setRNameMessage("請輸入姓名")
-             }else{
+                 document.querySelector(".errorRname").style.color="red";
+                }else{
                  setRNameMessage("")
              }
          }   
          const WrongRphone=()=>{
              if(!Rphone){
                  setRPhoneMessage("請輸入手機")
-             }else{
+                 document.querySelector(".errorRphone").style.color="red";
+                }else{
                  setRPhoneMessage("")
              }
          }  
          const WrongRemail=()=>{
              if(!Remail){
                  setREmailMessage("請輸入信箱")
-             }else{
+                 document.querySelector(".errorRemail").style.color="red";
+                }else{
                  setREmailMessage("")
              }
          }
          const WrongRaddress=()=>{
              if(!Raddress){
                  setRAddressMessage("請輸入地址")
-             }else{
+                 document.querySelector(".errorRaddress").style.color="red";
+                }else{
                  setRAddressMessage("")
              }
          }
@@ -163,11 +203,17 @@ function Pay1(props){
          
           console.log(a)
           if(a==true){
-        //   document.querySelector('.receiverInfo').style.display="none"
+          document.querySelector('.receiverInfo').style.display="none"
           setRName(name)
           setRPhone(phone)
           setREmail(email)
           setRAddress(address)
+          
+          setRNameMessage("")
+          setRPhoneMessage("")
+          setREmailMessage("")
+          setRAddressMessage("")
+
           }else{
           document.querySelector('.receiverInfo').style.display="block"
           setRName("")
@@ -191,7 +237,7 @@ function Pay1(props){
                setShipgopay(100)
             }
              }     
-    // <----------pay3----------->
+   
 
 
   return(
@@ -250,7 +296,7 @@ function Pay1(props){
                     <hr></hr>        
 
                     <div class="check">
-                        <div type="button" class="addCartBtn" id="subtract" ><p className="btnWords">繼續購物</p>
+                        <div type="button" class="addCartBtn" id="subtract" onClick={keepshopping} ><p className="btnWords">繼續購物</p>
                             </div>
                         <div type="button" class="addCartBtn" id="subtract" onClick={nextStep}><p className="btnWords">下一步</p>
                         </div>
@@ -272,7 +318,7 @@ function Pay1(props){
                   <div className="payInfoFill">
                       <div className="questInfo">
                           <div>付款方式</div>
-                          <div className="radioS">
+                          <div className="radioS pppay">
                               <div className="form-check checkPart">
                                   <input className="form-check-input " type="radio"      name="paymethod" id="cash" required
                                       value="cash" />
@@ -288,7 +334,7 @@ function Pay1(props){
                       </div>
                       <div className="questInfo">
                           <div>取貨方式 </div>
-                          <div className="radioS">
+                          <div className="radioS ssship">
                               <div className="form-check  checkPart ">
                                   <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="store"
                                       value="postoffice" required  onClick={shipprice}  
@@ -315,7 +361,7 @@ function Pay1(props){
                           onBlur={Wrongname}
                         required
                           />
-                          <div className="error">{nameMessage}</div>
+                          <div className="error errorname">{nameMessage}</div>
                          
 
                           <input type="tel" 
@@ -328,7 +374,7 @@ function Pay1(props){
                           maxLength={10}
                           onBlur={Wrongphone}
                           />
-                          <div className="error">{phoneMessage}</div>
+                          <div className="error errorphone">{phoneMessage}</div>
                         
                           <input type="email" 
                           placeholder="信箱"
@@ -338,7 +384,7 @@ function Pay1(props){
                         required
                           onBlur={Wrongemail}
                           />
-                          <div className="error">{emailMessage}</div>
+                          <div className="error erroremail">{emailMessage}</div>
                          
                           <input type="text" 
                           placeholder="地址"
@@ -348,7 +394,7 @@ function Pay1(props){
                         required
                           onBlur={Wrongaddress}
                           />
-                          <div className="error">{addressMessage}</div>
+                          <div className="error erroraddress">{addressMessage}</div>
                       </div>
                  
                       <div className="pickup"  >
@@ -370,7 +416,7 @@ function Pay1(props){
                                      required
                                      onBlur={WrongRname}
                                      />
-                                   <div className="error">{RnameMessage}</div>
+                                   <div className="error errorRname">{RnameMessage}</div>
                                      
                                      
                                      
@@ -384,7 +430,7 @@ function Pay1(props){
                                       maxLength={10}
                                       onBlur={WrongRphone}
                                       />
-                                    <div className="error">{RphoneMessage}</div>
+                                    <div className="error errorRphone">{RphoneMessage}</div>
                                       
                                       
                                      <input type="email" 
@@ -395,7 +441,7 @@ function Pay1(props){
                                      required
                                       onBlur={WrongRemail}
                                      />
-                                   <div className="error">{RemailMessage}</div>
+                                   <div className="error errorRemail">{RemailMessage}</div>
                                     
                                      <input type="text" 
                                       placeholder="地址"
@@ -405,7 +451,7 @@ function Pay1(props){
                                       required
                                       onBlur={WrongRaddress}
                                       />
-                                    <div className="error">{RaddressMessage}</div>
+                                    <div className="error errorRaddress">{RaddressMessage}</div>
 
                                    
                                 </div>
@@ -466,7 +512,7 @@ function Pay1(props){
                               >
                                <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
                               >上一步 </button>
-                              <button type="submit" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
                               >結帳 </button>
                               </div>
       
@@ -512,7 +558,7 @@ function Pay1(props){
                               >
                                <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
                               >上一步 </button>
-                              <button type="submit" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
                               >結帳 </button>
                             </div>
       
@@ -526,151 +572,6 @@ function Pay1(props){
 
         </div>
 
-        {/* <----------pay3-----------> */}
-        <div className="payThree">
-        <div class="container main">
-             <Steps3 />
-             {/* <!-- 會員 --> */}
-             <div class="memNo">
-                 <div class="memNoText">
-                     <p>訂單編號:</p>
-                     <p>00001</p>
-                 </div>
-                 <div class="memNoText">
-                     <p>訂單時間:</p>
-                     <p>2022/04/01</p>
-                 </div>
-             </div>
-             <div class="Content">
-                 {/* <!-- 訂單資訊 --> */}
-                 <div class="payInfo">
-                     <hr></hr>
-                     <SimplePInfo /> 
-                 </div>
-     
-     
-                 <hr></hr>
-                 {/* <!-- 個人資訊 --> */}
-                 <div class="perInfo">
-                     <div class="perInfoTextL">
-                         <p>取貨方式:</p>
-                         <p>付款編號:</p>
-                         <p>收件人資訊:</p>
-                         <br></br>
-                         <br></br>
-                         <br></br>
-                         <br></br>
-                         <p>留言備註:</p>
-                     </div>
-                     <div class="perInfoTextR">
-                         <p>自取</p>
-                         <p>匯款</p>
-                         <br></br>
-                         <p>姓名:XXX</p>
-                         <p>電話:XXX</p>
-                         <p>地址:XXX</p>
-                         <br></br>
-                         <p>XXXXXXXX</p>
-                     </div>
-                 </div>
-     
-     
-                 <hr></hr>
-                 {/* <!-- 付款總額 --> */}
-                 <div class="pTitle">金額統計</div>
-                 <div class="payDetail">
-                     <div class="payDetailTextL">
-                         <p>小計加總</p>
-                         <p>運費</p>
-                         <p>優惠券折扣</p>
-                         <p>紅利點數折扣</p>
-                         <h5>結帳總額</h5>
-                     </div>
-                     <div class="payDetailTextR">
-                         <p>$998</p>
-                         <p>+$0</p>
-                         <p>-$100</p>
-                         <p>-$50</p>
-                         <h5>$898</h5>
-                     </div>
-                 </div>
-             </div>
-             {/* <!-- 手機版 --> */}
-             <div class="mContent">
-                 <div class="mTitle">
-                     <br></br>
-                     <h5>商品名稱</h5>
-                     <br></br>
-                 </div>
-                 <SimplePInfo />
-         
-                 <br></br>
-                 <hr></hr>
-                 {/* <!-- 個人資訊 --> */}
-                 <div class="pickUp">
-                     <div class="pickUpL">
-                         <p>取貨方式:</p>
-                         <p>付款方式:</p>
-                         <p>備註內容:</p>
-                         <p></p>
-                     </div>
-                     <div class="pickUpR">
-                         <p>自取</p>
-                         <p>匯款</p>
-                         <p>精神崩潰的貓咪&想開解牠的女主人</p>
-                     </div>
-                 </div>
-                 <hr></hr>
-                 <h5>收件人資訊</h5>
-                 <div class="pickInfo">
-                     <div class="pickInfoL">
-                         <p>姓名:</p>
-                         <p>手機:</p>
-                         <p>地址:</p>
-                     </div>
-                     <div class="pickInfoR">
-                         <p>蕭敬騰</p>
-                         <p>0918273907</p>
-                         <p>這個門市</p>
-                     </div>
-                 </div>
-                 <hr></hr>
-                 <h5>結帳金額</h5>
-                 <div class="mPayTotalCheck">
-     
-                     <div class="box">
-                         <div class="totalInfo1">
-                             <div>
-                                 <p>商品小計</p>
-                                 <p>運費</p>
-                                 <p>優惠折扣</p>
-                                 <p>紅利折扣</p>
-     
-                             </div>
-                             <div class="money">
-                                 <p>$1998</p>
-                                 <p>自取</p>
-                                 <p>$100</p>
-                                 <p>$100</p>
-     
-     
-                             </div>
-                         </div>
-                         <div class="line"></div>
-                         <div class="totalInfo1">
-                             <div>
-                                 <h3>結帳金額</h3>
-                             </div>
-                             <div>
-                                 <h3>$898</h3>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             </div>  
-
-        </div>
      </>
   );
 }

@@ -10,7 +10,10 @@ import ProductDetail from '../ProductDetail';
 function ProductCard(props){
     const {datas, setcss, setProductId,} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
+   const [ cart, setcart] =useState([]);
    
+ 
+
     
     return(
       <>

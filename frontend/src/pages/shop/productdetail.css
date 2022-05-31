@@ -98,6 +98,10 @@
 .addCart {
   margin: 0;
 }
+.addCartText {
+  display: flex;
+  justify-content: center;
+}
 
 /* .addCart a :hover {
   background-color: #e4d2a3;

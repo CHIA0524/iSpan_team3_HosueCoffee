@@ -41,6 +41,7 @@ function ProductDetail(props){
       console.log(p_name);
     
     const img1=(p_name);
+    
 
     return(
       <>
@@ -78,8 +79,10 @@ function ProductDetail(props){
                             <br></br>
 
                             <div className="addCart">
-                                <a href=""><button type="button" className="addCartBtn" id="subtract">加入購物車
-                                    </button></a>
+                                <div button type="button" className="addCartBtn" id="subtract" 
+                                // onClick={() => this.addToCart(product) }
+                                ><p className="addCartText">加入購物車</p>
+                                    </div>
                             </div>
                         </div>
 
