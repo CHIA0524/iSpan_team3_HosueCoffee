@@ -11,10 +11,15 @@ var usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
 const storeMapRouter = require('./routes/storeMap');
+
+
 const testRouter = require('./routes/member/test');
 const accountRouter = require('./routes/member/Login');
 const profileRouter =require('./routes/member/profile');
 const db=require('./modules/mysql_config')
+
+const menuRouter = require('./routes/menu');
+
 var app = express();
 
 // view engine setup
@@ -38,6 +43,10 @@ app.use('/test',testRouter);
 app.use('/store/map',storeMapRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
+
+app.use('/menu',menuRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

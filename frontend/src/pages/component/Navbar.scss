@@ -27,7 +27,9 @@ $nav_li_height: 28px;
   z-index: 50;
   transition: all .3s ease-in-out;
   user-select: none;
-
+  li{
+    cursor: pointer;
+  }
   .sideDark{
     width: 100%;
     min-height: 100vh;
@@ -161,21 +163,24 @@ $nav_li_height: 28px;
 
 
 @media screen and (max-width:1000px){
-  .closeSideNav{
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-  }
   .webNone{
     display: flex;
   }
   .mobileNone{
     display: none;
   }
-
+  
   .coffeeNavbar{
     position: relative;
     justify-content: space-between;
+    .closeSideNav{
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .openMemberDetail, .openSideNav{
+      cursor: pointer;
+    }
     div{
       width: 20%;
     }
@@ -191,16 +196,14 @@ $nav_li_height: 28px;
       position: fixed;
       top: 0;
       z-index: 100;
-      transition: all .3s ease-in-out;
+      // opacity: 0;
+      // transition: all .3s ease-in-out;
       li{
         width: 200px;
         margin: .9rem auto;
         a{
           align-items: flex-start;
         }
-      }
-      .openMemberDetail, .openNavSide{
-        cursor: pointer;
       }
 
       .memberDetail{

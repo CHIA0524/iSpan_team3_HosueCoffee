@@ -1,65 +1,61 @@
-import React from 'react';
-import { useState, useEffect, useCallback } from 'react';
-
-// CSS
-import './mapStyle.scss';
+import React from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 // icons
-import { IoInformationCircleOutline } from "react-icons/io5";
-
-// img
-import test from './img/01.jpg'
-
-/*---------------- import結束 ----------------*/
-
-
+import { IoInformationCircleOutline } from "react-icons/io5"
 
 function StoreCard(props){
 
-  // 向後端請求資料
-  const [datas, setDatas ] = useState([])
-  const fetchData = async()=>{
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`);
-    const results = await response.json();
-    setDatas(results);
-  }
-  useEffect(()=>{
-    fetchData();
-  },[])
-
-
+  const { data } = props
+  
   // 傳遞資料至父元素 cardDetail
-  const sentDetailToCardDetail = useCallback((data)=>()=>{
-    let { times, icon_group, serve_name } = data;
-    let time = times.split(',');
-    let icon = icon_group.split(',');
-    let serve = serve_name.split(',');
-    props.setDataFromStoreCard([time, icon, serve]);
-    props.setCardDetailCss(`cardDetailOpenCss`);
-  },
-  []
+  const sentDetailToCardDetail  = useCallback(
+    (index)=>()=>{
+      props.setDetailIndex(index)
+      props.setCardDetailCss(`cardDetailOpenCss`)
+    }
   )
 
+  // 傳遞被點擊之門市卡 index 至父元素
+  const sentCardIndex  = useCallback(
+    (index)=>()=>{
+      let setLat = Number(data[index].lat)
+      let setLng = Number(data[index].lng)
+      props.setCenter({lat: setLat, lng: setLng })
+      props.setZoom(18)
+      props.setMarkerInfoCSS('-150px')
+    }, []
+  )
+  
   return(
-    <>
-      {datas.map((store,i)=>{
-        return(
-          <div className="cardWrap" key={i}>
-            <div>
-              <img src={test} alt="test"></img>
+    <div className='storeWrap'>
+      {
+        data.length === 0
+        ? 
+        <div className='d-flex justify-content-center align-items-center' style={{height: '300px'}}>無搜尋結果</div> 
+        :
+        data.map((store,i)=>{
+          let num = i + 1;
+          let imgPath = './img/' + num + '.jpg'
+          return(
+            <div className="cardWrap" key={i} onClick={sentCardIndex(i)}>
+              <div>
+                <img src={require(`${imgPath}`)} alt="test"></img>
+              </div>
+              <div className="itemText">
+                <p>{store.store_name}</p>
+                <p>{store.city}</p>
+                <p>{store.address}</p>
+                {/* <p>{store.phone}</p> */}
+              </div>
+              <div onClick={sentDetailToCardDetail(i)}>
+                <IoInformationCircleOutline size={25}/>
+              </div>
             </div>
-            <div className="itemText">
-              <p>{store.store_name}</p>
-              <p>{`${store.city} ${store.address}`}</p>
-              <p>{store.phone}</p>
-            </div>
-            <div onClick={sentDetailToCardDetail(datas[(store.id-1)])}>
-              <IoInformationCircleOutline size={25}/>
-            </div>
-          </div>
-        )
-      })}
-    </>
+          )
+        })
+      }
+    </div>
   );
 }
 

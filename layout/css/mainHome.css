@@ -1,0 +1,95 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  font-family: "Comfortaa", "Microsoft JhengHei";
+  /* color: #E4D2A3; */
+  padding: 0;
+  margin: 0;
+}
+
+
+/* -------- Navbar -------- */
+/* Navbar */
+#coffeeNavbar {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+/* Navbar hidden */
+.coffeeNavbar {
+  /* position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  height: 100vh; */
+  position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: transparent;
+    width: 100%;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 0px 0px transparent;
+    box-shadow: 0px 0px 0px 0px transparent;
+    visibility: hidden;
+}
+
+.carousel-control-next{
+  z-index: 0;
+}
+
+ .active {
+  visibility: visible;
+}
+
+.coffeeNavbar.fixed_nav{
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  width: 100%;  
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+/* -------- ScrollBar -------- */
+/* width */
+.scrollDiv::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #E4D2A3;
+  border-radius: 3px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: #A37025;
+}

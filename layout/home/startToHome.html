@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+    <style>
+        body {
+            background: #E4D2A3;
+            color: #fff;
+            margin: 0 auto;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        span,
+        a {
+            font-family: "Comfortaa", "Microsoft JhengHei";
+            color: #4C3410;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>你好 hello</div>
+    <div class="container">
+        <div class="box">
+            <h3>Welcome to HOUSE COFFEE</h3>
+            <div class="w3-dark-grey w3-round-xxlarge" style="width: 30%">
+                <div id="myBar" class="w3-container w3-black w3-center w3-round-xxlarge" style="width: 0px;">0%</div>
+            </div>
+            <br>
+
+            <button class="w3-button w3-black w3-round" onclick="move()">Click Me</button>
+
+            <script>
+                function move() {
+                    var elem = document.getElementById("myBar");
+                    var width = 0;
+                    var id = setInterval(frame, 10);
+                    function frame() {
+                        if (width >= 100) {
+                            clearInterval(id);
+                        } else {
+                            width++;
+                            elem.style.width = width + '%';
+                            elem.innerHTML = width * 1 + '%';
+                        }
+                    }
+                }
+            </script>
+</body>
+
+</html>

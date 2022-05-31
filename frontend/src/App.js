@@ -1,11 +1,15 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.scss';
+import React from 'react';
 import { useState } from 'react';
+
+// components
+import Navbar from './component/Navbar'
+import Footer from './component/Footer'
 
 // pages
 import Home from './pages/home/Home';
-import StoreIndex from './pages/store/StoreIndex';
-import StoreMap from './pages/store/StoreMap';
+import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // member pages
 import MemberLogin from './pages/member/memberlogin';
@@ -20,12 +24,15 @@ import MemberDrinkOList from './pages/member/memberDrinkOList';
 import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
-import Test from './pages/test/test';
 
-// components
-import Navbar from './pages/component/Navbar';
-import Footer from './pages/component/Footer';
-import React from 'react';
+
+
+
+
+
+
+
+
 
 function App() {
   const [auth,setAuth]=useState(localStorage.getItem("true"));
@@ -37,86 +44,85 @@ function App() {
   
   return (
     <Router>
+
       
-      {/* 在Navbar放入是否登入，用來改變點擊會員是否會出現列表 */}
       <Navbar auth={auth} />
+      {/* 在Navbar放入是否登入，用來改變點擊會員是否會出現列表 */}
+
+
+
 
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
+
       
       <Switch>
-        <Route path="/store/map">
-          <StoreMap />
-        </Route>
-    
-        <Route path="/store">
-          <StoreIndex />
-        </Route>
-
-        
-
+      
+        {/* 以下是會員頁面 */}
         <Route  path="/member/QAcheck/:id">
-        <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
-        </Route>
-        <Route  path="/test">
-        <Test/>
+          <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/QAList">
-        <MemberQAList auth={auth} dataCheck={dataCheck}/>
+          <MemberQAList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/DrinkO">
-        <MemberDrinkO auth={auth} dataCheck={dataCheck}/>
+          <MemberDrinkO auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/DrinkOList">
-        <MemberDrinkOList auth={auth} dataCheck={dataCheck}/>
+          <MemberDrinkOList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/Favorite">
-        <MemberFavorite auth={auth} dataCheck={dataCheck}/>
+          <MemberFavorite auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/Order">
-        <MemberOrder auth={auth} dataCheck={dataCheck}/>
+          <MemberOrder auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/OrderList">
-        <MemberOrderList auth={auth} dataCheck={dataCheck}/>
+          <MemberOrderList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route  path="/member/profileEdit">
-        <MemberprofileEdit auth={auth} dataCheck={dataCheck}/>
+          <MemberprofileEdit auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/Profile">
-        <Memberprofile auth={auth} dataCheck={dataCheck}/>
+          <Memberprofile auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/Password">
-        <MemberPassword auth={auth} dataCheck={dataCheck}/>
+         <MemberPassword auth={auth} dataCheck={dataCheck}/>
         </Route>
+
         <Route path="/member/NewData">
-        <MemberNewData auth={auth} dataCheck={dataCheck} />
+          <MemberNewData auth={auth} dataCheck={dataCheck} />
         </Route>
 
         <Route  path="/member">
-        <MemberLogin auth={auth} dataCheck={dataCheck} />
+          <MemberLogin auth={auth} dataCheck={dataCheck} />
         </Route>
-        
+         {/* 以上是會員頁面 */}
 
-        <Route path="/" exact>
-          <Home />
-        </Route>
+
+        <Route path="/store"><StoreMapCardWrap /></Route>
+        
+        <Route path="/" exact><Home /></Route>
+
       </Switch>
-    
-      <Footer />
-      
+
+
+      <Footer/>
+
+
     </Router>
 
-  );
+  )
 }
 
 export default App;
