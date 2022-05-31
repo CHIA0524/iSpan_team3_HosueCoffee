@@ -11,14 +11,13 @@ var usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
 const storeMapRouter = require('./routes/storeMap');
-const blogRouter = require('./routes/blog');
+
 const menuRouter = require('./routes/menu');
 
 const testRouter = require('./routes/member/test');
 const accountRouter = require('./routes/member/Login');
 const profileRouter =require('./routes/member/profile');
 const db=require('./modules/mysql_config')
-
 
 var app = express();
 
@@ -41,13 +40,8 @@ app.use('/products',productsRouter);
 
 app.use('/test',testRouter);
 app.use('/store/map',storeMapRouter);
-
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
-
-//http://localhost:3600/blog
-app.use('/blog',blogRouter);
-
 
 app.use('/menu',menuRouter);
 
