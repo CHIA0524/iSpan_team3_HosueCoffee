@@ -3,11 +3,11 @@ import { CardImg } from 'react-bootstrap';
 
 
 //CSS
-import './blogBanner.css';
+import '../blogBanner.css';
 
 
 //img
-import test from './img/3-3-1024x682.jpg'
+import test from '../img/3-3-1024x682.jpg'
 
 const BlogCard = () => {
     return (
