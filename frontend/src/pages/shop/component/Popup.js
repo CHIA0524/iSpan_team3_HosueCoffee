@@ -22,7 +22,9 @@ function Popup(props){
       // const PopupId=productId-200000;
       // console.log(PopupId);
   
-  
+    }
+   
+
     
     return(
       <>
@@ -56,7 +58,8 @@ function Popup(props){
                                             </div>
                                             <div class="popAddCart">
                                                 <div type="button" class="addCartBtn" id="subtract" 
-                                                onClick={AddSweet}
+                                                // onClick={() =>{
+                                                // setAmount (1);AddSweet()}}
                                                 >加入購物車
                                                   </div>
                                             </div>
@@ -73,6 +76,6 @@ function Popup(props){
      
   </>
   );
-}}
+}
 
 export default Popup
