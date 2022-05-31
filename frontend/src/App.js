@@ -4,8 +4,8 @@ import React from 'react';
 import { useState } from 'react';
 
 // components
-import Navbar from './component/Navbar'
-import Footer from './component/Footer'
+import Navbar from './component/Navbar';
+import Footer from './component/Footer';
 
 // pages
 import Home from './pages/home/Home';
