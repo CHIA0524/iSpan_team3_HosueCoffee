@@ -1,64 +1,107 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react';
-import './blogBanner.css';
+import { BrowserRouter as Router, Route, a, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
+//component
 import BlogCard from './component/BlogCard';
 
+//CSS
+import './blogBanner.css';
+
+
 function Blog(props){
+
+    const[blog,setBlog]=useState([])
+     
+    
+    // select
+  const [selectedValue, setSelectedValue] = useState('')
+  const articleOptions = ['咖啡篇', '咖啡豆篇', '沖煮篇', '名人專欄篇','好物分享篇']
+
+    const fetchBlog = async () => {
+        //向遠端伺服器get資料
+        const response = await fetch('http://localhost:3600/blog')
+        const data = await response.json()
+    
+        // 載入資料後設定到狀態中
+        // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
+        setBlog(data)
+    
+        
+    }
+    console.log(blog);
+    
+      // didMount
+      useEffect(() => {
+        fetchBlog()
+      }, [])
+
+
   return(
     <>
    <section>
-        <div class="blogBanner"></div>
+        <div className="blogBanner"></div>
 
 
     
-        <div class="bannerWord">咖啡手札</div>
+        <div className="bannerWord">咖啡手札</div>
    
 
-
+        
 
 
        {/* //行動裝置板選單 */}
-        <div class="blogType container">
-            <select class="form-select typeSelect">
-                <option selected>文章類別</option>
-                <option value="1">咖啡篇</option>
-                <option value="2">咖啡豆篇</option>
-                <option value="3">沖煮篇</option>
-                <option value="4">名人專欄篇</option>
-                <option value="5">好物分享篇</option>
+        <div className="blogType container">
+            <select
+            className="form-select typeSelect"
+            name="article"
+            id="article"
+            value={selectedValue}
+            onChange={(e) => {
+                setSelectedValue(e.target.value)
+            }}
+            >
+            <option value="">文章類別</option>
+            {articleOptions.map((v, i) => {
+                return (
+                    
+                <option key={i} value={v}>
+                    {v}
+                </option>
+                )
+            })}
             </select>
     
         </div>
 
 
-        <div class="blogNav justify-content">
+        <div className="blogNav justify-content">
             <ul>
-                <li class="navItem">
-                    <a class="navLink active" aria-current="page" href="#">
+                <li className="navItem">
+                    <a className="nava active" aria-current="page" href="#">
                         <h3>咖啡篇</h3>
                         <h3>coffee</h3>
                     </a>
                 </li>
-                <li class="navItem">
-                    <a class="navLink" href="#">
+                <li className="navItem">
+                    <a className="nava" href="#">
                         <h3>咖啡豆篇</h3>
                         <h3>coffee bean</h3>
                     </a>
                 </li>
-                <li class="navItem">
-                    <a class="navLink" href="#">
+                <li className="navItem">
+                    <a className="nava" href="#">
                         <h3>沖煮篇</h3>
                         <h3>pour over</h3>
                     </a>
                 </li>
-                <li class="navItem">
-                    <a class="navLink" href="#">
+                <li className="navItem">
+                    <a className="nava" href="#">
                         <h3>名人專欄篇</h3>
                         <h3>celebrity</h3>
                     </a>
                 </li>
-                <li class="navItem">
-                    <a class="navLink" href="#">
+                <li className="navItem">
+                    <a className="nava" href="#">
                         <h3>好物分享篇</h3>
                         <h3>share</h3>
                     </a>
@@ -68,17 +111,9 @@ function Blog(props){
 
 
 
-        <div class="cardZone container">
-            <div class="row  row-cols-1 row-cols-md-2">
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
-              <BlogCard />
+        <div className="cardZone container">
+            <div className="row  row-cols-1 row-cols-md-2">
+              <BlogCard blog={blog}/>
             </div>
         </div>
     </section>

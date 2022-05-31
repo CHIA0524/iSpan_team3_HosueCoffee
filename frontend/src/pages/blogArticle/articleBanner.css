@@ -1,0 +1,225 @@
+section{
+    margin-top: -3rem;
+    
+}
+
+.articleBanner{
+    position:relative;
+    width:100% ;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(./img/Article00.svg);
+    
+}
+
+/* .container{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0 auto;
+} */
+
+
+
+    
+.title{
+    font-size: 40px;
+    font-weight:bolder;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.author{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.author span{
+    font-size: 15px;
+}
+
+.makeLinkDown{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.outsideLink{
+    display: flex;
+    flex-direction: row;
+    justify-content:right;
+    position:relative;
+    bottom: 30px;
+    
+}
+
+
+
+article p{
+    font-size: 16px;
+    margin-top: 1em;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+    color:#000;
+}
+
+
+.articleImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+
+/* 返回按鈕 */
+.backBtn{
+    display: inline-block;      
+    position: relative;
+    vertical-align: middle;
+    text-align:center;
+    width: 100px;
+height: 40px;
+font-size:16px;
+font-weight:bolder;
+color: #FFFFFF;
+background: #E4D2A3;
+border-radius: 30px;
+margin:10rem auto ;
+padding: 7px 10px 5px 10px;
+justify-content: center;
+/* opacity: 0.8; */
+}
+
+.backBtn a{
+    color: #FFFFFF;
+    text-decoration: none;
+    
+}
+
+/* 返回按鈕動畫效果 */
+.backBtn:hover{
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.backBtn:active{
+    transform: scale(1);
+    box-shadow: inset 0 0 10px 1px rgba(209, 209, 209, 0.2);
+}
+
+.backBtn{
+    outline: 0;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.recommend{
+    display: flex;
+    font-size: 3rem;
+    font-weight:bolder;
+justify-content: center;
+}
+
+/* .recommendCard{
+    display:inline-block;
+    
+} */
+
+
+
+.recommendCard img{
+    height: 155px;
+}
+
+.slideBtnLeft {
+    width: 4rem;
+    /* margin-left: 11rem; */
+    margin-bottom: 1rem;
+    transition: .5s;
+}
+
+.slideBtnRight {
+    width: 4rem;
+    /* margin-right: 12rem; */
+    margin-bottom: 1rem;
+    transition: .5s;
+}
+
+.recommendCard ,.recommendCard img{
+    /* display: flex; */
+    margin: 0 auto;
+}
+
+
+.recommendCard p{
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+/* 行動裝置版RWD     */
+@media screen and (max-width: 800px) {
+    .makeLinkDown{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    
+    
+    .outsideLink{
+        display: flex;
+        flex-direction: row;
+        justify-content:left;
+        position:relative;
+        top: 30px;
+        
+    }
+
+
+    p{
+    font-size: 18px;
+    }
+    
+  
+    .articleImg,.articleImg img{
+        width: 100%;
+    }
+
+    .recommendCard {
+    width: 20rem;
+    }
+
+ 
+
+  /*隱藏recommendCard */
+    .recHidden{
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 6.7rem;
+    z-index: 100;
+    transition: all 2.5s;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .articleBanner{
+      height:150px;
+  }
+
+  .title{
+      font-size: 28px;
+  }
+  }

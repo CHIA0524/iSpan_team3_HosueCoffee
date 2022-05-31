@@ -13,6 +13,11 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 //blog pages
 import Blog from './pages/blog/Blog'
+import BlogArticle from './pages/blogArticle/BlogArticle'
+
+
+
+
 
 // member pages
 // import MemberLogin from './pages/member/memberlogin'
@@ -26,14 +31,21 @@ function App() {
   return (
     <Router>
 
-      <Navbar/>
 
+      <Navbar/>
 
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
 
       <Switch>
+        {/* blog */}
+        <Route path="/blog/blogArticle">
+        <BlogArticle />
+        </Route>
+        <Route path="/blog">
+        <Blog />
+        </Route>
 
         <Route path="/store"><StoreMapCardWrap /></Route>
         
