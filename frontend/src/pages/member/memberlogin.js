@@ -11,7 +11,7 @@ function MemberLogin(props){
   
     const [member_account, setmember_account] = useState("");
     const [member_password, setmember_password] = useState("");
-    //設定登入時帳號密碼的value
+    //^設定登入時帳號密碼的value^
 
     const [new_mb_mail,setNew_mb_mail]=useState("")
     const [new_mb_account,setNew_mb_account]=useState("")
