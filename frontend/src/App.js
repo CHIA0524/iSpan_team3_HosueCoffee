@@ -97,7 +97,7 @@ function App() {
         </Route>
 
         <Route path="/member/Password">
-         <MemberPassword auth={auth} dataCheck={dataCheck}/>
+          <MemberPassword auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/NewData">

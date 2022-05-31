@@ -9,7 +9,6 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
-import { Button } from 'bootstrap';
 
 function Navbar (props){
   const{auth}=props;
