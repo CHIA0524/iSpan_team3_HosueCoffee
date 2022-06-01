@@ -39,8 +39,7 @@ function StoreMapCardWrap(){
   // 向遠端伺服器get資料
   const fetchData = async (keyword) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
-
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/store`)
       const results = await response.json()
       
       // 載入資料後設定到狀態中
@@ -73,27 +72,28 @@ function StoreMapCardWrap(){
           })
 
           if (GEOresults.status === "OK") {
-            console.log(GEOresults)
+            // console.log(GEOresults)
             const updateLanLng = await fetch(
-              `${process.env.REACT_APP_API_URL}/store/map/${i+1}/${GEOresults.results[0].geometry.location.lat}/${GEOresults.results[0].geometry.location.lng}`,
+              `${process.env.REACT_APP_API_URL}/store/${results[i].id}/${GEOresults.results[0].geometry.location.lat}/${GEOresults.results[0].geometry.location.lng}`,
               {method: "PUT"})
-            console.log(await updateLanLng.json())
+            // console.log(await updateLanLng.json())
           }
 
           console.log(
             `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
             true
           )
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/store/map`)
-
-          const results = await response.json()
+          
           
           // 載入資料後設定到狀態中
           // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
-          if (Array.isArray(results)) {
-            setData(results)
-          }
           
+          const response2 = await fetch(`${process.env.REACT_APP_API_URL}/store`)
+          const results2 = await response2.json()
+          if (Array.isArray(results2)) {
+            setData(results2)
+            console.log('fetch2');
+          }
         }
       }
     } catch (e) {
@@ -107,7 +107,7 @@ function StoreMapCardWrap(){
   const fetchFilterData = async (keyword) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/store/map/` + keyword
+        `${process.env.REACT_APP_API_URL}/store` + keyword
       )
 
       const results = await response.json()

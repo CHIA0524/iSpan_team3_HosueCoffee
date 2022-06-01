@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect, useCallback } from 'react'
 
 
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, Marker, MarkerClusterer } from '@react-google-maps/api'
 import { Link } from 'react-router-dom'
 
 import catmarker from './img/marker.svg';
@@ -127,7 +127,7 @@ function StoreMap(props){
             />
           )
         })}
-          <StoreMapClusterer data={data}/>
+          {/* <StoreMapClusterer data={data}/> */}
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>
