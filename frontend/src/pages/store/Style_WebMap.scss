@@ -92,12 +92,13 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
   padding: 20px;
   background: gray;
   border-radius: 5px;
-  display: flex;
   flex-direction: column;
   gap: 20px;
   position: absolute;
-  top: 50px;
+  top: 55px;
   left: 2rem;
+  user-select: none;
+  transition: all .3s ease-in-out;
   div{
     display: flex;
     flex-direction: row;
@@ -111,12 +112,21 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
     display: flex;
     flex-direction: row;
     align-items: center;
-    user-select: none;
     input{
       width: auto;
       margin-right: 5px;
     }
   }
+}
+.storeFilter::after{
+  content: '';
+  border: 8px solid;
+  border-color: transparent transparent gray transparent;
+  display: block;
+  position: absolute;
+  top: -16px;
+  left: 8px;
+
 }
 .cardGroupWrap{
   width: $WEB_CardWrapWidth;

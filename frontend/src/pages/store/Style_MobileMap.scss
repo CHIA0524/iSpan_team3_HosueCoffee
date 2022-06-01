@@ -34,14 +34,6 @@ $MB_CardWrapHeight: calc(100vh - 150px);
     // height: 60vh;
     background: #000;
   }
-  .cardDetail{
-    // top: 800px;
-    background: $secondary_color;
-  }
-  .cardDetailOpenCss{
-    top: 0px;
-    left: calc(50% - 180px);
-  }
 }
 
 @media screen and (max-width: 600px) {

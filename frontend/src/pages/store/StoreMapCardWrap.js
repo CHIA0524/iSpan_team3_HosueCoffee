@@ -19,6 +19,7 @@ function StoreMapCardWrap(){
 
   // 儲存資料庫資料
   const [ data, setData ] = useState([])
+  const [ areaArr, setAreaArr ] = useState([])
   // console.log(data);
 
   // 錯誤訊息用
@@ -36,18 +37,29 @@ function StoreMapCardWrap(){
   const [ asideCSS, setAsideCSS ] = useState('0px')
   const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
 
+  const filterArea = (results) => {
+    let filterResults = []
+    for (let i = 0; i < results.length; i++) {
+      if (filterResults.indexOf(results[i].city) === -1) {
+        filterResults.push(results[i].city)
+      }
+    }
+    setAreaArr([...filterResults])
+  }
+
   // 向遠端伺服器get資料
   const fetchData = async (keyword) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store`)
       const results = await response.json()
-      
+      // console.log(results);
       // 載入資料後設定到狀態中
       // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
       if (Array.isArray(results)) {
         setData(results)
+        filterArea(results)
       }
-
+      
       const API_KEY = process.env.REACT_APP_GMAP_API_KEY
       const LANGUAGE = "zh-Tw"
       const REGION = "TW"
@@ -92,7 +104,7 @@ function StoreMapCardWrap(){
           const results2 = await response2.json()
           if (Array.isArray(results2)) {
             setData(results2)
-            console.log('fetch2');
+            console.log(results2);
           }
         }
       }
@@ -107,7 +119,7 @@ function StoreMapCardWrap(){
   const fetchFilterData = async (keyword) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/store` + keyword
+        `${process.env.REACT_APP_API_URL}/store/` + keyword
       )
 
       const results = await response.json()
@@ -170,6 +182,7 @@ function StoreMapCardWrap(){
 
           {/* 搜尋框 */}
           <StoreCardSearch
+            areaArr={areaArr}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
             setMarkerInfoCSS={setMarkerInfoCSS}

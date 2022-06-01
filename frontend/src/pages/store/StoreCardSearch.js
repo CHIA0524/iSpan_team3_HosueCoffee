@@ -7,7 +7,7 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { setIsLoading, fetchFilterData } = props
+  const { areaArr, setIsLoading, fetchFilterData } = props
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
   const DOW = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
@@ -26,7 +26,20 @@ function StoreCardSearch(props){
       </div>
 
       {/*篩選清單*/}
-      <div className="storeFilter" style={{display: 'flex'}}>
+      <div className="storeFilter" style={{display: filterCSS ? 'flex' : 'none'}}>
+        <div>
+          <p>營業時間</p>
+          {areaArr.map((v, i)=>{
+            return(
+              <li key={i}>
+                <label>
+                  <input type="checkbox"></input>
+                  {v}
+                </label>
+              </li>
+            )
+          })}
+        </div>
         <div>
           <p>營業時間</p>
           {DOW.map((v, i)=>{
