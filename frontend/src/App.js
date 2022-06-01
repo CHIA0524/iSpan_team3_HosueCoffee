@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import logo from './logo.svg';
 import './App.scss';
 import React from 'react';
 import { useState } from 'react';
@@ -27,7 +28,13 @@ import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
 
-
+//shop pages
+import ShopIndex from './pages/shop/ShopIndex';
+import ProductDetail from './pages/shop/ProductDetail'; 
+import Pay1 from './pages/shoppingCart/Pay1';
+import Pay2 from './pages/shoppingCart/Pay2';
+import Pay3 from './pages/shoppingCart/Pay3';
+import RecCard from './pages/shop/component/RecCard';
 
 
 
@@ -44,27 +51,49 @@ function App() {
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
   
-  return (
-    <Router>
 
-      
+
+
+
+
+
+
+
+  return (
+    
+    <Router>  
       <Navbar auth={auth} />
       {/* 在Navbar放入是否登入，用來改變點擊會員是否會出現列表 */}
-
-
-
-
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
 
+
       <ScrollToTop/>
       <Switch>
-      
+     
+      {/* shop 部分 */}
+        <Route path="/shoppingCart/pay3">
+          <Pay3 />
+        </Route> 
+        {/* <Route path="/shoppingCart/pay2">
+          <Pay2 />
+        </Route>  */}
+        <Route path="/shoppingCart">
+          <Pay1/>
+        </Route>
+        <Route path="/shop/ProductDetail/:id">
+          <ProductDetail />
+        </Route>
+        <Route path="/shop">
+          <ShopIndex />
+        </Route>
+       
+              
         {/* 以下是會員頁面 */}
         <Route  path="/member/QAcheck/:id">
           <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
-        </Route>
+          </Route>
 
         <Route  path="/member/QAList">
           <MemberQAList auth={auth} dataCheck={dataCheck}/>
@@ -119,8 +148,8 @@ function App() {
       </Switch>
 
 
-      <Footer/>
 
+      <Footer/>
 
     </Router>
 

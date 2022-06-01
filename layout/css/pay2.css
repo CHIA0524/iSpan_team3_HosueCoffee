@@ -30,7 +30,7 @@ main {
   padding-left: 11.5rem;
 }
 .buyerInfo input {
-  width: 100%;
+  width: 80%;
   line-height: 2rem;
   margin-bottom: 2rem;
 }
@@ -38,12 +38,13 @@ main {
   margin-top: 3rem;
 }
 .receiverInfo input {
-  width: 100%;
+  width: 80%;
   line-height: 2rem;
   margin-bottom: 2rem;
 }
 .noteInfo {
   margin-top: 3rem;
+  width: 80%;
 }
 
 .totalInfo1 {
@@ -118,6 +119,7 @@ h3 {
 
   .payInfoFill {
     width: 100%;
+    margin: 0 30px;
   }
   .payTotalCheck {
     display: none;
