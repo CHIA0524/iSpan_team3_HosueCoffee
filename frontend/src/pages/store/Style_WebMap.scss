@@ -182,7 +182,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
 .cardDetailOpenCss{
   left: 0px;
 }
-.cardWrap{
+.storeCardWrap{
   width: 100%;
   height: 100px;
   margin-bottom: 5px;
@@ -218,13 +218,14 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
     p{
       margin: 0;
       font-size: 14px;
+      color: $font_border_color;
     }
     p:first-child{
       font-size: 16px;
     }
   }
 }
-.cardWrap:hover{
+.storeCardWrap:hover{
   background: $main_color;
   // box-shadow: 0px 0px 5px $font_border_color;
 }
