@@ -23,13 +23,14 @@ function ProductDetail(props){
   const params=useParams();
   //抓網址後的id
   console.log(params)
-      // 向後端請求資料
+   // 向後端請求資料
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{
       const response = await fetch(`http://localhost:3001/shop/ProductDetail/id?id=${params.id}`);
       const results = await response.json();
       setDatas(results);
     }
+    //待確認
     useEffect(()=>{
       fetchData();
     },[params.id])

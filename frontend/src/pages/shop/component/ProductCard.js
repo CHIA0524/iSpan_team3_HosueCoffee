@@ -4,15 +4,28 @@ import '../brandproduct.css';
 import './popup.css';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import ProductDetail from '../ProductDetail';
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId,} = props;
+    const {datas, setcss, setProductId} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
    const [ cart, setcart] =useState([]);
    
- 
+   const heartClick = ()=>{
+     const a= document.querySelector('.heart').check
+     console.log(a)
+     if(a==true){
+       document.querySelector('.heart3').style.display="block"
+       document.querySelector('.heart2').style.display="none"
+
+     }else{
+      document.querySelector('.heart2').style.display="block"
+      document.querySelector('.heart3').style.display="none"
+
+     }
+    }   
 
     
     return(
@@ -20,7 +33,9 @@ function ProductCard(props){
        {datas.map((pCard,i)=>{
          {/* console.log(pCard.id); */}
          
+         //照片設置的變數
          const img1=(pCard.p_name);
+         //抓popup的變數
          const id='#'+(pCard.p_id);
         return(
           
@@ -38,9 +53,11 @@ function ProductCard(props){
                           <p className="pText">{pCard.p_name}</p>
                       </div>
                       <div className="pIcon">
-                           <div to=""> <AiOutlineHeart size={24}/></div>
-                           
-                           
+                          
+                           <button className="heart" onClick={heartClick}> 
+                           <AiOutlineHeart className="heart2" size={24}
+                           /><AiFillHeart className="heart3" size={24} color="red"/></button>
+                       
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
                              //因id從200001開始，故需扣除，才能使popup抓到

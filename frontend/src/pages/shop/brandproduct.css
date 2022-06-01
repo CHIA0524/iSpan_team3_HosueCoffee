@@ -106,6 +106,14 @@ main {
 .shoppingCart {
   padding-left: 0.5rem;
 }
+.heart {
+  background: transparent;
+  border: transparent;
+  margin-top: -0.5rem;
+}
+.heart3 {
+  display: none;
+}
 
 @media screen and (max-width: 1000px) {
   .mShop {

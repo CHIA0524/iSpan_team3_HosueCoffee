@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback,useRef } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch ,useParams} from 'react-router-dom';
 import './brandproduct.css';
 import './component/popup.css';
@@ -26,11 +26,12 @@ const[amount, setAmount]= useState(1)
      useEffect(()=>{
        fetchData();
      },[])
-     const handleClick = (pCard)=>{
-     console.log(pCard)
-
-   }
-  
+    //  const handleClick = (pCard)=>{
+    //  console.log(pCard)
+    // }
+     
+    //點選以外視窗，關閉popup
+   
     
 
   return(
@@ -43,21 +44,21 @@ const[amount, setAmount]= useState(1)
           
         {/* return( */}
           {/* <div key={pCard.id}> */}
-        
+       
                     <div class="mShop">
                         <p>商店</p>
                     </div>
                     
                 
-                    <div class="container">
-                        <div class="row">
+                    <div class="container" >
+                        <div class="row" >
                             <Aside />
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
                                     <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
                                 </div>                                
-                                <Popup datas={datas} productId={productId} setcss={setcss} css={css}/>
+                                <Popup datas={datas} productId={productId} setcss={setcss} css={css} />
                                
                             </main>
                         </div>

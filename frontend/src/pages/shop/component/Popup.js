@@ -9,20 +9,21 @@ import AddSweet from './AddSweet';
 function Popup(props){
   const {datas, productId, css ,setcss} = props;
     
+    //數量歸1  
     const[amount, setAmount]= useState(1)
     // const params=useParams();
     //抓網址後的id
     // console.log(params)
-    console.log("datas");
-    console.log(datas);
-    console.log("datas");
+    // console.log("datas");
+    // console.log(datas);
+    // console.log("datas");
     
     if(datas.length>0){
       console.log(productId);
       // const PopupId=productId-200000;
       // console.log(PopupId);
   
-    }
+   
    
 
     
@@ -42,7 +43,7 @@ function Popup(props){
                             <div class="popBox">
                                 <div class="popBoxContent">
                                     <div class="PimgPart">
-                                        <img  src={require('../img/'+datas[productId-1].p_name+'.jpg')} alt=""></img>
+                                        <img src={require('../img/'+ datas[productId-1].p_name +'.jpg')} alt=""></img>
                                     </div>
                                     <div class="popContent">
                                         <div class="popText">
@@ -58,8 +59,8 @@ function Popup(props){
                                             </div>
                                             <div class="popAddCart">
                                                 <div type="button" class="addCartBtn" id="subtract" 
-                                                // onClick={() =>{
-                                                // setAmount (1);AddSweet()}}
+                                                onClick={() =>{
+                                                setAmount (1);AddSweet()}}
                                                 >加入購物車
                                                   </div>
                                             </div>
@@ -76,6 +77,7 @@ function Popup(props){
      
   </>
   );
+}
 }
 
 export default Popup
