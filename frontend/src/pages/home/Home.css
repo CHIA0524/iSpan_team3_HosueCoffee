@@ -187,8 +187,8 @@ body {
 }
 
 .productdetail h5,
-h6,
-p {
+.productdetail h6,
+.productdetail p {
     color: #E4D2A3;
     width: 100%;
     height: auto;
