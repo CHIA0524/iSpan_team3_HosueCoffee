@@ -8,7 +8,7 @@ require("dotenv").config();
 
 
 
-//GET http://localhost:3001/store/map
+//GET http://localhost:3001/store
 router.route('/')
     .get(async (req,res,next)=>{
         const sql = 
@@ -17,7 +17,7 @@ router.route('/')
         res.json(data);
     })
 
-//PUT http://localhost:3001/store/map/id/lat/lng
+//PUT http://localhost:3001/store/id/lat/lng
 router.route('/:id/:lat/:lng')
     .put(upload.none(), async (req,res,next)=>{
         let output = {

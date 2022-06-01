@@ -15,7 +15,7 @@ const StoreMapClusterer = ({ data }) => {
         (position) =>
           // eslint-disable-next-line no-undef
           new google.maps.Marker({
-            lat: position.lat, lng: position.lng,
+            position:{lat: Number(position.lat), lng: Number(position.lng)},
             map
           })
       );
