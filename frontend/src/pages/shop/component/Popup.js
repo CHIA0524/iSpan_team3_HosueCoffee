@@ -7,7 +7,7 @@ import AddSweet from './AddSweet';
 
 
 function Popup(props){
-  const {datas, productId, css ,setcss} = props;
+  const {datas, productId,Alldatas, css ,setcss} = props;
     
     //數量歸1  
     const[amount, setAmount]= useState(1)
@@ -15,17 +15,22 @@ function Popup(props){
     //抓網址後的id
     // console.log(params)
     // console.log("datas");
-    // console.log(datas);
+
+    //本頁資料
+    console.log(datas);
+    //全部資料
+    console.log(Alldatas);
     // console.log("datas");
     
-    if(datas.length>0){
+    if(Alldatas.length>0){
+      
       console.log(productId);
       // const PopupId=productId-200000;
       // console.log(PopupId);
   
+      
    
-   
-
+      
     
     return(
       <>
@@ -43,12 +48,12 @@ function Popup(props){
                             <div class="popBox">
                                 <div class="popBoxContent">
                                     <div class="PimgPart">
-                                        <img src={require('../img/'+ datas[productId-1].p_name +'.jpg')} alt=""></img>
+                                        <img src={require('../img/'+ Alldatas[productId-1].p_name +'.jpg')} alt=""></img>
                                     </div>
                                     <div class="popContent">
                                         <div class="popText">
-                                            <p>{datas[productId-1].p_name}</p>
-                                            <p>${datas[productId-1].p_price}</p>
+                                            <p>{Alldatas[productId-1].p_name}</p>
+                                            <p>${Alldatas[productId-1].p_price}</p>
                                         </div>
                                         <div class="popBtn">
                                             <div class="popAddNum">

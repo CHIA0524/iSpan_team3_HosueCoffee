@@ -16,13 +16,28 @@ const [css, setcss] = useState()
 
 const[amount, setAmount]= useState(1)
 
-     // 向後端請求資料
+     
+     
+     //用來儲存本頁資料
      const [datas, setDatas ] = useState([])
+     //用來儲存全部資料
+     const [Alldatas, setAllDatas ] = useState([])
+
+     // 向後端請求資料
      const fetchData = async()=>{
-       const response = await fetch('http://localhost:3001/shop/kenya');
-       const results = await response.json();
-       setDatas(results);
-     }
+         //讀取本頁資料，並寫入datas
+         const response = await fetch('http://localhost:3001/shop/kenya');
+         const results = await response.json();
+         setDatas(results);
+         
+         //讀取全部資料，並寫入data
+       const Aresponse = await fetch('http://localhost:3001/shop');
+       const Aresults = await Aresponse.json();
+       setAllDatas(Aresults);
+    }
+  
+     
+     
      useEffect(()=>{
        fetchData();
      },[])
@@ -58,7 +73,7 @@ const[amount, setAmount]= useState(1)
                                 <div class="row justify-content-center">
                                     <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
                                 </div>                                
-                                <Popup datas={datas} productId={productId} setcss={setcss} css={css} />
+                                <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
                             </main>
                         </div>
