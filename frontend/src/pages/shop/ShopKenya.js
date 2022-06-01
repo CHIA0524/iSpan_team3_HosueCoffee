@@ -30,7 +30,7 @@ const[amount, setAmount]= useState(1)
          const results = await response.json();
          setDatas(results);
          
-         //讀取全部資料，並寫入data
+         //讀取全部資料，並寫入Alldata
        const Aresponse = await fetch('http://localhost:3001/shop');
        const Aresults = await Aresponse.json();
        setAllDatas(Aresults);
