@@ -10,19 +10,21 @@ const Counter = (props) => {
     
     let buttonsub = null
 
-    if(drinkCounter > 1){buttonsub = <div 
-                                        className="btn buttonLeft" 
-                                        onClick={ () => { 
-                                            setdrinkCounter(drinkCounter - 1)
-                                        }}
-                                        >-
-                                    </div>
-    }
-
-    else{
-        buttonsub = <div className="btn buttonLeft">
-                    -
+    if(drinkCounter > 1){
+        buttonsub = <div 
+                        className="btn buttonLeft" 
+                        onClick={ () => { 
+                            setdrinkCounter(drinkCounter - 1)
+                        }}
+                    >
+                        -
                     </div>
+    }
+    else{
+        buttonsub = 
+            <div className="btn buttonLeft">
+                -
+            </div>
     }
 
     return (
@@ -35,7 +37,9 @@ const Counter = (props) => {
                 className="btn buttonRight"
                 onClick={() => {
                     setdrinkCounter(drinkCounter + 1)
-                }}>+
+                }}
+            >
+                +
             </div>
         </div>
     )

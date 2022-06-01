@@ -11,7 +11,6 @@ const List = (props) => {
     // let[Counter1, setCounter1] = useState('')
     // 接收localStorage上的購物車資料
     const datas1 = JSON.parse(localStorage.getItem('gifts'))
-
     // 接收資料庫資料
     const {datas} = props
     // 計算datas的長度
@@ -42,7 +41,9 @@ const List = (props) => {
             {menuCart.map((to,i)=>{
                 // 設定圖片路徑
                 const menuimg = (to.drink_name)
+
                 const total = datas1[i].drinkCounter
+                
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">

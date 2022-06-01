@@ -18,7 +18,7 @@ const Popup = (props) => {
             drinkCounter:drinkCounter,
         }
 
-        let gifts = localStorage.getItem("gifts")   ? JSON.parse(localStorage.getItem("gifts")): []
+        let gifts = localStorage.getItem("gifts") ? JSON.parse(localStorage.getItem("gifts")) : []
 
         for (let i = 0; i < gifts.length; i++) {
 
@@ -62,7 +62,8 @@ const Popup = (props) => {
                                 setdrinkCounter(1)
                                 setcss({visibility: 'hidden', opacity: '0'})
                             }}
-                        >&times;
+                        >
+                            &times;
                         </div>
                         <div className="content">
                             <div className="popoimg">
@@ -85,13 +86,14 @@ const Popup = (props) => {
                                 <div className="content1">
                                     <div className="content2 btn2">
                                         <div className="d-flex justify-content-end mt-4">
-                                            <div className="btn PaymentLast1 mt-1"
-                                                            onClick={() => {
-                                                                update(); 
-                                                                SweetAlret();
-                                                                setcss({visibility: 'hidden', opacity: '0'});
-                                                                setdrinkCounter(1)
-                                                            }}
+                                            <div 
+                                                className="btn PaymentLast1 mt-1"
+                                                onClick={() => {
+                                                    update(); 
+                                                    SweetAlret();
+                                                    setcss({visibility: 'hidden', opacity: '0'});
+                                                    setdrinkCounter(1)
+                                                }}
                                             >
                                                 加入購物車
                                             </div>
@@ -109,7 +111,9 @@ const Popup = (props) => {
                                             update(); 
                                             SweetAlret();
                                             setcss({visibility: 'hidden', opacity: '0'});
-                                            setdrinkCounter(1)}}>
+                                            setdrinkCounter(1)
+                                        }}
+                                    >
                                         加入購物車
                                     </div>
                                 </div>
