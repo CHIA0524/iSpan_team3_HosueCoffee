@@ -1,5 +1,5 @@
 import React from "react";
-import './checkout3.scss'
+import './scss/checkout3.scss'
 import Space from "./component/Space";
 import Process3 from "./Page3/Process3";
 import Process3RWD from "./Page3/Process3RWD";

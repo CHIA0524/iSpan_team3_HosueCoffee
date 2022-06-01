@@ -1,6 +1,4 @@
 import {React, useEffect} from "react";
-// import{useState,useEffect} from "react";
-import "../style.scss"
 import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 
 
@@ -13,7 +11,6 @@ const MenuCard = (props) => {
 
     // 傳遞點擊id    // 接收父層資料
     const {setdrinkId, setcss, datas} = props
-
     // 異步回調
     useEffect(() => {},[setdrinkId]);
 
@@ -21,18 +18,20 @@ const MenuCard = (props) => {
             <>
                 {/* 印出資料 */}
                 {datas.map((mu,i)=>{
-
+                    // 儲存圖片路徑
                 const img1 = (mu.drink_name)
 
                 return(
-
                     <div 
                         className="card" 
                         type="button" 
                         key={mu.id}  
+                        // 點擊傳送drinkId,傳送出現popup視窗
                         onClick={()=>{
                             setdrinkId((mu.id))
-                            setcss({visibility: 'visible' ,opacity:'1'})
+                            setcss({visibility: 'visible',
+                                    opacity:'1'
+                                })
                         }}>
                         <div>
                             <div className="imgdiv">
@@ -41,8 +40,8 @@ const MenuCard = (props) => {
                             <div className="cardpa">
                                 <span>{mu.drink_name}</span>
                                 <span>
-                                    <AiOutlineHeart size={20}/>
-                                    <AiFillHeart  size={20}/>
+                                    <AiOutlineHeart size={20}/>    {/* TODO收藏功能 */}
+                                    <AiFillHeart  size={20}/>      {/* TODO收藏功能 */}
                                 </span>
                             </div>
                             <div className="d-flex justify-content-between cardpading">

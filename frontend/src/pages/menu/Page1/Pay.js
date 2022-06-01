@@ -1,6 +1,5 @@
 import{useState} from 'react';
 import {Link} from "react-router-dom";
-import '../styleCheckout.scss';
 import Dropdown from "../component/Dropdown ";
 
 

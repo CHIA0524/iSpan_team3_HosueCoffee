@@ -1,5 +1,5 @@
 import React from 'react';
-import '../checkout2.scss'
+
 
 
 

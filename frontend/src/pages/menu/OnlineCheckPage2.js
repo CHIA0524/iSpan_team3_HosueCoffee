@@ -4,7 +4,7 @@ import Process2 from './Page2/Process2';
 import Process2RWD from './Page2/Proccess2RWD';
 import BodyLeft from './Page2/BodyLeft';
 import BodyRight from './Page2/BodyRight';
-import './checkout2.scss'
+import './scss/checkout2.scss'
 
 
 

@@ -1,11 +1,11 @@
 import React from "react";
 import{useState,useEffect} from "react";
-import "./style.scss"
+import "./scss/style.scss"
 import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
 import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
-// import Slider1 from "./component/Slider1";
+// import Slider1 from "./component/Slider1"; TODO輪播
 
 
 
@@ -34,6 +34,7 @@ const MenuIndex = () => {
                             const response = await fetch('http://localhost:3002/menu');
     
                             const results = await response.json();
+                            
                                             setDatas(results);
                         }
         useEffect(()=>{
@@ -42,47 +43,38 @@ const MenuIndex = () => {
     
             },[])
     
-        
         return( 
-            
-            <>   
-
-            <div className="bodyMenu">
-                <MenuAside/>
-                <div className="main2">
-                    <div className="mainBody">
-                        {/* <div className="silder1"> */}
-                            {/* <Slider1/>   TODO Silder待完成  */}
-                        {/* </div> */}
-                        <MenuCard 
-                            datas={datas}
-                            setdrinkId={setdrinkId}
-                            setcss={setcss}
-                        />
-                        <MenuCardRwd 
-                            datas={datas}
-                            setdrinkId={setdrinkId}
-                            setcss={setcss} 
-                        />
-                        <Popup 
-                            datas={datas}  
-                            drinkId={drinkId} 
-                            css={css} 
-                            setcss={setcss}
-                        />
-                    </div>   
-                </div>
-            </div>
-
-            </>   
+                <>   
+                    <div className="bodyMenu">
+                        <MenuAside/>
+                        <div className="main2">
+                            <div className="mainBody">
+                                {/* //TODO Silder待完成 // */}
+                                {/* <div className="silder1"> */}
+                                    {/* <Slider1/>  */}
+                                {/* </div> */}
+                                <MenuCard 
+                                    datas={datas}
+                                    setdrinkId={setdrinkId}
+                                    setcss={setcss}
+                                />
+                                <MenuCardRwd 
+                                    datas={datas}
+                                    setdrinkId={setdrinkId}
+                                    setcss={setcss} 
+                                />
+                                <Popup 
+                                    datas={datas}  
+                                    drinkId={drinkId} 
+                                    css={css} 
+                                    setcss={setcss}
+                                />
+                            </div>   
+                        </div>
+                    </div>
+                </>   
         )
-
-
-
-
-
-
-        }
+}       
 
 
 
