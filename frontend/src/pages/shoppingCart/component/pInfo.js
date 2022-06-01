@@ -50,14 +50,14 @@ return(
                     </div>
                     <div className="col-3 numberDesk ">
                      <p>數量：</p>
-                     <div className="addNum">
-                         <button className="NumL" onClick={() =>{if(subTotal>1){
+                     <div className="addPNum">
+                         <button className="PNumL" onClick={() =>{if(subTotal>1){
                              setsubTotal(subTotal - 1)
                              setPtotal(ptotal-pmoney)
                             
                              }}}>-</button>
                          <div>{subTotal}</div>
-                         <button className="NumR" onClick={() =>{
+                         <button className="PNumR" onClick={() =>{
 
                              setsubTotal(subTotal + 1)
                              setPtotal(pmoney*(subTotal+ 1))

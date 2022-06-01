@@ -100,7 +100,7 @@ function Navbar (props){
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
           </div>
           <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
-          <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+          <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
@@ -116,7 +116,7 @@ function Navbar (props){
         </div>
         <div>
           <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-          <li><a><IoCartOutline size={30}/></a></li>
+          <li><Link to="/shoppingcart"><IoCartOutline size={30}/></Link></li>
 
           <li className="mobileNone position-relative">
             <Link to="/member"><IoPersonOutline size={30}/></Link>

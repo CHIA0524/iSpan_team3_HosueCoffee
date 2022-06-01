@@ -1,99 +1,85 @@
-.card {
-    border: 1px #E4D2A3 solid;
-    border-radius: 20px;
-    margin: 10px;
-    width: 20rem;
-    padding: 2rem;   
-   
-    
+.FavCard {
+  border: 1px #e4d2a3 solid;
+  border-radius: 20px;
+  margin: 10px;
+  width: 20rem;
+  padding: 2rem;
 }
 
-.cardName{
-    padding-top: 1rem;
+.cardName {
+  padding-top: 1rem;
 }
-
 
 .package a :hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-
-
-
 
 .cardPrice {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .package a :hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-
-
-
 
 .addNum {
-    margin-top: -5px;
-    width: fit-content;
-    height: 40px;
-    /* border: 1px solid #e4d2a3; */
-    border-radius: 10px;
-    display: inline-block;
-  }
-  
-  .addNum div {
-    line-height: 2.5rem;
-    text-align: center;
-    width: 2.8rem;
-    height: 39px;
-    cursor: pointer;
-    display: inline-block;
-    user-select:none;
-  }
-  .addNum .addNumDV{
-    width: 4rem;
+  margin-top: -5px;
+  width: fit-content;
+  height: 40px;
+  /* border: 1px solid #e4d2a3; */
+  border-radius: 10px;
+  display: inline-block;
 }
-  .addNum input {
-    border: transparent;
-    height: 15px;
-    outline: none;
-    width: 2rem;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .NumL {
-    border-radius: 10px ;
-    border: 2px solid #e4d2a3;
-    background: #e4d2a3;
-  }
-  .NumR {
-    border-radius: 10px ;
-    border: 2px solid #e4d2a3;
-    background: #e4d2a3;
-  }
-  .NumL:hover{
-    background-color: #e4d2a3;
-    border:2px solid black;
-  }
-  .NumR:hover{
-    background-color: #e4d2a3;
-    border:2px solid black;
-  }
 
-  .cardBuy{
-      margin-top: -5px;
-      height: 40px;
-      width: 5rem;
-      float:right;
-      border: 2px solid #e4d2a3;
-      background-color: white;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #e4d2a3;;
+.addNum div {
+  line-height: 2.5rem;
+  text-align: center;
+  width: 2.8rem;
+  height: 39px;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+}
+.addNum .addNumDV {
+  width: 4rem;
+}
+.addNum input {
+  border: transparent;
+  height: 15px;
+  outline: none;
+  width: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
 
-      
-  }
+.NumL {
+  border-radius: 10px;
+  border: 2px solid #e4d2a3;
+  background: #e4d2a3;
+}
+.NumR {
+  border-radius: 10px;
+  border: 2px solid #e4d2a3;
+  background: #e4d2a3;
+}
+.NumL:hover {
+  background-color: #e4d2a3;
+  border: 2px solid black;
+}
+.NumR:hover {
+  background-color: #e4d2a3;
+  border: 2px solid black;
+}
 
-
-   
+.cardBuy {
+  margin-top: -5px;
+  height: 40px;
+  width: 5rem;
+  float: right;
+  border: 2px solid #e4d2a3;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e4d2a3;
+}

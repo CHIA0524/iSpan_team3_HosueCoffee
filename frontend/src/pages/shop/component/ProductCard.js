@@ -48,7 +48,7 @@ function ProductCard(props){
                     </div>
                     </Link>
                  </div>
-                 <div className="cardName d-flex justify-content-between">
+                 <div className="pCardName d-flex justify-content-between">
                      <div >
                           <p className="pText">{pCard.p_name}</p>
                       </div>

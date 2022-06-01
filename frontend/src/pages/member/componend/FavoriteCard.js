@@ -6,7 +6,7 @@ function FavoriteCard(){
 
     return(
         <>
-            <div className="card mb-4">
+            <div className="card FavCard mb-4">
                     <div className="package">
                         <a href=""><img className="card-img-top" src={require('../img/包裝 2.png')} alt=""></img></a>
                     </div>
