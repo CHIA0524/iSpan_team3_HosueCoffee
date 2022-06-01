@@ -1,0 +1,160 @@
+/* .content {
+  width: 80%;
+  display: flex;
+} */
+.main {
+  padding-bottom: 50px;
+  width: 80%;
+}
+.paytext {
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  /* margin-left: 10rem; */
+}
+.memNo {
+  padding-top: 1rem;
+}
+.memNoText {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.memNoText p {
+  padding-right: 2rem;
+}
+
+.perInfo {
+  padding-top: 1rem;
+  line-height: 2rem;
+}
+.note {
+  line-height: 2rem;
+}
+.pTitle {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+}
+.packageImg {
+  width: 100%;
+}
+.perInfo {
+  display: flex;
+}
+.perInfoTextL {
+  width: 15%;
+}
+.perInfoTextL p,
+.perInfoTextR p {
+  margin-bottom: 1rem;
+}
+.payDetail {
+  display: flex;
+  justify-content: flex-end;
+}
+.payDetailTextL {
+  width: 15%;
+}
+.payDetailTextL p,
+.payDetailTextR p {
+  margin-bottom: 1rem;
+}
+.payDetailTextL h5,
+.payDetailTextR h5 {
+  margin-top: 2rem;
+}
+.payDetailTextR p,
+.payDetailTextR h5 {
+  text-align: right;
+}
+.mContent {
+  display: none;
+}
+.mPayInfoFinal {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .Content {
+    display: none;
+  }
+  .memNo {
+    margin: 30px 2rem 30px 0;
+  }
+  .mContent {
+    display: inline;
+    width: 100%;
+    margin: 30px 0;
+  }
+  .mPayInfoFinal {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .mPayInfo .box {
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+  }
+  .mPayInfoText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 1rem;
+  }
+  .mPayMoney {
+    display: flex;
+  }
+  .mPayMoney .R {
+    margin-left: 1.5rem;
+  }
+  .pickUp {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  .pickUpL p {
+    margin-bottom: 1rem;
+  }
+
+  .pickUpR p {
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+  .pickInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin: 30px 1rem 30px 0;
+  }
+  .pickInfoL p {
+    margin-bottom: 1rem;
+  }
+  .pickInfoR p {
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+  .mPayTotalCheck .box {
+    padding: 1.5rem 0;
+    width: 90%;
+    height: auto;
+    border: 1px solid gray;
+  }
+  .mPayTotalCheck {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .totalInfo1 {
+    padding-top: 1rem;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+  }
+  .line {
+    margin: 0 2rem;
+    width: 90%;
+    /* height: 1px; */
+    border-top: solid 1px rgba(0, 0, 0, 0.46);
+  }
+}

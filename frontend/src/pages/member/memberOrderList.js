@@ -28,7 +28,7 @@ function MemberOrderList(props){
     <div className="container">
       <div className="row">
         <MemberAside/>
-        <main className="pMain row col">
+        <main className="mMain row col">
                 <div className="listnavbar col-3None">
                         <div className="CState" id="nowState">全部</div>
                         <div className="CState">未完成</div>

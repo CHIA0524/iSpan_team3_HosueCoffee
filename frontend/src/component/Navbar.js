@@ -11,8 +11,16 @@ import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-function Navbar (){
+function Navbar (props){
+  const {auth}=props
+  
+  const loginOUT=()=>{
+    localStorage.clear();
+    alert("您已登出")
+    window.location.assign("http://localhost:3000/");
 
+  }
+  
   let homeCSS ;
   let getURL = useLocation();
   console.log(getURL);
@@ -32,6 +40,7 @@ function Navbar (){
     document.querySelector('.memberDetail').style.height = '0px';
   }
   const openMemberDetailClick = ()=>{
+
     if(document.querySelector('.memberDetail').style.height === '0px'){
       document.querySelector('.memberDetail').style.height = '200px';
     }
@@ -64,10 +73,14 @@ function Navbar (){
               <IoPersonOutline size={20} color={'#4C3410'}/>
             </a>
               <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
-            <a className="ms-3" href="#">
+              {auth?<><a className="ms-3" onClick={loginOUT} href="#" >
               <IoExitOutline size={20} color={'#4C3410'}/>
-            </a>
+            </a></>:
+            <></>}
+            
           </li>
+          {auth?
+          <>
           <div className="memberDetail" style={{height: '0px'}}>
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
             <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
@@ -76,10 +89,29 @@ function Navbar (){
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
           </div>
           <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
-          <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+          <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          {/* 以上為已登入狀態 */}
+          </> 
+          :<>
+          {/* 以下為登出狀態 */}
+          <div className="memberDetail" style={{height: '0px',display:"none"}} >
+            <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
+            <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
+            <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
+            <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
+            <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
+          </div>
+          <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
+          <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
+          <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
+          <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
+          <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          </>}
+          
+          
         </div>
         <div className="openSideNav" onClick={openSideNavClick}>
           <IoMenuOutline size={30}/>
@@ -89,16 +121,19 @@ function Navbar (){
         </div>
         <div>
           <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-          <li><a><IoCartOutline size={30}/></a></li>
+          <li><Link to="/shoppingcart"><IoCartOutline size={30}/></Link></li>
 
           <li className="mobileNone position-relative">
-            <Link to="/memberLogin"><IoPersonOutline size={30}/></Link>
-            <p className="webUserInfo">
-              <span><a href="">會員專區</a></span>
-              <span><a href="">訂單查詢</a></span>
-              <span><a href="">問答中心</a></span>
-              <span><a href="">登出</a></span>
-            </p>
+            <Link to="/member"><IoPersonOutline size={30}/></Link>
+            {auth? <><p className="webUserInfo">
+              <span><Link to="/member/Profile">會員專區</Link></span>
+              <span><Link to="/member/OrderList">訂單查詢</Link></span>
+              <span><Link to="/member/QAList">問答中心</Link></span>
+              <span><a onClick={loginOUT}>登出</a></span>
+            </p></>
+            :
+            <></>}
+            
           </li>
         </div>
       </nav>

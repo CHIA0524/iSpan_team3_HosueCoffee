@@ -6,7 +6,7 @@ function FavoriteCard(){
 
     return(
         <>
-            <div className="card mb-4">
+            <div className="card FavCard mb-4">
                     <div className="package">
                         <a href=""><img className="card-img-top" src={require('../img/包裝 2.png')} alt=""></img></a>
                     </div>
@@ -18,16 +18,16 @@ function FavoriteCard(){
                             <a href=""><img src={require('../img/heart.png')} alt=""></img></a>
                         </div>
                     </div>
-                    <p className="cardPrice">$499</p>
+                    <p className="MFcardPrice">$499</p>
                     <div className="cardFoot">
-                        <div className="addNum" >
-                            <div className="NumL" onClick={()=>{if(total>1){
+                        <div className="addMNum" >
+                            <div className="MNumL" onClick={()=>{if(total>1){
                                 settotal(total-1);
                             }}}>-</div>
-                            {/* <div className="NumL" >-</div> */}
-                            <div className="addNumDV"><input className="addNumV"  value={total} type="text" readonly onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></div>
-                            {/* <div className="NumR" >+</div> */}
-                            <div className="NumR" onClick={()=>{
+                            {/* <div className="MNumL" >-</div> */}
+                            <div className="addMNumDV"><input className="addMNumV"  value={total} type="text" readonly onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></div>
+                            {/* <div className="MNumR" >+</div> */}
+                            <div className="MNumR" onClick={()=>{
                                 settotal(total+1);
                             }}>+</div>
                         </div>  

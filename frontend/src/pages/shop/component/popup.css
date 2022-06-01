@@ -1,0 +1,267 @@
+@charset "UTF-8";
+/* -------- 顏色 -------- */
+/* -------- 字體 -------- */
+
+/* 彈跳視窗 */
+.popupWrap {
+  width: 50%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.popupBox {
+  padding: 100px 100px;
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+  -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  background: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+}
+
+.popupBox input,
+.popupBox select {
+  margin-bottom: 25px;
+}
+
+.popupBox .ansAddForm > *:not(:last-child):not(:first-child) {
+  width: 330px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 35px;
+  border: 1.5px solid #4c3410;
+  outline: none;
+  -webkit-transition: var(--store-transition);
+  transition: var(--store-transition);
+}
+
+.popupBox .ansAddForm *:focus {
+  background: #ede1c1;
+}
+
+.popupBox .ansAddForm a {
+  margin: 3rem;
+}
+
+.popupBox .ansAddForm textarea {
+  height: 200px;
+  resize: none;
+}
+
+.popupClose {
+  width: 50px;
+  line-height: 40px;
+  color: gray;
+  font-size: 32px;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  -webkit-transition: var(--store-transition);
+  transition: var(--store-transition);
+}
+
+.popupClose:hover {
+  color: black;
+}
+
+.popupTransformIn,
+.popupTransformOut {
+  display: block;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.popupTransformIn {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popupTransformOut {
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+}
+/*# sourceMappingURL=popup.css.map */
+
+.popupShow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popupShow:target {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+.popup {
+  margin: 15rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  width: 700px;
+  position: relative;
+  /* transition: all 5s ease-in-out; */
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  background: transparent;
+  border: transparent;
+}
+
+.popup .close:hover {
+  color: red;
+}
+
+.popup .productPopup {
+  max-height: 50%;
+  overflow: auto;
+}
+.mPayInfoContent {
+  display: flex;
+  justify-content: center;
+}
+.popBoxContent {
+  display: flex;
+}
+.PimgPart {
+  width: 376px;
+  height: 400px;
+}
+.PimgPart img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.popContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+.popText p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.popAddNum {
+  display: flex;
+}
+.popAddNum button {
+  width: 1.5rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+
+.popAddNum button :hover {
+  background-color: #e4d2a3;
+}
+
+.popAddNum div {
+  border: 0;
+  width: 30px;
+  text-align: center;
+  line-height: 2rem;
+}
+.popAddCartBtn {
+  margin-top: 4px;
+  width: 9rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+.addCartBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.popAddCart a :hover {
+  background-color: #e4d2a3;
+}
+.popBtn {
+  display: flex;
+}
+.popAddCart {
+  margin-left: 4rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .popup {
+    display: flex;
+    flex-direction: row;
+    margin: 10rem auto;
+    width: 300px;
+  }
+  .popBoxContent {
+    /* width: 90%; */
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  .popBtn {
+    display: block;
+    margin-top: 1rem;
+  }
+  .popAddCart {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+  .PimgPart {
+    width: 250px;
+    height: 150px;
+  }
+  .PimgPart img {
+    width: 90%;
+    height: 90%;
+  }
+  .popAddCart {
+    margin-left: 1rem;
+  }
+  .popText p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+}

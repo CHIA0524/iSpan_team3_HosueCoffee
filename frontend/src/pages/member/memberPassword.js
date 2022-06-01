@@ -112,7 +112,7 @@ function MemberPassword(props){
     <div className="container">
       <div className="row">
         <MemberAside/>
-        <main className="pMain row col">
+        <main className="mMain row col">
                 
                 <div className="col-4 col-3None">
                     <div className="proList">
@@ -142,12 +142,12 @@ function MemberPassword(props){
                               
                               <div className='newpassword'>  
                               <div className="proRight_pw" >新密碼:&emsp;&emsp;&emsp;&emsp;
-                                    <input type="text" value={member_passwordN} onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
+                                    <input type="password" value={member_passwordN} onChange={handleValueChangeN} onBlur={handleCheckPasswordN}  maxLength={20} minLength={8}></input>
                               </div>
                               <div className='passwordMessageRedN'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{passwordMessageN || "需為英文數字8~20字組合"}</div>
                               
                               <div className="proRight_pw newpassword2">確認新密碼:&emsp;&emsp;
-                                    <input type="text"  value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>  
+                                    <input type="password"  value={member_passwordN2} onChange={handleValueChangeN2}  onBlur={handleCheckPasswordN2} maxLength={20} minLength={8}></input>  
                               </div>
                                <div className='passwordMessageRedN2' >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{passwordMessageN2 || "請再次輸入新密碼"}</div>
                                <br></br>

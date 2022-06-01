@@ -155,7 +155,7 @@ function MemberNewData(props){
     <div className="container">
     <h2 className='NewDataH2'>請填寫基本資料</h2>
       <div className="row">
-        <main className="pMain row col">
+        <main className="mMain row col">
        
                 
                 <div className="col-6 col-3None">

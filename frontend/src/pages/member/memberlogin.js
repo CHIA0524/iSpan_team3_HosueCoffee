@@ -8,6 +8,7 @@ import Memberprofile from './memberprofile';
 function MemberLogin(props){
     const {auth,setAuth} = props;  
     
+    
   
     const [member_account, setmember_account] = useState("");
     const [member_password, setmember_password] = useState("");
@@ -395,8 +396,8 @@ function MemberLogin(props){
         <>
         {/* {auth ?<Memberprofile/> :
         <div> */}
-        <div className="pmain ">
-                <div className="row loginPmain">
+        <div className="mMain ">
+                <div className="row loginmMain">
                     <div className="col ">
                         <div className="memberLoginMain">
                             <div className="row">
@@ -483,7 +484,7 @@ function MemberLogin(props){
                     </div>
                 </div>
             </div>
-            <div className="pmain-m">
+            <div className="mMain-m">
                 <div className="loginM">
                     <div className="MimgDiv">
                     </div>

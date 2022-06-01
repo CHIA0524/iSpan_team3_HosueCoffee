@@ -39,7 +39,7 @@ function Memberprofile(props){
             <div className="row">
             <MemberAside/>
         
-                <main className="pMain row col">
+                <main className="mMain row col">
             
                 
                     
