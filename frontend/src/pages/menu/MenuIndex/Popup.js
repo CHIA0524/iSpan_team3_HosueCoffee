@@ -10,35 +10,46 @@ import SweetAlret from "../component/SweetAlret";
 
 
 
+
 const Popup = (props) => {
     
+
     const update = ()=>{
+
     let k = 0;
 
     const gift = {
+
         id: drinkId,
+
         drinkCounter:drinkCounter,
         
     }
 
-    let gifts = localStorage.getItem("gifts")
-    ? JSON.parse(localStorage.getItem("gifts"))
-    : [];
+    let gifts = localStorage.getItem("gifts")   ? JSON.parse(localStorage.getItem("gifts")): [];
+
     for (let i = 0; i < gifts.length; i++) {
+
         let item = gifts[i];
+        
         if (item.id === gift.id) {
+
         item.drinkCounter += gift.drinkCounter;
+
         } else {
+
         k = k + 1;
+
         }
     }
+
     if (k === gifts.length) {
+
         gifts.push(gift);
+
     }
 
     localStorage.setItem("gifts", JSON.stringify(gifts));
-
-    
 
     }
 
@@ -84,19 +95,29 @@ const Popup = (props) => {
                                         <div className="content2 btn2">
                                             <div className="d-flex justify-content-end mt-4">
                                                 <div className="btn PaymentLast1 mt-1"
-                                                onClick={() => {update(); SweetAlret();setcss({visibility: 'hidden', opacity: '0'})}}>
+                                                                onClick={() => {
+                                                                    update(); 
+                                                                    SweetAlret();
+                                                                    setcss({visibility: 'hidden', opacity: '0'});
+                                                                    setdrinkCounter(1)
+                                                                }}>
                                                     加入購物車
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="content2 btn1">
-                                        <Counter setdrinkCounter={setdrinkCounter}  drinkCounter={drinkCounter} 
+                                        <Counter setdrinkCounter={setdrinkCounter}  
+                                                    drinkCounter={drinkCounter} 
                                         />
-                                            <div className="btn PaymentLast1 mt-1"
-                                            onClick={() => {update(); SweetAlret();setcss({visibility: 'hidden', opacity: '0'})}}>
-                                                    加入購物車
-                                            </div>
+                                        <div className="btn PaymentLast1 mt-1"
+                                                        onClick={() => {
+                                                            update(); 
+                                                            SweetAlret();
+                                                            setcss({visibility: 'hidden', opacity: '0'});
+                                                            setdrinkCounter(1)}}>
+                                            加入購物車
+                                        </div>
                                     </div>
                                 </div>
                             </div>

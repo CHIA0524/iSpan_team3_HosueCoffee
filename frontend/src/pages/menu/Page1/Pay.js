@@ -46,9 +46,9 @@ const Pay = () => {
             
             <div className="d-flex justify-content-between">
                 <div className="d-flex justify-content-end">
-                    <div className="btn PaymentLast">
+                    <Link to='/Menu' className="btn PaymentLast">
                         繼續購物
-                    </div>
+                    </Link>
                 </div>
 
                 <div className="d-flex justify-content-end">

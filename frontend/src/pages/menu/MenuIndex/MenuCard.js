@@ -1,7 +1,7 @@
 import {React, useEffect} from "react";
 // import{useState,useEffect} from "react";
 import "../style.scss"
-import {AiOutlineHeart} from 'react-icons/ai';
+import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 
 
 
@@ -42,6 +42,7 @@ const MenuCard = (props) => {
                                 <span>{mu.drink_name}</span>
                                 <span>
                                     <AiOutlineHeart size={20}/>
+                                    <AiFillHeart  size={20}/>
                                 </span>
                             </div>
                             <div className="d-flex justify-content-between cardpading">
