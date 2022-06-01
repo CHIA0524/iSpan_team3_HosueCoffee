@@ -35,6 +35,7 @@ import Pay1 from './pages/shoppingCart/Pay1';
 import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
+import ShopKenya from './pages/shop/ShopKenya';
 
 
 
@@ -84,6 +85,9 @@ function App() {
         </Route>
         <Route path="/shop/ProductDetail/:id">
           <ProductDetail />
+        </Route>
+        <Route path="/shop/kenya">
+          <ShopKenya />
         </Route>
         <Route path="/shop">
           <ShopIndex />

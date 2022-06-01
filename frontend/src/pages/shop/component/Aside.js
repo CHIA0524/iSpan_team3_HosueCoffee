@@ -10,7 +10,7 @@ function Aside(){
         <div class="type">
             <select class="form-select form-select-sm typeDetail">
                 <option selected>全部</option>
-                <option value="1">肯亞</option>
+                <option value="1" ><Link to="/shop/kenya">肯亞</Link></option>
                 <option value="2">衣索比亞</option>
                 <option value="3">巴西</option>
                 <option value="4">哥倫比亞</option>
@@ -26,7 +26,7 @@ function Aside(){
                         <a href="">全部</a>
                     </li>
                     <li>
-                        <a href="">肯亞</a>
+                        <Link to="/shop/kenya">肯亞</Link>
                     </li>
                     <li>
                         <a href="">衣索比亞</a>
