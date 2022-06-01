@@ -42,7 +42,7 @@ const List = (props) => {
             {menuCart.map((to,i)=>{
                 // 設定圖片路徑
                 const menuimg = (to.drink_name)
-
+                const total = datas1[i].drinkCounter
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">
@@ -63,7 +63,8 @@ const List = (props) => {
                                         <div className="quantityText">
                                             數量：
                                         </div>
-                                        <Counter />
+                                        {/* <Counter /> */}
+                                        {datas1[i].drinkCounter}
                                     </div>
                                 </div>
                                 <div className="delete1">
@@ -73,7 +74,7 @@ const List = (props) => {
                                 </div>
                                 </div>
                                 <div className="price">
-                                    {/* {setpricetotal1}    */}
+                                {total*to.price}
                                 </div>
                             </div>
                         </div>
