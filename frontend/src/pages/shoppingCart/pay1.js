@@ -74,6 +74,7 @@ function Pay1(props){
     // const[a,setA]=useState(0);
     const [ ptotal, setPtotal ]= useState()
     console.log(ptotal)
+    const [totalp ,settotalp]= useState()
     // const {setPtotal, ptotal } = props
     // const cash = (price) => {
     //     setTotalCash( 499 * Number(subTotal));
@@ -248,9 +249,9 @@ function Pay1(props){
                    <Steps1 />
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
-                
+                settotalp={settotalp}
                    />
-                   <PInfo setPtotal={setPtotal} ptotal={ptotal} />
+                   <PInfo setPtotal={setPtotal} ptotal={ptotal} settotalp={settotalp} />
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
                         <div>

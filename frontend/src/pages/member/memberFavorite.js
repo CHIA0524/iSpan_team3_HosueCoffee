@@ -20,13 +20,6 @@ function MemberFavorite(props){
         <main className="mMain col">
             <div className=" row justify-content-center">
                 <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
-                <FavoriteCard/>
                 
             </div>
 

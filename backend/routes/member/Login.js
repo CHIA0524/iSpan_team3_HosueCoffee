@@ -100,5 +100,13 @@ router.get('/CRNM2',async (req,res,next)=>{
   res.json(data);
   
 })
+router.get('/Favfavorite',async (req,res,next)=>{
+  console.log(req.query.fk_m_id);
+  const sql = `select * from member_favorite join products on products.p_id = member_favorite.fk_p_id where fk_m_id=? order by MF_id desc`
+  const [data] = await db.query(sql,[req.query.fk_m_id,]);
+  console.log(data);
+  res.json(data);
+  
+})
 
 module.exports = router;
