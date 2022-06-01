@@ -4,198 +4,169 @@
 $WEB_CardWrapWidth: 375px;
 $WEB_CardWrapHeight: calc(100vh - 185px);
 
-// map
-.mapMarker{
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border: 6px solid $font_border_color;
-  border-radius: 50%;
-  background-color: white;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: all .3s ease-in-out;
-}
-.mapWrap{
-  width: 100%;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-  transition: all .3s ease-in-out;
-  .markerInfo{
-    width: 400px;
-    height: 70px;
-    padding: 1rem;
-    background: white;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 2px solid $main_color;
-    border-radius: 15px;
+$MB_CardWrapWidth: 300px;
+$MB_CardWrapHeight: calc(100vh - 150px);
+
+@media screen and (max-width:800px) {
+  .asideCardSearch{
     position: absolute;
-    left: calc(50% - 200px);
-    transition: all .3s ease-in-out;
+    left: -375px;
+    z-index: 1;
+  }
+  .storeOpenAside{
+    width: 30px;
+    height: 50px;
+    padding: 0;
+    border-width: 2px 2px 2px 0px;
+    border-style: solid;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    position: absolute;
+    left: $WEB_CardWrapWidth;
+    top: 50%;
+    z-index: 1;
+  }
+  .cardGroupWrap{
+    width: auto;
+  }
+  .mapWrap{
+    width: 100%;
+    // height: 60vh;
+    background: #000;
+  }
+  .cardDetail{
+    // top: 800px;
+    background: $secondary_color;
+  }
+  .cardDetailOpenCss{
+    top: 0px;
+    left: calc(50% - 180px);
   }
 }
 
-// store
-.storeSpinner{
-  width: $WEB_CardWrapWidth;
-  height: $WEB_CardWrapHeight;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mapAndCardWrap{
-  margin-top: -3rem;
-  display: flex;
-  flex-direction: row;
-}
-.asideCardSearch{
-  background: white;
-  transition: all .3s ease-in-out;
-}
-.storeSearch{
-  width: $WEB_CardWrapWidth;
-  height: 60px;
-  padding: 0 2rem;
-  display: flex;
-  vertical-align: middle;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.10);
-  transition: all .3s ease-in-out;
-  input{
-    width: 100%;
-    background: transparent;
-    border: 0;
+@media screen and (max-width: 600px) {
+  .cardGroupWrap, .storeWrap, .cardDetail{
+    height: $MB_CardWrapHeight;
   }
-  input:focus{
-    outline: none;
+  // .mapWrap{
+  //   height: calc(100% - 90px);
+  // }
+}
+
+@media screen and (max-width: 500px) {
+  .mapSpinner, .cardGroupWrap, .storeWrap, .cardDetail, .storeSearch{
+    width: $MB_CardWrapWidth;
   }
-  svg{
-    cursor: pointer;
+  .storeOpenAside{
+    left: $MB_CardWrapWidth
   }
 }
-.cardGroupWrap{
-  width: $WEB_CardWrapWidth;
-  height: $WEB_CardWrapHeight;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  overflow-x: hidden;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  transition: all .3s ease-in-out;
-}
-.storeWrap{
-  width: $WEB_CardWrapWidth;
-  height: $WEB_CardWrapHeight;
-  padding: .1rem .5rem;
-  overflow-x: hidden;
-  transition: all .3s ease-in-out;
-}
-.cardDetail{
-  width: $WEB_CardWrapWidth;
-  height: 100%;
-  padding: 15px 25px 40px 35px;
-  background: white;
-  position: absolute;
-  top: 0;
-  left: -400px;
-  transition: all .3s ease-in-out;
-  overflow: scroll;
-  h5{
-    margin: 10px 0;
-  }
-  li{
-    padding: 5px 0;
-    margin-left: 10px;
-    list-style: none;
-    font-weight: 600;
-    }
-  .closeCardDetail{
-    cursor: pointer;
-    text-align: right;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  div{
-    li, h5{
-      text-align: left;
-      font-weight: 600;
-    }
-  }
-  .storeServeList{
-    margin-left: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 1.2rem;
-    row-gap: 5px;
-    li{
-      margin: 0px;
-    }
-  }
-}
-.cardDetailOpenCss{
-  left: 0px;
-}
-.cardWrap{
+
+
+// index
+.storeBanner{
   width: 100%;
-  height: 100px;
-  margin-bottom: 5px;
-  background: white;
-  border-radius: 5px;
-  padding: 10px;
+  height: 500px;
+  background: no-repeat center/cover url("./img/storeBanner.png");
+  margin-top: -3rem;
+}
+.storeIndex{
+  margin: 60px auto;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
-  transition: all .3s ease-in-out;
-  div:last-child{
+  gap: 60px;
+  p{
+    margin: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all .2s;
-    color: $font_border_color;
   }
-  div:last-child:hover{
-    color: $nav_item_inactive;
-  }
-  img{
-    width: 80px;
-    height: 60px;
-    border-radius: 5px;
-  }
-  .itemText{
-    height: 60px;
-    width: 200px;
+  div{
+    width: 50%;
+    height: 300px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    p{
-      margin: 0;
-      font-size: 14px;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid $main_color;
+    border-radius: 40px;
+    cursor: pointer;
+    img{
+      transition: all .5s;
     }
-    p:first-child{
-      font-size: 16px;
+    a{
+      width: 100%;
+      height: 300px;
+      text-decoration: none;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background: rgba(000, 000, 000, .4);
+      transition: all .5s ease-out;
+    }
+  }
+  div:first-child img{
+    width: 20%;
+  }
+  div:first-child, div:nth-child(3){
+    a{
+      left: -100%;
+    }
+  }
+  div:nth-child(2){
+    a{
+      right: -100%;
+    }
+  }
+
+  div:first-child:hover{
+    img{
+      width: 25%;
+    }
+    a{
+      left: 0;
+    }
+  }
+  
+  div:nth-child(2):hover{
+    a{
+      right: 0;
+    }
+  }
+  div:nth-child(3):hover{
+    a{
+      left: 0;
     }
   }
 }
-.cardWrap:hover{
-  background: $main_color;
-  // box-shadow: 0px 0px 5px $font_border_color;
-}
-.storeOpenAside{
-  display: none;
-  transition: all .3s ease-in-out;
+
+@media screen and(max-width:600px) {
+  .storeBanner{
+    height: 300px;
+  }
+  .storeIndex{
+    gap: 30px;
+    div{
+        width: calc(100% - 60px);
+    }
+    div:nth-child(1){
+      p, img{
+        display: none;
+      }
+    }
+    div:nth-child(1), div:nth-child(3){
+      a{
+        left: 0;
+      }
+    }
+    div:nth-child(2){
+      a{
+        right: 0;
+      }
+    }
+  }
 }
