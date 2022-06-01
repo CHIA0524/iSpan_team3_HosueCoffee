@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
+
 import React from 'react';
 import { useState } from 'react';
+
 
 // components
 import Navbar from './component/Navbar';
 import Footer from './component/Footer';
+
 //回到頁面最上層套件
 import ScrollToTop from './component/ScrollToTop';
 
@@ -53,6 +56,7 @@ function App() {
   
 
 
+  const [ bannerHeight, setBannerHeight ] = useState()
 
 
 
@@ -61,12 +65,18 @@ function App() {
 
   return (
     
-    <Router>  
-      <Navbar auth={auth} />
-      {/* 在Navbar放入是否登入，用來改變點擊會員是否會出現列表 */}
+
+ 
+    <Router>
+
+      <Navbar bannerHeight={bannerHeight} auth={auth}/>
+
+
+
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
+
 
 
       <ScrollToTop/>
@@ -87,6 +97,11 @@ function App() {
         </Route>
         <Route path="/shop">
           <ShopIndex />
+        
+        </Route>
+        <Route path="/" exact>
+        <Home setBannerHeight={setBannerHeight}/>
+
         </Route>
        
               
