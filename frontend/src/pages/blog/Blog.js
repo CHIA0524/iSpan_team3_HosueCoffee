@@ -38,12 +38,12 @@ function Blog(props){
 
   return(
     <>
-   <section>
+   <section className="blogSection">
         <div className="blogBanner"></div>
 
 
     
-        <div className="bannerWord">咖啡手札</div>
+        <div className="blogBannerWord">咖啡手札</div>
    
 
         
@@ -52,7 +52,7 @@ function Blog(props){
        {/* //行動裝置板選單 */}
         <div className="blogType container">
             <select
-            className="form-select typeSelect"
+            className="form-select blogSelect "
             name="article"
             id="article"
             value={selectedValue}
@@ -76,32 +76,32 @@ function Blog(props){
 
         <div className="blogNav justify-content">
             <ul>
-                <li className="navItem">
-                    <a className="nava active" aria-current="page" href="#">
+                <li className="blogNavItem">
+                    <a className="blogNav" aria-current="page" href="#">
                         <h3>咖啡篇</h3>
                         <h3>coffee</h3>
                     </a>
                 </li>
-                <li className="navItem">
-                    <a className="nava" href="#">
+                <li className="blogNavItem">
+                    <a className="blogNava" href="#">
                         <h3>咖啡豆篇</h3>
                         <h3>coffee bean</h3>
                     </a>
                 </li>
-                <li className="navItem">
-                    <a className="nava" href="#">
+                <li className="blogNavItem">
+                    <a className="blogNava" href="#">
                         <h3>沖煮篇</h3>
                         <h3>pour over</h3>
                     </a>
                 </li>
-                <li className="navItem">
-                    <a className="nava" href="#">
+                <li className="blogNavItem">
+                    <a className="blogNava" href="#">
                         <h3>名人專欄篇</h3>
                         <h3>celebrity</h3>
                     </a>
                 </li>
-                <li className="navItem">
-                    <a className="nava" href="#">
+                <li className="blogNavItem">
+                    <a className="blogNava" href="#">
                         <h3>好物分享篇</h3>
                         <h3>share</h3>
                     </a>
@@ -111,8 +111,8 @@ function Blog(props){
 
 
 
-        <div className="cardZone container">
-            <div className="row  row-cols-1 row-cols-md-2">
+        <div className="blogCardZone container">
+            <div className="row  blogRow row-cols-1 row-cols-md-2">
               <BlogCard blog={blog}/>
             </div>
         </div>

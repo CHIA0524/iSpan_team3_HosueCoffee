@@ -1,4 +1,4 @@
-section{
+.blogSection{
   margin-top: -3rem;
 }
 
@@ -12,9 +12,12 @@ section{
     background-image:url(./img/banner.svg);
     
   }
+  .blogCol{
+    margin-bottom: 2rem;
+  }
 
   
-  .bannerWord{
+  .blogBannerWord{
     position: relative;
     text-align: center;
     height:4rem;
@@ -38,39 +41,35 @@ section{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-  margin: 3rem;
+    margin: 3rem;
 }
 
-.navItem {
+.blogNavItem {
   list-style: none;
   align-items: center;
 }
 
-.navItem a h3{
+.blogNavItem a h3{
   text-decoration: none;    
   font-size: 18px;
 }
 
-.navItem a p{
+.blogNavItem a p{
   font-size: 14px;
 }
 
 
-.navItem a:hover h3{
+.blogNavItem a:hover h3{
   color: #EDE1C1;
   
 }
 
-/* .navItem h3:hover {
-  color: #EDE1C1;
-  
-} */
 
-.navItem a h3{
+.blogNavItem a h3{
   text-align: center;
 }
 
-.navLink {
+.blogNavLink {
   text-decoration: none;
 }
 
@@ -84,7 +83,7 @@ section{
 
 /* blogCard文章卡片 */
 
-.cardZone{
+.blogCardZone{
   /* background-color: aqua; */
   display: flex;
   flex-direction: row;
@@ -93,61 +92,74 @@ section{
   /* margin: 2rem; */
 }
 
-.row{
+.blogRow{
   /* margin:1rem; */
   padding: 1rem;
 
 }
 
 
-.cardBorder{
+.blogCardBorder{
   width:100%;
-  height: auto;
-  padding: 0px 0px;
+  height: 30rem;
+  /* padding: 0px 0px; */
+  margin: 1rem 1rem;
   border: 1px solid #E4D2A3;
   box-sizing:border-box;
   border-radius: 40px;
   align-items: center;
-  margin: 15px auto;
+  flex-direction: column;
+  justify-content: space-between;
   }
   
 
-.cardImg {
-  height: 227px;
-  margin-bottom: 20px;
+.blogCardImg {
+  height: 50%;
+  width: 100%;
   border-radius:40px 40px 0 0 ;
   overflow: hidden;
 
 }
 
-.cardImg img{
+.blogCardImg img{
   width: 100%;
   height: auto;
 }
 
-.cardText, .cardInfo{
+.blogCardText, .blogCardInfo{
+  
   width: 90%;
   margin: 0 auto;
 }
 
 
-.cardText {
+.blogCardText {
+  margin-top:1.8rem ;
   line-height:30px;
+  margin-bottom: 1.5rem;
+  
 }
 
-.cardText h3{
-  font-size: 18px;
+.blogTextTitle{
+  min-height:3.5rem ;
+  /* padding-top: 0rem; */
+
+}
+
+.blogCardText p{
+  /* padding-top: 1rem; */
+  font-size: 1rem;
 }
 
 
-.cardInfo{
-  margin-top: 50px;
+
+.blogCardInfo{
   display: flex;
   justify-content:space-between;
-  padding:15px 10px;
+  padding:0.5rem 0.5rem;
 }
 
-.cardInfo Link{
+.blogCardInfo Link{
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -157,13 +169,37 @@ section{
 
 
 /* 行動裝置RWD */
+/* @media screen and (max-width: 1200px) {
+
+  .blogCardText {
+    margin-top:0.8rem ;
+    line-height:30px;
+
+  }
+  
+
+} */
+
+
 @media screen and (max-width: 1000px) {
 
   .blogBanner{
     height:400px;
 }
 
+  /* .blogCardText {
+    margin-top:0.6rem ;
+    line-height:30px;
+
+  } */
+
+
+
 }
+
+
+
+
 
 @media screen and (max-width: 800px) {
 
@@ -178,41 +214,46 @@ section{
       display: none;
   }
 
-.blogType {
-  margin-top: 1rem;
-  /*padding-top: -1rem;
-  padding-bottom: 2rem;
-  padding-left: 3rem; */
-  display: flex;
-  justify-content: center;
+  .blogType {
+    margin-top: 1rem;
+    /*padding-top: -1rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem; */
+    display: flex;
+    justify-content: center;
+    
+  }
+
+
+  .blogSelect {
+    width: 60%;
+    font-weight: bold ;
+    padding: 1rem;
+    text-align: center;
+    /* background-color:#e4d2a3 ; */
+    display: block;
+    width: 60%;
+    text-align: center;
+    border-radius: 0.8rem ;
+    border: 1px solid #e4d2a3;
+    color: #4c3410;
   
-}
-
-
-.form-select{
-  width: 60%;
-  font-weight: bold ;
   
 } 
 
 
-.typeSelect {
-  display: block;
-  width: 60%;
-  text-align: center;
-  border-radius: 0.8rem ;
-  border: 1px solid #e4d2a3;
-  color: #4c3410;
-  
-}
 
-select{
-padding: 1rem;
-text-align: center;
-background-color:#e4d2a3 ;
+
 }
 
 
+@media screen and (max-width: 600px) {
+
+  .blogCardInfo{
+    display: flex;
+    justify-content:space-between;
+    padding:2rem 0.5rem;
+  }
 }
 
 @media screen and (max-width: 400px) {

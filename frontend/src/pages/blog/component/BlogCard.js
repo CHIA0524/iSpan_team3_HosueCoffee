@@ -18,16 +18,22 @@ const BlogCard = (props) => {
             console.log(v)
             return (
                     
-            <div className="col-lg-4"  key={i}>
-                <div className="cardBorder">
-                    <div className="cardImg">
+            <div className="col-lg-4 blogCol"  key={i}>
+                <div className="blogCardBorder">
+                    <div className="blogCardImg">
                         <img src={require('../img/01.jpg')} alt="BlogCardImg"></img>
                     </div>
-                    <div className="cardText">
-                        <h3>{v.title}</h3>
-                        <p>{v.content.slice(0,40)}...</p>
+
+                    <div className="blogCardText">
+                        <div className='blogTextTitle'>
+                            <h5>{v.title}</h5>
+                        </div>
+                        <div className='blogTextContent'>
+                            <p>{v.content.slice(0,40)}......</p>
+                        </div>
                     </div>
-                    <div className="cardInfo">
+
+                    <div className="blogCardInfo">
                         <Link to={"/blog/BlogArticle"}>+more</Link>
                         <span>{v.CREATEd_at.slice(0,10)}</span>
                     </div>
