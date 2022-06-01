@@ -12,14 +12,14 @@ import instagramImg from './img/share btn ig.svg'
 function BlogArticle(props){
     return(
       <>
-   <section>
+   <section className="articleSection">
     <div className="articleBanner"></div>
 
-    <div className="container">
-      <div className="row "> 
-          <div className="title">冰滴咖啡、冷泡咖啡、冰釀咖啡、氮氣咖啡，各式冷萃咖啡介紹</div>
+    <div className="container articleContainer ">
+      <div className="row articleRow"> 
+          <div className="articleTitle">冰滴咖啡、冷泡咖啡、冰釀咖啡、氮氣咖啡，各式冷萃咖啡介紹</div>
         
-          <div className="author">2022/04/08｜咖啡篇by hsphere</div>
+          <div className="articleAuthor">2022/04/08｜咖啡篇by hsphere</div>
 
 
           {/* <!--makeLinkDown用來將 outsideLink在縮至行動裝置版時,顯示於下方 --> */}
@@ -33,7 +33,7 @@ function BlogArticle(props){
             </div>
             
             
-            <article>
+            <article className="blogArticle">
               <p>
                 &emsp;&emsp;炎炎夏日，來杯清涼消暑的冰咖啡解解渴是再好也不過的事了，近來市面上各種冷萃咖啡產品推陳出新，如：冰滴咖啡、冷泡咖啡、冰釀咖啡…等。適量飲用優質的黑咖啡對人體有益，就讓小編帶著大家一起了解關於冷萃咖啡的奧秘。</p>
                 
@@ -112,20 +112,24 @@ function BlogArticle(props){
             </article>
           </div>  
           
-          <div className="backBtn"><Link  href="#">返回</Link></div>
+          <Link to={"/blog"}  className="articleBackBtn">
+            <div>
+              返回
+            </div>
+          </Link>
 
 
 
-          <div className="recommend"><h2>相關文章推薦</h2></div>
+          <div className="articleRecommend"><h2>相關文章推薦</h2></div>
 
-          <div className="recommendWrapper ">
+          <div className="articleRecommendWrapper ">
             
-            <div className="slideBtnLeft">
+            <div className="articleSlideBtnLeft">
               <Link href="#"><img src={require('./img/Vector-left.svg')} alt=""></img></Link>
                   </div>
               </div>
 
-            <div className="recommendCard recHidden col">
+            <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
                   <img src="../img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
@@ -133,7 +137,7 @@ function BlogArticle(props){
             </div>
            
            
-            <div className="recommendCard recHidden col">
+            <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
                   <img src="../img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
@@ -141,7 +145,7 @@ function BlogArticle(props){
             </div>
            
            
-            <div className="recommendCard recHidden col">
+            <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
                   <img src="../img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
@@ -149,7 +153,7 @@ function BlogArticle(props){
             </div>
         
            
-              <div className=" slideBtnRight">
+              <div className=" articleSlideBtnRight">
                 <Link href="#"><img src="../img/Vector-right.svg"  alt=""></img></Link>
               </div>
 

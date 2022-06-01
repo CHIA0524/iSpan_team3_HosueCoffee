@@ -1,4 +1,4 @@
-section{
+.articleSection{
     margin-top: -3rem;
     
 }
@@ -23,7 +23,7 @@ section{
 
 
     
-.title{
+.articleTitle{
     font-size: 40px;
     font-weight:bolder;
     margin-top: 5%;
@@ -31,13 +31,13 @@ section{
 }
 
 
-.author{
+.articleAuthor{
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
 
-.author span{
+.articleAuthor span{
     font-size: 15px;
 }
 
@@ -58,7 +58,7 @@ section{
 
 
 
-article p{
+.blogArticle p{
     font-size: 16px;
     margin-top: 1em;
     margin-bottom: 2.5rem;
@@ -77,48 +77,48 @@ article p{
 
 
 /* 返回按鈕 */
-.backBtn{
+.articleBackBtn{
     display: inline-block;      
     position: relative;
     vertical-align: middle;
     text-align:center;
     width: 100px;
-height: 40px;
-font-size:16px;
-font-weight:bolder;
-color: #FFFFFF;
-background: #E4D2A3;
-border-radius: 30px;
-margin:10rem auto ;
-padding: 7px 10px 5px 10px;
-justify-content: center;
-/* opacity: 0.8; */
+    height: 40px;
+    font-size:16px;
+    font-weight:bolder;
+    color: #FFFFFF;
+    background: #E4D2A3;
+    border-radius: 30px;
+    margin:10rem auto ;
+    padding: 7px 10px 5px 10px;
+    justify-content: center;
+    /* opacity: 0.8; */
+    outline: 0;
+    cursor: pointer;
+    transition: .1s;
 }
 
-.backBtn a{
+.articleBackBtn a{
     color: #FFFFFF;
     text-decoration: none;
     
 }
 
 /* 返回按鈕動畫效果 */
-.backBtn:hover{
+.articleBackBtn:hover{
     opacity: 1;
     transform: scale(1.05);
+    color: #FFFFFF;
+
 }
 
-.backBtn:active{
+.articleBackBtn:active{
     transform: scale(1);
     box-shadow: inset 0 0 10px 1px rgba(209, 209, 209, 0.2);
 }
 
-.backBtn{
-    outline: 0;
-    cursor: pointer;
-    transition: .1s;
-}
 
-.recommend{
+.articleRecommend{
     display: flex;
     font-size: 3rem;
     font-weight:bolder;
@@ -132,31 +132,31 @@ justify-content: center;
 
 
 
-.recommendCard img{
+.articleRecommendCard img{
     height: 155px;
 }
 
-.slideBtnLeft {
+.articleSlideBtnLeft {
     width: 4rem;
     /* margin-left: 11rem; */
     margin-bottom: 1rem;
     transition: .5s;
 }
 
-.slideBtnRight {
+.articleSlideBtnRight {
     width: 4rem;
     /* margin-right: 12rem; */
     margin-bottom: 1rem;
     transition: .5s;
 }
 
-.recommendCard ,.recommendCard img{
+.articleRecommendCard ,.articleRecommendCard img{
     /* display: flex; */
     margin: 0 auto;
 }
 
 
-.recommendCard p{
+.articleRecommendCard p{
     font-size: 1rem;
 }
 
@@ -185,7 +185,7 @@ justify-content: center;
     }
 
 
-    p{
+    .blogArticle p{
     font-size: 18px;
     }
     
@@ -194,14 +194,14 @@ justify-content: center;
         width: 100%;
     }
 
-    .recommendCard {
+    .articleRecommendCard {
     width: 20rem;
     }
 
  
 
   /*隱藏recommendCard */
-    .recHidden{
+    .articleRecHidden{
     max-height: 0;
     overflow: hidden;
     position: absolute;
@@ -219,7 +219,7 @@ justify-content: center;
       height:150px;
   }
 
-  .title{
+  .articleTitle{
       font-size: 28px;
   }
   }
