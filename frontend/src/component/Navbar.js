@@ -22,14 +22,17 @@ function Navbar (props){
     window.location.assign("http://localhost:3000/");
 
   }
-  
-  let homeCSS ;
-
 
   let getURL = useLocation();
-  window.addEventListener('scroll',()=>{
-    setPageYOffset(window.pageYOffset)
-  })
+
+  // 監測視窗Y軸偏移量
+  useEffect(()=>{ 
+    window.addEventListener('scroll',()=>{
+      setPageYOffset(window.pageYOffset)
+    })
+  },[]);
+
+  // 畫面滾動時 Navbar 行為
   useEffect(()=>{
     if (getURL.pathname === '/') {
       document.querySelector('.coffeeNavbar').style.position = 'absolute'

@@ -11,12 +11,13 @@ function HomeBanner(props){
     const { setBannerHeight } = props
 
     window.addEventListener('load',()=>{
-        let bannerHeight = document.getElementById('carouselExampleControls').clientHeight;
-        setBannerHeight(bannerHeight)
+        setBannerHeight(document.getElementById('carouselExampleControls').clientHeight)
     })
     window.addEventListener('resize',()=>{
-        let bannerHeight = document.getElementById('carouselExampleControls').clientHeight;
-        setBannerHeight(bannerHeight)
+        setBannerHeight(document.getElementById('carouselExampleControls').clientHeight)
+    })
+    window.addEventListener('scroll',()=>{
+        setBannerHeight(document.getElementById('carouselExampleControls').clientHeight)
     })
 
     return(
