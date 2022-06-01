@@ -10,27 +10,25 @@ main {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   /* margin-left: 10rem; */
 }
-.memNo{
-    line-height:2rem
-    
+.memNo {
+  line-height: 2rem;
 }
 
-.perInfo{
-    padding-top: 1rem;
-    line-height:2rem
+.perInfo {
+  padding-top: 1rem;
+  line-height: 2rem;
 }
-.note{
-        line-height:2rem
+.note {
+  line-height: 2rem;
 }
-.pTitle{
-    font-size: 1.5rem;
-    padding-top: 0.5rem;
+.pTitle {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
 }
-.pDetail{
-    padding-top: 1rem;
-    line-height:2rem 
+.mDetail {
+  padding-top: 1rem;
+  line-height: 2rem;
 }
-
 
 @media screen and (max-width: 800px) {
   .mShop {
