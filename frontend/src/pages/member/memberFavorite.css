@@ -14,7 +14,7 @@
   opacity: 0.6;
 }
 
-.cardPrice {
+.MFcardPrice {
   padding-bottom: 1rem;
 }
 
@@ -22,7 +22,7 @@
   opacity: 0.6;
 }
 
-.addNum {
+.addMMNum {
   margin-top: -5px;
   width: fit-content;
   height: 40px;
@@ -31,7 +31,7 @@
   display: inline-block;
 }
 
-.addNum div {
+.addMMNum div {
   line-height: 2.5rem;
   text-align: center;
   width: 2.8rem;
@@ -40,10 +40,10 @@
   display: inline-block;
   user-select: none;
 }
-.addNum .addNumDV {
+.addMMNum .addMMNumDV {
   width: 4rem;
 }
-.addNum input {
+.addMMNum input {
   border: transparent;
   height: 15px;
   outline: none;
@@ -52,21 +52,21 @@
   cursor: pointer;
 }
 
-.NumL {
+.MMNumL {
   border-radius: 10px;
   border: 2px solid #e4d2a3;
   background: #e4d2a3;
 }
-.NumR {
+.MMNumR {
   border-radius: 10px;
   border: 2px solid #e4d2a3;
   background: #e4d2a3;
 }
-.NumL:hover {
+.MMNumL:hover {
   background-color: #e4d2a3;
   border: 2px solid black;
 }
-.NumR:hover {
+.MMNumR:hover {
   background-color: #e4d2a3;
   border: 2px solid black;
 }

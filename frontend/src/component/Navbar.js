@@ -79,7 +79,9 @@ function Navbar (props){
             <></>}
             
           </li>
-          {auth?<><div className="memberDetail" style={{height: '0px'}}>
+          {auth?
+          <>
+          <div className="memberDetail" style={{height: '0px'}}>
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
             <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
             <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
@@ -87,11 +89,14 @@ function Navbar (props){
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
           </div>
           <li><a href="#" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
-          <li><a href="#" onClick={closeSideNavClick}>SHOP<span>網路商城</span></a></li>
+          <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
-          </> :<>
+          {/* 以上為已登入狀態 */}
+          </> 
+          :<>
+          {/* 以下為登出狀態 */}
           <div className="memberDetail" style={{height: '0px',display:"none"}} >
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
             <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>

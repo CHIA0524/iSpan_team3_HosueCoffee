@@ -17,7 +17,7 @@ function MemberFavorite(props){
             <div className="container">
         <div className="row">
         <MemberAside/>
-        <main className="pMain col">
+        <main className="mMain col">
             <div className=" row justify-content-center">
                 <FavoriteCard/>
                 <FavoriteCard/>

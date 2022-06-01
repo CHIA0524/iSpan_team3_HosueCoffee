@@ -48,7 +48,7 @@ import './memberQAcheck.css'
     <div class="container">
     <div class="row">
       <MemberAside/>
-    <main class="pMain row col">
+    <main class="mMain row col">
         <div class="ansWrap">
           <div class="memberAnsDetail">
             <div>

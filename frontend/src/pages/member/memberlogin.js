@@ -396,8 +396,8 @@ function MemberLogin(props){
         <>
         {/* {auth ?<Memberprofile/> :
         <div> */}
-        <div className="pmain ">
-                <div className="row loginPmain">
+        <div className="mMain ">
+                <div className="row loginmMain">
                     <div className="col ">
                         <div className="memberLoginMain">
                             <div className="row">
@@ -484,7 +484,7 @@ function MemberLogin(props){
                     </div>
                 </div>
             </div>
-            <div className="pmain-m">
+            <div className="mMain-m">
                 <div className="loginM">
                     <div className="MimgDiv">
                     </div>

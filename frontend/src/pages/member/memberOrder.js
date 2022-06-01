@@ -24,7 +24,7 @@ function MemberOrder(props){
         <div className="container">
         <div className="row">
             <MemberAside/>
-            <main className="pMain col">
+            <main className="mMain col">
             <div className=" row justify-content-center">
                 <div className="row">
                     <div className="col-1 col-3None"></div>
@@ -92,7 +92,7 @@ function MemberOrder(props){
                             <div className="pTitle col-3None">金額統計</div>
                             <br></br>
                             
-                            <div className="row pDetail col-3None">
+                            <div className="row mDetail col-3None">
                                 <div className="col-8"></div>
                                 <div className="col-2">
                                     <p>小計加總</p> 

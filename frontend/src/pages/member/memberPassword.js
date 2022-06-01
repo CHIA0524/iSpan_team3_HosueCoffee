@@ -112,7 +112,7 @@ function MemberPassword(props){
     <div className="container">
       <div className="row">
         <MemberAside/>
-        <main className="pMain row col">
+        <main className="mMain row col">
                 
                 <div className="col-4 col-3None">
                     <div className="proList">

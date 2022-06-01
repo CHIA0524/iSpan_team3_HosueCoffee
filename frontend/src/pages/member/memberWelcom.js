@@ -4,7 +4,7 @@ function Welcome(){
     return(
         <>
         
-        <div className="pmain">
+        <div className="mMain">
             <Link to="/member/Profile"><button>點擊進入會員中心</button></Link>
         </div>
       

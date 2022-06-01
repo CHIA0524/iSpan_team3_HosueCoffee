@@ -18,7 +18,7 @@
   -webkit-transform: translate(-50%, -50%) scale(0.6);
   transform: translate(-50%, -50%) scale(0.6);
   -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   background: #fff;
   text-align: center;
@@ -26,29 +26,30 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
   top: 55%;
   left: 50%;
 }
 
-.popupBox input, .popupBox select {
+.popupBox input,
+.popupBox select {
   margin-bottom: 25px;
 }
 
 .popupBox .ansAddForm > *:not(:last-child):not(:first-child) {
   width: 330px;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   margin-bottom: 35px;
-  border: 1.5px solid #4C3410;
+  border: 1.5px solid #4c3410;
   outline: none;
   -webkit-transition: var(--store-transition);
   transition: var(--store-transition);
 }
 
 .popupBox .ansAddForm *:focus {
-  background: #EDE1C1;
+  background: #ede1c1;
 }
 
 .popupBox .ansAddForm a {
@@ -78,7 +79,8 @@
   color: black;
 }
 
-.popupTransformIn, .popupTransformOut {
+.popupTransformIn,
+.popupTransformOut {
   display: block;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -108,8 +110,8 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   gap: 1rem;
 }
 
@@ -121,26 +123,26 @@
 .memberAnser {
   padding: 1rem;
   margin-top: 2%;
-  border: 1px solid #2B3034;
+  border: 1px solid #2b3034;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .memberAnser div {
   padding: 1rem;
   border-radius: 10px;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .memberAnser div:hover {
-  background: #EDE1C1;
+  background: #ede1c1;
 }
 
 .memberAnser div:first-child {
@@ -158,8 +160,6 @@
   border-radius: 10px;
   resize: none;
 }
-table td a:hover{
-  color: #4C3410;
+table td a:hover {
+  color: #4c3410;
 }
-
- 
