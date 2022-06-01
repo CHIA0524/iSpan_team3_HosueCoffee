@@ -19,7 +19,7 @@ function StoreMapCardWrap(){
 
   // 儲存資料庫資料
   const [ data, setData ] = useState([])
-  const [ areaArr, setAreaArr ] = useState([])
+  const [ cityData, setCityData ] = useState([])
   // console.log(data);
 
   // 錯誤訊息用
@@ -44,7 +44,7 @@ function StoreMapCardWrap(){
         filterResults.push(results[i].city)
       }
     }
-    setAreaArr([...filterResults])
+    setCityData([...filterResults])
   }
 
   // 向遠端伺服器get資料
@@ -52,7 +52,9 @@ function StoreMapCardWrap(){
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store`)
       const results = await response.json()
+
       // console.log(results);
+      
       // 載入資料後設定到狀態中
       // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
       if (Array.isArray(results)) {
@@ -182,7 +184,9 @@ function StoreMapCardWrap(){
 
           {/* 搜尋框 */}
           <StoreCardSearch
-            areaArr={areaArr}
+            data={data}
+            setData={setData}
+            cityData={cityData}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
             setMarkerInfoCSS={setMarkerInfoCSS}

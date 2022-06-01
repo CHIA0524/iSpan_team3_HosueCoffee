@@ -1,3 +1,4 @@
+import { valHooks } from 'jquery'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
@@ -7,10 +8,15 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { areaArr, setIsLoading, fetchFilterData } = props
+  const { data, setData, cityData, setIsLoading, fetchFilterData } = props
+
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
+  const [ cityList, setCityList ] = useState(['高雄市','新北市'])
   const DOW = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+
+      
+
   return(
     <div className="storeSearch">
 
@@ -28,12 +34,43 @@ function StoreCardSearch(props){
       {/*篩選清單*/}
       <div className="storeFilter" style={{display: filterCSS ? 'flex' : 'none'}}>
         <div>
-          <p>營業時間</p>
-          {areaArr.map((v, i)=>{
+          <p>縣市</p>
+          {cityData.map((v, i)=>{
             return(
               <li key={i}>
                 <label>
-                  <input type="checkbox"></input>
+                  <input
+                    type="checkbox"
+                    name={v}
+                    value={v}
+                    onChange={(e) => {
+                      // const inState = cityList.includes(e.target.value)
+                      // if (inState) {
+                      //   const newLikeList = cityList.filter(
+                      //     (v, i) => v !== e.target.value
+                      //   )
+                      //   setCityList(newLikeList)
+                      //   console.log(cityList);
+                      // } else {
+                      //   const newLikeList = [...cityList, e.target.value]
+                      //   setCityList(newLikeList)
+                      //   console.log(cityList);
+                      // }
+                      let newarray =[]
+                      for (let i = 0; i < data.length; i++) {
+                        for (let j = 0; j < data.length; j++) {
+                          if(data[j].city===cityList[i]){
+                            newarray.push(data[j])
+                          }
+                        }
+                      }
+                      console.log(newarray);
+                      setData(newarray)
+
+
+
+                    }}
+                  />
                   {v}
                 </label>
               </li>
@@ -46,7 +83,7 @@ function StoreCardSearch(props){
             return(
               <li key={i}>
                 <label>
-                  <input type="checkbox"></input>
+                  <input type="checkbox"/>
                   {v}
                 </label>
               </li>
