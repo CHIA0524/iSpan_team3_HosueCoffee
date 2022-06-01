@@ -117,3 +117,8 @@ dist
 
 # vscode
 .vs
+
+# .lock
+*.lock
+frontend/package-lock.json
+backend/package-lock.json
