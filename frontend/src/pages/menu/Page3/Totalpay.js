@@ -1,5 +1,4 @@
 import React from "react";
-import '../checkout3.scss'
 
 
 

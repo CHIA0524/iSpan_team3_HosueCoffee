@@ -4,19 +4,17 @@ $colorMain3: #A37025;
 
 .bodyMenu{
     display: flex;
+    width: 100%;
 }
 .scrollBody {
     width: 100%;
 }
 .scroll {
     display: none;
-    // display: inline-block;
-    
     span{
         display: flex;
         justify-content: center;
     }
-   
 }
 
 
@@ -95,7 +93,6 @@ $colorMain3: #A37025;
         transform:scale(1,1);transition: all 1s ease-out;
         &:hover{transform:scale(1.2,1.2);}
     }
-   
 }
 .imgdiv{
     overflow: hidden;
@@ -130,6 +127,12 @@ $colorMain3: #A37025;
     }
 }
 // list RWD
+.listBodyRwd {
+    display: none;
+}
+.cardRwd {
+    width: 100%;
+}
 @media (max-width:1024px) {
     .listBody {
         input {
@@ -188,7 +191,18 @@ $colorMain3: #A37025;
   }
 
 @media (max-width:800px) {
-
+    .listBodyRwd{
+        display: flex;
+        width: 100%;
+        padding: 10px 0;
+    }
+    .card {
+        width: 100%;
+    }
+    .main2{
+        width: auto;
+        padding: 0 30px;
+    }
     .scrollBody {
         display: flex;
         overflow-x: scroll;
@@ -474,3 +488,10 @@ a {
         align-items: center;
     }
     }
+
+.heart1{
+    display: flex;
+}
+.heart2{
+display: none;
+}
