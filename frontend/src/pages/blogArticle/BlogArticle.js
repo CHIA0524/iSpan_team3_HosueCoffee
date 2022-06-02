@@ -1,12 +1,20 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
+
+//component
+import ArticleTitle from './component/articleTitle';
+import ArticleAuthor from './component/articleAuthor';
+import ArticleContent from './component/ArticleContent';
+
+//CSS
 import './articleBanner.css';
-// import Blog from './component/BlogCard';
+
 
 //imgs
 import facebookImg from './img/share btn fb.svg'
 import lineImg from './img/share btn line.svg'
 import instagramImg from './img/share btn ig.svg'
+
 
 
 function BlogArticle(props){
@@ -131,7 +139,7 @@ function BlogArticle(props){
 
             <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
-                  <img src="../img/3-3-1024x682.jpg" alt=""></img>
+                  <img src="./img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
                 <div><p>曼特寧、麝香貓咖啡咖啡人必知的印尼咖啡</p></div>
             </div>
@@ -139,7 +147,7 @@ function BlogArticle(props){
            
             <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
-                  <img src="../img/3-3-1024x682.jpg" alt=""></img>
+                  <img src="./img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
                 <div><p>曼特寧、麝香貓咖啡咖啡人必知的印尼咖啡</p></div>
             </div>
@@ -147,7 +155,7 @@ function BlogArticle(props){
            
             <div className="articleRecommendCard articleRecHidden col">
                 <Link href="">
-                  <img src="../img/3-3-1024x682.jpg" alt=""></img>
+                  <img src="./img/3-3-1024x682.jpg" alt=""></img>
                 </Link>
                 <div><p>曼特寧、麝香貓咖啡咖啡人必知的印尼咖啡</p></div>
             </div>
