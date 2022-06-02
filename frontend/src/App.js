@@ -7,10 +7,6 @@ import logo from './logo.svg';
 import Home from './pages/home/Home';
 import StoreIndex from './pages/store/StoreIndex';
 import StoreMap from './pages/store/StoreMap';
-import MenuIndex from './pages/menu/MenuIndex';
-import OnlineCheckPage from './pages/menu/OnlineCheckPage';
-import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
-import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
 
 
 
@@ -46,6 +42,12 @@ import Pay1 from './pages/shoppingCart/Pay1';
 import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
+
+//menu pages
+import MenuIndex from './pages/menu/MenuIndex';
+import OnlineCheckPage from './pages/menu/OnlineCheckPage';
+import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
+import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
 
 
 
@@ -167,6 +169,21 @@ function App() {
         <Route path="/store"><StoreMapCardWrap /></Route>
         
         <Route path="/" exact><Home /></Route>
+
+        {/* menu */}
+        <Route path="/onlinemenu">
+          <MenuIndex/>
+        </Route>
+        <Route path="/OnlineCheckPage">
+          <OnlineCheckPage/>
+        </Route>
+        <Route path="/OnlineCheckPage2">
+          <OnlineCheckPage2/>
+        </Route>
+        <Route path="/OnlineCheckPage3">
+          <OnlineCheckPage3/>
+        </Route>
+
 
       </Switch>
 
