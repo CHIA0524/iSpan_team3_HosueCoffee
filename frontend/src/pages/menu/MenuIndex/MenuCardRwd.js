@@ -28,7 +28,7 @@ const MenuCardRwd = (props) => {
                                 <div className="listRwdImg">
                                     <img 
                                         className=" listImg"
-                                        src={require('./img/'+ img1 +'.jpg')} 
+                                        src={require('../img/'+ img1 +'.jpg')} 
                                         alt=""
                                     />
                                 </div>

@@ -35,7 +35,7 @@ const MenuCard = (props) => {
                         }}>
                         <div>
                             <div className="imgdiv">
-                                <img src={require('./img/'+ img1 +'.jpg')} alt=""/>
+                                <img src={require('../img/'+ img1 +'.jpg')} alt=""/>
                             </div>
                             <div className="cardpa">
                                 <span>{mu.drink_name}</span>

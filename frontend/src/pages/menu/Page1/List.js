@@ -50,7 +50,7 @@ const List = (props) => {
                                 <div className="col-1">
                                     <img 
                                         className="listImg" 
-                                        src={require('../MenuIndex/img/'+ menuimg +'.jpg')} 
+                                        src={require('../img/'+ menuimg +'.jpg')} 
                                         alt="fake"
                                     />
                                 </div>
