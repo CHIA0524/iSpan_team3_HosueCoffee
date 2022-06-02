@@ -214,6 +214,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
   border-radius: 5px;
   padding: 10px;
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: space-around;
   transition: all .3s ease-in-out;
@@ -239,6 +240,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     p{
       margin: 0;
       font-size: 14px;

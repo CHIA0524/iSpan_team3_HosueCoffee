@@ -52,6 +52,9 @@ $MB_CardWrapHeight: calc(100vh - 150px);
   .storeOpenAside{
     left: $MB_CardWrapWidth
   }
+  .storeCardWrap{
+    border: 1px solid $main_color;
+  }
 }
 
 
