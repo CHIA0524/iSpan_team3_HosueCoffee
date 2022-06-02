@@ -91,13 +91,13 @@ function StoreMap(props){
   const onDragEnd = ()=>{
     setMarkerInfoCSS('-150px')
   }
-
+  
+  
   useEffect(() => {
     if (map) {
       map.panTo(center)
     }
   }, [center, map])
-    
   
   return(
     <div className="mapWrap">

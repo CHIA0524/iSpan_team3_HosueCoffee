@@ -19,6 +19,7 @@ function StoreMapCardWrap(){
 
   // 儲存資料庫資料
   const [ data, setData ] = useState([])
+  const [ filterData, setFilterData ] = useState([])
   const [ cityData, setCityData ] = useState([])
   // console.log(data);
 
@@ -30,6 +31,7 @@ function StoreMapCardWrap(){
     lat: 24.9725821,
     lng: 121.5297745,
   });
+  
   const [ zoom, setZoom ] = useState(18)
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
 
@@ -87,7 +89,7 @@ function StoreMapCardWrap(){
 
           if (GEOresults.status === "OK") {
             // console.log(GEOresults)
-            const updateLanLng = await fetch(
+            const updateLatLng = await fetch(
               `${process.env.REACT_APP_API_URL}/store/${results[i].id}/${GEOresults.results[0].geometry.location.lat}/${GEOresults.results[0].geometry.location.lng}`,
               {method: "PUT"})
             // console.log(await updateLanLng.json())
@@ -176,7 +178,7 @@ function StoreMapCardWrap(){
       }
     });
   },[]);
-
+  
   return(
     <>
       <div className="mapAndCardWrap">
@@ -186,6 +188,8 @@ function StoreMapCardWrap(){
           <StoreCardSearch
             data={data}
             setData={setData}
+            filterData={filterData}
+            setFilterData={setFilterData}
             cityData={cityData}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
@@ -195,7 +199,7 @@ function StoreMapCardWrap(){
           {/* 門市卡片 */}
           {isLoading ? spinner :
             <StoreCardWrap
-              data={data}
+              data={filterData.length === 0 ? data : filterData}
               setCenter={setCenter}
               setZoom={setZoom}
               setMarkerInfoCSS={setMarkerInfoCSS}
@@ -226,7 +230,7 @@ function StoreMapCardWrap(){
 
 
         <StoreMap
-          data={data}
+          data={filterData.length === 0 ? data : filterData}
           center={center}
           zoom={zoom}
           setCenter={setCenter}

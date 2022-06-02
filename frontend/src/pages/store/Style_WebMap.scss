@@ -90,7 +90,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
 .storeFilter{
   width: 200px;
   padding: 20px;
-  background: gray;
+  background: $main_color;
   border-radius: 5px;
   flex-direction: column;
   gap: 20px;
@@ -121,7 +121,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
 .storeFilter::after{
   content: '';
   border: 8px solid;
-  border-color: transparent transparent gray transparent;
+  border-color: transparent transparent $main_color transparent;
   display: block;
   position: absolute;
   top: -16px;

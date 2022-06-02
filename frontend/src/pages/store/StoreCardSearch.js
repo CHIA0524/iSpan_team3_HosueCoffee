@@ -8,14 +8,16 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { data, setData, cityData, setIsLoading, fetchFilterData } = props
+  const { data, setData, filterData, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS } = props
 
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
-  const [ cityList, setCityList ] = useState(['高雄市','新北市'])
+  const [ cityList, setCityList ] = useState([])
   const DOW = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
 
-      
+  useEffect(()=>{
+    setCityList(cityData)
+  }, [cityData])
 
   return(
     <div className="storeSearch">
@@ -43,32 +45,31 @@ function StoreCardSearch(props){
                     type="checkbox"
                     name={v}
                     value={v}
+                    checked={cityList.includes(v)}
                     onChange={(e) => {
-                      // const inState = cityList.includes(e.target.value)
-                      // if (inState) {
-                      //   const newLikeList = cityList.filter(
-                      //     (v, i) => v !== e.target.value
-                      //   )
-                      //   setCityList(newLikeList)
-                      //   console.log(cityList);
-                      // } else {
-                      //   const newLikeList = [...cityList, e.target.value]
-                      //   setCityList(newLikeList)
-                      //   console.log(cityList);
-                      // }
-                      let newarray =[]
+                      const inState = cityList.includes(e.target.value)
+                      let newFilter = cityList
+                      if (inState) {
+                        const newCityList = cityList.filter(
+                          (v, i) => v !== e.target.value
+                        )
+                        setCityList(newCityList)
+                        newFilter = newCityList
+                      } else {
+                        const newCityList = [...cityList, e.target.value]
+                        setCityList(newCityList)
+                        newFilter = newCityList
+                      }
+                      let newArray =[]
                       for (let i = 0; i < data.length; i++) {
                         for (let j = 0; j < data.length; j++) {
-                          if(data[j].city===cityList[i]){
-                            newarray.push(data[j])
+                          if(data[j].city === newFilter[i]){
+                            newArray.push(data[j])
                           }
                         }
                       }
-                      console.log(newarray);
-                      setData(newarray)
-
-
-
+                      setFilterData([...newArray])
+                      setIsLoading(true)
                     }}
                   />
                   {v}
@@ -101,18 +102,21 @@ function StoreCardSearch(props){
         className="storeSearchInput"
         name="search-for"
         placeholder="搜尋門市名稱或地址"
+        onClick={()=>{
+          setFilterCSS(false)
+        }}
         onChange={(e)=>{
+          setFilterData([])
           setSearchText(e.target.value)
           setIsLoading(true)
+          setMarkerInfoCSS('-150px')
           fetchFilterData(e.target.value)
-          props.setMarkerInfoCSS('-150px')
         }}
       >
       </input>
 
       {/*搜尋按鈕*/}
       <div onClick={(e)=>{
-        console.log(searchText)
         // setSearchText('')
         setIsLoading(true)
         fetchFilterData(searchText)
