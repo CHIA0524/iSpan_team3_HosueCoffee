@@ -1,23 +1,25 @@
 import React from 'react';
+import { useState, useEffect  } from 'react';
 import Counter from '../component/Counter';
 import Button from '../component/Button';
-
-
+import { AiFillDelete } from "react-icons/ai";
 
 
 const List = (props) => {
-
+    
     // TODO計數器資料傳遞
-    // let[Counter1, setCounter1] = useState('')
+    
     // 接收localStorage上的購物車資料
     const datas1 = JSON.parse(localStorage.getItem('gifts'))
+
     // 接收資料庫資料
-    const {datas} = props
+    const {datas} = props 
     // 計算datas的長度
     const datasmath=datas.length
     // 計算datas1的長度
     const datas1math=datas1.length
     // 建立一個空陣列
+
     var menuCart=[];
     
     for( let i=0; i<datasmath; i++){ 
@@ -34,16 +36,16 @@ const List = (props) => {
                 menuCart.push(newarr)
             } 
         }
-    } 
+    }  
     return(
         <> 
             {/* 印出資料 */}
             {menuCart.map((to,i)=>{
                 // 設定圖片路徑
                 const menuimg = (to.drink_name)
-
-                const total = datas1[i].drinkCounter
                 
+                const total = datas1[i].drinkCounter
+
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">
@@ -64,14 +66,13 @@ const List = (props) => {
                                         <div className="quantityText">
                                             數量：
                                         </div>
-                                        {/* <Counter /> */}
-                                        {datas1[i].drinkCounter}
+                                        <Counter Counter={total}/>
                                     </div>
                                 </div>
                                 <div className="delete1">
                                     <Button name="刪除" herf="/"/>
                                 <div className="trash">
-                                    <ion-icon name="trash-outline"></ion-icon>
+                                    <AiFillDelete />
                                 </div>
                                 </div>
                                 <div className="price">

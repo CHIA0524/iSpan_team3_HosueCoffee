@@ -22,26 +22,26 @@ const Popup = (props) => {
 
         for (let i = 0; i < gifts.length; i++) {
 
-            let item = gifts[i];
+            let item = gifts[i]
             
             if (item.id === gift.id) {
 
-            item.drinkCounter += gift.drinkCounter;
+                item.drinkCounter += gift.drinkCounter
 
             } else {
 
-            k = k + 1;
+                k = k + 1
 
             }
         }
 
         if (k === gifts.length) {
 
-            gifts.push(gift);
+            gifts.push(gift)
 
-    }
+        }
 
-        localStorage.setItem("gifts", JSON.stringify(gifts));
+        localStorage.setItem("gifts", JSON.stringify(gifts))
 
     }
 
