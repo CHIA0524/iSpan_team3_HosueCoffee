@@ -33,6 +33,9 @@ function StoreMap(props){
   })
 
   const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
+
+  console.log(data);
+
   const [ markerIndex, setMarkerIndex ] = useState(1)
 
   const thisData = data

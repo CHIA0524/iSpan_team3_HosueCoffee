@@ -8,31 +8,36 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { data, setData, filterData, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS } = props
+  const { data, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS } = props
 
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
-  const [ cityList, setCityList ] = useState([])
-  const DOW = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+  const [ filterInfoCSS, setFilterInfoCSS ] = useState(false)
 
+  // checkBox List
+  const [ cityList, setCityList ] = useState([])
+  const [ dowList, setDowList ] = useState([])
+
+  // checkBox Option
+  const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+
+  // 控管 cityList 進行 filter()
   useEffect(()=>{
-    console.log(cityList);
-    if (cityList.length === 0) {
+    if (cityList.length === 0 && dowList.length === 0) {
       setFilterData(data)
+      setFilterInfoCSS(false)
     } else {
       setFilterData(
-        data.filter(data =>
-          cityList.some(city => [data.city].includes(city))
+        data.filter(oneData =>
+          cityList.some(city => [oneData.city].includes(city)) || 
+          dowList.some(dow => [oneData.times].includes(dow+':營業'))
         )
       )
-      console.log(data.filter(data =>
-        cityList.some(city => [data.city].includes(city))
-      ));
-      console.log(data.filter(data =>
-        cityList.some(city => [data.city].includes(city))
-      ));
+      setFilterInfoCSS(true)
     }
-  }, [cityList, data, setFilterData])
+  }, [cityList, data, dowList, setFilterData])
+
+
 
   return(
     <div className="storeSearch">
@@ -77,11 +82,23 @@ function StoreCardSearch(props){
         </div>
         <div>
           <p>營業時間</p>
-          {DOW.map((v, i) => {
+          {dow.map((v, i) => {
             return(
               <li key={i}>
                 <label>
-                  <input type="checkbox"/>
+                  <input
+                    type="checkbox"
+                    value={v}
+                    checked={dowList.includes(v)}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setDowList([...dowList, e.target.value])
+                      } else {
+                        setDowList(dowList.filter(id => id !== e.target.value))
+                      }
+                      console.log(dowList);
+                    }}
+                  />
                   {v}
                 </label>
               </li>
@@ -91,7 +108,15 @@ function StoreCardSearch(props){
         <div>
           <p>服務項目</p>
         </div>
-
+        <div
+          className="storeFilterClear"
+          onClick={()=>{
+            setCityList([])
+            setDowList([])
+          }}
+        >
+          <p>清除</p>
+        </div>
       </div>
 
       {/*查詢框*/}

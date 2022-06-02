@@ -117,6 +117,20 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
       margin-right: 5px;
     }
   }
+  .storeFilterClear{
+    line-height: 30px;
+    background: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .storeFilterClear:hover{
+    background: $font_border_color;
+    p{
+      color: white;
+    }
+  }
 }
 .storeFilter::after{
   content: '';

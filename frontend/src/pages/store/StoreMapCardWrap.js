@@ -187,8 +187,6 @@ function StoreMapCardWrap(){
           {/* 搜尋框 */}
           <StoreCardSearch
             data={data}
-            setData={setData}
-            filterData={filterData}
             setFilterData={setFilterData}
             cityData={cityData}
             setIsLoading={setIsLoading}
@@ -199,7 +197,7 @@ function StoreMapCardWrap(){
           {/* 門市卡片 */}
           {isLoading ? spinner :
             <StoreCardWrap
-              data={filterData.length === 0 ? data : filterData}
+              data={filterData}
               setCenter={setCenter}
               setZoom={setZoom}
               setMarkerInfoCSS={setMarkerInfoCSS}
@@ -230,7 +228,7 @@ function StoreMapCardWrap(){
 
 
         <StoreMap
-          data={filterData.length === 0 ? data : filterData}
+          data={filterData}
           center={center}
           zoom={zoom}
           setCenter={setCenter}
