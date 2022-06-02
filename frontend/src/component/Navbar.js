@@ -100,7 +100,7 @@ function Navbar (props){
             </a>
 
               <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
-              {auth?<><a className="ms-3" onClick={loginOUT} href="#" >
+              {auth?<><a className="ms-3" onClick={loginOUT} href="/" >
               <IoExitOutline size={20} color={'#4C3410'}/>
             </a></>:
             <></>}
@@ -117,7 +117,7 @@ function Navbar (props){
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
           </div>
 
-          <li><a href="#/" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
+          <li><Link to="/" onClick={closeSideNavClick}>HOME<span>首頁</span></Link></li>
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
@@ -134,7 +134,7 @@ function Navbar (props){
             <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
           </div>
-          <li><a href="#/" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
+          <li><Link to="/" onClick={closeSideNavClick}>HOME<span>首頁</span></Link></li>
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>

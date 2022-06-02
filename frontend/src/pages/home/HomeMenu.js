@@ -8,16 +8,16 @@ import menu01 from './image/menu01.jpeg';
 
 function homeMenu(props){
     return(
-        <div class="menu">
+        <div className="menu">
                 <h1>MENU</h1>
-                <div class="allMenu">
-                    <div class="menuHover">
+                <div className="allMenu">
+                    <div className="menuHover">
                         <div class="menuCard">
                             <p>Americano</p>
                         </div>
                         <img src={menu03} alt="" />
                     </div>
-                    <div class="menuHover">
+                    <div className="menuHover">
                         <div class="menuCard">
                             <p>Cappuccino</p>
                         </div>
