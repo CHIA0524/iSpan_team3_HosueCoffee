@@ -1,0 +1,82 @@
+.proMain {
+  padding: 0px 50px;
+}
+
+.proRight {
+  width: fit-content;
+  margin: 3rem 0;
+}
+
+.proR {
+  border-left: 1px solid black;
+}
+.changePhoto {
+  z-index: -1;
+  align-items: center;
+  top: -70px;
+  text-align: center;
+  position: relative;
+  opacity: 1;
+  color: black;
+  font-size: larger;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+.memberPhotoE {
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  /* transition: 0.5s; */
+}
+.memberPhotoE img {
+  width: 100%;
+  opacity: 1;
+  transition: 0.5s;
+}
+.memberPhotoE:hover img {
+  opacity: 0.5;
+}
+.memberPhotoE:hover .changePhoto {
+  z-index: 1;
+}
+
+.memberNumber {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.memberEdit-m {
+  display: none;
+}
+
+.proList_m {
+  display: none;
+}
+
+.proRight input {
+  width: 200px;
+}
+
+@media screen and (max-width: 1000px) {
+  .proList_m {
+    display: block;
+  }
+  .col-3None {
+    display: none;
+  }
+
+  .memberEdit-w {
+    display: none;
+  }
+  .memberEdit-m {
+    display: block;
+    justify-content: center;
+  }
+  .proR {
+    border: 0;
+  }
+}

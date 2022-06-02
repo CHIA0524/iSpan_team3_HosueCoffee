@@ -1,0 +1,62 @@
+.mMain {
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.col-wn img {
+  width: 100%;
+}
+
+.wn_money {
+  display: inline-block;
+}
+
+.wn_TTM {
+  display: inline-block;
+  text-align: right;
+}
+
+.wnmain {
+  line-height: 2.5rem;
+}
+
+.odfin {
+  line-height: 3rem;
+}
+.proname {
+  text-align: right;
+}
+.wnimg {
+  width: 100%;
+}
+.payColor {
+  color: #a37025;
+}
+.pmR {
+  text-align: right;
+}
+.wnMoney .payColor {
+  font-size: 1.5rem;
+}
+.wnMbox {
+  border: 1px solid #333;
+  padding: 15px;
+}
+.wnMR {
+  text-align: right;
+}
+.mTop {
+  font-size: 1.2rem;
+}
+.mTopF {
+  font-size: 1.5rem;
+}
+.perInfo p {
+  line-height: 3rem;
+}
+.mDetail div {
+  line-height: 2.5rem;
+}
+.pTitle {
+  font-size: 1.5rem;
+}

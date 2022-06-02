@@ -1,0 +1,270 @@
+/* .content {
+  width: 80%;
+  display: flex;
+} */
+.main {
+  padding-bottom: 50px;
+  width: 80%;
+}
+.payInfoContent {
+  display: flex;
+  align-items: center;
+}
+.paytext {
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  /* margin-left: 10rem; */
+}
+.numberDesk {
+  display: flex;
+  flex-direction: row;
+}
+.addPNum {
+  margin-top: -5px;
+  width: 90px;
+  height: 35px;
+  border: 1px solid #e4d2a3;
+  border-radius: 10px;
+  display: flex;
+}
+
+.addPNum button {
+  line-height: 2rem;
+  text-align: center;
+  width: 30px;
+  background: transparent;
+  border-top: transparent;
+  border-bottom: transparent;
+}
+
+.addPNum div {
+  border: transparent;
+  width: 30px;
+  text-align: center;
+  line-height: 2rem;
+  height: 1rem;
+}
+.PNumL {
+  border-right: 1px solid #e4d2a3;
+  border-left: transparent;
+}
+.PNumR {
+  border-left: 1px solid #e4d2a3;
+  border-right: transparent;
+}
+
+.dInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.dInput input {
+  height: 2rem;
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid #e4d2a3;
+}
+.dInput button {
+  width: 2rem;
+  height: 2rem;
+  line-height: 1rem;
+  /* padding-top: 10px; */
+  background: #e4d2a3;
+  border: transparent;
+  color: white;
+}
+
+.countTotal {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  /* padding-bottom: 1rem; */
+}
+
+.btn-outline-secondary:hover {
+  background: white;
+  border: 1px solid #e4d2a3;
+  color: #e4d2a3;
+}
+
+.check {
+  display: flex;
+  justify-content: flex-end;
+}
+.check div {
+  margin-left: 1rem;
+}
+.addCartBtn {
+  margin-top: 4px;
+  width: 9rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+.btnWords {
+  display: flex;
+  justify-content: center;
+}
+
+.addCart a :hover {
+  background-color: #e4d2a3;
+}
+.packageImg {
+  width: 100%;
+}
+.mPayInfoContent {
+  display: none;
+}
+.pName {
+  margin-left: 1rem;
+}
+.money h4 {
+  text-align: right;
+}
+.addCartBtn:hover {
+  background-color: #e4d2a3;
+  color: white;
+}
+.dText {
+  margin-top: 2rem;
+}
+.btn1 {
+  /* margin-top: 1rem; */
+  border-radius: 5px;
+  color: white;
+  background-color: #4c3410;
+  border: 1px solid #4c3410;
+}
+.number {
+  display: none;
+}
+.deletBtn {
+  border: none;
+  background: none;
+  color: #4c3410;
+}
+.payTwo,
+.payThree {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .numberDesk {
+    display: none;
+  }
+  .mPayInfoContent {
+    display: flex;
+    justify-content: center;
+  }
+  .check {
+    display: flex;
+    justify-content: space-between;
+  }
+  .check a {
+    margin-left: 0;
+  }
+  .payInfo {
+    display: none;
+  }
+  .box a {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    margin-right: -0.5rem;
+  }
+  .mPayInfoContent .box {
+    margin: 3rem auto 0;
+    width: 100%;
+    border: 1px solid rgb(94, 92, 92);
+    /* border-radius: 10px; */
+  }
+  .boxContent {
+    padding: 0 1rem 1rem;
+  }
+  .imgPart {
+    display: flex;
+    flex-direction: row;
+  }
+  .imgPart img {
+    width: 50%;
+    margin-right: 1rem;
+  }
+  .number {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .X {
+    margin-top: 1rem;
+  }
+  .mAddNum {
+    /* width: 50%; */
+  }
+  .mAddNum {
+    display: flex;
+  }
+  .mAddNum .buttonNum {
+    width: 1.5rem;
+    border-radius: 5px;
+    color: white;
+
+    background-color: #4c3410;
+    /* border: 1px solid #e4d2a3; */
+  }
+
+  .mAddNum .buttonNum:hover {
+    background-color: #e4d2a3;
+    border: transparent;
+  }
+
+  .mAddNum div {
+    border: 0;
+    width: 12rem;
+    text-align: center;
+    border: transparent;
+  }
+  .dInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dInput input {
+    height: 2rem;
+    width: 28rem;
+    border-radius: 5px;
+    border: 1px solid #e4d2a3;
+  }
+  .dInput button {
+    width: 2rem;
+    height: 2rem;
+    line-height: 1rem;
+    padding-top: 1px;
+    background: #e4d2a3;
+    border: transparent;
+    color: white;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mAddNum input {
+    width: 5rem;
+  }
+  .dInput input {
+    height: 2rem;
+    width: 13rem;
+    border-radius: 5px;
+    border: 1px solid #e4d2a3;
+  }
+  .mPName p {
+    font-size: 15px;
+  }
+  .mAddNum {
+    width: 50%;
+  }
+}

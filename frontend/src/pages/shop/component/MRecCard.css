@@ -1,0 +1,67 @@
+.MRText {
+  font-size: 1.5rem;
+  margin-left: 8rem;
+  margin-bottom: 2rem;
+}
+/* Slider */
+.slick-loading .slick-list {
+  background: transparent;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+
+  position: absolute;
+  top: 50%;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  cursor: pointer;
+
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 40px;
+  line-height: 1;
+
+  opacity: 0.75;
+  color: #e4d2a3;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 
+ .slick-prev {
+  padding-right: 1rem;
+} */
+
+.slick-next:before {
+  padding-left: 0.5rem;
+}
+
+.slick-dots {
+  display: none;
+}
+.slick-dots li {
+  display: none;
+}
+.mMoreinfo {
+  display: flex;
+  justify-content: center;
+}

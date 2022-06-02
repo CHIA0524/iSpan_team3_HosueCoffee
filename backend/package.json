@@ -1,0 +1,29 @@
+{
+  "name": "backend-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
+    "ejs": "~2.6.1",
+    "envdot": "^0.0.3",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.4",
+
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+
+    "react-multi-carousel": "^2.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+
+  }
+}

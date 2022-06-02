@@ -1,16 +1,12 @@
-import { BrowserRouter as Router, Route, Link, Switch, useRouteMatch } from 'react-router-dom';
-import React from 'react';
-import './mapStyle.scss';
+import { BrowserRouter as Link } from 'react-router-dom'
+import React from 'react'
 
-import logo from '../../component/img/logo.svg';
-import img01 from './img/storeIndex-img01.png';
-import img02 from './img/storeIndex-img02.png';
-
-import StoreMap from './StoreMap';
+import logo from '../../component/img/logo.svg'
+import img01 from './img/storeIndex-img01.png'
+import img02 from './img/storeIndex-img02.png'
 
 function StoreIndex(props){
 
-  let { path, url } = useRouteMatch();
 
   return(
     <>
@@ -28,11 +24,11 @@ function StoreIndex(props){
           </div>
           <div>
             <img src={img02} alt=""></img>
-            <Link to={"/store/mapTest"}>門市服務 測試資料</Link>
+            <Link to={"/store/maptest"}>門市服務 測試資料</Link>
           </div>
         </div>
     </>
-  );
+  )
 }
 
 export default StoreIndex

@@ -1,0 +1,92 @@
+.FavCard {
+  border: 1px #e4d2a3 solid;
+  border-radius: 20px;
+  margin: 10px;
+  width: 20rem;
+  padding: 2rem;
+}
+.F_package {
+  height: 12rem;
+}
+.F_package_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cardName {
+  padding-top: 1rem;
+}
+
+.package a :hover {
+  opacity: 0.6;
+}
+
+.MFcardPrice {
+  padding-bottom: 1rem;
+}
+
+.package a :hover {
+  opacity: 0.6;
+}
+
+.addMNum {
+  margin-top: -5px;
+  width: fit-content;
+  height: 40px;
+  /* border: 1px solid #e4d2a3; */
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.addMNum div {
+  line-height: 2.5rem;
+  text-align: center;
+  width: 2.8rem;
+  height: 39px;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+}
+.addMNum .addMNumDV {
+  width: 4rem;
+}
+.addMNum input {
+  border: transparent;
+  height: 15px;
+  outline: none;
+  width: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.MNumL {
+  border-radius: 10px;
+  border: 2px solid #e4d2a3;
+  background: #e4d2a3;
+}
+.MNumR {
+  border-radius: 10px;
+  border: 2px solid #e4d2a3;
+  background: #e4d2a3;
+}
+.MNumL:hover {
+  background-color: #e4d2a3;
+  border: 2px solid black;
+}
+.MNumR:hover {
+  background-color: #e4d2a3;
+  border: 2px solid black;
+}
+
+.cardBuy {
+  margin-top: -5px;
+  height: 40px;
+  width: 5rem;
+  float: right;
+  border: 2px solid #e4d2a3;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e4d2a3;
+}

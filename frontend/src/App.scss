@@ -64,6 +64,8 @@ $btn_font_size: 16px;
 
 .coffeeDarkBtn, .coffeeLightBtn{
   height: $btn_height;
+  display: flex;
+  align-items: center;
   padding: 3px 10px;
   color: white;
   font-size: $btn_font_size;
@@ -89,4 +91,18 @@ $btn_font_size: 16px;
   color: $navbar_font_color;
   border: 4px solid $navbar_font_color;
   background: white;
+}
+
+/* -------- input checkbox radio -------- */
+$user_input_width: 330px;
+$user_input_height: 40px;
+
+.adminInput{
+  width: $user_input_width;
+  height: $user_input_height;
+  padding: 3px 1.5rem;
+  border: 2px solid $main_color;
+  border-radius: 15px;
+  box-sizing: border-box;
+  outline: none;
 }
