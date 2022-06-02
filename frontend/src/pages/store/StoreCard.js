@@ -38,7 +38,7 @@ function StoreCard(props){
           let num = i + 1;
           let imgPath = './img/' + num + '.jpg'
           return(
-            <div className="cardWrap" key={i} onClick={sentCardIndex(i)}>
+            <div className="storeCardWrap" key={i} onClick={sentCardIndex(i)}>
               <div>
                 <img src={require(`${imgPath}`)} alt="test"></img>
               </div>
