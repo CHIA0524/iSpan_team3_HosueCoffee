@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
-import menu04 from './image/menu04.jpeg';
+import menu03 from './image/menu03.jpeg';
 import menu02 from './image/menu02.jpeg';
 import menu01 from './image/menu01.jpeg';
 
@@ -15,7 +15,7 @@ function homeMenu(props){
                         <div class="menuCard">
                             <p>Americano</p>
                         </div>
-                        <img src={menu04} alt="" />
+                        <img src={menu03} alt="" />
                     </div>
                     <div class="menuHover">
                         <div class="menuCard">
