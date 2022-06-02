@@ -13,7 +13,7 @@ function StoreCard(props){
     (index)=>()=>{
       props.setDetailIndex(index)
       props.setCardDetailCss(`cardDetailOpenCss`)
-    }
+    }, [props]
   )
 
   // 傳遞被點擊之門市卡 index 至父元素

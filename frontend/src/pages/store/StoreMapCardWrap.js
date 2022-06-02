@@ -32,7 +32,7 @@ function StoreMapCardWrap(){
     lng: 121.5297745,
   });
   
-  const [ zoom, setZoom ] = useState(18)
+  const [ zoom, setZoom ] = useState()
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
 
   // 側欄使用
@@ -150,12 +150,13 @@ function StoreMapCardWrap(){
     </div>
   )
 
+  
   useEffect(() => {
     setIsLoading(true)
     // 向伺服器要求get資料
     fetchData()
   }, [])
-
+  
   // 自動於x秒後關掉指示動畫
   useEffect(() => {
     // 如果是true(有呈現的情況)
@@ -163,6 +164,7 @@ function StoreMapCardWrap(){
       // 關起載入指示動畫(延後1.5秒關閉)
       setTimeout(() => {
         setIsLoading(false)
+        setZoom(18)
       }, 1500)
     }
   }, [isLoading])
