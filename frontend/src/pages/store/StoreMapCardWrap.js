@@ -72,7 +72,7 @@ function StoreMapCardWrap(){
       // 檢查地址資料是否有經緯度
       for (let i = 0; i < results.length; i++) {
 
-        if(results[i].lat === null || results[i].lng === null || results[i].lat === '' || results[i].lng === ''){
+        if (results[i].lat === null || results[i].lng === null || results[i].lat === '' || results[i].lng === '') {
 
           let address = results[i].city + results[i].area + results[i].address
 
@@ -169,11 +169,11 @@ function StoreMapCardWrap(){
 
   // 監測視窗寬度
   useEffect(()=>{ 
-    window.addEventListener('resize',()=>{
+    window.addEventListener('resize',() => {
       setIconRotate('rotate(0deg)')
       if (window.innerWidth <= 500) {
         setAsideCSS('-300px')
-      }else{
+      } else {
         setAsideCSS('-375px')
       }
     });
@@ -208,15 +208,15 @@ function StoreMapCardWrap(){
           <div
             className='storeOpenAside coffeeLightBtn'
             onClick={()=>{
-              if (asideCSS === '0px'){
+              if (asideCSS === '0px') {
                 // console.log(window.innerWidth);
                 if (window.innerWidth <= 500) {
                   setAsideCSS('-300px')
-                }else{
+                } else {
                   setAsideCSS('-375px')
                 }
                 setIconRotate('rotate(0deg)')
-              }else{
+              } else {
                 setAsideCSS('0px')
                 setIconRotate('rotate(180deg)')
               }

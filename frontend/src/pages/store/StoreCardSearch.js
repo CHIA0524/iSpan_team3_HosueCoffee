@@ -16,17 +16,32 @@ function StoreCardSearch(props){
   const DOW = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
 
   useEffect(()=>{
-    setCityList(cityData)
-  }, [cityData])
+    console.log(cityList);
+    if (cityList.length === 0) {
+      setFilterData(data)
+    } else {
+      setFilterData(
+        data.filter(data =>
+          cityList.some(city => [data.city].includes(city))
+        )
+      )
+      console.log(data.filter(data =>
+        cityList.some(city => [data.city].includes(city))
+      ));
+      console.log(data.filter(data =>
+        cityList.some(city => [data.city].includes(city))
+      ));
+    }
+  }, [cityList, data, setFilterData])
 
   return(
     <div className="storeSearch">
 
       {/*篩選清單開關*/}
       <div onClick={(e)=>{
-        if(filterCSS){
+        if (filterCSS) {
           setFilterCSS(false)
-        }else{
+        } else {
           setFilterCSS(true)
         }
       }}>
@@ -37,7 +52,7 @@ function StoreCardSearch(props){
       <div className="storeFilter" style={{display: filterCSS ? 'flex' : 'none'}}>
         <div>
           <p>縣市</p>
-          {cityData.map((v, i)=>{
+          {cityData.map((v, i) => {
             return(
               <li key={i}>
                 <label>
@@ -47,29 +62,11 @@ function StoreCardSearch(props){
                     value={v}
                     checked={cityList.includes(v)}
                     onChange={(e) => {
-                      const inState = cityList.includes(e.target.value)
-                      let newFilter = cityList
-                      if (inState) {
-                        const newCityList = cityList.filter(
-                          (v, i) => v !== e.target.value
-                        )
-                        setCityList(newCityList)
-                        newFilter = newCityList
+                      if (e.target.checked) {
+                        setCityList([...cityList, e.target.value])
                       } else {
-                        const newCityList = [...cityList, e.target.value]
-                        setCityList(newCityList)
-                        newFilter = newCityList
+                        setCityList(cityList.filter(id => id !== e.target.value))
                       }
-                      let newArray =[]
-                      for (let i = 0; i < data.length; i++) {
-                        for (let j = 0; j < data.length; j++) {
-                          if(data[j].city === newFilter[i]){
-                            newArray.push(data[j])
-                          }
-                        }
-                      }
-                      setFilterData([...newArray])
-                      setIsLoading(true)
                     }}
                   />
                   {v}
@@ -80,7 +77,7 @@ function StoreCardSearch(props){
         </div>
         <div>
           <p>營業時間</p>
-          {DOW.map((v, i)=>{
+          {DOW.map((v, i) => {
             return(
               <li key={i}>
                 <label>
@@ -102,11 +99,10 @@ function StoreCardSearch(props){
         className="storeSearchInput"
         name="search-for"
         placeholder="搜尋門市名稱或地址"
-        onClick={()=>{
+        onClick={() => {
           setFilterCSS(false)
         }}
-        onChange={(e)=>{
-          setFilterData([])
+        onChange={(e) => {
           setSearchText(e.target.value)
           setIsLoading(true)
           setMarkerInfoCSS('-150px')
@@ -116,7 +112,7 @@ function StoreCardSearch(props){
       </input>
 
       {/*搜尋按鈕*/}
-      <div onClick={(e)=>{
+      <div onClick={(e) => {
         // setSearchText('')
         setIsLoading(true)
         fetchFilterData(searchText)

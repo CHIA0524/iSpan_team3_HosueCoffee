@@ -34,7 +34,7 @@ function StoreCard(props){
         ? 
         <div className='d-flex justify-content-center align-items-center' style={{height: '300px'}}>無搜尋結果</div> 
         :
-        data.map((store,i)=>{
+        data.map((store,i) => {
           let num = i + 1;
           let imgPath = './img/' + num + '.jpg'
           return(
