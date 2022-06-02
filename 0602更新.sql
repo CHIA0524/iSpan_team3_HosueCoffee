@@ -245,6 +245,8 @@ VALUES('210001','200001','1'),
 ('210003','200008','2'),
 ('210003','200009','2');
 
+select*from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=210001;
+--  join products    on order_detail.fk_p_id=products.p_id
 -- 收藏商品
 CREATE TABLE `member_favorite`(
 `MF_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -275,7 +277,7 @@ VALUES
 ('100003','200005'),
 ('100003','200011');
 select * from member_favorite;
-DELETE FROM member_favorite where MF_id=120001;
+-- DELETE FROM member_favorite where MF_id=120001;
 --------------------------------------------------------------------------------------------------------------------------------
 -- 店家服務圖示
 CREATE TABLE `store_serve_icon`(
