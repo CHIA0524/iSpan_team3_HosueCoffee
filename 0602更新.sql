@@ -245,8 +245,37 @@ VALUES('210001','200001','1'),
 ('210003','200008','2'),
 ('210003','200009','2');
 
+-- 收藏商品
+CREATE TABLE `member_favorite`(
+`MF_id` INT PRIMARY KEY AUTO_INCREMENT,
+`fk_m_id` INT NOT NULL,
+`fk_p_id` INT NOT NULL,
+foreign KEY (fk_m_id) references members(member_id),
+foreign KEY (fk_p_id) references products(p_id)
+);
 
+ALTER TABLE `member_favorite` AUTO_INCREMENT=120001;
 
+INSERT INTO `member_favorite`(`fk_m_id`,`fk_p_id`)
+VALUES
+('100001','200001'),
+('100001','200003'),
+('100001','200002'),
+('100001','200009'),
+('100001','200012'),
+('100001','200007'),
+('100002','200007'),
+('100002','200008'),
+('100002','200009'),
+('100002','200003'),
+('100002','200002'),
+('100003','200009'),
+('100003','200002'),
+('100003','200004'),
+('100003','200005'),
+('100003','200011');
+select * from member_favorite;
+DELETE FROM member_favorite where MF_id=120001;
 --------------------------------------------------------------------------------------------------------------------------------
 -- 店家服務圖示
 CREATE TABLE `store_serve_icon`(

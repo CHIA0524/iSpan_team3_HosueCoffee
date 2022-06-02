@@ -108,5 +108,11 @@ router.get('/Favfavorite',async (req,res,next)=>{
   res.json(data);
   
 })
+router.get('/Favfavorite/DF',async (req,res,next)=>{
+  console.log(req.query.MF_id);
+  const sql = `DELETE FROM member_favorite where MF_id=? `
+  const [data] = await db.query(sql,[req.query.MF_id,]);
+  
+})
 
 module.exports = router;

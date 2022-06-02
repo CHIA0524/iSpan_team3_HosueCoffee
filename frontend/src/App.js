@@ -96,7 +96,7 @@ function App() {
           <ProductDetail />
         </Route>
         <Route path="/shop">
-          <ShopIndex />
+          <ShopIndex auth={auth}/>
         
         </Route>
         <Route path="/" exact>

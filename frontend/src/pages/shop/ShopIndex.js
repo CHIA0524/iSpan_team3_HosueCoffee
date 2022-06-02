@@ -7,7 +7,13 @@ import Aside from './component/Aside';
 import Popup from './component/Popup';
 
 
-function ShopIndex(){
+function ShopIndex(props){
+  // const thismemberid=localStorage.getItem(true)con
+ const {auth}=props
+ 
+  // console.log("判斷有沒有登入")
+  // console.log(thismemberid)
+  // console.log("判斷有沒有登入")
   //抓到點擊商品的id
 const [productId, setProductId] = useState(2)
 console.log(productId)
@@ -56,7 +62,7 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss} auth={auth}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} setcss={setcss} css={css} />
                                

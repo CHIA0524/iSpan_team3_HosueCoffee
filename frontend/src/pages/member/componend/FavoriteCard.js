@@ -13,12 +13,15 @@ function FavoriteCard(){
     useEffect(()=>{
         fetchData();
     },[])
-    
+   
 
     return(
         <>
             {datas.length> 0 && datas.map((FavoriteData,i)=>{
-                const{p_name,p_price}=FavoriteData;
+                const{MF_id,p_id,p_name,p_price}=FavoriteData;
+               
+                    
+                
                 return(
             <div className="card FavCard mb-4">
                     <div className="package F_package">
@@ -29,23 +32,40 @@ function FavoriteCard(){
                             <p>{p_name}</p>
                         </div>
                         <div>
-                            <a href=""><img src={require('../img/heart.png')} alt=""></img></a>
+                            <img onClick={async()=>{
+                                if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
+                                    window.alert("已刪除此收藏")
+                                    window.location.reload()
+                                    // console.log(process.env.REACT_APP_API_URL);
+                                    const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
+                                }else{
+                                    alert("取消刪除")
+                                }
+                            }} src={require('../img/heart.png')} alt=""></img>
                         </div>
                     </div>
                     <p className="MFcardPrice">{p_price}</p>
                     <div className="cardFoot">
                         <div className="addMNum" >
-                            <div className="MNumL" onClick={()=>{if(total>1){
-                                settotal(total-1);
+                            <div className="MNumL" onClick={()=>{if(Number(document.getElementById(p_name).innerHTML)>1){
+                               document.getElementById(p_name).innerHTML=Number(document.getElementById(p_name).innerHTML)-1
                             }}}>-</div>
-                            {/* <div className="MNumL" >-</div> */}
-                            <div className="addMNumDV"><input className="addMNumV"  value={total} type="text" readonly onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input></div>
-                            {/* <div className="MNumR" >+</div> */}
+                           
+                            <div id={p_name}>1</div>
+                            
                             <div className="MNumR" onClick={()=>{
-                                settotal(total+1);
+                                console.log()
+                                document.getElementById(p_name).innerHTML=Number(document.getElementById(p_name).innerHTML)+1
                             }}>+</div>
                         </div>  
-                        <button className="cardBuy">選購</button>
+                        <button type='button' className="cardBuy" 
+                        onClick={()=>{
+                            const pNum=Number(document.getElementById(p_name).innerHTML)
+                            alert("商品編號:"+p_id+" 商品數量:"+pNum);
+                            console.log("商品編號:"+p_id+" 商品數量:"+pNum);
+                            document.getElementById(p_name).innerHTML=1;
+                        }}
+                        >選購</button>
                     </div>
                 </div>
                 )})}

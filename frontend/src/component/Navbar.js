@@ -125,7 +125,8 @@ function Navbar (props){
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           {/* 以上為已登入狀態 */}
           </> 
-          :<>
+          :
+          <>
           {/* 以下為登出狀態 */}
           <div className="memberDetail" style={{height: '0px',display:"none"}} >
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>

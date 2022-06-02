@@ -9,10 +9,10 @@ import ProductDetail from '../ProductDetail';
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId} = props;
+    const {datas, setcss, setProductId,auth} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
    const [ cart, setcart] =useState([]);
-   
+  
    const heartClick = ()=>{
      const a= document.querySelector('.heart').check
      console.log(a)
@@ -54,9 +54,18 @@ function ProductCard(props){
                       </div>
                       <div className="pIcon">
                           
-                           <button className="heart" onClick={heartClick}> 
+          
+                           {auth?
+                           <><button className="heart" onClick={heartClick}> 
                            <AiOutlineHeart className="heart2" size={24}
-                           /><AiFillHeart className="heart3" size={24} color="red"/></button>
+                           /><AiFillHeart className="heart3" size={24} color="red"/></button></>
+                           :
+                           <>
+                             <div>123</div>
+                           </>}
+                           {/* <button className="heart" onClick={heartClick}> 
+                           <AiOutlineHeart className="heart2" size={24}
+                           /><AiFillHeart className="heart3" size={24} color="red"/></button> */}
                        
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
