@@ -22,7 +22,7 @@ import Footer from './component/Footer';
 import ScrollToTop from './component/ScrollToTop';
 
 // pages
-import Home from './pages/home/Home';
+
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // member pages
