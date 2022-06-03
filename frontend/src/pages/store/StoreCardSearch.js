@@ -8,7 +8,7 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { data, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS } = props
+  const { data, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss } = props
 
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
@@ -59,21 +59,23 @@ function StoreCardSearch(props){
           <p>縣市</p>
           {cityData.map((v, i) => {
             return(
-              <li key={i}>
-                <label>
-                  <input
-                    type="checkbox"
-                    name={v}
-                    value={v}
-                    checked={cityList.includes(v)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setCityList([...cityList, e.target.value])
-                      } else {
-                        setCityList(cityList.filter(id => id !== e.target.value))
-                      }
-                    }}
-                  />
+              <li key={i} style={{position: 'relative'}}>
+                <input
+                  type="checkbox"
+                  name={v}
+                  id={v}
+                  value={v}
+                  checked={cityList.includes(v)}
+                  onChange={(e) => {
+                    setCardDetailCss('')
+                    if (e.target.checked) {
+                      setCityList([...cityList, e.target.value])
+                    } else {
+                      setCityList(cityList.filter(id => id !== e.target.value))
+                    }
+                  }}
+                />
+                <label for={v}>
                   {v}
                 </label>
               </li>
@@ -84,21 +86,23 @@ function StoreCardSearch(props){
           <p>營業時間</p>
           {dow.map((v, i) => {
             return(
-              <li key={i}>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={v}
-                    checked={dowList.includes(v)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setDowList([...dowList, e.target.value])
-                      } else {
-                        setDowList(dowList.filter(id => id !== e.target.value))
-                      }
-                      console.log(dowList);
-                    }}
-                  />
+              <li key={i} style={{position: 'relative'}}>
+                <input
+                  type="checkbox"
+                  name={v}
+                  id={v}
+                  value={v}
+                  checked={dowList.includes(v)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setDowList([...dowList, e.target.value])
+                    } else {
+                      setDowList(dowList.filter(id => id !== e.target.value))
+                    }
+                    console.log(dowList);
+                  }}
+                />
+                <label for={v}>
                   {v}
                 </label>
               </li>

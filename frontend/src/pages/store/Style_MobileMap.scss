@@ -46,7 +46,7 @@ $MB_CardWrapHeight: calc(100vh - 150px);
 }
 
 @media screen and (max-width: 500px) {
-  .mapSpinner, .cardGroupWrap, .storeWrap, .cardDetail, .storeSearch{
+  .storeSpinner, .cardGroupWrap, .storeWrap, .cardDetail, .storeSearch{
     width: $MB_CardWrapWidth;
   }
   .storeOpenAside{

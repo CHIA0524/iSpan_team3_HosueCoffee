@@ -38,6 +38,8 @@ function StoreMapCardWrap(){
   // 側欄使用
   const [ asideCSS, setAsideCSS ] = useState('0px')
   const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
+  // 開啟詳細選單(透過StoreCard傳送className)
+  const [cardDetailCss, setCardDetailCss] = useState()
 
   const filterArea = (results) => {
     let filterResults = []
@@ -194,6 +196,7 @@ function StoreMapCardWrap(){
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
             setMarkerInfoCSS={setMarkerInfoCSS}
+            setCardDetailCss={setCardDetailCss}
           />
           
           {/* 門市卡片 */}
@@ -203,6 +206,8 @@ function StoreMapCardWrap(){
               setCenter={setCenter}
               setZoom={setZoom}
               setMarkerInfoCSS={setMarkerInfoCSS}
+              cardDetailCss={cardDetailCss}
+              setCardDetailCss={setCardDetailCss}
             />
           }
           <div

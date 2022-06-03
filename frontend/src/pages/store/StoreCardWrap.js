@@ -7,12 +7,10 @@ import StoreCardDetail from './StoreCardDetail'
 
 function StoreCardWrap(props){
 
-  const { data, setCenter, setZoom, setMarkerInfoCSS } = props
+  const { data, setCenter, setZoom, setMarkerInfoCSS, cardDetailCss, setCardDetailCss } = props
   const [ detailIndex, setDetailIndex ] = useState(2)
   const dataDetail = data[detailIndex]
 
-  // 開啟詳細選單(透過StoreCard傳送className)
-  const [cardDetailCss, setCardDetailCss] = useState()
 
   return(
     <div className="cardGroupWrap">

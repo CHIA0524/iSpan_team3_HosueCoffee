@@ -94,15 +94,91 @@ $btn_font_size: 16px;
 }
 
 /* -------- input checkbox radio -------- */
-$user_input_width: 330px;
-$user_input_height: 40px;
-
-.adminInput{
-  width: $user_input_width;
-  height: $user_input_height;
-  padding: 3px 1.5rem;
+input{
+  padding: 10px 1rem;
   border: 2px solid $main_color;
   border-radius: 15px;
   box-sizing: border-box;
   outline: none;
+  transition: all .2s ease-in-out;
+}
+input:focus{
+  box-shadow: 0px 0px 8px $main_color;
+}
+
+/* Basic styles */
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+label {
+  position: relative;
+  display: inline-block;
+  line-height: 1.5em;
+  padding: 0 0 0 1.5em;
+  cursor: pointer;
+}
+label::before,
+label::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+label::before {
+  content: " ";
+  border: 2px solid $font_border_color;
+  border-radius: 20%;
+}
+/* Checkbox */
+input[type="checkbox"] + label::after {
+  content: "\2714";
+  color: $font_border_color;
+  line-height: 1.5;
+  text-align: center;
+}
+/* Radio */
+input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+input[type=radio] + label::after {
+  content: " ";
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border: 5px solid $nav_item_inactive;
+  border-radius: 50%;
+}
+/* :checked */
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+  background: #fff;
+  border-color: #fff;
+}
+input[type="checkbox"] + label::after,
+input[type=radio] + label::after {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+input[type="checkbox"]:checked + label::after,
+input[type=radio]:checked + label::after {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+/* Transition */
+label::before,
+label::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
 }

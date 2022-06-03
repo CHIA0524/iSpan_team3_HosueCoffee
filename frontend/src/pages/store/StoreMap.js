@@ -141,7 +141,7 @@ function StoreMap(props){
           <p>{data[markerIndex].phone}</p>
         </>
         : ''}
-        <Link to="/store" className='coffeeDarkBtn'>享喝咖啡</Link>
+        <Link to="/shop" className='coffeeDarkBtn'>享喝咖啡</Link>
       </div>
     </div>
   )
