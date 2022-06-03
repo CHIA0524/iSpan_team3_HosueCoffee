@@ -7,8 +7,9 @@ import Aside from './component/Aside';
 import Popup from './component/Popup';
 
 
-function ShopIndex(){
+function ShopIndex(props){
   //抓到點擊商品的id
+const{ auth } =props
 const [productId, setProductId] = useState(2)
 console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
@@ -66,7 +67,7 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                

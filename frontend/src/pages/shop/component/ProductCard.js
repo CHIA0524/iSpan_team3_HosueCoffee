@@ -6,26 +6,33 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import ProductDetail from '../ProductDetail';
+import { BiColorFill } from 'react-icons/bi';
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId} = props;
+    const {datas, setcss, setProductId, auth} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
    const [ cart, setcart] =useState([]);
+   const [ liked, setLiked] =useState([true]);
+   const memeId=localStorage.getItem(true)
    
-   const heartClick = ()=>{
-     const a= document.querySelector('.heart').check
-     console.log(a)
-     if(a==true){
-       document.querySelector('.heart3').style.display="block"
-       document.querySelector('.heart2').style.display="none"
+  //  const heatClick = ()=>{
+  //   const a=document.querySelector('.sameAddress').checked
+   
+  //   console.log(a)
+  //   if(a==true){
+  //   document.querySelector('.receiverInfo').style.display="none"
+  //   setRName(name)
 
-     }else{
-      document.querySelector('.heart2').style.display="block"
-      document.querySelector('.heart3').style.display="none"
+  // const heartC=()=>{
+  //   if(auth == true){
+  //      alert("已加入收藏")
+  //      }else{
+  //      alert("請登入")
+  //   }
+//}
 
-     }
-    }   
+
 
     
     return(
@@ -53,11 +60,22 @@ function ProductCard(props){
                           <p className="pText">{pCard.p_name}</p>
                       </div>
                       <div className="pIcon">
-                          
-                           <button className="heart" onClick={heartClick}> 
-                           <AiOutlineHeart className="heart2" size={24}
-                           /><AiFillHeart className="heart3" size={24} color="red"/></button>
+                          {/* 收藏 */}
+                          {auth? 
+                          <> <button className="heart" onClick={()=>{
+                             alert("成功加入收藏")  }}> 
+                           <AiFillHeart className="heart3" size={24}       
+                             
+                           /></button>
+                           </>
+                           :
+                           <> <button className="heart" > 
+                           <AiFillHeart className="heart3" size={24}    onClick={()=>{
+                             alert("登入方可收藏") }  }   
+                           /></button></>}
+                           
                        
+                           {/* 快速加入購物車 */}
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
                              //因id從200001開始，故需扣除，才能使popup抓到
