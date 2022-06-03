@@ -15,22 +15,35 @@ function ProductCard(props){
    const [ cart, setcart] =useState([]);
    const [ liked, setLiked] =useState([true]);
    const memeId=localStorage.getItem(true)
-   
-  //  const heatClick = ()=>{
-  //   const a=document.querySelector('.sameAddress').checked
-   
-  //   console.log(a)
-  //   if(a==true){
-  //   document.querySelector('.receiverInfo').style.display="none"
-  //   setRName(name)
+  
+   //^設定收藏時的提示訊息^
+   const [mailMessage, setMailMessage] = useState("");
+    //設定收藏的value
+  const [whishList,setWishList]= useState()
 
-  // const heartC=()=>{
-  //   if(auth == true){
-  //      alert("已加入收藏")
-  //      }else{
-  //      alert("請登入")
-  //   }
-//}
+
+  //  確認是否已收藏
+   const ConfirmedWish=async ()=>{
+
+     //^取得資料庫使否有這筆EMAIL，若有回傳1，沒有回傳0^
+  
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${whishList}`);
+        console.log(process.env.REACT_APP_API_URL);
+        const results = await response.json();
+        if(results.total === 0 ){
+        //^如果接收到0^
+            setMailMessage("信箱可使用");
+            //^提示訊息顯示"信箱可使用"^
+            document.querySelector('.CKNmail').style.color="#e4d2a3"
+            //修改網頁版提示訊息顏色為正常顏色
+            document.querySelector('.CKNmail_m').style.color="#4C3410"
+            //修改手機版提示訊息顏色為正常顏色
+        }else{
+        //^如果接收到1^
+            setMailMessage("信箱已被註冊");
+            //^提示訊息顯示"信箱已被註冊"^
+        }
+}
 
 
 
@@ -63,7 +76,7 @@ function ProductCard(props){
                           {/* 收藏 */}
                           {auth? 
                           <> <button className="heart" onClick={()=>{
-                             alert("成功加入收藏")  }}> 
+                             alert("成功加入收藏") }} > 
                            <AiFillHeart className="heart3" size={24}       
                              
                            /></button>
