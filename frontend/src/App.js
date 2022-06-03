@@ -1,9 +1,17 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.scss';
-
-import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, } from 'react-router-dom';
 import { useState } from 'react';
+import './App.scss';
+import logo from './logo.svg';
+
+// pages
+import Home from './pages/home/Home';
+import StoreIndex from './pages/store/StoreIndex';
+import StoreMap from './pages/store/StoreMap';
+import MenuIndex from './pages/menu/MenuIndex';
+import OnlineCheckPage from './pages/menu/OnlineCheckPage';
+import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
+import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
+
 
 
 // components
@@ -14,7 +22,7 @@ import Footer from './component/Footer';
 import ScrollToTop from './component/ScrollToTop';
 
 // pages
-import Home from './pages/home/Home';
+
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // member pages

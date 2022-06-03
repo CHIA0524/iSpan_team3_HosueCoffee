@@ -1,5 +1,5 @@
 import React from "react";
-import '../styleCheckout.scss'
+
 
 const Space = () => (
 

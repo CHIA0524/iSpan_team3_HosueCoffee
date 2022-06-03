@@ -1,5 +1,4 @@
 import React from "react";
-import '../checkout3.scss'
 import ProcessBoxBright from '../component/ProcessBoxBright';
 import ProcessBoxLine from '../component/ProcessBoxLine';
 import ProcessBoxDark from '../component/ProcessBoxDark';
