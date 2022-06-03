@@ -7,12 +7,12 @@ function HomeNewComponent() {
 
     return (
         <>
-         <div class="new">
+         <div className="new">
                 <h1>NEWS</h1>
-                <div class="allNew">
-                    <div class="new1 row">
-                        <h5 class="col">台北店公休公告</h5>
-                        <h5 class="newTime col">2022/06/17</h5>
+                <div className="allNew">
+                    <div className="new1 row">
+                        <h5 className="col">台北店公休公告</h5>
+                        <h5 className="newTime col">2022/06/17</h5>
                     </div>
                 </div>
             </div>

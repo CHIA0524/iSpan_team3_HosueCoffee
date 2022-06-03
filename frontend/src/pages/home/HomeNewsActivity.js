@@ -6,13 +6,13 @@ import './Home.css';
 import HomeNewComponent from './HomeNewComponent';
 import HomeActivityComponent from './HomeActivityComponent';
 
-function homeNewActivity() {
+function HomeNewActivity() {
 
    
         
     
     return (
-        <div class="aside">
+        <div className="aside">
             <HomeNewComponent />
             {/* <div class="new">
                 <h1>NEWS</h1>
@@ -75,4 +75,4 @@ function homeNewActivity() {
 
 
 
-export default homeNewActivity
+export default HomeNewActivity

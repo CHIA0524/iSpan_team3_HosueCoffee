@@ -18,13 +18,13 @@ function homeMenu(props){
                         <img src={menu03} alt="" />
                     </div>
                     <div className="menuHover">
-                        <div class="menuCard">
+                        <div className="menuCard">
                             <p>Cappuccino</p>
                         </div>
                         <img src={menu02} alt="" />
                     </div>
-                    <div class="menuHover">
-                        <div class="menuCard">
+                    <div className="menuHover">
+                        <div className="menuCard">
                             <p>Macchiato</p>
                         </div>
                         <img src={menu01} alt="" />
