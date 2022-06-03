@@ -55,9 +55,7 @@ function MemberOrderList(props){
             
                <div className="listall">
                 <OrderListCard/>
-                <OrderListCard/>
-                <OrderListCard/>
-                <OrderListCard/>
+                
             </div>
                
                

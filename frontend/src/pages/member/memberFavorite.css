@@ -4,6 +4,7 @@
   margin: 10px;
   width: 20rem;
   padding: 2rem;
+  padding-right: 1rem;
 }
 .F_package {
   height: 12rem;
@@ -76,7 +77,7 @@
 .MNumR:hover {
   background-color: #e4d2a3;
   border: 2px solid black;
-}
+} 
 
 .cardBuy {
   margin-top: -5px;

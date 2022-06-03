@@ -113,6 +113,9 @@ function App() {
         <Route  path="/member/QAcheck/:id">
           <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
           </Route>
+        <Route  path="/member/Order/:id">
+          <MemberOrder auth={auth} dataCheck={dataCheck}/>
+        </Route>
 
         <Route  path="/member/QAList">
           <MemberQAList auth={auth} dataCheck={dataCheck}/>
@@ -130,9 +133,6 @@ function App() {
           <MemberFavorite auth={auth} dataCheck={dataCheck}/>
         </Route>
 
-        <Route  path="/member/Order">
-          <MemberOrder auth={auth} dataCheck={dataCheck}/>
-        </Route>
 
         <Route  path="/member/OrderList">
           <MemberOrderList auth={auth} dataCheck={dataCheck}/>
@@ -157,12 +157,6 @@ function App() {
         <Route  path="/member">
           <MemberLogin auth={auth} dataCheck={dataCheck} />
         </Route>
-         {/* 以上是會員頁面 */}
-
-
-        <Route path="/store"><StoreMapCardWrap /></Route>
-        
-        <Route path="/" exact><Home /></Route>
 
       </Switch>
 

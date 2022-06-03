@@ -122,8 +122,8 @@
 .forget {
   display: block;
 }
-.mMain {
-  margin-bottom: 3rem;
+.mmMain {
+  margin-bottom:3rem;
 }
 .mLcolor {
   color: #4c3410;
@@ -186,7 +186,7 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .mMain {
+  .mmMain {
     display: none;
   }
   .mMain-m {
@@ -199,9 +199,7 @@
     margin-top: -3rem;
     margin-bottom: 2rem;
   }
-  .coffeeNavbar {
-    margin-bottom: 0;
-  }
+ 
   .loginInput {
     margin-bottom: 2rem;
   }
