@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 import React from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss';

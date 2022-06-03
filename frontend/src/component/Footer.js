@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import React from 'react';
 import './Footer.scss'
 
