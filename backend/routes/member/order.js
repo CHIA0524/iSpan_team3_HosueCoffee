@@ -15,12 +15,21 @@ router.route('/odList')
         res.json(datas);
 
     })
-router.route('/odList/detailed')
+router.route('/odList/detailed3')
     .get(async(req,res,next)=>{
         const sql=
         "select p_name from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id  where o_id=? LIMIT 3"; 
         const [datas]=await db.query(sql,[req.query.o_id]);
         res.json(datas);
+
+    })
+router.route('/odList/detailed')
+    .get(async(req,res,next)=>{
+        const sql=
+        "select p_name,p_price,qty ,p_id from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=?"; 
+        const [datas]=await db.query(sql,[req.query.o_id]);
+        res.json(datas);
+        console.log(datas)
 
     })
 router.route('/odList/detailed/count')

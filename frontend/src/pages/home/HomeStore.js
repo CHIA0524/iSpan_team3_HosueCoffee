@@ -4,10 +4,10 @@ import './Home.css';
 
 function homeStore(){
     return(
-        <div class="store">
+        <div className="store">
                 <h1>STORE</h1>
-                <div class="allStore">
-                    {/* <div class="storeSelect">
+                <div className="allStore">
+                    {/* <div className="storeSelect">
                         <select name="city" id="city">
                             <option value="" disabled selected>選擇縣市</option>
                             <option value="tainan">台南</option>
@@ -15,7 +15,7 @@ function homeStore(){
                             <option value="taipei">台北</option>
                         </select>
                     </div>
-                    <div class="storeselect">
+                    <div className="storeselect">
                         <select name="store" id="store">
                             <option value="" disabled selected>選擇門市</option>
                             <option value="store1">門市1</option>

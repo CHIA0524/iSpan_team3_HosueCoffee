@@ -14,7 +14,8 @@ function MemberOrder(props){
     const params = useParams()
     const thiso_id=params.id
     const [datas,setDatas] = useState([])
-    const thismemberid=localStorage.getItem(true)
+    const [alltotalpay,setAlltotalpay] = useState(0)
+    
     if(!auth){
       window.location.replace("http://localhost:3000/member")
     }if(!dataCheck){
@@ -32,9 +33,24 @@ function MemberOrder(props){
         fetchData();
     },[])
     if(datas.length >0 ){
-        console.log((datas[0].o_id));
         const order=datas[0];
-        const{shipment,pay,order_condition,recipient_name,recipient_phone,recipient_address,remark,used_points,CREATEd_at}=order;
+        const{shipment,pay,order_condition,recipient_name,recipient_phone,recipient_address,remark,used_coupon,used_points,CREATEd_at}=order;
+        if(used_points){
+           var point=used_points;
+        }else{
+            var point=0;
+        }
+        if(used_coupon){
+            var coupon=used_coupon/100;
+        }else{
+            var coupon=0
+        }
+        if(shipment=="黑貓"){
+            var shipmentPay=100
+        }else{
+            var shipmentPay=80
+
+        }
     return(
         <>
         <MemberBack/>
@@ -78,12 +94,11 @@ function MemberOrder(props){
                             <div>成立時間 {CREATEd_at}</div>
                         </div>
                             
-                        <div className="payInfo">
-                            <hr></hr>
-                            <OrderCard/>
-                            <OrderCard/>
+                        <div className="MpayInfo">
+                            <hr className='col-3None'></hr>
+                            <OrderCard thiso_id={thiso_id} alltotalpay={alltotalpay} setAlltotalpay={setAlltotalpay}/>
                             </div>
-                            
+                           
                            
                             
                             <div className="row MperInfo  col-3None">
@@ -100,6 +115,7 @@ function MemberOrder(props){
                                     <br></br>
                                     <p>{pay}</p>
                                     <br></br>
+                                    <br></br>
                                     <p>姓名:&emsp;{recipient_name}</p>
                                     <br></br>
                                     <p>電話:&emsp;{recipient_phone}</p>
@@ -108,7 +124,7 @@ function MemberOrder(props){
                                 </div>
                                 <div className="col-2 col-wn"></div>
                             </div>
-                            <br></br>
+                            <br className='col-3None'></br>
                             <div className="row note col-3None">
                                 <div className="col">留言備註:</div>
                                 <div className="col"></div>
@@ -138,11 +154,11 @@ function MemberOrder(props){
                                     <p className="mTopF">結帳總額</p> 
                                 </div>
                                 <div className="col-2 pmR">
-                                    <p>$998</p>
-                                    <p>+$0</p>
-                                    <p>-$100</p>
-                                    <p>-${used_points}</p>
-                                    <p className="mTopF">$898</p>
+                                    <p>${alltotalpay}</p>
+                                    <p>+${shipmentPay}</p> 
+                                    <p>-${coupon*alltotalpay}</p>
+                                    <p>-${point}</p>
+                                    <p className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</p>
                                 </div>
                                 <div className="col-1"></div>
                                
@@ -167,16 +183,12 @@ function MemberOrder(props){
                                     <div className="payColor">收件人資訊</div> 
                                     <br></br>
                                     <div className="row">
-                                        <div className="col-2">
-                                            <div>姓名:</div>
-                                            <div>手機:</div>
-                                            <div>地址</div>
+                                        <div className="col">
+                                            <div>姓名:&emsp;{recipient_name}</div>
+                                            <div>手機:&emsp;{recipient_phone}</div>
+                                            <div>地址:&emsp;{recipient_address}</div>
                                         </div>
-                                        <div className="col pmR">
-                                            <div>{recipient_name}</div>
-                                            <div>{recipient_phone}</div>
-                                            <div>{recipient_address}</div>
-                                        </div>
+                                      
                                     </div>
                                 </div>
                                 <div className="wnMoney">
@@ -194,10 +206,10 @@ function MemberOrder(props){
                                                 <div>紅利折扣</div>
                                             </div>
                                             <div className="col wnMR">
-                                                <div className="mTop">$998</div>
-                                                <div>$60</div>
-                                                <div>-$100</div>
-                                                <div>-${used_points}</div>
+                                                <div className="mTop">${alltotalpay}</div>
+                                                <div>+${shipmentPay}</div>
+                                                <div>-${coupon*alltotalpay}</div>
+                                                <div>-${point}</div>
                                             </div>
                                         </div>
                                         <hr></hr>
@@ -206,7 +218,7 @@ function MemberOrder(props){
                                                 <div className="mTopF">結帳總額</div>
                                             </div>
                                             <div className="col wnMR">
-                                                <div className="mTopF">$859</div>
+                                                <div className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</div>
                                             </div>
                                         </div>
                                         </div>
