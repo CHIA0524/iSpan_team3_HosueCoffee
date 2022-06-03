@@ -6,26 +6,46 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import ProductDetail from '../ProductDetail';
+import { BiColorFill } from 'react-icons/bi';
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId,auth} = props;
+    const {datas, setcss, setProductId, auth} = props;
    const [buttonpopup,setButtonpopup] = useState(false);
    const [ cart, setcart] =useState([]);
+   const [ liked, setLiked] =useState([true]);
+   const memeId=localStorage.getItem(true)
   
-   const heartClick = ()=>{
-     const a= document.querySelector('.heart').check
-     console.log(a)
-     if(a==true){
-       document.querySelector('.heart3').style.display="block"
-       document.querySelector('.heart2').style.display="none"
+   //^設定收藏時的提示訊息^
+   const [mailMessage, setMailMessage] = useState("");
+    //設定收藏的value
+  const [whishList,setWishList]= useState()
 
-     }else{
-      document.querySelector('.heart2').style.display="block"
-      document.querySelector('.heart3').style.display="none"
 
-     }
-    }   
+  //  確認是否已收藏
+   const ConfirmedWish=async ()=>{
+
+     //^取得資料庫使否有這筆EMAIL，若有回傳1，沒有回傳0^
+  
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${whishList}`);
+        console.log(process.env.REACT_APP_API_URL);
+        const results = await response.json();
+        if(results.total === 0 ){
+        //^如果接收到0^
+            setMailMessage("信箱可使用");
+            //^提示訊息顯示"信箱可使用"^
+            document.querySelector('.CKNmail').style.color="#e4d2a3"
+            //修改網頁版提示訊息顏色為正常顏色
+            document.querySelector('.CKNmail_m').style.color="#4C3410"
+            //修改手機版提示訊息顏色為正常顏色
+        }else{
+        //^如果接收到1^
+            setMailMessage("信箱已被註冊");
+            //^提示訊息顯示"信箱已被註冊"^
+        }
+}
+
+
 
     
     return(
@@ -53,20 +73,22 @@ function ProductCard(props){
                           <p className="pText">{pCard.p_name}</p>
                       </div>
                       <div className="pIcon">
-                          
-          
-                           {auth?
-                           <><button className="heart" onClick={heartClick}> 
-                           <AiOutlineHeart className="heart2" size={24}
-                           /><AiFillHeart className="heart3" size={24} color="red"/></button></>
+                          {/* 收藏 */}
+                          {auth? 
+                          <> <button className="heart" onClick={()=>{
+                             alert("成功加入收藏") }} > 
+                           <AiFillHeart className="heart3" size={24}       
+                             
+                           /></button>
+                           </>
                            :
-                           <>
-                             <div>123</div>
-                           </>}
-                           {/* <button className="heart" onClick={heartClick}> 
-                           <AiOutlineHeart className="heart2" size={24}
-                           /><AiFillHeart className="heart3" size={24} color="red"/></button> */}
+                           <> <button className="heart" > 
+                           <AiFillHeart className="heart3" size={24}    onClick={()=>{
+                             alert("登入方可收藏") }  }   
+                           /></button></>}
+                           
                        
+                           {/* 快速加入購物車 */}
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
                              //因id從200001開始，故需扣除，才能使popup抓到

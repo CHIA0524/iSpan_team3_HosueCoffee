@@ -337,10 +337,10 @@ function Pay1(props){
                           <div>取貨方式 </div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">
-                                  <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="store"
+                                  <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="post"
                                       value="postoffice" required  onClick={shipprice}  
                                       />
-                                  <label className="form-check-label" for="store">郵局 + 80</label>
+                                  <label className="form-check-label" for="post">郵局 + 80</label>
                               </div>
                               <div className="form-check  checkPart1">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="home"

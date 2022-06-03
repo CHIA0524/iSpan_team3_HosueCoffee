@@ -7,9 +7,8 @@ import Aside from './component/Aside';
 import Popup from './component/Popup';
 
 
-function ShopIndex(props){
+function ShopKenya(){
   //抓到點擊商品的id
-const{ auth } =props
 const [productId, setProductId] = useState(2)
 console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
@@ -17,23 +16,28 @@ const [css, setcss] = useState()
 
 const[amount, setAmount]= useState(1)
 
-     // 向後端請求資料
-
+     
+     
      //用來儲存本頁資料
      const [datas, setDatas ] = useState([])
      //用來儲存全部資料
      const [Alldatas, setAllDatas ] = useState([])
 
+     // 向後端請求資料
      const fetchData = async()=>{
-       //讀取本頁資料，並寫入datas
-       const response = await fetch('http://localhost:3001/shop');
-       const results = await response.json();
-       setDatas(results);
-       //讀取全部資料，並寫入data
+         //讀取本頁資料，並寫入datas
+         const response = await fetch('http://localhost:3001/shop/kenya');
+         const results = await response.json();
+         setDatas(results);
+         
+         //讀取全部資料，並寫入Alldata
        const Aresponse = await fetch('http://localhost:3001/shop');
        const Aresults = await Aresponse.json();
        setAllDatas(Aresults);
-     }
+    }
+  
+     
+     
      useEffect(()=>{
        fetchData();
      },[])
@@ -67,7 +71,7 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
@@ -81,4 +85,4 @@ const[amount, setAmount]= useState(1)
   ); 
 }
 
-export default ShopIndex
+export default ShopKenya

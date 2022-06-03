@@ -11,6 +11,8 @@ import { useCart} from "react-use-cart";
 import AddSweet from './component/AddSweet';
 
 
+
+
 function ProductDetail(props){
   // 數量變數
   const[amount, setAmount]= useState(1)

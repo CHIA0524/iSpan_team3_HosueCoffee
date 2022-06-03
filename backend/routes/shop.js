@@ -14,6 +14,15 @@ const upload = multer();
         const [datas] = await db.query(sql);
         res.json(datas);
     })
+    
+    //肯亞
+    router.route('/kenya')
+    .get(async (req,res,next)=>{
+        const sql = 
+        "SELECT * FROM `products` WHERE `coffeetype`= '肯亞' order by p_id";
+        const [datas] = await db.query(sql);
+        res.json(datas);
+    })
 
     router.route('/ProductDetail/id')
     .get(async (req,res,next)=>{
