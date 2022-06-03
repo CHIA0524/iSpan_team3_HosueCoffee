@@ -3,7 +3,6 @@ import OD_List_Detail from './OD-List-Detail'
 import { useState,useEffect } from 'react'
 function OrderListCard(){
     const [datas,setDatas] = useState([])
-    const [D_qty,setD_qty]=useState([])
     const thismemberid=localStorage.getItem(true)
 
     const fetchData=async()=>{
@@ -25,7 +24,7 @@ function OrderListCard(){
                 console.log(time)
                 
             return(
-            <Link to={'/member/Order'}>
+            <Link to={`/member/Order/${o_id}`}>
             <div className="listcard row">
                         <div className="col-3 listdata col-3None">
                             <div className="state">訂單狀態: {order_condition}</div>
@@ -39,12 +38,10 @@ function OrderListCard(){
                             <div>成立時間: {CREATEd_at}</div>
                         </div>
                         <div className="col-4 col-wn rwdGT ttpiece">&gt;</div>
-                        <div className="col row">
-                            <OD_List_Detail o_id={o_id} D_qty={D_qty} setD_qty={setD_qty}/>
+                       
+                            <OD_List_Detail o_id={o_id} />
                           
-                            <div className="col-3 ttpiece col-3None">共{D_qty}件&gt;</div>
-                            <div className="col-3 ttpiece col-wn">共{D_qty}件</div>
-                        </div>
+                           
                        
                 </div>
                 </Link>

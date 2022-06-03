@@ -14,9 +14,13 @@ main {
   line-height: 2rem;
 }
 
-.perInfo {
+.MperInfo {
+  display: flex;
   padding-top: 1rem;
   line-height: 2rem;
+}
+.MperInfo p{
+  line-height: 1.5rem;
 }
 .note {
   line-height: 2rem;

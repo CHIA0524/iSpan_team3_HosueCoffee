@@ -31,6 +31,15 @@ router.route('/odList/detailed/count')
         res.json(datas[0]);
 
     })
+router.route('/')
+    .get(async(req,res,next)=>{
+        console.log(req.query.o_id)
+        const sql=
+        "select * from orders where o_id=?"; 
+        const [datas]=await db.query(sql,[req.query.o_id]);
+        console.log(datas)
+        res.json(datas);
+    })
 
 
 module.exports = router;
