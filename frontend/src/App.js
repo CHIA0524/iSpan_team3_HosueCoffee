@@ -1,18 +1,6 @@
-import { BrowserRouter as Router, Route, Link, Switch, } from 'react-router-dom';
-import { useState } from 'react';
-import './App.scss';
-import logo from './logo.svg';
-
-// pages
-import Home from './pages/home/Home';
-import StoreIndex from './pages/store/StoreIndex';
-import StoreMap from './pages/store/StoreMap';
-import MenuIndex from './pages/menu/MenuIndex';
-import OnlineCheckPage from './pages/menu/OnlineCheckPage';
-import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
-import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
-
-
+import { BrowserRouter as Router, Route, Link, Switch, } from 'react-router-dom'
+import { useState } from 'react'
+import './App.scss'
 
 // components
 import Navbar from './component/Navbar';
@@ -21,11 +9,21 @@ import Footer from './component/Footer';
 //回到頁面最上層套件
 import ScrollToTop from './component/ScrollToTop';
 
-// pages
 
+/* 以下頁面組件載入 */
+// Home pages
+import Home from './pages/home/Home';
+
+// Menu pages
+import MenuIndex from './pages/menu/MenuIndex';
+import OnlineCheckPage from './pages/menu/OnlineCheckPage';
+import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
+import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
+
+// Store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
-// member pages
+// Member pages
 import MemberLogin from './pages/member/memberlogin';
 import MemberNewData from './pages/member/memberNewData';
 import MemberprofileEdit from './pages/member/memberprofileEdit';
@@ -39,19 +37,13 @@ import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
 
-//shop pages
+// Shop pages
 import ShopIndex from './pages/shop/ShopIndex';
 import ProductDetail from './pages/shop/ProductDetail'; 
 import Pay1 from './pages/shoppingCart/Pay1';
 import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
-
-
-
-
-
-
 
 
 function App() {
@@ -62,34 +54,19 @@ function App() {
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
   
-
-
+  // 獲取首頁輪播框高度
   const [ bannerHeight, setBannerHeight ] = useState()
 
 
-
-
-
-
   return (
-    
-
- 
     <Router>
-
       <Navbar bannerHeight={bannerHeight} auth={auth}/>
-
-
-
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
-
-
-
       <ScrollToTop/>
       <Switch>
-     
+
       {/* shop 部分 */}
         <Route path="/shoppingCart/pay3">
           <Pay3 />
@@ -105,18 +82,12 @@ function App() {
         </Route>
         <Route path="/shop">
           <ShopIndex />
-        
         </Route>
-        <Route path="/" exact>
-        <Home setBannerHeight={setBannerHeight}/>
-
-        </Route>
-       
               
         {/* 以下是會員頁面 */}
         <Route  path="/member/QAcheck/:id">
           <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
-          </Route>
+        </Route>
 
         <Route  path="/member/QAList">
           <MemberQAList auth={auth} dataCheck={dataCheck}/>
@@ -164,16 +135,16 @@ function App() {
          {/* 以上是會員頁面 */}
 
 
-        <Route path="/store"><StoreMapCardWrap /></Route>
+        <Route path="/store">
+          <StoreMapCardWrap />
+        </Route>
         
-        <Route path="/" exact><Home /></Route>
+        <Route path="/" exact>
+          <Home setBannerHeight={setBannerHeight}/>
+        </Route>
 
       </Switch>
-
-
-
       <Footer/>
-
     </Router>
 
   )
