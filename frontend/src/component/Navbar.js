@@ -61,7 +61,6 @@ function Navbar (props){
     document.querySelector('.navFirst').style.left = '-260px';
     document.querySelector('.sideDark').style.display = 'none';
     document.querySelector('.memberDetail').style.height = '0px';
-    window.scrollTo(0, 0);
   }
 
   const openMemberDetailClick = () => {
@@ -166,9 +165,6 @@ function Navbar (props){
             </p></>
             :
             <></>}
-            
-
-         
           </li>
         </div>
       </nav>
