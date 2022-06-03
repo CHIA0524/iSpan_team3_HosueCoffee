@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 function FavoriteCard(){
     const [datas,setDatas] = useState([])
-    const [total,settotal]=useState(1)
     const thismemberid=localStorage.getItem(true)
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);

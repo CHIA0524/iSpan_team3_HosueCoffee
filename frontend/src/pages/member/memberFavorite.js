@@ -15,7 +15,7 @@ function MemberFavorite(props){
         <>
              <MemberBack/>
             <div className="container">
-        <div className="row">
+        <div className="row"> 
         <MemberAside/>
         <main className="mMain col">
             <div className=" row justify-content-center">

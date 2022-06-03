@@ -245,7 +245,11 @@ VALUES('210001','200001','1'),
 ('210003','200008','2'),
 ('210003','200009','2');
 
-select*from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=210001;
+-- select o_id, fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=100001;
+-- select count(*) from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id  where o_id=210001;
+-- select count(*) as total from order_detail where fk_o_id=210001;
+-- select fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=?;
+-- select*from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=210001;
 --  join products    on order_detail.fk_p_id=products.p_id
 -- 收藏商品
 CREATE TABLE `member_favorite`(
