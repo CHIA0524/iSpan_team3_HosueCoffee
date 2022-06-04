@@ -11,7 +11,6 @@ import { useState } from 'react';
 function MemberQAList(props){
 
 
-  const [css, setcss] = useState()
     const{auth}=props;
     const {dataCheck}=props;
     console.log(auth);
@@ -43,7 +42,7 @@ function MemberQAList(props){
                         <div className="col-4">
                             <button className="coffeeLightBtn QAbtn col-3None" 
                             onClick={()=>{
-                              setcss({visibility: 'visible' , opacity : '1'})
+                              document.querySelector('.QApopupWrap').style.display="block"
                             }}
                             >提問</button>
                           
@@ -66,8 +65,8 @@ function MemberQAList(props){
                         <button className="coffeeLightBtn QAbtn-M">提問</button>
                       </a>
                       </div>
+                      <QApopUP/>
     
-                 <QApopUP setcss={setcss} css={css}/>
                 </div>
                
         </main>  
