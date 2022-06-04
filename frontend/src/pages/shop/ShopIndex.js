@@ -14,7 +14,7 @@ const [productId, setProductId] = useState(2)
 console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
-
+const [thismemberid,setThismemberid]=useState(localStorage.getItem("true"))
 const[amount, setAmount]= useState(1)
 
      // 向後端請求資料
@@ -23,17 +23,30 @@ const[amount, setAmount]= useState(1)
      const [datas, setDatas ] = useState([])
      //用來儲存全部資料
      const [Alldatas, setAllDatas ] = useState([])
-
+     //用來儲存是否收藏
+     const [datasPMF, setDatasPMF ] = useState([])
      const fetchData = async()=>{
        //讀取本頁資料，並寫入datas
        const response = await fetch('http://localhost:3001/shop');
        const results = await response.json();
        setDatas(results);
+       var PFMARR=[];
+       for(var i=0;i<results.length;i++){
+       const PMF = await fetch(`${process.env.REACT_APP_API_URL}/shop/FavoriteYN?fk_m_id=${thismemberid}&fk_p_id=${results[i].p_id}`);
+        const PMF2 = await PMF.json();
+        console.log(results[i].p_id)
+        console.log(PMF2.total)
+        PFMARR.push({p_id:results[i].p_id,TF:PMF2.total})
+      }
+      setDatasPMF(PFMARR)
        //讀取全部資料，並寫入data
        const Aresponse = await fetch('http://localhost:3001/shop');
        const Aresults = await Aresponse.json();
        setAllDatas(Aresults);
      }
+     console.log("-----")
+     console.log(datasPMF);
+     console.log("-----")
      useEffect(()=>{
        fetchData();
      },[])
@@ -67,7 +80,7 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss} datasPMF={datasPMF}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
