@@ -87,6 +87,9 @@ a:hover .listcard{
 .popupOpen .QAbtn{
     display: block;
 }
+.QAbtn{
+    display: block;
+}
 
 @media screen and (max-width:1000px) {
   

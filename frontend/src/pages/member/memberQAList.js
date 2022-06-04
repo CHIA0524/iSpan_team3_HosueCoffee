@@ -4,14 +4,14 @@ import MemberQACard from './componend/memberQACard';
 import MemberBack from './memberBack';
 import Member404 from './member404';
 import { AiFillEye } from "react-icons/ai";
-
+import QApopUP from './componend/QApopUP';
 import './memberOrderList.css'
-import './popup.css'
+import './QApopup.css'
 import { useState } from 'react';
 function MemberQAList(props){
 
 
-    
+  const [css, setcss] = useState()
     const{auth}=props;
     const {dataCheck}=props;
     console.log(auth);
@@ -41,9 +41,12 @@ function MemberQAList(props){
                     <div className="row">
                         <div className="col-8"></div>
                         <div className="col-4">
-                          <a href="#popupWrap" className="popupOpen">
-                            <button className="coffeeLightBtn QAbtn col-3None">提問</button>
-                          </a>
+                            <button className="coffeeLightBtn QAbtn col-3None" 
+                            onClick={()=>{
+                              setcss({visibility: 'visible' , opacity : '1'})
+                            }}
+                            >提問</button>
+                          
                         </div>
                     </div>
                     <br></br>
@@ -64,24 +67,7 @@ function MemberQAList(props){
                       </a>
                       </div>
     
-    <div className="popupWrap" id="popupWrap">
-      <div className="popupBox">
-        <form name="ansAddForm" className="ansAddForm d-flex flex-column text-start" method="post" novalidate onSubmit="checkNewForm(); return false;">
-          <a className="popupClose text-center" href="#"><i className="fa-solid fa-xmark"></i></a>
-          <input type="text" name="" id="" placeholder="主旨"></input>
-          <select name="" id="">
-            <option value="" disabled selected>類型</option>
-            <option value="">商品相關</option>
-            <option value="">付款相關</option>
-            <option value="">其他</option>
-          </select>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <div className="text-center">
-            <button type="submit" className="coffeeLightBtn">送出</button>
-          </div>
-        </form>
-      </div>
-    </div>
+                 <QApopUP setcss={setcss} css={css}/>
                 </div>
                
         </main>  

@@ -11,7 +11,7 @@ function Popup(props){
     
     //數量歸1  
     const[amount, setAmount]= useState(1)
-    // const params=useParams();
+    // const params=useParams(); 
     //抓網址後的id
     // console.log(params)
     // console.log("datas");

@@ -79,6 +79,6 @@ const[amount, setAmount]= useState(1)
        })} */}
      </>
   ); 
-}
+} 
 
 export default ShopIndex
