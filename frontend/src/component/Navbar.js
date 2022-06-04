@@ -152,7 +152,7 @@ function Navbar (props){
           <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
         </div>
         <div>
-          <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          <li className="mobileNone"><Link to="/onlinemenu"><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
 
           <li><Link to="/shoppingcart"><IoCartOutline size={30} style={{ color: '#DDB44A' }}/></Link></li>
 

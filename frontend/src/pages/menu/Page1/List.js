@@ -45,7 +45,7 @@ const List = (props) => {
                 const menuimg = (to.drink_name)
                 
                 const total = datas1[i].drinkCounter
-
+                
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">
@@ -66,7 +66,7 @@ const List = (props) => {
                                         <div className="quantityText">
                                             數量：
                                         </div>
-                                        <Counter Counter={total}/>
+                                        <Counter Counter={total} id={datas1[i].id}/>
                                     </div>
                                 </div>
                                 <div className="delete1">

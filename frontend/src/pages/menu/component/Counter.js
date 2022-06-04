@@ -8,16 +8,54 @@ const Counter = (props) => {
     // 解構popup傳來的值
     const {setdrinkCounter, drinkCounter}  = props
 
-
     let buttonsub = null
 
     let buttonadd = null 
 
     let num = props.Counter
 
+    let idP = props.id
+
     const [aaa,setaaa] = useState(num)
     
-   
+    const update = ()=>{
+
+        let k = 0
+
+        const gift = {
+
+            id: idP,
+
+            drinkCounter:aaa,
+        }
+
+        let gifts = localStorage.getItem("gifts") ? JSON.parse(localStorage.getItem("gifts")) : []
+
+        for (let i = 0; i < gifts.length; i++) {
+
+            let item = gifts[i]
+            console.log(item); 
+            console.log(gift.id);
+            if (item.id === gift.id) {
+
+                item.drinkCounter += gift.drinkCounter
+
+            } else {
+
+                k = k + 1
+
+            }
+        }
+
+        if (k === gifts.length) {
+
+            gifts.push(gift)
+
+        }
+
+        localStorage.setItem("gifts", JSON.stringify(gifts))
+
+    }
 
 
 if(drinkCounter){
@@ -28,7 +66,7 @@ if(drinkCounter){
                 className="btn buttonLeft" 
                 onClick={ () => { 
                     setdrinkCounter(drinkCounter - 1)
-                    // update()
+                    
                 }}
             >
                 -
@@ -38,7 +76,7 @@ if(drinkCounter){
                 className="btn buttonRight"
                 onClick={() => {
                     setdrinkCounter(drinkCounter + 1);
-                    // update()
+                    
                 }}
             >
                 +
@@ -53,7 +91,7 @@ if(drinkCounter){
                 className="btn buttonRight"
                 onClick={() => {
                     setdrinkCounter(drinkCounter + 1);
-                    // update()
+                    
                 }}
             >
                 +
@@ -67,7 +105,7 @@ else{
                 className="btn buttonLeft" 
                 onClick={ () => { 
                     setaaa(aaa - 1)
-                    // update()
+                    update()
                 }}
             >
                 -
@@ -77,7 +115,7 @@ else{
             className="btn buttonRight"
             onClick={() => {
                 setaaa(aaa + 1);
-                // update()
+                update()
             }}
             >
             +
@@ -95,7 +133,7 @@ else{
             className="btn buttonRight"
             onClick={() => {
                 setaaa(aaa + 1);
-                // update()
+                update()
             }}
         >
             +

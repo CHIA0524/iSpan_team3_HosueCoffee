@@ -31,7 +31,7 @@ const MenuIndex = () => {
 
         const fetchData = async()=>{
     
-                            const response = await fetch('http://localhost:3002/menu');
+                            const response = await fetch('http://localhost:3001/menu');
     
                             const results = await response.json();
                             
