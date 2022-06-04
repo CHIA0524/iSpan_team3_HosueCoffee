@@ -8,7 +8,7 @@ import { IoOptionsOutline } from "react-icons/io5"
 
 function StoreCardSearch(props){
 
-  const { data, setFilterData, cityData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss } = props
+  const { data, setFilterData, cityData, serveData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss } = props
 
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
@@ -17,6 +17,7 @@ function StoreCardSearch(props){
   // checkBox List
   const [ cityList, setCityList ] = useState([])
   const [ dowList, setDowList ] = useState([])
+  const [ serveList, setServeList ] = useState([])
 
   // checkBox Option
   const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
@@ -111,6 +112,30 @@ function StoreCardSearch(props){
         </div>
         <div>
           <p>服務項目</p>
+          {serveData.map((v, i) => {
+            return(
+              <li key={i} style={{position: 'relative'}}>
+                <input
+                  type="checkbox"
+                  name={v}
+                  id={v}
+                  value={v}
+                  checked={dowList.includes(v)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setDowList([...dowList, e.target.value])
+                    } else {
+                      setDowList(dowList.filter(id => id !== e.target.value))
+                    }
+                    console.log(dowList);
+                  }}
+                />
+                <label for={v}>
+                  {v}
+                </label>
+              </li>
+            )
+          })}
         </div>
         <div
           className="storeFilterClear"

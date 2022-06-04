@@ -21,7 +21,7 @@ function StoreMapCardWrap(){
   const [ data, setData ] = useState([])
   const [ filterData, setFilterData ] = useState([])
   const [ cityData, setCityData ] = useState([])
-  // console.log(data);
+  const [ serveData, setServeData ] = useState([])
 
   // 錯誤訊息用
   const [ error, setError ] = useState('')
@@ -41,7 +41,8 @@ function StoreMapCardWrap(){
   // 開啟詳細選單(透過StoreCard傳送className)
   const [cardDetailCss, setCardDetailCss] = useState()
 
-  const filterArea = (results) => {
+  // 過濾出 '縣市' 及 '服務' 列表
+  const filterCity = (results) => {
     let filterResults = []
     for (let i = 0; i < results.length; i++) {
       if (filterResults.indexOf(results[i].city) === -1) {
@@ -49,6 +50,22 @@ function StoreMapCardWrap(){
       }
     }
     setCityData([...filterResults])
+  }
+  
+  // 向遠端伺服器get資料
+  const fetchServeData = async(results) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/store/getServeList`)
+      const results = await response.json()
+      if (Array.isArray(results)) {
+        console.log(results);
+        setServeData(results)
+      }
+    } catch (e) {
+      // 作錯誤處理
+      console.log(e)
+      setError(e.message)
+    }
   }
 
   // 向遠端伺服器get資料
@@ -63,7 +80,7 @@ function StoreMapCardWrap(){
       // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
       if (Array.isArray(results)) {
         setData(results)
-        filterArea(results)
+        filterCity(results)
       }
       
       const API_KEY = process.env.REACT_APP_GMAP_API_KEY
@@ -157,6 +174,7 @@ function StoreMapCardWrap(){
     setIsLoading(true)
     // 向伺服器要求get資料
     fetchData()
+    fetchServeData()
   }, [])
   
   // 自動於x秒後關掉指示動畫
@@ -193,6 +211,7 @@ function StoreMapCardWrap(){
             data={data}
             setFilterData={setFilterData}
             cityData={cityData}
+            serveData={serveData}
             setIsLoading={setIsLoading}
             fetchFilterData={fetchFilterData}
             setMarkerInfoCSS={setMarkerInfoCSS}
