@@ -38,7 +38,7 @@ function Heart(props){
                                     // console.log(process.env.REACT_APP_API_URL);
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/Favfavorite/CRF?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)
                                 }else{
-                                    alert("取消刪除")
+                                    alert("取消收藏")
                                 } }} > 
                            <AiOutlineHeart className="heart3" size={24}       
                              
