@@ -42,6 +42,18 @@ const upload = multer();
       //  res.send(`讀取${id}的資料`)
     })
 
+    router.get('/Favfavorite/DF',async (req,res,next)=>{
+        //^刪除收藏的商品^
+        const sql = `DELETE FROM member_favorite where fk_m_id=? and fk_p_id=?`
+        const [data] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
+        
+      })
+    router.get('/Favfavorite/CRF',async (req,res,next)=>{
+        //^刪除收藏的商品^
+        const sql = `INSERT INTO member_favorite (fk_m_id, fk_p_id) VALUES (?,?)`
+        const [data] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
+        
+      })
     
 
 module.exports = router;
