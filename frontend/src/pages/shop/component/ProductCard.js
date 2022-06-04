@@ -15,7 +15,9 @@ function ProductCard(props){
    const [ cart, setcart] =useState([]);
    const [ liked, setLiked] =useState([true]);
    const memeId=localStorage.getItem(true)
-  
+   
+  const thismemberid=localStorage.getItem("true");
+
    //^設定收藏時的提示訊息^
    const [mailMessage, setMailMessage] = useState("");
     //設定收藏的value
