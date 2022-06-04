@@ -93,6 +93,13 @@ router.get('/Favfavorite',async (req,res,next)=>{
   res.json(data);
   
 })
+router.get('/Favfavorite/TT',async (req,res,next)=>{
+  //^搜尋本帳號收藏的商品用收藏日期排列^
+  const sql = `select count(*) as total from member_favorite join products on products.p_id = member_favorite.fk_p_id where fk_m_id=? `
+  const [data] = await db.query(sql,[req.query.fk_m_id]);
+  res.json(data[0]);
+  
+})
 router.get('/Favfavorite/DF',async (req,res,next)=>{
   //^刪除收藏的商品^
   const sql = `DELETE FROM member_favorite where MF_id=? `
