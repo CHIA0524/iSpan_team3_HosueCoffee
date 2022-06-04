@@ -14,17 +14,16 @@ function OrderCard(props){
         
         
     }
-    var a=0
+    var allMoney=0
     for(let i=0;i<datas.length;i++){
         const price=datas[i].p_price;
         const qty=datas[i].qty;
         
         const toto=price*qty;
-        a=a+toto
-        console.log("這是第"+(i+1)+"筆")
-        console.log(a);
+        allMoney=allMoney+toto
+       
     }
-    setAlltotalpay(a)
+    setAlltotalpay(allMoney)
     console.log(alltotalpay)
     useEffect(()=>{
         fetchData();

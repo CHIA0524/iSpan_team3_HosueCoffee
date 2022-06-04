@@ -8,6 +8,7 @@ require("dotenv").config();
 
 
 router.route('/')
+//^查詢本帳號所有問答^
     .get(async(req,res,next)=>{
         const sql=
         "SELECT * FROM `member_QA` where fk_member_id=?"; 
@@ -16,6 +17,7 @@ router.route('/')
 
     })
 router.route('/id')
+//^查詢特定一筆問答^
     .get(async(req,res,next)=>{
         const sql=
         "SELECT * FROM `member_QA` where QA_id=?"; 

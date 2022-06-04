@@ -78,7 +78,9 @@
 .popupClose:hover {
   color: black;
 }
-
+.QAGBbtn{
+  margin: 0 auto;
+}
 .popupTransformIn,
 .popupTransformOut {
   display: block;

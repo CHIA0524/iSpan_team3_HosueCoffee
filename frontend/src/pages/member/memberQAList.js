@@ -4,10 +4,13 @@ import MemberQACard from './componend/memberQACard';
 import MemberBack from './memberBack';
 import Member404 from './member404';
 import { AiFillEye } from "react-icons/ai";
+
 import './memberOrderList.css'
 import './popup.css'
 import { useState } from 'react';
 function MemberQAList(props){
+
+
     
     const{auth}=props;
     const {dataCheck}=props;

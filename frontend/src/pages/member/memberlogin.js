@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 import Memberprofile from './memberprofile';
