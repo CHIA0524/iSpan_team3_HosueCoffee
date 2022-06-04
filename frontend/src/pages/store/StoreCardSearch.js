@@ -1,4 +1,3 @@
-import { valHooks } from 'jquery'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
@@ -6,8 +5,12 @@ import { useState, useEffect } from 'react'
 import { FiSearch } from "react-icons/fi"
 import { IoOptionsOutline } from "react-icons/io5"
 
+// component
+import StoreCardSearchFilter from'./StoreCardSearchFilter'
+
 function StoreCardSearch(props){
 
+  /*---------------- props useState ----------------*/
   const { data, setFilterData, cityData, serveData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss } = props
 
   const [ searchText, setSearchText ] = useState('')
@@ -22,9 +25,10 @@ function StoreCardSearch(props){
   // checkBox Option
   const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
 
+  /*---------------- useEffect ----------------*/
   // 控管 cityList 進行 filter()
   useEffect(()=>{
-    if (cityList.length === 0 && dowList.length === 0) {
+    if (cityList.length === 0 && dowList.length === 0 && serveList.length === 0) {
       setFilterData(data)
       setFilterInfoCSS(false)
     } else {
@@ -56,92 +60,33 @@ function StoreCardSearch(props){
 
       {/*篩選清單*/}
       <div className="storeFilter" style={{display: filterCSS ? 'flex' : 'none'}}>
-        <div>
-          <p>縣市</p>
-          {cityData.map((v, i) => {
-            return(
-              <li key={i} style={{position: 'relative'}}>
-                <input
-                  type="checkbox"
-                  name={v}
-                  id={v}
-                  value={v}
-                  checked={cityList.includes(v)}
-                  onChange={(e) => {
-                    setCardDetailCss('')
-                    if (e.target.checked) {
-                      setCityList([...cityList, e.target.value])
-                    } else {
-                      setCityList(cityList.filter(id => id !== e.target.value))
-                    }
-                  }}
-                />
-                <label for={v}>
-                  {v}
-                </label>
-              </li>
-            )
-          })}
-        </div>
-        <div>
-          <p>營業時間</p>
-          {dow.map((v, i) => {
-            return(
-              <li key={i} style={{position: 'relative'}}>
-                <input
-                  type="checkbox"
-                  name={v}
-                  id={v}
-                  value={v}
-                  checked={dowList.includes(v)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setDowList([...dowList, e.target.value])
-                    } else {
-                      setDowList(dowList.filter(id => id !== e.target.value))
-                    }
-                    console.log(dowList);
-                  }}
-                />
-                <label for={v}>
-                  {v}
-                </label>
-              </li>
-            )
-          })}
-        </div>
-        <div>
-          <p>服務項目</p>
-          {serveData.map((v, i) => {
-            return(
-              <li key={i} style={{position: 'relative'}}>
-                <input
-                  type="checkbox"
-                  name={v}
-                  id={v}
-                  value={v}
-                  checked={dowList.includes(v)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setDowList([...dowList, e.target.value])
-                    } else {
-                      setDowList(dowList.filter(id => id !== e.target.value))
-                    }
-                    console.log(dowList);
-                  }}
-                />
-                <label for={v}>
-                  {v}
-                </label>
-              </li>
-            )
-          })}
-        </div>
+        <StoreCardSearchFilter
+          setCardDetailCss={setCardDetailCss}
+          title={'縣市'}
+          data={cityData}
+          list={cityList}
+          setList={setCityList}
+        />
+        <StoreCardSearchFilter
+          setCardDetailCss={setCardDetailCss}
+          title={'營業時間'}
+          data={dow}
+          list={dowList}
+          setList={setDowList}
+        />
+        <StoreCardSearchFilter
+          setCardDetailCss={setCardDetailCss}
+          title={'服務項目'}
+          data={serveData}
+          list={serveList}
+          setList={setServeList}
+        />
         <div
           className="storeFilterClear"
           onClick={()=>{
             setCityList([])
             setDowList([])
+            setServeList([])
           }}
         >
           <p>清除</p>

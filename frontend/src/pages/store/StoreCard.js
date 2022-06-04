@@ -26,7 +26,7 @@ function StoreCard(props){
       props.setMarkerInfoCSS('-150px')
     }, [data, props]
   )
-  
+  console.log(data);
   return(
     <div className='storeWrap'>
       {
@@ -35,12 +35,10 @@ function StoreCard(props){
         <div className='d-flex justify-content-center align-items-center' style={{height: '300px'}}>無搜尋結果</div> 
         :
         data.map((store,i) => {
-          let num = i + 1;
-          let imgPath = './img/' + num + '.jpg'
           return(
             <div className="storeCardWrap" key={i} onClick={sentCardIndex(i)}>
               <div>
-                <img src={require(`${imgPath}`)} alt="test"></img>
+                <img src={require(`./img/${store.photo}`)} alt="test"></img>
               </div>
               <div className="itemText">
                 <p>{store.store_name}</p>

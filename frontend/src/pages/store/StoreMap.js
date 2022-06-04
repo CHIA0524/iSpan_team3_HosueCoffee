@@ -9,7 +9,20 @@ import catmarker from './img/marker.svg';
 import StoreMapClusterer from './StoreMapClusterer';
 
 function StoreMap(props){
-  
+
+  /*---------------- props useState ----------------*/
+  // props
+  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
+  const [map, setMap] = useState(null)
+  // useState
+  const [ markerIndex, setMarkerIndex ] = useState(1)
+  const thisData = data
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY
+  })
+
+  /*---------------- useEffect ----------------*/
   // 監測視窗寬度
   useEffect(()=>{ 
     window.addEventListener('resize',()=>{
@@ -27,28 +40,21 @@ function StoreMap(props){
       })
   },[]);
 
+  // panTo 效果
+  useEffect(() => {
+    if (map) {
+      map.panTo(center)
+    }
+  }, [center, map])
+
+  // 地圖框架大小 *必須
   const [ containerStyle, setContainerStyle] = useState({
     width: '100%',
     height: 'calc(100vh - 125px)'
   })
-
-  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
-
-  console.log(data);
-
-  const [ markerIndex, setMarkerIndex ] = useState(1)
-
-  const thisData = data
-
-  // map 使用
-
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY
-  })
   
-  const [map, setMap] = useState(null)
-  
+  /*---------------- 地圖事件 ----------------*/
+  // 載入
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
@@ -59,6 +65,7 @@ function StoreMap(props){
     setMap(null)
   }, [])
 
+  // Zoom 改變
   const onZoomChanged = (e)=>{
     setTimeout(() => {
       setZoom(map.getZoom())
@@ -66,6 +73,7 @@ function StoreMap(props){
     }, 50)
   }
   
+  // 圖標點擊事件
   const markerOnClick  = useCallback(
     (index)=>()=>{
       let thisLat = Number(thisData[index].lat)
@@ -83,6 +91,7 @@ function StoreMap(props){
     }, [thisData, setCenter, setZoom, markerInfoCSS, setMarkerInfoCSS]
   )
 
+  // 地圖點擊事件
   const mapOnClick = ()=>{
     setMarkerInfoCSS('-150px')
     if(asideCSS === '0px'){
@@ -91,16 +100,12 @@ function StoreMap(props){
     }
   }
 
+  // 地圖拖移事件
   const onDragEnd = ()=>{
     setMarkerInfoCSS('-150px')
   }
   
   
-  useEffect(() => {
-    if (map) {
-      map.panTo(center)
-    }
-  }, [center, map])
   
   return(
     <div className="mapWrap">

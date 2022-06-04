@@ -39,7 +39,7 @@ function StoreMapCardWrap(){
   const [ asideCSS, setAsideCSS ] = useState('0px')
   const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
   // 開啟詳細選單(透過StoreCard傳送className)
-  const [cardDetailCss, setCardDetailCss] = useState()
+  const [ cardDetailCss, setCardDetailCss ] = useState()
 
   // 過濾出 '縣市' 及 '服務' 列表
   const filterCity = (results) => {
@@ -53,13 +53,14 @@ function StoreMapCardWrap(){
   }
   
   // 向遠端伺服器get資料
-  const fetchServeData = async(results) => {
+  const fetchServeData = async(keyword) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store/getServeList`)
       const results = await response.json()
       if (Array.isArray(results)) {
-        console.log(results);
-        setServeData(results)
+        const propertyValue = Object.values(results).map(item => item.serve_name);
+        console.log(propertyValue);
+        setServeData(propertyValue)
       }
     } catch (e) {
       // 作錯誤處理
@@ -175,6 +176,7 @@ function StoreMapCardWrap(){
     // 向伺服器要求get資料
     fetchData()
     fetchServeData()
+    console.log(serveData);
   }, [])
   
   // 自動於x秒後關掉指示動畫
