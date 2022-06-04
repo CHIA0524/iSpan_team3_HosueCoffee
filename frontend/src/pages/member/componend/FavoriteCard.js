@@ -47,7 +47,7 @@ function FavoriteCard(){
                              /></button>
                         </div>
                     </div>
-                    <p className="MFcardPrice">{p_price}</p>
+                    <p className="MFcardPrice">${p_price}</p>
                     <div className="cardFoot">
                         <div className="addMNum" >
                             <div className="MNumL" onClick={()=>{if(Number(document.getElementById(p_name).innerHTML)>1){
