@@ -39,8 +39,11 @@ import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
 import ShopKenya from './pages/shop/ShopKenya';
-
-
+import ShopBrazil from './pages/shop/ShopBrazil';
+import ShopColombia from './pages/shop/ShopColombia';
+import ShopEthiopia from './pages/shop/ShopEthiopia';
+import ShopGuatemala from './pages/shop/ShopGuatemala';
+import ShopOther from './pages/shop/ShopOther';
 
 
 
@@ -95,6 +98,21 @@ function App() {
         </Route>
         <Route path="/shop/ProductDetail/:id">
           <ProductDetail auth={auth}/>
+        </Route>
+        <Route path="/shop/colombia">
+          <ShopColombia auth={auth}/>
+        </Route>
+        <Route path="/shop/ethiopia">
+          <ShopEthiopia auth={auth}/>
+        </Route>
+        <Route path="/shop/guatemala">
+          <ShopGuatemala auth={auth}/>
+        </Route>
+        <Route path="/shop/brazil">
+          <ShopBrazil auth={auth}/>
+        </Route>
+        <Route path="/shop/other">
+          <ShopOther auth={auth}/>
         </Route>
         <Route path="/shop/kenya">
           <ShopKenya auth={auth}/>

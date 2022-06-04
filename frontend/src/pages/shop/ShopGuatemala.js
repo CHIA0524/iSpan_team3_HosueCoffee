@@ -5,12 +5,10 @@ import './component/popup.css';
 import ProductCard from './component/ProductCard';
 import Aside from './component/Aside';
 import Popup from './component/Popup';
-import { BiSelectMultiple } from 'react-icons/bi';
 
 
-function ShopIndex(props){
+function ShopGuatemala(){
   //抓到點擊商品的id
-const{ auth } =props
 const [productId, setProductId] = useState(2)
 console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
@@ -18,28 +16,33 @@ const [css, setcss] = useState()
 
 const[amount, setAmount]= useState(1)
 
-     // 向後端請求資料
-
+     
+     
      //用來儲存本頁資料
      const [datas, setDatas ] = useState([])
      //用來儲存全部資料
      const [Alldatas, setAllDatas ] = useState([])
 
+     // 向後端請求資料
      const fetchData = async()=>{
-       //讀取本頁資料，並寫入datas
-       const response = await fetch('http://localhost:3001/shop');
-       const results = await response.json();
-       setDatas(results);
-       //讀取全部資料，並寫入data
+         //讀取本頁資料，並寫入datas
+         const response = await fetch('http://localhost:3001/shop/guatemala');
+         const results = await response.json();
+         setDatas(results);
+         
+         //讀取全部資料，並寫入Alldata
        const Aresponse = await fetch('http://localhost:3001/shop');
        const Aresults = await Aresponse.json();
        setAllDatas(Aresults);
-     }
+    }
+  
+     
+     
      useEffect(()=>{
        fetchData();
      },[])
-     
-    //  select頁面跳轉
+    
+     //  select頁面跳轉
      const find = (event) => {
       event.preventDefault();
       if (event.target.value === "shop") {
@@ -86,23 +89,23 @@ const[amount, setAmount]= useState(1)
                     <div class="container" >
                         <div class="row" >
                             <Aside />
-                              {/* <!-- 手機板的select --> */}
+                            {/* <!-- 手機板的select --> */}
                             <div class="type">
                                 <select class="form-select form-select-sm                     typeDetail"  onChange={(e) => find(e)} 
                                 required>
-                                    <option value="shop" selected>全部</option>
+                                    <option value="shop">全部</option>
                                     <option value="kenya" >肯亞</option>
                                     <option value="ethiopia">衣索比亞</option>
                                     <option value="brazil">巴西</option>
                                     <option value="colombia">哥倫比亞</option>
-                                    <option value="guatemala">瓜地馬拉</option>
+                                    <option value="guatemala" selected>瓜地馬拉</option>
                                     <option value="other">其他</option>
                                 </select>
                             </div>
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
@@ -116,4 +119,4 @@ const[amount, setAmount]= useState(1)
   ); 
 }
 
-export default ShopIndex
+export default ShopGuatemala

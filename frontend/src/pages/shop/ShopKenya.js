@@ -41,12 +41,31 @@ const[amount, setAmount]= useState(1)
      useEffect(()=>{
        fetchData();
      },[])
-    //  const handleClick = (pCard)=>{
-    //  console.log(pCard)
-    // }
-     
-    //點選以外視窗，關閉popup
-   
+  
+     const find = (event) => {
+      event.preventDefault();
+      if (event.target.value === "shop") {
+          window.location.assign('/shop')
+          }
+           else if (event.target.value === "kenya") {
+           window.location.assign('/shop/kenya')
+           }
+           else if (event.target.value === "ethiopia") {
+              window.location.assign('/shop/ethiopia')
+              }
+          else if (event.target.value === "brazil") {
+              window.location.assign('/shop/brazil')
+              }
+          else if (event.target.value =="colombia") {
+              window.location.assign('/shop/colombia')
+              }
+          else if (event.target.value =="guatemala") {
+              window.location.assign('/shop/guatemala')
+              }
+          else{
+              window.location.assign('/shop/other')
+          }
+      }
     
 
   return(
@@ -68,6 +87,19 @@ const[amount, setAmount]= useState(1)
                     <div class="container" >
                         <div class="row" >
                             <Aside />
+                            {/* <!-- 手機板的select --> */}
+                            <div class="type">
+                                <select class="form-select form-select-sm                     typeDetail"  onChange={(e) => find(e)} 
+                                required>
+                                    <option value="shop">全部</option>
+                                    <option value="kenya" selected>肯亞</option>
+                                    <option value="ethiopia">衣索比亞</option>
+                                    <option value="brazil">巴西</option>
+                                    <option value="colombia">哥倫比亞</option>
+                                    <option value="guatemala">瓜地馬拉</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
