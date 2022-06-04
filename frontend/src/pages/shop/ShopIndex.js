@@ -5,16 +5,21 @@ import './component/popup.css';
 import ProductCard from './component/ProductCard';
 import Aside from './component/Aside';
 import Popup from './component/Popup';
-import { BiSelectMultiple } from 'react-icons/bi';
+
 
 
 function ShopIndex(props){
-  //抓到點擊商品的id
+
+//抓到點擊商品的id
 const{ auth } =props
+
 const [productId, setProductId] = useState(2)
 console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
+
+//確認
+const [thismemberid,setThismemberid]=useState(localStorage.getItem("true"))
 
 const[amount, setAmount]= useState(1)
 
