@@ -24,7 +24,7 @@ function StoreCardSearch(props){
 
   // checkBox Option
   const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
-
+  
   /*---------------- useEffect ----------------*/
   // 控管 cityList 進行 filter()
   useEffect(()=>{
@@ -33,14 +33,17 @@ function StoreCardSearch(props){
       setFilterInfoCSS(false)
     } else {
       setFilterData(
-        data.filter(oneData =>
-          cityList.some(city => [oneData.city].includes(city)) || 
-          dowList.some(dow => [oneData.times].includes(dow+':營業'))
+        data.filter(function(oneData){
+          return(
+            cityList.some(city => oneData.city.includes(city)) ||
+            dowList.some(dow => oneData.times.includes(`${dow}:營業`))
+          )
+        }
         )
       )
       setFilterInfoCSS(true)
     }
-  }, [cityList, data, dowList, setFilterData])
+  }, [cityList, data, dowList, serveList, setFilterData])
 
 
 

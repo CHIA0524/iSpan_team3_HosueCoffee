@@ -25,7 +25,7 @@ function StoreCardSearchFilter(props){
                 }
               }}
             />
-            <label for={v}>
+            <label htmlFor={v}>
               {v}
             </label>
           </li>

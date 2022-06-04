@@ -43,7 +43,7 @@ function StoreCard(props){
               <div className="itemText">
                 <p>{store.store_name}</p>
                 <p>{store.city}</p>
-                <p>{store.address}</p>
+                <p>{store.area} {store.address}</p>
                 {/* <p>{store.phone}</p> */}
               </div>
               <div onClick={sentDetailToCardDetail(i)}>
