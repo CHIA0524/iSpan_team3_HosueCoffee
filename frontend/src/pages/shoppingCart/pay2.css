@@ -126,7 +126,7 @@
   display: none;
 }
 .money p,
-h3 {
+.money h3 {
   text-align: right;
 }
 .error {
