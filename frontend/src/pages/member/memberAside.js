@@ -5,9 +5,10 @@ function MemberAside(){
         const menuItem=[{id:1 ,titel:'基本資料' ,goto:'/member/Profile'},
                         {id:2 ,titel:'訂單查詢' ,goto:'/member/OrderList'},
                         {id:3 ,titel:'訂餐查詢' ,goto:'/member/DrinkOList'},
-                        {id:4 ,titel:'問答中心' ,goto:'/member/QAList'},
-                        {id:5 ,titel:'密碼管理' ,goto:'/member/Password'},
-                        {id:6 ,titel:'我的收藏' ,goto:'/member/Favorite'}]
+                        {id:4 ,titel:'優惠紅利' ,goto:'/member/Point'},
+                        {id:5 ,titel:'問答中心' ,goto:'/member/QAList'},
+                        {id:6 ,titel:'密碼管理' ,goto:'/member/Password'},
+                        {id:7 ,titel:'我的收藏' ,goto:'/member/Favorite'}]
         const [activeIndex, setActiveIndex] = useState(-1)
     return(
         <>

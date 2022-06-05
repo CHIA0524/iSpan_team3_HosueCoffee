@@ -38,6 +38,7 @@ import MemberDrinkOList from './pages/member/memberDrinkOList';
 import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
+import MemberPoint from './pages/member/memberPoint';
 
 //shop pages
 import ShopIndex from './pages/shop/ShopIndex';
@@ -138,6 +139,11 @@ function App() {
           <MemberDrinkOList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
+
+        <Route  path="/member/Point">
+          <MemberPoint auth={auth} dataCheck={dataCheck}/>
+        </Route>
+
         <Route  path="/member/Favorite">
           <MemberFavorite auth={auth} dataCheck={dataCheck}/>
         </Route>
@@ -151,12 +157,12 @@ function App() {
           <MemberprofileEdit auth={auth} dataCheck={dataCheck}/>
         </Route>
 
-        <Route path="/member/Profile">
-          <Memberprofile auth={auth} dataCheck={dataCheck}/>
-        </Route>
-
         <Route path="/member/Password">
           <MemberPassword auth={auth} dataCheck={dataCheck}/>
+        </Route>
+
+        <Route path="/member/Profile">
+          <Memberprofile auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/NewData">
