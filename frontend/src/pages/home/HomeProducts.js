@@ -6,11 +6,19 @@ import coffeebag01 from './image/coffeebag01.png';
 
 
 
-function homeProducts() {
+function homeProducts(props) {
+//    const {productScroll} = props
+//     const [ scrollDivToffset, setscrollDivToffset ] = useState()
+
+//     let getProduct = useLocation();
+
+//     useEffect(()=>{
+//         window.addEventListener('onClick', ()=>{
+//             setscrollDivYoffset(Window.scrollDivToffset)
+//         })
+//     },[]);
+
     
-    function productsimg1() {
-        window.scrollTo(100, 0);
-      }
 
     return (
         <div className="product">
