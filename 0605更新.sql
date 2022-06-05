@@ -2,7 +2,7 @@ drop database team3;
 create database team3;
 use team3;
 -- select*from members;
--- select * from members;
+ -- select * from members;
 -- select * from members_data ;
 -- select * from orders where o_id=210003;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
@@ -14,20 +14,21 @@ CREATE TABLE `members`(
     `member_account` varchar(20) NOT NULL UNIQUE,
     `member_password` varchar(20) NOT NULL,
     `member_mail` varchar(255) NOT NULL UNIQUE,
+    `member_point` INT NOT NULL,
     `member_start` TIMESTAMP DEFAULT NOW()
 );
 ALTER TABLE `members` AUTO_INCREMENT=100001;
-INSERT INTO `members`(`member_account`,`member_password`,`member_mail`)
+INSERT INTO `members`(`member_account`,`member_password`,`member_mail`,`member_point`)
 VALUE
-('LH44','abc123456','LH44@gmail.com'),
-('VB77','abc123456','VB77@gmail.com'),
-('GR63','abc123456','GR63@gmail.com'),
-('CL16','abc123456','CL16@gmail.com'),
-('CS55','abc123456','CS55@gmail.com'),
-('MS47','abc123456','MS47@gmail.com'),
-('LN04','abc123456','LN04@gmail.com'),
-('DR03','abc123456','DR03@gmail.com'),
-('NR06','abc123456','NR06@gmail.com');
+('LH44','abc123456','LH44@gmail.com',2000),
+('VB77','abc123456','VB77@gmail.com',100),
+('GR63','abc123456','GR63@gmail.com',100),
+('CL16','abc123456','CL16@gmail.com',100),
+('CS55','abc123456','CS55@gmail.com',100),
+('MS47','abc123456','MS47@gmail.com',100),
+('LN04','abc123456','LN04@gmail.com',100),
+('DR03','abc123456','DR03@gmail.com',100),
+('NR06','abc123456','NR06@gmail.com',0);
 
 CREATE TABLE `members_data`(
 	`fk_member_id` INT PRIMARY KEY ,
@@ -56,6 +57,7 @@ CREATE TABLE `member_QA`(
   `ask` VARCHAR(200) NOT NULL,
   `ans` VARCHAR(200),
   `CREATEd_at` TIMESTAMP DEFAULT NOW(),
+  `renew` TIMESTAMP DEFAULT NOW(),
   foreign KEY (`fk_member_id`) references members(member_id)
 );
 ALTER TABLE `member_QA` AUTO_INCREMENT=110001;

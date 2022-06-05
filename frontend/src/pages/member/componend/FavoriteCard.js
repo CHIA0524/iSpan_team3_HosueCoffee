@@ -12,7 +12,6 @@ function FavoriteCard(){
         setDatas(results); 
         const FVT = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/TT?fk_m_id=${thismemberid}`)
         const FVTT=await FVT.json();
-        console.log(FVTT.total)
         setFVTotal(FVTT.total); 
     }
     useEffect(()=>{
@@ -41,7 +40,6 @@ function FavoriteCard(){
                                 if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                     window.alert("已刪除此收藏")
                                     window.location.reload()
-                                    // console.log(process.env.REACT_APP_API_URL);
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                 }else{
                                     alert("取消刪除")
@@ -61,7 +59,6 @@ function FavoriteCard(){
                             <div id={p_name}>1</div>
                             
                             <div className="MNumR" onClick={()=>{
-                                console.log()
                                 document.getElementById(p_name).innerHTML=Number(document.getElementById(p_name).innerHTML)+1
                             }}>+</div>
                         </div>  
@@ -100,7 +97,6 @@ function FavoriteCard(){
                                     if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                         window.alert("已刪除此收藏")
                                         window.location.reload()
-                                        // console.log(process.env.REACT_APP_API_URL);
                                         const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                     }else{
                                         alert("取消刪除")
@@ -120,7 +116,6 @@ function FavoriteCard(){
                                 <div id={p_name}>1</div>
                                 
                                 <div className="MNumR" onClick={()=>{
-                                    console.log()
                                     document.getElementById(p_name).innerHTML=Number(document.getElementById(p_name).innerHTML)+1
                                 }}>+</div>
                             </div>  
@@ -161,7 +156,6 @@ function FavoriteCard(){
                                         if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                             window.alert("已刪除此收藏")
                                             window.location.reload()
-                                            // console.log(process.env.REACT_APP_API_URL);
                                             const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                         }else{
                                             alert("取消刪除")
@@ -181,7 +175,6 @@ function FavoriteCard(){
                                     <div id={p_name}>1</div>
                                     
                                     <div className="MNumR" onClick={()=>{
-                                        console.log()
                                         document.getElementById(p_name).innerHTML=Number(document.getElementById(p_name).innerHTML)+1
                                     }}>+</div>
                                 </div>  

@@ -18,6 +18,9 @@ function MemberLogin(props){
     const [new_mb_password,setNew_mb_password]=useState("")
     //^設定註冊時信箱帳號密碼的value^
 
+    const new_mb_point=100;
+    //^設定註冊帳號贈送的紅利點數^
+
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
     const [PWMessage, setPWMessage] = useState("");     
@@ -59,7 +62,6 @@ function MemberLogin(props){
             }else{
             //^格式驗證通過^
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${new_mb_mail}`);
-                console.log(process.env.REACT_APP_API_URL);
                 //^取得資料庫使否有這筆EMAIL，若有回傳1，沒有回傳0^
                 const results = await response.json();
                 if(results.total === 0 ){
@@ -86,7 +88,6 @@ function MemberLogin(props){
                 setAccounteMessage("帳號需4~20字英文數字組合");
             }else{
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${new_mb_account}`);
-                console.log(process.env.REACT_APP_API_URL);
                 //^取得資料庫使否有這筆帳號，若有回傳1，沒有回傳0^
             const results = await response.json();
             if(results.total === 0){
@@ -126,7 +127,7 @@ function MemberLogin(props){
         //點擊註冊按鈕
             if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
             //判斷3個提示訊息是否都符合註冊條件
-            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
+            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}`);
             //CRNM 為新增新的資料，沒有回傳值
             
             setmember_account(new_mb_account);
@@ -188,7 +189,6 @@ function MemberLogin(props){
             
             const resultsTF = await loginTF.json();
             console.log(resultsTF);
-            // console.log(results);
             if(resultsTF.total===1){
     
                 const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});

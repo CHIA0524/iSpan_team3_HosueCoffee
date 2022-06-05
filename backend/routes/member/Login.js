@@ -29,8 +29,8 @@ router.get('/checkPhone',async (req,res,next)=>{
 
 router.get('/CRNM',async (req,res,next)=>{
   //^創建新的帳號^
-  const sql = `INSERT INTO members (member_mail, member_account,member_password) VALUES (?,?,?)`
-  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password]);
+  const sql = `INSERT INTO members (member_mail, member_account,member_password,member_point) VALUES (?,?,?,?)`
+  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point]);
   res.json(datas);
   
 })
