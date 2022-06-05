@@ -89,8 +89,7 @@ const upload = multer();
         const sql = `INSERT INTO member_favorite(fk_m_id, fk_p_id)
         VALUES (?, ?)`
         const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
-       res.json(datas[0]);
-      //  res.send(`讀取${id}的資料`)
+      
     })
 
     //刪除收藏
@@ -98,8 +97,7 @@ const upload = multer();
     .get(async (req,res,next)=>{
         const sql = "DELETE FROM team3.member_favorite WHERE fk_m_id='?' AND fk_p_id='?'"
         const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
-       res.json(datas[0]);
-      //  res.send(`讀取${id}的資料`)
+      
     })
 
     

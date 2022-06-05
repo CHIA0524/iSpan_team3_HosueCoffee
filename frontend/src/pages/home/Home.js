@@ -11,7 +11,7 @@ import HomeMenu from './HomeMenu';
 import HomeProducts from './HomeProducts';
 import HomeBlog from './HomeBlog';
 import HomeStore from './HomeStore';
-import HomeNewsActivity from './HomeNewsActivity';
+// import HomeNewsActivity from './HomeNewsActivity';
 import HomeAboutUs from './HomeAboutUs';
 import HomeTopBTN from './HomeTopBTN';
 
@@ -33,7 +33,7 @@ function Home(props) {
 
             <HomeStore />
 
-            <HomeNewsActivity />
+            {/* <HomeNewsActivity /> */}
 
             <HomeAboutUs />
 
