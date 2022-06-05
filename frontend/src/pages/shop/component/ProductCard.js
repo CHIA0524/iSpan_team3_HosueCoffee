@@ -32,6 +32,7 @@ function ProductCard(props){
        {datas.map((pCard,i)=>{
          {/* console.log(pCard.id); */}
          const pt_id=pCard.p_id
+         const pt_name=pCard.p_name
          //照片設置的變數
          const img1=(pCard.p_name);
          //抓popup的變數
@@ -53,7 +54,7 @@ function ProductCard(props){
                       </div>
                       <div className="pIcon">
                           {/* 收藏 */}
-                          <Heart pt_id={pt_id} datasPMF={datasPMF}/>
+                          <Heart pt_id={pt_id} pt_name={pt_name} datasPMF={datasPMF} auth={auth}/>
                           {/* {auth? 
                           <> <button className="heart" onClick={()=>{
                              alert("成功加入收藏") }} > 

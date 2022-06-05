@@ -29,8 +29,8 @@ router.get('/checkPhone',async (req,res,next)=>{
 
 router.get('/CRNM',async (req,res,next)=>{
   //^創建新的帳號^
-  const sql = `INSERT INTO members (member_mail, member_account,member_password) VALUES (?,?,?)`
-  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password]);
+  const sql = `INSERT INTO members (member_mail, member_account,member_password,member_point) VALUES (?,?,?,?)`
+  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point]);
   res.json(datas);
   
 })
@@ -91,6 +91,13 @@ router.get('/Favfavorite',async (req,res,next)=>{
   const sql = `select * from member_favorite join products on products.p_id = member_favorite.fk_p_id where fk_m_id=? order by MF_id desc`
   const [data] = await db.query(sql,[req.query.fk_m_id]);
   res.json(data);
+  
+})
+router.get('/Favfavorite/TT',async (req,res,next)=>{
+  //^搜尋本帳號收藏的商品用收藏日期排列^
+  const sql = `select count(*) as total from member_favorite join products on products.p_id = member_favorite.fk_p_id where fk_m_id=? `
+  const [data] = await db.query(sql,[req.query.fk_m_id]);
+  res.json(data[0]);
   
 })
 router.get('/Favfavorite/DF',async (req,res,next)=>{
