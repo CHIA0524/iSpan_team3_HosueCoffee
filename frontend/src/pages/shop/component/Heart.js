@@ -16,7 +16,7 @@ function Heart(props){
                     <button className="heart" onClick={async()=>{
                                    window.location.reload()
                                     // console.log(process.env.REACT_APP_API_URL);
-                                    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/DF?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)    
+                                    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/delete?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)    
                               }} > 
                            <AiFillHeart className="heart3" size={24}  style = {{ color: 'red' }}/>
                     </button>
@@ -27,7 +27,7 @@ function Heart(props){
                         <button className="heart" onClick={async()=>{
                                     window.location.reload()
                                     // console.log(process.env.REACT_APP_API_URL);
-                                    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/CRF?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)
+                                    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/add?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)
                                 } } > 
                            <AiOutlineHeart className="heart3" size={24}/>
                         </button>

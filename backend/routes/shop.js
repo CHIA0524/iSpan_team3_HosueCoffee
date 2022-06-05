@@ -74,10 +74,29 @@ const upload = multer();
       //  res.send(`讀取${id}的資料`)
     })
     
-    //收藏
+    //收藏頁面
     router.route('/wishlist')
     .get(async (req,res,next)=>{
         const sql = "SELECT count(*) as total FROM `member_favorite` WHERE fk_m_id=? and fk_p_id=?";
+        const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
+       res.json(datas[0]);
+      //  res.send(`讀取${id}的資料`)
+    })
+
+    //新增收藏
+    router.route('/wishlist/add')
+    .get(async (req,res,next)=>{
+        const sql = `INSERT INTO member_favorite(fk_m_id, fk_p_id)
+        VALUES (?, ?)`
+        const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
+       res.json(datas[0]);
+      //  res.send(`讀取${id}的資料`)
+    })
+
+    //刪除收藏
+    router.route('/wishlist/delete')
+    .get(async (req,res,next)=>{
+        const sql = "DELETE FROM team3.member_favorite WHERE fk_m_id='?' AND fk_p_id='?'"
         const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
        res.json(datas[0]);
       //  res.send(`讀取${id}的資料`)
