@@ -15,7 +15,6 @@ function StoreCardSearch(props){
 
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
-  const [ filterInfoCSS, setFilterInfoCSS ] = useState(false)
 
   // checkBox List
   const [ cityList, setCityList ] = useState([])
@@ -30,18 +29,17 @@ function StoreCardSearch(props){
   useEffect(()=>{
     if (cityList.length === 0 && dowList.length === 0 && serveList.length === 0) {
       setFilterData(data)
-      setFilterInfoCSS(false)
     } else {
       setFilterData(
         data.filter(function(oneData){
           return(
             cityList.some(city => oneData.city.includes(city)) ||
-            dowList.some(dow => oneData.times.includes(`${dow}:營業`))
+            dowList.some(dow => oneData.times.includes(`${dow}:營業`)) ||
+            serveList.some(serve => oneData.serve_name.includes(serve))
           )
         }
         )
       )
-      setFilterInfoCSS(true)
     }
   }, [cityList, data, dowList, serveList, setFilterData])
 
