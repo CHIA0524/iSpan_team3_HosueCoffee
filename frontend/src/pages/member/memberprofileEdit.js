@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState,useEffect } from 'react';
-
+import axios from 'axios';
 import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
@@ -25,6 +25,7 @@ function MemberprofileEdit(props){
   const [UPbirth,setUPbirth]=useState(localStorage.getItem("birth"))
   const [UPphone,setUPphone]=useState(localStorage.getItem("phone"))
   const [UPaddress,setUPaddress]=useState(localStorage.getItem("address"))
+  const [UPPPP,setUPPP]=useState()
 
   const ChangeName=(e)=>{
     setUPname(e.target.value);
@@ -41,6 +42,11 @@ function MemberprofileEdit(props){
   const ChangeAddress=(e)=>{
     setUPaddress(e.target.value);
   }
+  const UPP=async()=>{
+    console.log("123")
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`);
+  }
+
     const phone_re = /^09[0-9]{8}$/;
     const EditBTN=async()=>{
       if(! phone_re.test(UPphone)){
@@ -82,8 +88,9 @@ function MemberprofileEdit(props){
                     <div className="proList">
                         <div className="memberPhotoE">
                             <img  src={require('./img/memberphoto.jpg')}  alt="會員照片"></img>
-                            <div className="changePhoto">修改照片</div>
+                            <label for='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
+                        <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input>
                         <div className="memberNumber">
                             <div >會員帳號</div>
                             <div >{account}</div>
@@ -96,8 +103,10 @@ function MemberprofileEdit(props){
                         <div className="proList_m">
                             <div className="memberPhoto">
                                 <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
-                                <div className="changePhoto">修改照片</div>
+                                <label for='upPhoto' className="changePhoto">修改照片</label>
                             </div>
+                        <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input>
+
                             <div className="memberNumber">
                                 <div>{account}</div>
                             </div>

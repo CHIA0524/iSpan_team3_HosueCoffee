@@ -12,8 +12,11 @@
 }
 .changePhoto {
   z-index: -1;
-  align-items: center;
-  top: -70px;
+  width: 120px;
+  height: 120px;
+  /* align-items: center; */
+  top: -120px;
+  padding-top:50px ;
   text-align: center;
   position: relative;
   opacity: 1;
@@ -43,6 +46,14 @@
   z-index: 1;
 }
 
+#upPhoto{
+  color:  transparent;
+  font-size: 0;
+  background-color: transparent;
+  border: 0px solid ;
+  height: 0px;
+  width: 0px;
+}
 .memberNumber {
   margin: 30px 0;
   text-align: center;

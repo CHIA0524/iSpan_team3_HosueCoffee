@@ -6,21 +6,43 @@ import coffeebag01 from './image/coffeebag01.png';
 
 
 
-function homeProducts() {
+function homeProducts(props) {
+//    const {productScroll} = props
+//     const [ scrollDivToffset, setscrollDivToffset ] = useState()
+
+//     let getProduct = useLocation();
+
+//     useEffect(()=>{
+//         window.addEventListener('onClick', ()=>{
+//             setscrollDivYoffset(Window.scrollDivToffset)
+//         })
+//     },[]);
+
+const productsimg1=()=>{
+    // document.querySelector('#scrollProduct1 ').style.position="absolute";
+    // document.querySelector('#scrollDiv1').style.top="0px";
+    document.querySelector('#scrollDiv1').scrollTo(100,0);
     
-    function productsimg1() {
-        window.scrollTo(100, 0);
-      }
+   
+
+}
+const productsimg2=()=>{
+    document.querySelector('#scrollDiv1').scrollTo(100,361);
+    
+   
+
+}
+    
 
     return (
         <div className="product">
             <div className="allProduct">
                 <h1>FLAGSHIP PRODUCTS</h1>
-                <div className="scrollDiv">
+                <div className="scrollDiv" id='scrollDiv1'>
                     <div className="productscroll" id='scrollProduct1'>
                         <img className="scrollProduct1" src={coffeebag01} alt="" />
                         <div className="productdetail">
-                            <h5>伊莎米 精選招牌特調＄499</h5>
+                            <h5>1.伊莎米 精選招牌特調＄499</h5>
                             <h6>產地:肯亞</h6>
                             <p> 中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。
                             </p>
@@ -29,7 +51,7 @@ function homeProducts() {
                     <div className="productscroll">
                         <img className="scrollProduct1" src={coffeebag01} alt="" />
                         <div className="productdetail">
-                            <h5>伊莎米 精選招牌特調＄499</h5>
+                            <h5>2.伊莎米 精選招牌特調＄499</h5>
                             <h6>產地:肯亞</h6>
                             <p> 中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。
                             </p>
@@ -66,10 +88,10 @@ function homeProducts() {
 
                 <div className="productSel">
 
-                    <div onclick="productsimg1()" className="product1">
+                    <div onClick={productsimg1} className="product1">
                         <img src={coffeebag01} alt="" />
                     </div>
-                    <div onclick="productsimg2()" className="product2">
+                    <div onClick={productsimg2} className="product2">
                         <img src={coffeebag01} alt="" />
                     </div>
                     <div className="product3">

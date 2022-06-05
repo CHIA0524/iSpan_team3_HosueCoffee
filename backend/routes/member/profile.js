@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const db = require('../../modules/mysql_config');
-const upload = multer();
+// const upload = multer();
 require("dotenv").config();
 
 
@@ -41,4 +41,36 @@ router.route(`/Newdate`)
 
     })
 
+    //上傳檔案的設定
+    const ext={
+        'image/jpeg':'.jpg',
+        'image/png':'.png',
+      }
+      console.log(ext['image/png'])
+      
+      const storage =multer.diskStorage({
+        destination:(req,file,cb)=>{
+          cb(null,'public/uploads')
+        },
+        filename:(req,file,cb)=>{
+          cb(null,new Date().getTime()+ext[file.mimetype])
+        }
+      })
+      const fileFilter=(req,file,cb)=>{
+        cb(null,!!ext[file.mimetype])
+      }
+      
+      const upload=multer({storage,fileFilter})
+    
+router.route("/upphoto")
+.post(upload.single("upPhoto"),(req,res)=>{
+    console.log(req.body);
+    console.log(req.file)
+})
+
+// router.post('/upphoto',upload.single("upPhoto"),(req,res)=>{
+
+//     console.log(req.body);
+//     console.log(req.file)
+// })
 module.exports = router;
