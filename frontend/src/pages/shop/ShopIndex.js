@@ -30,16 +30,36 @@ const[amount, setAmount]= useState(1)
      //用來儲存全部資料
      const [Alldatas, setAllDatas ] = useState([])
 
+    //用來儲存是否收藏
+    const [datasPMF, setDatasPMF ] =useState([])
+
      const fetchData = async()=>{
        //讀取本頁資料，並寫入datas
        const response = await fetch('http://localhost:3001/shop');
        const results = await response.json();
        setDatas(results);
-       //讀取全部資料，並寫入data
-       const Aresponse = await fetch('http://localhost:3001/shop');
-       const Aresults = await Aresponse.json();
-       setAllDatas(Aresults);
-     }
+
+       //收藏部分
+       //設定一個空陣列
+       var WISH=[];
+       //對本頁的的資料進行迴圈，對比收藏表裡是否有此會員跟此商品
+       for(var i=0;i<results.length;i++){
+        const PMF = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist?fk_m_id=${thismemberid}&fk_p_id=${results[i].p_id}`);
+        const PMF2 = await PMF.json();
+        console.log(results[i].p_id)
+        console.log(PMF2.total)
+
+        WISH.push({p_id:results[i].p_id , TF:PMF2.total})
+        console.log("這是第"+(i+1)+"筆商品")
+        console.log(WISH)
+        }
+        setDatasPMF(WISH)
+         //讀取全部資料，並寫入data
+         const Aresponse = await fetch('http:/  /localhost:3001/shop');
+         const Aresults = await Aresponse.json  ();
+         setAllDatas(Aresults);
+       }
+
      useEffect(()=>{
        fetchData();
      },[])
