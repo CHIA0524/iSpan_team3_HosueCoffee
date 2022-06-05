@@ -74,21 +74,21 @@ function homeProducts(props) {
 
                 <div className="productSel">
 
-                    <div onclick="productsimg1()" className="product1">
+                    {/* <div onclick={productsimg1} className="product1">
                         <img src={coffeebag01} alt="" />
                     </div>
-                    <div onclick="productsimg2()" className="product2">
+                    <div onclick={productsimg2} className="product2">
                         <img src={coffeebag01} alt="" />
                     </div>
-                    <div className="product3">
+                    <div onclick={productsimg3} className="product3">
                         <img src={coffeebag01} alt="" />
                     </div>
-                    <div className="product4">
+                    <div onclick={productsimg4} className="product4">
                         <img src={coffeebag01} alt="" />
                     </div>
-                    <div className="product5">
+                    <div onclick={productsimg5} className="product5">
                         <img src={coffeebag01} alt="" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="productBTN">
                     <a href="">
