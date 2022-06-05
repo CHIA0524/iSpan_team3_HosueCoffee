@@ -6,6 +6,21 @@ function FavoriteCard(){
     const [datas,setDatas] = useState([])
     const [FVTotal,setFVTotal] = useState()
     const thismemberid=localStorage.getItem(true)
+
+    window.onbeforeunload = function () {
+        var scrollPos;
+        if (typeof window.pageYOffset != 'undefined') {
+            scrollPos = window.pageYOffset;
+        }
+        else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            scrollPos = document.documentElement.scrollTop;
+        }
+        else if (typeof document.body != 'undefined') {
+            scrollPos = document.body.scrollTop;
+        }
+        document.cookie = "scrollTop=" + scrollPos; //存储滚动条位置到cookies中
+    }
+
     const fetchData=async()=>{
         const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite?fk_m_id=${thismemberid}`)
         const results=await response.json();
@@ -39,7 +54,12 @@ function FavoriteCard(){
                             <button className='heart' onClick={async()=>{
                                 if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                     window.alert("已刪除此收藏")
-                                    window.location.reload()
+                                    window.location.reload(function () {
+                                        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+                                            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+                                            document.documentElement.scrollTop = parseInt(arr[1]);
+                                            document.body.scrollTop = parseInt(arr[1]);}
+                                        })
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                 }else{
                                     alert("取消刪除")
@@ -96,7 +116,12 @@ function FavoriteCard(){
                                 <button className='heart' onClick={async()=>{
                                     if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                         window.alert("已刪除此收藏")
-                                        window.location.reload()
+                                        window.location.reload(function () {
+                                        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+                                            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+                                            document.documentElement.scrollTop = parseInt(arr[1]);
+                                            document.body.scrollTop = parseInt(arr[1]);}
+                                        })
                                         const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                     }else{
                                         alert("取消刪除")
@@ -155,7 +180,12 @@ function FavoriteCard(){
                                     <button className='heart' onClick={async()=>{
                                         if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                             window.alert("已刪除此收藏")
-                                            window.location.reload()
+                                            window.location.reload(function () {
+                                        if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+                                            var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+                                            document.documentElement.scrollTop = parseInt(arr[1]);
+                                            document.body.scrollTop = parseInt(arr[1]);}
+                                        })
                                             const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                         }else{
                                             alert("取消刪除")
