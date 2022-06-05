@@ -87,7 +87,7 @@ const upload = multer();
     router.route('/wishlist/add')
     .get(async (req,res,next)=>{
         const sql = `INSERT INTO member_favorite(fk_m_id, fk_p_id)
-        VALUES (?, ?)`
+        VALUES (?, ?)`;
         const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
       
     })
@@ -95,7 +95,7 @@ const upload = multer();
     //刪除收藏
     router.route('/wishlist/delete')
     .get(async (req,res,next)=>{
-        const sql = "DELETE FROM team3.member_favorite WHERE fk_m_id='?' AND fk_p_id='?'"
+        const sql = `DELETE FROM team3.member_favorite WHERE fk_m_id=?AND fk_p_id=?`;
         const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
       
     })
