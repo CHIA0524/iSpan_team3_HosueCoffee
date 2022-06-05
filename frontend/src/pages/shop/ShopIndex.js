@@ -18,7 +18,7 @@ console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
 
-//確認
+//取得會員編號
 const [thismemberid,setThismemberid]=useState(localStorage.getItem("true"))
 
 const[amount, setAmount]= useState(1)
@@ -55,7 +55,7 @@ const[amount, setAmount]= useState(1)
         }
         setDatasPMF(WISH)
          //讀取全部資料，並寫入data
-         const Aresponse = await fetch('http:/  /localhost:3001/shop');
+         const Aresponse = await fetch('http://localhost:3001/shop');
          const Aresults = await Aresponse.json  ();
          setAllDatas(Aresults);
        }
@@ -127,7 +127,8 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}/>  
+                                    <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}
+                                    datasPMF={datasPMF}/>  
                                 </div>                                
                                 <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
