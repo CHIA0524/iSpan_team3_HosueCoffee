@@ -42,10 +42,10 @@ function MemberprofileEdit(props){
   const ChangeAddress=(e)=>{
     setUPaddress(e.target.value);
   }
-  const UPP=async()=>{
-    console.log("123")
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`);
-  }
+  // const UPP=async()=>{
+  //   console.log("123")
+  //   const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`);
+  // }
 
     const phone_re = /^09[0-9]{8}$/;
     const EditBTN=async()=>{
@@ -74,6 +74,28 @@ function MemberprofileEdit(props){
         }
   }
 }
+
+const [image, setImage] = useState({ preview: '', data: '' })
+  const [status, setStatus] = useState('')
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    let formData = new FormData()
+    formData.append('file', image.data)
+    console.log(formData);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`, {
+      method: 'POST',
+      body: formData,
+    })
+    if (response) setStatus(response.statusText)
+  }
+
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+    setImage(img)
+  }
     return(
         <>
     
@@ -82,15 +104,23 @@ function MemberprofileEdit(props){
       <div className="row">
       <MemberAside/>
         <main className="mMain row col">
-       
                 
                 <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhotoE">
-                            <img  src={require('./img/memberphoto.jpg')}  alt="會員照片"></img>
+                            <img  src={require(`${process.env.REACT_APP_API_URL}/public/uploads/1654505002194.jpg`)}  alt="會員照片"></img>
                             <label for='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
-                        <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input>
+                        <form onSubmit={handleSubmit}>
+                          <input
+                            type="file"
+                            id='upPhoto'
+                            name='photo' // 上傳照片的 input name 要跟後端的 upload.single("photo") 中的 ("photo") 一樣
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          ></input>
+                          <button type='submit'>Submit</button>
+                        </form>
                         <div className="memberNumber">
                             <div >會員帳號</div>
                             <div >{account}</div>
@@ -105,7 +135,7 @@ function MemberprofileEdit(props){
                                 <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
                                 <label for='upPhoto' className="changePhoto">修改照片</label>
                             </div>
-                        <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input>
+                        {/* <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input> */}
 
                             <div className="memberNumber">
                                 <div>{account}</div>
