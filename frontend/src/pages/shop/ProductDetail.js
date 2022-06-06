@@ -18,7 +18,7 @@ function ProductDetail(props){
   const[amount, setAmount]= useState(1)
  //   const{setfinalTotal} = props
  // 計算總數量
-  const {setsubTotal  }= props
+  const {setsubTotal }= props
 
   const params=useParams();
   //抓網址後的id
@@ -30,9 +30,10 @@ function ProductDetail(props){
       const results = await response.json();
       setDatas(results);
     }
-    //待確認
+    //轉換頁面
     useEffect(()=>{
       fetchData();
+      setAmount(1)
     },[params.id])
         
     if(datas.length>0){
@@ -104,6 +105,7 @@ function ProductDetail(props){
                                 <button className="NumR" onClick={() =>{
                                 setAmount(amount + 1)
                                 setsubTotal(amount + 1)
+                                
                                 }
                                 }>+</button>
                             </div>
@@ -126,7 +128,7 @@ function ProductDetail(props){
 
                     </div>
                   <div className="DRec">
-                  <RecCard/>
+                  <RecCard amount={amount}/>
                   </div>
                   <div className="MRec">
                   <MRecCard/>

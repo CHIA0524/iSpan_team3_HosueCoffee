@@ -14,9 +14,9 @@ function PInfo(props){
     const [ subTotal, setsubTotal ]= useState(1)
     // 小計
     // const [ ptotal, setPtotal ]= useState(0)
-    const {setPtotal, ptotal } = props
+    const {setPtotal, ptotal, deletedate } = props
     // const m = pmoney* Number(subTotal)
-    const [ total, setotal ]= useState(1)
+  
   
 
 //   const{setfinalTotal} = props
@@ -56,7 +56,11 @@ useEffect(()=>{
                 shopCart.push(newarr)
             } 
         }
-    }  
+    }
+    
+    
+    const [listShopNum,setlistShopNum] = useState()
+    
 
 return(
     <>
@@ -64,6 +68,9 @@ return(
         // 設定圖片路徑
         const img1 = (pinfo.p_name)
         const total = cartDetail[i].ShopCounter
+        const update = total 
+         // 使用usedate監控數量變化
+       
         return(         
         <div className="payInfoAll" key={pinfo.id}>
             <div className="payInfo">
@@ -78,12 +85,16 @@ return(
                     <div className="col-3 numberDesk ">
                      <p>數量：</p>
                      <div className="addPNum">
-                         <button className="PNumL" onClick={() =>{if((Number(document.getElementById(pinfo.p_name).innerHTML))>1){
+                         <button className="PNumL" onClick={() =>{
+                            //  if((Number(document.getElementById(pinfo.p_name).innerHTML))>1){
+                            // document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)-1
                             //  setsubTotal(subTotal - 1)
-                            //  setPtotal(ptotal-pmoney)
-                            document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)-1
-                            
-                             }}}>-</button>
+                            //  setPtotal(ptotal-pmoney)}
+                                const dd = listShopNum -1 
+                                setlistShopNum(listShopNum - 1)
+                                update(dd)
+
+                             }}>-</button>
                          <div id={pinfo.p_name}>{total}</div>
                          <button className="PNumR" onClick={() =>{
                              document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)+1
@@ -101,7 +112,7 @@ return(
                         {/* <AddNumBtn subTotal={subTotal} setsubTotal= {setsubTotal} ptotal={ptotal} setPtotal={setPtotal}/> */}
                    
                     <div className="col-2">
-                        <button className="deletBtn" onClick={Delsweetalert}>刪除</button>
+                        <button className="deletBtn" onClick={()=>{  Delsweetalert()}}>刪除</button>
                     </div>
                     <div className="col-1">
                         <p >{pmoney* Number(total)}

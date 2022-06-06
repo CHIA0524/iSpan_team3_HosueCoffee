@@ -1,7 +1,16 @@
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-function Delsweetalert(){
+function Delsweetalert(props){
+  // const cartDetail = JSON.parse(localStorage.getItem('sCarts'))
+  // const aaaId = props.aaaId
+
+  //   console.log(aaaId);
+  //   const deletedate = () => {const data2 = cartDetail.splice(aaaId,1)
+
+  //       localStorage.setItem("sCarts", JSON.stringify(data2))
+  //   }
+    
 
 const removePinfo = Swal.mixin({
     customClass: {
@@ -26,7 +35,7 @@ removePinfo.fire({
             'success'
             )
             document.querySelector('.payInfoAll').remove();
-            document.querySelector('.pinfo.p_name').remove();
+            
 
 
     } else if (
