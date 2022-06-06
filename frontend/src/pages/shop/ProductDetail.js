@@ -68,7 +68,9 @@ function ProductDetail(props){
       localStorage.setItem("sCarts", JSON.stringify(sCarts))
 
   }
-   
+ 
+  
+    
     
 
     return(
@@ -101,18 +103,22 @@ function ProductDetail(props){
                                 <div className="NTotal">{amount}</div>
                                 <button className="NumR" onClick={() =>{
                                 setAmount(amount + 1)
-                                setsubTotal(amount + 1)}
+                                setsubTotal(amount + 1)
+                                }
                                 }>+</button>
                             </div>
                             <br></br>
 
                             <div className="addCart">
                                 <div button type="button" className="addCartBtn" id="subtract" 
-                            onClick={() =>{
+                                onClick={() =>{  
+                                  // backshop();
                                                 updateCart(); 
-                                                AddSweet()}}
-                                ><p className="addCartText"
-                                >加入購物車</p>
+                                                AddSweet();
+                                                  }}
+                                ><Link to="/shop" className="addCartText"
+                                >
+                                加入購物車</Link>
                                     </div>
                             </div>
                         </div>

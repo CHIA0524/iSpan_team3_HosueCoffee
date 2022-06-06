@@ -16,6 +16,7 @@ function PInfo(props){
     // const [ ptotal, setPtotal ]= useState(0)
     const {setPtotal, ptotal } = props
     // const m = pmoney* Number(subTotal)
+    const [ total, setotal ]= useState(1)
   
 
 //   const{setfinalTotal} = props
@@ -27,41 +28,70 @@ const pmoney=499
 useEffect(()=>{
 },[])
 
+    
+    // TODO計數器資料傳遞
+    
+    // 接收localStorage上的購物車資料
+    const cartDetail = JSON.parse(localStorage.getItem('sCarts'))
+    console.log(cartDetail)
+    // 接收資料庫資料
+    const {datas} = props 
 
-    // const totalPrice = () => {
-    //     let total = 0
-    //     for (let i = 0; i < productsInOrder.length; i++) {
-    //       total += productsInOrder[i].count * productsInOrder[i].price
-    //     }
-    //     return total
-    //   }
+    // 計算datas的長度
+    const datamath=datas.length
+    console.log(datamath)
+    // 計算cartDetail的長度
+    const cartDetailmath=cartDetail.length
+    // 建立一個空陣列
+
+    var shopCart=[];
+    console.log(datas);
+    for( let i=0; i<datamath; i++){     
+        for( let c=0; c<cartDetailmath; c++){
+            
+            if(datas[i].p_id === cartDetail[c].id)
+            { 
+                var newdata = datas[i]  
+                var newarr = newdata
+                shopCart.push(newarr)
+            } 
+        }
+    }  
 
 return(
     <>
-        <div className="payInfoAll">
+    {shopCart.map((pinfo,i)=>{
+        // 設定圖片路徑
+        const img1 = (pinfo.p_name)
+        const total = cartDetail[i].ShopCounter
+        return(         
+        <div className="payInfoAll" key={pinfo.id}>
             <div className="payInfo">
-                
                 <div className="payInfoContent">
                     <div className="col-2">
-                        <img className="packageImg" src={require('../img/包裝 9.png')} alt=""></img>
+                        <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
+                        </img>
                     </div>
                     <div className="col-4 pName">
-                        <p>伊莎米 精選招牌特調(半磅)</p>
+                        <p>{pinfo.p_name}</p>
                     </div>
                     <div className="col-3 numberDesk ">
                      <p>數量：</p>
                      <div className="addPNum">
-                         <button className="PNumL" onClick={() =>{if(subTotal>1){
-                             setsubTotal(subTotal - 1)
-                             setPtotal(ptotal-pmoney)
+                         <button className="PNumL" onClick={() =>{if((Number(document.getElementById(pinfo.p_name).innerHTML))>1){
+                            //  setsubTotal(subTotal - 1)
+                            //  setPtotal(ptotal-pmoney)
+                            document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)-1
                             
                              }}}>-</button>
-                         <div>{subTotal}</div>
+                         <div id={pinfo.p_name}>{total}</div>
                          <button className="PNumR" onClick={() =>{
+                             document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)+1
+                             
 
-                             setsubTotal(subTotal + 1)
-                             setPtotal(pmoney*(subTotal+ 1))
-                             setPtotal(ptotal+pmoney)
+                            //  setsubTotal(subTotal + 1)
+                            //  setPtotal(pmoney*(subTotal+ 1))
+                            //  setPtotal(ptotal+pmoney)
 
                            }
                          }>+</button>
@@ -74,9 +104,7 @@ return(
                         <button className="deletBtn" onClick={Delsweetalert}>刪除</button>
                     </div>
                     <div className="col-1">
-                         
-
-                        <p >${pmoney* Number(subTotal)}
+                        <p >{pmoney* Number(total)}
                         </p>
                     </div>
                 </div>
@@ -111,9 +139,12 @@ return(
                     </div>
                 </div>
             </div>
-       </div> 
-  </>
-  );
+       </div>
+       )
+     })}
+   </>   
+    )    
+
 }
 
 export default PInfo

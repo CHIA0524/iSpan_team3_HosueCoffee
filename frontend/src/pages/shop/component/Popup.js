@@ -95,10 +95,12 @@ function Popup(props){
                                             <div class="PpopAddCart">
                                                 <div type="button" class="PaddCartBtn" id="subtract" 
                                                 onClick={() =>{
+                                                setcss({visibility: 'hidden' , opscity : '0'} ) ;
                                                 updateCart(); 
                                                 setAmount (1);
                                                 AddSweet()}}
-                                                >加入購物車
+                                                >
+                                                加入購物車
                                                   </div>
                                             </div>
                                         </div>

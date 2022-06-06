@@ -237,8 +237,19 @@ function Pay1(props){
                // document.getElementById("sprice").innerHTML = 100
                setShipgopay(100)
             }
-             }     
-   
+             }    
+             
+    //pay1重後端抓資料
+    // let[pricetotal1, setpricetotal1] = useState('')
+    const [datas, setDatas ] = useState([])
+    const fetchData = async()=>{    
+     const response = await fetch('http://localhost:3001/shop'); 
+     const results = await response.json();
+                     setDatas(results);
+     }
+    useEffect(()=>{
+        fetchData();
+         },[])
 
 
   return(
@@ -249,9 +260,9 @@ function Pay1(props){
                    <Steps1 />
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
-                settotalp={settotalp}
+                    settotalp={settotalp} datas={datas}
                    />
-                   <PInfo setPtotal={setPtotal} ptotal={ptotal} settotalp={settotalp} />
+                  
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
                         <div>

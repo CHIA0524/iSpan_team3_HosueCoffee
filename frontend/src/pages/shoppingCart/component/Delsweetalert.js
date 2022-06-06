@@ -26,6 +26,9 @@ removePinfo.fire({
             'success'
             )
             document.querySelector('.payInfoAll').remove();
+            document.querySelector('.pinfo.p_name').remove();
+
+
     } else if (
       /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel

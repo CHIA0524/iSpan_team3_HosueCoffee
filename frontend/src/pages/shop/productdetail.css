@@ -95,6 +95,9 @@
   background-color: transparent;
   border: 1px solid #e4d2a3;
 }
+.addCartBtn a {
+  color: #4c3410;
+}
 .addCart {
   margin: 0;
 }
