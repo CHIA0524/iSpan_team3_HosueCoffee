@@ -34,11 +34,10 @@ const Counter = (props) => {
         for (let i = 0; i < gifts.length; i++) {
 
             let item = gifts[i]
-            console.log(item); 
-            console.log(gift.id);
+            console.log(gifts[i]);
             if (item.id === gift.id) {
 
-                item.drinkCounter += gift.drinkCounter
+                item.drinkCounter = gift.drinkCounter
 
             } else {
 
