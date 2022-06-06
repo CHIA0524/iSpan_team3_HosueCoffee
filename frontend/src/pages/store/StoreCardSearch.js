@@ -16,26 +16,39 @@ function StoreCardSearch(props){
   const [ searchText, setSearchText ] = useState('')
   const [ filterCSS, setFilterCSS ] = useState(false)
 
+  // checkBox Option
+  const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+
   // checkBox List
   const [ cityList, setCityList ] = useState([])
   const [ dowList, setDowList ] = useState([])
   const [ serveList, setServeList ] = useState([])
 
-  // checkBox Option
-  const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
-  
   /*---------------- useEffect ----------------*/
-  // 控管 cityList 進行 filter()
+
+  // useEffect(()=>{
+  //   if (cityData.length > 0) {
+    //   setTimeout(() => {
+        // setCityList(cityData)
+        // setServeList(serveData)
+    //   }, 100);
+    // }
+  // }, [cityData, serveData])
+
+  // 控管 list 進行 filter()
   useEffect(()=>{
     if (cityList.length === 0 && dowList.length === 0 && serveList.length === 0) {
       setFilterData(data)
     } else {
+      console.log(cityList);
+      console.log(dowList);
+      console.log(serveList);
       setFilterData(
         data.filter(function(oneData){
           return(
-            cityList.some(city => oneData.city.includes(city)) ||
-            dowList.some(dow => oneData.times.includes(`${dow}:營業`)) ||
-            serveList.some(serve => oneData.serve_name.includes(serve))
+            cityList.every(city => oneData.city.includes(city)) &&
+            dowList.every(dow => oneData.times.includes(`${dow}:營業`)) &&
+            serveList.every(serve => oneData.serve_name.includes(serve))
           )
         }
         )
@@ -88,6 +101,9 @@ function StoreCardSearch(props){
             setCityList([])
             setDowList([])
             setServeList([])
+            // setCityList(cityData)
+            // setDowList(dow)
+            // setServeList(serveData)
           }}
         >
           <p>清除</p>
