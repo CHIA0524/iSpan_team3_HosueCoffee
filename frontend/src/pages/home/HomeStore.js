@@ -2,13 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
-function homeStore() {
-    const App = () => {
+function HomeStore() {
         const [selected, setSelected] = useState("");
         const changeSelectOptionHandler = (event) => {
             setSelected(event.target.value);
         };
-        const newTaipeiStore = ["新店"];
+        const newTaipeiStore = ["新北店"];
         const kaohsiungStore = ["前金店", "中正店", "七賢店", "廣林店", "大順店", "楠梓店", "藍昌店"];
         const tainanStore = ["府榮店", "長榮店", "永康店", "湖美店"];
         const chiayiStore = ["垂楊店"];
@@ -25,7 +24,6 @@ function homeStore() {
         }
         if (type) {
             EachStoreName = type.map((el) => <option key={el}>{el}</option>);
-        }
     }
 
 
@@ -55,4 +53,4 @@ function homeStore() {
     );
 };
 
-export default homeStore
+export default HomeStore
