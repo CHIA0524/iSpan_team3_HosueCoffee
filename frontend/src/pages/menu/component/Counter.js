@@ -7,18 +7,16 @@ const Counter = (props) => {
 
     // 解構popup傳來的值
     const {setdrinkCounter, drinkCounter}  = props
-
+    // 設一個空變數莊加減按鈕
     let buttonsub = null
-
     let buttonadd = null 
-
-    let num = props.Counter
-
+    // 接收list傳來的數量跟ID
+    let drinkNum = props.Counter
     let idP = props.id
+    // 使用usedate監控數量變化
+    const [listDrinkNum,setlistDrinkNum] = useState(drinkNum)
 
-    const [aaa,setaaa] = useState(num)
-    
-    const update = ()=>{
+    const update = (dd,ee,cc)=>{
 
         let k = 0
 
@@ -26,7 +24,7 @@ const Counter = (props) => {
 
             id: idP,
 
-            drinkCounter:aaa,
+            drinkCounter:dd,
         }
 
         let gifts = localStorage.getItem("gifts") ? JSON.parse(localStorage.getItem("gifts")) : []
@@ -34,7 +32,7 @@ const Counter = (props) => {
         for (let i = 0; i < gifts.length; i++) {
 
             let item = gifts[i]
-            console.log(gifts[i]);
+            
             if (item.id === gift.id) {
 
                 item.drinkCounter = gift.drinkCounter
@@ -55,7 +53,6 @@ const Counter = (props) => {
         localStorage.setItem("gifts", JSON.stringify(gifts))
 
     }
-
 
 if(drinkCounter){
 
@@ -98,13 +95,14 @@ if(drinkCounter){
     }
 }
 else{
-    if(aaa > 1){
+    if(listDrinkNum > 1){
         buttonsub = 
             <div 
                 className="btn buttonLeft" 
                 onClick={ () => { 
-                    setaaa(aaa - 1)
-                    update()
+                    const dd = listDrinkNum -1 
+                    setlistDrinkNum(listDrinkNum - 1)
+                    update(dd)
                 }}
             >
                 -
@@ -113,8 +111,9 @@ else{
         <div
             className="btn buttonRight"
             onClick={() => {
-                setaaa(aaa + 1);
-                update()
+                const cc = listDrinkNum + 1 
+                setlistDrinkNum(listDrinkNum + 1);
+                update(cc)
             }}
             >
             +
@@ -131,8 +130,9 @@ else{
         <div
             className="btn buttonRight"
             onClick={() => {
-                setaaa(aaa + 1);
-                update()
+                const ee = listDrinkNum + 1 
+                setlistDrinkNum(listDrinkNum + 1);
+                update(ee)
             }}
         >
             +
@@ -144,7 +144,7 @@ return (
                 {buttonsub}
                 <div className="quantity">
                     {drinkCounter}
-                    {aaa}
+                    {listDrinkNum}
                 </div>
                 {buttonadd}
             </div>

@@ -1,17 +1,20 @@
 import React from 'react';
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 import Counter from '../component/Counter';
-import Button from '../component/Button';
 import { AiFillDelete } from "react-icons/ai";
 
 
 const List = (props) => {
     
-    // TODO計數器資料傳遞
-    
     // 接收localStorage上的購物車資料
     const datas1 = JSON.parse(localStorage.getItem('gifts'))
+    
+    const [datasNEW, setdatasNEW] = useState(datas1)
+    
+    // const [totalnum, settotalnum] = useState()
 
+
+    console.log(datas1);
     // 接收資料庫資料
     const {datas} = props 
     // 計算datas的長度
@@ -19,7 +22,6 @@ const List = (props) => {
     // 計算datas1的長度
     const datas1math=datas1.length
     // 建立一個空陣列
-
     var menuCart=[];
     
     for( let i=0; i<datasmath; i++){ 
@@ -35,8 +37,11 @@ const List = (props) => {
 
                 menuCart.push(newarr)
             } 
-        }
-    }  
+        } 
+    }
+
+console.log(menuCart);
+
     return(
         <> 
             {/* 印出資料 */}
@@ -66,17 +71,28 @@ const List = (props) => {
                                         <div className="quantityText">
                                             數量：
                                         </div>
-                                        <Counter Counter={total} id={datas1[i].id}/>
+                                        <Counter Counter={total} id={datas1[i].id} />
                                     </div>
                                 </div>
                                 <div className="delete1">
-                                    <Button name="刪除" herf="/"/>
-                                <div className="trash">
-                                    <AiFillDelete />
-                                </div>
+                                    <div  
+                                        className='btn' 
+                                        herf="/"
+                                        onClick={()=>{ 
+                                            datasNEW.splice(i,1)
+                                            localStorage.setItem("gifts", JSON.stringify(datasNEW))
+                                            const datas222 = JSON.parse(localStorage.getItem('gifts'))
+                                            setdatasNEW(datas222)
+                                                }}
+                                    >
+                                        刪除
+                                    </div>
+                                    <div className="trash">
+                                        <AiFillDelete />
+                                    </div>
                                 </div>
                                 <div className="price">
-                                {total*to.price}
+                                    {total*to.price}
                                 </div>
                             </div>
                         </div>
