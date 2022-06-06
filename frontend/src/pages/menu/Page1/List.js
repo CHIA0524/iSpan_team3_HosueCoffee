@@ -11,16 +11,18 @@ const List = (props) => {
     
     const [datasNEW, setdatasNEW] = useState(datas1)
     
-    // const [totalnum, settotalnum] = useState()
+    const [totalnum, settotalnum] = useState()
 
-
-    console.log(datas1);
+   
+    console.log(datas1[0].drinkCounter);
     // 接收資料庫資料
     const {datas} = props 
     // 計算datas的長度
     const datasmath=datas.length
     // 計算datas1的長度
     const datas1math=datas1.length
+
+    
     // 建立一個空陣列
     var menuCart=[];
     
@@ -40,7 +42,6 @@ const List = (props) => {
         } 
     }
 
-console.log(menuCart);
 
     return(
         <> 
@@ -84,6 +85,7 @@ console.log(menuCart);
                                             const datas222 = JSON.parse(localStorage.getItem('gifts'))
                                             setdatasNEW(datas222)
                                                 }}
+                                                onc
                                     >
                                         刪除
                                     </div>
@@ -92,7 +94,7 @@ console.log(menuCart);
                                     </div>
                                 </div>
                                 <div className="price">
-                                    {total*to.price}
+                                {totalnum}
                                 </div>
                             </div>
                         </div>

@@ -55,7 +55,7 @@ const Popup = (props) => {
 
             return(
                 <div className="overlay" style={css}>
-                    <div className="popup">
+                    <div className="menuPopup">
                         <div 
                             className="close" 
                             onClick={()=>{
@@ -65,7 +65,7 @@ const Popup = (props) => {
                         >
                             &times;
                         </div>
-                        <div className="content">
+                        <div className="menuContent">
                             <div className="popoimg">
                                 <img 
                                     src={require('../img/'+ datas[drinkId-1].url +'.jpg')}
@@ -83,8 +83,8 @@ const Popup = (props) => {
                                         {datas[drinkId-1].content}
                                     </span>
                                 </div>
-                                <div className="content1">
-                                    <div className="content2 btn2">
+                                <div className="menuContent1">
+                                    <div className="menuContent2 btn2">
                                         <div className="d-flex justify-content-end mt-4">
                                             <div 
                                                 className="btn PaymentLast1 mt-1"
