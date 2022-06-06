@@ -77,6 +77,8 @@ router.post('/upphoto',upload.single("file"),async(req,res)=>{
 
 
 
+
+
 // router.post('/upphoto',upload.single("upPhoto"),(req,res)=>{
 
 //     console.log(req.body);

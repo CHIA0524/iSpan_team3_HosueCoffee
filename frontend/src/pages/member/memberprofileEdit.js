@@ -54,7 +54,7 @@ function MemberprofileEdit(props){
       }else{
         if(UPname.length>0 && UPphone.length==10){
           const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}`);
-
+          
           localStorage.removeItem("name")
           localStorage.removeItem("nick")
           localStorage.removeItem("birth")
@@ -75,6 +75,23 @@ function MemberprofileEdit(props){
   }
 }
 
+  // 大頭照 input 變更事件
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
+    }
+
+    // 尚未上傳 預覽用
+    const output = document.getElementById('avatar')
+    output.src = URL.createObjectURL(e.target.files[0])
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+    setImage(img)
+  }
+
+  // 上傳大頭照
   const [image, setImage] = useState({ preview: '', data: '' })
   const [status, setStatus] = useState('')
   const handleSubmit = async (e) => {
@@ -88,20 +105,9 @@ function MemberprofileEdit(props){
     })
     if (response) setStatus(response.statusText)
   }
+  
+  
 
-  const handleFileChange = (e) => {
-    const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    }
-    const output = document.getElementById('avatar')
-    output.src = URL.createObjectURL(e.target.files[0])
-    output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
-    }
-    setImage(img)
-  }
-  console.log(image);
     return(
         <>
     
@@ -114,7 +120,7 @@ function MemberprofileEdit(props){
                 <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhotoE">
-                            <img id='avatar' src={require(`${process.env.REACT_APP_API_URL}/public/uploads/1654505002194.jpg`)}  alt="會員照片"></img>
+                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/1654511562844.jpg`}  alt="會員照片"></img>
                             <label for='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
                         <form onSubmit={handleSubmit}>
