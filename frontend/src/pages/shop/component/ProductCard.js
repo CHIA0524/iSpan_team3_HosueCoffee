@@ -10,19 +10,18 @@ import { BiColorFill } from 'react-icons/bi';
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId, auth,datasPMF} = props;
-   const [buttonpopup,setButtonpopup] = useState(false);
-   const [ cart, setcart] =useState([]);
-   const [ liked, setLiked] =useState([true]);
-   //抓取member的ＩＤ
-   const memeId=localStorage.getItem(true)
+   const {datas, setcss, setProductId, auth,datasPMF} = props;
   
-   //抓取member的ＩＤ
-   const thismemberid=localStorage.getItem("true");
-   
-   
-    //設定收藏的value
-  const [whishList,setWishList]= useState()
+   //  const [buttonpopup,setButtonpopup] = useState(false);
+  //  const [ cart, setcart] =useState([]);
+  //  const [ liked, setLiked] =useState([true]);
+  
+   //  抓取member的ＩＤ
+  //  const memeId=localStorage.getItem(true)
+  //  抓取member的ＩＤ
+  //  const thismemberid=localStorage.getItem("true"); 
+  //   設定收藏的value
+  // const [whishList,setWishList]= useState()
 
 
     

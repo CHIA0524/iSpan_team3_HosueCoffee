@@ -42,7 +42,32 @@ function ProductDetail(props){
       console.log(p_name);
     
     const img1=(p_name);
-    
+    //加入購物車更新
+
+    const updateCart = ()=>{
+      //加入購物車的計算
+      let o = 0
+      //localStorage的變數
+      const sCart = {
+          id: p_id,
+          ShopCounter:amount,
+      }
+      //轉存為JSON 存至LOCAL STORAGE
+      let sCarts = localStorage.getItem("sCarts") ? JSON.parse(localStorage.getItem("sCarts")) : []
+      for (let i = 0; i < sCarts.length; i++) {
+          let item = sCarts[i]    
+          if (item.id === sCart.id) {
+              item.ShopCounter += sCart.ShopCounter
+          } else {
+              o = o + 1
+          }
+      }
+      if (o === sCarts.length) {
+        sCarts.push(sCart)
+      }
+      localStorage.setItem("sCarts", JSON.stringify(sCarts))
+
+  }
    
     
 
@@ -83,8 +108,11 @@ function ProductDetail(props){
 
                             <div className="addCart">
                                 <div button type="button" className="addCartBtn" id="subtract" 
-                             onClick={AddSweet}
-                                ><p className="addCartText">加入購物車</p>
+                            onClick={() =>{
+                                                updateCart(); 
+                                                AddSweet()}}
+                                ><p className="addCartText"
+                                >加入購物車</p>
                                     </div>
                             </div>
                         </div>

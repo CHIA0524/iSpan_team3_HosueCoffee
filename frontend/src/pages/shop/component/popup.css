@@ -3,7 +3,7 @@
 /* -------- 字體 -------- */
 
 /* 彈跳視窗 */
-.popupWrap {
+.PpopupWrap {
   width: 50%;
   height: 100%;
   display: none;
@@ -13,7 +13,7 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-.popupBox {
+.PpopupBox {
   padding: 100px 100px;
   -webkit-transform: translate(-50%, -50%) scale(0.6);
   transform: translate(-50%, -50%) scale(0.6);
@@ -33,12 +33,12 @@
   left: 50%;
 }
 
-.popupBox input,
-.popupBox select {
+.PpopupBox input,
+.PpopupBox select {
   margin-bottom: 25px;
 }
 
-.popupBox .ansAddForm > *:not(:last-child):not(:first-child) {
+.PpopupBox .ansAddForm > *:not(:last-child):not(:first-child) {
   width: 330px;
   padding: 0.6rem 1rem;
   margin-bottom: 35px;
@@ -48,20 +48,20 @@
   transition: var(--store-transition);
 }
 
-.popupBox .ansAddForm *:focus {
+.PpopupBox .ansAddForm *:focus {
   background: #ede1c1;
 }
 
-.popupBox .ansAddForm a {
+.PpopupBox .ansAddForm a {
   margin: 3rem;
 }
 
-.popupBox .ansAddForm textarea {
+.PpopupBox .ansAddForm textarea {
   height: 200px;
   resize: none;
 }
 
-.popupClose {
+.PpopupClose {
   width: 50px;
   line-height: 40px;
   color: gray;
@@ -75,29 +75,29 @@
   transition: var(--store-transition);
 }
 
-.popupClose:hover {
+.PpopupClose:hover {
   color: black;
 }
 
-.popupTransformIn,
-.popupTransformOut {
+.PpopupTransformIn,
+.PpopupTransformOut {
   display: block;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 
-.popupTransformIn {
+.PpopupTransformIn {
   -webkit-transform: translate(-50%, -50%) scale(1);
   transform: translate(-50%, -50%) scale(1);
 }
 
-.popupTransformOut {
+.PpopupTransformOut {
   -webkit-transform: translate(-50%, -50%) scale(0.6);
   transform: translate(-50%, -50%) scale(0.6);
 }
 /*# sourceMappingURL=popup.css.map */
 
-.popupShow {
+.PpopupShow {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -109,13 +109,13 @@
   opacity: 0;
 }
 
-.popupShow:target {
+.PpopupShow:target {
   visibility: visible;
   opacity: 1;
   z-index: 1;
 }
 
-.popup {
+.Ppopup {
   margin: 15rem auto;
   padding: 1rem;
   background: #fff;
@@ -125,7 +125,7 @@
   /* transition: all 5s ease-in-out; */
 }
 
-.popup .close {
+.Ppopup .Pclose {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -138,11 +138,11 @@
   border: transparent;
 }
 
-.popup .close:hover {
+.Ppopup .Pclose:hover {
   color: red;
 }
 
-.popup .productPopup {
+.Ppopup .PproductPopup {
   max-height: 50%;
   overflow: auto;
 }
@@ -150,7 +150,7 @@
   display: flex;
   justify-content: center;
 }
-.popBoxContent {
+.PpopBoxContent {
   display: flex;
 }
 .PimgPart {
@@ -165,20 +165,21 @@
   justify-content: center;
   align-content: center;
 }
-.popContent {
+.PpopContent {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 1rem;
 }
-.popText p {
+.PpopText p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-.popAddNum {
+.PpopAddNum {
   display: flex;
 }
-.popAddNum button {
+
+.PbuttonNum {
   width: 1.5rem;
   border-radius: 5px;
   color: #4c3410;
@@ -186,17 +187,17 @@
   border: 1px solid #e4d2a3;
 }
 
-.popAddNum button :hover {
+.PbuttonNum:hover {
   background-color: #e4d2a3;
 }
 
-.popAddNum div {
+.PpopAddNum div {
   border: 0;
   width: 30px;
   text-align: center;
   line-height: 2rem;
 }
-.popAddCartBtn {
+.PaddCartBtn {
   margin-top: 4px;
   width: 9rem;
   border-radius: 5px;
@@ -204,38 +205,38 @@
   background-color: transparent;
   border: 1px solid #e4d2a3;
 }
-.addCartBtn {
+.PaddCartBtn {
   display: flex;
   justify-content: center;
 }
 
-.popAddCart a :hover {
+.PaddCartBtn:hover {
   background-color: #e4d2a3;
 }
-.popBtn {
+.PpopBtn {
   display: flex;
 }
-.popAddCart {
+.PpopAddCart {
   margin-left: 4rem;
 }
 
 @media screen and (max-width: 1200px) {
-  .popup {
+  .Ppopup {
     display: flex;
     flex-direction: row;
     margin: 10rem auto;
     width: 300px;
   }
-  .popBoxContent {
+  .PpopBoxContent {
     /* width: 90%; */
     display: inline-block;
     margin-left: 1rem;
   }
-  .popBtn {
+  .PpopBtn {
     display: block;
     margin-top: 1rem;
   }
-  .popAddCart {
+  .PpopAddCart {
     margin-left: 0;
     margin-top: 2rem;
   }
@@ -247,14 +248,14 @@
     width: 90%;
     height: 90%;
   }
-  .popAddCart {
+  .PpopAddCart {
     margin-left: 1rem;
   }
-  .popText p {
+  .PpopText p {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-  .popup .close {
+  .Ppopup .Pclose {
     position: absolute;
     top: 10px;
     right: 10px;
