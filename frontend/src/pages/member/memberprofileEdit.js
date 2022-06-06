@@ -75,7 +75,7 @@ function MemberprofileEdit(props){
   }
 }
 
-const [image, setImage] = useState({ preview: '', data: '' })
+  const [image, setImage] = useState({ preview: '', data: '' })
   const [status, setStatus] = useState('')
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -94,8 +94,14 @@ const [image, setImage] = useState({ preview: '', data: '' })
       preview: URL.createObjectURL(e.target.files[0]),
       data: e.target.files[0],
     }
+    const output = document.getElementById('avatar')
+    output.src = URL.createObjectURL(e.target.files[0])
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
     setImage(img)
   }
+  console.log(image);
     return(
         <>
     
@@ -108,7 +114,7 @@ const [image, setImage] = useState({ preview: '', data: '' })
                 <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhotoE">
-                            <img  src={require(`${process.env.REACT_APP_API_URL}/public/uploads/1654505002194.jpg`)}  alt="會員照片"></img>
+                            <img id='avatar' src={require(`${process.env.REACT_APP_API_URL}/public/uploads/1654505002194.jpg`)}  alt="會員照片"></img>
                             <label for='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
                         <form onSubmit={handleSubmit}>
