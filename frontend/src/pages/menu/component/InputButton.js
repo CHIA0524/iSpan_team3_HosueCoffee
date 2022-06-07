@@ -72,8 +72,7 @@ const InputButton = () => {
                 </from>
             </div>  
 
-// rcWYd8mqXvEtKDaG
-// 5NiiXUugDjARRNgy
+
 
 )
 

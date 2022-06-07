@@ -1,5 +1,4 @@
-import React from "react";
-import{useState,useEffect} from "react";
+import React,{useState,useEffect} from "react";
 import "./scss/style.scss"
 import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
