@@ -7,8 +7,6 @@ import * as Yup from "yup";
 
 
 const InputButton = () => {
-
-
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -29,10 +27,6 @@ const InputButton = () => {
         }
         });
     return(
-
-
-
-        
             <div className="people">
                 <from onSubmit={formik.handleSubmit}>
                     <label>購買人資料</label>
@@ -71,9 +65,6 @@ const InputButton = () => {
                     </div>
                 </from>
             </div>  
-
-
-
 )
 
 }
