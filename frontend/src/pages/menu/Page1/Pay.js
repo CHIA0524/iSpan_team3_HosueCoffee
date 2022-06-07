@@ -9,6 +9,16 @@ import Dropdown from "../component/Dropdown ";
 
 const Pay = (props) => {
     const {totalprice} = props
+
+
+    const updateprice = () => { 
+
+        const updateprice = {
+                totalprice:totalprice
+        }
+        // let updateprices = localStorage.getItem("updateprices") ? JSON.parse(localStorage.getItem("updateprices")) : []
+        localStorage.setItem("updateprices", JSON.stringify(updateprice))
+    }
         return (
             <div className="list">
                 <div className="Promo">
@@ -28,8 +38,8 @@ const Pay = (props) => {
                             <h6>-25</h6>
                         </div>
                         <div className="d-flex justify-content-between mb-5">
-                            <h6>紅利折扣</h6>
-                            <h6>-25</h6>
+                            {/* // <h6>紅利折扣</h6>
+                            // <h6>-25</h6> */}
                         </div>
                         <h4 style={{color: 'red'}}>{totalprice}</h4>
                     </div>
@@ -41,7 +51,7 @@ const Pay = (props) => {
                         </Link>
                     </div>
                     <div className="d-flex justify-content-end">
-                        <Link to="/OnlineCheckPage2">
+                        <Link to="/OnlineCheckPage2" onClick={updateprice}>
                             <div className="btn PaymentLast">
                                 結帳
                             </div>

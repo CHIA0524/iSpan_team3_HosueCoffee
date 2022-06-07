@@ -10,25 +10,22 @@ import './scss/checkout2.scss'
 
 const OnlineCheckPage2 = () => {
     
-
+    const datas1 = JSON.parse(localStorage.getItem('updateprices'))
 
     return (    
-
-
-    <>
-        <Space/>
-        <Process2/>
-        <Process2RWD/>
-        <Space/>
-        <div class="container together">
-            <div class="superman">
-                <BodyLeft/>
-                <BodyRight/>
+        <>
+            <Space/>
+            <Process2/>
+            <Process2RWD/>
+            <Space/>
+            <div class="container together">
+                <div class="superman">
+                    <BodyLeft/>
+                    <BodyRight datas1={datas1}/>
+                </div>
             </div>
-        </div>
-        <Space/>
-    </>
-    
+            <Space/>
+        </>
 )
 
 }
