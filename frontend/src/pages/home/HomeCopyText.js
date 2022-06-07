@@ -2,6 +2,7 @@ import { doc } from 'prettier';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import e from 'cors';
 
 function HomeCopyText(props) {
     const {CP_id,thismemberid,TTdatas}=props
@@ -23,10 +24,19 @@ function HomeCopyText(props) {
                         )
                     }else{
                         if(thismemberid){
-
+                                
                             return(
         
-                                <div class="copyText" >
+                                <div class="copyText" id={CP_id} onClick={()=>{
+                                    if(document.getElementById(CP_id).innerHTML=="已領"){
+
+                                        alert("你領過了")
+                                    }else{
+                                        const state="未使用"
+                                        alert("領取成功")
+                                        document.getElementById(CP_id).innerHTML="已領"
+                                    }
+                                }}>
                                     未領取
                                 </div>
                             )

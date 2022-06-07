@@ -87,7 +87,6 @@ router.get('/CRNM',async (req,res,next)=>{
   const sql = `INSERT INTO members (member_mail, member_account,member_password) VALUES (?,?,?)`
   const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password]);
   res.json(datas);
-  console.log("gogo")
   
 })
 router.get('/CRNM2',async (req,res,next)=>{
