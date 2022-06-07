@@ -48,7 +48,7 @@ const BodyRight = () => (
                 </div>
                 <div className="d-flex justify-content-end mt-4">
                     <Link to="/OnlineCheckPage3">
-                        <div className="btn PaymentLast mt-1">結帳</div>
+                        <div className="btn PaymentLast mt-1" type="submit">結帳</div>
                     </Link>
                 </div>
             </div>
