@@ -39,17 +39,16 @@ removePinfo.fire({
             '刪除!',
             '商品已刪除.',
             'success'
+            
             )
-        
             datasNEW.splice(i,1)
             console.log(datasNEW);
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
             setdatasNEW(datas222)
-            
-            setPtotal(ptotal-(price*thisTT));
-            
-
+            // setPtotal(ptotal-(price*thisTT));
+            setTimeout(window.location.reload(),10000);
+          
 
     } else if (
       /* Read more about handling dismissals below */
@@ -61,7 +60,8 @@ removePinfo.fire({
         'error'
       )
     }
-  })}}>刪除</button>
+  })
+  }}>刪除</button>
                     </div>
   </>
   )
