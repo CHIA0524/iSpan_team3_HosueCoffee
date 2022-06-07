@@ -22,7 +22,7 @@ const OnlineCheckPage = () => {
         let[pricetotal1, setpricetotal1] = useState('')
         
         const [datas, setDatas ] = useState([])
-
+        const [totalprice, settotalprice ] = useState()
         const fetchData = async()=>{
 
                         const response = await fetch('http://localhost:3002/menu');
@@ -36,15 +36,17 @@ const OnlineCheckPage = () => {
 
                 },[])
 
+
+
         return(
         <>
                 <Space />
                 <Process />
                 <ProcessRwd />
                 <Space />
-                <List setpricetotal1={setpricetotal1} datas={datas}/>
+                <List setpricetotal1={setpricetotal1} datas={datas} settotalprice={settotalprice}  totalprice={totalprice}/>
                 <Promo />
-                <Pay />
+                <Pay totalprice={totalprice} />
         </>
 
 

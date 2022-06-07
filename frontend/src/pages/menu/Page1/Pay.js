@@ -7,7 +7,11 @@ import Dropdown from "../component/Dropdown ";
 
 
 
-const Pay = () => {
+const Pay = (props) => {
+
+
+
+    const {totalprice} = props
 
         return (
                 <div className="list">
@@ -32,7 +36,7 @@ const Pay = () => {
                                 <h6>紅利折扣</h6>
                                 <h6>-25</h6>
                             </div>
-                            <h4 style={{color: 'red'}}>1</h4>
+                            <h4 style={{color: 'red'}}>{totalprice}</h4>
                         </div>
                     </div>
                     <div className="d-flex justify-content-between">

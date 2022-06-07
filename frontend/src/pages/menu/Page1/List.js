@@ -14,12 +14,12 @@ const List = (props) => {
     const [totalPrice1, settotalPrice1] = useState()
     
     // 接收資料庫資料
-    const {datas} = props 
+    const {datas,totalprice,settotalprice} = props 
     // 計算datas的長度
     const datasmath=datas.length
     // 計算datas1的長度
     const datas1math=datas1.length
-
+    var aaaaa= 0
     // useEffect(() => {},[total]);
     // 建立一個空陣列
     var menuCart=[];
@@ -48,6 +48,8 @@ const List = (props) => {
                 
                 const total = datas1[i].drinkCounter
                 const price = to.price
+                aaaaa = aaaaa+(total*price)
+                settotalprice(aaaaa)
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">
@@ -74,6 +76,8 @@ const List = (props) => {
                                             datas={menuCart}
                                             price={price}
                                             settotalPrice1={settotalPrice1}
+                                            totalprice={totalprice}
+                                            settotalprice={settotalprice}
                                         />
                                     </div>
                                 </div>

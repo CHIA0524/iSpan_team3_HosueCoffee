@@ -8,6 +8,7 @@ const Counter = (props) => {
     // 解構popup傳來的值
     const {setdrinkCounter, drinkCounter}  = props
     const {settotalPrice1} = props
+    // const{totalprice,settotalprice} = props
     // 設一個空變數裝加減按鈕
     let buttonsub = null
     let buttonadd = null 
