@@ -40,7 +40,7 @@ function App() {
 
       <Switch>
         {/* blog */}
-        <Route path="/blog/blogArticle">
+        <Route path="/blog/blogArticle/:id">
         <BlogArticle />
         </Route>
         <Route path="/blog">
