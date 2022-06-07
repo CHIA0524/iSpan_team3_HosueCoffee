@@ -83,7 +83,7 @@ return(
                     <div className="col-4 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
-                    <Price update={update} price={price} img1={img1} total={total} 
+                    <Price update={update} price={price}  total={total} 
                         setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i}
                     />
                    
@@ -104,7 +104,7 @@ return(
                             </div>
                         </div>
 
-                        <Price update={update} price={price} img1={img1} total={total} 
+                        <Price update={update} price={price}  total={total} 
                         setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} />    
                      
 

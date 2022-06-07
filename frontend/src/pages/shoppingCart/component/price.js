@@ -1,7 +1,7 @@
 import Delsweetalert from './Delsweetalert';
 import { useState } from 'react';
 function Price(props){
-    const {update,price,img1,total,setPtotal, ptotal,TTmoney,productId,i}=props;
+    const {update,price,total,setPtotal, ptotal,TTmoney,productId,i}=props;
     const[amount, setAmount]= useState(0)
 
     const [thisTT,setThisTT]=useState(Number(total))
@@ -12,7 +12,6 @@ function Price(props){
             let o = 0
             //localStorage的變數
             const sCart = {
-                
                 id: productId,
                 ShopCounter:dd,
             }
@@ -46,7 +45,7 @@ return(
                              updateCart(dd); 
                             }
                              }}>-</button>
-                            <div id={img1}>{thisTT}</div>
+                            <div>{thisTT}</div>
                             <button className="PNumR" onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
