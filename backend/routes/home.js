@@ -13,6 +13,13 @@ router.route('/coupon')
         const [datas] = await db.query(sql);
         res.json(datas);
     })
+router.route('/abc')
+    .get(async (req, res, next) => {
+        const sql =
+            "SELECT * FROM `member_con` where fk_m_id=100001";
+        const [datas] = await db.query(sql);
+        res.json(datas);
+    })
 router.route('/coupon/saved')
     .get(async (req, res, next) => {
         console.log(req.query.fk_m_id)
@@ -21,11 +28,11 @@ router.route('/coupon/saved')
         const [datas] = await db.query(sql, [req.query.fk_m_id, req.query.fk_coupon_id]);
         res.json(datas[0]);
     })
-router.get('/coupon/savedtoMember', async (req, res, next) => {
+router.get('/coupon/saved/toMember', async (req, res, next) => {
     console.log(req.query.fk_m_id);
     console.log(req.query.fk_coupon_id);
     console.log(req.query.state);
-    const sql = `INSERT INTO members (fk_m_id, fk_coupon_id, state) VALUES (?,?,?)`
+    const sql = `INSERT INTO member_con(fk_m_id,fk_coupon_id,state) VALUES (?,?,?)`
     const [datas] = await db.query(sql, [req.query.fk_m_id, req.query.fk_coupon_id, req.query.state]);
     res.json(datas);
 
