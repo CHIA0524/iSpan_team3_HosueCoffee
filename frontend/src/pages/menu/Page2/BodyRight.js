@@ -44,7 +44,9 @@ const BodyRight = () => (
             </div>
             <div className="d-flex justify-content-between">
                 <div className="d-flex justify-content-end mt-4">
-                    <div className="btn PaymentLast mt-1">上一頁</div>
+                    <Link to="/OnlineCheckPage">
+                        <div className="btn PaymentLast mt-1">上一頁</div>
+                    </Link>
                 </div>
                 <div className="d-flex justify-content-end mt-4">
                     <Link to="/OnlineCheckPage3">

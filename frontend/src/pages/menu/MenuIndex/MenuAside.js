@@ -17,7 +17,6 @@ const MenuAside = () => (
                 <a href="/"><li>星冰樂</li></a>
                 <a href="/"><li>冷萃咖啡</li></a>
                 <a href="/"><li>我的最愛</li></a>
-                <Link to='/OnlineCheckPage'><li>暫時購物車</li></Link>
             </ul>
         </aside>
     </div>

@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from "react";
+import { Link } from "react-router-dom";
 import "./scss/style.scss"
 import MenuAside from "./MenuIndex/MenuAside";
 import MenuCard from "./MenuIndex/MenuCard";
 import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
-
+import { BiCoffee } from "react-icons/bi";
 
 const MenuIndex = () => {
         // 抓到點擊菜單品項的id
@@ -43,6 +44,9 @@ const MenuIndex = () => {
                             />
                         </div>   
                     </div>
+                    <Link to='/OnlineCheckPage' className="shopping">
+                        <BiCoffee size={60}/>
+                    </Link>
                 </div>
             </>   
         )

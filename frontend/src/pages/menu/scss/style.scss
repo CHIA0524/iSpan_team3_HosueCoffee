@@ -480,3 +480,18 @@ a {
 .heart2{
 display: none;
 }
+
+.shopping{
+    display: flex;
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    // border: 2px solid $colorMain;
+    border-radius: 50%;
+    padding: 10px;
+    // color: $colorMain3;
+    background-color: $colorMain;
+    &:hover{
+        color: #eee;
+    }
+}
