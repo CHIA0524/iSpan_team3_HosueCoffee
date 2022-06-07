@@ -38,7 +38,7 @@ function StoreCard(props){
           return(
             <div className="storeCardWrap" key={i} onClick={sentCardIndex(i)}>
               <div>
-                <img src={require(`./img/${store.photo}`)} alt="test"></img>
+                <img src={store.photo ? require(`./img/${store.photo}`) : ''} alt="no-img"></img>
               </div>
               <div className="itemText">
                 <p>{store.store_name}</p>
