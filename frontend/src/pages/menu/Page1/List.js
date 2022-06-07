@@ -10,11 +10,9 @@ const List = (props) => {
     const datas1 = JSON.parse(localStorage.getItem('gifts'))
     
     const [datasNEW, setdatasNEW] = useState(datas1)
-    
-    const [totalnum, settotalnum] = useState()
 
-   
-    console.log(datas1[0].drinkCounter);
+    const [totalPrice1, settotalPrice1] = useState()
+    
     // 接收資料庫資料
     const {datas} = props 
     // 計算datas的長度
@@ -22,7 +20,7 @@ const List = (props) => {
     // 計算datas1的長度
     const datas1math=datas1.length
 
-    
+    // useEffect(() => {},[total]);
     // 建立一個空陣列
     var menuCart=[];
     
@@ -30,9 +28,8 @@ const List = (props) => {
     
         for( let c=0; c<datas1math; c++){
 
-            if(datas[i].id === datas1[c].id)
+            if(datas[i].id === datas1[c].id){ 
 
-            { 
                 var newdata = datas[i]  
 
                 var newarr = newdata
@@ -40,9 +37,8 @@ const List = (props) => {
                 menuCart.push(newarr)
             } 
         } 
-    }
-
-
+    }   
+    
     return(
         <> 
             {/* 印出資料 */}
@@ -51,7 +47,7 @@ const List = (props) => {
                 const menuimg = (to.drink_name)
                 
                 const total = datas1[i].drinkCounter
-                
+                const price = to.price
                 return(
                     <div className="list" key={to.id}> 
                             <div className="d-flex align-items-center justify-content-between">
@@ -72,7 +68,13 @@ const List = (props) => {
                                         <div className="quantityText">
                                             數量：
                                         </div>
-                                        <Counter Counter={total} id={datas1[i].id} />
+                                        <Counter 
+                                            Counter={total} 
+                                            id={datas1[i].id}
+                                            datas={menuCart}
+                                            price={price}
+                                            settotalPrice1={settotalPrice1}
+                                        />
                                     </div>
                                 </div>
                                 <div className="delete1">
@@ -84,8 +86,7 @@ const List = (props) => {
                                             localStorage.setItem("gifts", JSON.stringify(datasNEW))
                                             const datas222 = JSON.parse(localStorage.getItem('gifts'))
                                             setdatasNEW(datas222)
-                                                }}
-                                                onc
+                                            }}
                                     >
                                         刪除
                                     </div>
@@ -94,7 +95,7 @@ const List = (props) => {
                                     </div>
                                 </div>
                                 <div className="price">
-                                {totalnum}
+                                    {total*price}               
                                 </div>
                             </div>
                         </div>

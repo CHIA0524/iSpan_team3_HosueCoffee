@@ -7,12 +7,14 @@ const Counter = (props) => {
 
     // 解構popup傳來的值
     const {setdrinkCounter, drinkCounter}  = props
+    const {settotalPrice1} = props
     // 設一個空變數莊加減按鈕
     let buttonsub = null
     let buttonadd = null 
     // 接收list傳來的數量跟ID
     let drinkNum = props.Counter
     let idP = props.id
+    let price = props.price 
     // 使用usedate監控數量變化
     const [listDrinkNum,setlistDrinkNum] = useState(drinkNum)
 
@@ -62,7 +64,6 @@ if(drinkCounter){
                 className="btn buttonLeft" 
                 onClick={ () => { 
                     setdrinkCounter(drinkCounter - 1)
-                    
                 }}
             >
                 -
@@ -72,7 +73,6 @@ if(drinkCounter){
                 className="btn buttonRight"
                 onClick={() => {
                     setdrinkCounter(drinkCounter + 1);
-                    
                 }}
             >
                 +
@@ -87,7 +87,6 @@ if(drinkCounter){
                 className="btn buttonRight"
                 onClick={() => {
                     setdrinkCounter(drinkCounter + 1);
-                    
                 }}
             >
                 +
@@ -103,6 +102,7 @@ else{
                     const dd = listDrinkNum -1 
                     setlistDrinkNum(listDrinkNum - 1)
                     update(dd)
+                    settotalPrice1(price*dd)
                 }}
             >
                 -
@@ -114,6 +114,7 @@ else{
                 const cc = listDrinkNum + 1 
                 setlistDrinkNum(listDrinkNum + 1);
                 update(cc)
+                settotalPrice1(price*cc)
             }}
             >
             +
@@ -133,6 +134,7 @@ else{
                 const ee = listDrinkNum + 1 
                 setlistDrinkNum(listDrinkNum + 1);
                 update(ee)
+                settotalPrice1(price*ee)
             }}
         >
             +
