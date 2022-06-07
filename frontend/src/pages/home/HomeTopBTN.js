@@ -5,8 +5,8 @@ import './Home.css';
 function homeTopBTN(){
     return(
         <div className="topBTN">
-                <button> <a href="#carouselExampleControls"> <i className="fa-solid fa-chevron-up"></i> </a>
-                </button>
+                <a href="#carouselExampleControls">
+                <button>  <i className="fa-solid fa-chevron-up"></i> </button></a>
             </div>
     )
 }

@@ -278,7 +278,7 @@ body {
 
 .cardText h3,.cardText p {
     margin-bottom: 0;
-    text-align: center;
+    text-align: center !important;
     font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
@@ -436,6 +436,7 @@ body {
 .activity h1 {
     color: #E4D2A3;
     font-family: "Comfortaa", "Microsoft JhengHei";
+    margin-bottom: 30px;
 }
 
 .box1 {
@@ -445,7 +446,7 @@ body {
     justify-content: space-evenly;
     align-items: stretch;
     flex-flow: row wrap;
-    padding: 30px 10px;
+    padding: 0 10px;
 }
 
 .coupon1 {
@@ -791,15 +792,16 @@ body {
     .allNew {
         width: 50%;
         margin-bottom: 50px;
-        padding: 30px 0;
+        /* padding: 30px 0; */
     }
 
     .new1 {
         margin: 5px auto;
+        margin-bottom: 5px;
         text-align: center;
         flex-grow: 1 100px;
         flex-flow: column wrap;
-        padding: 10px 30px;
+        padding: 5px 30px;
     }
 
     .new1 .newTime {
@@ -822,12 +824,13 @@ body {
 
     .activity h1 {
         margin: 0 30px;
+        margin-bottom: 30px;
     }
 
     .box1 {
         width: 50%;
-        margin-bottom: 50px;
-        padding: 30px 0;
+        /* margin-bottom: 50px; */
+        margin-bottom: 10px;
     }
 
     .coupon1 {
@@ -1448,7 +1451,7 @@ body {
     }
 
     .new1 {
-        margin: 10px auto;
+        margin: 10px;
         text-align: center;
         flex-grow: 1 100px;
         flex-flow: column wrap;
@@ -1480,7 +1483,7 @@ body {
     .box1 {
         width: 80%;
         margin: 0px auto;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         display: flex;
         /* text-align: center; */
         flex-grow: 1 100px;
@@ -1492,7 +1495,7 @@ body {
     }
 
     .coupon1 {
-        width: 55%;
+        width: 60%;
         color: #fff;
         padding: 15px 0;
         margin: 5px 0 5px 0;
@@ -1502,12 +1505,15 @@ body {
 
     .couponText {
         margin: 0 auto;
+        justify-content: center;
+        text-align: left;
+        padding: 0 15px;
     }
 
     .couponText h6 {
         margin: 0 0 5px 0;
         justify-content: center;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .couponText p {
@@ -1517,8 +1523,9 @@ body {
     }
 
     .copyText {
-        width: 20%;
-        padding: 50px 50px;
+        width: 30%;
+        padding: 50px 20px;
+        font-size: 12px;
         margin: 5px 0;
     }
 
