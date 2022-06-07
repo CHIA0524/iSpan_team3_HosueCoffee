@@ -14,7 +14,7 @@ function PInfo(props){
     const [ subTotal, setsubTotal ]= useState(1)
     // 小計
     // const [ ptotal, setPtotal ]= useState(0)
-    const {setPtotal, ptotal } = props
+    const {setPtotal, ptotal, thisTT } = props
     // const m = pmoney* Number(subTotal)
     
     //設定全部金額
@@ -55,13 +55,6 @@ useEffect(()=>{
         }
     }
 
-
-
-    
-    
-    const [listShopNum,setlistShopNum] = useState()
-    
-
 return(
     <>
 
@@ -73,16 +66,14 @@ return(
         const img1 = (pinfo.p_name)
         const total = cartDetail[i].ShopCounter
         const update = total 
-        const payInfoAll="payInfoAll"+img1
-        
-        {/* console.log(payInfoAll); */}
-         // 使用usedate監控數量變化
+       
+    
 
          TTmoney=TTmoney+(Number(total)*price)
         setPtotal(TTmoney)
 
         return(         
-        <div className="payInfoAll" id={payInfoAll} key={pinfo.id}>
+        <div className="payInfoAll"  key={pinfo.id}>
             <div className="payInfo">
                 <div className="payInfoContent">
                     <div className="col-2">
@@ -92,18 +83,17 @@ return(
                     <div className="col-4 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
-                    <Price setlistShopNum={setlistShopNum} listShopNum={listShopNum} update={update} price={price} img1={img1} total={total} payInfoAll={payInfoAll}
+                    <Price update={update} price={price} img1={img1} total={total} 
                         setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i}
                     />
                    
                 </div>
-                <hr></hr>
-                
+                <hr></hr>   
             </div>
       {/* 手機版 */}
             <div className="mPayInfoContent">
                 <div className="box">
-                    <Link href="" onClick={Delsweetalert}><VscChromeClose size={20} /></Link>
+                    <Link href="" onClick={Delsweetalert}><VscChromeClose size={20} productId={productId} thisTT={thisTT} price={price} ptotal={ptotal} setPtotal={setPtotal} i={i} /></Link>
                     <div className="boxContent">
                         <div className="imgPart">
                         <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
@@ -113,20 +103,12 @@ return(
                                 
                             </div>
                         </div>
-                        <div class="number">
-                        <div class="mAddNum">
-                            <button className="buttonNum" onClick={() =>{if(total>1){
-                            setsubTotal(total - 1)
-                            }}}>-</button>
-                            <div>{total}</div>
-                           <button className="buttonNum"onClick={() =>{
-                            setsubTotal(total + 1)
-                            }} >+</button>
-                        </div>
-                        <h3>${price* Number(total)}</h3>
-                      </div>   
 
-                    </div>
+                        <Price update={update} price={price} img1={img1} total={total} 
+                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} />    
+                     
+
+                    </div> 
                 </div>
             </div>
        </div>

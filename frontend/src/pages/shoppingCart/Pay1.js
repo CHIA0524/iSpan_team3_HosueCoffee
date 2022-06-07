@@ -269,7 +269,6 @@ function Pay1(props){
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
                     settotalp={settotalp} datas={datas}
                    />
-                  
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
                         <div>

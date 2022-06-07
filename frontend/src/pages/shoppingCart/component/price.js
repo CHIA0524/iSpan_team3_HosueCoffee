@@ -1,7 +1,7 @@
 import Delsweetalert from './Delsweetalert';
 import { useState } from 'react';
 function Price(props){
-    const {setlistShopNum,listShopNum,update,price,img1,total,payInfoAll,setPtotal, ptotal,TTmoney,productId,i}=props;
+    const {update,price,img1,total,setPtotal, ptotal,TTmoney,productId,i}=props;
     const[amount, setAmount]= useState(0)
 
     const [thisTT,setThisTT]=useState(Number(total))
@@ -34,10 +34,10 @@ function Price(props){
         }
 return(
     <>
-          <div className="col-3 numberDesk ">
-                     <p>數量：</p>
-                     <div className="addPNum">
-                         <button className="PNumL" onClick={() =>{
+                    <div className="col-3 numberDesk ">
+                       <p>數量：</p>
+                       <div className="addPNum">
+                          <button className="PNumL" onClick={() =>{
   
                             if(thisTT>1){
                              setThisTT(thisTT-1)
@@ -53,17 +53,38 @@ return(
                             const cc = amount + 1 
                             updateCart(cc); 
                            }
-                         }>+</button>
+                           }>+</button>
                       </div>
-                      </div>
+                    </div>
                   
                     {/* 刪除     */}
-                   <Delsweetalert payInfoAll={payInfoAll} productId={productId} thisTT={thisTT} price={price} ptotal={ptotal} setPtotal={setPtotal} i={i}/>
+                   <Delsweetalert  productId={productId} thisTT={thisTT} price={price} ptotal={ptotal} setPtotal={setPtotal} i={i}/>
                    
                    {/* 商品小計 */}
                     <div className="col-1">
                         <p>${price*thisTT}</p>
                     </div>
+                {/* 手機版 */}
+                    <div class="number">
+                        <div class="mAddNum">
+                            <button className="buttonNum" onClick={() =>{
+                            setThisTT(thisTT-1)
+                             setPtotal(ptotal-price)
+                            const dd = amount -1 
+                             updateCart(dd); 
+                            }
+                             }>-</button>
+                            <div>{total}</div>
+                           <button className="buttonNum"onClick={() =>{
+                             setThisTT(thisTT+1)
+                             setPtotal(ptotal+price)
+                            const cc = amount + 1 
+                            updateCart(cc); 
+                           }
+                           } >+</button>
+                        </div>
+                        <h3>${price* Number(total)}</h3>
+                      </div>     
     </>
 )
 }

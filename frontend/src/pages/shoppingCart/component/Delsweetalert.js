@@ -40,7 +40,7 @@ removePinfo.fire({
             '商品已刪除.',
             'success'
             )
-            //document.querySelector('.payInfoAll').remove();
+        
             datasNEW.splice(i,1)
             console.log(datasNEW);
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
