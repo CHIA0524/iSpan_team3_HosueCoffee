@@ -1,18 +1,24 @@
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import { useState } from 'react';
+// import withReactContent from 'sweetalert2-react-content'
 
 function Delsweetalert(props){
-  // const cartDetail = JSON.parse(localStorage.getItem('sCarts'))
-  // const aaaId = props.aaaId
+  const {thisTT,i, price ,setPtotal,ptotal}=props;
+  const datas1 = JSON.parse(localStorage.getItem('sCarts'))
+    console.log(ptotal)
+    console.log(price)
+    console.log(thisTT)
 
-  //   console.log(aaaId);
-  //   const deletedate = () => {const data2 = cartDetail.splice(aaaId,1)
-
-  //       localStorage.setItem("sCarts", JSON.stringify(data2))
-  //   }
-    
-
-const removePinfo = Swal.mixin({
+  const [datasNEW, setdatasNEW] = useState(datas1)
+  console.log(datasNEW)
+  
+  
+  return(
+  <>
+    <div className="col-2">
+                        <button className="deletBtn"  onClick={()=>{  
+                          
+                          const removePinfo = Swal.mixin({
     customClass: {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger'
@@ -34,7 +40,14 @@ removePinfo.fire({
             '商品已刪除.',
             'success'
             )
-            document.querySelector('.payInfoAll').remove();
+            //document.querySelector('.payInfoAll').remove();
+            datasNEW.splice(i,1)
+            console.log(datasNEW);
+            localStorage.setItem("sCarts", JSON.stringify(datasNEW))
+            const datas222 = JSON.parse(localStorage.getItem('sCarts'))
+            setdatasNEW(datas222)
+            
+            setPtotal(ptotal-(price*thisTT));
             
 
 
@@ -48,9 +61,8 @@ removePinfo.fire({
         'error'
       )
     }
-  })
-  return(
-  <>
+  })}}>刪除</button>
+                    </div>
   </>
   )
 }

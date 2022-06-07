@@ -57,7 +57,6 @@ function App() {
 
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
-  
 
 
   const [ bannerHeight, setBannerHeight ] = useState()
@@ -94,7 +93,7 @@ function App() {
           <Pay2 />
         </Route>  */}
         <Route path="/shoppingCart">
-          <Pay1 auth={auth}/>
+          <Pay1 auth={auth} />
         </Route>
         <Route path="/shop/ProductDetail/:id">
           <ProductDetail auth={auth}/>

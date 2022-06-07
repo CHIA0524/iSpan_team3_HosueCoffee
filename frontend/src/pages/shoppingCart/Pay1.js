@@ -11,6 +11,9 @@ import Steps2 from './component/Steps2';
 
 
 function Pay1(props){
+    const buyYN=localStorage.getItem("sCart")
+    const {auth}=props
+    
 
     //回去繼續購物
     const keepshopping = ()=>{
@@ -19,8 +22,12 @@ function Pay1(props){
 
     //按下一步跳pay2
        const nextStep = ()=>{
+           if(!auth){
+            alert("請登入會員")
+           }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
+    }
          }   
     
      //回上一步
@@ -72,7 +79,7 @@ function Pay1(props){
     // const [ subTotal, setsubTotal ]= useState(1)
     // const [ totalCash, setTotalCash ] = useState(1);
     // const[a,setA]=useState(0);
-    const [ ptotal, setPtotal ]= useState()
+    const [ ptotal, setPtotal ]= useState(0)
     console.log(ptotal)
     const [totalp ,settotalp]= useState()
     // const {setPtotal, ptotal } = props
@@ -468,25 +475,7 @@ function Pay1(props){
                                    
                                 </div>
                             </div>
-                           {/* <div className="storepick">
-                           <p>門市選擇</p>
                            
-                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
-                            <option selected>縣市</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                           </select>
-                           <p></p>
-                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
-                            <option selected>地區</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                           </select>
-                          
-            
-                           </div> */}
                       </div>
                       <div className="noteInfo">
                           <p>備註</p>
@@ -522,9 +511,9 @@ function Pay1(props){
                              
                               <div className="nextBtn" 
                               >
-                               <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
+                               <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " onClick={complete}
                               >結帳 </button>
                               </div>
       
@@ -568,9 +557,9 @@ function Pay1(props){
                           </div>
                           <div className="nextBtn" 
                               >
-                               <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
+                               <button  className="btn btn-primary btn-lg btn-block pbtn" onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" onClick={complete}
                               >結帳 </button>
                             </div>
       

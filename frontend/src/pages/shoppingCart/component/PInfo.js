@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import '../pay1.css';
 import { VscChromeClose } from "react-icons/vsc";
-import AddNumBtn from './AddNumBtn';
 import Delsweetalert from './Delsweetalert';
+import Price from './price';
 
 
 
@@ -14,18 +14,15 @@ function PInfo(props){
     const [ subTotal, setsubTotal ]= useState(1)
     // 小計
     // const [ ptotal, setPtotal ]= useState(0)
-    const {setPtotal, ptotal, deletedate } = props
+    const {setPtotal, ptotal } = props
     // const m = pmoney* Number(subTotal)
-  
+    
+    //設定全部金額
+    var TTmoney = 0;
   
 
-//   const{setfinalTotal} = props
-// 計算總數量
-//   const {subTotal,setsubTotal }= props
-const pmoney=499
-  // console.log(subTotal)
-//   const {ptotal,setPtotal }= props
 useEffect(()=>{
+
 },[])
 
     
@@ -57,6 +54,9 @@ useEffect(()=>{
             } 
         }
     }
+
+
+
     
     
     const [listShopNum,setlistShopNum] = useState()
@@ -64,15 +64,25 @@ useEffect(()=>{
 
 return(
     <>
+
     {shopCart.map((pinfo,i)=>{
         // 設定圖片路徑
+        const price = Number(pinfo.p_price)
+        console.log(price)
+        const productId=pinfo.p_id
         const img1 = (pinfo.p_name)
         const total = cartDetail[i].ShopCounter
         const update = total 
+        const payInfoAll="payInfoAll"+img1
+        
+        {/* console.log(payInfoAll); */}
          // 使用usedate監控數量變化
-       
+
+         TTmoney=TTmoney+(Number(total)*price)
+        setPtotal(TTmoney)
+
         return(         
-        <div className="payInfoAll" key={pinfo.id}>
+        <div className="payInfoAll" id={payInfoAll} key={pinfo.id}>
             <div className="payInfo">
                 <div className="payInfoContent">
                     <div className="col-2">
@@ -82,42 +92,10 @@ return(
                     <div className="col-4 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
-                    <div className="col-3 numberDesk ">
-                     <p>數量：</p>
-                     <div className="addPNum">
-                         <button className="PNumL" onClick={() =>{
-                            //  if((Number(document.getElementById(pinfo.p_name).innerHTML))>1){
-                            // document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)-1
-                            //  setsubTotal(subTotal - 1)
-                            //  setPtotal(ptotal-pmoney)}
-                                const dd = listShopNum -1 
-                                setlistShopNum(listShopNum - 1)
-                                update(dd)
-
-                             }}>-</button>
-                         <div id={pinfo.p_name}>{total}</div>
-                         <button className="PNumR" onClick={() =>{
-                             document.getElementById(pinfo.p_name).innerHTML=Number(document.getElementById(pinfo.p_name).innerHTML)+1
-                             
-
-                            //  setsubTotal(subTotal + 1)
-                            //  setPtotal(pmoney*(subTotal+ 1))
-                            //  setPtotal(ptotal+pmoney)
-
-                           }
-                         }>+</button>
-                      </div>
-                      </div>
-                  
-                        {/* <AddNumBtn subTotal={subTotal} setsubTotal= {setsubTotal} ptotal={ptotal} setPtotal={setPtotal}/> */}
+                    <Price setlistShopNum={setlistShopNum} listShopNum={listShopNum} update={update} price={price} img1={img1} total={total} payInfoAll={payInfoAll}
+                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i}
+                    />
                    
-                    <div className="col-2">
-                        <button className="deletBtn" onClick={()=>{  Delsweetalert()}}>刪除</button>
-                    </div>
-                    <div className="col-1">
-                        <p >{pmoney* Number(total)}
-                        </p>
-                    </div>
                 </div>
                 <hr></hr>
                 
@@ -128,23 +106,24 @@ return(
                     <Link href="" onClick={Delsweetalert}><VscChromeClose size={20} /></Link>
                     <div className="boxContent">
                         <div className="imgPart">
-                            <img className="packageImg" src={require('../img/包裝 9.png')}alt=""></img>
+                        <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
+                        </img>
                             <div className="mPName">
-                                <p>伊莎米 精選招牌特調(半磅)</p>
+                                <p>{pinfo.p_name}</p>
                                 
                             </div>
                         </div>
                         <div class="number">
                         <div class="mAddNum">
-                            <button className="buttonNum" onClick={() =>{if(subTotal>1){
-                            setsubTotal(subTotal - 1)
+                            <button className="buttonNum" onClick={() =>{if(total>1){
+                            setsubTotal(total - 1)
                             }}}>-</button>
-                            <div>{subTotal}</div>
+                            <div>{total}</div>
                            <button className="buttonNum"onClick={() =>{
-                            setsubTotal(subTotal + 1)
+                            setsubTotal(total + 1)
                             }} >+</button>
                         </div>
-                        <h3>${pmoney* Number(subTotal)}</h3>
+                        <h3>${price* Number(total)}</h3>
                       </div>   
 
                     </div>
@@ -152,9 +131,11 @@ return(
             </div>
        </div>
        )
-     })}
+     })
+     }
    </>   
     )    
+    
 
 }
 

@@ -8,21 +8,18 @@ import AddSweet from './AddSweet';
 
 function Popup(props){
    // 接收父層資料
-   const {datas, productId,Alldatas, css ,setcss} = props;
-    
+   const {datas, productId,Alldatas, css ,setcss} = props;    
     //數量歸1  
     const[amount, setAmount]= useState(1)
     // const params=useParams();
     //抓網址後的id
     // console.log(params)
     // console.log("datas");
-
     //本頁資料
     console.log(datas);
     //全部資料
     console.log(Alldatas);
     // console.log("datas");
-
     //加入購物車更新
     const updateCart = ()=>{
       //加入購物車的計算
@@ -46,22 +43,14 @@ function Popup(props){
         sCarts.push(sCart)
       }
       localStorage.setItem("sCarts", JSON.stringify(sCarts))
-
   }
-
     const [ShopCounter, setShopCounter] = useState(1) 
      // 準備傳至OnlineCheckPage
-    
-    if(Alldatas.length>0){
-      
+    if(Alldatas.length>0){  
       console.log(productId);
       // const PopupId=productId-200000;
       // console.log(PopupId);
-  
-      
-   
-      
-    
+
     return(
       <>
              {/* <!-- popup 區 --> */}
@@ -110,13 +99,9 @@ function Popup(props){
                         </div>
 
                     </div>
-                </div>
-          
-          
-     
+                </div>  
   </>
   );
 }
 }
-
 export default Popup
