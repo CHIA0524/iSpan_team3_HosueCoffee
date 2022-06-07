@@ -24,7 +24,7 @@ const OnlineCheckPage = () => {
         const [datas, setDatas ] = useState([])
 
         const fetchData = async()=>{
-    
+
                         const response = await fetch('http://localhost:3002/menu');
 
                         const results = await response.json();
@@ -33,24 +33,18 @@ const OnlineCheckPage = () => {
         useEffect(()=>{
 
                 fetchData();
-    
-            },[])
+
+                },[])
+
         return(
         <>
-                <Space/>
-
-                <Process/>
-
-                <ProcessRwd/>
-
-                <Space/>
-
+                <Space />
+                <Process />
+                <ProcessRwd />
+                <Space />
                 <List setpricetotal1={setpricetotal1} datas={datas}/>
-
-                <Promo/>
-
-                <Pay/>
-
+                <Promo />
+                <Pay />
         </>
 
 

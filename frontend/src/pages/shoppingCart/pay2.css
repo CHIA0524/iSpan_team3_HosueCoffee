@@ -93,12 +93,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.btn {
-  margin-top: 1rem;
-  border-radius: 5px;
-  background-color: #4c3410;
-  border: 1px solid #4c3410;
-}
+
 .nextBtn {
   display: flex;
   justify-content: space-between;
