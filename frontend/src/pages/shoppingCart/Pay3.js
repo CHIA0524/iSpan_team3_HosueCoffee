@@ -37,7 +37,7 @@ function Pay3(){
                  <div class="perInfo">
                      <div class="perInfoTextL">
                          <p>取貨方式:</p>
-                         <p>付款編號:</p>
+                         <p>付款方式:</p>
                          <p>收件人資訊:</p>
                          <br></br>
                          <br></br>
