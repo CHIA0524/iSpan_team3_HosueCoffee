@@ -2,13 +2,11 @@ import React from 'react';
 // import { CardImg } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
 //CSS
 import '../blogBanner.css';
 
 
-//imgs
-import BlogCardImg from '../img/3-3-1024x682.jpg'
+
 
 const BlogCard = (props) => {
     const {blog}=props
@@ -16,13 +14,16 @@ const BlogCard = (props) => {
         <>
          {blog.map((v, i) => {
             console.log(v)
+            const firstImg=(v.first_img);
+            console.log(v.blog_id)
+
             return (
                     
             <div className="col-lg-4 blogCol"  key={i}>
                 <Link to={`/blog/BlogArticle/${v.blog_id}`}>
                 <div className="blogCardBorder">
-                    <div className="blogCardImg">
-                        <img src={require('../img/01.jpg')} alt="BlogCardImg"></img>
+                    <div className="blogCardBanner">
+                        <img className="blogCardImg" src={require("../../blogArticle/img/"+firstImg+".jpg")} alt="BlogCardImg"></img>
                     </div>
 
                     <div className="blogCardText">

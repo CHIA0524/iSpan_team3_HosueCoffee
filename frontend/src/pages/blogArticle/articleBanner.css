@@ -3,16 +3,18 @@
     
 }
 
-.articleBanner{
+.articleImg00{
     position:relative;
     width:100% ;
-    height: 500px;
+    height: 25rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-image: url(./img/Article00.svg); */
-    
 }
+
+
+
+
 
 /* .container{
     display: flex;

@@ -14,7 +14,7 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 //blog pages
 import Blog from './pages/blog/Blog'
 import BlogArticle from './pages/blogArticle/BlogArticle'
-
+import BlogCoffee from './pages/blog/BlogCoffee'
 
 
 
@@ -42,6 +42,21 @@ function App() {
         {/* blog */}
         <Route path="/blog/blogArticle/:id">
         <BlogArticle />
+        </Route>
+        <Route path="/blog/coffee">
+        <BlogCoffee/>
+        </Route>
+        <Route path="/blog/coffeebean">
+        <BlogCoffee/>
+        </Route>
+        <Route path="/blog/pourover">
+        <BlogCoffee/>
+        </Route>
+        <Route path="/blog/celebrity">
+        <BlogCoffee/>
+        </Route>
+        <Route path="/blog/share">
+        <BlogCoffee/>
         </Route>
         <Route path="/blog">
         <Blog />

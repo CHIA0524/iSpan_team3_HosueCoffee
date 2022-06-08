@@ -1,16 +1,16 @@
-import { BrowserRouter as Router, Route, a, Switch,useParams, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, a, Switch,useParams} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 //component
 import BlogCard from './component/BlogCard';
 import BlogNav from './component/BlogNav';
 
+
 //CSS
 import './blogBanner.css';
 
 
-
-function Blog(props){
+function BlogCoffee(props){
 
     const[blog,setBlog]=useState([])
      
@@ -19,9 +19,9 @@ function Blog(props){
   const [selectedValue, setSelectedValue] = useState('')
   const articleOptions = ['咖啡篇', '咖啡豆篇', '沖煮篇', '名人專欄篇','好物分享篇']
 
-    const fetchBlog = async () => {
+    const fetchBlogCoffee = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:30001/blog')
+        const response = await fetch('http://localhost:30001/blog/coffee')
         const data = await response.json()
         console.log(data)
         // 載入資料後設定到狀態中
@@ -34,7 +34,7 @@ function Blog(props){
     
       // didMount
       useEffect(() => {
-        fetchBlog()
+        fetchBlogCoffee()
       }, [])
 
 
@@ -93,4 +93,4 @@ function Blog(props){
   );
 }
 
-export default Blog
+export default BlogCoffee

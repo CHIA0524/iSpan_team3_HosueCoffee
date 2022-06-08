@@ -26,7 +26,7 @@ function BlogArticle(props){
 
   const [datas,setDatas]=useState([])
   const fetchData= async()=>{
-    const response= await fetch(`http://localhost:3600/blog/id?blog_id=${thisBid}`);
+    const response= await fetch(`http://localhost:30001/blog/id?blog_id=${thisBid}`);
     const results=await response.json(); 
     setDatas(results);
     console.log(results)
@@ -39,8 +39,8 @@ function BlogArticle(props){
   if(datas.length>0){
     const blogContent=datas[0];
     const{blog_id,btype,title,author,first_content,created_time,first_img}=blogContent
-    // console.log(title);
-
+    const firstImg=(first_img);
+    console.log(first_img);
   
   console.log(datas);
   return(
@@ -48,10 +48,8 @@ function BlogArticle(props){
      
           <section className="articleSection" >
             <div className="articleBanner" alt="ArticleBanner">
-            <img src={first_img}></img>
-            {/* <img src={require('./img/[1coffee10001].jpg')}></img> */}
+            <img className='articleImg00' src={require("./img/"+firstImg+".jpg")}></img>
             </div>
-
             <div className="container articleContainer ">
               <div className="row articleRow"> 
                 

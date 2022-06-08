@@ -4,11 +4,17 @@ const router = express.Router();
 const db = require('../modules/mysql_config');
 // const upload = multer();
 
-//GET　http://localhost:3600/blog/
+//GET　http://localhost:30001/blog/
 router.route('/')
     .get(async(req,res,next)=>{
         const sql ="SELECT * FROM blogs "
-        const [data] = await db.query(sql,[req.query.blog_id]);
+        const [data] = await db.query(sql);
+        res.json(data);
+    })
+    router.route('/coffee')
+    .get(async(req,res,next)=>{
+        const sql ="SELECT * FROM `blogs` WHERE btype ='咖啡篇coffee'ORDER BY blog_id";
+        const [data] = await db.query(sql);
         res.json(data);
     })
 router.route('/id')
