@@ -45,7 +45,9 @@ import ShopEthiopia from './pages/shop/ShopEthiopia';
 import ShopGuatemala from './pages/shop/ShopGuatemala';
 import ShopOther from './pages/shop/ShopOther';
 
-
+// 綠界測試
+import ECpayTest from './pages/ECpay/ECpayTest';
+import ECpayResult from './pages/ECpay/ECpayResult';
 
 
 
@@ -84,7 +86,15 @@ function App() {
 
       <ScrollToTop/>
       <Switch>
-     
+      
+        {/* 綠界測試 */}
+        <Route path={"/ECpayTest"}>
+          <ECpayTest />
+        </Route>
+        <Route path={"/payment_result"}>
+          <ECpayResult />
+        </Route>
+
       {/* shop 部分 */}
         <Route path="/shoppingCart/pay3">
           <Pay3 auth={auth} />

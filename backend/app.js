@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
+require('ECPAY_Payment_node_js')
 const cors = require('cors');
 
 var indexRouter = require('./routes/index');
@@ -14,6 +15,9 @@ const productsRouter = require('./routes/products');
 const storeRouter = require('./routes/store');
 
 const shopRouter = require('./routes/shop');
+
+// 綠界API
+const paymentRouter = require('./routes/payment');
 
 
 
@@ -53,6 +57,9 @@ app.use(`/profile`,profileRouter);
 app.use(`/morder`,mODRouter);
 
 app.use('/menu',menuRouter);
+
+// 綠界API
+app.use('/payment',paymentRouter);
 
 
 
