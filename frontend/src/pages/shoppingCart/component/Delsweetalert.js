@@ -5,10 +5,6 @@ import { useState } from 'react';
 function Delsweetalert(props){
   const {thisTT,i, price ,setPtotal,ptotal}=props;
   const datas1 = JSON.parse(localStorage.getItem('sCarts'))
-    console.log(ptotal)
-    console.log(price)
-    console.log(thisTT)
-
   const [datasNEW, setdatasNEW] = useState(datas1)
   console.log(datasNEW)
   

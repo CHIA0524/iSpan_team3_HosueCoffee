@@ -10,6 +10,11 @@ import Price from './price';
 
 
 function PInfo(props){
+    if(localStorage.getItem('sCarts')==null){
+        localStorage.setItem('sCarts',JSON.stringify([]))
+    }
+    
+
     // 數量變數
     const [ subTotal, setsubTotal ]= useState(1)
     // 小計
@@ -19,7 +24,6 @@ function PInfo(props){
     
     //設定全部金額
     var TTmoney = 0;
-  
 
 useEffect(()=>{
 
@@ -29,7 +33,7 @@ useEffect(()=>{
     // TODO計數器資料傳遞
     
     // 接收localStorage上的購物車資料
-    const cartDetail = JSON.parse(localStorage.getItem('sCarts'))
+    const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
     console.log(cartDetail)
     // 接收資料庫資料
     const {datas} = props 
@@ -84,7 +88,7 @@ return(
                         <p>{pinfo.p_name}</p>
                     </div>
                     <Price update={update} price={price}  total={total} 
-                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i}
+                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} cartDetail={cartDetail} setCartDetail={setCartDetail}
                     />
                    
                 </div>
