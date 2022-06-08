@@ -47,8 +47,8 @@ useEffect(()=>{
 
     var shopCart=[];
     console.log(datas);
+    for( let c=0; c<cartDetailmath; c++){
     for( let i=0; i<datamath; i++){     
-        for( let c=0; c<cartDetailmath; c++){
             
             if(datas[i].p_id === cartDetail[c].id)
             { 

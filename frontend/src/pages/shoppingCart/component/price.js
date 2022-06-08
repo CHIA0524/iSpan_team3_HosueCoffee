@@ -65,59 +65,62 @@ return(
                    <div className="col-2">
                         <button className="deletBtn"  onClick={()=>{  
                           
-//                           const removePinfo = Swal.mixin({
-//     customClass: {
-//         confirmButton: 'btn btn-success',
-//         cancelButton: 'btn btn-danger'
-//     },
-//     buttonsStyling: false
-// })
-// removePinfo.fire({
-//     title: '刪除',
-//     text: "你確定要刪除嗎？",
-//     icon: 'warning',
-//     showCancelButton: true,
-//     confirmButtonText: '是的，刪除!',
-//     cancelButtonText: '取消!',
-//     reverseButtons: true
-// }).then((result) => {
-//     if (result.isConfirmed) {
-//       Swal.getConfirmButton(
-//         removePinfo.fire(
-//             '刪除!',
-//             '商品已刪除.',
-//             'success'
-//             )
-//         )
+                          const removePinfo = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+})
+removePinfo.fire({
+    title: '刪除',
+    text: "你確定要刪除嗎？",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: '是的，刪除!',
+    cancelButtonText: '取消!',
+    reverseButtons: true
+}).then((result) => {
+    if (result.isConfirmed) {
+      Swal.getConfirmButton(
+        removePinfo.fire(
+            '刪除!',
+            '商品已刪除.',
+            'success'
+            )
+        )
         
+            console.log("刪除前")
+            console.log(datasNEW)
+            setPtotal(ptotal-(price*total));
             datasNEW.splice(i,1)
+            console.log("刪除後")
+            console.log(datasNEW)
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
-            console.log(datas222)
+            // console.log(datas222)
             setCartDetail(datas222)
-            setdatasNEW(datas222)
-            setPtotal(ptotal-(price*thisTT));
             // setTimeout(() => window.location.reload(), 150);
             // setTimeout(window.location.reload(),10000);
           
 
-    // } else if (
-    //   /* Read more about handling dismissals below */
-    //   result.dismiss === Swal.DismissReason.cancel
-    // ) {
-    //     removePinfo.fire(
-    //     '取消',
-    //     '商品未刪除 :)',
-    //     'error'
-    //   )
-    // }
-//   })
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+        removePinfo.fire(
+        '取消',
+        '商品未刪除 :)',
+        'error'
+      )
+    }
+  })
   }}>刪除</button>
                     </div>
                    
                    {/* 商品小計 */}
                     <div className="col-1">
-                        <p>${price*thisTT}</p>
+                        <p>${price*total}</p>
                     </div>
                 {/* 手機版 */}
                     <div class="number">
