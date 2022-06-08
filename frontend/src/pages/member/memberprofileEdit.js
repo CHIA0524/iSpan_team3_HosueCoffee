@@ -75,6 +75,10 @@ function MemberprofileEdit(props){
   }
 }
 
+  // 大頭照狀態
+  const [image, setImage] = useState({ preview: '', data: '' })
+  const [status, setStatus] = useState('')
+
   // 大頭照 input 變更事件
   const handleFileChange = (e) => {
     const img = {
@@ -92,8 +96,6 @@ function MemberprofileEdit(props){
   }
 
   // 上傳大頭照
-  const [image, setImage] = useState({ preview: '', data: '' })
-  const [status, setStatus] = useState('')
   const handleSubmit = async (e) => {
     e.preventDefault()
     let formData = new FormData()
@@ -120,10 +122,10 @@ function MemberprofileEdit(props){
                 <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhotoE">
-                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/1654511562844.jpg`}  alt="會員照片"></img>
-                            <label for='upPhoto' className="changePhoto" >修改照片</label>
+                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/1654565261675.jpg`}  alt="會員照片"></img>
+                            <label htmlFor='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center'}}>
                           <input
                             type="file"
                             id='upPhoto'
@@ -131,7 +133,7 @@ function MemberprofileEdit(props){
                             accept="image/*"
                             onChange={handleFileChange}
                           ></input>
-                          <button type='submit'>Submit</button>
+                          <button className='coffeeLightBtn' type='submit' id='photoSubmit'>上傳</button>
                         </form>
                         <div className="memberNumber">
                             <div >會員帳號</div>
@@ -145,7 +147,7 @@ function MemberprofileEdit(props){
                         <div className="proList_m">
                             <div className="memberPhoto">
                                 <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
-                                <label for='upPhoto' className="changePhoto">修改照片</label>
+                                <label htmlFor='upPhoto' className="changePhoto">修改照片</label>
                             </div>
                         {/* <input type="file" id='upPhoto' name='upPhoto' accept="image/*" onChange={UPP}></input> */}
 
@@ -156,8 +158,8 @@ function MemberprofileEdit(props){
                         <div className="col-3None">
                             <div className="proRight">姓名:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPname}  onChange={ChangeName}></input></div>
                             <div className="proRight">暱稱:&emsp; &emsp;&emsp;&emsp;<input type="text" value={UPnick} onChange={ChangeNick}></input></div>
-                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={UPbirth} onChange={ChangeBirth} readonly ></input></div>
-                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={UPphone} maxlength="10" pattern="09\d{8}" onChange={ChangePhone}></input></div>
+                            <div className="proRight">生日:&emsp; &emsp;&emsp;&emsp;<input type="DATE" value={UPbirth} onChange={ChangeBirth} readOnly ></input></div>
+                            <div className="proRight">手機號碼:&emsp;&emsp; <input type="text" value={UPphone} maxLength="10" pattern="09\d{8}" onChange={ChangePhone}></input></div>
                             <div className="proRight">地址:&emsp;&emsp;&emsp;&emsp; <input type="text" value={UPaddress} onChange={ChangeAddress}></input> </div>
                         </div>
                       
@@ -177,12 +179,12 @@ function MemberprofileEdit(props){
                           </div>
                           <div className="proRight">
                             <div>生日:</div>
-                            <input type="date"  value={UPbirth} onChange={ChangeBirth} readonly ></input>
+                            <input type="date"  value={UPbirth} onChange={ChangeBirth} readOnly ></input>
                             <br></br>
                           </div>
                           <div className="proRight">
                             <div>手機號碼:</div>
-                            <input type="text" value={UPphone} maxlength="10" pattern="09\d{8}" onChange={ChangePhone}></input>
+                            <input type="text" value={UPphone} maxLength="10" pattern="09\d{8}" onChange={ChangePhone}></input>
                             <br></br>
                           </div>
                           <div className="proRight">
