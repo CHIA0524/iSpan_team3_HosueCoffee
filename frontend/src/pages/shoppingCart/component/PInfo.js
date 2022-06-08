@@ -10,6 +10,9 @@ import Price from './price';
 
 
 function PInfo(props){
+    if(localStorage.getItem('sCarts')==null){
+        localStorage.setItem('sCarts',JSON.stringify([]))
+    }
     // 數量變數
     const [ subTotal, setsubTotal ]= useState(1)
     // 小計

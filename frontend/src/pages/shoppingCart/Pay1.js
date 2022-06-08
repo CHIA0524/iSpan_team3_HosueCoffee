@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import './pay1.css';
 import PInfo from './component/PInfo';
 import Steps1 from './component/Steps1';
+import Coupon from './component/Coupon';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
@@ -290,10 +291,7 @@ function Pay1(props){
                                     <p>優惠碼使用</p>
                                 </div>
                                 <div>
-                                    <input type="text"/>
-                                    <a href="">
-                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
-                                    </a>
+                                    <Coupon/>
                                 </div>
                             </div>
                             <div>

@@ -100,6 +100,21 @@ const upload = multer();
       
     })
 
+    //新增收藏
+    router.route('/shopcart/')
+    .get(async (req,res,next)=>{
+        const sql = `INSERT INTO member_favorite(fk_m_id, fk_p_id)
+        VALUES (?, ?)`;
+        const [datas] = await db.query(sql,[req.query.fk_m_id,req.query.fk_p_id]);
+      
+    })
+    
+
+
+
+
+
+
     
 
 module.exports = router;

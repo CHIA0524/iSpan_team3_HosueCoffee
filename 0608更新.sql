@@ -222,14 +222,14 @@ CREATE TABLE `orders`(
 );
 ALTER TABLE `orders` AUTO_INCREMENT=210001;
 
-INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`)
+INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`)
 VALUES
-('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨'),
-('100002','黑貓','匯款','未出貨','潘週單','0987654321','haha@gmail.com','高雄市三民區九如一路501號','29歲','0912345678','idontknow@gmail.com','台東縣卑南鄉利嘉路689巷16之6號','快點'),
-('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
-('100003','黑貓','信用卡','未出貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
-('100003','黑貓','信用卡','已取貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
-('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','');
+('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨','',''),
+('100002','黑貓','匯款','未出貨','潘週單','0987654321','haha@gmail.com','高雄市三民區九如一路501號','29歲','0912345678','idontknow@gmail.com','台東縣卑南鄉利嘉路689巷16之6號','快點','',''),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','未出貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','已取貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','','');
 
 -- 商品訂單_詳細
 CREATE TABLE `order_detail`(

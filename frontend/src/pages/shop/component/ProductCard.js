@@ -53,20 +53,6 @@ function ProductCard(props){
                       <div className="pIcon">
                           {/* 收藏 */}
                           <Heart pt_id={pt_id}  datasPMF={datasPMF} auth={auth}/>
-                          {/* {auth? 
-                          <> <button className="heart" onClick={()=>{
-                             alert("成功加入收藏") }} > 
-                           <AiFillHeart className="heart3" size={24}       
-                             
-                           /></button>
-                           </>
-                           :
-                           <> <button className="heart" > 
-                           <AiFillHeart className="heart3" size={24}    onClick={()=>{
-                             alert("登入方可收藏") }  }   
-                           /></button></>} */}
-                           
-                       
                            {/* 快速加入購物車 */}
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {

@@ -13,6 +13,7 @@ const productsRouter = require('./routes/products');
 
 const storeRouter = require('./routes/store');
 
+const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
 const homeRouter = require('./routes/home');
 
@@ -56,6 +57,8 @@ app.use('/menu',menuRouter);
 app.use('/home',homeRouter);
 
 
+//http://localhost:3001/shoporder
+app.use('/shoporder',shoporderRouter);
 
 //http://localhost:3001/shop
 app.use('/shop',shopRouter);
