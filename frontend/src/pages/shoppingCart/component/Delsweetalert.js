@@ -35,19 +35,25 @@ removePinfo.fire({
     reverseButtons: true
 }).then((result) => {
     if (result.isConfirmed) {
+      Swal.getConfirmButton(
         removePinfo.fire(
             '刪除!',
             '商品已刪除.',
             'success'
+            'success',
+            
             
             )
+        )
+        
             datasNEW.splice(i,1)
             console.log(datasNEW);
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
             setdatasNEW(datas222)
             // setPtotal(ptotal-(price*thisTT));
-            setTimeout(window.location.reload(),10000);
+            setTimeout(() => window.location.reload(), 150);
+            // setTimeout(window.location.reload(),10000);
           
 
     } else if (
