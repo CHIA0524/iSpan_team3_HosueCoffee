@@ -1,6 +1,5 @@
 import {React, useEffect} from "react";
-import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
-
+import Collect from "../component/Collect";
 
 
 const MenuCard = (props) => {
@@ -33,10 +32,7 @@ const MenuCard = (props) => {
                             </div>
                             <div className="cardpa">
                                 <span>{mu.drink_name}</span>
-                                <span>
-                                    <AiOutlineHeart size={20}/>    {/* TODO收藏功能 */}
-                                    <AiFillHeart  size={20}/>      {/* TODO收藏功能 */}
-                                </span>
+                                <Collect />
                             </div>
                             <div className="d-flex justify-content-between cardpading">
                                 <span className="d-flex align-items-center">
