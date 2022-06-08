@@ -93,7 +93,7 @@ function App() {
      
       {/* shop 部分 */}
         <Route path="/shoppingCart/pay3">
-          <Pay3 />
+          <Pay3 auth={auth}/>
         </Route> 
         {/* <Route path="/shoppingCart/pay2">
           <Pay2 />
@@ -102,7 +102,7 @@ function App() {
           <Pay1 auth={auth}/>
         </Route>
         <Route path="/shop/ProductDetail/:id">
-          <ProductDetail />
+          <ProductDetail auth={auth}/>
         </Route>
 
         <Route path="/shop/kenya">
