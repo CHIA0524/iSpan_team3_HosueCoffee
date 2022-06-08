@@ -20,6 +20,8 @@ const MenuIndex = () => {
                                             setDatas(results);
         }
         useEffect(()=>{fetchData();},[])
+        const datas1 = JSON.parse(localStorage.getItem('gifts'))
+        console.log(datas1);
         return( 
             <>   
                 <div className="bodyMenu">
@@ -44,7 +46,15 @@ const MenuIndex = () => {
                             />
                         </div>   
                     </div>
-                    <Link to='/OnlineCheckPage' className="shopping">
+                    <Link 
+                        to='/OnlineCheckPage' 
+                        className="shopping" 
+                        onClick={()=>{
+                            if(datas1 == null ){
+                                localStorage.setItem("gifts", JSON.stringify([]))
+                            }
+                        }}
+                    >
                         <BiCoffee size={60}/>
                     </Link>
                 </div>

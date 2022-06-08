@@ -68,7 +68,7 @@ const List = (props) => {
                             </div>
                             <div className="delete1">
                                 <div  
-                                    className='btn' 
+                                    className='btn deletebtn' 
                                     herf="/"
                                     onClick={()=>{ 
                                         datasNEW.splice(i,1)

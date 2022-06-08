@@ -65,42 +65,27 @@ const Popup = (props) => {
                                     {datas[drinkId-1].content}
                                 </span>
                             </div>
-                            <div className="menuContent1">
-                                <div className="menuContent2 btn2">
-                                    <div className="d-flex justify-content-end mt-4">
-                                        <div 
-                                            className="btn PaymentLast1 mt-1"
-                                            onClick={() => {
-                                                update()
-                                                SweetAlret()
-                                                setcss({visibility: 'hidden', opacity: '0'})
-                                                setdrinkCounter(1)
-                                            }}
-                                        >
-                                            加入購物車
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="content2 btn1">
+                            <div className="content2 btn">
                                 <Counter 
                                     setdrinkCounter={setdrinkCounter}  
                                     drinkCounter={drinkCounter} 
                                 />
-                                <div 
-                                    className="btn PaymentLast1 mt-1"
-                                    onClick={() => {
-                                        update()
-                                        SweetAlret()
-                                        setcss({
-                                            visibility: 'hidden',
-                                            opacity: '0'
-                                        })
-                                        setdrinkCounter(1)
-                                    }}
-                                >
-                                    加入購物車
-                                </div>
+                                <div className="d-flex justify-content-end">
+                                    <div 
+                                        className="btn PaymentLast1 mt-1"
+                                        onClick={() => {
+                                            update()
+                                            SweetAlret()
+                                            setcss({
+                                                visibility: 'hidden',
+                                                opacity: '0'
+                                            })
+                                            setdrinkCounter(1)
+                                        }}
+                                    >
+                                        加入購物車
+                                    </div>
+                                </div>    
                             </div>
                         </div>
                     </div>

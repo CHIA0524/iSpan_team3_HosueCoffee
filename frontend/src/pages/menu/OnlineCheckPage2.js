@@ -19,10 +19,7 @@ const OnlineCheckPage2 = () => {
             <Process2RWD/>
             <Space/>
             <div class="container together">
-                <div class="superman">
-                    <BodyLeft/>
-                    <BodyRight datas1={datas1}/>
-                </div>
+                    <BodyLeft datas1={datas1}/>
             </div>
             <Space/>
         </>

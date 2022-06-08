@@ -8,7 +8,6 @@ const Counter = (props) => {
     // 解構popup傳來的值
     const {setdrinkCounter, drinkCounter}  = props
     const {settotalPrice1} = props
-    // const{totalprice,settotalprice} = props
     // 設一個空變數裝加減按鈕
     let buttonsub = null
     let buttonadd = null 
@@ -19,7 +18,7 @@ const Counter = (props) => {
     // 使用usedate監控數量變化
     const [listDrinkNum,setlistDrinkNum] = useState(drinkNum)
     // 更新後的數量存在localStorage
-    const update = (dd,ee,cc)=>{
+    const update = (dd)=>{
         let k = 0
         const gift = {
             id: idP,
@@ -122,13 +121,15 @@ const Counter = (props) => {
             </div>
     }
     return (
-        <div className="d-flex numButton">
-            {buttonsub}
-            <div className="quantity">
-                {drinkCounter}
-                {listDrinkNum}
+        <div className="d-flex">
+            <div className=' menuNumButton'>
+                {buttonsub}
+                <div className="quantity">
+                    {drinkCounter}
+                    {listDrinkNum}
+                </div>
+                {buttonadd}
             </div>
-            {buttonadd}
         </div>
     )
 }
