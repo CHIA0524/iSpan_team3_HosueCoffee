@@ -29,7 +29,7 @@ function HomeCopyText(props) {
                             return (
 
                                 <div class="copyText" id={CP_id} onClick={async () => {
-                                    if (document.getElementById(CP_id).innerHTML == "已領") {
+                                    if (document.getElementById(CP_id).innerHTML == "已領取") {
 
                                         alert("你領過了")
                                     } else {
