@@ -5,7 +5,7 @@ import './memberLogin.css'
 import Memberprofile from './memberprofile';
 
 function MemberLogin(props){
-    const {auth,setAuth} = props;  
+    const {auth,setAuth,setDataCheck} = props;  
     
     
   
@@ -198,6 +198,7 @@ function MemberLogin(props){
                 localStorage.setItem("account", loginMid.member_account);
                 localStorage.setItem("mail", loginMid.member_mail);
                 //將會員編號寫入localStorage的true，帳號信箱也分別寫入
+                setAuth(localStorage.getItem("true"))
 
                 localStorage.setItem("dataCheck", "資料完整");
                 //先將dataCheck，設定為資料完整
@@ -216,9 +217,8 @@ function MemberLogin(props){
                     localStorage.setItem("address", results.member_address);
                     localStorage.setItem("photo", results.photo);
                     //將會員基本資料分別寫入localStorage
-                    
+                    setDataCheck(localStorage.getItem("dataCheck"))
                     alert('成功登入');
-                    // setAuth(!auth); 這不需要因為它本身useState是由 localStorage去驗證
                     // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
                     
                     window.location.replace("http://localhost:3000/member/profile");

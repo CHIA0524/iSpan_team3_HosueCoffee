@@ -99,7 +99,7 @@ function App() {
           <Pay2 />
         </Route>  */}
         <Route path="/shoppingCart">
-          <Pay1/>
+          <Pay1 auth={auth}/>
         </Route>
         <Route path="/shop/ProductDetail/:id">
           <ProductDetail />
@@ -170,7 +170,7 @@ function App() {
         </Route>
 
         <Route  path="/member">
-          <MemberLogin auth={auth} dataCheck={dataCheck} />
+          <MemberLogin auth={auth} setAuth={setAuth} dataCheck={dataCheck} setDataCheck={setDataCheck} />
         </Route>
          {/* 以上是會員頁面 */}
 

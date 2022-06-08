@@ -123,8 +123,8 @@ removePinfo.fire({
                         <p>${price*total}</p>
                     </div>
                 {/* 手機版 */}
-                    <div class="number">
-                        <div class="mAddNum">
+                    <div className="number">
+                        <div className="mAddNum">
                             <button className="buttonNum" onClick={() =>{
                             setThisTT(thisTT-1)
                              setPtotal(ptotal-price)
