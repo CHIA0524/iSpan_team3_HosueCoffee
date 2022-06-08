@@ -140,23 +140,26 @@ function Pay1(props){
          //驗證
       
          const Wrongname=()=>{
-             if(!name){
+             if(!name ){
                  setNameMessage("請輸入姓名")
                  document.querySelector(".errorname").style.color="red";
              }else{
                  setNameMessage("")
              }
          }   
+           //^手機驗證格式^
+         const phone_num = /^09[0-9]{8}$/;
          const Wrongphone=()=>{
-             if(!phone){
+             if(!phone_num.test(phone)){
                  setPhoneMessage("請輸入手機")
                  document.querySelector(".errorphone").style.color="red";
                 }else{
                  setPhoneMessage("")
              }
-         }  
+         } 
+         const mail_text = /[\w-]+@([\w-]+\.)+[\w-]+/;;  
          const Wrongemail=()=>{
-             if(!email){
+             if(!mail_text.test(email)){
                  setEmailMessage("請輸入信箱")
                  document.querySelector(".erroremail").style.color="red";
                 }else{
@@ -180,15 +183,17 @@ function Pay1(props){
              }
          }   
          const WrongRphone=()=>{
-             if(!Rphone){
+             if(!phone_num.test(Rphone)){
                  setRPhoneMessage("請輸入手機")
                  document.querySelector(".errorRphone").style.color="red";
                 }else{
                  setRPhoneMessage("")
              }
          }  
+         
+    
          const WrongRemail=()=>{
-             if(!Remail){
+             if(!mail_text.test(Remail)){
                  setREmailMessage("請輸入信箱")
                  document.querySelector(".errorRemail").style.color="red";
                 }else{
@@ -234,17 +239,25 @@ function Pay1(props){
           //運費選擇
            const [shipgopay,setShipgopay]=useState("請選擇運送方式");
            const shipprice = ()=>{
+               const a = ptotal
+               console.log(a)
             const b = document.querySelector('.postoffice').checked
             console.log(b)
             if(b==true){
-               // document.getElementById("sprice").innerHTML = 80
+                  if(a>1000){
+                    setShipgopay(0)
+                  }else{
                setShipgopay(80)
-           }
-           else{
-               // document.getElementById("sprice").innerHTML = 100
+              }}
+            else{
+                if(a>1000){
+                    setShipgopay(0)
+                  }else{           
                setShipgopay(100)
+               }
+               }  
             }
-             }    
+              
              
     //pay1重後端抓資料
     // let[pricetotal1, setpricetotal1] = useState('')
@@ -351,7 +364,8 @@ function Pay1(props){
                          
                       </div>
                       <div className="questInfo">
-                          <div>取貨方式 </div>
+                          <div>取貨方式</div>
+                          <div>※消費滿1500即可免運</div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">
                                   <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="post"
@@ -377,24 +391,24 @@ function Pay1(props){
                           value={name}
                           onChange={Iname}
                           onBlur={Wrongname}
-                        required
+                          required
                           />
                           <div className="error errorname">{nameMessage}</div>
                          
 
-                          <input type="tel" 
+                          <input type="text" 
                           placeholder="手機"
                           name= "phone"
                           value={phone}
                           onChange={Iphone}
                           required
-                          minLength={10}
-                          maxLength={10}
+                          minLength="10"
+                          maxLength="10"
                           onBlur={Wrongphone}
                           />
                           <div className="error errorphone">{phoneMessage}</div>
-                        
-                          <input type="email" 
+                    
+                          <input type="text" 
                           placeholder="信箱"
                           name="email"
                           value={email}
@@ -492,7 +506,7 @@ function Pay1(props){
                                   <p>紅利折扣</p>
                               </div>
                               <div className="money">
-                                  <p>$1998</p>
+                                  <p>${ptotal}</p>
                                   <p className="sprice">${shipgopay}</p>
                                   <p>$100</p>
                                   <p>$100</p>
@@ -504,7 +518,7 @@ function Pay1(props){
                                   <h3>結帳金額</h3>
                               </div>
                               <div className="money">
-                                  <h3>$898</h3>
+                                  <h3>${ptotal + (Number(shipgopay))}</h3>
                               </div>
                           </div>
                              
@@ -537,7 +551,7 @@ function Pay1(props){
       
                               </div>
                               <div className="money">
-                                  <p>$1998</p>
+                                  <p>${ptotal}</p>
                                   <p>自取</p>
                                   <p>$100</p>
                                   <p>$100</p>

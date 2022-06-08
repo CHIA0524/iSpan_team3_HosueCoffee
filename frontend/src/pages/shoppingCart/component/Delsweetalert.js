@@ -39,7 +39,7 @@ removePinfo.fire({
         removePinfo.fire(
             '刪除!',
             '商品已刪除.',
-            'success'
+            'success',
             'success',
             
             
