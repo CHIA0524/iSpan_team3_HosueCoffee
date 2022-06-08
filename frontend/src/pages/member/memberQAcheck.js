@@ -10,10 +10,11 @@ import './memberQAcheck.css'
     if(!dataCheck){
         window.location.replace("http://localhost:3000/member/NewData");
     }
+   
   const params = useParams()
-   const [datas,setDatas] = useState([])
+  const [datas,setDatas] = useState([])
 
-    const fetchData=async()=>{
+  const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
         const response = await fetch(`${process.env.REACT_APP_API_URL}/test/id?QA_id=${params.id}`)
         const results=await response.json();  
@@ -29,14 +30,17 @@ import './memberQAcheck.css'
     // console.log("aaa")
     // console.log(datas)
     if(datas.length >0 ){
-      console.log((datas[0].id));
       const QA=datas[0];
-      const{QA_id,ask_type,ask_title,ask,ans}=QA;
+      const{QA_id,ask_type,ask_title,ask,ans,CREATEd_at,renew}=QA;
                 var ans_type="已回復";
+                var renew_type=renew;
                 if(ans ==""){
                     ans_type="未回覆"
+                    renew_type="客服尚未回覆"
                 }
-    
+                
+                
+                
 
 
     return(
@@ -69,20 +73,25 @@ import './memberQAcheck.css'
             <div class="memberAnser">
               <div>
                 <p>您：{ask}</p>
-                <span>2022/02/05 19:00</span>
+                <br></br>
+                <span>{CREATEd_at}</span>
               </div>
+              <br></br>
               <div>
                 <p>客服：{ans}</p>
-                <span>2022/02/06 10:00</span>
+                <br></br>
+                <span>{renew_type}</span>
               </div>
             </div>
             <div class="memberAnserInout">
-              <form class="d-flex flex-column" action="">
-                <textarea name="" id="" cols="30" rows="10" placeholder="留言....."></textarea>
-                <div class="text-center">
-                  <button class="coffeeLightBtn">送出</button>
+              
+                <div class="text-center QAGBbtn">
+                <br></br>
+                <br></br>
+                  <button class="coffeeLightBtn QAGBbtn" onClick={()=>{
+                    window.history.go(-1);
+                  }}>返回</button>
                 </div>
-              </form>
               <br></br>
             </div>
           </div>

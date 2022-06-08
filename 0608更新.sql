@@ -2,7 +2,7 @@ drop database team3;
 create database team3;
 use team3;
 -- select*from members;
--- select * from members;
+ -- select * from members;
 -- select * from members_data ;
 -- select * from orders where o_id=210003;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
@@ -14,20 +14,21 @@ CREATE TABLE `members`(
     `member_account` varchar(20) NOT NULL UNIQUE,
     `member_password` varchar(20) NOT NULL,
     `member_mail` varchar(255) NOT NULL UNIQUE,
+    `member_point` INT NOT NULL,
     `member_start` TIMESTAMP DEFAULT NOW()
 );
 ALTER TABLE `members` AUTO_INCREMENT=100001;
-INSERT INTO `members`(`member_account`,`member_password`,`member_mail`)
+INSERT INTO `members`(`member_account`,`member_password`,`member_mail`,`member_point`)
 VALUE
-('LH44','abc123456','LH44@gmail.com'),
-('VB77','abc123456','VB77@gmail.com'),
-('GR63','abc123456','GR63@gmail.com'),
-('CL16','abc123456','CL16@gmail.com'),
-('CS55','abc123456','CS55@gmail.com'),
-('MS47','abc123456','MS47@gmail.com'),
-('LN04','abc123456','LN04@gmail.com'),
-('DR03','abc123456','DR03@gmail.com'),
-('NR06','abc123456','NR06@gmail.com');
+('LH44','abc123456','LH44@gmail.com',2000),
+('VB77','abc123456','VB77@gmail.com',100),
+('GR63','abc123456','GR63@gmail.com',100),
+('CL16','abc123456','CL16@gmail.com',100),
+('CS55','abc123456','CS55@gmail.com',100),
+('MS47','abc123456','MS47@gmail.com',100),
+('LN04','abc123456','LN04@gmail.com',100),
+('DR03','abc123456','DR03@gmail.com',100),
+('NR06','abc123456','NR06@gmail.com',0);
 
 CREATE TABLE `members_data`(
 	`fk_member_id` INT PRIMARY KEY ,
@@ -56,6 +57,7 @@ CREATE TABLE `member_QA`(
   `ask` VARCHAR(200) NOT NULL,
   `ans` VARCHAR(200),
   `CREATEd_at` TIMESTAMP DEFAULT NOW(),
+  `renew` TIMESTAMP DEFAULT NOW(),
   foreign KEY (`fk_member_id`) references members(member_id)
 );
 ALTER TABLE `member_QA` AUTO_INCREMENT=110001;
@@ -88,7 +90,7 @@ VALUES
 ('100003','其他','代言問題','我想代言你們品牌方便嗎?',''),
 ('100004','其他','適用','有賣試用包嗎?','');
 
-
+-- update member_QA SET ans="需要",renew=NOW() WHERE QA_id="110001";
 
 --------------------------------------------------------------------------------------------------------------------------------
 
@@ -328,22 +330,45 @@ CREATE TABLE `home_coupon`(
   `coupon_title` VARCHAR(50) NOT NULL,
   `coupon_start_date` date NOT NULL,
   `coupon_end_date`date NOT NULL,
-  `coupon_code` VARCHAR(50) NOT NULL,
+  `coupon_code` int NOT NULL,
   `created_time` timestamp DEFAULT NOW()
 );
 ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
 INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
 VALUES
-('八五折優惠碼','2022/06/17','2022/06/18','15OFF'),
-('九折優惠碼','2022/06/25','2022/06/30','10OFF'),
-('八折優惠碼','2022/07/01','2022/07/05','20OFF'),
-('七折優惠碼','2022/07/06','2022/07/10','30OFF'),
-('七五折優惠碼','2022/07/11','2022/07/12','25OFF'),
-('五折優惠碼','2022/07/13','2022/07/15','50OFF'),
-('買一送一優惠碼','2022/10/05','2022/10/10','ONEBUYONEOFF'),
-('九五折優惠碼','2022/09/01','2022/09/30','05OFF'),
-('八八折優惠碼','2022/08/01','2022/08/08','12OFF');
+('八五折優惠碼','2022/06/17','2022/06/18','15'),
+('九折優惠碼','2022/06/25','2022/06/30','10'),
+('八折優惠碼','2022/07/01','2022/07/05','20'),
+('七折優惠碼','2022/07/06','2022/07/10','30'),
+('七五折優惠碼','2022/07/11','2022/07/12','25'),
+('五折優惠碼','2022/07/13','2022/07/15','50'),
+('買一送一優惠碼','2022/10/05','2022/10/10','50'),
+('九五折優惠碼','2022/09/01','2022/09/30','5'),
+('八八折優惠碼','2022/08/01','2022/08/08','12');
 
+create table `member_con`(
+	`MC_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `fk_m_id` INT NOT NULL,
+    `fk_coupon_id`INT NOT NULL,
+    `state` varchar(50),
+    foreign KEY (fk_m_id) references members(member_id),
+    foreign KEY (fk_coupon_id) references home_coupon(CP_id)
+);
+ALTER TABLE `member_con` AUTO_INCREMENT=190001;
+insert into `member_con`(`fk_m_id`,`fk_coupon_id`,`state`)
+VALUES
+('100001','7001',"未使用"),
+('100001','7003',"未使用"),
+('100001','7005',"未使用"),
+('100001','7007',"未使用"),
+('100001','7009',"未使用");
+
+select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
+-- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
+
+
+
+-- drop table `home_coupon`;
 
 -- 首頁橫幅
 CREATE TABLE `home_banner`(
