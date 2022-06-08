@@ -9,7 +9,7 @@ function OD_List_Detail(props){
 
     const fetchData=async()=>{
         console.log(process.env.REACT_APP_API_URL);
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/morder/odList/detailed?o_id=${o_id}`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/morder/odList/detailed3?o_id=${o_id}`)
         const results=await response.json();
         setDatas(results); 
 
