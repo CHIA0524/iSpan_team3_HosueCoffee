@@ -46,8 +46,8 @@ import ShopGuatemala from './pages/shop/ShopGuatemala';
 import ShopOther from './pages/shop/ShopOther';
 
 // 綠界測試
-import ECpayTest from './pages/ECpay/ECpayTest';
-import ECpayResult from './pages/ECpay/ECpayResult';
+import Test from './pages/test/Test';
+import PaymentResult from './pages/test/PaymentResult';
 
 
 
@@ -88,11 +88,11 @@ function App() {
       <Switch>
       
         {/* 綠界測試 */}
-        <Route path={"/ECpayTest"}>
-          <ECpayTest />
+        <Route path={"/test"}>
+          <Test />
         </Route>
         <Route path={"/payment_result"}>
-          <ECpayResult />
+          <PaymentResult />
         </Route>
 
       {/* shop 部分 */}
