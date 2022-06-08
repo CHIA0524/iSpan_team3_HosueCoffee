@@ -8,7 +8,8 @@ import './RecCard.css';
 
 
 
-function RecCard(){
+function RecCard(props){
+  const[amount, setAmount]= useState(1)
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   console.log('-------');
@@ -58,9 +59,14 @@ function RecCard(){
                         <div>
                              <div className="pCardWrap" key={PCard.p_id}>
                                 <div className="card recCard">
-                                   <div class="rPackage">
-                                    <Link to= {`/shop/ProductDetail/${PCard.p_id}`}>
-                                     <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt=""></img>
+                                   <div class="rPackage" >
+                                    <Link to= {`/shop/ProductDetail/${PCard.p_id}`}
+                                    >
+                                     <img class="card-img-top recImg" src={require('../img/'+img1+'.jpg')} alt="" 
+                                     onClick={() =>{
+                                setAmount(1)
+                                }
+                                }></img>
                                      </Link>
                                     </div>
                                 <div>

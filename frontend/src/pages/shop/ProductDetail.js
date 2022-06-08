@@ -18,7 +18,7 @@ function ProductDetail(props){
   const[amount, setAmount]= useState(1)
  //   const{setfinalTotal} = props
  // 計算總數量
-  const {setsubTotal  }= props
+  const {setsubTotal }= props
 
   const params=useParams();
   //抓網址後的id
@@ -30,9 +30,10 @@ function ProductDetail(props){
       const results = await response.json();
       setDatas(results);
     }
-    //待確認
+    //轉換頁面
     useEffect(()=>{
       fetchData();
+      setAmount(1)
     },[params.id])
         
     if(datas.length>0){
@@ -42,8 +43,35 @@ function ProductDetail(props){
       console.log(p_name);
     
     const img1=(p_name);
+    //加入購物車更新
+
+    const updateCart = ()=>{
+      //加入購物車的計算
+      let o = 0
+      //localStorage的變數
+      const sCart = {
+          id: p_id,
+          ShopCounter:amount,
+      }
+      //轉存為JSON 存至LOCAL STORAGE
+      let sCarts = localStorage.getItem("sCarts") ? JSON.parse(localStorage.getItem("sCarts")) : []
+      for (let i = 0; i < sCarts.length; i++) {
+          let item = sCarts[i]    
+          if (item.id === sCart.id) {
+              item.ShopCounter += sCart.ShopCounter
+          } else {
+              o = o + 1
+          }
+      }
+      if (o === sCarts.length) {
+        sCarts.push(sCart)
+      }
+      localStorage.setItem("sCarts", JSON.stringify(sCarts))
+
+  }
+ 
+  
     
-   
     
 
     return(
@@ -76,15 +104,23 @@ function ProductDetail(props){
                                 <div className="NTotal">{amount}</div>
                                 <button className="NumR" onClick={() =>{
                                 setAmount(amount + 1)
-                                setsubTotal(amount + 1)}
+                                setsubTotal(amount + 1)
+                                
+                                }
                                 }>+</button>
                             </div>
                             <br></br>
 
                             <div className="addCart">
                                 <div button type="button" className="addCartBtn" id="subtract" 
-                             onClick={AddSweet}
-                                ><p className="addCartText">加入購物車</p>
+                                onClick={() =>{  
+                                  // backshop();
+                                                updateCart(); 
+                                                AddSweet();
+                                                  }}
+                                ><Link to="/shop" className="addCartText"
+                                >
+                                加入購物車</Link>
                                     </div>
                             </div>
                         </div>
@@ -92,7 +128,7 @@ function ProductDetail(props){
 
                     </div>
                   <div className="DRec">
-                  <RecCard/>
+                  <RecCard amount={amount}/>
                   </div>
                   <div className="MRec">
                   <MRecCard/>

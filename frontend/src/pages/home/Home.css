@@ -1,5 +1,5 @@
 body {
-    font-family: "Comfortaa", "Microsoft JhengHei" !important;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 /* .scrollDiv::-webkit-scrollbar,
@@ -42,11 +42,13 @@ body {
     color: #fff;
     padding: 10px;
     text-align: center;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .content p {
     line-height: 30px;
     color: #4D3410;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 /* -------------------- */
@@ -67,6 +69,7 @@ body {
     margin: 30px;
     color: #E4D2A3;
     box-shadow: 2px #555 5px;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .allMenu {
@@ -114,6 +117,7 @@ body {
     align-items: center;
     letter-spacing: 1px;
     color: #fff;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 /* ------------------- */
@@ -144,6 +148,7 @@ body {
     padding: 30px 0;
     margin: 0;
     text-align: center;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .scrollDiv {
@@ -190,10 +195,11 @@ body {
 .productdetail h6,
 .productdetail p {
     color: #E4D2A3;
-    width: 100%;
+    width: 95%;
     height: auto;
     margin: 10px;
     word-wrap: break-word;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .productSel {
@@ -231,6 +237,7 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .allCard {
@@ -269,8 +276,10 @@ body {
     padding: 0 30px;
 }
 
-.cardText h3 p {
+.cardText h3,.cardText p {
     margin-bottom: 0;
+    text-align: center !important;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .cardInfo {
@@ -305,9 +314,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
-.allStore {
+.allStore form{
     width: 80％;
     margin: 0px auto;
     display: flex;
@@ -371,6 +381,7 @@ body {
 
 .new h1 {
     color: #E4D2A3;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .allNew {
@@ -405,6 +416,7 @@ body {
     text-align: left;
     padding: 5px;
     margin: 0;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .new .newTime {
@@ -423,6 +435,8 @@ body {
 
 .activity h1 {
     color: #E4D2A3;
+    font-family: "Comfortaa", "Microsoft JhengHei";
+    margin-bottom: 30px;
 }
 
 .box1 {
@@ -432,7 +446,7 @@ body {
     justify-content: space-evenly;
     align-items: stretch;
     flex-flow: row wrap;
-    padding: 30px 10px;
+    padding: 0 10px;
 }
 
 .coupon1 {
@@ -456,12 +470,14 @@ body {
     margin: 0;
     color: #fff;
     text-align: left;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .couponText p {
     margin: 0;
     text-align: left;
     color: #fff;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .copyText {
@@ -485,43 +501,11 @@ body {
     border: transparent;
 }
 
-/* .copyText button:active {
-    background: #f3dfae;
-} */
-
-/* .copyText button::before {
-    content: "已複製完成";
-    position: absolute;
-    top: -50px;
-    right: 0;
-    background: #E4D2A3;
-    padding: 8px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    display: none;
-}
-
-.copyText button::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: 25px;
-    width: 10px;
-    height: 10px;
-    background: #E4D2A3;
-    transform: rotate(45deg);
-    display: none;
-}
-
-.copyText.active button::after,
-.copyText.active button::before {
-    display: block;
-} */
-
 .copyText p {
     margin: 0;
     justify-content: center;
     text-align: center;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 /* --------------------- */
@@ -545,18 +529,29 @@ body {
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 23% 0;
+    padding: 24% 0;
     text-align: center;
     align-items: center;
     justify-content: center;
     transition: .5s;
 }
 
+.aboutUsTest:hover h1.aboutUsHover {
+    color: #000;
+    transition: .5s;
+}
+.aboutUsTest:hover p.aboutUsHover {
+    color: #555;
+    transition: .5s;
+}
+
+
 .aboutUsTest h1 {
     justify-content: center;
     padding: 0;
-    margin-bottom: 20px;
+    margin: 20px 0;
     color: #ccc;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 .aboutUsTest p {
@@ -568,6 +563,7 @@ body {
     text-align: center;
     line-height: 30px;
     color: #ccc;
+    font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
 /* --------------------- */
@@ -796,15 +792,16 @@ body {
     .allNew {
         width: 50%;
         margin-bottom: 50px;
-        padding: 30px 0;
+        /* padding: 30px 0; */
     }
 
     .new1 {
         margin: 5px auto;
+        margin-bottom: 5px;
         text-align: center;
         flex-grow: 1 100px;
         flex-flow: column wrap;
-        padding: 10px 30px;
+        padding: 5px 30px;
     }
 
     .new1 .newTime {
@@ -827,12 +824,13 @@ body {
 
     .activity h1 {
         margin: 0 30px;
+        margin-bottom: 30px;
     }
 
     .box1 {
         width: 50%;
-        margin-bottom: 50px;
-        padding: 30px 0;
+        /* margin-bottom: 50px; */
+        margin-bottom: 10px;
     }
 
     .coupon1 {
@@ -1292,7 +1290,7 @@ body {
     .scrollDiv {
         width: 70%;
         height: 450px;
-        overflow-x: scroll;
+        overflow-x: hidden;
         overflow-y: hidden;
         flex-flow: column wrap;
     }
@@ -1372,20 +1370,24 @@ body {
     }
 
     .cardBorder {
-        width: 90%;
+        width: 100%;
     }
 
     .cardImg img {
-        padding: 30px 0;
+        padding: 20px 0;
     }
 
     .cardImg,
-    .cardText,
+    .cardText,.cardText h3,
     .cardInfo {
         width: 90%;
         margin: 0 auto;
-        text-align: center;
-        padding: 0 30px;
+        text-align: center !important;
+        padding: 0 20px;
+    }
+
+    .cardInfo {
+        padding-bottom: 20px;
     }
 
     .cardInfo a {
@@ -1449,11 +1451,11 @@ body {
     }
 
     .new1 {
-        margin: 5px auto;
+        margin: 10px;
         text-align: center;
         flex-grow: 1 100px;
         flex-flow: column wrap;
-        padding: 10px 30px;
+        padding: 0 30px;
     }
 
     .new1 .newTime {
@@ -1481,7 +1483,7 @@ body {
     .box1 {
         width: 80%;
         margin: 0px auto;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         display: flex;
         /* text-align: center; */
         flex-grow: 1 100px;
@@ -1493,7 +1495,7 @@ body {
     }
 
     .coupon1 {
-        width: 55%;
+        width: 60%;
         color: #fff;
         padding: 15px 0;
         margin: 5px 0 5px 0;
@@ -1503,12 +1505,15 @@ body {
 
     .couponText {
         margin: 0 auto;
+        justify-content: center;
+        text-align: left;
+        padding: 0 15px;
     }
 
     .couponText h6 {
         margin: 0 0 5px 0;
         justify-content: center;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .couponText p {
@@ -1518,8 +1523,9 @@ body {
     }
 
     .copyText {
-        width: 20%;
-        padding: 50px 50px;
+        width: 30%;
+        padding: 50px 20px;
+        font-size: 12px;
         margin: 5px 0;
     }
 

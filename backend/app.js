@@ -14,6 +14,7 @@ const productsRouter = require('./routes/products');
 const storeRouter = require('./routes/store');
 
 const shopRouter = require('./routes/shop');
+const homeRouter = require('./routes/home');
 
 
 
@@ -52,6 +53,7 @@ app.use(`/profile`,profileRouter);
 app.use(`/morder`,mODRouter);
 
 app.use('/menu',menuRouter);
+app.use('/home',homeRouter);
 
 
 

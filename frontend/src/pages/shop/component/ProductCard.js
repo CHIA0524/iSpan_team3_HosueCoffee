@@ -2,30 +2,28 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import '../brandproduct.css';
 import './popup.css';
-import Heart from './heart';
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
+import Heart from './Heart';
 import ProductDetail from '../ProductDetail';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiColorFill } from 'react-icons/bi';
 
 
-function ProductCard(props){
-    const {datas, setcss, setProductId, auth, datasPMF} = props;
-   const [buttonpopup,setButtonpopup] = useState(false);
-   const [ cart, setcart] =useState([]);
-   const [ liked, setLiked] =useState([true]);
-   const memeId=localStorage.getItem(true)
-   
-  const thismemberid=localStorage.getItem("true");
 
-   //^設定收藏時的提示訊息^
-   const [mailMessage, setMailMessage] = useState("");
-    //設定收藏的value
-  const [whishList,setWishList]= useState()
-  console.log(datas);
-  //  確認是否已收藏
+function ProductCard(props){
+   const {datas, setcss, setProductId, auth,datasPMF} = props;
   
+   //  const [buttonpopup,setButtonpopup] = useState(false);
+  //  const [ cart, setcart] =useState([]);
+  //  const [ liked, setLiked] =useState([true]);
+  
+   //  抓取member的ＩＤ
+  //  const memeId=localStorage.getItem(true)
+  //  抓取member的ＩＤ
+  //  const thismemberid=localStorage.getItem("true"); 
+  //   設定收藏的value
+  // const [whishList,setWishList]= useState()
+
+
     
     return(
       <>
@@ -54,7 +52,7 @@ function ProductCard(props){
                       </div>
                       <div className="pIcon">
                           {/* 收藏 */}
-                          <Heart pt_id={pt_id} pt_name={pt_name} datasPMF={datasPMF} auth={auth}/>
+                          <Heart pt_id={pt_id}  datasPMF={datasPMF} auth={auth}/>
                           {/* {auth? 
                           <> <button className="heart" onClick={()=>{
                              alert("成功加入收藏") }} > 

@@ -93,7 +93,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.btn {
+.pbtn {
   margin-top: 1rem;
   border-radius: 5px;
   background-color: #4c3410;
@@ -125,9 +125,8 @@
 .mPayTotalCheck {
   display: none;
 }
-
 .money p,
-.money h3 {
+h3 {
   text-align: right;
 }
 .error {
