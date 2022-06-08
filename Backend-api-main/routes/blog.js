@@ -11,12 +11,48 @@ router.route('/')
         const [data] = await db.query(sql);
         res.json(data);
     })
+    
     router.route('/coffee')
     .get(async(req,res,next)=>{
-        const sql ="SELECT * FROM `blogs` WHERE btype ='咖啡篇coffee'ORDER BY blog_id";
+        const sql ="SELECT * FROM `blogs` WHERE btype ='咖啡篇coffee' ORDER BY blog_id";
         const [data] = await db.query(sql);
         res.json(data);
     })
+
+    router.route('/coffeebean')
+    .get(async(req,res,next)=>{
+        const sql ="SELECT * FROM `blogs` WHERE btype ='咖啡豆篇coffeebean' ORDER BY blog_id";
+        const [data] = await db.query(sql);
+        res.json(data);
+    })
+
+    router.route('/pourover')
+    .get(async(req,res,next)=>{
+        const sql ="SELECT * FROM `blogs` WHERE btype ='沖煮篇pourover' ORDER BY blog_id";
+        const [data] = await db.query(sql);
+        res.json(data);
+    })
+
+    router.route('/celebrity')
+    .get(async(req,res,next)=>{
+        const sql ="SELECT * FROM `blogs` WHERE btype ='名人專欄篇celebrity' ORDER BY blog_id";
+        const [data] = await db.query(sql);
+        res.json(data);
+    })
+
+    router.route('/share')
+    .get(async(req,res,next)=>{
+        const sql ="SELECT * FROM `blogs` WHERE btype ='好物分享篇share' ORDER BY blog_id";
+        const [data] = await db.query(sql);
+        res.json(data);
+    })
+  
+
+
+
+
+
+
 router.route('/id')
     .get(async(req,res,next)=>{
         const sql ="SELECT * FROM blogs  where blog_id=?"

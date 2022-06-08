@@ -1,6 +1,7 @@
-import React from 'react';
+import React , { useEffect, useState }from 'react';
 // import { CardImg } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 
 //CSS
 import '../blogBanner.css';
@@ -8,10 +9,12 @@ import '../blogBanner.css';
 
 
 
-const BlogNav = (props) => {
+const BlogWebNav = (props) => {
+ 
+   
+   
     return (
         <>
-         
          <ul>
                 <li className="blogNavItem">
                     <Link className="blogNav" aria-current="page" to="/blog/coffee">
@@ -49,7 +52,7 @@ const BlogNav = (props) => {
     );
 }
 
-export default BlogNav;
+export default BlogWebNav;
 
 
 

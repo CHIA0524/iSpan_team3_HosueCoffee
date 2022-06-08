@@ -36,7 +36,7 @@ const BlogCard = (props) => {
                     </div>
 
                     <div className="blogCardInfo">
-                        <Link to={"/blog/BlogArticle"}>+more</Link>
+                        <Link to={`/blog/BlogArticle/${v.blog_id}`}>+more</Link>
                         <span>{v.created_time.slice(0,10)}</span>
                     </div>
                 </div>

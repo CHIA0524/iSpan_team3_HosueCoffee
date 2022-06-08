@@ -12,14 +12,16 @@ import BlogMobNav from './component/BlogMobNav ';
 import './blogBanner.css';
 
 
-function BlogCoffeeBean(props){
+function BlogShare(props){
 
     const[blog,setBlog]=useState([])
      
-
-    const fetchBlogCoffeeBean = async () => {
+    
+    // select
+ 
+    const fetchBlogShare = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:30001/blog/coffeebean')
+        const response = await fetch('http://localhost:30001/blog/share')
         const data = await response.json()
         console.log(data)
         // 載入資料後設定到狀態中
@@ -32,7 +34,7 @@ function BlogCoffeeBean(props){
     
       // didMount
       useEffect(() => {
-        fetchBlogCoffeeBean()
+        fetchBlogShare()
       }, [])
 
 
@@ -49,8 +51,8 @@ function BlogCoffeeBean(props){
         
 
 
-       {/* //行動裝置板選單 */}
-        <div className="blogType container">
+         {/* //行動裝置板選單 */}
+         <div className="blogType container">
           <BlogMobNav />
         </div>
 
@@ -58,7 +60,6 @@ function BlogCoffeeBean(props){
         <div className="blogNav justify-content">
             <BlogWebNav/>
         </div>
-
 
 
         <div className="blogCardZone container">
@@ -72,4 +73,4 @@ function BlogCoffeeBean(props){
   );
 }
 
-export default BlogCoffeeBean
+export default BlogShare

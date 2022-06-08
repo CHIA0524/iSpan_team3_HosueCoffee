@@ -15,6 +15,10 @@ import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 import Blog from './pages/blog/Blog'
 import BlogArticle from './pages/blogArticle/BlogArticle'
 import BlogCoffee from './pages/blog/BlogCoffee'
+import BlogCoffeeBean from './pages/blog/BlogCoffeeBean'
+import BlogPourOver from './pages/blog/BlogPourOver'
+import BlogCelebrity from './pages/blog/BlogCelebrity'
+import BlogShare from './pages/blog/BlogShare'
 
 
 
@@ -39,7 +43,7 @@ function App() {
       {/* 路徑長的往上放喔 */}
 
       <Switch>
-        {/* blog */}
+        
         <Route path="/blog/blogArticle/:id">
         <BlogArticle />
         </Route>
@@ -47,16 +51,16 @@ function App() {
         <BlogCoffee/>
         </Route>
         <Route path="/blog/coffeebean">
-        <BlogCoffee/>
+        <BlogCoffeeBean/>
         </Route>
         <Route path="/blog/pourover">
-        <BlogCoffee/>
+        <BlogPourOver/>
         </Route>
         <Route path="/blog/celebrity">
-        <BlogCoffee/>
+        <BlogCelebrity/>
         </Route>
         <Route path="/blog/share">
-        <BlogCoffee/>
+        <BlogShare/>
         </Route>
         <Route path="/blog">
         <Blog />

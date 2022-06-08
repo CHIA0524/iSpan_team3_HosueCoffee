@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 //component
 import BlogCard from './component/BlogCard';
-import BlogNav from './component/BlogNav';
-
+import BlogWebNav from './component/BlogWebNav';
+import BlogMobNav from './component/BlogMobNav ';
 //CSS
 import './blogBanner.css';
 
@@ -15,10 +15,6 @@ function Blog(props){
     const[blog,setBlog]=useState([])
      
     
-    // select
-  const [selectedValue, setSelectedValue] = useState('')
-  const articleOptions = ['咖啡篇', '咖啡豆篇', '沖煮篇', '名人專欄篇','好物分享篇']
-
     const fetchBlog = async () => {
         //向遠端伺服器get資料
         const response = await fetch('http://localhost:30001/blog')
@@ -42,42 +38,18 @@ function Blog(props){
     <>
    <section className="blogSection">
         <div className="blogBanner"></div>
-
-
     
         <div className="blogBannerWord">咖啡手札</div>
    
 
-        
-
-
-       {/* //行動裝置板選單 */}
+       {/* //行動裝置板選單  */}
         <div className="blogType container">
-            <select
-            className="form-select blogSelect "
-            name="article"
-            id="article"
-            value={selectedValue}
-            onChange={(e) => {
-                setSelectedValue(e.target.value)
-            }}
-            >
-            <option value="">文章類別</option>
-            {articleOptions.map((v, i) => {
-                return (
-                    
-                <option key={i} value={v}>
-                    {v}
-                </option>
-                )
-            })}
-            </select>
-    
+           <BlogMobNav/>
         </div>
 
 
         <div className="blogNav justify-content">
-            <BlogNav/>
+            <BlogWebNav/>
         </div>
 
 
