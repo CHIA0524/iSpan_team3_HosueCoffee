@@ -37,9 +37,10 @@ router.route('/coupon')
     //^查詢本帳號紅利點數^
     .get(async(req,res,next)=>{
         const sql=
-        "SELECT * from members where member_id= 100001;"; 
+        "SELECT member_point from members where member_id= 100001;"; 
         const [datas] = await db.query(sql,[req.query.member_id]);
-        res.json(datas);
+        res.json(datas[0]);
+        console.log(datas[0]);
 
     })
 

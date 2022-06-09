@@ -17,6 +17,8 @@ function Pay1(props){
         localStorage.setItem('sCarts',JSON.stringify([]))
         
     }
+    const thismemberid=localStorage.getItem(true)
+
     const {auth}=props
     
 
@@ -84,13 +86,14 @@ function Pay1(props){
         
 
 // <----------pay1----------->
-   
-    const [ ptotal, setPtotal ]= useState(0)
-    console.log(ptotal)
-    const [totalp ,settotalp]= useState()
-    const[ ctotal , setCtotal] = useState(0)
-    const[ pointt , setPointt] = useState(0)
 
+const [ ptotal, setPtotal ]= useState(0)
+console.log(ptotal)
+const [totalp ,settotalp]= useState()
+const[ ctotal , setCtotal] = useState(0)
+const[ pointt , setPointt] = useState(0)
+// <----------point----------->
+const [mpoint,setMpoint]=useState()
 
     // <----------pay2----------->
     const [name,setName]=useState()
@@ -270,6 +273,10 @@ function Pay1(props){
      const response = await fetch('http://localhost:3001/shop'); 
      const results = await response.json();
                      setDatas(results);
+        const point = await fetch(`http://localhost:3001/shoporder/point?member_id=${thismemberid}`);
+        const repoint = await point.json();
+        setMpoint(repoint.member_point);
+        console.log(repoint.member_point);
      }
     useEffect(()=>{
         fetchData();
@@ -299,7 +306,7 @@ function Pay1(props){
                                 </div>
                             </div>
                             <div>
-                                   <Point pointt={pointt} setPointt={setPointt}/>
+                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint}/>
                                 
                             </div>
                             <hr></hr>

@@ -64,15 +64,26 @@
   border-radius: 5px;
   border: 1px solid #e4d2a3;
 }
-.dInput button {
+/* .btn1 {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
-  /* padding-top: 10px; */
+  
   background: #e4d2a3;
   border: transparent;
   color: white;
-}
+} */
+
+/* .btn1:hover {
+ 
+  width: 2rem;
+  height: 2rem;
+  line-height: 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #4c3410;
+  border: 1px solid #4c3410;
+} */
 
 .countTotal {
   margin-top: 1rem;
@@ -137,13 +148,7 @@
 .dText {
   margin-top: 2rem;
 }
-.btn1 {
-  /* margin-top: 1rem; */
-  border-radius: 5px;
-  color: white;
-  background-color: #4c3410;
-  border: 1px solid #4c3410;
-}
+
 .number {
   display: none;
 }
