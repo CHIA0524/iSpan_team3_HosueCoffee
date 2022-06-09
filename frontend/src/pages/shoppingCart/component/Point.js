@@ -26,15 +26,19 @@ function Point(props){
         fetchData();
     },[])
 
+    const[pointla, setPointla]=useState()   
+        const Ipoint=(e)=>{
+            setPointla(e.target.value);
+             }
+    
+             
+             
+
     if(datas.length>0){
         console.log(datas[0]);
         const Po=datas[0];
         const{member_point, member_id}=Po
         console.log(member_point);
-
-        
-    
-    
 
 
 return(
@@ -46,6 +50,7 @@ return(
             </div>
             <div>
             <input type="text"
+            onChange={Ipoint}
 
             />
               <Link href="">

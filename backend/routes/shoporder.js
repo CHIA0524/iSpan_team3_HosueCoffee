@@ -23,6 +23,26 @@ router.route('/coupon')
 
     })
 
+    router.route('/coupon')
+//^查詢本帳號優惠券^
+    .get(async(req,res,next)=>{
+        const sql=
+        "SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id=?"; 
+        const [datas] = await db.query(sql,[req.query.fk_m_id]);
+        res.json(datas);
+
+    })
+
+    router.route('/point')
+    //^查詢本帳號紅利點數^
+    .get(async(req,res,next)=>{
+        const sql=
+        "SELECT * from members where member_id= 100001;"; 
+        const [datas] = await db.query(sql,[req.query.member_id]);
+        res.json(datas);
+
+    })
+
 
 
 

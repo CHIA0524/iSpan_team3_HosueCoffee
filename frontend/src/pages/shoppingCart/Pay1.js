@@ -5,6 +5,7 @@ import './pay1.css';
 import PInfo from './component/PInfo';
 import Steps1 from './component/Steps1';
 import Coupon from './component/Coupon';
+import Point from './component/Point';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
@@ -77,17 +78,13 @@ function Pay1(props){
         
 
 // <----------pay1----------->
-    // const [ subTotal, setsubTotal ]= useState(1)
-    // const [ totalCash, setTotalCash ] = useState(1);
-    // const[a,setA]=useState(0);
+   
     const [ ptotal, setPtotal ]= useState(0)
     console.log(ptotal)
     const [totalp ,settotalp]= useState()
-    // const {setPtotal, ptotal } = props
-    // const cash = (price) => {
-    //     setTotalCash( 499 * Number(subTotal));
-    //   }
-    //   console.log(cash)
+    const[ ctotal , setCtotal] = useState(0)
+    const[ pointt , setPointt] = useState(0)
+
 
     // <----------pay2----------->
     const [name,setName]=useState()
@@ -245,13 +242,13 @@ function Pay1(props){
             const b = document.querySelector('.postoffice').checked
             console.log(b)
             if(b==true){
-                  if(a>1000){
+                  if(a>1500){
                     setShipgopay(0)
                   }else{
                setShipgopay(80)
               }}
             else{
-                if(a>1000){
+                if(a>1500){
                     setShipgopay(0)
                   }else{           
                setShipgopay(100)
@@ -291,20 +288,13 @@ function Pay1(props){
                                     <p>優惠碼使用</p>
                                 </div>
                                 <div>
-                                    <Coupon/>
+                                    <Coupon ptotal={ptotal} ctotal={ctotal}
+                                    setCtotal={setCtotal} />
                                 </div>
                             </div>
                             <div>
-                                <div class="dText">
-                                    <p>紅利點數使用</p>
-                                    <p class="pointText">剩餘點數 99點(可折扣99元)</p>
-                                </div>
-                                <div>
-                                    <input type="text"/>
-                                    <a href="">
-                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
-                                    </a>
-                                </div>
+                                   <Point pointt={pointt} setPointt={setPointt}/>
+                                
                             </div>
                             <hr></hr>
                             <div class="countTotal">
@@ -316,7 +306,7 @@ function Pay1(props){
                                 <div class="money">
                                     <h4>${ptotal}</h4>
                                     
-                                    <h4>$499</h4>
+                                    <h4>${ctotal}</h4>
                                     <h4>$499</h4>
                                 </div>
                             </div>
@@ -506,8 +496,8 @@ function Pay1(props){
                               <div className="money">
                                   <p>${ptotal}</p>
                                   <p className="sprice">${shipgopay}</p>
-                                  <p>$100</p>
-                                  <p>$100</p>
+                                  <p>${ctotal}</p>
+                                  <p>${pointt}</p>
                               </div>
                           </div>
                           <div className="line"></div>
@@ -516,7 +506,7 @@ function Pay1(props){
                                   <h3>結帳金額</h3>
                               </div>
                               <div className="money">
-                                  <h3>${ptotal + (Number(shipgopay))}</h3>
+                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))}</h3>
                               </div>
                           </div>
                              

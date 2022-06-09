@@ -33,6 +33,13 @@
   font-size: 1.5rem;
   padding-top: 0.5rem;
 }
+.sInfoBox {
+  width: 215px;
+  height: 215px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
 .packageImg {
   width: 100%;
 }

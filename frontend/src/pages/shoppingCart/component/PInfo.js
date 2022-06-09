@@ -79,8 +79,8 @@ return(
         <div className="payInfoAll"  key={pinfo.id}>
             <div className="payInfo">
                 <div className="payInfoContent">
-                    <div className="col-2">
-                        <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
+                    <div className="col-2 infoBox">
+                        <img className="packageImg1"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
                         </img>
                     </div>
                     <div className="col-4 pName">
