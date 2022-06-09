@@ -21,7 +21,7 @@ function Pay1(props){
     
     
     const {auth}=props
-    console.log(auth)
+    //console.log(auth)
 
     //回去繼續購物
     const keepshopping = ()=>{
@@ -33,7 +33,7 @@ function Pay1(props){
            if(JSON.parse(localStorage.getItem('sCarts'))==false){
                 alert("購物車沒有商品")
            }else if(!auth){
-               console.log(auth)
+               //console.log(auth)
             alert("請登入會員")
            }else{
         document.querySelector('.payTwo').style.display="block"
@@ -220,7 +220,7 @@ function Pay1(props){
         const shipSame = ()=>{
           const a=document.querySelector('.sameAddress').checked
          
-          console.log(a)
+          //console.log(a)
           if(a==true){
           document.querySelector('.receiverInfo').style.display="none"
           setRName(name)
@@ -246,7 +246,7 @@ function Pay1(props){
            const [shipgopay,setShipgopay]=useState("請選擇運送方式");
            const shipprice = ()=>{
             const b = document.querySelector('.postoffice').checked
-            console.log(b)
+            // console.log(b)
             if(b==true){
                // document.getElementById("sprice").innerHTML = 80
                setShipgopay(80)

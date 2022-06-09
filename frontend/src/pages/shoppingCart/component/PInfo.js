@@ -31,20 +31,18 @@ useEffect(()=>{
     
     // 接收localStorage上的購物車資料
     const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
-    console.log(cartDetail)
    
     // 接收資料庫資料
     const {datas} = props 
 
     // 計算datas的長度
     const datamath=datas.length
-    console.log(datamath)
     // 計算cartDetail的長度
     const cartDetailmath=cartDetail.length
     // 建立一個空陣列
 
     var shopCart=[];
-    console.log(datas);
+    //console.log(datas);
     for( let c=0; c<cartDetailmath; c++){
     for( let i=0; i<datamath; i++){     
             
@@ -56,7 +54,7 @@ useEffect(()=>{
             } 
         }
     }
-
+    console.log(ptotal);
 return(
     <>
 
@@ -64,7 +62,7 @@ return(
         
         // 設定圖片路徑
         const price = Number(pinfo.p_price)
-        console.log(price)
+        //console.log(price)
         const productId=pinfo.p_id
         const img1 = (pinfo.p_name)
         const total = cartDetail[i].ShopCounter
@@ -73,7 +71,11 @@ return(
     
 
          TTmoney=TTmoney+(Number(total)*price)
+         console.log(TTmoney)
+      
+
         setPtotal(TTmoney)
+         
 
         return(         
         <div className="payInfoAll"  key={pinfo.id}>

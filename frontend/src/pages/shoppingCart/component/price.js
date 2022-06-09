@@ -9,6 +9,7 @@ function Price(props){
     const[amount, setAmount]= useState(0)
 
     const [thisTT,setThisTT]=useState(Number(total))
+    const [thisTM,setThisTM]=useState(price*total)
     console.log(ptotal);
         //加入購物車更新
         const updateCart = (dd,ee,cc)=>{
@@ -44,14 +45,16 @@ return(
   
                             if(thisTT>1){
                              setThisTT(thisTT-1)
+                             setThisTM(thisTM-price)
                              setPtotal(ptotal-price)
                             const dd = amount -1 
                              updateCart(dd); 
                             }
                              }}>-</button>
-                            <div>{total}</div>
+                            <div>{thisTT}</div>
                             <button className="PNumR" onClick={() =>{
                              setThisTT(thisTT+1)
+                             setThisTM(thisTM+price)
                              setPtotal(ptotal+price)
                             const cc = amount + 1 
                             updateCart(cc); 
@@ -120,7 +123,7 @@ removePinfo.fire({
                    
                    {/* 商品小計 */}
                     <div className="col-1">
-                        <p>${price*total}</p>
+                        <p>${thisTM}</p>
                     </div>
                 {/* 手機版 */}
                     <div className="number">
