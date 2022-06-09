@@ -17,7 +17,17 @@ function Navbar (props){
   const { bannerHeight } = props
   const [ pageYOffset, setPageYOffset ] = useState()
   const loginOUT=()=>{
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem("dataCheck")
+    localStorage.removeItem("mail")
+    localStorage.removeItem("account")
+    localStorage.removeItem("nick")
+    localStorage.removeItem("address")
+    localStorage.removeItem("name")
+    localStorage.removeItem("photo")
+    localStorage.removeItem("birth")
+    localStorage.removeItem("phone")
+    localStorage.removeItem("true")
     alert("您已登出")
     window.location.assign("http://localhost:3000/");
 
@@ -110,11 +120,11 @@ function Navbar (props){
           <>
           <div className="memberDetail" style={{height: '0px'}}>
 
-            <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-            <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
-            <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
-            <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
-            <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
+            <li><Link to="/member/OrderList" onClick={closeSideNavClick}>訂單查詢</Link></li>
+            <li><Link to="/member/Point" onClick={closeSideNavClick}>優惠中心</Link></li>
+            <li><Link to="/member/QAList" onClick={closeSideNavClick}>問答中心</Link></li>
+            <li><Link to="member/profileEdit" onClick={closeSideNavClick}>資料維護</Link></li>
+            <li><Link to="/member/Password" onClick={closeSideNavClick}>密碼修改</Link></li>
           </div>
 
           <li><a href="#/" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
@@ -130,7 +140,7 @@ function Navbar (props){
           {/* 以下為登出狀態 */}
           <div className="memberDetail" style={{height: '0px',display:"none"}} >
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-            <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
+            <li><a href="" onClick={closeSideNavClick}>優惠中心</a></li>
             <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
             <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
@@ -158,7 +168,12 @@ function Navbar (props){
           <li><Link to="/shoppingcart"><IoCartOutline size={30} style={{ color: '#DDB44A' }}/></Link></li>
 
           <li className="mobileNone position-relative">
+          {auth? 
+            <Link to="/member/Profile"><IoPersonOutline size={30} style={{ color: '#DDB44A' }}/></Link>
+            :
             <Link to="/member"><IoPersonOutline size={30} style={{ color: '#DDB44A' }}/></Link>
+
+          }
             {auth? <><p className="webUserInfo">
               <span><Link to="/member/Profile">會員專區</Link></span>
               <span><Link to="/member/OrderList">訂單查詢</Link></span>
