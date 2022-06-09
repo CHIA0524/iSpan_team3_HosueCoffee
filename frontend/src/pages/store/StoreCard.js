@@ -6,14 +6,22 @@ import { IoInformationCircleOutline } from "react-icons/io5"
 
 function StoreCard(props){
 
-  const { data } = props
+  const {
+    data,
+    setCenter,
+    setZoom,
+    setDetailIndex,
+    setCardDetailCss,
+    setMarkerInfoCSS,
+    setFilterCSS,
+    distance } = props
 
   // 傳遞資料至父元素 cardDetail
   const sentDetailToCardDetail  = useCallback(
     (index)=>()=>{
-      props.setDetailIndex(index)
-      props.setCardDetailCss(`cardDetailOpenCss`)
-    }, [props]
+      setDetailIndex(index)
+      setCardDetailCss(`cardDetailOpenCss`)
+    }, [setCardDetailCss, setDetailIndex]
   )
 
   // 傳遞被點擊之門市卡 index 至父元素
@@ -21,13 +29,22 @@ function StoreCard(props){
     (index)=>()=>{
       let setLat = Number(data[index].lat)
       let setLng = Number(data[index].lng)
-      props.setCenter({lat: setLat, lng: setLng })
-      props.setZoom(18)
-      props.setMarkerInfoCSS('-150px')
-      props.setFilterCSS(false)
-    }, [data, props]
+      setCenter({lat: setLat, lng: setLng })
+      setZoom(18)
+      setMarkerInfoCSS('-150px')
+      setFilterCSS(false)
+    }, [data, setCenter, setFilterCSS, setMarkerInfoCSS, setZoom]
   )
-
+  
+  useEffect(() => {
+    if (distance) {
+      setTimeout(() => {
+        for (let i = 0; i < data.length; i++) {
+          data[i].distance = distance.rows[0].elements[i].distance.text
+        }
+      }, 1)
+    }
+  }, [data, distance])
 
 
   return(
@@ -49,8 +66,15 @@ function StoreCard(props){
                 <p>{store.area} {store.address}</p>
                 {/* <p>{store.phone}</p> */}
               </div>
-              <div onClick={sentDetailToCardDetail(i)}>
+              <div
+                style={{display: 'flex', flexDirection: 'column'}}
+                onClick={sentDetailToCardDetail(i)}
+              >
                 <IoInformationCircleOutline size={25}/>
+                { data[i].distance ?
+                  <p style={{fontSize: '8px', textAlign: 'center'}}>{data[i].distance.replace('公里', ' km')}</p>
+                  : ''
+                }
               </div>
             </div>
           )

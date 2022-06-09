@@ -32,8 +32,11 @@ function StoreMapCardWrap(){
     lng: 121.5297745,
   });
   const [ originPosition, setOriginPosition ] = useState({})
+  const [ destinations, setDestinations ] = useState([])
+  const [ distance, setDistance ] = useState({})
   const [ zoom, setZoom ] = useState()
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
+  const [ control, setControl ] = useState(false)
 
   // 側欄使用
   const [ asideCSS, setAsideCSS ] = useState('0px')
@@ -41,19 +44,6 @@ function StoreMapCardWrap(){
   // 開啟詳細選單(透過StoreCard傳送className)
   const [ cardDetailCss, setCardDetailCss ] = useState()
   const [ filterCSS, setFilterCSS ] = useState(false)
-
-  // 組成 latlng 陣列
-  let newDestinations = []
-  if (data.length > 0){
-    // newDestinations = []
-    for (let i = 0; i < data.length; i++) {
-      let oneLanLng = {}
-      oneLanLng.lat = Number(data[i].lat)
-      oneLanLng.lng = Number(data[i].lng)
-      newDestinations.push(oneLanLng)
-    }
-    console.log(newDestinations);
-  }
 
   // 過濾出 '縣市' 及 '服務' 列表
   const filterCity = (results) => {
@@ -73,7 +63,6 @@ function StoreMapCardWrap(){
       const results = await response.json()
       if (Array.isArray(results)) {
         const propertyValue = Object.values(results).map(item => item.serve_name);
-        console.log(propertyValue);
         setServeData(propertyValue)
       }
     } catch (e) {
@@ -195,7 +184,10 @@ function StoreMapCardWrap(){
 
       // 使用者允許抓目前位置，回傳經緯度
       function success(position) {
-        setOriginPosition({lat: position.coords.latitude, lng: position.coords.longitude})
+        setOriginPosition({
+          lat: Number(position.coords.latitude),
+          lng: Number(position.coords.longitude)})
+        setControl(true)  
       }
 
       // 跟使用者拿所在位置的權限
@@ -204,14 +196,25 @@ function StoreMapCardWrap(){
     } else {
       alert('Sorry, 你的裝置不支援地理位置功能。')
     }
-  }, [])
+
+    // 組成 latlng 陣列
+    if (data.length > 0){
+      let newDestinations = []
+      for (let i = 0; i < data.length; i++) {
+        let oneLanLng = {}
+        oneLanLng.lat = Number(data[i].lat)
+        oneLanLng.lng = Number(data[i].lng)
+        newDestinations.push(oneLanLng)
+      }
+      setDestinations(newDestinations);
+    }
+  }, [data])
 
   useEffect(() => {
     setIsLoading(true)
     // 向伺服器要求get資料
     fetchData()
     fetchServeData()
-    console.log(serveData);
   }, [])
   
   // 自動於x秒後關掉指示動畫
@@ -269,6 +272,7 @@ function StoreMapCardWrap(){
               cardDetailCss={cardDetailCss}
               setCardDetailCss={setCardDetailCss}
               setFilterCSS={setFilterCSS}
+              distance={distance}
             />
           }
           <div
@@ -308,6 +312,10 @@ function StoreMapCardWrap(){
           setIconRotate={setIconRotate}
           originPosition={originPosition}
           setFilterCSS={setFilterCSS}
+          destinations={destinations}
+          setDistance={setDistance}
+          control={control}
+          setControl={setControl}
         />
       </div>
     </>

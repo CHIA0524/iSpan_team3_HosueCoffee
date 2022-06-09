@@ -97,9 +97,9 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
   }
 }
 .storeFilter{
-  width: 200px;
+  width: 220px;
   padding: 20px;
-  background: $main_color;
+  background: $secondary_color;
   border-radius: 5px;
   flex-direction: column;
   gap: 20px;
@@ -126,7 +126,8 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
       margin-right: 5px;
     }
   }
-  .storeFilterClear{
+  .storeFilterBtn{
+    width: 40%;
     line-height: 30px;
     background: white;
     text-align: center;
@@ -144,7 +145,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
 .storeFilter::after{
   content: '';
   border: 8px solid;
-  border-color: transparent transparent $main_color transparent;
+  border-color: transparent transparent $secondary_color transparent;
   display: block;
   position: absolute;
   top: -16px;
@@ -245,7 +246,7 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
   }
   .itemText{
     height: 60px;
-    width: 200px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

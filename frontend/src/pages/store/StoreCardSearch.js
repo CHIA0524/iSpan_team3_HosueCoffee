@@ -41,11 +41,18 @@ function StoreCardSearch(props){
     } else {
       setFilterData(
         data.filter(function(oneData){
-          return(
-            cityList.some(city => oneData.city.includes(city)) &&
-            dowList.every(dow => oneData.times.includes(`${dow}:營業`)) &&
-            serveList.every(serve => oneData.serve_name.includes(serve))
-          )
+          if (cityList.length > 0) {
+            return(
+              cityList.some(city => oneData.city.includes(city)) &&
+              dowList.every(dow => oneData.times.includes(`${dow}:營業`)) &&
+              serveList.every(serve => oneData.serve_name.includes(serve))
+            )
+          } else {
+            return(
+              dowList.every(dow => oneData.times.includes(`${dow}:營業`)) &&
+              serveList.every(serve => oneData.serve_name.includes(serve))
+            )
+          }
         }
         )
       )
@@ -73,47 +80,56 @@ function StoreCardSearch(props){
           className={'storeFilterHint'}
           style={{background:
             cityList.length === 0 &&
-            cityList.length === 0 &&
-            cityList.length === 0
+            dowList.length === 0 &&
+            serveList.length === 0
             ? 'transparent' : '#DDB44A'}}
         />
       </div>
 
       {/*篩選清單*/}
       <div className="storeFilter" style={{display: filterCSS ? 'flex' : 'none'}}>
-        <StoreCardSearchFilter
-          setCardDetailCss={setCardDetailCss}
-          title={'縣市'}
-          data={cityData}
-          list={cityList}
-          setList={setCityList}
-        />
-        <StoreCardSearchFilter
-          setCardDetailCss={setCardDetailCss}
-          title={'營業時間'}
-          data={dow}
-          list={dowList}
-          setList={setDowList}
-        />
-        <StoreCardSearchFilter
-          setCardDetailCss={setCardDetailCss}
-          title={'服務項目'}
-          data={serveData}
-          list={serveList}
-          setList={setServeList}
-        />
-        <div
-          className="storeFilterClear"
-          onClick={()=>{
-            setCityList([])
-            setDowList([])
-            setServeList([])
-            // setCityList(cityData)
-            // setDowList(dow)
-            // setServeList(serveData)
-          }}
-        >
-          <p>清除</p>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+          <div
+            className="storeFilterBtn"
+            onClick={()=>{
+              setCityList([])
+              setDowList([])
+              setServeList([])
+            }}
+          >
+            <p>清除</p>
+          </div>
+          <div
+            className="storeFilterBtn"
+            onClick={()=>{
+              setFilterCSS(false)
+            }}
+          >
+            <p>確認</p>
+          </div>
+        </div>
+        <div style={{height: '40vh', overflowY: 'scroll'}}>
+          <StoreCardSearchFilter
+            setCardDetailCss={setCardDetailCss}
+            title={'縣市'}
+            data={cityData}
+            list={cityList}
+            setList={setCityList}
+          />
+          <StoreCardSearchFilter
+            setCardDetailCss={setCardDetailCss}
+            title={'營業時間'}
+            data={dow}
+            list={dowList}
+            setList={setDowList}
+          />
+          <StoreCardSearchFilter
+            setCardDetailCss={setCardDetailCss}
+            title={'服務項目'}
+            data={serveData}
+            list={serveList}
+            setList={setServeList}
+          />
         </div>
       </div>
 

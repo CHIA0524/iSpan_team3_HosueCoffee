@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 
-import { GoogleMap, useJsApiLoader, Marker, MarkerClusterer } from '@react-google-maps/api'
+import { GoogleMap, useJsApiLoader, Marker, MarkerClusterer, DistanceMatrixService } from '@react-google-maps/api'
 import { Link } from 'react-router-dom'
 
 import catmarker from './img/marker.svg';
@@ -11,7 +11,7 @@ function StoreMap(props){
 
   /*---------------- props useState ----------------*/
   // props
-  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate, originPosition, setFilterCSS } = props
+  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate, originPosition, setFilterCSS, destinations, setDistance, control, setControl } = props
   const [map, setMap] = useState(null)
 
   // useState
@@ -108,7 +108,7 @@ function StoreMap(props){
     setMarkerInfoCSS('-150px')
     setFilterCSS(false)
   }
-  
+
 
 
   return(
@@ -149,7 +149,19 @@ function StoreMap(props){
         : ''}
 
         {/* <StoreMapClusterer data={data}/> */}
-
+        {control && <DistanceMatrixService
+          options = {{
+            origins: [originPosition],
+            destinations: destinations,
+            travelMode: 'DRIVING'
+          }}
+          callback = {(response) => {
+            setTimeout(() => {
+              setDistance(response)
+              setControl(false)
+            }, 1500)
+          }}
+        />}
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>
