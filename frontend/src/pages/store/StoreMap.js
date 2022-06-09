@@ -149,19 +149,26 @@ function StoreMap(props){
         : ''}
 
         {/* <StoreMapClusterer data={data}/> */}
-        {control && <DistanceMatrixService
-          options = {{
-            origins: [originPosition],
-            destinations: destinations,
-            travelMode: 'DRIVING'
-          }}
-          callback = {(response) => {
-            setTimeout(() => {
-              setDistance(response)
-              setControl(false)
-            }, 1500)
-          }}
-        />}
+
+        {/* 判斷使用者位置，若有則呼叫 DistanceMatrixService */}
+        {/* control 用來控制 DistanceMatrixService 避免重複呼叫 */}
+        {originPosition ?
+          control &&
+          <DistanceMatrixService
+            options = {{
+              origins: [originPosition],
+              destinations: destinations,
+              travelMode: 'DRIVING'
+            }}
+            callback = {(response) => {
+              setTimeout(() => {
+                setDistance(response)
+                setControl(false)
+              }, 1500)
+            }}
+          />
+        : '' }
+        
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>
