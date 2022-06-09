@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@mui/icons-material": "^5.8.3",
+    "@mui/material": "^5.8.3",
     "classnames": "^2.3.1",
+    "react-material-ui-carousel": "^3.4.2",
     "styled-components": "^5.3.5"
   }
 }

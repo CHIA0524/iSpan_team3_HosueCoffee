@@ -1,4 +1,4 @@
-import {React, useEffect} from "react";
+import {React, useEffect, useState} from "react";
 import Collect from "../component/Collect";
 
 
@@ -18,23 +18,35 @@ const MenuCard = (props) => {
                         className="card" 
                         type="button" 
                         key={mu.id}  
-                        onClick={()=>{
-                            setdrinkId((mu.id))
-                            setcss({
-                                visibility: 'visible',
-                                opacity:'1'
-                            })
-                        }}
                     >
                         <div>
-                            <div className="imgdiv">
+                            <div 
+                                className="imgdiv"
+                                onClick={()=>{
+                                    setdrinkId((mu.id))
+                                    console.log(mu.id)
+                                    setcss({
+                                        visibility: 'visible',
+                                        opacity:'1'
+                                    })
+                                }}
+                            >
                                 <img src={require('../img/'+ img1 +'.jpg')} alt=""/>
                             </div>
                             <div className="cardpa">
                                 <span>{mu.drink_name}</span>
-                                <Collect />
+                                <Collect id={(mu.id)} i={i} mu={mu}/>
                             </div>
-                            <div className="d-flex justify-content-between cardpading">
+                            <div 
+                                className="d-flex justify-content-between cardpading"
+                                onClick={()=>{
+                                setdrinkId((mu.id))
+                                setcss({
+                                    visibility: 'visible',
+                                    opacity:'1'
+                                })
+                            }}
+                            >
                                 <span className="d-flex align-items-center">
                                     ${mu.price}
                                 </span>
