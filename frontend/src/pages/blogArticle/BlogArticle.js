@@ -22,19 +22,23 @@ function BlogArticle(props){
   
   const params=useParams();
   const thisBid=params.id
-  console.log(thisBid) 
-
+  const[blog,setBlog]=useState([])
+  const [arecomend,setarecomend]=useState([])
   const [datas,setDatas]=useState([])
+  console.log(blog);
   const fetchData= async()=>{
-    const response= await fetch(`http://localhost:30001/blog/id?blog_id=${thisBid}`);
+    const response= await fetch(`http://localhost:3001/blog/id?blog_id=${thisBid}`);
     const results=await response.json(); 
     setDatas(results);
-    console.log(results)
+
+    const response1 = await fetch('http://localhost:3001/blog')
+    const datas1 = await response1.json();
+    setarecomend(datas1)
   }
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [params.id])
 
   if(datas.length>0){
     const blogContent=datas[0];
@@ -48,7 +52,7 @@ function BlogArticle(props){
      
           <section className="articleSection" >
             <div className="articleBanner" alt="ArticleBanner">
-            <img className='articleImg00' src={require("./img/"+firstImg+".jpg")}></img>
+            <img className='articleImg00' src={require("./img/"+firstImg+".jpg")} alt=''></img>
             </div>
             <div className="container articleContainer ">
               <div className="row articleRow"> 
@@ -99,9 +103,11 @@ function BlogArticle(props){
                     </div>
                   </Link>
 
+                
 
-
-                  
+                  <div className="articleRecommend">
+                    <ArticleRecommend arecomend={arecomend}/>
+                  </div>
 
                 </div>   
               </div>

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import BlogCard from './component/BlogCard';
 import BlogWebNav from './component/BlogWebNav';
 import BlogMobNav from './component/BlogMobNav ';
+
 //CSS
 import './blogBanner.css';
 
@@ -17,9 +18,8 @@ function Blog(props){
     
     const fetchBlog = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:30001/blog')
+        const response = await fetch('http://localhost:3001/blog')
         const data = await response.json()
-        console.log(data)
         // 載入資料後設定到狀態中
         // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
         setBlog(data)

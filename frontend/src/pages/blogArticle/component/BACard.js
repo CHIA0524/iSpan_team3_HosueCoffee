@@ -4,7 +4,7 @@ function BACard(props){
     const [datas,setDatas]=useState([])
     const {thisBid}=props
     const fetchData= async()=>{
-      const response= await fetch(`http://localhost:30001/blog/blogArticle?blog_id=${thisBid}`);
+      const response= await fetch(`http://localhost:3001/blog/blogArticle?blog_id=${thisBid}`);
       const results=await response.json(); 
       setDatas(results);
       console.log(results)

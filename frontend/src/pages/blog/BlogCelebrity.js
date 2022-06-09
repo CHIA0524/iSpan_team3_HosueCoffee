@@ -21,7 +21,7 @@ function BlogCelebrity(props){
  
     const fetchBlogCelebrity = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:30001/blog/celebrity')
+        const response = await fetch('http://localhost:3001/blog/celebrity')
         const data = await response.json()
         console.log(data)
         // 載入資料後設定到狀態中

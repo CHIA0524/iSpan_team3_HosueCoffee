@@ -37,7 +37,7 @@ app.use('/categories',categoriesRouter);
 app.use('/products',productsRouter);
 
 app.use('/store/map',storeMapRouter);
-//http://localhost:30001/blog
+//http://localhost:3001/blog
 app.use('/blog',blogRouter);
 
 

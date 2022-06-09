@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../modules/mysql_config');
 // const upload = multer();
 
-//GET　http://localhost:30001/blog/
+//GET　http://localhost:3001/blog/
 router.route('/')
     .get(async(req,res,next)=>{
         const sql ="SELECT * FROM blogs "
