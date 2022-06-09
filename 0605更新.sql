@@ -222,14 +222,14 @@ CREATE TABLE `orders`(
 );
 ALTER TABLE `orders` AUTO_INCREMENT=210001;
 
-INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`)
+INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`)
 VALUES
-('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨','',''),
-('100002','黑貓','匯款','未出貨','潘週單','0987654321','haha@gmail.com','高雄市三民區九如一路501號','29歲','0912345678','idontknow@gmail.com','台東縣卑南鄉利嘉路689巷16之6號','快點','',''),
-('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
-('100003','黑貓','信用卡','未出貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
-('100003','黑貓','信用卡','已取貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
-('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','','');
+('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨'),
+('100002','黑貓','匯款','未出貨','潘週單','0987654321','haha@gmail.com','高雄市三民區九如一路501號','29歲','0912345678','idontknow@gmail.com','台東縣卑南鄉利嘉路689巷16之6號','快點'),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
+('100003','黑貓','信用卡','未出貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
+('100003','黑貓','信用卡','已取貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號',''),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','');
 
 -- 商品訂單_詳細
 CREATE TABLE `order_detail`(
@@ -330,45 +330,22 @@ CREATE TABLE `home_coupon`(
   `coupon_title` VARCHAR(50) NOT NULL,
   `coupon_start_date` date NOT NULL,
   `coupon_end_date`date NOT NULL,
-  `coupon_code` int NOT NULL,
+  `coupon_code` VARCHAR(50) NOT NULL,
   `created_time` timestamp DEFAULT NOW()
 );
 ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
 INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
 VALUES
-('八五折優惠碼','2022/06/17','2022/06/18','15'),
-('九折優惠碼','2022/06/25','2022/06/30','10'),
-('八折優惠碼','2022/07/01','2022/07/05','20'),
-('七折優惠碼','2022/07/06','2022/07/10','30'),
-('七五折優惠碼','2022/07/11','2022/07/12','25'),
-('五折優惠碼','2022/07/13','2022/07/15','50'),
-('買一送一優惠碼','2022/10/05','2022/10/10','50'),
-('九五折優惠碼','2022/09/01','2022/09/30','5'),
-('八八折優惠碼','2022/08/01','2022/08/08','12');
+('八五折優惠碼','2022/06/17','2022/06/18','15OFF'),
+('九折優惠碼','2022/06/25','2022/06/30','10OFF'),
+('八折優惠碼','2022/07/01','2022/07/05','20OFF'),
+('七折優惠碼','2022/07/06','2022/07/10','30OFF'),
+('七五折優惠碼','2022/07/11','2022/07/12','25OFF'),
+('五折優惠碼','2022/07/13','2022/07/15','50OFF'),
+('買一送一優惠碼','2022/10/05','2022/10/10','ONEBUYONEOFF'),
+('九五折優惠碼','2022/09/01','2022/09/30','05OFF'),
+('八八折優惠碼','2022/08/01','2022/08/08','12OFF');
 
-create table `member_con`(
-	`MC_id` INT PRIMARY KEY AUTO_INCREMENT,
-    `fk_m_id` INT NOT NULL,
-    `fk_coupon_id`INT NOT NULL,
-    `state` varchar(50),
-    foreign KEY (fk_m_id) references members(member_id),
-    foreign KEY (fk_coupon_id) references home_coupon(CP_id)
-);
-ALTER TABLE `member_con` AUTO_INCREMENT=190001;
-insert into `member_con`(`fk_m_id`,`fk_coupon_id`,`state`)
-VALUES
-('100001','7001',"未使用"),
-('100001','7003',"未使用"),
-('100001','7005',"未使用"),
-('100001','7007',"未使用"),
-('100001','7009',"未使用");
-
-select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
--- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
-
-
-
--- drop table `home_coupon`;
 
 -- 首頁橫幅
 CREATE TABLE `home_banner`(
