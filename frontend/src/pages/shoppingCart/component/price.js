@@ -33,7 +33,7 @@ function Price(props){
               sCarts.push(sCart)
             }
             localStorage.setItem("sCarts", JSON.stringify(sCarts))
-      
+            setCartDetail(JSON.parse(localStorage.getItem('sCarts')))
         }
 return(
     <>
@@ -49,7 +49,7 @@ return(
                              updateCart(dd); 
                             }
                              }}>-</button>
-                            <div>{total}</div>
+                            <div>{thisTT}</div>
                             <button className="PNumR" onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
@@ -92,7 +92,7 @@ removePinfo.fire({
         
             console.log("刪除前")
             console.log(datasNEW)
-            setPtotal(ptotal-(price*total));
+            setPtotal(ptotal-(price*thisTT));
             datasNEW.splice(i,1)
             console.log("刪除後")
             console.log(datasNEW)
@@ -100,8 +100,8 @@ removePinfo.fire({
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
             // console.log(datas222)
             setCartDetail(datas222)
-            // setTimeout(() => window.location.reload(), 150);
-            // setTimeout(window.location.reload(),10000);
+            setTimeout(() => window.location.reload(), 0);
+        //    setTimeout(window.location.reload(),1000);
           
 
     } else if (
@@ -120,11 +120,11 @@ removePinfo.fire({
                    
                    {/* 商品小計 */}
                     <div className="col-1">
-                        <p>${price*total}</p>
+                        <p>${price*thisTT}</p>
                     </div>
                 {/* 手機版 */}
-                    <div className="number">
-                        <div className="mAddNum">
+                    <div class="number">
+                        <div class="mAddNum">
                             <button className="buttonNum" onClick={() =>{
                             setThisTT(thisTT-1)
                              setPtotal(ptotal-price)
@@ -132,7 +132,7 @@ removePinfo.fire({
                              updateCart(dd); 
                             }
                              }>-</button>
-                            <div>{total}</div>
+                            <div>{thisTT}</div>
                            <button className="buttonNum"onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)

@@ -11,17 +11,9 @@ import Steps2 from './component/Steps2';
 
 
 function Pay1(props){
-    if(localStorage.getItem('sCarts')==null){
-        localStorage.setItem('sCarts',JSON.stringify([]))
-        
-    }
-  
-    // if(JSON.parse(localStorage.getItem('sCarts'))==[]){
-    // }
-    
-    
+    const buyYN=localStorage.getItem("sCart")
     const {auth}=props
-    console.log(auth)
+    
 
     //回去繼續購物
     const keepshopping = ()=>{
@@ -30,10 +22,7 @@ function Pay1(props){
 
     //按下一步跳pay2
        const nextStep = ()=>{
-           if(JSON.parse(localStorage.getItem('sCarts'))==false){
-                alert("購物車沒有商品")
-           }else if(!auth){
-               console.log(auth)
+           if(!auth){
             alert("請登入會員")
            }else{
         document.querySelector('.payTwo').style.display="block"
@@ -91,7 +80,7 @@ function Pay1(props){
     // const [ totalCash, setTotalCash ] = useState(1);
     // const[a,setA]=useState(0);
     const [ ptotal, setPtotal ]= useState(0)
-    // console.log(ptotal)
+    console.log(ptotal)
     const [totalp ,settotalp]= useState()
     // const {setPtotal, ptotal } = props
     // const cash = (price) => {
@@ -265,7 +254,6 @@ function Pay1(props){
      const results = await response.json();
                      setDatas(results);
      }
-    
     useEffect(()=>{
         fetchData();
          },[])
@@ -275,46 +263,46 @@ function Pay1(props){
       <>
        {/* <----------pay1-----------> */}
       <div className="payOne">
-               <div className="container main">
+               <div class="container main">
                    <Steps1 />
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
                     settotalp={settotalp} datas={datas}
                    />
                     {/* <!-- 折扣結帳區 --> */}
-                    <div className="dInput">
+                    <div class="dInput">
                         <div>
                             <div>
-                                <div className="dText">
+                                <div class="dText">
                                     <p>優惠碼使用</p>
                                 </div>
                                 <div>
                                     <input type="text"/>
                                     <a href="">
-                                        <button className="btn1 btn-outline-secondary" type="button">✓</button>
+                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
                                     </a>
                                 </div>
                             </div>
                             <div>
-                                <div className="dText">
+                                <div class="dText">
                                     <p>紅利點數使用</p>
-                                    <p className="pointText">剩餘點數 99點(可折扣99元)</p>
+                                    <p class="pointText">剩餘點數 99點(可折扣99元)</p>
                                 </div>
                                 <div>
                                     <input type="text"/>
                                     <a href="">
-                                        <button className="btn1 btn-outline-secondary" type="button">✓</button>
+                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
                                     </a>
                                 </div>
                             </div>
                             <hr></hr>
-                            <div className="countTotal">
+                            <div class="countTotal">
                                 <div>
                                     <h4>商品小計</h4>
                                     <h4>優惠券</h4>
                                     <h4>紅利折扣</h4>
                                 </div>
-                                <div className="money">
+                                <div class="money">
                                     <h4>${ptotal}</h4>
                                     
                                     <h4>$499</h4>
@@ -325,10 +313,10 @@ function Pay1(props){
                     </div>
                     <hr></hr>        
 
-                    <div className="check">
-                        <div type="button" className="addCartBtn" id="subtract" onClick={keepshopping} ><p className="btnWords">繼續購物</p>
+                    <div class="check">
+                        <div type="button" class="addCartBtn" id="subtract" onClick={keepshopping} ><p className="btnWords">繼續購物</p>
                             </div>
-                        <div type="button" className="addCartBtn" id="subtract" onClick={nextStep}><p className="btnWords">下一步</p>
+                        <div type="button" class="addCartBtn" id="subtract" onClick={nextStep}><p className="btnWords">下一步</p>
                         </div>
                     </div>
              </div>

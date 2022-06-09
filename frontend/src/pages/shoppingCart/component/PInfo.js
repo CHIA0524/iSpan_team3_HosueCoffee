@@ -10,7 +10,10 @@ import Price from './price';
 
 
 function PInfo(props){
-   
+    if(localStorage.getItem('sCarts')==null){
+        localStorage.setItem('sCarts',JSON.stringify([]))
+    }
+    
 
     // 數量變數
     const [ subTotal, setsubTotal ]= useState(1)
@@ -32,10 +35,8 @@ useEffect(()=>{
     // 接收localStorage上的購物車資料
     const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
     console.log(cartDetail)
-   
     // 接收資料庫資料
     const {datas} = props 
-
     // 計算datas的長度
     const datamath=datas.length
     console.log(datamath)
@@ -56,12 +57,11 @@ useEffect(()=>{
             } 
         }
     }
-
+    
 return(
     <>
 
     {shopCart.map((pinfo,i)=>{
-        
         // 設定圖片路徑
         const price = Number(pinfo.p_price)
         console.log(price)

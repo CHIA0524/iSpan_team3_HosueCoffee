@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import '../brandproduct.css';
 import './popup.css';
-import Heart from './Heart';
+import Heart from './heart';
 import ProductDetail from '../ProductDetail';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiColorFill } from 'react-icons/bi';
