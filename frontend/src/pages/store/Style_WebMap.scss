@@ -86,6 +86,15 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
   svg{
     cursor: pointer;
   }
+  .storeFilterHint{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0%;
+    right: -10%;
+    transition: all .3s ease-in-out;
+  }
 }
 .storeFilter{
   width: 200px;

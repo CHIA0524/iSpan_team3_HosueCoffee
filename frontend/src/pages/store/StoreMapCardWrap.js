@@ -13,7 +13,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 
 function StoreMapCardWrap(){
-  
+
   // 載入指示器用
   const [ isLoading, setIsLoading ] = useState(false)
 
@@ -31,7 +31,7 @@ function StoreMapCardWrap(){
     lat: 24.9725821,
     lng: 121.5297745,
   });
-  
+  const [ originPosition, setOriginPosition ] = useState({})
   const [ zoom, setZoom ] = useState()
   const [ markerInfoCSS, setMarkerInfoCSS ] = useState('-150px')
 
@@ -40,6 +40,20 @@ function StoreMapCardWrap(){
   const [ iconRotate, setIconRotate ] = useState('rotate(0deg)')
   // 開啟詳細選單(透過StoreCard傳送className)
   const [ cardDetailCss, setCardDetailCss ] = useState()
+  const [ filterCSS, setFilterCSS ] = useState(false)
+
+  // 組成 latlng 陣列
+  let newDestinations = []
+  if (data.length > 0){
+    // newDestinations = []
+    for (let i = 0; i < data.length; i++) {
+      let oneLanLng = {}
+      oneLanLng.lat = Number(data[i].lat)
+      oneLanLng.lng = Number(data[i].lng)
+      newDestinations.push(oneLanLng)
+    }
+    console.log(newDestinations);
+  }
 
   // 過濾出 '縣市' 及 '服務' 列表
   const filterCity = (results) => {
@@ -170,7 +184,28 @@ function StoreMapCardWrap(){
     </div>
   )
 
-  
+  useEffect(() => {
+    // 使用者定位
+    if(navigator.geolocation) {
+
+      // 使用者不提供權限，或是發生其它錯誤
+      function error() {
+        alert('無法取得你的位置');
+      }
+
+      // 使用者允許抓目前位置，回傳經緯度
+      function success(position) {
+        setOriginPosition({lat: position.coords.latitude, lng: position.coords.longitude})
+      }
+
+      // 跟使用者拿所在位置的權限
+      navigator.geolocation.getCurrentPosition(success, error);
+
+    } else {
+      alert('Sorry, 你的裝置不支援地理位置功能。')
+    }
+  }, [])
+
   useEffect(() => {
     setIsLoading(true)
     // 向伺服器要求get資料
@@ -202,7 +237,9 @@ function StoreMapCardWrap(){
       }
     });
   },[]);
-  
+
+
+
   return(
     <>
       <div className="mapAndCardWrap">
@@ -218,6 +255,8 @@ function StoreMapCardWrap(){
             fetchFilterData={fetchFilterData}
             setMarkerInfoCSS={setMarkerInfoCSS}
             setCardDetailCss={setCardDetailCss}
+            filterCSS={filterCSS}
+            setFilterCSS={setFilterCSS}
           />
           
           {/* 門市卡片 */}
@@ -229,6 +268,7 @@ function StoreMapCardWrap(){
               setMarkerInfoCSS={setMarkerInfoCSS}
               cardDetailCss={cardDetailCss}
               setCardDetailCss={setCardDetailCss}
+              setFilterCSS={setFilterCSS}
             />
           }
           <div
@@ -266,6 +306,8 @@ function StoreMapCardWrap(){
           asideCSS={asideCSS}
           setAsideCSS={setAsideCSS}
           setIconRotate={setIconRotate}
+          originPosition={originPosition}
+          setFilterCSS={setFilterCSS}
         />
       </div>
     </>

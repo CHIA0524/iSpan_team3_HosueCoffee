@@ -7,7 +7,7 @@ import { IoInformationCircleOutline } from "react-icons/io5"
 function StoreCard(props){
 
   const { data } = props
-  
+
   // 傳遞資料至父元素 cardDetail
   const sentDetailToCardDetail  = useCallback(
     (index)=>()=>{
@@ -24,9 +24,12 @@ function StoreCard(props){
       props.setCenter({lat: setLat, lng: setLng })
       props.setZoom(18)
       props.setMarkerInfoCSS('-150px')
+      props.setFilterCSS(false)
     }, [data, props]
   )
-  console.log(data);
+
+
+
   return(
     <div className='storeWrap'>
       {

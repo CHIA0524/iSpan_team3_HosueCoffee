@@ -7,7 +7,7 @@ import StoreCardDetail from './StoreCardDetail'
 
 function StoreCardWrap(props){
 
-  const { data, setCenter, setZoom, setMarkerInfoCSS, cardDetailCss, setCardDetailCss } = props
+  const { data, setCenter, setZoom, setMarkerInfoCSS, cardDetailCss, setCardDetailCss, setFilterCSS } = props
   const [ detailIndex, setDetailIndex ] = useState(2)
   const dataDetail = data[detailIndex]
 
@@ -28,6 +28,7 @@ function StoreCardWrap(props){
         setDetailIndex={setDetailIndex}
         setCardDetailCss={setCardDetailCss}
         setMarkerInfoCSS={setMarkerInfoCSS}
+        setFilterCSS={setFilterCSS}
       />
       
     </div>

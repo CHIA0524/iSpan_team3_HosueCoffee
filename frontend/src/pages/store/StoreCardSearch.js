@@ -11,10 +11,9 @@ import StoreCardSearchFilter from'./StoreCardSearchFilter'
 function StoreCardSearch(props){
 
   /*---------------- props useState ----------------*/
-  const { data, setFilterData, cityData, serveData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss } = props
+  const { data, setFilterData, cityData, serveData, setIsLoading, fetchFilterData, setMarkerInfoCSS, setCardDetailCss, filterCSS, setFilterCSS } = props
 
   const [ searchText, setSearchText ] = useState('')
-  const [ filterCSS, setFilterCSS ] = useState(false)
 
   // checkBox Option
   const dow = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
@@ -40,13 +39,10 @@ function StoreCardSearch(props){
     if (cityList.length === 0 && dowList.length === 0 && serveList.length === 0) {
       setFilterData(data)
     } else {
-      console.log(cityList);
-      console.log(dowList);
-      console.log(serveList);
       setFilterData(
         data.filter(function(oneData){
           return(
-            cityList.every(city => oneData.city.includes(city)) &&
+            cityList.some(city => oneData.city.includes(city)) &&
             dowList.every(dow => oneData.times.includes(`${dow}:營業`)) &&
             serveList.every(serve => oneData.serve_name.includes(serve))
           )
@@ -62,14 +58,25 @@ function StoreCardSearch(props){
     <div className="storeSearch">
 
       {/*篩選清單開關*/}
-      <div onClick={(e)=>{
-        if (filterCSS) {
-          setFilterCSS(false)
-        } else {
-          setFilterCSS(true)
-        }
-      }}>
+      <div
+        style={{position: 'relative'}}
+        onClick={(e)=>{
+          if (filterCSS) {
+            setFilterCSS(false)
+          } else {
+            setFilterCSS(true)
+          }
+        }}
+      >
         <IoOptionsOutline size={25}/>
+        <div
+          className={'storeFilterHint'}
+          style={{background:
+            cityList.length === 0 &&
+            cityList.length === 0 &&
+            cityList.length === 0
+            ? 'transparent' : '#DDB44A'}}
+        />
       </div>
 
       {/*篩選清單*/}

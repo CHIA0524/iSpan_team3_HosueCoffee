@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react'
 
-
 import { GoogleMap, useJsApiLoader, Marker, MarkerClusterer } from '@react-google-maps/api'
 import { Link } from 'react-router-dom'
 
@@ -12,8 +11,9 @@ function StoreMap(props){
 
   /*---------------- props useState ----------------*/
   // props
-  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate } = props
+  const { data, center, setCenter, zoom, setZoom, markerInfoCSS, setMarkerInfoCSS, asideCSS, setAsideCSS, setIconRotate, originPosition, setFilterCSS } = props
   const [map, setMap] = useState(null)
+
   // useState
   const [ markerIndex, setMarkerIndex ] = useState(1)
   const thisData = data
@@ -37,7 +37,7 @@ function StoreMap(props){
           height: 'calc(100vh - 125px)'
         })
       }
-      })
+    })
   },[]);
 
   // panTo 效果
@@ -70,6 +70,7 @@ function StoreMap(props){
     setTimeout(() => {
       setZoom(map.getZoom())
       setMarkerInfoCSS('-150px')
+      setFilterCSS(false)
     }, 50)
   }
   
@@ -81,6 +82,7 @@ function StoreMap(props){
       setCenter({lat: thisLat, lng: thisLng})
       setMarkerIndex(index)
       setZoom(18)
+      setFilterCSS(false)
       if (markerInfoCSS === '-150px'){
         setTimeout(() => {
           setMarkerInfoCSS('100px')
@@ -88,7 +90,7 @@ function StoreMap(props){
       }else if (markerInfoCSS === '100px'){
         setMarkerInfoCSS('-150px')
       }
-    }, [thisData, setCenter, setZoom, markerInfoCSS, setMarkerInfoCSS]
+    }, [thisData, setCenter, setZoom, setFilterCSS, markerInfoCSS, setMarkerInfoCSS]
   )
 
   // 地圖點擊事件
@@ -97,16 +99,18 @@ function StoreMap(props){
     if(asideCSS === '0px'){
       setAsideCSS('-375px')
       setIconRotate('rotate(180deg)')
+      setFilterCSS(false)
     }
   }
 
   // 地圖拖移事件
   const onDragEnd = ()=>{
     setMarkerInfoCSS('-150px')
+    setFilterCSS(false)
   }
   
-  
-  
+
+
   return(
     <div className="mapWrap">
       {isLoaded ? (
@@ -121,6 +125,7 @@ function StoreMap(props){
         onClick={mapOnClick}
         onDragEnd={onDragEnd}
       >
+        {/* 門市資料圖標 */}
         {data.map((latlng, i)=>{
           let thisLat = Number(latlng.lat)
           let thisLng = Number(latlng.lng)
@@ -135,7 +140,16 @@ function StoreMap(props){
             />
           )
         })}
-          {/* <StoreMapClusterer data={data}/> */}
+
+        {/* 若有使用者位置即加上圖標 */}
+        {originPosition ?
+          <Marker
+            position={originPosition}
+          />
+        : ''}
+
+        {/* <StoreMapClusterer data={data}/> */}
+
       </GoogleMap>
       ) : <></>}
       <div className='markerInfo' style={{bottom: markerInfoCSS}}>
