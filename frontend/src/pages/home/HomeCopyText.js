@@ -19,7 +19,7 @@ function HomeCopyText(props) {
 
                         return (
 
-                            <div class="copyText" >
+                            <div className="copyText" >
                                 已領取
                             </div>
                         )
@@ -28,10 +28,10 @@ function HomeCopyText(props) {
 
                             return (
 
-                                <div class="copyText" id={CP_id} onClick={async () => {
-                                    if (document.getElementById(CP_id).innerHTML == "已領") {
+                                <div className="copyText" id={CP_id} onClick={async () => {
+                                    if (document.getElementById(CP_id).innerHTML == "已領取") {
 
-                                        alert("你領過了")
+                                        alert("此優惠券已領過")
                                     } else {
                                         const state = "未使用"
                                         // alert("領取成功")
@@ -47,10 +47,10 @@ function HomeCopyText(props) {
                         } else {
                             return (
 
-                                <div class="copyText" onClick={() => {
+                                <div className="copyText" onClick={() => {
                                     window.location.replace("http://localhost:3000/member")
                                 }}>
-                                    登入領取
+                                    請登入領取
                                 </div>
 
                             )

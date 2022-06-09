@@ -12,7 +12,7 @@ function homeMenu(props){
                 <h1>MENU</h1>
                 <div className="allMenu">
                     <div className="menuHover">
-                        <div class="menuCard">
+                        <div className="menuCard">
                             <p>Americano</p>
                         </div>
                         <img src={menu03} alt="" />

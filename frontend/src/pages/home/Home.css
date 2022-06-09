@@ -276,10 +276,19 @@ body {
     padding: 0 30px;
 }
 
-.cardText h3,.cardText p {
+.cardText h5,.cardText p {
     margin-bottom: 0;
-    text-align: center !important;
+    padding: 5px;
+    text-align: left !important;
     font-family: "Comfortaa", "Microsoft JhengHei";
+}
+
+.cardText p{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #ccc;
 }
 
 .cardInfo {
