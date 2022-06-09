@@ -94,15 +94,7 @@ const[amount, setAmount]= useState(1)
 
   return(
     <>
-     {/* {datas.map((pCard,i)=>{
-         console.log(pCard.id);
-         
-         const img1=(pCard.p_name);
-         const id='#'+(pCard.id); */}
-          
-        {/* return( */}
-          {/* <div key={pCard.id}> */}
-       
+    
                     <div class="mShop">
                         <p>商店</p>
                     </div>
