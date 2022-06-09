@@ -11,7 +11,10 @@ import Steps2 from './component/Steps2';
 
 
 function Pay1(props){
-    const buyYN=localStorage.getItem("sCart")
+    if(localStorage.getItem('sCarts')==null){
+        localStorage.setItem('sCarts',JSON.stringify([]))
+        
+    }
     const {auth}=props
     
 
@@ -22,7 +25,10 @@ function Pay1(props){
 
     //按下一步跳pay2
        const nextStep = ()=>{
-           if(!auth){
+        if(JSON.parse(localStorage.getItem('sCarts'))==false){
+            alert("購物車沒有商品")
+       }else if(!auth){
+           console.log(auth)
             alert("請登入會員")
            }else{
         document.querySelector('.payTwo').style.display="block"
