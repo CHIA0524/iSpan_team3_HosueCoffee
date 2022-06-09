@@ -10,32 +10,25 @@ function Point(props){
 
     const [datas, setDatas ] = useState([])
     const thismemberid=localStorage.getItem(true)
-    // const fetchData = async()=>{
-        //讀取本頁資料，並寫入datas
-        // const response = await fetch(`http://localhost:3001/shoporder/point?member_id=${thismemberid}`);
-        // const results = await response.json();
-        // setDatas(results);
-        // console.log(results);
-        
-    // }
-    
-  
-    // useEffect(()=>{
-    //     fetchData();
-    // },[])
     
     const[pointla, setPointla]=useState(0)   
     const Ipoint=(e)=>{
-        setPointla(e.target.value);
+        const a =  Number(mpoint)     
+        const b =Number(setPointla(e.target.value));
+        console.log(b)
+       if (b>=a){
+            setPointla(a)
+       }
           }
-        
+          console.log(setPointla)
+    
+  
+    
+          
+            
     
              
-    // if(datas.length>0){
-    //     console.log(datas[0]);
-    //     const Po=datas[0];
-    //     const{member_point, member_id}=Po
-    //     console.log(member_point);
+    
 
 
 
@@ -47,10 +40,17 @@ return(
                 <p class="pointText">剩餘點數 {mpoint}點(可折{mpoint}元)</p>
             </div>
             <div>
-            <input type="number"
-            onChange={Ipoint} value={pointla} max={mpoint} 
+            <form >
+            <input type="text"
+            id="myInput"
+            onChange={Ipoint} 
+            value={pointla} 
+           
             />
+            <button className="pBtn" type="submit" >V</button>
+            </form>
             </div>
+           
         </div>
     </>
 )

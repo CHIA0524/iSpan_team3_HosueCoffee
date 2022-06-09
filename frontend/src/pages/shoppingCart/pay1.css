@@ -64,18 +64,18 @@
   border-radius: 5px;
   border: 1px solid #e4d2a3;
 }
-/* .btn1 {
+
+.pBtn {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
-  
+
   background: #e4d2a3;
   border: transparent;
   color: white;
-} */
+}
 
-/* .btn1:hover {
- 
+.pBtn:hover {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
@@ -83,7 +83,7 @@
   color: white;
   background-color: #4c3410;
   border: 1px solid #4c3410;
-} */
+}
 
 .countTotal {
   margin-top: 1rem;
