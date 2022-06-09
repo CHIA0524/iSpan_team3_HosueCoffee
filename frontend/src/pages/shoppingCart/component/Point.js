@@ -5,23 +5,26 @@ import { Link } from 'react-router-dom'
 
 function Point(props){
     //用來儲存本頁資料
-    const{ ptotal, setCtotal, ctotal,mpoint } = props
+    const{ ptotal, setCtotal, ctotal,mpoint,setPointla,pointla } = props
    
 
     const [datas, setDatas ] = useState([])
     const thismemberid=localStorage.getItem(true)
     
-    const[pointla, setPointla]=useState(0)   
     const Ipoint=(e)=>{
-        const a =  Number(mpoint)     
-        const b =Number(setPointla(e.target.value));
-        console.log(b)
-       if (b>=a){
-            setPointla(a)
-       }
-          }
-          console.log(setPointla)
-    
+       setPointla(e.target.value);
+    }
+
+
+      const Bpoint=()=>{
+        if(Number(pointla)> mpoint){   
+            setPointla(mpoint)   
+        } if(Number(pointla)>ptotal-ctotal){
+            setPointla(ptotal-ctotal)   
+            
+        }
+    }   
+             
   
     
           
@@ -41,13 +44,15 @@ return(
             </div>
             <div>
             <form >
-            <input type="text"
+            <input type="number"
             id="myInput"
             onChange={Ipoint} 
             value={pointla} 
+            onBlur={Bpoint}
+            max={mpoint}
            
             />
-            <button className="pBtn" type="submit" >V</button>
+            {/* <button className="pBtn" type="submit" >V</button> */}
             </form>
             </div>
            

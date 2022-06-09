@@ -37,6 +37,7 @@ function Pay1(props){
            }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
+        window.scroll(0,0)
     }
          }  
     
@@ -44,6 +45,7 @@ function Pay1(props){
     const preStep = ()=>{
         document.querySelector('.payTwo').style.display="none"
         document.querySelector('.payOne').style.display="block"
+        window.scroll(0,0)
          } 
          
     //按下一步跳pay3
@@ -91,9 +93,11 @@ const [ ptotal, setPtotal ]= useState(0)
 console.log(ptotal)
 const [totalp ,settotalp]= useState()
 const[ ctotal , setCtotal] = useState(0)
-const[ pointt , setPointt] = useState(0)
 // <----------point----------->
 const [mpoint,setMpoint]=useState()
+const[pointla, setPointla]=useState(0)   
+const[ pointt , setPointt] = useState(0)
+
 
     // <----------pay2----------->
     const [name,setName]=useState()
@@ -306,7 +310,7 @@ const [mpoint,setMpoint]=useState()
                                 </div>
                             </div>
                             <div>
-                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint}/>
+                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint} ptotal={ptotal} ctotal={ctotal} setPointla={setPointla} pointla={pointla} />
                                 
                             </div>
                             <hr></hr>
@@ -318,9 +322,9 @@ const [mpoint,setMpoint]=useState()
                                 </div>
                                 <div class="money">
                                     <h4>${ptotal}</h4>
-                                    
+                                
                                     <h4>${ctotal}</h4>
-                                    <h4>$499</h4>
+                                    <h4>${pointla}</h4>
                                 </div>
                             </div>
                         </div>
@@ -510,7 +514,7 @@ const [mpoint,setMpoint]=useState()
                                   <p>${ptotal}</p>
                                   <p className="sprice">${shipgopay}</p>
                                   <p>${ctotal}</p>
-                                  <p>${pointt}</p>
+                                  <p>${pointla}</p>
                               </div>
                           </div>
                           <div className="line"></div>
@@ -519,7 +523,7 @@ const [mpoint,setMpoint]=useState()
                                   <h3>結帳金額</h3>
                               </div>
                               <div className="money">
-                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))}</h3>
+                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</h3>
                               </div>
                           </div>
                              
