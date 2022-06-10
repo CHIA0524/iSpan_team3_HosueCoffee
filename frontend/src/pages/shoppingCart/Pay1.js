@@ -60,6 +60,28 @@ function Pay1(props){
             setRAddress(address)
             if (nameMessage=="" && phoneMessage=="" &&emailMessage=="" &&addressMessage==""&& RnameMessage=="" &&RphoneMessage==""&&RemailMessage==""&&RaddressMessage==""&&shipment!='' ){
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const useP=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/usePoint?member_point=${mpoint-pointla}&member_id=${thismemberid}`)
+
+                if(MC_id!=""){
+                    const useC=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/useCou?MC_id=${MC_id}`)
+                }
+                const oid = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderid?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const oid2 = await oid.json();
+                const thisoid = oid2.o_id
+                const odmap=JSON.parse(localStorage.getItem('sCarts'))
+                for(var i=0;i<odmap.length;i++){
+                    const fk_p_id=odmap[i].id
+                    console.log(fk_p_id)
+                    const qty=odmap[i].ShopCounter
+                    console.log(qty)
+                    const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
+                }
+                const odweb="http://localhost:3000/member/Order/"+thisoid
+                console.log(odweb);
+                localStorage.removeItem("sCarts")
+                window.location.replace(odweb)
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -101,6 +123,8 @@ const[ ctotal , setCtotal] = useState(0)
 const [mpoint,setMpoint]=useState()
 const[pointla, setPointla]=useState(0)   
 const[ pointt , setPointt] = useState(0)
+const[ newpoint , setNewpoint] = useState(0)
+
 
 
     // <----------pay2----------->
@@ -329,7 +353,7 @@ const[ pointt , setPointt] = useState(0)
                                 </div>
                             </div>
                             <div>
-                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint} ptotal={ptotal} ctotal={ctotal} setPointla={setPointla} pointla={pointla} />
+                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint} ptotal={ptotal} ctotal={ctotal} setPointla={setPointla} pointla={pointla} newpoint={newpoint} setNewpoint={setNewpoint}/>
                                 
                             </div>
                             <hr></hr>

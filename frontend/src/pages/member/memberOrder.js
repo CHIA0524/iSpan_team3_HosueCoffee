@@ -35,20 +35,20 @@ function MemberOrder(props){
     if(datas.length >0 ){
         const order=datas[0];
         const{shipment,pay,order_condition,recipient_name,recipient_phone,recipient_address,remark,used_coupon,used_points,CREATEd_at}=order;
-        if(used_points){
-           var point=used_points;
-        }else{
-            var point=0;
-        }
-        if(used_coupon){
-            var coupon=used_coupon/100;
-        }else{
-            var coupon=0
-        }
+       
+        
         if(shipment=="黑貓"){
-            var shipmentPay=100
+            if(alltotalpay>1500){
+                var shipmentPay=0
+            }else{
+                var shipmentPay=100
+            }
         }else{
-            var shipmentPay=80
+            if(alltotalpay>1500){
+                var shipmentPay=0
+            }else{
+                var shipmentPay=80
+            }
 
         }
     return(
@@ -156,9 +156,9 @@ function MemberOrder(props){
                                 <div className="col-2 pmR">
                                     <p>${alltotalpay}</p>
                                     <p>+${shipmentPay}</p> 
-                                    <p>-${coupon*alltotalpay}</p>
-                                    <p>-${point}</p>
-                                    <p className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</p>
+                                    <p>-${used_coupon}</p>
+                                    <p>-${used_points}</p>
+                                    <p className="mTopF">${alltotalpay+shipmentPay-used_coupon-used_points}</p>
                                 </div>
                                 <div className="col-1"></div>
                                
@@ -208,8 +208,8 @@ function MemberOrder(props){
                                             <div className="col wnMR">
                                                 <div className="mTop">${alltotalpay}</div>
                                                 <div>+${shipmentPay}</div>
-                                                <div>-${coupon*alltotalpay}</div>
-                                                <div>-${point}</div>
+                                                <div>-${used_coupon}</div>
+                                                <div>-${used_points}</div>
                                             </div>
                                         </div>
                                         <hr></hr>
@@ -218,7 +218,7 @@ function MemberOrder(props){
                                                 <div className="mTopF">結帳總額</div>
                                             </div>
                                             <div className="col wnMR">
-                                                <div className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</div>
+                                                <div className="mTopF">${alltotalpay+shipmentPay-used_coupon-used_points}</div>
                                             </div>
                                         </div>
                                         </div>
