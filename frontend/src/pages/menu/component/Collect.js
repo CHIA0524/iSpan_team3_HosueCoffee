@@ -6,16 +6,12 @@ import { useEffect } from "react";
 
 
 const Collect = (props) =>{
-    const [favouriteCss,setfavouriteCss] = useState()
-    const [favouriteCss2,setfavouriteCss2] = useState()
     const [isFav, setIsFav] = useState(false)
     const id = props.id
     const i = props.i
     const {mu} = props
     const muid = mu.id
     const datas1 = JSON.parse(localStorage.getItem('favourite'))
-    
-
 
     const upFavourite = () =>{
         let k = 0
@@ -46,41 +42,37 @@ const Collect = (props) =>{
         }
         localStorage.setItem("favourite", JSON.stringify(datas1))
     }
-
+    
     useEffect(()=>{
         for(let i =0;i<datas1.length;i++){
-            console.log('muid',muid);
-            console.log('id',id);
             if (datas1[i].menuid === muid) {
-                console.log('muid',muid);
                 setIsFav(true);
-                // break;
             }
         }
     },[])
 
-
-
     return(
-        
-    <span>
-       {isFav? (<AiFillHeart
+        <span>
+            {isFav? (<AiFillHeart
+                size={20} 
+                className='loveblock'
+                onClick={()=>{
+                    downFavourite()
+                    DeSweetalertfavo()
+                    setIsFav()
+                    }}
+            />) :
+        (<AiOutlineHeart 
             size={20} 
-            className='loveblock'
+            className='lovelight'
             onClick={()=>{
-                downFavourite()
-                DeSweetalertfavo()
+                Sweetalertfavo()
+                upFavourite()
+                setIsFav(true)
                 }}
-        />) :
-    (<AiOutlineHeart 
-        size={20} 
-        className='lovelight'
-        onClick={()=>{
-            Sweetalertfavo()
-            upFavourite()
-            }}
-        />)}
-    </span>
+            />)}
+            
+        </span>
 )
 
 
