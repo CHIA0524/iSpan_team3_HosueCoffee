@@ -37,14 +37,39 @@ router.route('/coupon')
     //^查詢本帳號紅利點數^
     .get(async(req,res,next)=>{
         const sql=
-        "SELECT member_point from members where member_id= 100001;"; 
+        "SELECT member_point from members where member_id= ?;"; 
         const [datas] = await db.query(sql,[req.query.member_id]);
         res.json(datas[0]);
         console.log(datas[0]);
 
     })
 
+    router.route('/order')
+    //^訂單寫入資料庫^
+    .get(async(req,res,next)=>{
+        const sql=
+        "INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);"; 
+        const [datas] = await db.query(sql,[
+            req.query.fk_member_id,
+            req.query.shipment,
+            req.query.pay,
+            req.query.order_condition,
+            req.query.buy_name,
+            req.query.buy_phone,
+            req.query.buy_email,
+            req.query.buy_address,
+            req.query.recipient_name,
+            req.query.recipient_phone,
+            req.query.recipient_email,
+            req.query.recipient_address,
+            req.query.remark,
+            req.query.used_coupon,
+            req.query.used_points]);
+            res.json(datas)
+
+    })
 
 
 
-module.exports = router;
+
+    module.exports = router;

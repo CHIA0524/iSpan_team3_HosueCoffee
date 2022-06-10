@@ -9,6 +9,8 @@ import Point from './component/Point';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
+import CCard from './component/CCard';
+import CreditCard from './component/CreditCard';
 
 
 
@@ -49,16 +51,15 @@ function Pay1(props){
          } 
          
     //按下一步跳pay3
-    const complete = ()=>{
+    const complete =async()=>{
         const a=document.querySelector('.sameAddress').checked
         if(a==true){
             setRName(name)
             setRPhone(phone)
             setREmail(email)
             setRAddress(address)
-            if (nameMessage=="" ){
-           
-            window.location.replace("http://localhost:3000/shoppingCart/pay3")
+            if (nameMessage=="" && phoneMessage=="" &&emailMessage=="" &&addressMessage==""&& RnameMessage=="" &&RphoneMessage==""&&RemailMessage==""&&RaddressMessage==""&&shipment!='' ){
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -92,6 +93,9 @@ function Pay1(props){
 const [ ptotal, setPtotal ]= useState(0)
 console.log(ptotal)
 const [totalp ,settotalp]= useState()
+//會員優惠券id
+const[ MC_id , setMC_id] = useState("")
+//優惠券折扣金額
 const[ ctotal , setCtotal] = useState(0)
 // <----------point----------->
 const [mpoint,setMpoint]=useState()
@@ -108,6 +112,15 @@ const[ pointt , setPointt] = useState(0)
     const [Rphone,setRPhone]=useState()
     const [Remail,setREmail]=useState()
     const [Raddress,setRAddress]=useState()
+    //備註
+    const [note,setNote]=useState("")
+    //運費
+    const [shipment,setShipment] =useState("")
+    //信用卡
+    const paycard = "信用卡"
+    //訂單狀態
+    const ocondition = "未出貨"
+
  
     //顯示錯誤訊息
   
@@ -133,7 +146,7 @@ const[ pointt , setPointt] = useState(0)
       }
     const Iaddress=(e)=>{
      setAddress(e.target.value);
-      }
+      }  
      const RIname=(e)=>{
      setRName(e.target.value);
      }
@@ -145,7 +158,11 @@ const[ pointt , setPointt] = useState(0)
      }
      const RIaddress=(e)=>{
      setRAddress(e.target.value);
-     }   
+     } 
+     const NNote=(e)=>{
+        setNote(e.target.value);
+        } 
+     
      // console.log(name)
        
          //驗證
@@ -255,12 +272,14 @@ const[ pointt , setPointt] = useState(0)
             const b = document.querySelector('.postoffice').checked
             console.log(b)
             if(b==true){
+                setShipment("郵局")
                   if(a>1500){
                     setShipgopay(0)
                   }else{
                setShipgopay(80)
               }}
             else{
+                setShipment("黑貓")
                 if(a>1500){
                     setShipgopay(0)
                   }else{           
@@ -306,7 +325,7 @@ const[ pointt , setPointt] = useState(0)
                                 </div>
                                 <div>
                                     <Coupon ptotal={ptotal} ctotal={ctotal}
-                                    setCtotal={setCtotal} />
+                                    setCtotal={setCtotal}  setMC_id={ setMC_id} />
                                 </div>
                             </div>
                             <div>
@@ -354,7 +373,8 @@ const[ pointt , setPointt] = useState(0)
                   <div className="payInfoFill">
                       <div className="questInfo">
                           <div>付款方式</div>
-                          <div className="radioS pppay">
+                          <div>※本店僅接收信用卡付款</div>
+                          {/* <div className="radioS pppay">
                               <div className="form-check checkPart">
                                   <input className="form-check-input " type="radio"      name="paymethod" id="cash" required
                                       value="cash" />
@@ -365,7 +385,7 @@ const[ pointt , setPointt] = useState(0)
                                       value="card" required/>
                                   <label className="form-check-label" for="card">信用卡</label>
                               </div>
-                          </div>
+                          </div> */}
                          
                       </div>
                       <div className="questInfo">
@@ -497,7 +517,11 @@ const[ pointt , setPointt] = useState(0)
                       </div>
                       <div className="noteInfo">
                           <p>備註</p>
-                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea className="form-control" id="exampleFormControlTextarea1" 
+                          rows="3"
+                          onChange={NNote}
+                          value={note}
+                          ></textarea>
                       </div>
                   </div>
       
@@ -534,7 +558,9 @@ const[ pointt , setPointt] = useState(0)
                               <button type="button" className="btn btn-primary btn-lg btn-block pbtn " onClick={complete}
                               >結帳 </button>
                               </div>
-      
+                              {/* <CCard /> */}
+                              <CreditCard/>
+                              
                       </div>
                   </div>
                  
@@ -580,7 +606,7 @@ const[ pointt , setPointt] = useState(0)
                               <button type="button" className="btn btn-primary btn-lg btn-block pbtn" onClick={complete}
                               >結帳 </button>
                             </div>
-      
+                            
       
                       </div>
                   </div>

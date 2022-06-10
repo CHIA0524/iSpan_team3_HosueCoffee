@@ -1,0 +1,175 @@
+.creditCard {
+  display: flex;
+}
+
+.ccard {
+  margin: 40px;
+  /* width: 30%; */
+  min-width: 334px;
+  min-height: 238px;
+  /* width: 623px; */
+  /* height: 372px; */
+  height: 15rem;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  border-radius: 2rem;
+}
+
+.ccard.isFlipped {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* -webkit-backface-visibility: hidden; */
+  backface-visibility: hidden;
+  border-radius: 2rem;
+}
+
+.logo img {
+  width: 20%;
+}
+
+.cardFace .logo {
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardNum {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: space-around;
+  color: black;
+}
+
+.expires .big {
+  margin-top: -1.5rem;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.expires {
+  margin-top: -1rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.holder .big {
+  margin-top: -1.5rem;
+  font-size: 1.3rem;
+  color: black;
+}
+
+.holder {
+  margin-top: -1rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.cardFaceFront {
+  background: #e4d2a3;
+}
+
+.cardFaceBack {
+  background: #e4d2a3;
+  transform: rotateY(180deg);
+}
+
+.bBlack {
+  margin-top: 2rem;
+}
+
+.box {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+
+.cvc {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cvc .box {
+  border: 1px solid white;
+  border-radius: 10px;
+  text-align: center;
+  width: 4rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  line-height: 2.5rem;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.4);
+  /* padding: 5px 0; */
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+}
+
+.sign .box {
+  border-radius: 10px;
+  width: 95%;
+  height: 40px;
+  background-color: white;
+}
+
+.bLogo {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  height: 20%;
+}
+
+.cardContent {
+  /* margin-top: -10rem; */
+  margin: 2rem 0;
+  width: 30rem;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.cardContent .input {
+  width: 80%;
+}
+
+.cardContent .box {
+  /* margin: 40px; */
+  margin-top: -2rem;
+  /* height: 10rem; */
+  background-color: transparent;
+}
+
+@media screen and (max-width: 800px) {
+  .creditCard {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardContent {
+    margin-top: -10rem;
+    width: 100%;
+  }
+
+  .cardContent .box {
+    /* margin: -1rem; */
+    /* margin-top: -rem; */
+    height: 11rem;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  /* .information input{
+            width: 80%;
+        } */
+}

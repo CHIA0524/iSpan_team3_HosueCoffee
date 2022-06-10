@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 function Coupon(props){
     //用來儲存本頁資料
-    const{ ptotal, setCtotal, ctotal } = props
+    const{ ptotal, setCtotal, ctotal, setMC_id } = props
     
     
 
@@ -24,27 +24,32 @@ function Coupon(props){
         fetchData();
     },[])
 
-    // const find = (event) => {
-    //     event.preventDefault();
-    //     if (event.target.value === "{C.coupon_code}") {
-    //         console.log(C.coupon_code)
-    //         const a = Number(C.coupon_code)/100
-    //         const b = ptotal* a
-    //         document.querySelector('.receiverInfo').style.display="block"
-    //         }
-             
-    //     }
+    
 
     const CouChange=()=>{
-         var a=document.querySelector(".CouponDetail").value
-        // console.log(a)
-        // 運算折扣
-        const b = Number(a)/100
-        // console.log(b)
-            const c = Math.round(ptotal* b)
-        // console.log(c)
-        setCtotal(c)
+        var a=document.querySelector(".CouponDetail").value
+       if(a==0){
+           const c = Number(a)/100
+           const d = Math.round(ptotal* c)
 
+           setCtotal(d)
+       }else{
+           //取的會員優惠券id
+           const b=a.substr(4,)
+           console.log(b)
+           //回傳會員優惠券id
+           setMC_id(b)
+
+           //擷取優惠券折數
+           const c=Number(a.substr(0,2))/100
+           console.log(c)
+
+           //計算折購金額
+           const d = Math.round(ptotal* c)
+           //回傳折扣金額
+           setCtotal(d)
+
+       }
     }
     
 
@@ -60,7 +65,7 @@ return(
                 {/* console.log(CP_id) */}
                         
                         return(
-                                  <option className="selText" value={C.coupon_code}>{C.coupon_title}</option>
+                            <option className="selText" value={C.coupon_code+"+"+C.MC_id}>{C.coupon_title}</option>
                                   
                                   )
                       })}
