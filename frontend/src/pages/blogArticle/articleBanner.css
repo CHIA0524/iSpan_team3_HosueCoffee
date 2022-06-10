@@ -69,7 +69,9 @@
 }
 
 
-.articleImg{
+.articleCardImg{
+    width: 70%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,31 +125,33 @@
 
 .articleRecommendWord{
     display: flex;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight:bolder;
-justify-content: center;
-
+    justify-content: center;
+    margin-bottom: 4rem;
 }
 
 .articleRecommendWrapper{
-    margin:0 auto ;
     justify-content: center;
+    padding: 1.5%;
 }
-.recommendCard{
-    display:inline-block; 
-   
+
+
+.articleRecommendCard {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
 }
 
 .articleRecommendImg img{
-    
     width: 100%;
+    height: auto;
     padding: 2%;
 }
 
 .articleRecommend{
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 
@@ -161,9 +165,6 @@ justify-content: center;
 } */
 
 
-.articleRecommendCard p{
-    font-size: 1rem;
-}
 
 
 
@@ -199,8 +200,8 @@ justify-content: center;
         width: 100%;
     }
 
-    .articleRecommendCard {
-    width: 20rem;
+    .articleRecommendImg img {
+    width: 60%;
     }
 
  

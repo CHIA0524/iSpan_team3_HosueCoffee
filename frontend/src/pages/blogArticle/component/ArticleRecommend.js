@@ -19,11 +19,10 @@ import  './slider.css';
 function ArticleRecommend(props){
    
     const {arecomend}=props
-  
    
 
     // 輪播 更改寬度
-    const [width, setWidth] = useState(750);
+    const [width, setWidth] = useState(60);
     const [display, setDisaplay] = useState(true);
     const settings = {
     dots: true,
@@ -40,11 +39,11 @@ function ArticleRecommend(props){
           
             <div
               style={{
-                width: width + "px",
+                width: width + "em",
                 display: display ? "block" : "none"
               }}
              >
-             <div className="articleRecommendWord"><h2>相關文章推薦</h2></div>   
+             <div className="articleRecommendWord">相關文章推薦</div>   
               <Slider {...settings}>
                  
                     {arecomend.map((v, i) => {
@@ -54,8 +53,11 @@ function ArticleRecommend(props){
                
                             <>
                                 <div className="articleRecommendWrapper" key={i}>
-                                        <Link to={`/blog/BlogArticle/${v.blog_id}`} >
-                                    <div className="articleRecommendCard" >
+                                    <div 
+                                      className="articleRecommendCard" 
+                                      onClick={()=>{
+                                        window.location.href=`/blog/BlogArticle/${v.blog_id}` }}
+                                    >
                                           <div className="articleRecommendImg">
                                             <img  src={require("../../blogArticle/img/"+firstImg+".jpg")} alt="articleRecommendImg" >
                                             </img>
@@ -64,7 +66,6 @@ function ArticleRecommend(props){
                                                 <h5>{v.title}</h5>
                                             </div>
                                     </div>
-                                          </Link>
                                 </div>
                             </>
                         )

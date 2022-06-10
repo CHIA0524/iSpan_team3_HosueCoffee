@@ -1,14 +1,18 @@
 import { BrowserRouter as Router, Route, Link, Switch,useParams } from 'react-router-dom';
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect, useState,Component  } from 'react';
 
 //component
 import ArticleRecommend from './component/ArticleRecommend';
 import BACard from './component/BACard';
-
+import {
+  FacebookShareButton
+  
+} from 'react-share';
 
 //CSS
 import './articleBanner.css';
-
+import './Demo.css';
+import exampleImage from './react-share-pin-example.png';
 
 //imgs
 import facebookImg from './img/share btn fb.svg'
@@ -16,6 +20,10 @@ import lineImg from './img/share btn line.svg'
 import instagramImg from './img/share btn ig.svg'
 
 
+class BlogArticle extends Component {
+  render() {
+    const shareUrl = 'http://github.com';
+    const title = 'GitHub';
 
 function BlogArticle(props){
   
@@ -52,6 +60,7 @@ function BlogArticle(props){
      
           <section className="articleSection" >
             <div className="articleBanner" alt="ArticleBanner">
+            
             <img className='articleImg00' src={require("./img/"+firstImg+".jpg")} alt=''></img>
             </div>
             <div className="container articleContainer ">
@@ -59,8 +68,22 @@ function BlogArticle(props){
                 
                   <div className="articleTitle">{title}</div>
               
-                
-                
+                <div className="Demo__some-network">
+                  <FacebookShareButton
+                    url={shareUrl}
+                    quote={title}
+                    className="Demo__some-network__share-button"
+                  >
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+
+                  <div>
+                    <FacebookShareCount url={shareUrl} className="Demo__some-network__share-count">
+                      {count => count}
+                    </FacebookShareCount>
+                  </div>
+                </div>
+                  
                   <div className="articleAuthor">
                   {created_time}｜{btype}｜by {author}
                 </div>
@@ -85,14 +108,10 @@ function BlogArticle(props){
                                   <BACard thisBid={thisBid}/>
                                 
                                 <div className="articleImg">
-                                    {/* <img src={require('../img/Article01.svg')} alt=""></img> */}
+                                   
                                 </div>
                                 
-                                
-                                {/* <div className="articleImg"><img  src={require('../img/Article02.svg')} alt=""></img></div> */}
-                                
-                              
-                                {/* <div className="articleImg"><img  src={require('../img/Article03.svg')} alt=""></img></div> */}
+                               
                               
                                 </article>
                   </div>  
@@ -103,7 +122,7 @@ function BlogArticle(props){
                     </div>
                   </Link>
 
-                
+                 
 
                   <div className="articleRecommend">
                     <ArticleRecommend arecomend={arecomend}/>
