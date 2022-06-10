@@ -10,7 +10,7 @@ import Point from './component/Point';
 import './pay2.css';
 import Steps2 from './component/Steps2';
 import CCard from './component/CCard';
-import CreditCard from './component/CreditCard';
+// import CreditCard from './component/CreditCard';
 
 
 
@@ -559,7 +559,7 @@ const[ pointt , setPointt] = useState(0)
                               >結帳 </button>
                               </div>
                               {/* <CCard /> */}
-                              <CreditCard/>
+                              {/* <CreditCard/> */}
                               
                       </div>
                   </div>

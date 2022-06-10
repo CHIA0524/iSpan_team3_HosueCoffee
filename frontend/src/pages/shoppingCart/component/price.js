@@ -48,7 +48,7 @@ return(
                              updateCart(dd); 
                             }
                              }}>-</button>
-                            <div>{thisTT}</div>
+                            <div>{total}</div>
                             <button className="PNumR" onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
@@ -89,17 +89,31 @@ removePinfo.fire({
             )
         )
         
-            console.log("刪除前")
-            console.log(datasNEW)
-            setPtotal(ptotal-(price*thisTT));
-            datasNEW.splice(i,1)
-            console.log("刪除後")
-            console.log(datasNEW)
-            localStorage.setItem("sCarts", JSON.stringify(datasNEW))
-            const datas222 = JSON.parse(localStorage.getItem('sCarts'))
-            // console.log(datas222)
-            setCartDetail(datas222)
-            setTimeout(() => window.location.reload(), 1500);
+            // console.log("刪除前")
+            //alert(productId)
+            const data = JSON.parse(localStorage.getItem('sCarts'))
+
+            const newData = data.filter((v,i)=> v.id!==productId)
+            //console.log('newData',newData)
+            localStorage.setItem("sCarts", JSON.stringify(newData))
+            setCartDetail(newData)
+             //console.log('datasNEW',datasNEW)
+            //setPtotal(ptotal-(price*thisTT));
+
+           // datasNEW.splice(i,1)
+
+            //const newDataNEW=[...datasNEW].splice(i,1)
+           // setdatasNEW(datasNEW)
+            // console.log("刪除後")
+           //  console.log('datasNEW',datasNEW)
+           // localStorage.setItem("sCarts", JSON.stringify(datasNEW))
+            // setTimeout(()=>{
+            //     const datas222 = JSON.parse(localStorage.getItem('sCarts'))
+            //     console.log('datas222',datas222)
+            //     setCartDetail(datas222)
+            // },1000)
+           
+            // setTimeout(() => window.location.reload(), 1500);
         //    setTimeout(window.location.reload(),1000);
           
 
@@ -119,7 +133,7 @@ removePinfo.fire({
                    
                    {/* 商品小計 */}
                     <div className="col-1">
-                        <p>${price*thisTT}</p>
+                        <p>${price*total}</p>
                     </div>
                 {/* 手機版 */}
                     <div class="number">

@@ -57,6 +57,26 @@ useEffect(()=>{
             } 
         }
     }
+
+    useEffect(()=>{
+// 計算cartDetail的長度
+const cartDetailmath=cartDetail.length
+// 建立一個空陣列
+
+var shopCart=[];
+console.log(datas);
+for( let c=0; c<cartDetailmath; c++){
+for( let i=0; i<datamath; i++){     
+        
+        if(datas[i].p_id === cartDetail[c].id)
+        { 
+            var newdata = datas[i]  
+            var newarr = newdata
+            shopCart.push(newarr)
+        } 
+    }
+}
+    },[])
     
 return(
     <>
