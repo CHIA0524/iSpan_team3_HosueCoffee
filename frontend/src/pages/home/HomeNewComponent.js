@@ -7,7 +7,8 @@ function HomeNewComponent() {
 
     return (
         <>
-         <div className="new">
+         <div className="new" data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-duration="1000">
                 <h1>NEWS</h1>
                 <div className="allNew">
                     <div className="new1 row">

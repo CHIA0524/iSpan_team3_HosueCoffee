@@ -3,13 +3,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import e from 'cors';
+import Swal from 'sweetalert2';
 
 function HomeCopyText(props) {
     const { CP_id, thismemberid, TTdatas } = props
-    const [datas,setDatas]=useState([])
+    const [datas, setDatas] = useState([])
     // console.log(CP_id)
     // console.log(TTdatas)
-    console.log(thismemberid)
+    // console.log(addsweet)
     return (
         <>
             {TTdatas.length > 0 && TTdatas.map((coupon, i) => {
@@ -30,7 +31,7 @@ function HomeCopyText(props) {
 
                                 <div className="copyText" id={CP_id} onClick={async () => {
                                     if (document.getElementById(CP_id).innerHTML == "已領取") {
-
+                                        Swal.fire("success","此優惠券已領過","success",1500);
                                         alert("此優惠券已領過")
                                     } else {
                                         const state = "未使用"

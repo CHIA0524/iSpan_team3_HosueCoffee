@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for 
+
 
 //Home CSS
 import './Home.css';
@@ -18,6 +21,8 @@ import HomeTopBTN from './HomeTopBTN';
 
 
 function Home(props) {
+    AOS.init();
+
     return (
         <Router>
 

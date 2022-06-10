@@ -28,7 +28,8 @@ function HomeStore() {
 
 
     return (
-        <div className="store">
+        <div className="store" data-aos="flip-down" data-aos-easing="linear"
+        data-aos-duration="1500">
             <h1>STORE</h1>
             <div className="allStore">
                 <form>

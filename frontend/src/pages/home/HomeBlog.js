@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import './Home.css';
 
 import blogimg from './image/blogimg.jpg';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function homeBlog(){
     return(
-        <div className="blog">
+        <div className="blog" data-aos="fade-down" data-aos-duration="2000">
                 <h1>TODAY’S ARTICLE</h1>
-                <div className="allCard">
+                <div className="allCard" >
                     <div className="cardBorder">
                         <div className="cardImg"><img src={blogimg} alt=""/></div>
                         <div className="cardText">
@@ -20,7 +21,7 @@ function homeBlog(){
                             <span>2022-04-28</span>
                         </div>
                     </div>
-                    <div className="cardBorder">
+                    <div className="cardBorder" data-aos="fade-up" data-aos-duration="2000">
                         <div className="cardImg"><img src={blogimg} alt=""/></div>
                         <div className="cardText">
                             <h5>手沖咖啡，不同溫度對於咖啡風味的感受有何不同？</h5>

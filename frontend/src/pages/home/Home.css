@@ -1,5 +1,9 @@
 body {
     font-family: "Comfortaa", "Microsoft JhengHei";
+    background-image: url(./image/home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
 }
 
 /* .scrollDiv::-webkit-scrollbar,
@@ -27,6 +31,8 @@ body {
     display: flex;
     justify-content: center;
     border-radius: 0 0 20px 20px;
+    background-image: url(./image/home\ cat\ footprint.png);
+    background-position: 10 20;
 }
 
 .content {
