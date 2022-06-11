@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, a, Switch,useParams} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useParams} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 //component
@@ -30,7 +30,7 @@ function BlogCoffee(props){
     
         
     }
-    console.log(blog);
+   
     
       // didMount
       useEffect(() => {
@@ -45,7 +45,14 @@ function BlogCoffee(props){
 
 
     
-        <div className="blogBannerWord">咖啡手札</div>
+        <div className="blogBannerWord"
+        >
+        <Link to={"/blog"} >
+        <h2>
+        咖啡手札
+        </h2>
+        </Link>
+        </div>
    
 
         

@@ -39,8 +39,14 @@ function Blog(props){
    <section className="blogSection">
         <div className="blogBanner"></div>
     
-        <div className="blogBannerWord">咖啡手札</div>
-   
+        <div className="blogBannerWord"
+        >
+        <Link to={"/blog"} >
+        <h2>
+        咖啡手札
+        </h2>
+        </Link>
+        </div>
 
        {/* //行動裝置板選單  */}
         <div className="blogType container">

@@ -7,7 +7,7 @@ function BACard(props){
       const response= await fetch(`http://localhost:3001/blog/blogArticle?blog_id=${thisBid}`);
       const results=await response.json(); 
       setDatas(results);
-      console.log(results)
+      
     }
 
     useEffect(() => {
