@@ -62,7 +62,7 @@ function Memberprofile(props){
                             <div className="proList_m">
                                 <div className="memberPhoto"><img   src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`} alt="會員照片"></img></div>
                                 <div className="memberNumber">
-                                    <div >Jack123</div>
+                                    <div >{member_account}</div>
                                 </div>
                             </div>
                             <div className="col-3None">
