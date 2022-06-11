@@ -34,9 +34,26 @@ function MemberPoint(){
               <div className="coupon">
               <MCouponY setMCYES={setMCYES}/>
               </div>
+              <div className='col-wn'>
+
+              <br></br>
+              <div className="pointHead">
+                <h4>會員點數</h4>
+                <h5 className="pointNow">每1點可折扣1元</h5>
+                
+              </div>
+              <></>
+              <br></br>
+              <hr></hr>
+              <br></br>
+              <div className="coupon row">
+              <h3 className="col mypoint_left">剩餘點數</h3>
+              <h3 className="col">{thisPoint}點</h3>
+              </div>
+              </div>
             </div>
 
-            <div className="col-1"></div>
+            <div className="col-1 col-3None"></div>
 
             <div className="col point pointR col-3None">
               <br></br>
@@ -50,13 +67,14 @@ function MemberPoint(){
               <hr></hr>
               <br></br>
               <div className="coupon row">
-              <h3 className="col">剩餘點數</h3>
+              <h3 className="col mypoint_left">剩餘點數</h3>
               <h3 className="col">{thisPoint}點</h3>
               </div>
                     <br></br>
                
             </div>
           </div>
+      
           <br></br>
           <br></br>
           {/* <div className="row pointfoot">
@@ -68,6 +86,7 @@ function MemberPoint(){
           
         </div>
         <div className="col-2 col-3None"></div>
+        
         
 
       </main>

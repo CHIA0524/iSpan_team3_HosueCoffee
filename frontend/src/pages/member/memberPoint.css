@@ -9,9 +9,7 @@
   text-align: center;
   height: 50px;
 }
-.NowCoupon{
-  color: red;
-}
+
 .coupon{
   /* height: 200px; */
   /* overflow-x: hidden; */
@@ -20,7 +18,9 @@
 .pointHead h4 {
   margin-bottom: 10px;
 }
-
+.mypoint_left{
+  text-align: left;
+}
 .couponCard{
   margin-top: 2rem;
 }
