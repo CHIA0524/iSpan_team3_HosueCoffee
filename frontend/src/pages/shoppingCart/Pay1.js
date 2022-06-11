@@ -12,6 +12,8 @@ import Steps2 from './component/Steps2';
 import CCard from './component/CCard';
 // import CreditCard from './component/CreditCard';
 
+// <----------信用卡付款----------->
+import Steps3 from './component/Steps3';
 
 
 function Pay1(props){
@@ -156,7 +158,7 @@ const[ newpoint , setNewpoint] = useState(0)
     //信用卡
     const paycard = "信用卡"
     //訂單狀態
-    const ocondition = "未出貨"
+    const ocondition = "未付款"
 
  
     //顯示錯誤訊息
@@ -609,9 +611,9 @@ const[ newpoint , setNewpoint] = useState(0)
                               </div>
                               <div className="money">
                                   <p>${ptotal}</p>
-                                  <p>自取</p>
-                                  <p>$100</p>
-                                  <p>$100</p>
+                                  <p className="sprice">${shipgopay}</p>
+                                  <p>${ctotal}</p>
+                                  <p>${pointla}</p>
       
       
                               </div>
@@ -622,7 +624,7 @@ const[ newpoint , setNewpoint] = useState(0)
                                   <h3>結帳金額</h3>
                               </div>
                               <div>
-                                  <h3>$898</h3>
+                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</h3>
                               </div>
                           </div>
                           <div className="nextBtn" 
@@ -648,7 +650,24 @@ const[ newpoint , setNewpoint] = useState(0)
 
         {/* <----------credit card-----------> */}
          <div className="payThree">
+         <div class="container main">
+         <Steps3/>
+         <div className="showMoney">付款金額：&emsp;${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</div>
+         <div></div>
+
+         <div className="pCardPart">
          <CCard />
+         
+         <div className="finalBtn" >
+                               {/* <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
+                              >上一步 </button> */}
+                              <button type="button" className=" fbtn " 
+                              onClick={complete}
+                            // onClick={cardStep}
+                              >結帳 </button>
+         </div>
+         </div>
+         </div>
          </div>
 
      </>

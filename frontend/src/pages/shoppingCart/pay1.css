@@ -164,7 +164,41 @@
 .payThree {
   margin-bottom: 10rem;
 }
+.pCardPart {
+  margin-top: 2rem;
+}
+.finalBtn {
+  width: 25rem;
+  display: flex;
+  justify-content: flex-end;
+  margin: -2rem auto;
+}
+.showMoney {
+  width: 15rem;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+}
 
+.fbtn {
+  width: 25rem;
+  height: 3rem;
+  line-height: 1rem;
+  background: #e4d2a3;
+  border: transparent;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.fbtn:hover {
+  width: 25rem;
+  height: 3rem;
+  line-height: 1rem;
+  border-radius: 5px;
+  color: white;
+  border-radius: 10px;
+  background-color: #4c3410;
+}
 .CouponDetail {
   width: 100%;
   display: block;

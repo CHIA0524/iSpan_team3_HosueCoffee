@@ -6,6 +6,8 @@ function CCard (){
 
     return(
 <>
+{/* // the container in which the card component will be rendered - can be anywhere in the DOM */}
+<div id="card-wrapper"></div>
 <CardReactFormContainer
 
   // the id of the container element where you want to render the card element.
@@ -26,10 +28,10 @@ function CCard (){
   // initial values to render in the card element
   initialValues= {
     {
-      number: '•••• •••• •••• ••••', 
-      cvc: '•••', 
-      expiry: '••/••',
-      name: 'FULL NAME' 
+      number: '', 
+      cvc: '', 
+      expiry: '',
+      name: '' 
     }
   }
 
@@ -45,18 +47,24 @@ function CCard (){
   // specify whether you want to format the form inputs or not
   formatting={true} // optional - default true
 >
-
-  <form>
+<form className="cForm">
+     
     <input placeholder="Full name" type="text" name="CCname" />
-    <input placeholder="Card number" type="text" name="CCnumber" />
+    <br/>
+    <input placeholder="CARD NUMBER" type="text" name="CCnumber" />
+    <br/>
     <input placeholder="MM/YY" type="text" name="CCexpiry" />
+    <br/>
     <input placeholder="CVC" type="text" name="CCcvc" />
+    <br/>
   </form>
+ 
 
 </CardReactFormContainer>
+ 
 
-{/* // the container in which the card component will be rendered - can be anywhere in the DOM */}
-<div id="card-wrapper"></div>
+
+
 
 </>
     )

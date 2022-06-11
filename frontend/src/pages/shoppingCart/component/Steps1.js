@@ -23,7 +23,7 @@ function Steps1(){
             </div>
             <div class="stepLine"> </div>
             <div class="step ">
-                <div class="stepText2">購物完成</div>
+                <div class="stepText2">交易付款</div>
             </div>
         </div>
         {/* <!-- 手機版 --> */}
@@ -42,7 +42,7 @@ function Steps1(){
 
             <div class="mStep2  ">
                 <div class="mStepNum2">3</div>
-                <div class="mStepText2">購物完成</div>
+                <div class="mStepText2">交易付款</div>
             </div>
         </div>
      

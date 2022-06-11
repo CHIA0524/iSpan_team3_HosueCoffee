@@ -40,6 +40,7 @@ router.route('/coupon')
         "SELECT member_point from members where member_id= ?;"; 
         const [datas] = await db.query(sql,[req.query.member_id]);
         res.json(datas[0]);
+        console.log(datas[0]);
 
     })
 
