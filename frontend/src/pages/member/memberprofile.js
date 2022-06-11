@@ -8,14 +8,18 @@ function Memberprofile(props){
     const{auth}=props;
     const {dataCheck}=props;
     const thismemberid=localStorage.getItem("true");
-    const member_account=useState(localStorage.getItem("account"))
-    const member_name=useState(localStorage.getItem("name"))
-    const member_nick=useState(localStorage.getItem("nick"))
-    const member_birth=useState(localStorage.getItem("birth"))
-    const member_phone=useState(localStorage.getItem("phone"))
-    const member_mail=useState(localStorage.getItem("mail"))
-    const member_address=useState(localStorage.getItem("address"))
-    const member_photo=useState(localStorage.getItem("photo"))
+    const member_account=localStorage.getItem("account")
+    const member_name=localStorage.getItem("name")
+    const member_nick=localStorage.getItem("nick")
+    const member_birth=localStorage.getItem("birth")
+    const member_phone=localStorage.getItem("phone")
+    const member_mail=localStorage.getItem("mail")
+    const member_address=localStorage.getItem("address")
+    const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
+    if(member_photo==""){
+        setmember_photo("housecoffee.png")
+      }
+    console.log(member_photo)
     if(!auth){
         window.location.replace("http://localhost:3000/member");
     }if(!dataCheck){
@@ -56,7 +60,7 @@ function Memberprofile(props){
                     <div className="col proR">
                         <div className="proMain">
                             <div className="proList_m">
-                                <div className="memberPhoto"><img   src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
+                                <div className="memberPhoto"><img   src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`} alt="會員照片"></img></div>
                                 <div className="memberNumber">
                                     <div >Jack123</div>
                                 </div>

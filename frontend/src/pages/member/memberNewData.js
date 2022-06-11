@@ -34,6 +34,8 @@ function MemberNewData(props){
   const [UPbirth,setUPbirth]=useState("")
   const [UPphone,setUPphone]=useState("")
   const [UPaddress,setUPaddress]=useState("")
+  const [UPImg, setUPImg] = useState('housecoffee.png')
+
 
   const [nameMessage,setNameMessage]=useState();
   const [nickMessage,setNickMessage]=useState();
@@ -119,9 +121,9 @@ function MemberNewData(props){
     
   }
     const NewDataBTN=async()=>{
-      if(nameMessage=="感謝填寫姓名" && birthMessage=="感謝填寫生日" && phoneMessage=="感謝填寫手機號碼"&& addressMessage=="感謝填寫地址"){
+      if(nameMessage=="感謝填寫姓名" && birthMessage=="感謝填寫生日" && phoneMessage=="感謝填寫手機號碼"&& addressMessage=="感謝填寫地址"&&UPPT==1){
        
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/Newdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}`);
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/Newdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}&member_photo=${UPImg}`);
         
           
        
@@ -131,6 +133,7 @@ function MemberNewData(props){
           localStorage.setItem("birth", UPbirth);
           localStorage.setItem("phone", UPphone);
           localStorage.setItem("address", UPaddress);
+          localStorage.setItem("photo", UPImg);
           localStorage.setItem("dataCheck", "資料完整");
           alert("資料新增成功")
           window.location.replace("http://localhost:3000/member/profile");
@@ -146,8 +149,54 @@ function MemberNewData(props){
         }if(nameMessage!="感謝填寫地址"){
           document.querySelector(".NewAddress").style.color="red";
 
+        }if(UPPT!=1){
+          alert("請點擊上傳圖片")
+          
         }
   }
+    // 大頭照狀態
+    const [image, setImage] = useState({ preview: '', data: '' })
+    const [status, setStatus] = useState('')
+    const [UPPT, setUPPT] = useState(1)
+  
+    // 大頭照 input 變更事件
+    const handleFileChange = (e) => {
+      
+      const img = {
+        preview: URL.createObjectURL(e.target.files[0]),
+        data: e.target.files[0],
+      }
+  
+      // 尚未上傳 預覽用
+      const output = document.getElementById('avatar')
+      setUPPT("0")
+      output.src = URL.createObjectURL(e.target.files[0])
+      output.onload = function() {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+      document.querySelector(".UPPTBTN").style.display="block"
+      document.querySelector(".UPPTBTN2").style.display="block"
+      setImage(img)
+    }
+  
+    // 上傳大頭照
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      let formData = new FormData()
+      formData.append('file', image.data)
+      console.log(formData);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`, {
+        method: 'POST',
+        body: formData,
+      })
+      const backImg=await response.json();
+      console.log(backImg)
+      setUPImg(backImg)
+      setUPPT("1")
+      if (response) setStatus(response.statusText)
+      document.querySelector(".UPPTBTN").style.display="none"
+      document.querySelector(".UPPTBTN2").style.display="none"
+    }
 
     return(
         <>
@@ -159,11 +208,21 @@ function MemberNewData(props){
        
                 
                 <div className="col-6 col-3None">
-                    <div className="proList">
+                <div className="proList">
                         <div className="memberPhotoE">
-                            <img  src={require('./img/memberphoto.jpg')}  alt="會員照片"></img>
-                            <div className="changePhoto">修改照片</div>
+                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/${UPImg}`}  alt="會員照片"></img>
+                            <label htmlFor='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
+                        <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center'}}>
+                          <input
+                            type="file"
+                            id='upPhoto'
+                            name='photo' // 上傳照片的 input name 要跟後端的 upload.single("photo") 中的 ("photo") 一樣
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          ></input>
+                          <button className='coffeeLightBtn UPPTBTN' type='submit' id='photoSubmit'>上傳</button>
+                        </form>
                         <div className="memberNumber">
                             <div >會員帳號</div>
                             <div >{account}</div>
@@ -173,15 +232,26 @@ function MemberNewData(props){
                 <div className="col proR">
                     <div className="proMain">
                     <form>
-                        <div className="proList_m">
-                            <div className="memberPhoto">
-                                <img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img>
-                                <div className="changePhoto">修改照片</div>
-                            </div>
-                            <div className="memberNumber">
-                                <div>{account}</div>
-                            </div>
+                    <div className="proList_m">
+                        <div className="memberPhotoE">
+                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/${UPImg}`}  alt="會員照片"></img>
+                            <label htmlFor='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
+                        <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center'}}>
+                          <input
+                            type="file"
+                            id='upPhoto'
+                            name='photo' // 上傳照片的 input name 要跟後端的 upload.single("photo") 中的 ("photo") 一樣
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          ></input>
+                          <button className='coffeeLightBtn UPPTBTN UPPTBTN2' type='submit' id='photoSubmit'>上傳</button>
+                        </form>
+                        <div className="memberNumber">
+                            <div >會員帳號</div>
+                            <div >{account}</div>
+                        </div>
+                    </div>
                         <div className="col-3None">
 
                           <div className='ND_mangin'>

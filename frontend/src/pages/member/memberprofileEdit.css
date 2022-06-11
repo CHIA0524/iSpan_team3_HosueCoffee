@@ -47,7 +47,9 @@
 .memberPhotoE:hover .changePhoto {
   z-index: 1;
 }
-
+.UPPTBTN{
+  display: none;
+}
 #upPhoto{
   color:  transparent;
   font-size: 0;
