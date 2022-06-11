@@ -214,7 +214,7 @@ function MemberLogin(props){
                     localStorage.setItem("birth", results.member_birth);
                     localStorage.setItem("phone", results.member_phone);
                     localStorage.setItem("address", results.member_address);
-                    localStorage.setItem("photo", results.photo);
+                    localStorage.setItem("photo", results.member_photo);
                     //將會員基本資料分別寫入localStorage
                     
                     alert('成功登入');

@@ -25,6 +25,8 @@ function MemberprofileEdit(props){
   const [UPbirth,setUPbirth]=useState(localStorage.getItem("birth"))
   const [UPphone,setUPphone]=useState(localStorage.getItem("phone"))
   const [UPaddress,setUPaddress]=useState(localStorage.getItem("address"))
+  const [UPImg, setUPImg] = useState(localStorage.getItem("photo"))
+
   const [UPPPP,setUPPP]=useState()
 
   const ChangeName=(e)=>{
@@ -53,19 +55,21 @@ function MemberprofileEdit(props){
         alert("手機格式錯誤");
       }else{
         if(UPname.length>0 && UPphone.length==10){
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}`);
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}&member_photo=${UPImg}`);
           
           localStorage.removeItem("name")
           localStorage.removeItem("nick")
           localStorage.removeItem("birth")
           localStorage.removeItem("phone")
           localStorage.removeItem("address")
+          localStorage.removeItem("photo")
 
           localStorage.setItem("name", UPname);
           localStorage.setItem("nick", UPnick);
           localStorage.setItem("birth", UPbirth);
           localStorage.setItem("phone", UPphone);
           localStorage.setItem("address", UPaddress);
+          localStorage.setItem("photo", UPImg);
           alert("資料修改成功")
           window.location.replace("http://localhost:3000/member/profile");
         }else{
@@ -93,6 +97,7 @@ function MemberprofileEdit(props){
       URL.revokeObjectURL(output.src) // free memory
     }
     setImage(img)
+    console.log(img)
   }
 
   // 上傳大頭照
@@ -105,6 +110,9 @@ function MemberprofileEdit(props){
       method: 'POST',
       body: formData,
     })
+    const backImg=await response.json();
+    console.log(backImg)
+    setUPImg(backImg)
     if (response) setStatus(response.statusText)
   }
   
@@ -122,11 +130,10 @@ function MemberprofileEdit(props){
                 <div className="col-4 col-3None">
                     <div className="proList">
                         <div className="memberPhotoE">
-                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/1654565261675.jpg`}  alt="會員照片"></img>
+                            <img id='avatar' src={`${process.env.REACT_APP_API_URL}/uploads/${UPImg}`}  alt="會員照片"></img>
                             <label htmlFor='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
                         <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center'}}>
-                          <input type="text" name="fk_member_id" value={thismemberid}></input>
                           <input
                             type="file"
                             id='upPhoto'

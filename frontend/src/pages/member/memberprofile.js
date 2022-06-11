@@ -15,6 +15,7 @@ function Memberprofile(props){
     const member_phone=useState(localStorage.getItem("phone"))
     const member_mail=useState(localStorage.getItem("mail"))
     const member_address=useState(localStorage.getItem("address"))
+    const member_photo=useState(localStorage.getItem("photo"))
     if(!auth){
         window.location.replace("http://localhost:3000/member");
     }if(!dataCheck){
@@ -45,7 +46,7 @@ function Memberprofile(props){
                     
                 <div className="col-4 col-3None">
                         <div className="proList">
-                            <div className="memberPhoto"><img   src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
+                            <div className="memberPhoto"><img  src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`}  alt="會員照片"></img></div>
                             <div className="memberNumber">
                                 <div >會員帳號</div>
                                 <div >{member_account}</div> 
