@@ -39,6 +39,7 @@ function Pay1(props){
            }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
+        document.querySelector('.payThree').style.display="none"
         window.scroll(0,0)
     }
          }  
@@ -46,11 +47,17 @@ function Pay1(props){
      //回上一步
     const preStep = ()=>{
         document.querySelector('.payTwo').style.display="none"
+        document.querySelector('.payThree').style.display="none"
         document.querySelector('.payOne').style.display="block"
         window.scroll(0,0)
          } 
+
+   //去付款頁面
+//    const cardStep = ()=>{
+   
+//      }      
          
-    //按下一步跳pay3
+    //傳到資料庫
     const complete =async()=>{
         const a=document.querySelector('.sameAddress').checked
         if(a==true){
@@ -62,6 +69,8 @@ function Pay1(props){
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
 
                 const useP=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/usePoint?member_point=${mpoint-pointla}&member_id=${thismemberid}`)
+
+               
 
                 if(MC_id!=""){
                     const useC=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/useCou?MC_id=${MC_id}`)
@@ -78,10 +87,14 @@ function Pay1(props){
                     console.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
-                const odweb="http://localhost:3000/member/Order/"+thisoid
-                console.log(odweb);
-                localStorage.removeItem("sCarts")
-                window.location.replace(odweb)
+                document.querySelector('.payTwo').style.display="none"
+                document.querySelector('.payThree').style.display="block"
+                document.querySelector('.payOne').style.display="none"
+                window.scroll(0,0)
+                // const odweb="http://localhost:3000/member/Order/"+thisoid
+                // console.log(odweb);
+                // localStorage.removeItem("sCarts")
+                // window.location.replace(odweb)
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -398,18 +411,6 @@ const[ newpoint , setNewpoint] = useState(0)
                       <div className="questInfo">
                           <div>付款方式</div>
                           <div>※本店僅接收信用卡付款</div>
-                          {/* <div className="radioS pppay">
-                              <div className="form-check checkPart">
-                                  <input className="form-check-input " type="radio"      name="paymethod" id="cash" required
-                                      value="cash" />
-                                  <label label className="form-check-label" for="cash">匯款</label>
-                              </div>
-                              <div className="form-check  checkPart">
-                                  <input className="form-check-input" type="radio"  name="paymethod" id="card"
-                                      value="card" required/>
-                                  <label className="form-check-label" for="card">信用卡</label>
-                              </div>
-                          </div> */}
                          
                       </div>
                       <div className="questInfo">
@@ -579,12 +580,13 @@ const[ newpoint , setNewpoint] = useState(0)
                               >
                                <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " 
+                              onClick={complete}
+                            // onClick={cardStep}
                               >結帳 </button>
                               </div>
-                              {/* <CCard /> */}
-                              {/* <CreditCard/> */}
                               
+                             
                       </div>
                   </div>
                  
@@ -627,7 +629,10 @@ const[ newpoint , setNewpoint] = useState(0)
                               >
                                <button  className="btn btn-primary btn-lg btn-block pbtn" onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" 
+                              onClick={complete}
+                            // onClick={cardStep}
+                            
                               >結帳 </button>
                             </div>
                             
@@ -640,6 +645,11 @@ const[ newpoint , setNewpoint] = useState(0)
         </div>
 
         </div>
+
+        {/* <----------credit card-----------> */}
+         <div className="payThree">
+         <CCard />
+         </div>
 
      </>
   );

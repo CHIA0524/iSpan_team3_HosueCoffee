@@ -161,6 +161,9 @@
 .payThree {
   display: none;
 }
+.payThree {
+  margin-bottom: 10rem;
+}
 
 .CouponDetail {
   width: 100%;

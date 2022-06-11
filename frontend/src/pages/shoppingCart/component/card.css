@@ -1,3 +1,7 @@
+.jp-card .jp-card-back,
+.jp-card .jp-card-front {
+  background: #e4d2a3;
+}
 .jp-card-container {
   perspective: 1000px;
   width: 500px;
@@ -14,9 +18,8 @@
   font-size: 30px;
 }
 .jp-card .jp-card-front .jp-card-lower .jp-card-expiry {
-  
-  font-size: 24px
-
+  font-size: 24px;
+}
 .jp-card.jp-card-visa.jp-card-identified .jp-card-back:before,
 .jp-card.jp-card-visa.jp-card-identified .jp-card-front:before {
   background-color: #e4d2a3;
