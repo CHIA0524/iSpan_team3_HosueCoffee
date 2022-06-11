@@ -1,9 +1,9 @@
 
 .point {
-  border: 1px #e4d2a3 solid;
-  border-radius: 50px;
+  /* border: 1px #e4d2a3 solid;
+  border-radius: 50px; */
   width: 80%;
-  height: 350px;
+  /* height: 350px; */
 }
 .pointHead {
   text-align: center;
@@ -13,60 +13,32 @@
   color: red;
 }
 .coupon{
-  height: 200px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* height: 200px; */
+  /* overflow-x: hidden; */
+  /* overflow-y: scroll; */
 }
 .pointHead h4 {
   margin-bottom: 10px;
 }
-.coupon h3 {
-  text-align: right;
-  color: red;
-  padding: 20px 0;
+
+.couponCard{
+  margin-top: 2rem;
 }
-.pointR {
-  background-color: rgba(228, 210, 163, 0.5);
-}
+
 .pointR .coupon h5 {
   text-align: left;
 }
 .pointR .coupon div {
   text-align: left;
 }
-.pointR .coupon h3 {
-  color: gray;
-
+.pointL .coupon .end_date {
+  text-align: right;
 }
+
   /* .pointNow {
     color: red;
   } */
-.pointfoot {
-  height: 150px;
-  /* background-color: rgba(228, 210, 163, 0.5); */
-  /* background:radial-gradient(circle farthest-side at center,yellow,red);  */
-  background:radial-gradient(circle at 50% 50%,
-          #fff 5%, 
-          rgba(255,255,255,0) 50%,
-          #fff 100%,
-          #fff 100%
-      ),repeating-conic-gradient(
-        #DDB44A 0, 
-        #DDB44A 15deg,
-        #e4d2a3 15deg,
-        #e4d2a3 30deg
-      );
-  border-radius: 50px;
-}
-.pointfoot .pfL {
-  padding: 45px 0;
-  font-size: 40px;
-}
-.pointfoot .pfR {
-  padding: 55px 0;
-  font-size: 25px;
-  text-align: right;
-}
+
 @media screen and (max-width: 1000px) {
   .mMember {
     display: block;
@@ -76,14 +48,8 @@
     padding: 3rem;
   }
 
-  .pointfoot .pfL {
-    padding: 52px 0;
-    font-size: 30px;
-  }
-  .pointL .coupon .col h5 {
-    color:  red;
-    text-align: right;
-  }
+
+
   
   .proR {
     border: 0;

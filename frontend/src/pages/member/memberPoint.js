@@ -11,55 +11,63 @@ function MemberPoint(){
   const [MCNO,setMCNO]=useState(0)
     return(
         <>
-              <div class="container">
-    <div class="row">
+              <div className="container">
+    <div className="row">
     <MemberAside/>
 
-      <main class="mMain row col">
+      <main className="mMain row col">
        
 
-        <div class="col-1 col-3None">
+        <div className="col-1 col-3None">
 
         </div>
-        <div class="col ">
-          <div class="row">
-            <div class="col point pointL ">
+        <div className="col ">
+          <div className="row">
+            <div className="col point pointL ">
               <br></br>
-              <div class="pointHead">
+              <div className="pointHead">
                 <h4>可使用優惠券</h4>
                 <h5 className='NowCoupon'>{MCYES}張</h5>
               </div>
+              <br></br>
               <hr></hr>
-              <div class="coupon">
+              <div className="coupon">
               <MCouponY setMCYES={setMCYES}/>
               </div>
             </div>
 
-            <div class="col-1"></div>
+            <div className="col-1"></div>
 
-            <div class="col point pointR col-3None">
+            <div className="col point pointR col-3None">
               <br></br>
-              <div class="pointHead">
-                <h4>已過期優惠券</h4>
-                <h5 class="pointNow">{MCNO}張</h5>
+              <div className="pointHead">
+                <h4>會員點數</h4>
+                <h5 className="pointNow">每1點可折扣1元</h5>
+                
               </div>
+              <></>
+              <br></br>
               <hr></hr>
-              <div class="coupon">
-               <MCouponN setMCNO={setMCNO}/>
+              <br></br>
+              <div className="coupon row">
+              <h3 className="col">剩餘點數</h3>
+              <h3 className="col">{thisPoint}點</h3>
               </div>
+                    <br></br>
+               
             </div>
           </div>
           <br></br>
           <br></br>
-          <div class="row pointfoot">
-            <div class="col-1"></div>
-            <div class="col pfL">紅利點數</div>
-            <div class="col pfR">{thisPoint}點</div>
-            <div class="col-1"> </div>
-          </div>
+          {/* <div className="row pointfoot">
+            <div className="col-1"></div>
+            <div className="col pfL">紅利點數</div>
+            <div className="col pfR">{thisPoint}點</div>
+            <div className="col-1"> </div>
+          </div> */}
           
         </div>
-        <div class="col-2 col-3None"></div>
+        <div className="col-2 col-3None"></div>
         
 
       </main>

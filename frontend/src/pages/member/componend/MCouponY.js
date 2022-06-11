@@ -23,35 +23,21 @@ function MCouponY(props){
                 const off=100-coupon_code
                 
                 return(
-                  <div>
-             <div class="container col-3None">
-                  <div class="row">
-                    <div class="col">
-                      <h5>{coupon_title}</h5>
-                      <div>使用期限</div>
-                      <div>至{coupon_end_date}</div>
-                    </div>
-                    <div class="col">
-                      <h3>{off}折</h3>
-                    </div>
-                  </div>
-                    <br></br>
-                </div>
-             <div class="container col-wn">
+                 
+             <div class="container couponCard">
                   <div class="row">
                       <h5>{coupon_title}</h5>
                     <div class="col">
                       <div>使用期限</div>
-                      
+                      {/* <div>至{coupon_end_date}</div> */}
                     </div>
                     <div class="col">
-                      <h5>{off}折</h5>
+                    <div className="end_date">{coupon_end_date}</div>
                     </div>
-                    <div>{coupon_end_date}</div>
                   </div>
-                    <br></br>
+                    <hr></hr>
                 </div>
-                </div>
+        
              
                 )
             })}
