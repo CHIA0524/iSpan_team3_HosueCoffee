@@ -86,12 +86,10 @@ function App() {
       <Switch>
      
       {/* shop 部分 */}
-        <Route path="/shoppingCart/pay3">
+        <Route path="/shoppingCart/pay3/:id">
           <Pay3 auth={auth} />
         </Route> 
-        {/* <Route path="/shoppingCart/pay2">
-          <Pay2 />
-        </Route>  */}
+       
         <Route path="/shoppingCart">
           <Pay1 auth={auth} />
         </Route>

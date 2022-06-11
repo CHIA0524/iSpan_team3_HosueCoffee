@@ -13,6 +13,16 @@ router.route('/')
         res.json(datas);
     })
 
+router.route('/Shoppingcart/id')
+.get(async (req,res,next)=>{
+
+    const sql = "SELECT * FROM `orders` WHERE o_id= ?";
+    const [datas] = await db.query(sql,[req.query.o_id]);
+   res.json(datas);
+   console.log(datas);
+  //  res.send(`讀取${id}的資料`)
+})
+
 router.route('/coupon')
 //^查詢本帳號優惠券^
     .get(async(req,res,next)=>{

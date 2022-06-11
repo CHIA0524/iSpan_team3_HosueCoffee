@@ -41,7 +41,6 @@ function Pay1(props){
            }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
-        document.querySelector('.payThree').style.display="none"
         window.scroll(0,0)
     }
          }  
@@ -49,7 +48,6 @@ function Pay1(props){
      //回上一步
     const preStep = ()=>{
         document.querySelector('.payTwo').style.display="none"
-        document.querySelector('.payThree').style.display="none"
         document.querySelector('.payOne').style.display="block"
         window.scroll(0,0)
          } 
@@ -89,14 +87,13 @@ function Pay1(props){
                     console.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
-                document.querySelector('.payTwo').style.display="none"
-                document.querySelector('.payThree').style.display="block"
+                document.querySelector('.payTwo').style.display="block"
                 document.querySelector('.payOne').style.display="none"
                 window.scroll(0,0)
-                // const odweb="http://localhost:3000/member/Order/"+thisoid
+                const p3="http://localhost:3000/shoppingCart/pay3/"+thisoid
                 // console.log(odweb);
-                // localStorage.removeItem("sCarts")
-                // window.location.replace(odweb)
+                localStorage.removeItem("sCarts")
+                window.location.replace(p3)
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -108,8 +105,31 @@ function Pay1(props){
                  document.querySelector(".errorRaddress").style.color="red";
         }
         }else{
-            if (nameMessage=="" ){    
-            window.location.replace("http://localhost:3000/shoppingCart/pay3")          
+            if (nameMessage=="" && phoneMessage=="" &&emailMessage=="" &&addressMessage==""&& RnameMessage=="" &&RphoneMessage==""&&RemailMessage==""&&RaddressMessage==""&&shipment!='' ){
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const useP=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/usePoint?member_point=${mpoint-pointla}&member_id=${thismemberid}`)
+
+               
+
+                if(MC_id!=""){
+                    const useC=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/useCou?MC_id=${MC_id}`)
+                }
+                const oid = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderid?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const oid2 = await oid.json();
+                const thisoid = oid2.o_id
+                const odmap=JSON.parse(localStorage.getItem('sCarts'))
+                for(var i=0;i<odmap.length;i++){
+                    const fk_p_id=odmap[i].id
+                    console.log(fk_p_id)
+                    const qty=odmap[i].ShopCounter
+                    console.log(qty)
+                    const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
+                }
+                document.querySelector('.payTwo').style.display="block"
+                document.querySelector('.payOne').style.display="none"
+                window.scroll(0,0)       
                }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -648,27 +668,8 @@ const[ newpoint , setNewpoint] = useState(0)
 
         </div>
 
-        {/* <----------credit card-----------> */}
-         <div className="payThree">
-         <div class="container main">
-         <Steps3/>
-         <div className="showMoney">付款金額：&emsp;${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</div>
-         <div></div>
-
-         <div className="pCardPart">
-         <CCard />
+       
          
-         <div className="finalBtn" >
-                               {/* <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
-                              >上一步 </button> */}
-                              <button type="button" className=" fbtn " 
-                              onClick={complete}
-                            // onClick={cardStep}
-                              >結帳 </button>
-         </div>
-         </div>
-         </div>
-         </div>
 
      </>
   );
