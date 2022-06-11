@@ -19,6 +19,7 @@ function Navbar (props){
   const loginOUT=()=>{
     // localStorage.clear();
     localStorage.removeItem("dataCheck")
+    localStorage.removeItem("point")
     localStorage.removeItem("mail")
     localStorage.removeItem("account")
     localStorage.removeItem("nick")

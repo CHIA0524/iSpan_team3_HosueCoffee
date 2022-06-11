@@ -58,6 +58,26 @@ router.route('/')
         // console.log(datas)
         res.json(datas);
     })
+router.route('/couYes')
+//^查詢本帳號未使用優惠券^
+    .get(async(req,res,next)=>{
+        console.log(req.query.fk_m_id)
+        const sql=
+        `SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id =? and state='未使用' and coupon_start_date <=now() and coupon_end_date>=now() order by coupon_end_date`; 
+        const [datas]=await db.query(sql,[req.query.fk_m_id]);
+        // console.log(datas)
+        res.json(datas);
+    })
+router.route('/couNo')
+//^查詢本帳號已過期未使用優惠券^
+    .get(async(req,res,next)=>{
+        console.log(req.query.fk_m_id)
+        const sql=
+        `SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id =? and state='未使用' and coupon_end_date<now() order by coupon_end_date LIMIT 5`; 
+        const [datas]=await db.query(sql,[req.query.fk_m_id]);
+        // console.log(datas)
+        res.json(datas);
+    })
 
 
 module.exports = router;

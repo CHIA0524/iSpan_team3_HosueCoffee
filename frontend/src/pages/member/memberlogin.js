@@ -197,6 +197,7 @@ function MemberLogin(props){
                 localStorage.setItem("true", loginMid.member_id);
                 localStorage.setItem("account", loginMid.member_account);
                 localStorage.setItem("mail", loginMid.member_mail);
+                localStorage.setItem("point", loginMid.member_point);
                 //將會員編號寫入localStorage的true，帳號信箱也分別寫入
 
                 localStorage.setItem("dataCheck", "資料完整");
