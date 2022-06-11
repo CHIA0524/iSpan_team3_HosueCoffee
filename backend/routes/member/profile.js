@@ -65,8 +65,9 @@ router.route(`/Newdate`)
 router.post('/upphoto',upload.single("file"),async(req,res)=>{
   //req.body 接收表單透過POST fromdata 傳過來的文字資料
   //req.file 會接收上傳的檔案
+  console.log(upload)
   console.log(req.body.fk_member_id);
-  console.log(req.file)
+  console.log(req.file.filename)
   //res.send(`POST:${req.body.email} - ${req.body.pwd}`)
   const sql = "UPDATE `team3`.`members_data` SET `member_photo` = ? WHERE (`fk_member_id` = ?);";
   const [data] = await db.query(sql, [req.file.filename, req.body.fk_member_id])      

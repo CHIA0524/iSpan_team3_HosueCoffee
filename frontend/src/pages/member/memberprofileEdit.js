@@ -126,6 +126,7 @@ function MemberprofileEdit(props){
                             <label htmlFor='upPhoto' className="changePhoto" >修改照片</label>
                         </div>
                         <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center'}}>
+                          <input type="text" name="fk_member_id" value={thismemberid}></input>
                           <input
                             type="file"
                             id='upPhoto'
