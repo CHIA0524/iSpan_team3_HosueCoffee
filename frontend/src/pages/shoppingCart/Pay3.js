@@ -34,7 +34,7 @@ function Pay3(){
         console.log(payM);  
         }
         const shipprice =()=> {
-            if(shipment= 黑貓){
+            if(result.shipment = "黑貓"){
                 if(payM > 1500){
                 setShipPay(0)
                 }else{
@@ -47,10 +47,15 @@ function Pay3(){
                     setShipPay(100)
                     }
             }}
-
-
-        const finalPay = payM 
-        setPayMoney(payM)
+            console.log(shipPay)
+        const coupon = Number(result.used_coupon)
+        const point = Number(result.used_points)
+        console.log(coupon)
+        console.log(point)
+        
+        
+        const finalPay = payM + shipPay - coupon - point
+        setPayMoney(finalPay)
    }
    useEffect(()=>{
       fetchData();
@@ -62,7 +67,7 @@ function Pay3(){
       <div className="payThree">
          <div className="container main">
          <Steps3/>
-         <div className="showMoney">付款金額：&emsp;$66666</div>
+         <div className="showMoney">付款金額：&emsp;${payMoney}</div>
          <div></div>
 
          <div className="pCardPart">
