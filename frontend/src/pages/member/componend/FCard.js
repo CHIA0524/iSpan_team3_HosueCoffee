@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 function FCard(props){
-    const {MF_id,p_id,p_name,p_price}=props
+    const {MF_id,p_id,p_name,p_price,setcarNum}=props
     const[amount, setAmount]= useState(1)
     const updateCart = ()=>{
         //加入購物車的計算
@@ -25,6 +25,7 @@ function FCard(props){
           sCarts.push(sCart)
         }
         localStorage.setItem("sCarts", JSON.stringify(sCarts))
+        setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
     }
 
     return(

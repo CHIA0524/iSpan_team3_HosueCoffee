@@ -10,16 +10,19 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
+import { duration } from '@mui/material';
 
 
 function Navbar (props){
-  const {auth}=props
+  const {auth,carNum}=props
   const { bannerHeight } = props
   const [ pageYOffset, setPageYOffset ] = useState()
+  const member_photo=localStorage.getItem("photo")
+  console.log(carNum);  
   const loginOUT=()=>{
     // localStorage.clear();
     localStorage.removeItem("dataCheck")
-    localStorage.removeItem("point")
+    localStorage.removeItem("member_point")
     localStorage.removeItem("mail")
     localStorage.removeItem("account")
     localStorage.removeItem("nick")
@@ -33,6 +36,7 @@ function Navbar (props){
     window.location.assign("http://localhost:3000/");
 
   }
+
 
   let getURL = useLocation();
 
@@ -166,13 +170,16 @@ function Navbar (props){
         <div>
           <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
 
-          <li><Link to="/shoppingcart"><IoCartOutline size={30} style={{ color: '#DDB44A' }}/></Link></li>
+          <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
+          {carNum?<div className='redC'>{carNum}</div>:<></>}
+          </Link></li>
 
           <li className="mobileNone position-relative">
           {auth? 
-            <Link to="/member/Profile"><IoPersonOutline size={30} style={{ color: '#DDB44A' }}/></Link>
+            <Link to="/member/Profile"><div className="NavbarPhoto"><img   src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`} alt="會員照片"></img></div>
+</Link>
             :
-            <Link to="/member"><IoPersonOutline size={30} style={{ color: '#DDB44A' }}/></Link>
+            <Link to="/member"><IoPersonOutline size={30} style={{ color: '#DDB44A'}}/></Link>
 
           }
             {auth? <><p className="webUserInfo">

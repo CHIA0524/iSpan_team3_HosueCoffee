@@ -39,7 +39,7 @@ function MemberPoint(){
               <br></br>
               <div className="pointHead">
                 <h4>會員點數</h4>
-                <h5 className="pointNow">每1點可折扣1元</h5>
+                <h5 className="pointNow">每消費100元贈送1點，每1點可折扣1元</h5>
                 
               </div>
               <></>
@@ -59,7 +59,7 @@ function MemberPoint(){
               <br></br>
               <div className="pointHead">
                 <h4>會員點數</h4>
-                <h5 className="pointNow">每1點可折扣1元</h5>
+                <h5 className="pointNow">每消費100元贈送1點，每1點可折扣1元</h5>
                 
               </div>
               <></>

@@ -63,7 +63,9 @@ function App() {
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
   
-
+  // const [carNum,setcarNum]=useState(localStorage.getItem("sCarts"))
+  const [carNum,setcarNum]=useState(JSON.parse(localStorage.getItem('sCarts')).length)
+  
 
   const [ bannerHeight, setBannerHeight ] = useState()
 
@@ -78,7 +80,7 @@ function App() {
  
     <Router>
 
-      <Navbar bannerHeight={bannerHeight} auth={auth}/>
+      <Navbar bannerHeight={bannerHeight} auth={auth} carNum={carNum}/>
 
 
 
@@ -145,7 +147,7 @@ function App() {
         </Route>
 
         <Route  path="/member/Favorite">
-          <MemberFavorite auth={auth} dataCheck={dataCheck}/>
+          <MemberFavorite auth={auth} dataCheck={dataCheck} setcarNum={setcarNum}/>
         </Route>
 
 

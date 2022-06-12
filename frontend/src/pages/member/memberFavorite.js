@@ -4,7 +4,7 @@ import MemberBack from './memberBack';
 import './memberFavorite.css'
 import FavoriteCard from './componend/FavoriteCard';
 function MemberFavorite(props){
-    const{auth}=props;
+    const{auth,setcarNum}=props;
     const {dataCheck}=props;
     if(!auth){
       window.location.replace("http://localhost:3000/member")
@@ -19,7 +19,7 @@ function MemberFavorite(props){
         <MemberAside/>
         <main className="mMain col">
             <div className=" row justify-content-center">
-                <FavoriteCard/>
+                <FavoriteCard setcarNum={setcarNum}/>
                 
             </div>
 

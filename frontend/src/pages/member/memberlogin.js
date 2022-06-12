@@ -400,8 +400,8 @@ function MemberLogin(props){
                         <div className="memberLoginMain">
                             <div className="row">
                                 <div className="col loginLift">
-                                    <img className="member1" src={require('./img/member_logoin_1.png')} alt=""></img>
-                                    <img className="member2" src={require('./img/member_logoin_2.png')} alt=""></img>
+                                    <img className="memberLG1" src={require('./img/member_logoin_1.png')} alt=""></img>
+                                    <img className="memberLG2" src={require('./img/member_logoin_2.png')} alt=""></img>
                                     <h2 className="liftW1">登入會員</h2>
                                     <h2 className="liftW2">享受專屬優惠</h2>
                                 </div>

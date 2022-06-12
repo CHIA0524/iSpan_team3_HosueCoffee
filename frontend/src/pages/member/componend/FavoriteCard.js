@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { AiFillHeart } from "react-icons/ai";
 import FCard from './FCard';
 
-function FavoriteCard(){
+function FavoriteCard(props){
+    const {setcarNum}=props
     const [datas,setDatas] = useState([])
     const [FVTotal,setFVTotal] = useState()
     const thismemberid=localStorage.getItem(true)
@@ -43,7 +44,7 @@ function FavoriteCard(){
                    
                 
                 return(
-                    <FCard MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
+                    <FCard setcarNum={setcarNum} MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
                 )})}
         </>
     )
@@ -56,7 +57,7 @@ function FavoriteCard(){
                        
                     
                     return(
-                        <FCard MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
+                        <FCard setcarNum={setcarNum} MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
                     )})}
                     <div className="card FavCard NFavCard mb-4"></div>
 
@@ -71,7 +72,7 @@ function FavoriteCard(){
                            
                         
                         return(
-                            <FCard MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
+                            <FCard setcarNum={setcarNum} MF_id={MF_id} p_id={p_id} p_name={p_name} p_price={p_price}/>
                         )})}
                     <div className="card FavCard NFavCard mb-4"></div>
                     <div className="card FavCard NFavCard mb-4"></div>

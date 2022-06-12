@@ -216,6 +216,7 @@
   transition: all .3s ease-in-out;
 }
 
+
 @media screen and (max-width: 1000px) {
   .closeSideNav {
     cursor: pointer;
