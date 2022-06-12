@@ -14,6 +14,7 @@ function Pay3(){
     const params = useParams()
   const [datas,setDatas] = useState([])
   const [payMoney,setPayMoney] = useState([])
+  const [shipPay, setShipPay] = useState()
     const o_id=params.id
     var payM=0
   const fetchData=async()=>{
@@ -32,6 +33,23 @@ function Pay3(){
         payM=payM+(price*qty)  
         console.log(payM);  
         }
+        const shipprice =()=> {
+            if(shipment= 黑貓){
+                if(payM > 1500){
+                setShipPay(0)
+                }else{
+                setShipPay(100)
+                }
+            }else{
+                if(payM > 1500){
+                    setShipPay(0)
+                    }else{
+                    setShipPay(100)
+                    }
+            }}
+
+
+        const finalPay = payM 
         setPayMoney(payM)
    }
    useEffect(()=>{

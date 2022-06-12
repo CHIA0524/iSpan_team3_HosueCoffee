@@ -31,7 +31,7 @@ router.route('/odList/detailed')
 //^查詢訂單 商品名 商品價格 商品數列 商品id^
     .get(async(req,res,next)=>{
         const sql=
-        "select p_name,p_price,qty ,p_id from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=?"; 
+        "select p_name,p_price,qty ,p_id, used_coupon,used_points,shipment from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=?"; 
         const [datas]=await db.query(sql,[req.query.o_id]);
         res.json(datas);
         console.log(datas)
