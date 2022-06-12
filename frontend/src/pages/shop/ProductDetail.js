@@ -15,7 +15,7 @@ import AddSweet from './component/AddSweet';
 
 function ProductDetail(props){
   // 數量變數
-  const[amount, setAmount]= useState(1)
+  const[amount, setAmount ,setcarNum]= useState(1)
  //   const{setfinalTotal} = props
  // 計算總數量
   const {setsubTotal }= props
@@ -67,6 +67,7 @@ function ProductDetail(props){
         sCarts.push(sCart)
       }
       localStorage.setItem("sCarts", JSON.stringify(sCarts))
+      setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
 
   }
  

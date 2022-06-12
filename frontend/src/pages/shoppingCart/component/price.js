@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 import { useState } from 'react';
 function Price(props){
-    const {update,price,total,setPtotal, ptotal,TTmoney,productId,i,cartDetail,setCartDetail}=props;
+    const {update,price,total,setPtotal, ptotal,TTmoney,productId,i,cartDetail,setCartDetail,setcarNum}=props;
     // const datas1 = JSON.parse(localStorage.getItem('sCarts'))
     const [datasNEW, setdatasNEW] = useState(cartDetail)
     const[amount, setAmount]= useState(0)
@@ -34,6 +34,8 @@ function Price(props){
             }
             localStorage.setItem("sCarts", JSON.stringify(sCarts))
             setCartDetail(JSON.parse(localStorage.getItem('sCarts')))
+      setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
+
         }
 return(
     <>
@@ -98,6 +100,8 @@ removePinfo.fire({
             console.log(datasNEW)
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
+      setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
+
             // console.log(datas222)
             setCartDetail(datas222)
             setTimeout(() => window.location.reload(), 0);

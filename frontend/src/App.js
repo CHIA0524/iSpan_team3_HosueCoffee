@@ -56,6 +56,9 @@ import ShopKenya from './pages/shop/ShopKenya';
 
 
 function App() {
+  if(localStorage.getItem('sCarts')==null){
+    localStorage.setItem('sCarts',JSON.stringify([]))
+}
   const [auth,setAuth]=useState(localStorage.getItem("true"));
   //判斷是否登入，若localhost storage內沒有"true"，就是沒有登入狀態，若有"true"，true的值會是會員ID
   //若有需要判斷會員是否有登入的頁面，在下方引入時記得加上 auth={auth}
@@ -101,10 +104,10 @@ function App() {
           <Pay2 />
         </Route>  */}
         <Route path="/shoppingCart">
-          <Pay1 auth={auth}/>
+          <Pay1 auth={auth} setcarNum={setcarNum}/>
         </Route>
         <Route path="/shop/ProductDetail/:id">
-          <ProductDetail auth={auth}/>
+          <ProductDetail auth={auth} setcarNum={setcarNum}/>
         </Route>
 
         <Route path="/shop/kenya">
@@ -112,7 +115,7 @@ function App() {
         </Route>
         
         <Route path="/shop">
-          <ShopIndex auth={auth}/>
+          <ShopIndex auth={auth} setcarNum={setcarNum}/>
         
         </Route>
         <Route path="/" exact>

@@ -11,7 +11,7 @@ import Popup from './component/Popup';
 function ShopIndex(props){
 
 //抓到點擊商品的id
-const{ auth } =props
+const{ auth ,setcarNum } =props
 
 const [productId, setProductId] = useState(2)
 console.log(productId)
@@ -130,7 +130,7 @@ const[amount, setAmount]= useState(1)
                                     <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}
                                     datasPMF={datasPMF}/>  
                                 </div>                                
-                                <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
+                                <Popup setcarNum={setcarNum} datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
                             </main>
                         </div>

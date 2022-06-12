@@ -36,7 +36,7 @@ useEffect(()=>{
     const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
     console.log(cartDetail)
     // 接收資料庫資料
-    const {datas} = props 
+    const {datas, setcarNum} = props 
     // 計算datas的長度
     const datamath=datas.length
     console.log(datamath)
@@ -86,7 +86,7 @@ return(
                     <div className="col-4 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
-                    <Price update={update} price={price}  total={total} 
+                    <Price update={update} price={price}  total={total}  setcarNum={setcarNum}
                         setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} cartDetail={cartDetail} setCartDetail={setCartDetail}
                     />
                    

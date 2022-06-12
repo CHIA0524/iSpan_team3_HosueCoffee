@@ -171,7 +171,7 @@ function Navbar (props){
           <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
 
           <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
-          {carNum?<div className='redC'>{carNum}</div>:<></>}
+          {carNum?<div className='redC'></div>:<></>}
           </Link></li>
 
           <li className="mobileNone position-relative">

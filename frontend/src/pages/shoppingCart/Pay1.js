@@ -15,7 +15,7 @@ function Pay1(props){
         localStorage.setItem('sCarts',JSON.stringify([]))
         
     }
-    const {auth}=props
+    const {auth ,setcarNum}=props
     
 
     //回去繼續購物
@@ -273,7 +273,7 @@ function Pay1(props){
                    <Steps1 />
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
-                    settotalp={settotalp} datas={datas}
+                    settotalp={settotalp} datas={datas} setcarNum={setcarNum}
                    />
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
