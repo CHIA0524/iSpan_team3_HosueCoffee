@@ -33,30 +33,35 @@ function Pay3(){
         payM=payM+(price*qty)  
         console.log(payM);  
         }
+        var payship=0
         const shipprice =()=> {
-            if(result.shipment = "黑貓"){
+            if(results[0].shipment = "黑貓"){
                 if(payM > 1500){
                 setShipPay(0)
+                payship=0
                 }else{
-                setShipPay(100)
+                setShipPay(80)
+                payship=80
                 }
             }else{
                 if(payM > 1500){
                     setShipPay(0)
+                    payship=0
                     }else{
                     setShipPay(100)
+                    payship=100
                     }
             }}
-            console.log(shipPay)
-        const coupon = Number(result.used_coupon)
-        const point = Number(result.used_points)
+            console.log(payship)
+        const coupon = results[0].used_coupon
+        const point = results[0].used_points
         console.log(coupon)
         console.log(point)
         
         
-        const finalPay = payM + shipPay - coupon - point
+        const finalPay = payM + payship - coupon - point
         setPayMoney(finalPay)
-   }
+          }
    useEffect(()=>{
       fetchData();
   },[])
