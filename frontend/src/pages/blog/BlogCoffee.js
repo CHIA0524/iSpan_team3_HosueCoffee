@@ -45,13 +45,12 @@ function BlogCoffee(props){
 
 
     
-        <div className="blogBannerWord"
-        >
+        <div className="blogBannerWord">
+        <h2 >
         <Link to={"/blog"} >
-        <h2>
         咖啡手札
-        </h2>
         </Link>
+        </h2>
         </div>
    
 
