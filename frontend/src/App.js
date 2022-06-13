@@ -48,7 +48,7 @@ import MenuIndex from './pages/menu/MenuIndex';
 import OnlineCheckPage from './pages/menu/OnlineCheckPage';
 import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
 import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
-
+import FavouritePage from './pages/menu/FavouritePage';
 
 
 
@@ -183,7 +183,9 @@ function App() {
         <Route path="/OnlineCheckPage3">
           <OnlineCheckPage3/>
         </Route>
-
+        <Route path="/favorite">
+          <FavouritePage/>
+        </Route>
 
       </Switch>
 

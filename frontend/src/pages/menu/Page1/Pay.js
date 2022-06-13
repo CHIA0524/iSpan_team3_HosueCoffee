@@ -23,9 +23,7 @@ const Pay = (props) => {
             <div className="list">
                 <div className="Promo">
                     <div className="Payment">
-                        <p>付款方式</p>
                         <Dropdown/>
-                        <hr className="rule"/>
                     </div>
                 </div>
                 <div className="subtotal">

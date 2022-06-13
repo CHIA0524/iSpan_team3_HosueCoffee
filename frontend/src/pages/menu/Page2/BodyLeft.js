@@ -33,7 +33,6 @@ const BodyLeft = props => {
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={values => {
-                    // same shape as initial values
                     console.log(values);
                 }}
             >
@@ -149,18 +148,10 @@ const BodyLeft = props => {
                         <span>商品小計</span>
                     </div>
                     <div>
-                        <span>$250</span>
+                        <span>${datas.totalprice}</span>
                     </div>
                 </div> 
                 <hr/> 
-                <div className="d-flex justify-content-between my-2">
-                    <div className="d-flex">
-                        <span>運費</span>
-                    </div>
-                    <div>
-                        <span>自取免運</span>
-                    </div>
-                </div>
                 <div className="d-flex justify-content-between my-2 mb-3">
                     <div>
                         <span>優惠折扣</span>
