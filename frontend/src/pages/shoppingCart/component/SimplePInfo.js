@@ -9,7 +9,7 @@ function SimplePInfo(){
   return(
     <>
            <div class="d-flex align-items-center">
-                    <div class="col-2">
+                    <div class="col-2 sInfoBox">
                         <img class="packageImg" src={require('../img/包裝 9.png')}  
                         alt=""></img>
                     </div>

@@ -1,9 +1,10 @@
-import Delsweetalert from './Delsweetalert';
 import Swal from 'sweetalert2'
 
 import { useState } from 'react';
 function Price(props){
+
     const {update,price,total,setPtotal, ptotal,TTmoney,productId,i,cartDetail,setCartDetail,setcarNum}=props;
+
     // const datas1 = JSON.parse(localStorage.getItem('sCarts'))
     const [datasNEW, setdatasNEW] = useState(cartDetail)
     const[amount, setAmount]= useState(0)
@@ -34,6 +35,7 @@ function Price(props){
             }
             localStorage.setItem("sCarts", JSON.stringify(sCarts))
             setCartDetail(JSON.parse(localStorage.getItem('sCarts')))
+
       setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
 
         }
@@ -51,7 +53,9 @@ return(
                              updateCart(dd); 
                             }
                              }}>-</button>
-                            <div>{thisTT}</div>
+
+                            <div>{total}</div>
+
                             <button className="PNumR" onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
@@ -92,24 +96,20 @@ removePinfo.fire({
             )
         )
         
-            console.log("刪除前")
-            console.log(datasNEW)
-            setPtotal(ptotal-(price*thisTT));
-            datasNEW.splice(i,1)
-            console.log("刪除後")
-            console.log(datasNEW)
-            localStorage.setItem("sCarts", JSON.stringify(datasNEW))
-            const datas222 = JSON.parse(localStorage.getItem('sCarts'))
-      setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
 
-            // console.log(datas222)
-            setCartDetail(datas222)
-            setTimeout(() => window.location.reload(), 0);
-        //    setTimeout(window.location.reload(),1000);
+            const data = JSON.parse(localStorage.getItem('sCarts'))
+
+            const newData = data.filter((v,i)=> v.id!==productId)
+           
+            localStorage.setItem("sCarts", JSON.stringify(newData))
+            setCartDetail(newData)
+           
+            setPtotal(ptotal-(price*thisTT));
+
+
           
 
     } else if (
-      /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel
     ) {
         removePinfo.fire(
@@ -123,21 +123,28 @@ removePinfo.fire({
                     </div>
                    
                    {/* 商品小計 */}
-                    <div className="col-1">
-                        <p>${price*thisTT}</p>
+
+                    <div className="col-1 wedTotal">
+                        <p>${price*total}</p>
+
                     </div>
                 {/* 手機版 */}
                     <div class="number">
                         <div class="mAddNum">
                             <button className="buttonNum" onClick={() =>{
-                            setThisTT(thisTT-1)
+                             if(thisTT>1){
+                             setThisTT(thisTT-1)
+
                              setPtotal(ptotal-price)
                             const dd = amount -1 
                              updateCart(dd); 
                             }
+
+                            }
                              }>-</button>
-                            <div>{thisTT}</div>
-                           <button className="buttonNum"onClick={() =>{
+                            <div>{total}</div>
+                           <button className="buttonNum" onClick={() =>{
+
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
                             const cc = amount + 1 
@@ -145,7 +152,8 @@ removePinfo.fire({
                            }
                            } >+</button>
                         </div>
-                        <h3>${price* Number(total)}</h3>
+                        <h3>${price*total}</h3>
+
                       </div>     
     </>
 )

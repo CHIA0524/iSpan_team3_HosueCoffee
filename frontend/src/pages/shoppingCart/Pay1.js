@@ -4,10 +4,16 @@ import { useState, useEffect, useCallback } from 'react';
 import './pay1.css';
 import PInfo from './component/PInfo';
 import Steps1 from './component/Steps1';
+import Coupon from './component/Coupon';
+import Point from './component/Point';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
+import CCard from './component/CCard';
+// import CreditCard from './component/CreditCard';
 
+// <----------信用卡付款----------->
+import Steps3 from './component/Steps3';
 
 
 function Pay1(props){
@@ -15,7 +21,11 @@ function Pay1(props){
         localStorage.setItem('sCarts',JSON.stringify([]))
         
     }
+
     const {auth ,setcarNum}=props
+
+    const thismemberid=localStorage.getItem(true)
+
     
 
     //回去繼續購物
@@ -33,26 +43,61 @@ function Pay1(props){
            }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
+
+        window.scroll(0,0)
     }
-         }   
+         }  
+
     
      //回上一步
     const preStep = ()=>{
         document.querySelector('.payTwo').style.display="none"
         document.querySelector('.payOne').style.display="block"
+        window.scroll(0,0)
          } 
+
+   //去付款頁面
+//    const cardStep = ()=>{
+   
+//      }      
          
-    //按下一步跳pay3
-    const complete = ()=>{
+    //傳到資料庫
+    const complete =async()=>{
         const a=document.querySelector('.sameAddress').checked
         if(a==true){
             setRName(name)
             setRPhone(phone)
             setREmail(email)
             setRAddress(address)
-            if (nameMessage=="" ){
-           
-            window.location.replace("http://localhost:3000/shoppingCart/pay3")
+            if (nameMessage=="" && phoneMessage=="" &&emailMessage=="" &&addressMessage==""&& RnameMessage=="" &&RphoneMessage==""&&RemailMessage==""&&RaddressMessage==""&&shipment!='' ){
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const useP=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/usePoint?member_point=${mpoint-pointla}&member_id=${thismemberid}`)
+
+               
+
+                if(MC_id!=""){
+                    const useC=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/useCou?MC_id=${MC_id}`)
+                }
+                const oid = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderid?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const oid2 = await oid.json();
+                const thisoid = oid2.o_id
+                const odmap=JSON.parse(localStorage.getItem('sCarts'))
+                for(var i=0;i<odmap.length;i++){
+                    const fk_p_id=odmap[i].id
+                    console.log(fk_p_id)
+                    const qty=odmap[i].ShopCounter
+                    console.log(qty)
+                    const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
+                }
+                document.querySelector('.payTwo').style.display="block"
+                document.querySelector('.payOne').style.display="none"
+                window.scroll(0,0)
+                const p3="http://localhost:3000/shoppingCart/pay3/"+thisoid
+                // console.log(odweb);
+                localStorage.removeItem("sCarts")
+                window.location.replace(p3)
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -64,8 +109,31 @@ function Pay1(props){
                  document.querySelector(".errorRaddress").style.color="red";
         }
         }else{
-            if (nameMessage=="" ){    
-            window.location.replace("http://localhost:3000/shoppingCart/pay3")          
+            if (nameMessage=="" && phoneMessage=="" &&emailMessage=="" &&addressMessage==""&& RnameMessage=="" &&RphoneMessage==""&&RemailMessage==""&&RaddressMessage==""&&shipment!='' ){
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/order?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const useP=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/usePoint?member_point=${mpoint-pointla}&member_id=${thismemberid}`)
+
+               
+
+                if(MC_id!=""){
+                    const useC=await fetch(`${process.env.REACT_APP_API_URL}/shoporder/useCou?MC_id=${MC_id}`)
+                }
+                const oid = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderid?fk_member_id=${thismemberid}&shipment=${shipment}&pay=${paycard}&order_condition=${ocondition}&buy_name=${name}&buy_phone=${phone}&buy_email=${email}&buy_address=${address}&recipient_name=${Rname}&recipient_phone=${Rphone}&recipient_email=${Remail}&recipient_address=${Raddress}&remark=${note}&used_coupon=${ctotal}&used_points=${pointla}`);
+
+                const oid2 = await oid.json();
+                const thisoid = oid2.o_id
+                const odmap=JSON.parse(localStorage.getItem('sCarts'))
+                for(var i=0;i<odmap.length;i++){
+                    const fk_p_id=odmap[i].id
+                    console.log(fk_p_id)
+                    const qty=odmap[i].ShopCounter
+                    console.log(qty)
+                    const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
+                }
+                document.querySelector('.payTwo').style.display="block"
+                document.querySelector('.payOne').style.display="none"
+                window.scroll(0,0)       
                }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -82,17 +150,23 @@ function Pay1(props){
         
 
 // <----------pay1----------->
-    // const [ subTotal, setsubTotal ]= useState(1)
-    // const [ totalCash, setTotalCash ] = useState(1);
-    // const[a,setA]=useState(0);
-    const [ ptotal, setPtotal ]= useState(0)
-    console.log(ptotal)
-    const [totalp ,settotalp]= useState()
-    // const {setPtotal, ptotal } = props
-    // const cash = (price) => {
-    //     setTotalCash( 499 * Number(subTotal));
-    //   }
-    //   console.log(cash)
+
+
+const [ ptotal, setPtotal ]= useState(0)
+console.log(ptotal)
+const [totalp ,settotalp]= useState()
+//會員優惠券id
+const[ MC_id , setMC_id] = useState("")
+//優惠券折扣金額
+const[ ctotal , setCtotal] = useState(0)
+// <----------point----------->
+const [mpoint,setMpoint]=useState()
+const[pointla, setPointla]=useState(0)   
+const[ pointt , setPointt] = useState(0)
+const[ newpoint , setNewpoint] = useState(0)
+
+
+
 
     // <----------pay2----------->
     const [name,setName]=useState()
@@ -103,6 +177,15 @@ function Pay1(props){
     const [Rphone,setRPhone]=useState()
     const [Remail,setREmail]=useState()
     const [Raddress,setRAddress]=useState()
+    //備註
+    const [note,setNote]=useState("")
+    //運費
+    const [shipment,setShipment] =useState("")
+    //信用卡
+    const paycard = "信用卡"
+    //訂單狀態
+    const ocondition = "未付款"
+
  
     //顯示錯誤訊息
   
@@ -128,7 +211,7 @@ function Pay1(props){
       }
     const Iaddress=(e)=>{
      setAddress(e.target.value);
-      }
+      }  
      const RIname=(e)=>{
      setRName(e.target.value);
      }
@@ -140,29 +223,36 @@ function Pay1(props){
      }
      const RIaddress=(e)=>{
      setRAddress(e.target.value);
-     }   
+     } 
+     const NNote=(e)=>{
+        setNote(e.target.value);
+        } 
+     
      // console.log(name)
        
          //驗證
       
          const Wrongname=()=>{
-             if(!name){
+             if(!name ){
                  setNameMessage("請輸入姓名")
                  document.querySelector(".errorname").style.color="red";
              }else{
                  setNameMessage("")
              }
          }   
+           //^手機驗證格式^
+         const phone_num = /^09[0-9]{8}$/;
          const Wrongphone=()=>{
-             if(!phone){
+             if(!phone_num.test(phone)){
                  setPhoneMessage("請輸入手機")
                  document.querySelector(".errorphone").style.color="red";
                 }else{
                  setPhoneMessage("")
              }
-         }  
+         } 
+         const mail_text = /[\w-]+@([\w-]+\.)+[\w-]+/;;  
          const Wrongemail=()=>{
-             if(!email){
+             if(!mail_text.test(email)){
                  setEmailMessage("請輸入信箱")
                  document.querySelector(".erroremail").style.color="red";
                 }else{
@@ -186,15 +276,17 @@ function Pay1(props){
              }
          }   
          const WrongRphone=()=>{
-             if(!Rphone){
+             if(!phone_num.test(Rphone)){
                  setRPhoneMessage("請輸入手機")
                  document.querySelector(".errorRphone").style.color="red";
                 }else{
                  setRPhoneMessage("")
              }
          }  
+         
+    
          const WrongRemail=()=>{
-             if(!Remail){
+             if(!mail_text.test(Remail)){
                  setREmailMessage("請輸入信箱")
                  document.querySelector(".errorRemail").style.color="red";
                 }else{
@@ -240,17 +332,27 @@ function Pay1(props){
           //運費選擇
            const [shipgopay,setShipgopay]=useState("請選擇運送方式");
            const shipprice = ()=>{
+               const a = ptotal
+               console.log(a)
             const b = document.querySelector('.postoffice').checked
             console.log(b)
             if(b==true){
-               // document.getElementById("sprice").innerHTML = 80
+                setShipment("郵局")
+                  if(a>1500){
+                    setShipgopay(0)
+                  }else{
                setShipgopay(80)
-           }
-           else{
-               // document.getElementById("sprice").innerHTML = 100
+              }}
+            else{
+                setShipment("黑貓")
+                if(a>1500){
+                    setShipgopay(0)
+                  }else{           
                setShipgopay(100)
+               }
+               }  
             }
-             }    
+
              
     //pay1重後端抓資料
     // let[pricetotal1, setpricetotal1] = useState('')
@@ -259,6 +361,12 @@ function Pay1(props){
      const response = await fetch('http://localhost:3001/shop'); 
      const results = await response.json();
                      setDatas(results);
+
+        const point = await fetch(`http://localhost:3001/shoporder/point?member_id=${thismemberid}`);
+        const repoint = await point.json();
+        setMpoint(repoint.member_point);
+        console.log(repoint.member_point);
+
      }
     useEffect(()=>{
         fetchData();
@@ -274,6 +382,7 @@ function Pay1(props){
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
                     settotalp={settotalp} datas={datas} setcarNum={setcarNum}
+
                    />
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
@@ -283,23 +392,13 @@ function Pay1(props){
                                     <p>優惠碼使用</p>
                                 </div>
                                 <div>
-                                    <input type="text"/>
-                                    <a href="">
-                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
-                                    </a>
+                                    <Coupon ptotal={ptotal} ctotal={ctotal}
+                                    setCtotal={setCtotal}  setMC_id={ setMC_id} />
                                 </div>
                             </div>
                             <div>
-                                <div class="dText">
-                                    <p>紅利點數使用</p>
-                                    <p class="pointText">剩餘點數 99點(可折扣99元)</p>
-                                </div>
-                                <div>
-                                    <input type="text"/>
-                                    <a href="">
-                                        <button class="btn1 btn-outline-secondary" type="button">✓</button>
-                                    </a>
-                                </div>
+                                   <Point pointt={pointt} setPointt={setPointt} mpoint={mpoint} ptotal={ptotal} ctotal={ctotal} setPointla={setPointla} pointla={pointla} newpoint={newpoint} setNewpoint={setNewpoint}/>
+                                
                             </div>
                             <hr></hr>
                             <div class="countTotal">
@@ -310,9 +409,9 @@ function Pay1(props){
                                 </div>
                                 <div class="money">
                                     <h4>${ptotal}</h4>
-                                    
-                                    <h4>$499</h4>
-                                    <h4>$499</h4>
+                                
+                                    <h4>${ctotal}</h4>
+                                    <h4>${pointla}</h4>
                                 </div>
                             </div>
                         </div>
@@ -342,22 +441,12 @@ function Pay1(props){
                   <div className="payInfoFill">
                       <div className="questInfo">
                           <div>付款方式</div>
-                          <div className="radioS pppay">
-                              <div className="form-check checkPart">
-                                  <input className="form-check-input " type="radio"      name="paymethod" id="cash" required
-                                      value="cash" />
-                                  <label label className="form-check-label" for="cash">匯款</label>
-                              </div>
-                              <div className="form-check  checkPart">
-                                  <input className="form-check-input" type="radio"  name="paymethod" id="card"
-                                      value="card" required/>
-                                  <label className="form-check-label" for="card">信用卡</label>
-                              </div>
-                          </div>
+                          <div>※本店僅接收信用卡付款</div>
                          
                       </div>
                       <div className="questInfo">
-                          <div>取貨方式 </div>
+                          <div>取貨方式</div>
+                          <div>※消費滿1500即可免運</div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">
                                   <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="post"
@@ -383,24 +472,24 @@ function Pay1(props){
                           value={name}
                           onChange={Iname}
                           onBlur={Wrongname}
-                        required
+                          required
                           />
                           <div className="error errorname">{nameMessage}</div>
                          
 
-                          <input type="tel" 
+                          <input type="text" 
                           placeholder="手機"
                           name= "phone"
                           value={phone}
                           onChange={Iphone}
                           required
-                          minLength={10}
-                          maxLength={10}
+                          minLength="10"
+                          maxLength="10"
                           onBlur={Wrongphone}
                           />
                           <div className="error errorphone">{phoneMessage}</div>
-                        
-                          <input type="email" 
+                    
+                          <input type="text" 
                           placeholder="信箱"
                           name="email"
                           value={email}
@@ -484,7 +573,11 @@ function Pay1(props){
                       </div>
                       <div className="noteInfo">
                           <p>備註</p>
-                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea className="form-control" id="exampleFormControlTextarea1" 
+                          rows="3"
+                          onChange={NNote}
+                          value={note}
+                          ></textarea>
                       </div>
                   </div>
       
@@ -498,10 +591,10 @@ function Pay1(props){
                                   <p>紅利折扣</p>
                               </div>
                               <div className="money">
-                                  <p>$1998</p>
+                                  <p>${ptotal}</p>
                                   <p className="sprice">${shipgopay}</p>
-                                  <p>$100</p>
-                                  <p>$100</p>
+                                  <p>${ctotal}</p>
+                                  <p>${pointla}</p>
                               </div>
                           </div>
                           <div className="line"></div>
@@ -510,7 +603,7 @@ function Pay1(props){
                                   <h3>結帳金額</h3>
                               </div>
                               <div className="money">
-                                  <h3>$898</h3>
+                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</h3>
                               </div>
                           </div>
                              
@@ -518,10 +611,15 @@ function Pay1(props){
                               >
                                <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " onClick={complete}
+
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " 
+                              onClick={complete}
+                            // onClick={cardStep}
+
                               >結帳 </button>
                               </div>
-      
+                              
+                             
                       </div>
                   </div>
                  
@@ -543,10 +641,10 @@ function Pay1(props){
       
                               </div>
                               <div className="money">
-                                  <p>$1998</p>
-                                  <p>自取</p>
-                                  <p>$100</p>
-                                  <p>$100</p>
+                                  <p>${ptotal}</p>
+                                  <p className="sprice">${shipgopay}</p>
+                                  <p>${ctotal}</p>
+                                  <p>${pointla}</p>
       
       
                               </div>
@@ -557,17 +655,21 @@ function Pay1(props){
                                   <h3>結帳金額</h3>
                               </div>
                               <div>
-                                  <h3>$898</h3>
+                                  <h3>${ptotal + (Number(shipgopay)) - (Number(ctotal))- (Number(pointla))}</h3>
                               </div>
                           </div>
                           <div className="nextBtn" 
                               >
                                <button  className="btn btn-primary btn-lg btn-block pbtn" onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" onClick={complete}
+
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" 
+                              onClick={complete}
+                            
+
                               >結帳 </button>
                             </div>
-      
+                            
       
                       </div>
                   </div>
@@ -577,6 +679,9 @@ function Pay1(props){
         </div>
 
         </div>
+
+       
+         
 
      </>
   );

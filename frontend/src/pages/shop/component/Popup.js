@@ -8,7 +8,9 @@ import AddSweet from './AddSweet';
 
 function Popup(props){
    // 接收父層資料
+
    const {datas, productId,Alldatas, css ,setcss,setcarNum} = props;    
+
     //數量歸1  
     const[amount, setAmount]= useState(1)
     // const params=useParams();
@@ -43,7 +45,9 @@ function Popup(props){
         sCarts.push(sCart)
       }
       localStorage.setItem("sCarts", JSON.stringify(sCarts))
+
       setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
+
 
 
   }

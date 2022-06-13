@@ -56,7 +56,11 @@ import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
 
 import ShopKenya from './pages/shop/ShopKenya';
-
+import ShopBrazil from './pages/shop/ShopBrazil';
+import ShopColombia from './pages/shop/ShopColombia';
+import ShopEthiopia from './pages/shop/ShopEthiopia';
+import ShopGuatemala from './pages/shop/ShopGuatemala';
+import ShopOther from './pages/shop/ShopOther';
 
 
 
@@ -74,7 +78,6 @@ function App() {
 
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
-  
 
   // 獲取首頁輪播框高度
 
@@ -102,27 +105,40 @@ function App() {
       <Switch>
 
       {/* shop 部分 */}
-        <Route path="/shoppingCart/pay3">
-          <Pay3 auth={auth}/>
+
+        <Route path="/shoppingCart/pay3/:id">
+          <Pay3 auth={auth} />
         </Route> 
-        {/* <Route path="/shoppingCart/pay2">
-          <Pay2 />
-        </Route>  */}
+       
         <Route path="/shoppingCart">
           <Pay1 auth={auth} setcarNum={setcarNum}/>
         </Route>
         <Route path="/shop/ProductDetail/:id">
           <ProductDetail auth={auth} setcarNum={setcarNum}/>
         </Route>
-
-        <Route path="/shop/kenya">
-          <ShopKenya auth={auth}/>
+        <Route path="/shop/colombia">
+          <ShopColombia auth={auth} setcarNum={setcarNum}/>
         </Route>
+        <Route path="/shop/ethiopia">
+          <ShopEthiopia auth={auth} setcarNum={setcarNum}/>
+        </Route>
+        <Route path="/shop/guatemala">
+          <ShopGuatemala auth={auth} setcarNum={setcarNum}/>
+        </Route>
+        <Route path="/shop/brazil">
+          <ShopBrazil auth={auth} setcarNum={setcarNum}/>
+        </Route>
+        <Route path="/shop/other">
+          <ShopOther auth={auth} setcarNum={setcarNum}/>
+        </Route>
+        <Route path="/shop/kenya">
+          <ShopKenya auth={auth} setcarNum={setcarNum}/>
+        </Route>
+      
+
         
         <Route path="/shop">
           <ShopIndex auth={auth} setcarNum={setcarNum}/>
-        
-
         </Route>
               
         {/* 以下是會員頁面 */}
@@ -151,9 +167,11 @@ function App() {
           <MemberPoint auth={auth} dataCheck={dataCheck}/>
         </Route>
 
+
         <Route  path="/member/Favorite">
           <MemberFavorite auth={auth} dataCheck={dataCheck} setcarNum={setcarNum}/>
         </Route>
+
 
 
         <Route  path="/member/OrderList">
@@ -179,6 +197,7 @@ function App() {
         <Route  path="/member">
           <MemberLogin auth={auth} setAuth={setAuth} dataCheck={dataCheck} setDataCheck={setDataCheck} />
         </Route>
+
          {/* 以上是會員頁面 */}
 
 
@@ -206,6 +225,7 @@ function App() {
         <Route path="/favorite">
           <FavouritePage/>
         </Route>
+
 
       </Switch>
       <Footer/>

@@ -64,14 +64,25 @@
   border-radius: 5px;
   border: 1px solid #e4d2a3;
 }
-.dInput button {
+
+.pBtn {
   width: 2rem;
   height: 2rem;
   line-height: 1rem;
-  /* padding-top: 10px; */
+
   background: #e4d2a3;
   border: transparent;
   color: white;
+}
+
+.pBtn:hover {
+  width: 2rem;
+  height: 2rem;
+  line-height: 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #4c3410;
+  border: 1px solid #4c3410;
 }
 
 .countTotal {
@@ -111,7 +122,14 @@
 .addCart a :hover {
   background-color: #e4d2a3;
 }
-.packageImg {
+.infoBox {
+  width: 215px;
+  height: 215px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.packageImg1 {
   width: 100%;
 }
 .mPayInfoContent {
@@ -130,13 +148,7 @@
 .dText {
   margin-top: 2rem;
 }
-.btn1 {
-  /* margin-top: 1rem; */
-  border-radius: 5px;
-  color: white;
-  background-color: #4c3410;
-  border: 1px solid #4c3410;
-}
+
 .number {
   display: none;
 }
@@ -145,9 +157,60 @@
   background: none;
   color: #4c3410;
 }
-.payTwo,
-.payThree {
+.payTwo {
   display: none;
+}
+.payThree {
+  margin-bottom: 10rem;
+}
+.pCardPart {
+  margin-top: 2rem;
+}
+.finalBtn {
+  width: 25rem;
+  display: flex;
+  justify-content: flex-end;
+  margin: -2rem auto;
+}
+.showMoney {
+  width: 15rem;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+}
+
+.fbtn {
+  width: 25rem;
+  height: 3rem;
+  line-height: 1rem;
+  background: #e4d2a3;
+  border: transparent;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.fbtn:hover {
+  width: 25rem;
+  height: 3rem;
+  line-height: 1rem;
+  border-radius: 5px;
+  color: white;
+  border-radius: 10px;
+  background-color: #4c3410;
+}
+.CouponDetail {
+  width: 100%;
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #e4d2a3;
+  color: #4c3410;
+}
+.selText {
+  color: black;
+}
+body {
+  padding-right: 0 !important;
 }
 
 @media screen and (max-width: 800px) {
@@ -157,6 +220,12 @@
   .mPayInfoContent {
     display: flex;
     justify-content: center;
+  }
+  .deletBtn {
+    display: none;
+  }
+  .wedTotal {
+    display: none;
   }
   .check {
     display: flex;

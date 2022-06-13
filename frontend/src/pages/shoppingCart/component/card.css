@@ -1,0 +1,79 @@
+.jp-card .jp-card-back,
+.jp-card .jp-card-front {
+  background: #e4d2a3;
+}
+.jp-card-container {
+  perspective: 1000px;
+  width: 400px;
+  max-width: 100%;
+  height: 300px;
+  margin: auto;
+  z-index: 1;
+  position: relative;
+}
+.jp-card {
+  line-height: 2;
+}
+.jp-card .jp-card-front .jp-card-lower .jp-card-number {
+  font-size: 30px;
+}
+.jp-card .jp-card-front .jp-card-lower .jp-card-expiry {
+  font-size: 24px;
+}
+.jp-card.jp-card-visa.jp-card-identified .jp-card-back:before,
+.jp-card.jp-card-visa.jp-card-identified .jp-card-front:before {
+  /* background-color: #e4d2a3; */
+  width: 500px;
+}
+.cForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto;
+  /* margin-top: 30rem; */
+  width: 25rem;
+}
+
+.cForm input {
+  width: 25rem;
+  height: 2rem;
+}
+.jp-card-cvc.jp-card-display.invalid-input {
+  font-size: 20px;
+  width: 30px;
+}
+.jp-card .jp-card-back .jp-card-shiny,
+.jp-card .jp-card-front .jp-card-shiny {
+  width: 50px;
+  height: 35px;
+  border-radius: 5px;
+  background: transparent;
+  position: relative;
+}
+.jp-card-shiny {
+  height: 100px;
+}
+.jp-card .jp-card-back .jp-card-shiny,
+.jp-card .jp-card-front .jp-card-shiny {
+  background: transparent;
+  background-image: url('../img/好室咖啡 3.png');
+  width: 99px;
+  height: 89px;
+  background-repeat: no-repeat;
+  margin: -1rem;
+}
+.jp-card .jp-card-back .jp-card-shiny:before,
+.jp-card .jp-card-front .jp-card-shiny:before {
+  content: ' ';
+  display: block;
+  width: 70%;
+  height: 60%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: transparent;
+  position: absolute;
+  top: 20%;
+}
+.jp-card .jp-card-front .jp-card-lower .jp-card-number {
+  margin-bottom: 10px;
+}

@@ -42,9 +42,11 @@ CREATE TABLE `members_data`(
 );
 insert into `members_data`(`fk_member_id`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_address`,`member_photo`)
 value
+
 ('100001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥','Lewis_Hamilton.jpg'),
 ('100002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭','bottas.jpg'),
 ('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','Russell.jpg');
+
 
 
 
@@ -221,7 +223,6 @@ CREATE TABLE `orders`(
   foreign KEY (fk_member_id) references members(member_id)
 );
 ALTER TABLE `orders` AUTO_INCREMENT=210001;
-
 INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`)
 VALUES
 ('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨','',''),
@@ -324,6 +325,7 @@ VALUES
 ('嘉義垂楊店公休公告','2022/07/23');
 
 
+
 -- 首頁優惠券
 CREATE TABLE `home_coupon`(
   `CP_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -366,6 +368,53 @@ VALUES
 select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
 -- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
 
+
+
+-- 首頁優惠券
+CREATE TABLE `home_coupon`(
+  `CP_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `coupon_title` VARCHAR(50) NOT NULL,
+  `coupon_start_date` date NOT NULL,
+  `coupon_end_date`date NOT NULL,
+  `coupon_code` int NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
+INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
+VALUES
+('八五折優惠碼','2022/06/17','2022/06/18','15'),
+('九折優惠碼','2022/06/25','2022/06/30','10'),
+('八折優惠碼','2022/07/01','2022/07/05','20'),
+('七折優惠碼','2022/07/06','2022/07/10','30'),
+('七五折優惠碼','2022/07/11','2022/07/12','25'),
+('五折優惠碼','2022/07/13','2022/07/15','50'),
+('買一送一優惠碼','2022/10/05','2022/10/10','50'),
+('九五折優惠碼','2022/09/01','2022/09/30','5'),
+('八八折優惠碼','2022/08/01','2022/08/08','12');
+
+
+create table `member_con`(
+	`MC_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `fk_m_id` INT NOT NULL,
+    `fk_coupon_id`INT NOT NULL,
+    `state` varchar(50),
+    foreign KEY (fk_m_id) references members(member_id),
+    foreign KEY (fk_coupon_id) references home_coupon(CP_id)
+);
+ALTER TABLE `member_con` AUTO_INCREMENT=190001;
+insert into `member_con`(`fk_m_id`,`fk_coupon_id`,`state`)
+VALUES
+('100001','7001',"未使用"),
+('100001','7003',"未使用"),
+('100001','7005',"未使用"),
+('100001','7007',"未使用"),
+('100001','7009',"未使用");
+
+select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
+-- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
+
+select * from `member_con`
+join `home_coupon` on `member_con`.`fk_coupon_id`=`home_coupon`.`CP_id` where `fk_m_id`= 100001;
 
 
 -- drop table `home_coupon`;

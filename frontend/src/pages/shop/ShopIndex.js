@@ -11,7 +11,9 @@ import Popup from './component/Popup';
 function ShopIndex(props){
 
 //抓到點擊商品的id
+
 const{ auth ,setcarNum } =props
+
 
 const [productId, setProductId] = useState(2)
 console.log(productId)
@@ -94,15 +96,7 @@ const[amount, setAmount]= useState(1)
 
   return(
     <>
-     {/* {datas.map((pCard,i)=>{
-         console.log(pCard.id);
-         
-         const img1=(pCard.p_name);
-         const id='#'+(pCard.id); */}
-          
-        {/* return( */}
-          {/* <div key={pCard.id}> */}
-       
+    
                     <div class="mShop">
                         <p>商店</p>
                     </div>
@@ -130,7 +124,9 @@ const[amount, setAmount]= useState(1)
                                     <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}
                                     datasPMF={datasPMF}/>  
                                 </div>                                
+
                                 <Popup setcarNum={setcarNum} datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
+
                                
                             </main>
                         </div>

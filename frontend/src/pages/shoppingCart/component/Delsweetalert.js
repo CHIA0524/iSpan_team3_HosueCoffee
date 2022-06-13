@@ -5,6 +5,7 @@ import { useState } from 'react';
 function Delsweetalert(props){
   const {thisTT,i, price ,setPtotal,ptotal}=props;
   const datas1 = JSON.parse(localStorage.getItem('sCarts'))
+
   const [datasNEW, setdatasNEW] = useState(datas1)
   console.log(datasNEW)
   
@@ -36,6 +37,7 @@ removePinfo.fire({
             '刪除!',
             '商品已刪除.',
             'success'
+
             
             
             )
@@ -46,9 +48,9 @@ removePinfo.fire({
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
             setdatasNEW(datas222)
-            // setPtotal(ptotal-(price*thisTT));
-            setTimeout(() => window.location.reload(), 150);
-            // setTimeout(window.location.reload(),10000);
+
+          
+
           
 
     } else if (

@@ -13,6 +13,7 @@ const productsRouter = require('./routes/products');
 const homeRouter = require('./routes/home');
 const storeRouter = require('./routes/store');
 
+const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
 const homeRouter = require('./routes/home');
 
@@ -50,6 +51,7 @@ app.use('/test',testRouter);
 app.use('/store',storeRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
+app.use(`/morder`,mODRouter);
 
 app.use(`/morder`,mODRouter);
 
@@ -60,6 +62,8 @@ app.use('/menu',menuRouter);
 app.use('/home',homeRouter);
 
 
+//http://localhost:3001/shoporder
+app.use('/shoporder',shoporderRouter);
 
 //http://localhost:3001/shop
 app.use('/shop',shopRouter);

@@ -69,6 +69,7 @@ function ProductDetail(props){
       localStorage.setItem("sCarts", JSON.stringify(sCarts))
       setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
 
+
   }
  
   

@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 import { useState, useEffect, useCallback } from 'react';
 import '../pay1.css';
 import { VscChromeClose } from "react-icons/vsc";
@@ -36,7 +38,10 @@ useEffect(()=>{
     const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
     console.log(cartDetail)
     // 接收資料庫資料
+
     const {datas, setcarNum} = props 
+
+
     // 計算datas的長度
     const datamath=datas.length
     console.log(datamath)
@@ -57,6 +62,28 @@ useEffect(()=>{
             } 
         }
     }
+
+
+    useEffect(()=>{
+// 計算cartDetail的長度
+const cartDetailmath=cartDetail.length
+// 建立一個空陣列
+
+var shopCart=[];
+console.log(datas);
+for( let c=0; c<cartDetailmath; c++){
+for( let i=0; i<datamath; i++){     
+        
+        if(datas[i].p_id === cartDetail[c].id)
+        { 
+            var newdata = datas[i]  
+            var newarr = newdata
+            shopCart.push(newarr)
+        } 
+    }
+}
+    },[])
+
     
 return(
     <>
@@ -79,14 +106,18 @@ return(
         <div className="payInfoAll"  key={pinfo.id}>
             <div className="payInfo">
                 <div className="payInfoContent">
-                    <div className="col-2">
-                        <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
+
+                    <div className="col-2 infoBox">
+                        <img className="packageImg1"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
+
                         </img>
                     </div>
                     <div className="col-4 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
+
                     <Price update={update} price={price}  total={total}  setcarNum={setcarNum}
+
                         setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} cartDetail={cartDetail} setCartDetail={setCartDetail}
                     />
                    
@@ -96,7 +127,75 @@ return(
       {/* 手機版 */}
             <div className="mPayInfoContent">
                 <div className="box">
-                    <Link href="" onClick={Delsweetalert}><VscChromeClose size={20} productId={productId} thisTT={thisTT} price={price} ptotal={ptotal} setPtotal={setPtotal} i={i} /></Link>
+
+                    <Link href="" onClick={()=>{  
+                          
+                          const removePinfo = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+})
+removePinfo.fire({
+    title: '刪除',
+    text: "你確定要刪除嗎？",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: '是的，刪除!',
+    cancelButtonText: '取消!',
+    reverseButtons: true
+}).then((result) => {
+    if (result.isConfirmed) {
+      Swal.getConfirmButton(
+        removePinfo.fire(
+            '刪除!',
+            '商品已刪除.',
+            'success'
+            )
+        )
+        
+            // console.log("刪除前")
+            //alert(productId)
+            const data = JSON.parse(localStorage.getItem('sCarts'))
+
+            const newData = data.filter((v,i)=> v.id!==productId)
+            //console.log('newData',newData)
+            localStorage.setItem("sCarts", JSON.stringify(newData))
+            setCartDetail(newData)
+             //console.log('datasNEW',datasNEW)
+            setPtotal(ptotal-(price*thisTT));
+
+           // datasNEW.splice(i,1)
+
+            //const newDataNEW=[...datasNEW].splice(i,1)
+           // setdatasNEW(datasNEW)
+            // console.log("刪除後")
+           //  console.log('datasNEW',datasNEW)
+           // localStorage.setItem("sCarts", JSON.stringify(datasNEW))
+            // setTimeout(()=>{
+            //     const datas222 = JSON.parse(localStorage.getItem('sCarts'))
+            //     console.log('datas222',datas222)
+            //     setCartDetail(datas222)
+            // },1000)
+           
+            // setTimeout(() => window.location.reload(), 1500);
+        //    setTimeout(window.location.reload(),1000);
+          
+
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+        removePinfo.fire(
+        '取消',
+        '商品未刪除 :)',
+        'error'
+      )
+    }
+  })
+  }} ><VscChromeClose size={20} /></Link>
+
                     <div className="boxContent">
                         <div className="imgPart">
                         <img className="packageImg"  src={require('../img/'+ img1 +'.jpg')} alt="fake">   
@@ -108,7 +207,9 @@ return(
                         </div>
 
                         <Price update={update} price={price}  total={total} 
-                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} />    
+
+                        setPtotal={setPtotal} ptotal={ptotal} productId={productId} i={i} cartDetail={cartDetail} setCartDetail={setCartDetail} />    
+
                      
 
                     </div> 
