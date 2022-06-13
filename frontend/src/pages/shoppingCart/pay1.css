@@ -209,6 +209,9 @@
 .selText {
   color: black;
 }
+body {
+  padding-right: 0 !important;
+}
 
 @media screen and (max-width: 800px) {
   .numberDesk {

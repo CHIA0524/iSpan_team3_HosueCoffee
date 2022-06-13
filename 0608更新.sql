@@ -221,7 +221,7 @@ CREATE TABLE `orders`(
   foreign KEY (fk_member_id) references members(member_id)
 );
 ALTER TABLE `orders` AUTO_INCREMENT=210001;
-
+select*from orders;
 INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`)
 VALUES
 ('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨','',''),
@@ -366,7 +366,8 @@ VALUES
 select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
 -- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
 
-
+select * from `member_con`
+join `home_coupon` on `member_con`.`fk_coupon_id`=`home_coupon`.`CP_id` where `fk_m_id`= 100001;
 
 -- drop table `home_coupon`;
 

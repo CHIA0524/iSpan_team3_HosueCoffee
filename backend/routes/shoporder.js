@@ -127,10 +127,25 @@ router.route('/coupon')
       })
 
       router.get('/paydetail',async (req,res,next)=>{
-        //^寫入詳細訂單^
+        //^更改訂單狀態^
         const sql = `UPDATE orders SET order_condition=? WHERE o_id=?`
         const [datas] = await db.query(sql,[req.query.order_condition,req.query.o_id]);
         res.json(datas[0]);
+        
+      })
+
+      router.get('/getpoint',async (req,res,next)=>{
+        //^新增點數^
+        const sql = `select * from members WHERE member_id=?`
+        const [datas] = await db.query(sql,[req.query.member_id]);
+        res.json(datas[0].member_point);
+        
+      })
+      router.get('/Newpoint',async (req,res,next)=>{
+        //^新增點數^
+        const sql = `UPDATE members SET member_point=? WHERE member_id=?`
+        const [datas] = await db.query(sql,[req.query.member_point,req.query.member_id]);
+        res.json(datas);
         
       })
 

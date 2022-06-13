@@ -12,9 +12,9 @@ function CCard (props){
     setCardNum(e.target.value);
     }  
     // 驗證可能會出錯 先取消
-  const date=(e)=>{
-    setCDate(e.target.value);
-    }  
+  // const date=(e)=>{
+  //   setCDate(e.target.value);
+  //   }  
   const ccvc=(e)=>{
     setCvc(e.target.value);
     } 
@@ -68,7 +68,8 @@ function CCard (props){
     <br/>
     <input placeholder="CARD NUMBER" type="text" name="CCnumber" value={cardNum} onChange={cnum}  />
     <br/>
-    <input placeholder="MM/YY" type="text" name="CCexpiry" value={cDate} 
+    <input placeholder="MM/YY" type="text" name="CCexpiry" 
+    // value={cDate} 
     // onChange={date}   
     />
     <br/>

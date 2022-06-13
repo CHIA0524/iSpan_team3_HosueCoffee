@@ -98,7 +98,7 @@ removePinfo.fire({
             localStorage.setItem("sCarts", JSON.stringify(newData))
             setCartDetail(newData)
              //console.log('datasNEW',datasNEW)
-            //setPtotal(ptotal-(price*thisTT));
+            setPtotal(ptotal-(price*thisTT));
 
            // datasNEW.splice(i,1)
 
