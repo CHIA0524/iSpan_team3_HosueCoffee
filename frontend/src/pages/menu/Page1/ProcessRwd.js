@@ -1,8 +1,6 @@
 import React from 'react';
 
 const ProcessRwd = () => (
-
-
         <div className="process pt-2 processRWD">
             <div>
                 <span className="processInBoxColor">確認商品</span>
@@ -16,9 +14,5 @@ const ProcessRwd = () => (
                 <span>完成結帳</span>
             </div>
         </div>
-
-
-);
-
-
+)
 export default ProcessRwd

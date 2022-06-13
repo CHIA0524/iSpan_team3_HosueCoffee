@@ -5,8 +5,6 @@ import ProcessBoxDark from '../component/ProcessBoxDark';
 
 
 const Process = () => (
-    
-
     <div className="process">
         <div className="processIn row">
             <ProcessBoxBright name="確認商品" number="1"/>
@@ -16,10 +14,7 @@ const Process = () => (
             <ProcessBoxDark name="完成結帳" number="3"/>
         </div>
     </div>
-
-);
-
-
-    export default Process
+)
+export default Process
 
 

@@ -5,7 +5,7 @@ const db = require('../modules/mysql_config');
 const upload = multer();
 
 /* GET users listing. */
-
+//GET　http://localhost:3001/menu
 
 router.route('/')
 .get(async (req,res,next)=>{

@@ -98,7 +98,7 @@ function Navbar (props){
     });
   },[]);
 
-  
+  const datas1 = JSON.parse(localStorage.getItem('favourite'))
 
   return (
     <header className="App-header">
@@ -167,7 +167,7 @@ function Navbar (props){
           <li className="logo"><Link to="/"><img src={logo} alt="logo"></img></Link></li>
         </div>
         <div>
-          <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          <li className="mobileNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn" >{">> Order Online"}</button></Link></li>
 
           <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
           {carNum?<div className='redC'></div>:<></>}

@@ -14,7 +14,7 @@ const Promo = () => (
             </div>
         </div>
         <div  className="Promo">
-            <div  className="PromoBody">
+            {/* <div  className="PromoBody">
                 <p>紅利點數使用</p>
                 <div  className="d-flex">
                     <p>可折扣點數:</p>
@@ -23,7 +23,7 @@ const Promo = () => (
                     <p>30點</p>
                 </div>
                 <CheckButton/>
-            </div>
+            </div> */}
         </div>
     </div>
 
