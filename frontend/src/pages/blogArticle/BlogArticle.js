@@ -11,11 +11,6 @@ import './articleBanner.css';
 
 
 
-//imgs
-import facebookImg from './img/share btn fb.svg'
-import lineImg from './img/share btn line.svg'
-import instagramImg from './img/share btn ig.svg'
-
 
 function BlogArticle(props){
 
@@ -53,12 +48,11 @@ function BlogArticle(props){
   
   return(
        <>
-     
-          <section className="articleSection" >
+      
             <div className="articleBanner" alt="ArticleBanner">
-            
-            <img className='articleImg00' src={require("./img/"+firstImg+".jpg")} alt=''></img>
+              <img className='articleImg00' src={require("./img/"+firstImg+".jpg")} alt=''></img>
             </div>
+
             <div className="container articleContainer ">
               <div className="row articleRow"> 
                 
@@ -104,11 +98,12 @@ function BlogArticle(props){
                 </div>   
               </div>
             
-          </section>
-  
-  
 
-        )
+  
+              <div className="citeSrc">此網頁來自《iDrip》網站 https://www.idrip.coffee
+              </div>
+  
+        
 
       </>
     )

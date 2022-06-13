@@ -37,7 +37,7 @@ function ArticleRecommend(props){
     <>
      <div className="articleRecommend ">
           
-            <div
+            <div className="articleRecommendKit "
               style={{
                 width: width + "em",
                 display: display ? "block" : "none"

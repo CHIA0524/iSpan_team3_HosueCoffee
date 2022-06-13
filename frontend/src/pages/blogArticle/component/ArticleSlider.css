@@ -1,9 +1,59 @@
+
+
+
+.articleRecommendKit{
+    margin-bottom: 13rem;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 1100px) {
+
+
+
+}
+
+
+
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+    
+    position: absolute;
+    top: 50%;
+    
+    display: block;
+    
+    width: 20px;
+    height: 20px;
+    padding-bottom: 4rem;
+    
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    
+    cursor: pointer;
+    
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+
 .slick-prev:before,
 .slick-next:before
 {
     color: #E4D2A3;
 }
 
+
+
+/* dots */
 .slick-dots
 {
     position: absolute;
@@ -13,9 +63,25 @@
 
     width: 100%;
     padding: 0;
-    
-  
+    margin: -1rem 0;
+
+
     list-style: none;
 
     text-align: center;
 }
+
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+

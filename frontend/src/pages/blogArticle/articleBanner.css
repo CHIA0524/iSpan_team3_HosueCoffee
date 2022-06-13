@@ -1,15 +1,20 @@
-.articleSection{
+
+.articleBanner{
     margin-top: -3rem;
-    
+    width:100% ;
+    height: 25rem;
+    display: flex;
+    overflow: hidden;
 }
 
 .articleImg00{
-    position:relative;
-    width:100% ;
-    height: 25rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    object-fit: cover;
 }
 
 
@@ -71,7 +76,7 @@
 
 
 .articleCardImg{
-    width: 70%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -123,7 +128,7 @@
 }
 
 
-/* 文章的相關推薦CSS */
+/* 文章內容 相關推薦CSS */
 .articleRecommendWord{
     display: flex;
     font-size: 2.8rem;
@@ -169,12 +174,20 @@
 
 
 
-
-
-
-
-
 /* 行動裝置版RWD     */
+
+@media screen and (max-width: 1000px) {
+
+
+    .articleRecommendWrapper{
+    padding: auto;
+    }
+
+
+
+
+}
+
 @media screen and (max-width: 800px) {
     .makeLinkDown{
         display: flex;
@@ -193,7 +206,7 @@
 
 
     .blogArticle p{
-    font-size: 18px;
+    font-size: 1rem;
     }
     
   
@@ -207,17 +220,14 @@
 
  
 
-  /*隱藏recommendCard */
-    .articleRecHidden{
-    max-height: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 6.7rem;
-    z-index: 100;
-    transition: all 2.5s;
+   
+
+    .articleRecommendWrapper{
+        /* padding: 0.5%; */
     }
+
+
+
 }
 
 @media screen and (max-width: 400px) {
@@ -229,4 +239,15 @@
   .articleTitle{
       font-size: 28px;
   }
-  }
+  
+}
+
+
+
+
+  .citeSrc{
+    display: flex;
+    flex-direction:row-reverse;
+    font-size: 10%;
+    color: #E4D2A3;
+    }

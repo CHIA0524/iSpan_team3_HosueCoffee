@@ -13,13 +13,12 @@
     
   }
   .blogCol{
-    
     margin-bottom: 2rem;
     
   }
 
   
-  .blogBannerWord a h2{
+  .blogBannerWord h2{
     position: relative;
     text-align: center;
     height:4rem;
@@ -34,8 +33,8 @@
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
-  .blogBannerWord a:hover h2{
-  color: #EDE1C1;
+  .blogBannerWord h2:hover a{
+    color: #EDE1C1;
   }
 
 
@@ -86,18 +85,15 @@
 
 
 /* blogCard文章卡片 */
-
 .blogCardZone{
-  /* background-color: aqua; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  /* margin: 2rem; */
 }
 
+
 .blogRow{
-  /* margin:1rem; */
   padding: 1rem;
 
 }
@@ -130,6 +126,8 @@
 .blogCardImg{
   width: 100%;
   height: auto;
+  margin: 0 auto;
+  padding: 7%;
 }
 
 .blogCardText, .blogCardInfo{
@@ -171,34 +169,18 @@
   text-decoration: none;
 }
 
+.blogCardInfo a:hover{
+  text-decoration: none;
+  color: #EDE1C1;
+ }
 
-
-
-/* 行動裝置RWD */
-/* @media screen and (max-width: 1200px) {
-
-  .blogCardText {
-    margin-top:0.8rem ;
-    line-height:30px;
-
-  }
-  
-
-} */
 
 
 @media screen and (max-width: 1000px) {
 
   .blogBanner{
     height:400px;
-}
-
-  /* .blogCardText {
-    margin-top:0.6rem ;
-    line-height:30px;
-
-  } */
-
+  }
 
 
 }
@@ -211,8 +193,6 @@
 
   .blogBanner{
     height:300px;
-   
-    
 }
 
 
@@ -244,9 +224,13 @@
     border: 1px solid #e4d2a3;
     color: #4c3410;
   
+    
+    
+  } 
   
-} 
-
+  .blogCardImg{
+   padding: 0;
+  }
 
 
 
@@ -273,7 +257,7 @@
     height:150px;
    
     
-}
+  }
 }
 
 
