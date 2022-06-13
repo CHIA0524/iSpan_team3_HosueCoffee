@@ -15,6 +15,7 @@ function MemberOrder(props){
     const thiso_id=params.id
     const [datas,setDatas] = useState([])
     const [alltotalpay,setAlltotalpay] = useState(0)
+    const [state,setState]=useState([])
     
     if(!auth){
       window.location.replace("http://localhost:3000/member")
@@ -27,6 +28,11 @@ function MemberOrder(props){
         const response = await fetch(`${process.env.REACT_APP_API_URL}/morder?o_id=${thiso_id}`)
         const results=await response.json();
         setDatas(results); 
+        if(results[0].order_condition=="未付款"){
+            setState("");
+        }else{
+            setState("1");
+        }
     }
     console.log(datas)
     useEffect(()=>{
@@ -50,6 +56,7 @@ function MemberOrder(props){
         }else{
             var shipmentPay=80
         }
+        
     return(
         <>
         <MemberBack/>
@@ -68,10 +75,14 @@ function MemberOrder(props){
                     <div className="col-1 col-3None"></div>
                     <div className="col">
                         <h4 className="col-3None gopay">{order_condition}</h4> 
-                        <button className="coffeeLightBtn gopay" 
+                        {state?<></>:<button className="coffeeLightBtn gopay gopayBTN" 
                             onClick={()=>{
-                              document.querySelector('.QApopupWrap').style.display="block"
-                            }}>前往付款</button>
+                                const p3="http://localhost:3000/shoppingCart/pay3/"+thiso_id
+
+                                window.location.replace(p3)
+                             
+                            }}>前往付款</button>}
+                        
                         <div className="row memNo col-3None">
                             <div className="col-2 ">
                                 <p>訂單編號:</p>

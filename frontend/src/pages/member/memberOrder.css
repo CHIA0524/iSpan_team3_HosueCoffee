@@ -12,6 +12,11 @@
 }
 .gopay{
   display: inline-block;
+  margin-bottom: 1rem;
+}
+.gopayBTN{
+  margin-left: 2rem;
+  /* display: none; */
 }
 
 .wn_TTM {
