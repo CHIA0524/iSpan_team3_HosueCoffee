@@ -5,7 +5,9 @@ body {
     background-size: contain;
     background-position: right;
 }
-
+.LinkgoPD{
+    display: block;
+}
 /* .scrollDiv::-webkit-scrollbar,
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb,

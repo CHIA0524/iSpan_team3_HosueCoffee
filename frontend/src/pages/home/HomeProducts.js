@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 import CoffeeBagBlack from './image/CoffeeBagBlack.png';
@@ -9,6 +11,8 @@ import CoffeeBagPink from './image/CoffeeBagPink.png';
 import CoffeeBagPurple from './image/CoffeeBagPurple.png';
 
 function homeProducts(props) {
+    
+
 
     // 網頁版scrollTo
     const productsimg1 = () => {
@@ -43,9 +47,9 @@ function homeProducts(props) {
     const productsBTN05 = () => {
         document.querySelector('#scrollDiv1').scrollTo(1434, 0);
     }
+ 
 
-
-
+    
     return (
         <div className="product">
             <div className="allProduct" data-aos="fade-up">
@@ -53,7 +57,10 @@ function homeProducts(props) {
                 <div className="scrollDiv" id='scrollDiv1'>
                     <div className="productscroll" id='scrollProduct1' data-aos="fade-down"
                         data-aos-easing="linear"
-                        data-aos-duration="1500">
+                        data-aos-duration="1500"
+                        onClick={()=>{
+                            window.location.replace("http://localhost:3000/shop/ProductDetail/200001")
+                        }}>
                         <img className="scrollProduct1" src={CoffeeBagBlack} alt="" />
                         <div className="productdetail">
                             <h5>肯亞AA TOP＄499</h5>
@@ -62,7 +69,10 @@ function homeProducts(props) {
                             </p>
                         </div>
                     </div>
-                    <div className="productscroll">
+                    <div className="productscroll"
+                    onClick={()=>{
+                            window.location.replace("http://localhost:3000/shop/ProductDetail/200005")
+                        }}>
                         <img className="scrollProduct1" src={CoffeeBagPurple} alt="" />
                         <div className="productdetail">
                         <h5>曼巴＄300</h5>
@@ -71,7 +81,10 @@ function homeProducts(props) {
                             </p>
                         </div>
                     </div>
-                    <div className="productscroll">
+
+                    <div className="productscroll" onClick={()=>{
+                            window.location.replace("http://localhost:3000/shop/ProductDetail/200003")
+                        }}>
                         <img className="scrollProduct1" src={CoffeeBagPink} alt="" />
                         <div className="productdetail">
                             <h5>瓜地馬拉花神＄400</h5>
@@ -80,7 +93,9 @@ function homeProducts(props) {
                             </p>
                         </div>
                     </div>
-                    <div className="productscroll">
+                    <div className="productscroll" onClick={()=>{
+                            window.location.replace("http://localhost:3000/shop/ProductDetail/200002")
+                        }}>
                         <img className="scrollProduct1" src={CoffeeBagWhite} alt="" />
                         <div className="productdetail">
                             <h5>耶加雪菲＄380</h5>
@@ -89,7 +104,9 @@ function homeProducts(props) {
                             </p>
                         </div>
                     </div>
-                    <div className="productscroll">
+                    <div className="productscroll" onClick={()=>{
+                            window.location.replace("http://localhost:3000/shop/ProductDetail/200004")
+                        }}>
                         <img className="scrollProduct1" src={CoffeeBagYellow} alt="" />
                         <div className="productdetail">
                             <h5>模範生＄420</h5>
@@ -99,7 +116,7 @@ function homeProducts(props) {
                         </div>
                     </div>
                 </div>
-
+                
                 <div className="productSel">
 
                     <div onClick={productsimg1} className="product1" data-aos="fade-zoom-in">

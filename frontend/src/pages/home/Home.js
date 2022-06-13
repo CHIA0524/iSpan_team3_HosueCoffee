@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { useEffect } from 'react';
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for 
@@ -22,7 +23,9 @@ import HomeTopBTN from './HomeTopBTN';
 
 function Home(props) {
     AOS.init();
-
+    const nowpage = window.location.href;
+    useEffect(()=>{
+         },[nowpage])
     return (
         <Router>
 

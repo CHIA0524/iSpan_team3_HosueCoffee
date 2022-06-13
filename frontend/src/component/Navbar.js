@@ -21,7 +21,7 @@ function Navbar (props){
     if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
-  console.log(carNum);  
+  // console.log(carNum);  
   const loginOUT=()=>{
     // localStorage.clear();
     localStorage.removeItem("dataCheck")
