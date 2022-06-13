@@ -7,21 +7,40 @@ import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
 import { BiCoffee } from "react-icons/bi";
 
-const MenuIndex = () => {
+const FavouritePage = () => {
         // 抓到點擊菜單品項的id
         const [drinkId, setdrinkId] = useState(2)
         //控制POPUP的CSS
         const [css,setcss] = useState()
         //從後端抓資料
-        const [datas, setDatas ] = useState([])
+        const [datas, setDatas] = useState([])
         const fetchData = async()=>{
-                            const response = await fetch('http://localhost:3002/menu');
-                            const results = await response.json();         
-                                            setDatas(results);
+            const response = await fetch('http://localhost:3002/menu');
+            const results = await response.json();         
+            setDatas(results);
         }
-        useEffect(()=>{fetchData();},[])
+        useEffect(()=>{fetchData();
+        },[])
         const datas1 = JSON.parse(localStorage.getItem('gifts'))
-
+        const favlocaldata = JSON.parse(localStorage.getItem('favourite'))
+        console.log('favlocaldata',favlocaldata);
+        console.log('datas',datas);
+        
+        // for(let i=0;i<favlocaldata.length;i++){
+        //      if(favlocaldata[i].menuId === datas[i].id){
+        //         console.log('123');
+        //      }
+        // }
+        if(datas.length>0){
+            let favdatas = []
+            for(let i=0;i<favlocaldata.length;i++){
+                for(let a=0;a<datas.length;a++){
+                if(favlocaldata[i].menuid === datas[a].id){
+                    favdatas.push(datas[a])
+                }
+            } 
+        }
+        
         return( 
             <>   
                 <div className="bodyMenu">
@@ -32,6 +51,7 @@ const MenuIndex = () => {
                                 datas={datas}
                                 setdrinkId={setdrinkId}
                                 setcss={setcss}
+                                favdatas={favdatas}
                             />
                             <MenuCardRwd 
                                 datas={datas}
@@ -60,6 +80,7 @@ const MenuIndex = () => {
                 </div>
             </>   
         )
+    }
 }       
 
-export default MenuIndex
+export default FavouritePage
