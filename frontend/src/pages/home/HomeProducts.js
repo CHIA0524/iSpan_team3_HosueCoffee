@@ -32,13 +32,13 @@ function homeProducts(props) {
         document.querySelector('#scrollDiv1').scrollTo(10, 0);
     }
     const productsBTN02 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(365, 0);
+        document.querySelector('#scrollDiv1').scrollTo(282, 0);
     }
     const productsBTN03 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(718, 0);
+        document.querySelector('#scrollDiv1').scrollTo(550, 0);
     }
     const productsBTN04 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(1071, 0);
+        document.querySelector('#scrollDiv1').scrollTo(820, 0);
     }
     const productsBTN05 = () => {
         document.querySelector('#scrollDiv1').scrollTo(1434, 0);
@@ -48,10 +48,12 @@ function homeProducts(props) {
 
     return (
         <div className="product">
-            <div className="allProduct">
+            <div className="allProduct" data-aos="fade-up">
                 <h1>FLAGSHIP PRODUCTS</h1>
                 <div className="scrollDiv" id='scrollDiv1'>
-                    <div className="productscroll" id='scrollProduct1'>
+                    <div className="productscroll" id='scrollProduct1' data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1500">
                         <img className="scrollProduct1" src={CoffeeBagPink} alt="" />
                         <div className="productdetail">
                             <h5>肯亞AA TOP＄499</h5>
@@ -100,19 +102,19 @@ function homeProducts(props) {
 
                 <div className="productSel">
 
-                    <div onClick={productsimg1} className="product1">
+                    <div onClick={productsimg1} className="product1" data-aos="fade-zoom-in">
                         <img src={CoffeeBagPink} alt="" />
                     </div>
-                    <div onClick={productsimg2} className="product2">
+                    <div onClick={productsimg2} className="product2" data-aos="fade-zoom-in-down">
                         <img src={CoffeeBagYellow} alt="" />
                     </div>
-                    <div onClick={productsimg3} className="product3">
+                    <div onClick={productsimg3} className="product3" data-aos="fade-zoom-in">
                         <img src={CoffeeBagGreen} alt="" />
                     </div>
-                    <div onClick={productsimg4} className="product4">
+                    <div onClick={productsimg4} className="product4" data-aos="fade-zoom-in-down">
                         <img src={CoffeeBagBlue} alt="" />
                     </div>
-                    <div onClick={productsimg5} className="product5">
+                    <div onClick={productsimg5} className="product5" data-aos="fade-zoom-in">
                         <img src={CoffeeBagPurple} alt="" />
                     </div>
                 </div>

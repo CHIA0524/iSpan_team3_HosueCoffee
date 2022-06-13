@@ -85,7 +85,6 @@ router.get('/changePassword',async (req,res,next)=>{
   res.json(datas[0]);
 })
 
-//----收藏商品----
 router.get('/Favfavorite',async (req,res,next)=>{
   //^搜尋本帳號收藏的商品用收藏日期排列^
   const sql = `select * from member_favorite join products on products.p_id = member_favorite.fk_p_id where fk_m_id=? order by MF_id desc`

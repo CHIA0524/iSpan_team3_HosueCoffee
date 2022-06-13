@@ -18,8 +18,10 @@
     "multer": "^1.4.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+
     "react-multi-carousel": "^2.8.0",
     "sdk": "^0.5.0"
+
 
   },
   "devDependencies": {

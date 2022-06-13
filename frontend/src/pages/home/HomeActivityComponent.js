@@ -39,7 +39,8 @@ function HomeActivityComponent() {
 
     return (
         <>
-         <div className="activity">
+         <div className="activity" data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-duration="1000">
                 <h1>ACTIVITY</h1>
         {datas.length> 0 && datas.map((coupon,i)=>{
                 const{CP_id,coupon_title,coupon_start_date,coupon_end_date}=coupon;

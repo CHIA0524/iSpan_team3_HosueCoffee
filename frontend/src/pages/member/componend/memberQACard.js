@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { AiFillEye } from "react-icons/ai";
 function MemberQACard(props){
     const [datas,setDatas] = useState([])
-    const thismemberid=localStorage.getItem(true)
+    const thismemberid=localStorage.getItem("true")
     const fetchData=async()=>{
+
         const response = await fetch(`${process.env.REACT_APP_API_URL}/test?fk_member_id=${thismemberid}`)
         const results=await response.json();
         setDatas(results);

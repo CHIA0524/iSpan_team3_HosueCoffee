@@ -24,7 +24,7 @@ function HomeBanner(props){
         <div id="carouselExampleControls" className="codeinfo__carousel carousel slide"data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={banner01} className="codeinfo__img d-block w-100" alt="..." />
+                    <img src={banner01} className="codeinfo__img d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
                         <img src={banner02} className="codeinfo__img d-block w-100" alt="..." />
