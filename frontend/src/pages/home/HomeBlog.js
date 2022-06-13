@@ -7,7 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 function homeBlog(){
     return(
-        <div className="blog" data-aos="fade-down" data-aos-duration="2000">
+        <div className="homeBlog" data-aos="fade-down" data-aos-duration="2000">
                 <h1>TODAY’S ARTICLE</h1>
                 <div className="allCard" >
                     <div className="cardBorder">

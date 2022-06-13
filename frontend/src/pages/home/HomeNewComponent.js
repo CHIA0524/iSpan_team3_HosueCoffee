@@ -4,30 +4,24 @@ import { useState, useEffect } from 'react';
 
 
 function HomeNewComponent() {
+    const [datas,setDatas] = useState([])
 
     return (
         <>
          <div className="new" data-aos="fade-up"
      data-aos-anchor-placement="top-center" data-aos-duration="1000">
                 <h1>NEWS</h1>
+                {datas.length> 0 && datas.map((news,i)=>{
+                const{news_title,news_content}=news;
+
+                return(
                 <div className="allNew">
                     <div className="new1 row">
-                        <h5 className="col">嘉義店公休公告</h5>
-                        <h5 className="newTime col">2022/06/17</h5>
-                    </div>
-                    <div className="new1 row">
-                        <h5 className="col">台南店公休公告</h5>
-                        <h5 className="newTime col">2022/06/17</h5>
-                    </div>
-                    <div className="new1 row">
-                        <h5 className="col">高雄店公休公告</h5>
-                        <h5 className="newTime col">2022/06/17</h5>
-                    </div>
-                    <div className="new1 row">
-                        <h5 className="col">高雄店公休公告</h5>
-                        <h5 className="newTime col">2022/06/17</h5>
+                        <h5 className="col">{news_title}</h5>
+                        <h5 className="newTime col">{news_content}</h5>
                     </div>
                 </div>
+                )})}
             </div>
     </>
     )

@@ -6,6 +6,13 @@ const upload = multer();
 
 //GET　http://localhost:3001/home
 
+router.route('/news')
+    .get(async (req, res, next) => {
+        const sql =
+            "SELECT * FROM `home_news` where `created_time` >= now() order by rand() limit 3";
+        const [datas] = await db.query(sql);
+        res.json(datas);
+    })
 router.route('/coupon')
     .get(async (req, res, next) => {
         const sql =

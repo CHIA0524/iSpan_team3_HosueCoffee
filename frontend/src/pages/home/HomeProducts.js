@@ -32,13 +32,13 @@ function homeProducts(props) {
         document.querySelector('#scrollDiv1').scrollTo(10, 0);
     }
     const productsBTN02 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(365, 0);
+        document.querySelector('#scrollDiv1').scrollTo(282, 0);
     }
     const productsBTN03 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(718, 0);
+        document.querySelector('#scrollDiv1').scrollTo(550, 0);
     }
     const productsBTN04 = () => {
-        document.querySelector('#scrollDiv1').scrollTo(1071, 0);
+        document.querySelector('#scrollDiv1').scrollTo(820, 0);
     }
     const productsBTN05 = () => {
         document.querySelector('#scrollDiv1').scrollTo(1434, 0);

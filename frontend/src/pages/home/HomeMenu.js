@@ -2,33 +2,31 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
-import menu03 from './image/menu03.jpeg';
-import menu02 from './image/menu02.jpeg';
-import menu01 from './image/menu01.jpeg';
+import menu03 from './image/menu03.png';
+import menu02 from './image/menu02.png';
+import menu01 from './image/menu01.png';
+import menuHover03 from './image/home menu hover03.png';
+import menuHover02 from './image/home menu hover02.png';
+import menuHover01 from './image/home menu hover01.png';
 
 function homeMenu(props) {
     return (
-        <div className="menu" data-aos="fade-up" data-aos-easing="linear"
+        <div className="homeMenu" data-aos="fade-up" data-aos-easing="linear"
         data-aos-duration="1500">
             <h1>MENU</h1>
-            <div className="allMenu">
+            <div className="allMenu" data-aos="fade-up" data-aos-easing="linear"
+        data-aos-duration="1500">
                 <div className="menuHover">
-                    <div className="menuCard">
-                        <p>Americano</p>
-                    </div>
-                    <img src={menu03} alt="" />
+                    <img className='menuImg' src={menu01} alt="" />
+                    <img className='menuHoverImg' src={menuHover01} alt="" />
                 </div>
                 <div className="menuHover">
-                    <div className="menuCard">
-                        <p>Cappuccino</p>
-                    </div>
-                    <img src={menu02} alt="" />
+                    <img className='menuImg' src={menu02} alt="" />
+                    <img className='menuHoverImg' src={menuHover02} alt="" />
                 </div>
                 <div className="menuHover">
-                    <div className="menuCard">
-                        <p>Macchiato</p>
-                    </div>
-                    <img src={menu01} alt="" />
+                    <img className='menuImg' src={menu03} alt="" />
+                    <img className='menuHoverImg' src={menuHover03} alt="" />
                 </div>
             </div>
         </div>

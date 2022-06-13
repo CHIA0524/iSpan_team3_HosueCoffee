@@ -60,7 +60,7 @@ body {
 /* -------------------- */
 
 /* menu */
-.menu {
+.homeMenu {
     width: 100%;
     padding: 50px;
     text-align: center;
@@ -70,7 +70,7 @@ body {
     margin-bottom: 50px;
 }
 
-.menu h1 {
+.homeMenu h1 {
     line-height: 30px;
     margin: 30px;
     color: #E4D2A3;
@@ -85,47 +85,36 @@ body {
     flex-flow: row wrap;
     align-items: center;
     padding: 30px;
+    padding-top: 0;
 }
 
 .menuHover {
-    transition: .8s;
-    opacity: .9;
+    width: 20%;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    margin: 50px 30px;
     cursor: pointer;
 }
 
-.menuHover:hover {
-    transform: scale(1.1);
-    opacity: 1;
+.menuImg{
+    opacity: 80%;
 }
 
-.allMenu img {
-    width: 250px;
-    border-bottom: 1px white solid;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+.menuHover .menuHoverImg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: 3s;
 }
 
-
-.menuCard {
-    width: 250px;
-    background: #E4D2A3;
-    border-radius: 15px 15px 0 0;
-    padding: 50px;
-    line-height: 10px;
-    letter-spacing: 3px;
+.menuHover:hover .menuHoverImg {
+    display: flex;
+    z-index: 2;
+    transition: 1s;
 }
-
-.menuCard p {
-    width: 90%;
-    font-size: medium;
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1px;
-    color: #fff;
-    font-family: "Comfortaa", "Microsoft JhengHei";
-}
-
 /* ------------------- */
 
 /* flagship products */
@@ -167,6 +156,7 @@ body {
     flex-grow: 1 100px;
     flex-flow: row wrap;
     display: flex;
+    cursor: pointer;
 }
 
 .productscroll {
@@ -317,7 +307,7 @@ body {
 /* store */
 .store {
     width: 50%;
-    height: 200px;
+    height: 50%;
     padding: 30px;
     margin: 0px auto;
     margin-bottom: 20px;
@@ -348,6 +338,7 @@ body {
     border: #E4D2A3;
     color: #E4D2A3;
     background: #fff;
+    margin: 0 auto;
 }
 
 #city,
@@ -1042,7 +1033,7 @@ body {
     }
 
     .allCard {
-        width: 100％;
+        width: 100％ !important;
         margin: 0px auto;
         display: inline-block;
         text-align: center;
@@ -1056,7 +1047,7 @@ body {
     }
 
     .cardBorder {
-        width: 60%;
+        width: 60% !important;
     }
 
     .cardImg img {
@@ -1255,41 +1246,40 @@ body {
     /* -------------------- */
 
     /* menu */
-    .menu {
+    .homeMenu {
         padding: 30px 0;
         justify-content: center;
     }
 
-    .menu h1 {
+    .homeMenu h1 {
         margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 40px;
     }
 
     .allMenu {
         width: 100%;
-        margin: 0 auto;
-        padding: 20px 0;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 0;
+    }
+
+    .menuHover {
+        width: 20%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .allMenu img {
-        width: 100px;
-        height: auto;
-
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
-    .menuCard {
-        width: 100px;
-        height: 60px;
-        border-radius: 10px 10px 0 0;
-        padding: 25px 0;
-        justify-content: center;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .menuCard p {
-        font-size: 12px;
-        margin: 0 auto;
-    }
 
     /* ------------------- */
 
@@ -1361,23 +1351,26 @@ body {
     /* ------------------ */
 
     /* TODAY’S ARTICLE */
-    .blog {
+    .homeBlog {
+        width: 100%;
         margin-top: 10px;
 
     }
 
-    .blog h1 {
+    .homeBlog h1 {
         padding: 30px;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .allCard {
         width: 100％;
-        margin: 0px auto;
-        display: inline-block;
+        margin: 0 auto;
+        display: flex;
         text-align: center;
         justify-content: center;
         flex-flow: column;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .allCard .cardBorder:not(:first-child) {
@@ -1386,6 +1379,7 @@ body {
 
     .cardBorder {
         width: 100%;
+        margin: 0 50px;
     }
 
     .cardImg img {
@@ -1393,19 +1387,21 @@ body {
     }
 
     .cardImg,
-    .cardText,.cardText h3,
+    .cardText,
     .cardInfo {
         width: 90%;
         margin: 0 auto;
         text-align: center !important;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .cardInfo {
+        padding: 10px;
         padding-bottom: 20px;
     }
 
     .cardInfo a {
+    
         text-decoration: none;
     }
 
@@ -1414,11 +1410,12 @@ body {
     /* store */
     .store {
         height: auto;
-        padding: 50px 0;
+        padding: 80px 0;
+        margin: 0;
     }
 
     .store h1 {
-        padding: 0 0 30px 0;
+        padding: 0 0 10px 0;
     }
 
     .allStore {
@@ -1427,6 +1424,11 @@ body {
         align-items: center;
         flex-flow: column;
         padding: 0 20px;
+        margin: 0 auto;
+    }
+
+    .allStore form {
+        padding: 0;
     }
 
     #city,
@@ -1434,10 +1436,6 @@ body {
         justify-content: center;
         margin: 10px 0;
 
-    }
-
-    #storeBtn {
-        margin: 10px 0;
     }
 
     /* ------------------ */
@@ -1466,7 +1464,7 @@ body {
     }
 
     .new1 {
-        margin: 10px;
+        margin: 5px;
         text-align: center;
         flex-grow: 1 100px;
         flex-flow: column wrap;
@@ -1476,6 +1474,7 @@ body {
     .new1 .newTime {
         text-align: center;
         margin-top: 5px;
+        padding: 0;
     }
 
     .new1 h5 {
