@@ -5,6 +5,19 @@ import { useState, useEffect } from 'react';
 
 function HomeNewComponent() {
     const [datas,setDatas] = useState([])
+    const fetchData=async()=>{
+        // console.log(process.env.REACT_APP_API_URL);
+        const response = await fetch('http://localhost:3001/home/news')
+        const results=await response.json();
+        setDatas(results);
+    
+        
+       
+    }
+  
+    useEffect(()=>{
+        fetchData();
+    },[])
 
     return (
         <>

@@ -9,7 +9,7 @@ const upload = multer();
 router.route('/news')
     .get(async (req, res, next) => {
         const sql =
-            "SELECT * FROM `home_news` where `created_time` >= now() order by rand() limit 3";
+            "SELECT * FROM `home_news` where `created_time` <= now() order by rand() limit 4";
         const [datas] = await db.query(sql);
         res.json(datas);
     })

@@ -387,6 +387,7 @@ body {
 
 .new h1 {
     color: #E4D2A3;
+    padding-bottom: 30px;
     font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
@@ -394,7 +395,7 @@ body {
     width: 100%;
     height: auto;
     margin: 0px auto;
-    padding: 30px;
+    padding: 0 30px;
     display: flex;
     text-align: left;
     justify-content: center;
@@ -1460,7 +1461,7 @@ body {
     .allNew {
         width: 80%;
         margin: 0px auto;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 
     .new1 {
