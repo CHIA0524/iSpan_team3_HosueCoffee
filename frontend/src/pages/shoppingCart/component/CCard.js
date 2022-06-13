@@ -1,6 +1,6 @@
 import CardReactFormContainer from 'card-react';
-import '../../../../node_modules/card-react/lib/ccard.css' 
-import './card.css';
+import '../../../../node_modules/card-react/lib/ccard.css'   
+import './card.css';  
 
 function CCard (props){
   const {cardNum,setCardNum,cName,setCName,cDate,setCDate,cvc,setCvc}=props
@@ -66,7 +66,9 @@ function CCard (props){
      
     <input placeholder="Full name" type="text" name="CCname" value={cName}  onChange={name} />
     <br/>
-    <input placeholder="CARD NUMBER" type="text" name="CCnumber" value={cardNum} onChange={cnum}  />
+    <input placeholder="CARD NUMBER" type="text" name="CCnumber" 
+    // value={cardNum} onChange={cnum}
+      />
     <br/>
     <input placeholder="MM/YY" type="text" name="CCexpiry" 
     // value={cDate} 
