@@ -221,13 +221,13 @@ body {
 /* ------------------ */
 
 /* TODAY’S ARTICLE */
-.blog {
+.homeBlog {
     width: 100%;
     padding: 30px;
     margin-bottom: 20px;
 }
 
-.blog h1 {
+.homeBlog h1 {
     color: #E4D2A3;
     justify-content: center;
     align-items: center;
