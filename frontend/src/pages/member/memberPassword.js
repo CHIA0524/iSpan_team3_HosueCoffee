@@ -13,6 +13,10 @@ function MemberPassword(props){
       window.location.replace("http://localhost:3000/member/NewData");
     }
   const account=localStorage.getItem("account");
+  const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
+    if(member_photo==""){
+        setmember_photo("housecoffee.png")
+      }
   const [member_password, setmember_password] = useState("");
   const [member_passwordN, setmember_passwordN] = useState("");
   const [member_passwordN2, setmember_passwordN2] = useState("");
@@ -116,7 +120,7 @@ function MemberPassword(props){
                 
                 <div className="col-4 col-3None">
                     <div className="proList">
-                        <div className="memberPhoto"><img  src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
+                        <div className="memberPhoto"><img  src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`}  alt="會員照片"></img></div>
                         <div className="memberNumber">
                             <div >會員帳號</div>
                             <div >{account}</div>
@@ -126,7 +130,7 @@ function MemberPassword(props){
                 <div className="col proR">
                     <div className="proMain">
                         <div className="proList_m">
-                            <div className="memberPhoto"><img src={require('./img/memberphoto.jpg')} alt="會員照片"></img></div>
+                            <div className="memberPhoto"><img  src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`}  alt="會員照片"></img></div>
                             
                             <div className="memberNumber">
                                 <div >{account}</div>

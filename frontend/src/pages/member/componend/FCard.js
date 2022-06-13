@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
+import AddSweet from "../../shop/component/AddSweet";
 function FCard(props){
     const {MF_id,p_id,p_name,p_price,setcarNum}=props
     const[amount, setAmount]= useState(1)
@@ -73,9 +74,9 @@ function FCard(props){
                         </div>  
                         <button type='button' className="cardBuy" 
                         onClick={()=>{
-                            alert("商品編號:"+p_id+" 商品數量:"+amount);
                             updateCart(); 
                             setAmount (1);
+                            AddSweet();
                         }}
                         >選購</button>
                     </div>

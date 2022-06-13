@@ -17,7 +17,10 @@ function Navbar (props){
   const {auth,carNum}=props
   const { bannerHeight } = props
   const [ pageYOffset, setPageYOffset ] = useState()
-  const member_photo=localStorage.getItem("photo")
+  const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
+    if(member_photo==""){
+        setmember_photo("housecoffee.png")
+      }
   console.log(carNum);  
   const loginOUT=()=>{
     // localStorage.clear();

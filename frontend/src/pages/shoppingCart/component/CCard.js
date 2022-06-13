@@ -1,6 +1,6 @@
 import CardReactFormContainer from 'card-react';
-// import '../../../../node_modules/card-react/lib/ccard.css'   
-import './card.css';
+import '../../../../node_modules/card-react/lib/ccard.css'   
+import './card.css';  
 
 function CCard (props){
   const {cardNum,setCardNum,cName,setCName,cDate,setCDate,cvc,setCvc}=props
