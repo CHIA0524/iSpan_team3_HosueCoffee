@@ -36,6 +36,7 @@ import MemberDrinkOList from './pages/member/memberDrinkOList';
 import MemberDrinkO from './pages/member/memberDrinkO';
 import MemberQAList from './pages/member/memberQAList';
 import MemberQAcheck from './pages/member/memberQAcheck';
+import MemberPoint from './pages/member/memberPoint';
 
 // Shop pages
 import ShopIndex from './pages/shop/ShopIndex';
@@ -44,9 +45,12 @@ import Pay1 from './pages/shoppingCart/Pay1';
 import Pay2 from './pages/shoppingCart/Pay2';
 import Pay3 from './pages/shoppingCart/Pay3';
 import RecCard from './pages/shop/component/RecCard';
-
+import ShopKenya from './pages/shop/ShopKenya';
 
 function App() {
+  if(localStorage.getItem('sCarts')==null){
+    localStorage.setItem('sCarts',JSON.stringify([]))
+}
   const [auth,setAuth]=useState(localStorage.getItem("true"));
   //判斷是否登入，若localhost storage內沒有"true"，就是沒有登入狀態，若有"true"，true的值會是會員ID
   //若有需要判斷會員是否有登入的頁面，在下方引入時記得加上 auth={auth}
@@ -54,13 +58,26 @@ function App() {
   const [dataCheck,setDataCheck]=useState(localStorage.getItem("dataCheck"));
   // 登入後 若localhost storage內沒有"dataCheck"代表此會員編號尚未填寫基本資料，如果此會員有基本資料"dataCheck"值會是"資料完整"
   
+
   // 獲取首頁輪播框高度
+
+
+  const [carNum,setcarNum]=useState(JSON.parse(localStorage.getItem('sCarts')).length)
+  
+
+
   const [ bannerHeight, setBannerHeight ] = useState()
 
 
   return (
     <Router>
-      <Navbar bannerHeight={bannerHeight} auth={auth}/>
+
+
+      <Navbar bannerHeight={bannerHeight} auth={auth} carNum={carNum}/>
+
+
+
+
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
@@ -69,24 +86,35 @@ function App() {
 
       {/* shop 部分 */}
         <Route path="/shoppingCart/pay3">
-          <Pay3 />
+          <Pay3 auth={auth}/>
         </Route> 
         {/* <Route path="/shoppingCart/pay2">
           <Pay2 />
         </Route>  */}
         <Route path="/shoppingCart">
-          <Pay1/>
+          <Pay1 auth={auth} setcarNum={setcarNum}/>
         </Route>
         <Route path="/shop/ProductDetail/:id">
-          <ProductDetail />
+          <ProductDetail auth={auth} setcarNum={setcarNum}/>
         </Route>
+
+        <Route path="/shop/kenya">
+          <ShopKenya auth={auth}/>
+        </Route>
+        
         <Route path="/shop">
-          <ShopIndex />
+          <ShopIndex auth={auth} setcarNum={setcarNum}/>
+        
+
         </Route>
               
         {/* 以下是會員頁面 */}
         <Route  path="/member/QAcheck/:id">
           <MemberQAcheck auth={auth} dataCheck={dataCheck}/>
+          </Route>
+        <Route  path="/member/Order/:id">
+          <MemberOrder auth={auth} dataCheck={dataCheck}/>
+
         </Route>
 
         <Route  path="/member/QAList">
@@ -101,13 +129,15 @@ function App() {
           <MemberDrinkOList auth={auth} dataCheck={dataCheck}/>
         </Route>
 
-        <Route  path="/member/Favorite">
-          <MemberFavorite auth={auth} dataCheck={dataCheck}/>
+
+        <Route  path="/member/Point">
+          <MemberPoint auth={auth} dataCheck={dataCheck}/>
         </Route>
 
-        <Route  path="/member/Order">
-          <MemberOrder auth={auth} dataCheck={dataCheck}/>
+        <Route  path="/member/Favorite">
+          <MemberFavorite auth={auth} dataCheck={dataCheck} setcarNum={setcarNum}/>
         </Route>
+
 
         <Route  path="/member/OrderList">
           <MemberOrderList auth={auth} dataCheck={dataCheck}/>
@@ -117,12 +147,12 @@ function App() {
           <MemberprofileEdit auth={auth} dataCheck={dataCheck}/>
         </Route>
 
-        <Route path="/member/Profile">
-          <Memberprofile auth={auth} dataCheck={dataCheck}/>
-        </Route>
-
         <Route path="/member/Password">
           <MemberPassword auth={auth} dataCheck={dataCheck}/>
+        </Route>
+
+        <Route path="/member/Profile">
+          <Memberprofile auth={auth} dataCheck={dataCheck}/>
         </Route>
 
         <Route path="/member/NewData">
@@ -130,7 +160,7 @@ function App() {
         </Route>
 
         <Route  path="/member">
-          <MemberLogin auth={auth} dataCheck={dataCheck} />
+          <MemberLogin auth={auth} setAuth={setAuth} dataCheck={dataCheck} setDataCheck={setDataCheck} />
         </Route>
          {/* 以上是會員頁面 */}
 

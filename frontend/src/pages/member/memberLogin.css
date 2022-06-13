@@ -122,8 +122,8 @@
 .forget {
   display: block;
 }
-.mMain {
-  margin-bottom: 3rem;
+.mmMain {
+  margin-bottom:3rem;
 }
 .mLcolor {
   color: #4c3410;
@@ -156,14 +156,14 @@
   cursor: pointer;
 }
 
-.member1 {
+.memberLG1 {
   height: 287px;
   border-radius: 20px;
   position: relative;
   top: 40px;
   right: -200px;
 }
-.member2 {
+.memberLG2 {
   height: 139px;
   position: relative;
   top: -25px;
@@ -186,7 +186,7 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .mMain {
+  .mmMain {
     display: none;
   }
   .mMain-m {

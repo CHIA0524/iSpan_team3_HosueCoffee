@@ -1,12 +1,11 @@
 import React,{useEffect,useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 import Memberprofile from './memberprofile';
 
 function MemberLogin(props){
-    const {auth,setAuth} = props;  
+    const {auth,setAuth,setDataCheck} = props;  
     
     
   
@@ -18,6 +17,9 @@ function MemberLogin(props){
     const [new_mb_account,setNew_mb_account]=useState("")
     const [new_mb_password,setNew_mb_password]=useState("")
     //^設定註冊時信箱帳號密碼的value^
+
+    const new_mb_point=100;
+    //^設定註冊帳號贈送的紅利點數^
 
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
@@ -60,7 +62,6 @@ function MemberLogin(props){
             }else{
             //^格式驗證通過^
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkmail?member_mail=${new_mb_mail}`);
-                console.log(process.env.REACT_APP_API_URL);
                 //^取得資料庫使否有這筆EMAIL，若有回傳1，沒有回傳0^
                 const results = await response.json();
                 if(results.total === 0 ){
@@ -87,7 +88,6 @@ function MemberLogin(props){
                 setAccounteMessage("帳號需4~20字英文數字組合");
             }else{
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkName?member_account=${new_mb_account}`);
-                console.log(process.env.REACT_APP_API_URL);
                 //^取得資料庫使否有這筆帳號，若有回傳1，沒有回傳0^
             const results = await response.json();
             if(results.total === 0){
@@ -127,7 +127,7 @@ function MemberLogin(props){
         //點擊註冊按鈕
             if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
             //判斷3個提示訊息是否都符合註冊條件
-            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}`);
+            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}`);
             //CRNM 為新增新的資料，沒有回傳值
             
             setmember_account(new_mb_account);
@@ -189,7 +189,6 @@ function MemberLogin(props){
             
             const resultsTF = await loginTF.json();
             console.log(resultsTF);
-            // console.log(results);
             if(resultsTF.total===1){
     
                 const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
@@ -198,6 +197,7 @@ function MemberLogin(props){
                 localStorage.setItem("true", loginMid.member_id);
                 localStorage.setItem("account", loginMid.member_account);
                 localStorage.setItem("mail", loginMid.member_mail);
+                localStorage.setItem("point", loginMid.member_point);
                 //將會員編號寫入localStorage的true，帳號信箱也分別寫入
 
                 localStorage.setItem("dataCheck", "資料完整");
@@ -215,11 +215,9 @@ function MemberLogin(props){
                     localStorage.setItem("birth", results.member_birth);
                     localStorage.setItem("phone", results.member_phone);
                     localStorage.setItem("address", results.member_address);
-                    localStorage.setItem("photo", results.photo);
+                    localStorage.setItem("photo", results.member_photo);
                     //將會員基本資料分別寫入localStorage
-                    
                     alert('成功登入');
-                    // setAuth(!auth); 這不需要因為它本身useState是由 localStorage去驗證
                     // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
                     
                     window.location.replace("http://localhost:3000/member/profile");
@@ -396,14 +394,14 @@ function MemberLogin(props){
         <>
         {/* {auth ?<Memberprofile/> :
         <div> */}
-        <div className="mMain ">
+        <div className="mmMain ">
                 <div className="row loginmMain">
                     <div className="col ">
                         <div className="memberLoginMain">
                             <div className="row">
                                 <div className="col loginLift">
-                                    <img className="member1" src={require('./img/member_logoin_1.png')} alt=""></img>
-                                    <img className="member2" src={require('./img/member_logoin_2.png')} alt=""></img>
+                                    <img className="memberLG1" src={require('./img/member_logoin_1.png')} alt=""></img>
+                                    <img className="memberLG2" src={require('./img/member_logoin_2.png')} alt=""></img>
                                     <h2 className="liftW1">登入會員</h2>
                                     <h2 className="liftW2">享受專屬優惠</h2>
                                 </div>

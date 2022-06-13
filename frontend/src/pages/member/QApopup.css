@@ -1,0 +1,256 @@
+
+@charset "UTF-8";
+/* -------- 顏色 -------- */
+/* -------- 字體 -------- */
+
+
+
+
+/* 彈跳視窗 */
+.QApopupWrap {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 1.8rem;
+}
+
+.QApopupBox {
+  padding: 100px 100px;
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+  -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  background: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+}
+
+
+select option{
+  font-size: 1rem;
+}
+
+.QApopupBox .ansAddForm > *:not(:last-child):not(:first-child) {
+  width: 500px;
+  padding: .6rem 1rem;
+  border: 1.5px solid #4C3410;
+  outline: none;
+  -webkit-transition: var(--store-transition); 
+  transition: var(--store-transition);
+}
+
+.QApopupWrap .QApopupBox .ansAddForm .chickQA{
+  height: 1.3rem;
+  margin-top :0.5rem;
+  border: 0px;
+  font-size: 1.3rem;
+  margin-bottom:2rem ;
+}
+
+.QApopupBox .ansAddForm *:focus {
+  background: #EDE1C1;
+}
+
+.QApopupBox .ansAddForm .QApopupClose{
+  margin: 3rem;
+}
+
+.QApopupBox .ansAddForm textarea {
+  height: 300px;
+  resize: none;
+  font-size: 1.5rem;
+}
+.QAupbtn{
+  height: 3rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+.QApopupClose {
+  width: 50px;
+  line-height: 40px;
+  color: gray;
+  font-size: 32px;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  -webkit-transition: var(--store-transition);
+  transition: var(--store-transition);
+}
+
+.QApopupClose:hover {
+  color: black;
+}
+
+.QApopupTransformIn, .QApopupTransformOut {
+  display: block;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.QApopupTransformIn {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.QApopupTransformOut {
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+}
+/*# sourceMappingURL=popup.css.map */
+
+.QApopupShow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.QApopupShow:target {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+.QApopup {
+  margin: 15rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  /* transition: all 5s ease-in-out; */
+}
+
+.QApopup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.QApopup .close:hover {
+  color: red;
+}
+
+.QApopup .productPopup {
+  max-height: 50%;
+  overflow: auto;
+}
+.mPayInfoContent {
+  display: flex;
+  justify-content: center;
+}
+.popBoxContent {
+  display: flex;
+}
+/* .imgPart {
+  width: 100%;
+} */
+.popContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+.popText p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.addNum a button {
+  width: 1.5rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+
+.addNum a :hover {
+  background-color: #e4d2a3;
+}
+
+.addNum input {
+  border: 0;
+  width: 40px;
+  
+  text-align: center;
+}
+.addCartBtn {
+  margin-top: 4px;
+  width: 9rem;
+  border-radius: 5px;
+  color: #4c3410;
+  background-color: transparent;
+  border: 1px solid #e4d2a3;
+}
+
+.addCart a :hover {
+  background-color: #e4d2a3;
+}
+.popBtn {
+  display: flex;
+}
+.addCart {
+  margin-left: 4rem;
+}
+@media screen and (max-width: 700px) {
+  .QApopup {
+    margin: 10rem auto;
+    width: 70%;
+  }
+  .popBoxContent {
+    width: 90%;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  .popBtn {
+    display: block;
+    margin-top: 1rem;
+  }
+  .addCart {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+  .imgPart img {
+    width: 90%;
+  }
+  .popText p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .QApopup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+}

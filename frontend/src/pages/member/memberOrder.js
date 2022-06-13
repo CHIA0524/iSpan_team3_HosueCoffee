@@ -1,17 +1,56 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import OrderCard from './componend/orderCard';
+
 import './memberAside.css'
 import './memberOrder.css'
 function MemberOrder(props){
-    const{auth}=props;
+    const{auth}=props; 
     const {dataCheck}=props;
+    const params = useParams()
+    const thiso_id=params.id
+    const [datas,setDatas] = useState([])
+    const [alltotalpay,setAlltotalpay] = useState(0)
+    
     if(!auth){
       window.location.replace("http://localhost:3000/member")
     }if(!dataCheck){
       window.location.replace("http://localhost:3000/member/NewData");
     }
+
+    
+    const fetchData=async()=>{
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/morder?o_id=${thiso_id}`)
+        const results=await response.json();
+        setDatas(results); 
+    }
+    console.log(datas)
+    useEffect(()=>{
+        fetchData();
+    },[])
+    if(datas.length >0 ){
+        const order=datas[0];
+        const{shipment,pay,order_condition,recipient_name,recipient_phone,recipient_address,remark,used_coupon,used_points,CREATEd_at}=order;
+        if(used_points){
+           var point=used_points;
+        }else{
+            var point=0;
+        }
+        if(used_coupon){
+            var coupon=used_coupon/100;
+        }else{
+            var coupon=0
+        }
+        if(shipment=="黑貓"){
+            var shipmentPay=100
+        }else{
+            var shipmentPay=80
+
+        }
     return(
         <>
         <MemberBack/>
@@ -29,49 +68,63 @@ function MemberOrder(props){
                 <div className="row">
                     <div className="col-1 col-3None"></div>
                     <div className="col">
+                        <h4 className="col-3None">{order_condition}</h4> 
                         <div className="row memNo col-3None">
-                            <div className="col ">
+                            <div className="col-2 ">
                                 <p>訂單編號:</p>
                             </div>
-                            <div className="col">
-                                <p>00001</p>
-                                <br></br>
+                            <div className="col-2">
+                                <p>{thiso_id}</p>
                             </div>
                             <div className="col-8"></div>
                         </div>
+                        <div className="row memNo col-3None">
+                            <div className="col-2 ">
+                                <p>成立時間:</p>
+                            </div>
+                            <div className="col">
+                                <p>{CREATEd_at}</p>
+                            </div>
+                            <div className="col"></div>
+                        </div>
+                        <br></br>
                         <div className="col-wn odfin">
-                            <h4>已完成</h4>
-                            <div>訂單編號 00001</div>
-                            <div>成立時間 2022/03/26</div>
+                            <h4>{order_condition}</h4>
+                            <div>訂單編號 {thiso_id}</div>
+                            <div>成立時間 {CREATEd_at}</div>
                         </div>
                             
-                        <div className="payInfo">
-                            <hr></hr>
-                            <OrderCard/>
-                            <OrderCard/>
+                        <div className="MpayInfo">
+                            <hr className='col-3None'></hr>
+                            <OrderCard thiso_id={thiso_id} alltotalpay={alltotalpay} setAlltotalpay={setAlltotalpay}/>
                             </div>
-                            
+                           
                            
                             
-                            <div className="row perInfo  col-3None">
-                                <div className="col">
+                            <div className="row MperInfo  col-3None">
+                                <div className="col-2">
                                     <p>取貨方式:</p>
-                                    <p>付款編號:</p>
-                                    <p>訂購人資訊:</p>
-                            
-                                
-                                    </div>
-                                <div className="col">
-                                    <p>自取</p>
-                                    <p>匯款</p>
                                     <br></br>
-                                    <p>姓名:XXX</p>
-                                    <p>電話:XXX</p>
-                                    <p>地址:XXX</p>
+                                    <p>付款編號:</p>
+                                    <br></br>
+                                    <p>收件人資訊:</p>
+                            
+                                    </div>
+                                <div className="col ">
+                                    <p>{shipment}</p>
+                                    <br></br>
+                                    <p>{pay}</p>
+                                    <br></br>
+                                    <br></br>
+                                    <p>姓名:&emsp;{recipient_name}</p>
+                                    <br></br>
+                                    <p>電話:&emsp;{recipient_phone}</p>
+                                    <br></br>
+                                    <p>地址:&emsp;{recipient_address}</p>
                                 </div>
                                 <div className="col-2 col-wn"></div>
-                                <div className="col-8 col-3None"></div>
                             </div>
+                            <br className='col-3None'></br>
                             <div className="row note col-3None">
                                 <div className="col">留言備註:</div>
                                 <div className="col"></div>
@@ -81,10 +134,9 @@ function MemberOrder(props){
                             </div>
                             <div className="row note col-3None">
                                 <div className="col"></div>
-                                <div className="col">XXXXXXXX</div>
+                                <div className="col">{remark}</div>
                                 <div className="col-8 col-3None"></div>
 
-                            </div>
                             </div>
                             <br></br>
                             <hr></hr> 
@@ -102,14 +154,15 @@ function MemberOrder(props){
                                     <p className="mTopF">結帳總額</p> 
                                 </div>
                                 <div className="col-2 pmR">
-                                    <p>$998</p>
-                                    <p>+$0</p>
-                                    <p>-$100</p>
-                                    <p>-$50</p>
-                                    <p className="mTopF">$898</p>
+                                    <p>${alltotalpay}</p>
+                                    <p>+${shipmentPay}</p> 
+                                    <p>-${coupon*alltotalpay}</p>
+                                    <p>-${point}</p>
+                                    <p className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</p>
                                 </div>
                                 <div className="col-1"></div>
                                
+                            </div>
                             </div>
                             <div className="container col-wn">
                                 <div className="row">
@@ -119,31 +172,27 @@ function MemberOrder(props){
                                         <div>備註內容:</div>
                                     </div>
                                     <div className="col">
-                                        <div>自取</div>
-                                        <div>匯款</div>
-                                        <div>自取</div>
+                                        <div>{shipment}</div>
+                                        <div>{pay}</div>
+                                        <div>{remark}</div>
                                     </div>
                                 </div>
                                 <hr></hr>
                                 <div className="payman">
                                     
-                                    <div className="payColor">購買人姓名</div> 
+                                    <div className="payColor">收件人資訊</div> 
                                     <br></br>
                                     <div className="row">
                                         <div className="col">
-                                            <div>姓名:</div>
-                                            <div>手機:</div>
-                                            <div>時間</div>
+                                            <div>姓名:&emsp;{recipient_name}</div>
+                                            <div>手機:&emsp;{recipient_phone}</div>
+                                            <div>地址:&emsp;{recipient_address}</div>
                                         </div>
-                                        <div className="col pmR">
-                                            <div>張杰克</div>
-                                            <div>0912-345-678</div>
-                                            <div>2022/03/26 18:00</div>
-                                        </div>
+                                      
                                     </div>
                                 </div>
-                                <hr></hr>
                                 <div className="wnMoney">
+                                <hr></hr>
                                     <div className="payColor">
                                         金額統計
                                     </div>
@@ -157,10 +206,10 @@ function MemberOrder(props){
                                                 <div>紅利折扣</div>
                                             </div>
                                             <div className="col wnMR">
-                                                <div className="mTop">$998</div>
-                                                <div>$60</div>
-                                                <div>-$100</div>
-                                                <div>$99</div>
+                                                <div className="mTop">${alltotalpay}</div>
+                                                <div>+${shipmentPay}</div>
+                                                <div>-${coupon*alltotalpay}</div>
+                                                <div>-${point}</div>
                                             </div>
                                         </div>
                                         <hr></hr>
@@ -169,7 +218,7 @@ function MemberOrder(props){
                                                 <div className="mTopF">結帳總額</div>
                                             </div>
                                             <div className="col wnMR">
-                                                <div className="mTopF">$859</div>
+                                                <div className="mTopF">${alltotalpay+shipmentPay-(coupon*alltotalpay)-point}</div>
                                             </div>
                                         </div>
                                         </div>
@@ -194,5 +243,6 @@ function MemberOrder(props){
         
         </>
     )
+    }
 }
 export default MemberOrder;

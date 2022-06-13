@@ -11,6 +11,12 @@ import Steps2 from './component/Steps2';
 
 
 function Pay1(props){
+    if(localStorage.getItem('sCarts')==null){
+        localStorage.setItem('sCarts',JSON.stringify([]))
+        
+    }
+    const {auth ,setcarNum}=props
+    
 
     //回去繼續購物
     const keepshopping = ()=>{
@@ -19,8 +25,15 @@ function Pay1(props){
 
     //按下一步跳pay2
        const nextStep = ()=>{
+        if(JSON.parse(localStorage.getItem('sCarts'))==false){
+            alert("購物車沒有商品")
+       }else if(!auth){
+           console.log(auth)
+            alert("請登入會員")
+           }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
+    }
          }   
     
      //回上一步
@@ -72,7 +85,7 @@ function Pay1(props){
     // const [ subTotal, setsubTotal ]= useState(1)
     // const [ totalCash, setTotalCash ] = useState(1);
     // const[a,setA]=useState(0);
-    const [ ptotal, setPtotal ]= useState()
+    const [ ptotal, setPtotal ]= useState(0)
     console.log(ptotal)
     const [totalp ,settotalp]= useState()
     // const {setPtotal, ptotal } = props
@@ -237,8 +250,19 @@ function Pay1(props){
                // document.getElementById("sprice").innerHTML = 100
                setShipgopay(100)
             }
-             }     
-   
+             }    
+             
+    //pay1重後端抓資料
+    // let[pricetotal1, setpricetotal1] = useState('')
+    const [datas, setDatas ] = useState([])
+    const fetchData = async()=>{    
+     const response = await fetch('http://localhost:3001/shop'); 
+     const results = await response.json();
+                     setDatas(results);
+     }
+    useEffect(()=>{
+        fetchData();
+         },[])
 
 
   return(
@@ -249,9 +273,8 @@ function Pay1(props){
                    <Steps1 />
                    <hr></hr>
                    <PInfo setPtotal={setPtotal} ptotal={ptotal} 
-                settotalp={settotalp}
+                    settotalp={settotalp} datas={datas} setcarNum={setcarNum}
                    />
-                   <PInfo setPtotal={setPtotal} ptotal={ptotal} settotalp={settotalp} />
                     {/* <!-- 折扣結帳區 --> */}
                     <div class="dInput">
                         <div>
@@ -337,10 +360,10 @@ function Pay1(props){
                           <div>取貨方式 </div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">
-                                  <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="store"
+                                  <input className="form-check-input postoffice" type="radio"       name="pickupmethod" id="post"
                                       value="postoffice" required  onClick={shipprice}  
                                       />
-                                  <label className="form-check-label" for="store">郵局 + 80</label>
+                                  <label className="form-check-label" for="post">郵局 + 80</label>
                               </div>
                               <div className="form-check  checkPart1">
                                   <input className="form-check-input" type="radio"       name="pickupmethod" id="home"
@@ -457,25 +480,7 @@ function Pay1(props){
                                    
                                 </div>
                             </div>
-                           {/* <div className="storepick">
-                           <p>門市選擇</p>
                            
-                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
-                            <option selected>縣市</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                           </select>
-                           <p></p>
-                           <select class="form-select form-select-sm " aria-label=".form-select-sm ">
-                            <option selected>地區</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                           </select>
-                          
-            
-                           </div> */}
                       </div>
                       <div className="noteInfo">
                           <p>備註</p>
@@ -511,9 +516,9 @@ function Pay1(props){
                              
                               <div className="nextBtn" 
                               >
-                               <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
+                               <button  className="btn btn-primary btn-lg btn-block pbtn " onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn " onClick={complete}
                               >結帳 </button>
                               </div>
       
@@ -557,9 +562,9 @@ function Pay1(props){
                           </div>
                           <div className="nextBtn" 
                               >
-                               <button  className="btn btn-primary btn-lg btn-block " onClick={preStep}
+                               <button  className="btn btn-primary btn-lg btn-block pbtn" onClick={preStep}
                               >上一步 </button>
-                              <button type="button" className="btn btn-primary btn-lg btn-block " onClick={complete}
+                              <button type="button" className="btn btn-primary btn-lg btn-block pbtn" onClick={complete}
                               >結帳 </button>
                             </div>
       

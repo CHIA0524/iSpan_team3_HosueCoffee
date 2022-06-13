@@ -45,7 +45,6 @@ value
 ('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','');
 
 
-
 -- 會員提問
 CREATE TABLE `member_QA`(
   `QA_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -57,6 +56,8 @@ CREATE TABLE `member_QA`(
   `CREATEd_at` TIMESTAMP DEFAULT NOW(),
   foreign KEY (`fk_member_id`) references members(member_id)
 );
+
+
 ALTER TABLE `member_QA` AUTO_INCREMENT=110001;
 
 INSERT INTO `member_QA`(`fk_member_id`,`ask_type`, `ask_title`,`ask`,`ans`)
@@ -95,7 +96,7 @@ VALUES
 -- 商品
 
 CREATE TABLE `products`(
-`p_id` INT  PRIMARY KEY AUTO_INCREMENT,
+`p_id` INT PRIMARY KEY AUTO_INCREMENT,
 `p_name` VARCHAR(50) NOT NULL,
 `p_price` INT NOT NULL,
 `content` VARCHAR(1000) NOT NULL,
@@ -103,6 +104,7 @@ CREATE TABLE `products`(
 `coffeetype`VARCHAR(50) NOT NULL,
 `img_src`  varchar(500)
 );
+
 
 ALTER TABLE `products` AUTO_INCREMENT=200001;
 
@@ -245,9 +247,132 @@ VALUES('210001','200001','1'),
 ('210003','200008','2'),
 ('210003','200009','2');
 
+-- 收藏商品
+CREATE TABLE `member_favorite`(
+`MF_id` INT PRIMARY KEY AUTO_INCREMENT,
+`fk_m_id` INT NOT NULL,
+`fk_p_id` INT NOT NULL,
+foreign KEY (fk_m_id) references members(member_id),
+foreign KEY (fk_p_id) references products(p_id)
+);
+
+ALTER TABLE `member_favorite` AUTO_INCREMENT=120001;
+
+INSERT INTO `member_favorite`(`fk_m_id`,`fk_p_id`)
+VALUES
+('100001','200001'),
+('100001','200003'),
+('100001','200002'),
+('100001','200009'),
+('100001','200012'),
+('100001','200007'),
+('100002','200007'),
+('100002','200008'),
+('100002','200009'),
+('100002','200003'),
+('100002','200002'),
+('100003','200009'),
+('100003','200002'),
+('100003','200004'),
+('100003','200005'),
+('100003','200011');
+select * from member_favorite;
+-- DELETE FROM member_favorite where MF_id=120001;
 
 
---------------------------------------------------------------------------------------------------------------------------------
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- 首頁最新消息
+CREATE TABLE `home_news`(
+  `N_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `news_title` VARCHAR(50) NOT NULL,
+  `news_content` VARCHAR(100) NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_news` AUTO_INCREMENT=7001;
+INSERT INTO `home_news`(`news_title`, `news_content`)
+VALUES
+('新北新店店公休公告','2022/06/17'),
+('高雄前金店公休公告','2022/06/21'),
+('高雄中正店公休公告','2022/07/01'),
+('高雄七賢店公休公告','2022/07/14'),
+('高雄廣林店公休公告','2022/07/05'),
+('高雄大順店公休公告','2022/07/01'),
+('高雄楠梓店公休公告','2022/08/01'),
+('高雄藍昌店公休公告','2022/08/20'),
+('台南府榮店公休公告','2022/07/05'),
+('台南長榮店公休公告','2022/04/31'),
+('台南永康店公休公告','2022/06/31'),
+('台南湖美店公休公告','2022/07/31'),
+('嘉義垂楊店公休公告','2022/07/23');
+
+
+-- 首頁優惠券
+CREATE TABLE `home_coupon`(
+  `CP_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `coupon_title` VARCHAR(50) NOT NULL,
+  `coupon_start_date` date NOT NULL,
+  `coupon_end_date`date NOT NULL,
+  `coupon_code` int NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
+INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
+VALUES
+('八五折優惠碼','2022/06/17','2022/06/18','15'),
+('九折優惠碼','2022/06/25','2022/06/30','10'),
+('八折優惠碼','2022/07/01','2022/07/05','20'),
+('七折優惠碼','2022/07/06','2022/07/10','30'),
+('七五折優惠碼','2022/07/11','2022/07/12','25'),
+('五折優惠碼','2022/07/13','2022/07/15','50'),
+('買一送一優惠碼','2022/10/05','2022/10/10','50'),
+('九五折優惠碼','2022/09/01','2022/09/30','5'),
+('八八折優惠碼','2022/08/01','2022/08/08','12');
+
+create table `member_con`(
+	`MC_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `fk_m_id` INT NOT NULL,
+    `fk_coupon_id`INT NOT NULL,
+    `state` varchar(50),
+    foreign KEY (fk_m_id) references members(member_id),
+    foreign KEY (fk_coupon_id) references home_coupon(CP_id)
+);
+ALTER TABLE `member_con` AUTO_INCREMENT=190001;
+insert into `member_con`(`fk_m_id`,`fk_coupon_id`,`state`)
+VALUES
+('100001','7001',"未使用"),
+('100001','7003',"未使用"),
+('100001','7005',"未使用"),
+('100001','7007',"未使用"),
+('100001','7009',"未使用");
+
+select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
+-- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
+
+
+
+-- drop table `home_coupon`;
+
+-- 首頁橫幅
+CREATE TABLE `home_banner`(
+  `BN_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `banner_img_src` VARCHAR(500) NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_banner` AUTO_INCREMENT=8001;
+INSERT INTO `home_banner`(`banner_img_src`)
+VALUES
+('./image/banner01.jpg'),
+('./image/banner02.jpg'),
+('./image/banner03.jpg'),
+('./image/banner04.jpg'),
+('./image/banner05.jpg'),
+('./image/banner06.jpg'),
+('./image/banner07.jpg'),
+('./image/banner08.jpg');
+
+
+-- --------------------------------------------------------------------------------------------------------------------------------
 -- 店家服務圖示
 CREATE TABLE `store_serve_icon`(
   `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -278,6 +403,7 @@ CREATE TABLE `store`(
 ALTER TABLE `store` AUTO_INCREMENT = 400001;
 INSERT INTO `store`(`store_name`, `city`, `area`, `address`, `phone`, `photo`)
 VALUES
+<<<<<<<< HEAD:0606更新.sql
 ('新店店', '新北市', '新店區', '中央路159號4F', '02-412-8869', '1.jpg'),
 ('前金店', '高雄市', '前金區', '中正四路233號', '07-215-3233', '2.jpg'),
 ('中正店', '高雄市', '新興區', '中正二路162號', '07-225-0973', '3.jpg'),
@@ -291,6 +417,21 @@ VALUES
 ('永康店', '台南市', '永康區', '中華路157號', '06-311-3148', '11.jpg'),
 ('湖美店', '台南市', '中西區', '中華西路二段865號', '06-358-1011', '12.jpg'),
 ('垂楊店', '嘉義市', '東區', '垂楊路537號1樓', '05-283-2501', '13.jpg');
+========
+('新店店', '新北市', '新店區', '中央路159號4F', '02-412-8869'),
+('前金店', '高雄市', '前金區', '中正四路233號', '07-215-3233'),
+('中正店', '高雄市', '新興區', '中正二路162號', '07-225-0973'),
+('七賢店', '高雄市', '新興區', '七賢一路293號', '07-236-3743'),
+('廣林店', '高雄市', '苓雅區', '	廣州一街149-1號', '07-227-1360'),
+('大順店', '高雄市', '三民區', '民族一路427號1F', '07-395-3647'),
+('楠梓店', '高雄市', '楠梓區', '楠梓新路225號', '07-352-6213'),
+('藍昌店', '高雄市', '楠梓區', '藍昌路480號', '07-352-6222'),
+('府榮店', '台南市', '東區', '長榮路一段181號', '06-200-4907'),
+('長榮店', '台南市', '東區', '長榮路三段139號', '06-200-5550'),
+('永康店', '台南市', '永康區', '中華路157號', '06-311-3148'),
+('湖美店', '台南市', '中西區', '中華西路二段865號', '06-358-1011'),
+('垂楊店', '嘉義市', '東區', '垂楊路537號1樓', '05-283-2501');
+>>>>>>>> CHIA-３．０:frontend/src/pages/home/0606 9an更新.sql
 
 
 -- 店家營業時間
@@ -543,61 +684,8 @@ VALUES
 
 
 
---------------------------------------------------------------------------------------------------------------------------------
--- 首頁橫幅
-CREATE TABLE `banner`(
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `photo` varchar(200),
-  `title` VARCHAR(50) NOT NULL,
-  `status` tinyint NOT NULL
-);
-INSERT INTO `banner`(`photo`,`title`,`status`)
-VALUES
-('./image/banner1.jpg','咖啡店室內環境1','0'),
-('./image/banner2.jpg','咖啡店室內環境2','0'),
-('./image/banner3.jpg','咖啡店室內環境3','0'),
-('./image/banner4.jpg','咖啡店室內環境4','0'),
-('./image/banner5.jpg','咖啡店室內環境5','0'),
-('./image/banner6.jpg','咖啡店室內環境6','0');
--- 首頁消息
-CREATE TABLE `news`(
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `title` VARCHAR(50) NOT NULL,
-  `contents` VARCHAR(225),
-  `CREATEd_at` DATE NOT NULL
-);
-INSERT INTO `news`(`title`,`contents`,`CREATED_at`)
-VALUES
-('高雄總店公休公告','高雄總店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09'),
-('台北店公休公告','台北店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09'),
-('桃園店公休公告','桃園店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09'),
-('台中店公休公告','台中店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09'),
-('嘉義店公休公告','嘉義店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09'),
-('台南店公休公告','台南店將於2022年10月10日公休，因店內裝修故閉店一天，敬請見諒。','2022-10-09');
--- 優惠活動
-CREATE TABLE `activity`(
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `title` VARCHAR(50) NOT NULL,
-  `start_time` DATE NOT NULL,
-  `end_time` DATE NOT NULL,
-  `discount` VARCHAR(50) NOT NULL,
-  `contents` VARCHAR(225) NOT NULL,
-  `status` tinyint NOT NULL, 
-  `CREATEd_at` DATE NOT NULL
-);
-INSERT INTO `activity`(`title`,`start_time`,`end_time`,`discount`,`contents`,`status`,`CREATED_at`)
-VALUES
-('八五折活動','2021-12-25','2021-12-31','15OFF','為了歡慶新年，從12月25日至12月31日推出黑咖啡系列指定組合優惠價，皆可使用「八五折優惠」,超佛價格一起團購起來！','0','2021-12-24'),
-('八折活動','2022-01-25','2022-01-31','20OFF','為了歡慶新年，從1月25日至1月31日推出黑咖啡系列指定組合優惠價，皆可使用「八折優惠」,超佛價格一起團購起來！','0','2022-1-24'),
-('五折活動','2022-02-25','2022-02-28','50OFF','為了歡慶新年，從2月25日至2月31日推出黑咖啡系列指定組合優惠價，皆可使用「五折優惠」,超佛價格一起團購起來！','0','2022-2-24'),
-('七五折活動','2022-03-25','2022-03-31','25OFF','為了歡慶新年，從3月25日至3月31日推出黑咖啡系列指定組合優惠價，皆可使用「七五折優惠」,超佛價格一起團購起來！','0','2022-3-24'),
-('八八折活動','2022-04-25','2022-04-30','12OFF','為了歡慶新年，從4月25日至4月31日推出黑咖啡系列指定組合優惠價，皆可使用「八八折優惠」，超佛價格一起團購起來！','0','2022-4-24'),
-('七折活動','2022-05-25','2022-05-31','30OFF','為了歡慶新年，從5月25日至5月31日推出黑咖啡系列指定組合優惠價，皆可使用「七折優惠」，超佛價格一起團購起來！','0','2022-5-24'),
-('九折活動','2022-06-25','2022-06-30','10OFF','為了歡慶新年，從6月25日至6月31日推出黑咖啡系列指定組合優惠價，皆可使用「九折優惠」，超佛價格一起團購起來！','0','2022-6-24');
 
-
-
---------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------------------------------------
 -- 標籤
 CREATE TABLE `tags`(
   `id` INT AUTO_INCREMENT PRIMARY KEY,

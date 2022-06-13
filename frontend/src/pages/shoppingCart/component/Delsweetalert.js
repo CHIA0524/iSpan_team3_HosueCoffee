@@ -1,9 +1,20 @@
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import { useState } from 'react';
+// import withReactContent from 'sweetalert2-react-content'
 
-function Delsweetalert(){
-
-const removePinfo = Swal.mixin({
+function Delsweetalert(props){
+  const {thisTT,i, price ,setPtotal,ptotal}=props;
+  const datas1 = JSON.parse(localStorage.getItem('sCarts'))
+  const [datasNEW, setdatasNEW] = useState(datas1)
+  console.log(datasNEW)
+  
+  
+  return(
+  <>
+    <div className="col-2">
+                        <button className="deletBtn"  onClick={()=>{  
+                          
+                          const removePinfo = Swal.mixin({
     customClass: {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger'
@@ -20,12 +31,26 @@ removePinfo.fire({
     reverseButtons: true
 }).then((result) => {
     if (result.isConfirmed) {
+      Swal.getConfirmButton(
         removePinfo.fire(
             '刪除!',
             '商品已刪除.',
             'success'
+            
+            
             )
-            document.querySelector('.payInfoAll').remove();
+        )
+        
+            datasNEW.splice(i,1)
+            console.log(datasNEW);
+            localStorage.setItem("sCarts", JSON.stringify(datasNEW))
+            const datas222 = JSON.parse(localStorage.getItem('sCarts'))
+            setdatasNEW(datas222)
+            // setPtotal(ptotal-(price*thisTT));
+            setTimeout(() => window.location.reload(), 150);
+            // setTimeout(window.location.reload(),10000);
+          
+
     } else if (
       /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel
@@ -37,8 +62,8 @@ removePinfo.fire({
       )
     }
   })
-  return(
-  <>
+  }}>刪除</button>
+                    </div>
   </>
   )
 }

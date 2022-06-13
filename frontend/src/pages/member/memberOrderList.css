@@ -84,6 +84,12 @@ table{
 a:hover .listcard{
     color:#4C3410;
 }
+.popupOpen .QAbtn{
+    display: block;
+}
+.QAbtn{
+    display: block;
+}
 
 @media screen and (max-width:1000px) {
   

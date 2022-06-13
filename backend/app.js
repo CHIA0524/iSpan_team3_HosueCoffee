@@ -14,6 +14,7 @@ const productsRouter = require('./routes/products');
 const storeRouter = require('./routes/store');
 
 const shopRouter = require('./routes/shop');
+const homeRouter = require('./routes/home');
 
 
 
@@ -21,6 +22,7 @@ const shopRouter = require('./routes/shop');
 const testRouter = require('./routes/member/test');
 const accountRouter = require('./routes/member/Login');
 const profileRouter =require('./routes/member/profile');
+const mODRouter=require('./routes/member/order')
 const db=require('./modules/mysql_config')
 
 const menuRouter = require('./routes/menu');
@@ -48,8 +50,10 @@ app.use('/test',testRouter);
 app.use('/store',storeRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
+app.use(`/morder`,mODRouter);
 
 app.use('/menu',menuRouter);
+app.use('/home',homeRouter);
 
 
 

@@ -2,37 +2,35 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import '../brandproduct.css';
 import './popup.css';
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
+import Heart from './heart';
 import ProductDetail from '../ProductDetail';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BiColorFill } from 'react-icons/bi';
+
 
 
 function ProductCard(props){
-    const {datas, setcss, setProductId} = props;
-   const [buttonpopup,setButtonpopup] = useState(false);
-   const [ cart, setcart] =useState([]);
-   
-   const heartClick = ()=>{
-     const a= document.querySelector('.heart').check
-     console.log(a)
-     if(a==true){
-       document.querySelector('.heart3').style.display="block"
-       document.querySelector('.heart2').style.display="none"
+   const {datas, setcss, setProductId, auth,datasPMF} = props;
+  
+   //  const [buttonpopup,setButtonpopup] = useState(false);
+  //  const [ cart, setcart] =useState([]);
+  //  const [ liked, setLiked] =useState([true]);
+  
+   //  抓取member的ＩＤ
+  //  const memeId=localStorage.getItem(true)
+  //  抓取member的ＩＤ
+  //  const thismemberid=localStorage.getItem("true"); 
+  //   設定收藏的value
+  // const [whishList,setWishList]= useState()
 
-     }else{
-      document.querySelector('.heart2').style.display="block"
-      document.querySelector('.heart3').style.display="none"
-
-     }
-    }   
 
     
     return(
       <>
        {datas.map((pCard,i)=>{
          {/* console.log(pCard.id); */}
-         
+         const pt_id=pCard.p_id
+         const pt_name=pCard.p_name
          //照片設置的變數
          const img1=(pCard.p_name);
          //抓popup的變數
@@ -53,11 +51,23 @@ function ProductCard(props){
                           <p className="pText">{pCard.p_name}</p>
                       </div>
                       <div className="pIcon">
-                          
-                           <button className="heart" onClick={heartClick}> 
-                           <AiOutlineHeart className="heart2" size={24}
-                           /><AiFillHeart className="heart3" size={24} color="red"/></button>
+                          {/* 收藏 */}
+                          <Heart pt_id={pt_id}  datasPMF={datasPMF} auth={auth}/>
+                          {/* {auth? 
+                          <> <button className="heart" onClick={()=>{
+                             alert("成功加入收藏") }} > 
+                           <AiFillHeart className="heart3" size={24}       
+                             
+                           /></button>
+                           </>
+                           :
+                           <> <button className="heart" > 
+                           <AiFillHeart className="heart3" size={24}    onClick={()=>{
+                             alert("登入方可收藏") }  }   
+                           /></button></>} */}
+                           
                        
+                           {/* 快速加入購物車 */}
                            <div className="d-flex shoppingCart" key={pCard.p_id}
                            type="button" onClick={() => {
                              //因id從200001開始，故需扣除，才能使popup抓到

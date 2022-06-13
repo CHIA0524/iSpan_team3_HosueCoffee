@@ -10,18 +10,33 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
+import { duration } from '@mui/material';
 
 
 function Navbar (props){
-  const {auth}=props
+  const {auth,carNum}=props
   const { bannerHeight } = props
   const [ pageYOffset, setPageYOffset ] = useState()
+  const member_photo=localStorage.getItem("photo")
+  console.log(carNum);  
   const loginOUT=()=>{
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem("dataCheck")
+    localStorage.removeItem("member_point")
+    localStorage.removeItem("mail")
+    localStorage.removeItem("account")
+    localStorage.removeItem("nick")
+    localStorage.removeItem("address")
+    localStorage.removeItem("name")
+    localStorage.removeItem("photo")
+    localStorage.removeItem("birth")
+    localStorage.removeItem("phone")
+    localStorage.removeItem("true")
     alert("您已登出")
     window.location.assign("http://localhost:3000/");
 
   }
+
 
   let getURL = useLocation();
 
@@ -109,11 +124,11 @@ function Navbar (props){
           <>
           <div className="memberDetail" style={{height: '0px'}}>
 
-            <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-            <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
-            <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
-            <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
-            <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
+            <li><Link to="/member/OrderList" onClick={closeSideNavClick}>訂單查詢</Link></li>
+            <li><Link to="/member/Point" onClick={closeSideNavClick}>優惠中心</Link></li>
+            <li><Link to="/member/QAList" onClick={closeSideNavClick}>問答中心</Link></li>
+            <li><Link to="member/profileEdit" onClick={closeSideNavClick}>資料維護</Link></li>
+            <li><Link to="/member/Password" onClick={closeSideNavClick}>密碼修改</Link></li>
           </div>
 
           <li><a href="#/" onClick={closeSideNavClick}>HOME<span>首頁</span></a></li>
@@ -124,11 +139,12 @@ function Navbar (props){
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
           {/* 以上為已登入狀態 */}
           </> 
-          :<>
+          :
+          <>
           {/* 以下為登出狀態 */}
           <div className="memberDetail" style={{height: '0px',display:"none"}} >
             <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-            <li><a href="" onClick={closeSideNavClick}>點餐訂單</a></li>
+            <li><a href="" onClick={closeSideNavClick}>優惠中心</a></li>
             <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
             <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
             <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
@@ -153,10 +169,18 @@ function Navbar (props){
         <div>
           <li className="mobileNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
 
-          <li><Link to="/shoppingcart"><IoCartOutline size={30} style={{ color: '#DDB44A' }}/></Link></li>
+          <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
+          {carNum?<div className='redC'></div>:<></>}
+          </Link></li>
 
           <li className="mobileNone position-relative">
-            <Link to="/member"><IoPersonOutline size={30} style={{ color: '#DDB44A' }}/></Link>
+          {auth? 
+            <Link to="/member/Profile"><div className="NavbarPhoto"><img   src={`${process.env.REACT_APP_API_URL}/uploads/${member_photo}`} alt="會員照片"></img></div>
+</Link>
+            :
+            <Link to="/member"><IoPersonOutline size={30} style={{ color: '#DDB44A'}}/></Link>
+
+          }
             {auth? <><p className="webUserInfo">
               <span><Link to="/member/Profile">會員專區</Link></span>
               <span><Link to="/member/OrderList">訂單查詢</Link></span>

@@ -8,11 +8,11 @@
 }
 
 .wn_money {
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .wn_TTM {
-  display: inline-block;
+  /* display: inline-block; */
   text-align: right;
 }
 
@@ -23,8 +23,8 @@
 .odfin {
   line-height: 3rem;
 }
-.proname {
-  text-align: right;
+.odproname {
+  text-align: left;
 }
 .wnimg {
   width: 100%;
@@ -60,3 +60,10 @@
 .pTitle {
   font-size: 1.5rem;
 }
+.rwdODP{
+  line-height: 1.5rem;
+}
+.od_hr{
+  margin-top: 1.5rem;
+}
+
