@@ -15,7 +15,6 @@ const storeRouter = require('./routes/store');
 
 const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
-const homeRouter = require('./routes/home');
 
 
 

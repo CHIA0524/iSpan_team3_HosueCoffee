@@ -7,7 +7,9 @@ import Aside from './component/Aside';
 import Popup from './component/Popup';
 
 
-function ShopBrazil(){
+function ShopBrazil(props){
+const{ auth ,setcarNum } =props
+
   //抓到點擊商品的id
 const [productId, setProductId] = useState(2)
 console.log(productId)
@@ -125,9 +127,11 @@ const[amount, setAmount]= useState(1)
                 
                             <main class="pMain col ">
                                 <div class="row justify-content-center">
-                                    <ProductCard datas={datas} setProductId={setProductId} setcss={setcss} datasPMF={datasPMF}/>  
+                                <ProductCard datas={datas} setProductId={setProductId} auth={auth} setcss={setcss}
+                                    datasPMF={datasPMF}/>  
                                 </div>                                
-                                <Popup datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
+
+                                <Popup setcarNum={setcarNum} datas={datas} productId={productId} Alldatas={Alldatas} setcss={setcss} css={css} />
                                
                             </main>
                         </div>

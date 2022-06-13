@@ -105,6 +105,7 @@ removePinfo.fire({
             setCartDetail(newData)
            
             setPtotal(ptotal-(price*thisTT));
+        setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
 
 
           
