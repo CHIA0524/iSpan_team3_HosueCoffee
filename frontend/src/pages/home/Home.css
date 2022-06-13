@@ -93,12 +93,14 @@ body {
     width: 20%;
     height: auto;
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 50px 30px;
     cursor: pointer;
 }
 
-.menuImg{
+.menuImg {
     opacity: 80%;
 }
 
@@ -113,9 +115,11 @@ body {
 
 .menuHover:hover .menuHoverImg {
     display: flex;
-    z-index: 2;
+    transform: scale(1.1);
+    transform-origin: right;
     transition: 1s;
 }
+
 /* ------------------- */
 
 /* flagship products */
@@ -278,14 +282,15 @@ body {
     padding: 0 30px;
 }
 
-.cardText h5,.cardText p {
+.cardText h5,
+.cardText p {
     margin-bottom: 0;
     padding: 5px;
     text-align: left !important;
     font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
-.cardText p{
+.cardText p {
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -328,7 +333,7 @@ body {
     font-family: "Comfortaa", "Microsoft JhengHei";
 }
 
-.allStore form{
+.allStore form {
     width: 80％;
     margin: 0px auto;
     display: flex;
@@ -553,6 +558,7 @@ body {
     color: #000;
     transition: .5s;
 }
+
 .aboutUsTest:hover p.aboutUsHover {
     color: #555;
     transition: .5s;
@@ -1080,7 +1086,7 @@ body {
     }
 
     .cardInfo a {
-    
+
         text-decoration: none;
     }
 
@@ -1418,7 +1424,7 @@ body {
     }
 
     .cardInfo a {
-    
+
         text-decoration: none;
     }
 
