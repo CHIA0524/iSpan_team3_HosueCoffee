@@ -127,7 +127,7 @@ function MemberLogin(props){
         //點擊註冊按鈕
             if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
             //判斷3個提示訊息是否都符合註冊條件
-            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM/?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}`);
+            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}`);
             //CRNM 為新增新的資料，沒有回傳值
             
             setmember_account(new_mb_account);

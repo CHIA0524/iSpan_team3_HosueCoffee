@@ -49,7 +49,6 @@ function MemberOrder(props){
             var shipmentPay=100
         }else{
             var shipmentPay=80
-
         }
     return(
         <>
@@ -68,7 +67,11 @@ function MemberOrder(props){
                 <div className="row">
                     <div className="col-1 col-3None"></div>
                     <div className="col">
-                        <h4 className="col-3None">{order_condition}</h4> 
+                        <h4 className="col-3None gopay">{order_condition}</h4> 
+                        <button className="coffeeLightBtn gopay" 
+                            onClick={()=>{
+                              document.querySelector('.QApopupWrap').style.display="block"
+                            }}>前往付款</button>
                         <div className="row memNo col-3None">
                             <div className="col-2 ">
                                 <p>訂單編號:</p>

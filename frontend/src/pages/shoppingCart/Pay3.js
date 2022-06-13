@@ -79,7 +79,7 @@ function Pay3(){
           }
       
           const complete =async()=>{
-              if(cName!=""&& cardNum!=""&&  cvc!=""){
+              if(cName!=""&&  cvc!=""){
                 const o_condition = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/paydetail?order_condition=${order_condition}&o_id=${o_id}`)
                 const pointss = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/Newpoint?member_point=${Myp+Newp}&member_id=${thisMemberid}`)
 
