@@ -22,7 +22,7 @@ const MenuCard = (props) => {
                 const img1 = (mu.drink_name)
                 return(
                     <div 
-                        className="card" 
+                        className="card drinkCard" 
                         type="button" 
                         key={mu.id}  
                     >
@@ -73,7 +73,7 @@ const MenuCard = (props) => {
                 const img1 = (mu.drink_name)
                 return(
                     <div 
-                        className="card" 
+                        className="card drinkCard" 
                         type="button" 
                         key={mu.id}  
                     >
