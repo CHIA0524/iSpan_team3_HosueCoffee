@@ -15,4 +15,11 @@ router.route('/')
 })
 
 
+router.get('/menucreate',async (req,res,next)=>{
+    //^創建新的帳號^
+    const sql = `INSERT INTO drink_order_detail(fk_drink_order_id, fk_drink_menu_id, qty) VALUES (?,?,?)`
+    const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point]);
+    res.json(datas);
+    
+  })
 module.exports = router;
