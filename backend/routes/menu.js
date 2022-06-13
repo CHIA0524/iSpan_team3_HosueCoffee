@@ -22,4 +22,18 @@ router.get('/menucreate',async (req,res,next)=>{
     res.json(datas);
     
   })
+router.get('/area',async (req,res,next)=>{
+    //^創建新的帳號^
+    const sql = "SELECT DISTINCT city FROM `store` ;"
+    const [datas] = await db.query(sql);
+    res.json(datas);
+    
+  })
+router.get('/areastore',async (req,res,next)=>{
+    //^創建新的帳號^
+    const sql = "SELECT store_name FROM store where city=?;"
+    const [datas] = await db.query(sql,[req.query.city]);
+    res.json(datas);
+    
+  })
 module.exports = router;
