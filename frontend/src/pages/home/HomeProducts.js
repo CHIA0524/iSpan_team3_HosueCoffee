@@ -2,10 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
-import CoffeeBagPink from './image/CoffeeBagPink.png';
+import CoffeeBagBlack from './image/CoffeeBagBlack.png';
 import CoffeeBagYellow from './image/CoffeeBagYellow.png';
-import CoffeeBagGreen from './image/CoffeeBagGreen.png';
-import CoffeeBagBlue from './image/CoffeeBagBlue.png';
+import CoffeeBagWhite from './image/CoffeeBagWhite.png';
+import CoffeeBagPink from './image/CoffeeBagPink.png';
 import CoffeeBagPurple from './image/CoffeeBagPurple.png';
 
 function homeProducts(props) {
@@ -54,7 +54,7 @@ function homeProducts(props) {
                     <div className="productscroll" id='scrollProduct1' data-aos="fade-down"
                         data-aos-easing="linear"
                         data-aos-duration="1500">
-                        <img className="scrollProduct1" src={CoffeeBagPink} alt="" />
+                        <img className="scrollProduct1" src={CoffeeBagBlack} alt="" />
                         <div className="productdetail">
                             <h5>肯亞AA TOP＄499</h5>
                             <h6>產地:非洲</h6>
@@ -63,16 +63,16 @@ function homeProducts(props) {
                         </div>
                     </div>
                     <div className="productscroll">
-                        <img className="scrollProduct1" src={CoffeeBagYellow} alt="" />
+                        <img className="scrollProduct1" src={CoffeeBagPurple} alt="" />
                         <div className="productdetail">
-                            <h5>伊莎米＄500</h5>
-                            <h6>產地:肯亞</h6>
-                            <p> 風味:堅果/核果/焦糖/巧克力<br />中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。
+                        <h5>曼巴＄300</h5>
+                            <h6>產地:巴西</h6>
+                            <p> 風味:可可韻/奶油/草本香韻<br />口感厚實甘醇的曼特寧搭配核果香氣絕佳的巴西咖啡豆,奶油的質感與明顯的可可味搭配後清雅的回甘口感一直會讓人回味無窮。
                             </p>
                         </div>
                     </div>
                     <div className="productscroll">
-                        <img className="scrollProduct1" src={CoffeeBagGreen} alt="" />
+                        <img className="scrollProduct1" src={CoffeeBagPink} alt="" />
                         <div className="productdetail">
                             <h5>瓜地馬拉花神＄400</h5>
                             <h6>產地:瓜地馬拉</h6>
@@ -81,16 +81,16 @@ function homeProducts(props) {
                         </div>
                     </div>
                     <div className="productscroll">
-                        <img className="scrollProduct1" src={CoffeeBagBlue} alt="" />
+                        <img className="scrollProduct1" src={CoffeeBagWhite} alt="" />
                         <div className="productdetail">
-                            <h5>曼巴＄300</h5>
-                            <h6>產地:巴西</h6>
-                            <p> 風味:可可韻/奶油/草本香韻<br />口感厚實甘醇的曼特寧搭配核果香氣絕佳的巴西咖啡豆,奶油的質感與明顯的可可味搭配後清雅的回甘口感一直會讓人回味無窮。
+                            <h5>耶加雪菲＄380</h5>
+                            <h6>產地:衣索比亞</h6>
+                            <p> 風味:核果/可可/花香味/柑橘<br />花神具有非常愉悅優雅花香主體的風味,酸性柔和且以巧克力般的風味尾韻作結,整體口感乾淨且明亮
                             </p>
                         </div>
                     </div>
                     <div className="productscroll">
-                        <img className="scrollProduct1" src={CoffeeBagPurple} alt="" />
+                        <img className="scrollProduct1" src={CoffeeBagYellow} alt="" />
                         <div className="productdetail">
                             <h5>模範生＄420</h5>
                             <h6>產地:哥倫比亞</h6>
@@ -103,19 +103,19 @@ function homeProducts(props) {
                 <div className="productSel">
 
                     <div onClick={productsimg1} className="product1" data-aos="fade-zoom-in">
-                        <img src={CoffeeBagPink} alt="" />
+                        <img src={CoffeeBagBlack} alt="" />
                     </div>
                     <div onClick={productsimg2} className="product2" data-aos="fade-zoom-in-down">
-                        <img src={CoffeeBagYellow} alt="" />
+                        <img src={CoffeeBagPurple} alt="" />
                     </div>
                     <div onClick={productsimg3} className="product3" data-aos="fade-zoom-in">
-                        <img src={CoffeeBagGreen} alt="" />
+                        <img src={CoffeeBagPink} alt="" />
                     </div>
                     <div onClick={productsimg4} className="product4" data-aos="fade-zoom-in-down">
-                        <img src={CoffeeBagBlue} alt="" />
+                        <img src={CoffeeBagWhite} alt="" />
                     </div>
                     <div onClick={productsimg5} className="product5" data-aos="fade-zoom-in">
-                        <img src={CoffeeBagPurple} alt="" />
+                        <img src={CoffeeBagYellow} alt="" />
                     </div>
                 </div>
                 <div className="productBTN">

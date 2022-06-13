@@ -62,12 +62,12 @@ body {
 /* menu */
 .homeMenu {
     width: 100%;
-    padding: 50px;
+    padding: 50px 0;
     text-align: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .homeMenu h1 {
@@ -85,6 +85,7 @@ body {
     flex-flow: row wrap;
     align-items: center;
     padding: 30px;
+    margin: 0 auto;
     padding-top: 0;
 }
 
@@ -211,6 +212,11 @@ body {
     width: 150px;
     height: auto;
     cursor: pointer;
+}
+
+.productSel img:hover {
+    transform: scale(1.5);
+    transition: 1s;
 }
 
 .productBTN {
@@ -643,7 +649,7 @@ body {
     }
 
     .allMenu {
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
         padding: 20px 30px;
     }
@@ -764,6 +770,7 @@ body {
         align-items: center;
         flex-flow: row;
         padding: 10px 0;
+        margin: 0 auto;
     }
 
     #city,
@@ -921,40 +928,38 @@ body {
     /* -------------------- */
 
     /* menu */
-    .menu {
-        padding: 30px 30px;
-        margin-bottom: 20px;
+    .homeMenu {
+        padding: 30px 0;
         justify-content: center;
     }
 
-    .menu h1 {
+    .homeMenu h1 {
         margin: 0 auto;
-        margin-top: 50px;
+        margin-bottom: 30px;
+        margin-top: 40px;
     }
 
     .allMenu {
-        width: 90%;
-        margin: 0 auto;
-        padding: 30px 0;
+        width: 100%;
+        display: flex;
+        flex-grow: 1 100px;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 0;
+    }
+
+    .menuHover {
+        width: 20%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .allMenu img {
-        width: 100px;
-        height: auto;
-    }
-
-    .menuCard {
         width: 100%;
-        height: 60px;
-        border-radius: 10px 10px 0 0;
-        padding: 25px 0;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .menuCard p {
-        margin: 0 auto;
-        font-size: 12px;
+        padding: 0;
+        margin: 0;
     }
 
     /* ------------------- */
@@ -1025,22 +1030,26 @@ body {
     /* ------------------ */
 
     /* TODAY’S ARTICLE */
-    .blog {
-        margin-top: 20px;
+    .homeBlog {
+        width: 100%;
+        margin-top: 10px;
+
     }
 
-    .blog h1 {
+    .homeBlog h1 {
         padding: 30px;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .allCard {
-        width: 100％ !important;
-        margin: 0px auto;
-        display: inline-block;
+        width: 100％;
+        margin: 0 auto;
+        display: flex;
         text-align: center;
         justify-content: center;
         flex-flow: column;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .allCard .cardBorder:not(:first-child) {
@@ -1048,12 +1057,12 @@ body {
     }
 
     .cardBorder {
-        width: 60% !important;
+        width: 70%;
+        margin: 0 50px;
     }
 
     .cardImg img {
-        width: 90%;
-        padding: 30px 0;
+        padding: 20px 0;
     }
 
     .cardImg,
@@ -1061,11 +1070,17 @@ body {
     .cardInfo {
         width: 90%;
         margin: 0 auto;
-        text-align: center;
-        padding: 0 20px;
+        text-align: center !important;
+        padding: 0;
+    }
+
+    .cardInfo {
+        padding: 10px;
+        padding-bottom: 20px;
     }
 
     .cardInfo a {
+    
         text-decoration: none;
     }
 
@@ -1122,8 +1137,8 @@ body {
     }
 
     .allNew {
-        width: 50%;
-        margin-bottom: 50px;
+        width: 60%;
+        margin-bottom: 30px;
     }
 
     .new1 {
@@ -1154,12 +1169,13 @@ body {
     }
 
     .activity h1 {
-        margin: 0 30px;
+        margin: 20px 30px;
+        margin-top: 40px;
     }
 
     .box1 {
         width: 70%;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 
     .coupon1 {
@@ -1493,6 +1509,7 @@ body {
 
     .activity h1 {
         margin: 0 30px;
+        margin-top: 50px;
     }
 
     .box1 {
