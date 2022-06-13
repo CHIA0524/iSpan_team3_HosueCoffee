@@ -218,6 +218,12 @@
     display: flex;
     justify-content: center;
   }
+  .deletBtn {
+    display: none;
+  }
+  .wedTotal {
+    display: none;
+  }
   .check {
     display: flex;
     justify-content: space-between;

@@ -132,21 +132,23 @@ removePinfo.fire({
                     </div>
                    
                    {/* 商品小計 */}
-                    <div className="col-1">
+                    <div className="col-1 wedTotal">
                         <p>${price*total}</p>
                     </div>
                 {/* 手機版 */}
                     <div class="number">
                         <div class="mAddNum">
                             <button className="buttonNum" onClick={() =>{
-                            setThisTT(thisTT-1)
+                             if(thisTT>1){
+                             setThisTT(thisTT-1)
                              setPtotal(ptotal-price)
                             const dd = amount -1 
                              updateCart(dd); 
                             }
+                            }
                              }>-</button>
-                            <div>{thisTT}</div>
-                           <button className="buttonNum"onClick={() =>{
+                            <div>{total}</div>
+                           <button className="buttonNum" onClick={() =>{
                              setThisTT(thisTT+1)
                              setPtotal(ptotal+price)
                             const cc = amount + 1 
@@ -154,7 +156,7 @@ removePinfo.fire({
                            }
                            } >+</button>
                         </div>
-                        <h3>${price* Number(total)}</h3>
+                        <h3>${price*total}</h3>
                       </div>     
     </>
 )

@@ -118,11 +118,19 @@ router.route('/coupon')
         res.json(datas)
         
       })
-    router.get('/orderdetail',async (req,res,next)=>{
+      router.get('/orderdetail',async (req,res,next)=>{
         //^寫入詳細訂單^
         const sql = 'INSERT INTO order_detail (fk_o_id,fk_p_id,qty) VALUES (?,?,?)'
         const [datas] = await db.query(sql,[req.query.fk_o_id,req.query.fk_p_id,req.query.qty]);
         res.json(datas)
+        
+      })
+
+      router.get('/paydetail',async (req,res,next)=>{
+        //^寫入詳細訂單^
+        const sql = `UPDATE orders SET order_condition=? WHERE o_id=?`
+        const [datas] = await db.query(sql,[req.query.order_condition,req.query.o_id]);
+        res.json(datas[0]);
         
       })
 

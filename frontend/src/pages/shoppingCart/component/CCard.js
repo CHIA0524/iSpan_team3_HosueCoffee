@@ -2,8 +2,23 @@ import CardReactFormContainer from 'card-react';
 import '../../../../node_modules/card-react/lib/ccard.css' 
 import './card.css';
 
-function CCard (){
+function CCard (props){
+  const {cardNum,setCardNum,cName,setCName,cDate,setCDate,cvc,setCvc}=props
 
+  const name=(e)=>{
+    setCName(e.target.value);
+     } 
+  const cnum=(e)=>{
+    setCardNum(e.target.value);
+    }  
+    // 驗證可能會出錯 先取消
+  const date=(e)=>{
+    setCDate(e.target.value);
+    }  
+  const ccvc=(e)=>{
+    setCvc(e.target.value);
+    } 
+    
     return(
 <>
 {/* // the container in which the card component will be rendered - can be anywhere in the DOM */}
@@ -49,13 +64,15 @@ function CCard (){
 >
 <form className="cForm">
      
-    <input placeholder="Full name" type="text" name="CCname" />
+    <input placeholder="Full name" type="text" name="CCname" value={cName}  onChange={name} />
     <br/>
-    <input placeholder="CARD NUMBER" type="text" name="CCnumber" />
+    <input placeholder="CARD NUMBER" type="text" name="CCnumber" value={cardNum} onChange={cnum}  />
     <br/>
-    <input placeholder="MM/YY" type="text" name="CCexpiry" />
+    <input placeholder="MM/YY" type="text" name="CCexpiry" value={cDate} 
+    // onChange={date}   
+    />
     <br/>
-    <input placeholder="CVC" type="text" name="CCcvc" />
+    <input placeholder="CVC" type="text" name="CCcvc" value={cvc} onChange={ccvc}  />
     <br/>
   </form>
  
