@@ -52,9 +52,20 @@ function MemberOrder(props){
             var coupon=0
         }
         if(shipment=="黑貓"){
+            if(alltotalpay<1500){
             var shipmentPay=100
         }else{
-            var shipmentPay=80
+            var shipmentPay=0
+
+        }
+        }else{
+            if(alltotalpay<1500){
+                var shipmentPay=80
+            }else{
+                var shipmentPay=0
+    
+            }
+            
         }
         
     return(

@@ -11,7 +11,7 @@ router.route('/odList')
 //^查詢本帳號訂單^
     .get(async(req,res,next)=>{
         const sql=
-        "select o_id,fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=?"; 
+        "select o_id,fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=? order by o_id DESC"; 
         const [datas]=await db.query(sql,[req.query.fk_member_id]);
         res.json(datas);
 

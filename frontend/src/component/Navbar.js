@@ -18,7 +18,7 @@ function Navbar (props){
   const { bannerHeight } = props
   const [ pageYOffset, setPageYOffset ] = useState()
   const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
-    if(member_photo==""){
+    if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
   console.log(carNum);  
