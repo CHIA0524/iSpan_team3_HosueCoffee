@@ -136,7 +136,7 @@ function Navbar (props){
 
           <li><Link to="/" onClick={closeSideNavClick}>HOME<span>首頁</span></Link></li>
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
-          <li><a href="#" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
+          <li><a href="/blog" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
 
           <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
