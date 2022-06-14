@@ -117,8 +117,8 @@ function ProductDetail(props){
                                 <div button type="button" className="addCartBtn" id="subtract" 
                                 onClick={() =>{  
                                   // backshop();
+                                                AddSweet()
                                                 updateCart(); 
-                                                AddSweet();
                                                   }}
                                 ><Link to="/shop" className="addCartText"
                                 >
