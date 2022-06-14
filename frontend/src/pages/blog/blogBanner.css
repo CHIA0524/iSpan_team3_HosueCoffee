@@ -1,0 +1,289 @@
+.blogSection{
+  margin-top: -3rem;
+}
+
+.blogBanner{
+  position:relative;
+    width:100% ;
+    height: 500px;
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url(./img/banner.svg);
+    
+  }
+  .blogCol{
+    margin-bottom: 2rem;
+    
+  }
+
+  
+  .blogBannerWord h2{
+    position: relative;
+    text-align: center;
+    height:4rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 0.2em;
+    
+    color: #000000;
+
+    text-decoration: none;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .blogBannerWord h2:hover a{
+    color: #EDE1C1;
+  }
+
+
+  /* blogNav文章類別列 */
+  .blogNav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem;
+}
+
+.blogNavItem {
+  list-style: none;
+  align-items: center;
+}
+
+.blogNavItem a h3{
+  text-decoration: none;    
+  font-size: 18px;
+}
+
+.blogNavItem a p{
+  font-size: 14px;
+}
+
+
+.blogNavItem a:hover h3{
+  color: #EDE1C1;
+  
+}
+
+
+.blogNavItem a h3{
+  text-align: center;
+}
+
+.blogNav a {
+  text-decoration: none;
+}
+
+
+.blogType {
+  display: none;
+  height: 60px;
+  width:100%;
+}
+
+
+/* blogCard文章卡片 */
+.blogCardZone{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.blogRow{
+  padding: 1rem;
+
+}
+
+
+.blogCardBorder{
+  width:100%;
+  height: 30rem;
+  /* padding: 0px 0px; */
+  /* margin: 1rem 1rem; */
+  border: 1px solid #E4D2A3;
+  box-sizing:border-box;
+  border-radius: 40px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  outline: 0;
+  transition: .1s;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+  }
+  
+
+  /* blogCard動畫效果 */
+  .blogCardBorder:hover{
+    opacity: 1;
+    transform: scale(1.05);
+    color: #FFFFFF;
+  }
+
+
+  .blogCardBorder:active{
+    transform: scale(1);
+    box-shadow: inset 0 0 10px 1px rgba(209, 209, 209, 0.2);
+  }
+
+
+.blogCardBanner {
+  height: 50%;
+  width: 100%;
+  border-radius:40px 40px 0 0 ;
+  overflow: hidden;
+
+}
+
+.blogCardImg{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 7%;
+}
+
+.blogCardText, .blogCardInfo{
+  
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.blogCardText {
+  margin-top:1.2rem ;
+  line-height:30px;
+  margin-bottom: 1.5rem;
+  
+}
+
+.blogTextTitle{
+  min-height:3.5rem ;
+  /* padding-top: 0rem; */
+
+}
+
+.blogCardText p{
+  /* padding-top: 1rem; */
+  font-size: 1rem;
+}
+
+
+
+.blogCardInfo{
+  display: flex;
+  justify-content:space-between;
+  padding:0.5rem 0.5rem;
+}
+
+.blogCardInfo Link{
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.blogCardInfo a:hover{
+  text-decoration: none;
+  color: #EDE1C1;
+ }
+
+
+
+@media screen and (max-width: 1000px) {
+
+  .blogBanner{
+    height:400px;
+  }
+
+
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+
+  .blogBanner{
+    height:300px;
+}
+
+
+  .blogNav{
+      display: none;
+  }
+
+  .blogType {
+    margin-top: 1rem;
+    /*padding-top: -1rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem; */
+    display: flex;
+    justify-content: center;
+    
+  }
+
+
+  .blogSelect {
+    width: 60%;
+    font-weight: bold ;
+    padding: 1rem;
+    text-align: center;
+    /* background-color:#e4d2a3 ; */
+    display: block;
+    width: 60%;
+    text-align: center;
+    border-radius: 0.8rem ;
+    border: 1px solid #e4d2a3;
+    color: #4c3410;
+  
+    
+    
+  } 
+  
+  .blogCardImg{
+   padding: 0;
+  }
+
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .blogCardInfo{
+    display: flex;
+    justify-content:space-between;
+    padding:2rem 0.5rem;
+  }
+  .blogCardBorder{
+    height: auto;
+    margin: 0 auto;
+    /* padding-bottom: 2rem; */
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .blogBanner{
+    height:150px;
+   
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

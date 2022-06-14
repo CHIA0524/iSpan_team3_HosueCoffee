@@ -62,6 +62,14 @@ import ShopEthiopia from './pages/shop/ShopEthiopia';
 import ShopGuatemala from './pages/shop/ShopGuatemala';
 import ShopOther from './pages/shop/ShopOther';
 
+//blog pages
+import Blog from './pages/blog/Blog'
+import BlogArticle from './pages/blogArticle/BlogArticle'
+import BlogCoffee from './pages/blog/BlogCoffee'
+import BlogCoffeeBean from './pages/blog/BlogCoffeeBean'
+import BlogPourOver from './pages/blog/BlogPourOver'
+import BlogCelebrity from './pages/blog/BlogCelebrity'
+import BlogShare from './pages/blog/BlogShare'
 
 
 
@@ -97,12 +105,35 @@ function App() {
 
 
 
+      <Navbar/>
 
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}
       {/* 路徑長的往上放喔 */}
       <ScrollToTop/>
       <Switch>
+        
+        <Route path="/blog/blogArticle/:id">
+        <BlogArticle />
+        </Route>
+        <Route path="/blog/coffee">
+        <BlogCoffee/>
+        </Route>
+        <Route path="/blog/coffeebean">
+        <BlogCoffeeBean/>
+        </Route>
+        <Route path="/blog/pourover">
+        <BlogPourOver/>
+        </Route>
+        <Route path="/blog/celebrity">
+        <BlogCelebrity/>
+        </Route>
+        <Route path="/blog/share">
+        <BlogShare/>
+        </Route>
+        <Route path="/blog">
+        <Blog />
+        </Route>
 
       {/* shop 部分 */}
 

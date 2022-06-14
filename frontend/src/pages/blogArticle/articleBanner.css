@@ -1,0 +1,258 @@
+
+.articleBanner{
+    margin-top: -3rem;
+    width:100% ;
+    height: 25rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.articleImg00{
+    height: 100%;
+    width: 100%;
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    object-fit: cover;
+}
+
+
+
+
+
+/* .container{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0 auto;
+} */
+
+
+
+    
+.articleTitle{
+    font-size: 40px;
+    font-weight:bolder;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.articleAuthor{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.articleAuthor span{
+    font-size: 15px;
+}
+
+.makeLinkDown{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.outsideLink{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    position:relative;
+    bottom: 30px;
+
+    
+}
+
+
+
+.blogArticle p{
+    font-size: 16px;
+    margin-top: 1em;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+    color:#000;
+}
+
+
+.articleCardImg{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+.articleCardImg:hover{
+    opacity: 1;
+}
+
+
+
+/* 返回按鈕 */
+.articleBackBtn{
+    display: inline-block;      
+    position: relative;
+    vertical-align: middle;
+    text-align:center;
+    width: 100px;
+    height: 40px;
+    font-size:16px;
+    font-weight:bolder;
+    color: #FFFFFF;
+    background: #E4D2A3;
+    border-radius: 30px;
+    margin:10rem auto ;
+    padding: 7px 10px 5px 10px;
+    justify-content: center;
+    /* opacity: 0.8; */
+    outline: 0;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.articleBackBtn a{
+    color: #FFFFFF;
+    text-decoration: none;
+    
+}
+
+/* 返回按鈕動畫效果 */
+.articleBackBtn:hover{
+    opacity: 1;
+    transform: scale(1.05);
+    color: #FFFFFF;
+
+}
+
+.articleBackBtn:active{
+    transform: scale(1);
+    box-shadow: inset 0 0 10px 1px rgba(209, 209, 209, 0.2);
+}
+
+
+/* 文章內容 相關推薦CSS */
+.articleRecommendWord{
+    display: flex;
+    font-size: 2.8rem;
+    font-weight:bolder;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.articleRecommendWrapper{
+    justify-content: center;
+    padding: 1.5%;
+}
+
+
+.articleRecommendCard {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+.articleRecommendImg img{
+    width: 100%;
+    height: auto;
+    padding: 2%;
+}
+
+.articleRecommend{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* 
+.articleRecommendCard ,
+.articleRecommendCardImg{
+    
+    width: 100%;
+    
+} */
+
+
+
+
+
+/* 行動裝置版RWD     */
+
+@media screen and (max-width: 1000px) {
+
+
+    .articleRecommendWrapper{
+    padding: auto;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 800px) {
+    .makeLinkDown{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    
+    
+    .outsideLink{
+        display: flex;
+        flex-direction: row;
+        justify-content:left;
+        position:relative;
+        top: 30px;
+        
+    }
+
+
+    .blogArticle p{
+    font-size: 1rem;
+    }
+    
+  
+    .articleImg,.articleImg img{
+        width: 100%;
+    }
+
+    .articleRecommendImg img {
+    width: 60%;
+    }
+
+ 
+
+   
+
+    .articleRecommendWrapper{
+        /* padding: 0.5%; */
+    }
+
+
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .articleBanner{
+      height:150px;
+  }
+
+  .articleTitle{
+      font-size: 28px;
+  }
+  
+}
+
+
+
+
+  .citeSrc{
+    display: flex;
+    flex-direction:row-reverse;
+    font-size: 10%;
+    color: #E4D2A3;
+    }

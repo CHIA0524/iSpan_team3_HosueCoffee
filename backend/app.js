@@ -56,6 +56,10 @@ app.use(`/morder`,mODRouter);
 
 app.use(`/home`,homeRouter);
 
+app.use('/store/map',storeMapRouter);
+//http://localhost:3001/blog
+app.use('/blog',blogRouter);
+
 
 app.use('/menu',menuRouter);
 app.use('/home',homeRouter);
