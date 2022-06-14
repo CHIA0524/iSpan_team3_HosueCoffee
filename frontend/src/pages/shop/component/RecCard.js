@@ -14,7 +14,7 @@ function RecCard(props){
   const [datas, setDatas ] = useState([])
  
   const fetchData = async()=>{
-    const response = await fetch('http://localhost:3001/shop');
+    const response = await fetch('http://localhost:3001/shop/rec');
     const results = await response.json();
     setDatas(results);
   }
