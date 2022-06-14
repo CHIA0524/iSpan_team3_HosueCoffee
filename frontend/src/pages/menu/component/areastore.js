@@ -8,15 +8,16 @@ function Areastore(props){
         
     }
     
+    console.log(areastore)
     return(
         <>
             <select name="select-profession" id="select-profession-store" onChange={CGAreaS}>
         {areastore.length> 0 && areastore.map((areaStoreA,i)=>{
             const{store_name}=areaStoreA;
             return(
-                   <option value={store_name} >{store_name}</option>
-              )})}
-                 </select>
+                    <option value={store_name} >{store_name}</option>
+            )})}
+                </select>
         </>
     )
 }

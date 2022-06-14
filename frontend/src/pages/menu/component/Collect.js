@@ -16,9 +16,11 @@ const Collect = (props) =>{
     const upFavourite = () =>{
         let k = 0
         const favouriteid = {
-            menuid:id
+            menuid:muid
         } 
         let favourites = localStorage.getItem("favourite") ? JSON.parse(localStorage.getItem("favourite")) : []
+
+
         for (let i = 0; i < favourites.length; i++) {
             let item = favourites[i]
             if (item.menuid === favouriteid.menuid) {
@@ -35,6 +37,7 @@ const Collect = (props) =>{
 
     const downFavourite = ()=>{
         const datas1 = JSON.parse(localStorage.getItem('favourite'))
+        console.log(datas1);
         for(let i=0; i<datas1.length; i++){
             if (id===datas1[i].menuid) {
                 datas1.splice(i,1)
