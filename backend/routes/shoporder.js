@@ -27,7 +27,7 @@ router.route('/coupon')
 //^查詢本帳號優惠券^
     .get(async(req,res,next)=>{
         const sql=
-        "SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id=? and state='未使用' "; 
+        "SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id=? and state='未使用' and coupon_start_date <=now() and coupon_end_date>=now()"; 
         const [datas] = await db.query(sql,[req.query.fk_m_id]);
         res.json(datas);
 

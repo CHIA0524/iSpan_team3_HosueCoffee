@@ -16,7 +16,7 @@ function Popup(){
                             <div class="popBox">
                                 <div class="popBoxContent">
                                     <div class="imgPart">
-                                        <img class="packageImg" src="./img/包裝 2.png" alt="">
+                                        <img class="packageImg" src="./img/包裝 2.png" alt=""/>
                                     </div>
                                     <div class="popContent">
                                         <div class="popText">
