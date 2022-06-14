@@ -105,7 +105,6 @@ function App() {
 
 
 
-      <Navbar/>
 
       {/* Switch 只有此範圍會換畫面 navbar footer 會保留 */}
       {/* 記得載入頁面組件喔 */}

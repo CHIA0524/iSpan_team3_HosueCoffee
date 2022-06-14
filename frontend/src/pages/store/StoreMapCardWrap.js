@@ -179,9 +179,9 @@ function StoreMapCardWrap(){
 
       // 使用者不提供權限，或是發生其它錯誤
       function error() {
-        setTimeout(() => {
-          alert('無法取得你的位置');
-        }, 1500)
+        // setTimeout(() => {
+        //   alert('無法取得你的位置');
+        // }, 1500)
       }
 
       // 使用者允許抓目前位置，回傳經緯度

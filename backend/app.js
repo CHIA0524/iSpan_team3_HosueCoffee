@@ -15,6 +15,7 @@ const storeRouter = require('./routes/store');
 
 const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
+const blogRouter = require('./routes/blog');
 
 
 
@@ -56,7 +57,6 @@ app.use(`/morder`,mODRouter);
 
 app.use(`/home`,homeRouter);
 
-app.use('/store/map',storeMapRouter);
 //http://localhost:3001/blog
 app.use('/blog',blogRouter);
 

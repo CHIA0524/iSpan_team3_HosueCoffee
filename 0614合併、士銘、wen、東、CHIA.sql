@@ -1,9 +1,579 @@
- -- drop database team3;
-create schema team3;
+drop database team3;
+create database team3;
 use team3;
+-- select*from members;
+ -- select * from members;
+-- select * from members_data ;
+-- select * from orders where o_id=210003;
+-- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
+-- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
+--------------------------------------------------------------------------------------------------------------------------------
+-- 使用者
+CREATE TABLE `members`(
+	`member_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `member_account` varchar(20) NOT NULL UNIQUE,
+    `member_password` varchar(20) NOT NULL,
+    `member_mail` varchar(255) NOT NULL UNIQUE,
+    `member_point` INT NOT NULL,
+    `member_start` TIMESTAMP DEFAULT NOW()
+);
+ALTER TABLE `members` AUTO_INCREMENT=100001;
+INSERT INTO `members`(`member_account`,`member_password`,`member_mail`,`member_point`)
+VALUE
+('LH44','abc123456','LH44@gmail.com',2000),
+('VB77','abc123456','VB77@gmail.com',100),
+('GR63','abc123456','GR63@gmail.com',100),
+('CL16','abc123456','CL16@gmail.com',100),
+('CS55','abc123456','CS55@gmail.com',100),
+('MS47','abc123456','MS47@gmail.com',100),
+('LN04','abc123456','LN04@gmail.com',100),
+('DR03','abc123456','DR03@gmail.com',100),
+('NR06','abc123456','NR06@gmail.com',0);
+
+CREATE TABLE `members_data`(
+	`fk_member_id` INT PRIMARY KEY ,
+	`member_name` varchar(50) not null,
+    `member_nick` varchar(50),
+    `member_birth` date not null,
+    `member_phone` VARCHAR(10) NOT NULL UNIQUE,
+    `member_address` varchar(200) Not Null,
+    `member_photo` varchar(200),
+    foreign KEY (`fk_member_id`) references members(member_id)
+);
+insert into `members_data`(`fk_member_id`,`member_name`,`member_nick`,`member_birth`,`member_phone`,`member_address`,`member_photo`)
+value
+('100001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥','Lewis_Hamilton.jpg'),
+('100002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭','bottas.jpg'),
+('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','Russell.jpg');
 
 
--- drop  TABLE blogs;
+
+-- 會員提問
+CREATE TABLE `member_QA`(
+  `QA_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `fk_member_id` INT NOT NULL,
+  `ask_type` VARCHAR(10) Not Null,
+  `ask_title` VARCHAR(25) NOT NULL,
+  `ask` VARCHAR(200) NOT NULL,
+  `ans` VARCHAR(200),
+  `CREATEd_at` TIMESTAMP DEFAULT NOW(),
+  `renew` TIMESTAMP DEFAULT NOW(),
+  foreign KEY (`fk_member_id`) references members(member_id)
+);
+ALTER TABLE `member_QA` AUTO_INCREMENT=110001;
+
+INSERT INTO `member_QA`(`fk_member_id`,`ask_type`, `ask_title`,`ask`,`ans`)
+VALUES
+('100001','優惠活動','買一送一','請問買一送一要同品項嗎?',''),
+('100001','運費相關','運費','請問合計運費會因為重量增加而改變運費，還是單次運費就是固定的呢?','不會喔，單筆若一起寄送，運費都是固定的，不會因為重量增加而改變，但有可能體積超出寄送規定，而分開寄出，若發生此問題，客服會主動向您聯絡'),
+('100002','商品相關','大小包','咖啡豆有分大小包嗎?',''),
+('100003','其他','我強不強','我是不是最強的車手?','是，你是'),
+('100004','其他','車隊問題','今年會在哪個車隊','Mercedes-AMG Petronas F1 Team'),
+('100005','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100006','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100007','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100008','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100009','其他','假世界冠軍','Max不是的世界冠軍','沒錯他不是'),
+('100002','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100003','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('100002','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100003','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100004','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100005','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100006','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('100007','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100008','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100009','其他','假世界冠軍','Max不是真的世界冠軍','沒錯他不是'),
+('100002','其他','假世界冠軍','Max不是真的世界冠軍',''),
+('100001','其他','最多世界冠軍','我爸是不是擁有最多世界冠軍的車手',''),
+('100002','其他','打折?','世界冠軍買咖啡有打折嗎?',''),
+('100003','其他','代言問題','我想代言你們品牌方便嗎?',''),
+('100004','其他','適用','有賣試用包嗎?','');
+
+-- update member_QA SET ans="需要",renew=NOW() WHERE QA_id="110001";
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+-- 商品
+
+CREATE TABLE `products`(
+`p_id` INT  PRIMARY KEY AUTO_INCREMENT,
+`p_name` VARCHAR(50) NOT NULL,
+`p_price` INT NOT NULL,
+`content` VARCHAR(1000) NOT NULL,
+`status` VARCHAR(50) NOT NULL,
+`coffeetype`VARCHAR(50) NOT NULL,
+`img_src`  varchar(500)
+);
+
+ALTER TABLE `products` AUTO_INCREMENT=200001;
+
+INSERT INTO `products`( `p_name`, `p_price`, `content`,`status`,`coffeetype`,`img_src`)
+VALUES
+('肯亞AA TOP','499','產地:非洲 <br>
+處理法:水洗<br>
+風味:黑梅/李子/葡萄<br>
+AA TOP最高等級的肯亞咖啡豆其濃郁的黑梅香氣,口感豐富且尾韻悠長,轉化為肯亞特有的甜,一入口紅酒般的餘韻在口中揮之不去','上架','肯亞','./img/1.jpeg'),
+('耶加雪菲','380','產地:衣索比亞<br>
+
+處理法:水洗<br>
+
+風味:核果/可可/花香味/柑橘<br>
+
+花神具有非常愉悅優雅花香主體的風味,酸性柔和且以巧克力般的風味尾韻作結,整體口感乾淨且明亮','上架','衣索比亞','./img/2.jpeg'),
+('瓜地馬拉花神','400','產地:瓜地馬拉<br>
+
+處理法:日曬<br>
+
+風味:莓果/蜜桃<br>
+
+日曬耶加雪菲具有濃郁奔放的水果香,柔和綿長的蜜桃莓果酸卻不刺激,風味甜度高酸度明亮且細膩','下架','瓜地馬拉','./img/3.jpeg'),
+('模範生','420','產地:哥倫比亞<br>
+
+處理法:水洗<br>
+
+
+風味:柑橘/可可/奶油<br>
+
+
+具有豐富的芳香水果酸氣迷人,且帶有柑橘的明亮甜感,巧克力的餘韻油脂感特佳','下架','哥倫比亞','./img/4.jpeg'),
+('曼巴','300','產地:巴西<br>
+
+處理法:半水洗<br>
+
+風味:可可韻/奶油/草本香韻<br>
+
+口感厚實甘醇的曼特寧搭配核果香氣絕佳的巴西咖啡豆,奶油的質感與明顯的可可味搭配後清雅的回甘口感一直會讓人回味無窮','上架','巴西','./img/5.jpeg'),
+('黃金曼巴','380','產地:巴西<br>
+處理法:半水洗<br>
+
+風味:可可韻味/草本香韻/奶油<br>
+
+口感厚實甘醇的頂級黃金曼特寧搭配核果香氣絕佳的巴西咖啡豆,完美平衡呈現奶油的質感與明顯的可可味','上架','巴西','./img/6.jpeg'),
+('瓜馬花神','400','產地:瓜地馬拉<br>
+
+處理法:日曬<br>
+
+風味:莓果/蜜桃<br>
+
+日曬耶加雪菲具有濃郁奔放的水果香,柔和綿長的蜜桃莓果酸卻不刺激,風味甜度高酸度明亮且細膩','下架','瓜地馬拉','./img/7.jpeg'),
+('藍湖','390','產地:哥倫比亞<br>
+
+處理法:日曬<br>
+
+風味:黑松露乾香氣、奶油、桃子、巧克力、牛奶仙草蜜<br>
+
+極品莊園咖啡的經典熱銷款，具有焦糖經典風味，同時能感受到榛果、堅果、肉桂與柔酸味譜，彷彿嚐一口戀愛的滋味，屬於滑順微酸的咖啡。','上架','哥倫比亞','./img/8.jpeg'),
+('伊莎米','500','產地:肯亞<br>
+
+處理法:日曬<br>
+
+風味:黑巧克力/榛果<br>
+
+中南美洲咖啡的整體風味以平衡而著稱，咖啡風味也非常豐富。普遍使用濕法處理生豆也是中南美洲咖啡的特色之一，豆型
+
+相較於非洲咖啡大而更加均勻，好的加工過程也使得瑕疵率較其他產區也更低。','下架','肯亞','./img/9.jpeg'),
+('伊莎莉','400','產地:瓜地馬拉<br>
+
+處理法:日曬<br>
+
+風味:堅果/核果/焦糖/巧克力<br>
+
+日曬耶加雪菲具有濃郁奔放的水果香,柔和綿長的蜜桃莓果酸卻不刺激,風味甜度高酸度明亮且細膩','上架','瓜地馬拉','./img/10.jpg'),
+('費洛索莊園','390','產地:巴西<br>
+
+處理法:日曬<br>
+
+風味:莓果/蜜桃<br>
+
+日曬耶加雪菲具有濃郁奔放的水果香,柔和綿長的蜜桃莓果酸卻不刺激,風味甜度高酸度明亮且細膩','上架','巴西','./img/11.jpg'),
+('西達摩桃可可','490','產地:衣索比亞<br>
+
+處理法:日曬<br>
+
+風味:莓果/桃子/佛手柑/橘皮/花香/蜂蜜<br>
+
+一入口即可感受到桃子、草莓與橘汁的酸甜風味，隨後浮現橙花、佛手柑、白葡萄與紅茶，結尾是優雅花香與桃子餘韻，果汁般的甜美風味相當迷人','上架','衣索比亞','./img/12.jpg'),
+('貼紙','50','限量貼紙','上架','其他','./img/13.jpg'),
+('明信片','20','限量明信片','上架','其他','./img/14.jpg'),
+('愛心捐款','100','我們正堅持做出對的事情，讓浪浪不在挨餓。我們走在對的路上。','上架','其他','./img/15.jpg');
+
+-- 商品訂單
+
+
+CREATE TABLE `orders`(
+  `o_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `fk_member_id` INT NOT NULL,
+  `shipment` VARCHAR(50) NOT NULL,
+  `pay` VARCHAR(50) NOT NULL,
+  `order_condition` VARCHAR(50) NOT NULL,
+  `buy_name` VARCHAR(50) NOT NULL,
+  `buy_phone` INT(10) NOT NULL,
+  `buy_email` VARCHAR(100) NOT NULL,
+  `buy_address` VARCHAR(100) NOT NULL,
+  `recipient_name` VARCHAR(50) NOT NULL,
+  `recipient_phone` INT(10) NOT NULL,
+  `recipient_email` VARCHAR(100) NOT NULL,
+  `recipient_address` VARCHAR(100) NOT NULL,
+  `remark` VARCHAR(100) ,
+  `used_coupon` VARCHAR(100) ,
+  `used_points` VARCHAR(100) ,
+  `CREATEd_at` TIMESTAMP DEFAULT NOW(),
+  foreign KEY (fk_member_id) references members(member_id)
+);
+ALTER TABLE `orders` AUTO_INCREMENT=210001;
+
+INSERT INTO `orders`( `fk_member_id`,`shipment`,`pay`,`order_condition`,`buy_name`,`buy_phone`,`buy_email`,`buy_address`,`recipient_name`,`recipient_phone`,`recipient_email`,`recipient_address`,`remark`,`used_coupon`,`used_points`)
+VALUES
+('100001','郵局','信用卡','出貨','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','林俊傑','0912345678','idontknow@gmail.com','高雄市前金區七賢二路224號','請快出貨','',''),
+('100002','黑貓','匯款','未出貨','潘週單','0987654321','haha@gmail.com','高雄市三民區九如一路501號','29歲','0912345678','idontknow@gmail.com','台東縣卑南鄉利嘉路689巷16之6號','快點','',''),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','未出貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','已取貨','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','',''),
+('100003','黑貓','信用卡','完成訂單','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','周杰倫','0945362718','bonbon@gmail.com','屏東縣恆春鎮恆南路125巷69弄2號','','','');
+
+-- 商品訂單_詳細
+CREATE TABLE `order_detail`(
+  `od_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `fk_o_id` INT NOT NULL,
+  `fk_p_id` INT NOT NULL,
+  `qty` INT NOT NULL,
+  foreign KEY (fk_o_id) references orders(o_id),
+  foreign KEY (fk_p_id) references products(p_id)
+);
+INSERT INTO `order_detail`(`fk_o_id`,`fk_p_id`,`qty`)
+VALUES('210001','200001','1'),
+('210001','200002','3'),
+('210001','200003','2'),
+('210001','200004','4'),
+('210002','200005','3'),
+('210002','200006','1'),
+('210002','200007','5'),
+('210003','200001','2'),
+('210004','200002','2'),
+('210004','200003','7'),
+('210005','200004','1'),
+('210005','200005','5'),
+('210005','200006','2'),
+('210006','200007','4'),
+('210006','200008','5'),
+('210006','200009','6'),
+('210006','200010','3'),
+('210006','200011','3'),
+('210006','200012','3');
+
+-- select o_id, fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=100001;
+-- select count(*) from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id  where o_id=210001;
+-- select count(*) as total from order_detail where fk_o_id=210001;
+-- select fk_member_id,order_condition,CREATEd_at from orders where fk_member_id=?;
+-- select*from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=210001;
+--  join products    on order_detail.fk_p_id=products.p_id
+-- 收藏商品
+CREATE TABLE `member_favorite`(
+`MF_id` INT PRIMARY KEY AUTO_INCREMENT,
+`fk_m_id` INT NOT NULL,
+`fk_p_id` INT NOT NULL,
+foreign KEY (fk_m_id) references members(member_id),
+foreign KEY (fk_p_id) references products(p_id)
+);
+
+ALTER TABLE `member_favorite` AUTO_INCREMENT=120001;
+
+INSERT INTO `member_favorite`(`fk_m_id`,`fk_p_id`)
+VALUES
+('100001','200001'),
+('100001','200003'),
+('100001','200002'),
+('100001','200009'),
+('100001','200012'),
+('100001','200007'),
+('100002','200007'),
+('100002','200008'),
+('100002','200009'),
+('100002','200003'),
+('100002','200002'),
+('100003','200009'),
+('100003','200002'),
+('100003','200004'),
+('100003','200005'),
+('100003','200011');
+select * from member_favorite;
+-- DELETE FROM member_favorite where MF_id=120001;
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- 首頁最新消息
+CREATE TABLE `home_news`(
+  `N_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `news_title` VARCHAR(50) NOT NULL,
+  `news_content` VARCHAR(100) NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_news` AUTO_INCREMENT=7001;
+INSERT INTO `home_news`(`news_title`, `news_content`)
+VALUES
+('新北新店店公休公告','2022/06/17'),
+('高雄前金店公休公告','2022/06/21'),
+('高雄中正店公休公告','2022/07/01'),
+('高雄七賢店公休公告','2022/07/14'),
+('高雄廣林店公休公告','2022/07/05'),
+('高雄大順店公休公告','2022/07/01'),
+('高雄楠梓店公休公告','2022/08/01'),
+('高雄藍昌店公休公告','2022/08/20'),
+('台南府榮店公休公告','2022/07/05'),
+('台南長榮店公休公告','2022/04/31'),
+('台南永康店公休公告','2022/06/31'),
+('台南湖美店公休公告','2022/07/31'),
+('嘉義垂楊店公休公告','2022/07/23');
+
+
+-- 首頁優惠券
+CREATE TABLE `home_coupon`(
+  `CP_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `coupon_title` VARCHAR(50) NOT NULL,
+  `coupon_start_date` date NOT NULL,
+  `coupon_end_date`date NOT NULL,
+  `coupon_code` int NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
+INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
+VALUES
+('開幕七五折優惠券','2022/06/10','2022/06/18','25'),
+('子瑜生日慶，七折優惠券','2022/06/10','2022/06/15','30'),
+('八五折優惠券','2022/06/10','2022/06/18','15'),
+('九折優惠券','2022/06/25','2022/06/30','10'),
+('八折優惠券','2022/07/01','2022/07/05','20'),
+('七折優惠券','2022/07/06','2022/07/10','30'),
+('七五折優惠券','2022/07/11','2022/07/12','25'),
+('五折優惠券','2022/07/13','2022/07/15','50'),
+('雙十五折優惠券','2022/10/05','2022/10/10','50'),
+('九五折優惠券','2022/09/01','2022/09/30','5'),
+('八八折優惠券','2022/08/01','2022/08/08','12');
+
+create table `member_con`(
+	`MC_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `fk_m_id` INT NOT NULL,
+    `fk_coupon_id`INT NOT NULL,
+    `state` varchar(50),
+    foreign KEY (fk_m_id) references members(member_id),
+    foreign KEY (fk_coupon_id) references home_coupon(CP_id)
+);
+ALTER TABLE `member_con` AUTO_INCREMENT=190001;
+insert into `member_con`(`fk_m_id`,`fk_coupon_id`,`state`)
+VALUES
+('100001','7001',"未使用"),
+('100001','7003',"未使用"),
+('100001','7005',"未使用"),
+('100001','7007',"未使用"),
+('100001','7009',"未使用");
+
+select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
+-- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
+
+
+
+-- drop table `home_coupon`;
+
+-- 首頁橫幅
+CREATE TABLE `home_banner`(
+  `BN_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `banner_img_src` VARCHAR(500) NOT NULL,
+  `created_time` timestamp DEFAULT NOW()
+);
+ALTER TABLE `home_banner` AUTO_INCREMENT=8001;
+INSERT INTO `home_banner`(`banner_img_src`)
+VALUES
+('./image/banner01.jpg'),
+('./image/banner02.jpg'),
+('./image/banner03.jpg'),
+('./image/banner04.jpg'),
+('./image/banner05.jpg'),
+('./image/banner06.jpg'),
+('./image/banner07.jpg'),
+('./image/banner08.jpg');
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+-- 店家服務圖示
+CREATE TABLE `store_serve_icon`(
+  `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `serve_name` VARCHAR(40) NOT NULL,
+  `serve_EN_name` VARCHAR(40) NOT NULL,
+  `icon` VARCHAR(100) NOT NULL
+);
+INSERT INTO `store_serve_icon`( `serve_name`, `serve_EN_name`, `icon`)
+VALUES
+('無障礙廁所', 'freeman', '<i class="fa-solid fa-wheelchair"></i>'),
+('無線網路', 'wifi','<i class="fa-solid fa-wifi"></i>'),
+('寵物友善', 'pet','<i class="fa-solid fa-paw"></i>'),
+('親子空間', 'babyroom', '<i class="fa-solid fa-baby"></i>');
+
+-- 店家門市
+CREATE TABLE `store`(
+  `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `store_name` VARCHAR(20) NOT NULL UNIQUE, -- 不重複
+  `city` VARCHAR(20) NOT NULL,
+  `area` VARCHAR(20) NOT NULL,
+  `address` VARCHAR(50) NOT NULL,
+  `lat` VARCHAR(50),
+  `lng` VARCHAR(50),
+  `phone` VARCHAR(20) NOT NULL UNIQUE, -- 不重複
+  `photo` VARCHAR(200),
+  `CREATEd_at` TIMESTAMP DEFAULT NOW()
+);
+ALTER TABLE `store` AUTO_INCREMENT = 400001;
+INSERT INTO `store`(`store_name`, `city`, `area`, `address`, `phone`, `photo`)
+VALUES
+('新店店', '新北市', '新店區', '中央路159號4F', '02-412-8869', '1.jpg'),
+('前金店', '高雄市', '前金區', '中正四路233號', '07-215-3233', '2.jpg'),
+('中正店', '高雄市', '新興區', '中正二路162號', '07-225-0973', '3.jpg'),
+('七賢店', '高雄市', '新興區', '七賢一路293號', '07-236-3743', '4.jpg'),
+('廣林店', '高雄市', '苓雅區', '廣州一街149-1號', '07-227-1360', '5.jpg'),
+('大順店', '高雄市', '三民區', '民族一路427號1F', '07-395-3647', '6.jpg'),
+('楠梓店', '高雄市', '楠梓區', '楠梓新路225號', '07-352-6213', '7.jpg'),
+('藍昌店', '高雄市', '楠梓區', '藍昌路480號', '07-352-6222', '8.jpg'),
+('府榮店', '台南市', '東區', '長榮路一段181號', '06-200-4907', '9.jpg'),
+('長榮店', '台南市', '東區', '長榮路三段139號', '06-200-5550', '10.jpg'),
+('永康店', '台南市', '永康區', '中華路157號', '06-311-3148', '11.jpg'),
+('湖美店', '台南市', '中西區', '中華西路二段865號', '06-358-1011', '12.jpg'),
+('垂楊店', '嘉義市', '東區', '垂楊路537號1樓', '05-283-2501', '13.jpg');
+
+
+
+
+-- 店家營業時間
+CREATE TABLE `store_time`(
+  `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `fk_store_id` INT UNSIGNED,
+  `dow` VARCHAR(20) NOT NULL,
+  `status` TINYINT NOT NULL,
+  `status_name` VARCHAR(20) NOT NULL,
+  `start_time` TIME, -- hh:mm:ss
+  `end_time` TIME, -- hh:mm:ss
+  FOREIGN KEY(fk_store_id) REFERENCES store(id)
+);
+ALTER TABLE `store_time` AUTO_INCREMENT = 410001;
+INSERT INTO `store_time`(`fk_store_id`, `dow`, `status`, `status_name`, `start_time`, `end_time`)
+VALUES
+('400001', '星期一', '0', '休息', '', ''),
+('400001', '星期二', '1', '營業', '080000', '220000'),
+('400001', '星期三', '1', '營業', '080000', '220000'),
+('400001', '星期四', '1', '營業', '080000', '220000'),
+('400001', '星期五', '1', '營業', '080000', '220000'),
+('400001', '星期六', '1', '營業', '080000', '220000'),
+('400001', '星期日', '1', '營業', '080000', '220000'),
+('400002', '星期一', '0', '休息', '', ''),
+('400002', '星期二', '1', '營業', '080000', '220000'),
+('400002', '星期三', '1', '營業', '080000', '220000'),
+('400002', '星期四', '1', '營業', '080000', '220000'),
+('400002', '星期五', '0', '休息', '', ''),
+('400002', '星期六', '1', '營業', '080000', '220000'),
+('400002', '星期日', '1', '營業', '080000', '220000'),
+('400003', '星期一', '1', '營業', '080000', '220000'),
+('400003', '星期二', '1', '營業', '080000', '220000'),
+('400003', '星期三', '1', '營業', '080000', '220000'),
+('400003', '星期四', '1', '營業', '080000', '220000'),
+('400003', '星期五', '1', '營業', '080000', '220000'),
+('400003', '星期六', '0', '休息', '', ''),
+('400003', '星期日', '0', '休息', '', ''),
+('400004', '星期一', '0', '休息', '', ''),
+('400004', '星期二', '1', '營業', '080000', '220000'),
+('400004', '星期三', '1', '營業', '080000', '220000'),
+('400004', '星期四', '1', '營業', '080000', '220000'),
+('400004', '星期五', '1', '營業', '080000', '220000'),
+('400004', '星期六', '1', '營業', '080000', '220000'),
+('400004', '星期日', '1', '營業', '080000', '220000'),
+('400005', '星期一', '0', '休息', '', ''),
+('400005', '星期二', '0', '休息', '', ''),
+('400005', '星期三', '1', '營業', '080000', '220000'),
+('400005', '星期四', '1', '營業', '080000', '220000'),
+('400005', '星期五', '1', '營業', '080000', '220000'),
+('400005', '星期六', '1', '營業', '080000', '220000'),
+('400005', '星期日', '1', '營業', '080000', '220000'),
+('400006', '星期一', '0', '休息', '', ''),
+('400006', '星期二', '0', '休息', '', ''),
+('400006', '星期三', '1', '營業', '080000', '220000'),
+('400006', '星期四', '1', '營業', '080000', '220000'),
+('400006', '星期五', '1', '營業', '080000', '220000'),
+('400006', '星期六', '1', '營業', '080000', '220000'),
+('400006', '星期日', '1', '營業', '080000', '220000'),
+('400007', '星期一', '0', '休息', '', ''),
+('400007', '星期二', '0', '休息', '', ''),
+('400007', '星期三', '1', '營業', '080000', '220000'),
+('400007', '星期四', '1', '營業', '080000', '220000'),
+('400007', '星期五', '1', '營業', '080000', '220000'),
+('400007', '星期六', '1', '營業', '080000', '220000'),
+('400007', '星期日', '1', '營業', '080000', '220000'),
+('400008', '星期一', '0', '休息', '', ''),
+('400008', '星期二', '0', '休息', '', ''),
+('400008', '星期三', '1', '營業', '080000', '220000'),
+('400008', '星期四', '1', '營業', '080000', '220000'),
+('400008', '星期五', '1', '營業', '080000', '220000'),
+('400008', '星期六', '1', '營業', '080000', '220000'),
+('400008', '星期日', '1', '營業', '080000', '220000'),
+('400009', '星期一', '0', '休息', '', ''),
+('400009', '星期二', '0', '休息', '', ''),
+('400009', '星期三', '1', '營業', '080000', '220000'),
+('400009', '星期四', '1', '營業', '080000', '220000'),
+('400009', '星期五', '1', '營業', '080000', '220000'),
+('400009', '星期六', '1', '營業', '080000', '220000'),
+('400009', '星期日', '1', '營業', '080000', '220000'),
+('400010', '星期一', '0', '休息', '', ''),
+('400010', '星期二', '0', '營業', '080000', '220000'),
+('400010', '星期三', '1', '營業', '080000', '220000'),
+('400010', '星期四', '1', '營業', '080000', '220000'),
+('400010', '星期五', '1', '營業', '080000', '220000'),
+('400010', '星期六', '1', '營業', '080000', '220000'),
+('400010', '星期日', '1', '休息', '', ''),
+('400011', '星期一', '0', '營業', '080000', '220000'),
+('400011', '星期二', '0', '休息', '', ''),
+('400011', '星期三', '1', '休息', '', ''),
+('400011', '星期四', '1', '營業', '080000', '220000'),
+('400011', '星期五', '1', '營業', '080000', '220000'),
+('400011', '星期六', '1', '營業', '080000', '220000'),
+('400011', '星期日', '1', '營業', '080000', '220000'),
+('400012', '星期一', '0', '休息', '', ''),
+('400012', '星期二', '0', '休息', '', ''),
+('400012', '星期三', '1', '營業', '080000', '220000'),
+('400012', '星期四', '1', '營業', '080000', '220000'),
+('400012', '星期五', '1', '營業', '080000', '220000'),
+('400012', '星期六', '1', '營業', '080000', '220000'),
+('400012', '星期日', '1', '營業', '080000', '220000'),
+('400013', '星期一', '0', '休息', '', ''),
+('400013', '星期二', '0', '休息', '', ''),
+('400013', '星期三', '1', '營業', '080000', '220000'),
+('400013', '星期四', '1', '營業', '080000', '220000'),
+('400013', '星期五', '1', '營業', '080000', '220000'),
+('400013', '星期六', '1', '營業', '080000', '220000'),
+('400013', '星期日', '1', '休息', '', '');
+
+-- 店家服務
+CREATE TABLE `store_serve`(
+  `id` INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `fk_store_id` INT UNSIGNED,
+  `fk_serve_id` INT UNSIGNED,
+  `serve_status` boolean NOT NULL,
+  FOREIGN KEY(fk_store_id) REFERENCES store(id),
+  FOREIGN KEY(fk_serve_id) REFERENCES store_serve_icon(id)
+);
+ALTER TABLE `store_serve` AUTO_INCREMENT = 420001;
+INSERT INTO `store_serve`(`fk_store_id`, `fk_serve_id`, `serve_status`)
+VALUES
+('400001', '1', '1'),('400001', '2', '1'),('400001', '3', '0'),('400001', '4', '0'),
+('400002', '1', '1'),('400002', '2', '1'),('400002', '3', '0'),('400002', '4', '1'),
+('400003', '1', '0'),('400003', '2', '0'),('400003', '3', '0'),('400003', '4', '1'),
+('400004', '1', '0'),('400004', '2', '1'),('400004', '3', '1'),('400004', '4', '0'),
+('400005', '1', '0'),('400005', '2', '1'),('400005', '3', '1'),('400005', '4', '1'),
+('400006', '1', '1'),('400006', '2', '1'),('400006', '3', '1'),('400006', '4', '0'),
+('400007', '1', '1'),('400007', '2', '0'),('400007', '3', '1'),('400007', '4', '1'),
+('400008', '1', '1'),('400008', '2', '1'),('400008', '3', '1'),('400008', '4', '1'),
+('400009', '1', '0'),('400009', '2', '1'),('400009', '3', '0'),('400009', '4', '1'),
+('400010', '1', '1'),('400010', '2', '1'),('400010', '3', '1'),('400010', '4', '1'),
+('400011', '1', '1'),('400011', '2', '0'),('400011', '3', '1'),('400011', '4', '0'),
+('400012', '1', '1'),('400012', '2', '0'),('400012', '3', '1'),('400012', '4', '1'),
+('400013', '1', '0'),('400013', '2', '1'),('400013', '3', '1'),('400013', '4', '1');
+
+--------------------------------------------------------------------------------------------------------------------------------
  -- 文章
 CREATE TABLE `blogs`(
 	`blog_id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -410,38 +980,3 @@ CREATE TABLE `blogs`(
 ('500004','
 羅素說過一句經典的名言，希望是堅韌的拐杖，忍耐是旅行袋，攜帶它們，人可以登上永恆之旅。這句話語雖然很短，但令我浮想聯翩。阿拉伯在過去曾經講過，金鳥籠在鳥的心目中是黑牢。這句話改變了我的人生。帶著這些問題，我們一起來審視日曬處理。動機，可以說是最單純的力量。紀伯倫曾經說過，一個羞赧的失敗比一個驕傲的成功還要高貴。<br/>
 ','4celebrity40010');
-
-
-
--- ('500005','','5share50006'),
--- ('500005','','5share50007'),
--- ('500005','','5share50008'),
--- ('500005','','5share50009'),
--- ('500005','','5share50010'),
-
-
-SELECT * FROM `blogs` WHERE btype ='咖啡篇coffee'ORDER BY blog_id;
-SELECT * FROM `blogs` WHERE btype ='咖啡豆篇coffeebean'ORDER BY blog_id;
-SELECT * FROM `blogs` WHERE btype ='沖煮篇pourover'ORDER BY blog_id;
-SELECT * FROM `blogs` WHERE btype ='名人專欄篇celebrity'ORDER BY blog_id;
-SELECT * FROM `blogs` WHERE btype ='好物分享篇share'ORDER BY blog_id;
-
-
-select * from blogs where blog_id=500001;
-SELECT * FROM `blogs`JOIN blogs_content ON blogs.blog_id = blogs_content.b_id WHERE blog_id=500001 ORDER BY blog_id;
-
-SELECT * FROM blogs
-JOIN blogs_content
-ON blogs.blog_id = blogs_content.b_id
-WHERE blog_id=500001
-ORDER BY blog_id;
-
-SELECT * FROM `blogs`JOIN blogs_content ON blogs.blog_id = blogs_content.b_id WHERE blog_id=500001 ORDER BY blog_id;
-
-SELECT btype,author,title,first_content,created_time,first_img,
-group_concat(sencond-content,img_src) AS blog_scontent_img
-FROM blogs
-JOIN blogs_content
-ON blogs.blog_id = blogs_content.b_id
-GROUP BY blogs.btype
-ORDER BY blogs.btype;
