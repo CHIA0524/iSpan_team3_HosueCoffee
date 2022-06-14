@@ -8,18 +8,17 @@ const MenuCard = (props) => {
 
     const localFavDatas = JSON.parse(localStorage.getItem('favourite'))
     
-    console.log(favdatas)
-    console.log(window.location.href)
     const thisURL=window.location.href
     // 異步回調
     useEffect(() => {},[setdrinkId])
+    console.log(datas);
     if(thisURL=="http://localhost:3000/onlinemenu"){
     return(
         <>
             {/* 印出資料 */}
             {datas.map((mu,i)=>{
                 // 儲存圖片路徑
-                const img1 = (mu.drink_name)
+                const img1 = (mu.url)
                 return(
                     <div 
                         className="card drinkCard" 
@@ -30,8 +29,7 @@ const MenuCard = (props) => {
                             <div 
                                 className="imgdiv"
                                 onClick={()=>{
-                                    setdrinkId((mu.id))
-                                    console.log(mu.id)
+                                    setdrinkId(mu.id)
                                     setcss({
                                         visibility: 'visible',
                                         opacity:'1'
@@ -82,7 +80,6 @@ const MenuCard = (props) => {
                                 className="imgdiv"
                                 onClick={()=>{
                                     setdrinkId((mu.id))
-                                    console.log(mu.id)
                                     setcss({
                                         visibility: 'visible',
                                         opacity:'1'

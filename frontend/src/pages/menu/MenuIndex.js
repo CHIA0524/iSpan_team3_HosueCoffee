@@ -9,7 +9,7 @@ import { BiCoffee } from "react-icons/bi";
 
 const MenuIndex = () => {
         // 抓到點擊菜單品項的id
-        const [drinkId, setdrinkId] = useState(2)
+        const [drinkId, setdrinkId] = useState(300002)
         //控制POPUP的CSS
         const [css,setcss] = useState()
         //從後端抓資料
@@ -21,7 +21,7 @@ const MenuIndex = () => {
         }
         useEffect(()=>{fetchData();},[])
         const datas1 = JSON.parse(localStorage.getItem('gifts'))
-
+        console.log(drinkId);
         return( 
             <>   
                 <div className="bodyMenu">

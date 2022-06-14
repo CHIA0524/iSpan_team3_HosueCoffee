@@ -67,17 +67,8 @@ const BodyLeft = props => {
                                         </div>
                             </div>
                             <div className="selectStore">
-                                <div className="hisstoryStoreName">
-                                    <span>上次訂餐門市</span>
-                                </div>
                                 <div>
                                     <span>選擇門市</span>
-                                </div>
-                                <div className="Promo1">
-                                    <div className="Payment">
-                                        <Storemap1 />   
-                                        <hr className="rule"/>
-                                    </div>
                                 </div>
                                 <Area 
                                     area={area} 
