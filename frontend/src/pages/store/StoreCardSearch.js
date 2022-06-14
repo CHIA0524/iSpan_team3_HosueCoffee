@@ -146,6 +146,10 @@ function StoreCardSearch(props){
           setIsLoading(true)
           setMarkerInfoCSS('-150px')
           fetchFilterData(e.target.value)
+
+          setCityList([])
+          setDowList([])
+          setServeList([])
         }}
       >
       </input>
