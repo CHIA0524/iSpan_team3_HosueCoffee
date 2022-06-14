@@ -8,6 +8,8 @@ use team3;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
 -- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
 --------------------------------------------------------------------------------------------------------------------------------
+-- UPDATE members SET login_status='1' WHERE member_id=100001;
+-- UPDATE members SET login_status='0' WHERE member_id=100001;
 -- 使用者
 CREATE TABLE `members`(
 	`member_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -15,20 +17,21 @@ CREATE TABLE `members`(
     `member_password` varchar(20) NOT NULL,
     `member_mail` varchar(255) NOT NULL UNIQUE,
     `member_point` INT NOT NULL,
+    `login_status` INT NOT NULL,
     `member_start` TIMESTAMP DEFAULT NOW()
 );
 ALTER TABLE `members` AUTO_INCREMENT=100001;
-INSERT INTO `members`(`member_account`,`member_password`,`member_mail`,`member_point`)
+INSERT INTO `members`(`member_account`,`member_password`,`member_mail`,`member_point`,`login_status`)
 VALUE
-('LH44','abc123456','LH44@gmail.com',2000),
-('VB77','abc123456','VB77@gmail.com',100),
-('GR63','abc123456','GR63@gmail.com',100),
-('CL16','abc123456','CL16@gmail.com',100),
-('CS55','abc123456','CS55@gmail.com',100),
-('MS47','abc123456','MS47@gmail.com',100),
-('LN04','abc123456','LN04@gmail.com',100),
-('DR03','abc123456','DR03@gmail.com',100),
-('NR06','abc123456','NR06@gmail.com',0);
+('LH44','abc123456','LH44@gmail.com',2000,0),
+('VB77','abc123456','VB77@gmail.com',100,0),
+('GR63','abc123456','GR63@gmail.com',100,0),
+('CL16','abc123456','CL16@gmail.com',100,0),
+('CS55','abc123456','CS55@gmail.com',100,0),
+('MS47','abc123456','MS47@gmail.com',100,0),
+('LN04','abc123456','LN04@gmail.com',100,0),
+('DR03','abc123456','DR03@gmail.com',100,0),
+('NR06','abc123456','NR06@gmail.com',0,0);
 
 CREATE TABLE `members_data`(
 	`fk_member_id` INT PRIMARY KEY ,
