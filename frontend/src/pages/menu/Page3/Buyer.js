@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 
 
 
@@ -7,12 +7,18 @@ import React from "react";
 const Buyer = (props) => {
 
 
+    const [datas, setDatas ] = useState([])
+    const fetchData = async()=>{
+                            const response = await fetch('http://localhost:3001/menu/oder');
+                            const results = await response.json();
+                            setDatas(results);
+                    }
+    useEffect(()=>{fetchData()
+    },[])
 
 
-    const datas = props.datas
-    console.log(datas);
-
-
+console.log(datas);
+if(datas.length>0){
     return(
         <div className="member2">
             <div>
@@ -46,7 +52,7 @@ const Buyer = (props) => {
             </div>
         </div>
 )
-
+    }
 }
 
 export default Buyer

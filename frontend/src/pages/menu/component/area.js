@@ -16,6 +16,8 @@ function Area(props){
         const response = await fetch(`http://localhost:3001/menu/areastore?city=${area2}`)
         console.log(area2)
         const results=await response.json();
+        console.log(123)
+        console.log(results)
         setAreastore(results);
         
     }
@@ -47,12 +49,10 @@ function Area(props){
                                     <div className="Payment">
                                         <p>選擇門市</p>
                                         <Areastore area={area} setArea={setArea} areastore={areastore} setAreastore={setAreastore} astore={astore} setAstore={setAstore}/>
-                                       
                                         <hr className="rule"/>
                                     </div>
                                 </div>
                                 </div>
-       
         </>
     )
 }
