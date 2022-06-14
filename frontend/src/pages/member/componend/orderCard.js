@@ -36,6 +36,8 @@ function OrderCard(props){
                     const{p_name,p_price,qty,p_id}=Odlist_D;
                     {/* setAlltotalpay(alltotalpay+p_price*qty) */}
                     const toto=p_price*qty
+                    const internationalNumberFormat = new Intl.NumberFormat('en-US')
+                    const toto3=(internationalNumberFormat.format(toto))
                 return(
                     <div>
                             <div className="row d-flex align-items-center">
@@ -60,7 +62,7 @@ function OrderCard(props){
                                 </div>
                                 <div className="col-1 col-3None"></div>
                                 <div className="col-1 col-3None">
-                                    <p>${toto}</p>
+                                    <p>${toto3}</p>
                                     
                                 </div>
                                 <hr className='od_hr '></hr>
@@ -74,7 +76,7 @@ function OrderCard(props){
                                     <p className="odname_m rwdODP">{p_name}</p>
                                     <p className="rwdODP">數量：{qty}&emsp;</p>
                                     <p className="wn_money col rwdODP">單價:{p_price} </p>
-                                    <p className="wn_TTM col rwdODP">小計:{toto}</p>
+                                    <p className="wn_TTM col rwdODP">小計:{toto3}</p>
                                 </div>
                                 
                             </div>

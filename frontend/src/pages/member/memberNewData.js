@@ -137,7 +137,7 @@ function MemberNewData(props){
           localStorage.setItem("dataCheck", "資料完整");
           alert("資料新增成功")
           window.location.replace("http://localhost:3000/member/profile");
-        }if(nameMessage!="感謝填寫姓名"){
+        }else {if(nameMessage!="感謝填寫姓名"){
           document.querySelector(".NewName").style.color="red";
 
         }if(birthMessage!="感謝填寫生日"){
@@ -153,6 +153,7 @@ function MemberNewData(props){
           alert("請點擊上傳圖片")
           
         }
+      }
   }
     // 大頭照狀態
     const [image, setImage] = useState({ preview: '', data: '' })
