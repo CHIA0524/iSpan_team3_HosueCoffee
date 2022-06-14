@@ -54,6 +54,7 @@ function Pay1(props){
         document.querySelector('.payTwo').style.display="none"
         document.querySelector('.payOne').style.display="block"
         window.scroll(0,0)
+        window.location.reload()
          } 
 
    //去付款頁面
