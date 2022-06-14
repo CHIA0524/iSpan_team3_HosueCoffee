@@ -71,8 +71,8 @@ function BlogArticle(props){
                       <ArticleLinkShare thisBid={thisBid}/>
 
                     <article className="blogArticle">
-                              <p>
-                                {first_content}
+                              <p>&emsp;&emsp;
+                              {first_content}
                                 </p>
                                   
                                 <BACard thisBid={thisBid}/>
