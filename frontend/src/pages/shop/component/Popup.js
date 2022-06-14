@@ -18,9 +18,9 @@ function Popup(props){
     // console.log(params)
     // console.log("datas");
     //本頁資料
-    console.log(datas);
+    // console.log(datas);
     //全部資料
-    console.log(Alldatas);
+    // console.log(Alldatas);
     // console.log("datas");
     //加入購物車更新
     const updateCart = ()=>{
