@@ -20,7 +20,7 @@ const OnlineCheckPage3 = () => {
 
     const [datas, setDatas ] = useState([])
         const fetchData = async()=>{
-                                const response = await fetch('http://localhost:3002/menu/oder');
+                                const response = await fetch('http://localhost:3001/menu/oder');
                                 const results = await response.json();
                                                 setDatas(results);
                                                 console.log(results)
