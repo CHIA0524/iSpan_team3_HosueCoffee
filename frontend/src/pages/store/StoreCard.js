@@ -30,21 +30,13 @@ function StoreCard(props){
       let setLat = Number(data[index].lat)
       let setLng = Number(data[index].lng)
       setCenter({lat: setLat, lng: setLng })
-      setZoom(18)
+      setZoom(15)
       setMarkerInfoCSS('-150px')
       setFilterCSS(false)
     }, [data, setCenter, setFilterCSS, setMarkerInfoCSS, setZoom]
   )
   
-  useEffect(() => {
-    if (distance) {
-      setTimeout(() => {
-        for (let i = 0; i < data.length; i++) {
-          data[i].distance = distance.rows[0].elements[i].distance.text
-        }
-      }, 1)
-    }
-  }, [data, distance])
+  
 
 
   return(
