@@ -41,7 +41,7 @@ const ArticleLinkShare = (props) => {
                       <LineShareButton
                         url={shareUrl}
                       >
-                      <div className="line"><img src={lineImg} alt="lineImg">
+                      <div className="line_share"><img src={lineImg} alt="lineImg">
                       </img></div>
                       </LineShareButton>
                     </div>
