@@ -4,9 +4,16 @@ import React from "react";
 
 
 
-const Buyer = () => (
+const Buyer = (props) => {
 
 
+
+
+    const datas = props.datas
+    console.log(datas);
+
+
+    return(
         <div className="member2">
             <div>
                 <span>購買人資訊</span>
@@ -17,7 +24,7 @@ const Buyer = () => (
                         <span>姓名:</span>
                     </div>
                     <div>
-                        <span>羅志祥</span>
+                        <span>{datas[0].orderer}</span>
                     </div>
                 </div>
                 <div className="memberBodyIn">
@@ -25,7 +32,7 @@ const Buyer = () => (
                         <span>電話:</span>
                     </div>
                     <div>
-                        <span>0912345678</span>
+                        <span>{datas[0].phone}</span>
                     </div>
                 </div>
                 <div className="memberBodyIn">
@@ -33,14 +40,13 @@ const Buyer = () => (
                         <span>時間:</span>
                     </div>
                     <div>
-                        <span>1200</span>
+                        <span>{datas[0].odertime}</span>
                     </div>
                 </div>
             </div>
         </div>
-
-
 )
 
+}
 
 export default Buyer
