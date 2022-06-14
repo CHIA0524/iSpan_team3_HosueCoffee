@@ -21,7 +21,7 @@ function Navbar (props){
     if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
-  // console.log(carNum);  
+  console.log(carNum);  
   const loginOUT=()=>{
     // localStorage.clear();
     localStorage.removeItem("dataCheck")
@@ -173,7 +173,10 @@ function Navbar (props){
           <li className="mobileNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn" >{">> Order Online"}</button></Link></li>
 
           <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
-          {carNum?<div className='redC'></div>:<></>}
+          {carNum?
+          <div className='redC'></div>
+          :
+          <></>}
           </Link></li>
 
           <li className="mobileNone position-relative">

@@ -15,10 +15,10 @@ import AddSweet from './component/AddSweet';
 
 function ProductDetail(props){
   // 數量變數
-  const[amount, setAmount ,setcarNum]= useState(1)
+  const[amount, setAmount ]= useState(1)
  //   const{setfinalTotal} = props
  // 計算總數量
-  const {setsubTotal }= props
+  const {setsubTotal,setcarNum }= props
 
   const params=useParams();
   //抓網址後的id
