@@ -6,14 +6,14 @@ function Area(props){
     const [datas,setDatas] = useState([])
 
     const fetchData=async()=>{
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/area`)
+        const response = await fetch(`http://localhost:3002/menu/area`)
         const results=await response.json();
         setDatas(results);
     }
     const CGArea=async()=>{
         setArea(document.getElementById("select-profession").value)
         const area2=(document.getElementById("select-profession").value)
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/areastore?city=${area2}`)
+        const response = await fetch(`http://localhost:3002/menu/areastore?city=${area2}`)
         console.log(area2)
         const results=await response.json();
         setAreastore(results);
@@ -22,9 +22,10 @@ function Area(props){
     useEffect(()=>{
         fetchData();
     },[])
+    console.log(datas);
     return(
         <>
-           <div>
+            <div>
                                 <div className="Promo1">
                                     <div className="Payment">
                                         <p>選擇地區</p>
@@ -35,9 +36,9 @@ function Area(props){
                                             {datas.length> 0 && datas.map((area,i)=>{
                                                 const{city}=area;
                                                 return(
-                                                    <option value={city} >{city}</option>
+                                                    <option value={city}>{city}</option>
                                                 )})}
-                                         </select>
+                                        </select>
                                         </div>
                                         <hr className="rule"/>
                                     </div>

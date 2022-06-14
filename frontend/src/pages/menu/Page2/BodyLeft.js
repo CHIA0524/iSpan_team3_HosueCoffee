@@ -79,11 +79,14 @@ const BodyLeft = props => {
                                         <hr className="rule"/>
                                     </div>
                                 </div>
-                              
-                                   <Area area={area} setArea={setArea} areastore={areastore} setAreastore={setAreastore} astore={astore} setAstore={setAstore}/>
-                              
+                                <Area 
+                                    area={area} 
+                                    setArea={setArea} 
+                                    areastore={areastore} 
+                                    setAreastore={setAreastore} 
+                                    astore={astore} 
+                                    setAstore={setAstore}/>
                             </div>
-                              {/* <StoreCard />；     */}
                         </div>
                     </div> 
     <div className="body2">  
@@ -134,8 +137,8 @@ const BodyLeft = props => {
                 </div>
             </div>
         </div>
-         </Form>
-         )}
+        </Form>
+        )}
     </Formik>
 </> 
 
