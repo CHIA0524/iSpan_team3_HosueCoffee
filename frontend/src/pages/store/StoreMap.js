@@ -81,12 +81,12 @@ function StoreMap(props){
       let thisLng = Number(thisData[index].lng)
       setCenter({lat: thisLat, lng: thisLng})
       setMarkerIndex(index)
-      setZoom(18)
+      setZoom(16)
       setFilterCSS(false)
       if (markerInfoCSS === '-150px'){
         setTimeout(() => {
           setMarkerInfoCSS('100px')
-        }, 110)
+        }, 100)
       }else if (markerInfoCSS === '100px'){
         setMarkerInfoCSS('-150px')
       }
@@ -164,7 +164,7 @@ function StoreMap(props){
               setTimeout(() => {
                 setDistance(response)
                 setControl(false)
-              }, 1500)
+              }, 100)
             }}
           />
         : '' }
