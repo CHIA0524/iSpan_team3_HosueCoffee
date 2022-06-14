@@ -143,7 +143,7 @@ function MemberOrder(props){
                                     <br></br>
                                     <p>姓名:&emsp;{recipient_name}</p>
                                     <br></br>
-                                    <p>電話:&emsp;{recipient_phone}</p>
+                                    <p>電話:&emsp;0{recipient_phone}</p>
                                     <br></br>
                                     <p>地址:&emsp;{recipient_address}</p>
                                 </div>
@@ -210,7 +210,7 @@ function MemberOrder(props){
                                     <div className="row">
                                         <div className="col">
                                             <div>姓名:&emsp;{recipient_name}</div>
-                                            <div>手機:&emsp;{recipient_phone}</div>
+                                            <div>手機:&emsp;0{recipient_phone}</div>
                                             <div>地址:&emsp;{recipient_address}</div>
                                         </div>
                                       
