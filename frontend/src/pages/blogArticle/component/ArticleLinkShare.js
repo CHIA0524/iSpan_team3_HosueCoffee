@@ -20,7 +20,11 @@ import instagramImg from '../img/share btn ig.svg'
 const ArticleLinkShare = (props) => {
   const {thisBid}=props
   const shareUrl =`http://localhost:3001/blog/blogArticle?blog_id=${thisBid}`;
-
+  let url = '';
+    if (typeof window === 'object') {
+      url = String(window.location);
+      console.log(url);
+    }
   
   return (
     <>
