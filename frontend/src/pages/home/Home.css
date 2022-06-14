@@ -101,6 +101,9 @@ body {
     margin: 50px 30px;
     cursor: pointer;
 }
+.store .homestore{
+    display: none;
+}
 
 .menuImg {
     opacity: 80%;

@@ -12,9 +12,7 @@ function RecCard(props){
   const[amount, setAmount]= useState(1)
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
-  console.log('-------');
-  console.log(datas);
-   console.log('-------');
+ 
   const fetchData = async()=>{
     const response = await fetch('http://localhost:3001/shop');
     const results = await response.json();

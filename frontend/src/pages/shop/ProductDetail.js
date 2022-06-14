@@ -22,7 +22,7 @@ function ProductDetail(props){
 
   const params=useParams();
   //抓網址後的id
-  console.log(params)
+  // console.log(params)
    // 向後端請求資料
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{
@@ -37,10 +37,10 @@ function ProductDetail(props){
     },[params.id])
         
     if(datas.length>0){
-      console.log(datas[0]);
+      // console.log(datas[0]);
       const PD=datas[0];
       const{p_id,p_name,p_price,content}=PD
-      console.log(p_name);
+      // console.log(p_name);
     
     const img1=(p_name);
     //加入購物車更新

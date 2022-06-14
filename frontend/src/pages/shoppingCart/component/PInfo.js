@@ -36,7 +36,7 @@ useEffect(()=>{
     
     // 接收localStorage上的購物車資料
     const [cartDetail,setCartDetail] = useState(JSON.parse(localStorage.getItem('sCarts')))
-    console.log(cartDetail)
+    //console.log.log(cartDetail)
     // 接收資料庫資料
 
     const {datas, setcarNum} = props 
@@ -44,13 +44,13 @@ useEffect(()=>{
 
     // 計算datas的長度
     const datamath=datas.length
-    console.log(datamath)
+    //console.log.log(datamath)
     // 計算cartDetail的長度
     const cartDetailmath=cartDetail.length
     // 建立一個空陣列
 
     var shopCart=[];
-    console.log(datas);
+    //console.log.log(datas);
     for( let c=0; c<cartDetailmath; c++){
     for( let i=0; i<datamath; i++){     
             
@@ -70,7 +70,7 @@ const cartDetailmath=cartDetail.length
 // 建立一個空陣列
 
 var shopCart=[];
-console.log(datas);
+//console.log.log(datas);
 for( let c=0; c<cartDetailmath; c++){
 for( let i=0; i<datamath; i++){     
         
@@ -91,7 +91,7 @@ return(
     {shopCart.map((pinfo,i)=>{
         // 設定圖片路徑
         const price = Number(pinfo.p_price)
-        console.log(price)
+        //console.log.log(price)
         const productId=pinfo.p_id
         const img1 = (pinfo.p_name)
         const total = cartDetail[i].ShopCounter

@@ -27,21 +27,21 @@ function Pay3(){
     const o_id=params.id
     var payM=0
     const fetchData=async()=>{
-    console.log(process.env.REACT_APP_API_URL);
+    //console.log.log(process.env.REACT_APP_API_URL);
     const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/Shoppingcart/id?o_id=${o_id}`)
     const results=await response.json();  
     setDatas(results);
-    console.log(results)
+    //console.log.log(results)
     // 抓memberorderlist的sql
     const res = await fetch(`${process.env.REACT_APP_API_URL}/morder/odList/detailed?o_id=${o_id}`)
     const result=await res.json();
-    console.log(result)
+    //console.log.log(result)
     for(var m = 0 ; m<result.length;m++ ){
-        console.log(result[m]);
+        //console.log.log(result[m]);
         const price=result[m].p_price;
         const qty=result[m].qty;
         payM=payM+(price*qty)  
-        console.log(payM);  
+        //console.log.log(payM);  
         }
         var payship=0
         const shipprice =()=> {
@@ -58,13 +58,13 @@ function Pay3(){
                     payship=100
                     }
             }}
-            console.log(payship)
+            //console.log.log(payship)
         const coupon = results[0].used_coupon
         const point = results[0].used_points
         const thismid = results[0].fk_member_id
-        console.log(coupon)
-        console.log(point)
-        console.log(thismid)
+        //console.log.log(coupon)
+        //console.log.log(point)
+        //console.log.log(thismid)
         setThisMemberid(thismid)
         // const member_point =  point 
         
@@ -73,7 +73,7 @@ function Pay3(){
         setNewP(parseInt(finalPay/100))
         const mpoint = await fetch(`${process.env.REACT_APP_API_URL}/shoporder//getpoint?member_id=${thismid}`)
         const mypoint=await mpoint.json();
-        console.log(mypoint);
+        //console.log.log(mypoint);
         setMyP(mypoint)
 
           }

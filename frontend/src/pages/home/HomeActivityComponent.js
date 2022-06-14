@@ -17,18 +17,19 @@ function HomeActivityComponent() {
     
         
         for(var i=0;i<results.length;i++){
-            console.log(results[i].CP_id);
+            // console.log(results[i].CP_id);
+
             const fk_CP_id=results[i].CP_id;
             const YN = await fetch(`http://localhost:3001/home/coupon/saved?fk_m_id=${thismemberid}&fk_coupon_id=${fk_CP_id}`)
             const YN1=await YN.json();
             const YNTT=YN1.total
-            console.log(YN1.total);
+            // console.log(YN1.total);
             savetomb.push({id:fk_CP_id,total:YNTT});
         }
         setTTDatas(savetomb);
     }
-    console.log(TTdatas)
-    console.log(datas);
+    // console.log(TTdatas)
+    // console.log(datas);
     useEffect(()=>{
         fetchData();
     },[])

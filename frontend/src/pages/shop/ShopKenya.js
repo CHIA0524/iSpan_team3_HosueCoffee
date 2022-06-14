@@ -12,7 +12,7 @@ const{ auth ,setcarNum } =props
 
   //抓到點擊商品的id
 const [productId, setProductId] = useState(2)
-console.log(productId)
+//console.log.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
 
@@ -40,8 +40,8 @@ const[amount, setAmount]= useState(1)
         for(var i=0;i<results.length;i++){
         const PMF = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist?fk_m_id=${thismemberid}&fk_p_id=${results[i].p_id}`);
          const PMF2 = await PMF.json();
-         console.log(results[i].p_id)
-         console.log(PMF2.total)
+         //console.log.log(results[i].p_id)
+         //console.log.log(PMF2.total)
          WISH.push({p_id:results[i].p_id,TF:PMF2.total})
        }
        setDatasPMF(WISH)
@@ -58,7 +58,7 @@ const[amount, setAmount]= useState(1)
       fetchData();
     },[])
    //  const handleClick = (pCard)=>{
-   //  console.log(pCard)
+   //  //console.log.log(pCard)
    // }
     
    //點選以外視窗，關閉popup
@@ -94,7 +94,7 @@ const[amount, setAmount]= useState(1)
   return(
     <>
      {/* {datas.map((pCard,i)=>{
-         console.log(pCard.id);
+         //console.log.log(pCard.id);
          
          const img1=(pCard.p_name);
          const id='#'+(pCard.id); */}

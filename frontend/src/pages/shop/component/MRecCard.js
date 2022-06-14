@@ -46,7 +46,7 @@ function MRecCard(){
              <div className="MRText">推薦商品</div>
               <Slider {...settings} >
                       {datas.map((PCard,i)=>{
-                        console.log(PCard.id);
+                        {/* console.log(PCard.id); */}
                         const img1=(PCard.p_name);
                         return(
                
