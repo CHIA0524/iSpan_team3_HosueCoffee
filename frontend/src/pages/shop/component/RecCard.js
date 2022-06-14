@@ -68,8 +68,8 @@ function RecCard(props){
                                      </Link>
                                     </div>
                                 <div>
-                                 <p>{PCard.p_name}</p>
-                                 <p class="rCardPrice">${PCard.p_price}</p>
+                                 <div>{PCard.p_name}</div>
+                                 <div class="rCardPrice">${PCard.p_price}</div>
                              </div>
                         </div>
                        </div>
