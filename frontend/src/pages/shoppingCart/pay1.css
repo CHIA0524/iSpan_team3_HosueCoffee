@@ -330,10 +330,16 @@ body {
     border-radius: 5px;
     border: 1px solid #e4d2a3;
   }
-  .mPName p {
+  /* .mPName p {
     font-size: 20px;
-  }
+  } */
   .mAddNum {
     width: 50%;
+  }
+  .mtotaltext,
+  .mnumtotal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

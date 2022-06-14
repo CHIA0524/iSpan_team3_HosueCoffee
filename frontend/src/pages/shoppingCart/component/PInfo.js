@@ -112,7 +112,7 @@ return(
 
                         </img>
                     </div>
-                    <div className="col-4 pName">
+                    <div className="col-2 pName">
                         <p>{pinfo.p_name}</p>
                     </div>
 

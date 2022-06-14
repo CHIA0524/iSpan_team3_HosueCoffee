@@ -4,6 +4,8 @@ import { useState } from 'react';
 function Price(props){
 
     const {update,price,total,setPtotal, ptotal,TTmoney,productId,i,cartDetail,setCartDetail,setcarNum}=props;
+    //金額千分位
+    const internationalNumberFormat = new Intl.NumberFormat('en-US')
 
     // const datas1 = JSON.parse(localStorage.getItem('sCarts'))
     const [datasNEW, setdatasNEW] = useState(cartDetail)
@@ -65,68 +67,68 @@ return(
                            }>+</button>
                       </div>
                     </div>
-                  
-                    {/* 刪除     */}
-                   {/* <Delsweetalert  productId={productId} thisTT={thisTT} price={price} ptotal={ptotal} setPtotal={setPtotal} i={i}/> */}
+
+                    <div className="col-2 wedTotal">
+                        <p>${price}</p>
+
+                    </div>
+
                    <div className="col-2">
                         <button className="deletBtn"  onClick={()=>{  
                           
                           const removePinfo = Swal.mixin({
-    customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-})
-removePinfo.fire({
-    title: '刪除',
-    text: "你確定要刪除嗎？",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: '是的，刪除!',
-    cancelButtonText: '取消!',
-    reverseButtons: true
-}).then((result) => {
-    if (result.isConfirmed) {
-      Swal.getConfirmButton(
-        removePinfo.fire(
-            '刪除!',
-            '商品已刪除.',
-            'success'
-            )
-        )
+                           customClass: {
+                               confirmButton: 'btn btn-success',
+                               cancelButton: 'btn btn-danger'
+                           },
+                           buttonsStyling: false
+                           })
+                           removePinfo.fire({
+                               title: '刪除',
+                               text: "你確定要刪除嗎？",
+                               icon: 'warning',
+                               showCancelButton: true,
+                               confirmButtonText: '是的，刪除!',
+                               cancelButtonText: '取消!',
+                               reverseButtons: true
+                           }).then((result) => {
+                               if (result.isConfirmed) {
+                                 Swal.getConfirmButton(
+                                   removePinfo.fire(
+                                       '刪除!',
+                                       '商品已刪除.',
+                                       'success'
+                                       )
+                                   )
         
 
-            const data = JSON.parse(localStorage.getItem('sCarts'))
-
-            const newData = data.filter((v,i)=> v.id!==productId)
-           
-            localStorage.setItem("sCarts", JSON.stringify(newData))
-            setCartDetail(newData)
-           
-            setPtotal(ptotal-(price*thisTT));
-        setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
-
-
-          
-
-    } else if (
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-        removePinfo.fire(
-        '取消',
-        '商品未刪除 :)',
-        'error'
-      )
-    }
-  })
-  }}>刪除</button>
+                        const data = JSON.parse(localStorage.getItem('sCarts'))
+            
+                        const newData = data.filter((v,i)=> v.id!==productId)
+                       
+                        localStorage.setItem("sCarts", JSON.stringify(newData))
+                        setCartDetail(newData)
+                       
+                        setPtotal(ptotal-(price*thisTT));
+                        setcarNum(JSON.parse(localStorage.getItem('sCarts')).length)
+            
+                     } else if (
+                       result.dismiss === Swal.DismissReason.cancel
+                     ) {
+                         removePinfo.fire(
+                         '取消',
+                         '商品未刪除 :)',
+                         'error'
+                       )
+                     }
+                     })
+                     }}>刪除</button>
                     </div>
                    
                    {/* 商品小計 */}
 
                     <div className="col-1 wedTotal">
-                        <p>${price*total}</p>
+                        <p>${internationalNumberFormat.format(price*total)}</p>
 
                     </div>
                 {/* 手機版 */}
@@ -143,7 +145,7 @@ removePinfo.fire({
 
                             }
                              }>-</button>
-                            <div>{total}</div>
+                            <div className="mnumtotal">{total}</div>
                            <button className="buttonNum" onClick={() =>{
 
                              setThisTT(thisTT+1)
@@ -153,7 +155,7 @@ removePinfo.fire({
                            }
                            } >+</button>
                         </div>
-                        <h3>${price*total}</h3>
+                        <h4 className="mtotaltext">${internationalNumberFormat.format(price*total)}</h4>
 
                       </div>     
     </>

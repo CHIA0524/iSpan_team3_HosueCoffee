@@ -28,13 +28,14 @@
   background: rgba(228, 210, 163, 0.4);
 }
 .checkPart {
-  padding-left: 11.5rem;
+  /* padding-left: 11.5rem; */
 }
 .checkPart1 {
-  padding-left: 9.5rem;
+  padding-left: 7rem;
 }
 .buyerInfo input {
-  width: 80%;
+  /* width: 80%; */
+  width: 100%;
   line-height: 2rem;
   margin-bottom: 2rem;
   /* margin-top: 0rem; */
@@ -43,13 +44,15 @@
   margin-top: 3rem;
 }
 .receiverInfo input {
-  width: 80%;
+  /* width: 80%; */
+  width: 100%;
   line-height: 2rem;
   margin-bottom: 2rem;
 }
 .noteInfo {
   margin-top: 3rem;
-  width: 80%;
+  /* width: 80%; */
+  width: 100%;
 }
 /* .shiptohome {
   display: none;
@@ -120,6 +123,7 @@
 }
 .radioS {
   display: flex;
+  margin-top: 2rem;
 }
 .mText {
   display: none;
@@ -154,13 +158,14 @@ h3 {
 
   .payInfoFill {
     width: 100%;
-    margin: 0 30px;
+    margin: 0 auto;
   }
   .payTotalCheck {
     display: none;
   }
   .mPayTotalCheck .box {
-    width: 90%;
+    /* width: 90%; */
+    width: 100%;
     height: 350px;
     border: 1px solid gray;
   }
@@ -172,11 +177,12 @@ h3 {
   }
 
   .radioS {
+    margin-top: 1.5rem;
     display: block;
   }
   .totalInfo1 {
     padding-top: 1rem;
-    margin: 0 2rem;
+    margin: 0 0.5rem;
     display: flex;
     justify-content: space-between;
     font-size: 1.3rem;
@@ -189,8 +195,23 @@ h3 {
   }
   .money p {
     text-align: right;
+    padding-bottom: 1rem;
+  }
+  .checkPart {
+    padding-left: 0rem;
   }
   .checkPart1 {
-    padding-left: 11.5rem;
+    padding-left: 0rem;
+  }
+  .mpayinfo1 p {
+    /* font-size: 1.3rem; */
+    text-align: left;
+    padding-bottom: 1rem;
+  }
+  .totalInfo1 p {
+    margin-bottom: 0rem;
+  }
+  .line {
+    margin: 0 auto;
   }
 }

@@ -25,7 +25,7 @@ function MRecCard(){
   const [width, setWidth] = useState(280);
   const [display, setDisaplay] = useState(true);
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -60,7 +60,7 @@ function MRecCard(){
                                     </div>
                                 <div>
                                  <p>{PCard.p_name}</p>
-                                 <p class="rCardPrice">${PCard.price}</p>
+                                 <p class="rCardPrice">${PCard.p_price}</p>
                              </div>
                         </div>
                        </div>

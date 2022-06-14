@@ -29,7 +29,7 @@ function RecCard(props){
   const [width, setWidth] = useState(750);
   const [display, setDisaplay] = useState(true);
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

@@ -634,7 +634,7 @@ const[ newpoint , setNewpoint] = useState(0)
       
                       <div className="box">
                           <div className="totalInfo1">
-                              <div>
+                              <div className="mpayinfo1">
                                   <p>商品小計</p>
                                   <p>運費</p>
                                   <p>優惠折扣</p>
