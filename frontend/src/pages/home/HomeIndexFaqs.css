@@ -1,0 +1,47 @@
+.FAQsWrap {
+    padding: 60px 10%;
+  }
+  
+  .FAQsWrap h2 {
+    margin-bottom: 50px;
+  }
+  
+  .FAQsWrap h3 {
+    padding: 10px 40px;
+    background: #F6F6F6;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.5em;
+  }
+  
+  .FAQsWrap div {
+    margin-bottom: 5rem;
+  }
+  
+  .FAQsWrap div div {
+    padding: 20px 0px;
+    margin: 0px 100px;
+  }
+  
+  .FAQsWrap div div :nth-child(2) {
+    color: #4C3410;
+  }
+  
+  .FAQsWrap p {
+    margin: 0;
+    letter-spacing: 0.3em;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .FAQsWrap {
+      padding: 30px 30px;
+    }
+    .FAQsWrap h2, .FAQsWrap h3 {
+      text-align: center;
+    }
+    .FAQsWrap div div {
+      margin: 0px 30px;
+    }
+  }
