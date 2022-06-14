@@ -43,12 +43,6 @@ function FCard(props){
                             <button className='heart' onClick={async()=>{
                                 if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                     window.alert("已刪除此收藏")
-                                    // window.location.reload(function () {
-                                    //     if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
-                                    //         var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
-                                    //         document.documentElement.scrollTop = parseInt(arr[1]);
-                                    //         document.body.scrollTop = parseInt(arr[1]);}
-                                    //     })
                                     console.log(123)
                                     document.getElementById(MF_id).style.display="none"
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)

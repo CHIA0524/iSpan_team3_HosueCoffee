@@ -3,7 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 import Memberprofile from './memberprofile';
-
+import SweetloginY from './sweetalert/SweetloginY';
+import SweetloginN from './sweetalert/SweetloginN';
+import SweetloginYN from './sweetalert/SweetloginYN';
+import SweetSignY from './sweetalert/SweetSignY';
+import SweetSignN from './sweetalert/SweetSignN';
 function MemberLogin(props){
     const {auth,setAuth,setDataCheck} = props;  
     
@@ -138,23 +142,25 @@ function MemberLogin(props){
             setNew_mb_account("");
             setNew_mb_password("");
             //清空註冊的3個欄位
+            SweetSignY()
+            // alert("註冊成功，請直接登入")
+            setTimeout(() => {
+                //滑過去登入頁面
+                document.querySelector('.loginMain1').style.right='-491px';
+                document.querySelector('.loginMain1').style.transition='0.5s';
+                document.querySelector('.LG').style.display="block"
+                document.querySelector('.LG-F').style.display="none"
+    
+                //手機板跳回登入頁
+                document.querySelector('.loginCM').style.display="none"
+                document.querySelector('.loginM').style.display="block"
+                document.querySelector('.forget-m').style.display="none"
+              }, 1600)
 
-            alert("註冊成功，請直接登入")
-            
-
-            //滑過去登入頁面
-            document.querySelector('.loginMain1').style.right='-491px';
-            document.querySelector('.loginMain1').style.transition='0.5s';
-            document.querySelector('.LG').style.display="block"
-            document.querySelector('.LG-F').style.display="none"
-
-            //手機板跳回登入頁
-            document.querySelector('.loginCM').style.display="none"
-            document.querySelector('.loginM').style.display="block"
-            document.querySelector('.forget-m').style.display="none"
             }else{ 
             //以下將不符合資格的提示改為紅色
-               
+            SweetSignN()
+            setTimeout(() => {
                 if(mailMessage != "信箱可使用"){
                     document.querySelector('.CKNmail').style.color="red"
                     //將網頁版提示改為紅色
@@ -172,8 +178,8 @@ function MemberLogin(props){
                     //將網頁版提示改為紅色
                     document.querySelector('.CKNpassword_m').style.color="red"
                     //將手機版提示改為紅色
-
-            }
+                }
+              }, 1500)
         }
 
 
@@ -217,22 +223,28 @@ function MemberLogin(props){
                     localStorage.setItem("address", results.member_address);
                     localStorage.setItem("photo", results.member_photo);
                     //將會員基本資料分別寫入localStorage
-                    alert('成功登入');
+                    // alert('成功登入');
+                    SweetloginY();
                     // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
-                    
-                    window.location.replace("http://localhost:3000/member/profile");
+                    setTimeout(() => {
+                        window.location.replace("http://localhost:3000/member/profile");
+                      }, 1500)
                     //轉向會員基本資料頁面
             }else{
             //如果沒有基本資料
                 localStorage.removeItem("dataCheck")
                 //清除localStorage內的dataCheck
-                alert('成功登入 但基本資料尚未完整');
+                SweetloginYN()
+                // alert('成功登入 但基本資料尚未完整');
                 //跳出訊息
-                window.location.replace("http://localhost:3000/member/NewData");
+                setTimeout(() => {
+                    window.location.replace("http://localhost:3000/member/NewData");
+                  }, 1500)
                 //轉向填寫資料頁面
                 }
             }else{
-                alert('帳號密碼錯誤');
+                SweetloginN()
+                // alert('帳號密碼錯誤');
                 // setAuth(!auth)
     
             }

@@ -2,6 +2,8 @@ import { doc } from 'prettier';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import AddCSweet from './sweetalert/AddCSweet';
+import AddCSweet2 from './sweetalert/AddCSweet2';
 import e from 'cors';
 import Swal from 'sweetalert2';
 
@@ -20,7 +22,9 @@ function HomeCopyText(props) {
 
                         return (
 
-                            <div className="copyText" >
+                            <div className="copyText" onClick={()=>{
+                                AddCSweet2()
+                            }} >
                                 已領取
                             </div>
                         )
@@ -31,8 +35,7 @@ function HomeCopyText(props) {
 
                                 <div className="copyText" id={CP_id} onClick={async () => {
                                     if (document.getElementById(CP_id).innerHTML == "已領取") {
-                                        Swal.fire("success","此優惠券已領過","success",1500);
-                                        alert("此優惠券已領過")
+                                        AddCSweet2()
                                     } else {
                                         const state = "未使用"
                                         // alert("領取成功")
@@ -40,6 +43,7 @@ function HomeCopyText(props) {
                                         const results = await response.json();
                                         setDatas(results);
                                         document.getElementById(CP_id).innerHTML = "已領取"
+                                        AddCSweet()
                                     }
                                 }}>
                                     未領取

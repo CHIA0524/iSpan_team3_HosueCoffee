@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss';
+import LGOSweet from './sweetalert/LoginOutSweet';
 
 // icons
 import { IoCloseOutline } from "react-icons/io5";
@@ -35,8 +36,10 @@ function Navbar (props){
     localStorage.removeItem("birth")
     localStorage.removeItem("phone")
     localStorage.removeItem("true")
-    alert("您已登出")
-    window.location.assign("http://localhost:3000/");
+    LGOSweet()
+    setTimeout(() => {
+      window.location.assign("http://localhost:3000/");
+    }, 1500)
 
   }
 
