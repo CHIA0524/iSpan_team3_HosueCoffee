@@ -31,6 +31,7 @@ import FavouritePage from './pages/menu/FavouritePage';
 
 // Store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
+import CrawlerStore from './pages/store/crawlerStore/StoreMapCardWrap'
 
 // Member pages
 import MemberLogin from './pages/member/memberlogin';
@@ -235,6 +236,9 @@ function App() {
 
         <Route path="/store">
           <StoreMapCardWrap />
+        </Route>
+        <Route path="/store2">
+          <CrawlerStore />
         </Route>
         
         <Route path="/" exact>

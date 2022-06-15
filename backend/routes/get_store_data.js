@@ -24,6 +24,7 @@ router.get("/", async (req, res) => {
           .then(function(result){
               console.log(result)
               res.send(result)
+              fs.writeFileSync('allStore', JSON.stringify(result));
           })
           .catch(function(error){
               console.log(error)
