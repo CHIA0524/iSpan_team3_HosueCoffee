@@ -74,7 +74,7 @@ function HomeStore() {
                     </div>
                     {/* <button id="storeBtn" type="button">搜尋</button> */}
                 </form>
-                <div className="storeCardWrap homestore" >
+                <div className="homeStoreCardWrap homeStore">
                     <div>
                         <img src={require(`../store/img/${photo}`)} alt="no-img"></img>
                     </div>
@@ -82,7 +82,7 @@ function HomeStore() {
                     <div className="itemText">
                         <p>{store_name}</p>
                         <p>{city}</p>
-                        <p>{area} {address}</p>
+                        <p className='homeStoreArea'>{area} {address}</p>
                     </div>
 
                     <div className="itemText">
@@ -90,6 +90,11 @@ function HomeStore() {
                         <h5>{phone}</h5>
                         <p></p>
                         {/* <p>{store.phone}</p> */}
+                    </div>
+
+                    <div className="itemTextForMobile">
+                    <p>{store_name}</p>
+                    <p>{phone}</p>
                     </div>
                     
                  </div>
