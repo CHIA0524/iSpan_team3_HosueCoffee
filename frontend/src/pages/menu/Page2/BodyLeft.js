@@ -120,6 +120,7 @@ const BodyLeft = props => {
                             type="submit" 
                             onClick={()=>{if (isSubmitting===true) {
                                 window.location.href="/OnlineCheckPage3"
+                                localStorage.setItem("gifts", JSON.stringify([]))
                             }}}
                             >
                                 結帳
