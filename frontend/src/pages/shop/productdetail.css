@@ -319,7 +319,7 @@
     display: none;
   }
   .MRec {
-    margin-top: 3rem;
+    margin: 3rem auto;
     display: flex;
     justify-content: center;
   }
