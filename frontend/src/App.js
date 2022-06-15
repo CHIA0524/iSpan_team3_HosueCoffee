@@ -77,9 +77,11 @@ import BlogShare from './pages/blog/BlogShare'
 
 
 function App() {
+  //判斷購物車是否有資料
   if(localStorage.getItem('sCarts')==null){
     localStorage.setItem('sCarts',JSON.stringify([]))
 }
+
   const [auth,setAuth]=useState(localStorage.getItem("true"));
   //判斷是否登入，若localhost storage內沒有"true"，就是沒有登入狀態，若有"true"，true的值會是會員ID
   //若有需要判斷會員是否有登入的頁面，在下方引入時記得加上 auth={auth}

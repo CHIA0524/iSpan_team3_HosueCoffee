@@ -12,11 +12,9 @@ function RecCard(props){
   const[amount, setAmount]= useState(1)
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
-  console.log('-------');
-  console.log(datas);
-   console.log('-------');
+ 
   const fetchData = async()=>{
-    const response = await fetch('http://localhost:3001/shop');
+    const response = await fetch('http://localhost:3001/shop/rec');
     const results = await response.json();
     setDatas(results);
   }
@@ -70,8 +68,8 @@ function RecCard(props){
                                      </Link>
                                     </div>
                                 <div>
-                                 <p>{PCard.p_name}</p>
-                                 <p class="rCardPrice">${PCard.p_price}</p>
+                                 <div>{PCard.p_name}</div>
+                                 <div class="rCardPrice">${PCard.p_price}</div>
                              </div>
                         </div>
                        </div>

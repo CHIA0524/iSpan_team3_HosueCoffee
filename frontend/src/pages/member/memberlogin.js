@@ -3,7 +3,12 @@ import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './memberLogin.css'
 import Memberprofile from './memberprofile';
-
+import SweetloginY from './sweetalert/SweetloginY';
+import SweetloginN from './sweetalert/SweetloginN';
+import SweetloginYN from './sweetalert/SweetloginYN';
+import SweetSignY from './sweetalert/SweetSignY';
+import SweetSignN from './sweetalert/SweetSignN';
+import SweetloginSTN from './sweetalert/SweetloginSTN';
 function MemberLogin(props){
     const {auth,setAuth,setDataCheck} = props;  
     
@@ -20,6 +25,8 @@ function MemberLogin(props){
 
     const new_mb_point=100;
     //^設定註冊帳號贈送的紅利點數^
+    const new_login_status=0;
+    //^設定註冊帳號 登入狀態^
 
     const [accountMessage, setAccounteMessage] = useState("");
     const [mailMessage, setMailMessage] = useState("");
@@ -127,7 +134,7 @@ function MemberLogin(props){
         //點擊註冊按鈕
             if(mailMessage == "信箱可使用" && accountMessage == "帳號可使用" && PWMessage == "密碼符合"){
             //判斷3個提示訊息是否都符合註冊條件
-            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}`);
+            const CRNM = await fetch(`${process.env.REACT_APP_API_URL}/account/CRNM?member_mail=${new_mb_mail}&member_account=${new_mb_account}&member_password=${new_mb_password}&member_point=${new_mb_point}&login_status=${new_login_status}`);
             //CRNM 為新增新的資料，沒有回傳值
             
             setmember_account(new_mb_account);
@@ -138,23 +145,25 @@ function MemberLogin(props){
             setNew_mb_account("");
             setNew_mb_password("");
             //清空註冊的3個欄位
+            SweetSignY()
+            // alert("註冊成功，請直接登入")
+            setTimeout(() => {
+                //滑過去登入頁面
+                document.querySelector('.loginMain1').style.right='-491px';
+                document.querySelector('.loginMain1').style.transition='0.5s';
+                document.querySelector('.LG').style.display="block"
+                document.querySelector('.LG-F').style.display="none"
+    
+                //手機板跳回登入頁
+                document.querySelector('.loginCM').style.display="none"
+                document.querySelector('.loginM').style.display="block"
+                document.querySelector('.forget-m').style.display="none"
+              }, 1600)
 
-            alert("註冊成功，請直接登入")
-            
-
-            //滑過去登入頁面
-            document.querySelector('.loginMain1').style.right='-491px';
-            document.querySelector('.loginMain1').style.transition='0.5s';
-            document.querySelector('.LG').style.display="block"
-            document.querySelector('.LG-F').style.display="none"
-
-            //手機板跳回登入頁
-            document.querySelector('.loginCM').style.display="none"
-            document.querySelector('.loginM').style.display="block"
-            document.querySelector('.forget-m').style.display="none"
             }else{ 
             //以下將不符合資格的提示改為紅色
-               
+            SweetSignN()
+            setTimeout(() => {
                 if(mailMessage != "信箱可使用"){
                     document.querySelector('.CKNmail').style.color="red"
                     //將網頁版提示改為紅色
@@ -172,8 +181,8 @@ function MemberLogin(props){
                     //將網頁版提示改為紅色
                     document.querySelector('.CKNpassword_m').style.color="red"
                     //將手機版提示改為紅色
-
-            }
+                }
+              }, 1500)
         }
 
 
@@ -190,6 +199,9 @@ function MemberLogin(props){
             const resultsTF = await loginTF.json();
             console.log(resultsTF);
             if(resultsTF.total===1){
+                const loginS=await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
+                const loginS2 = await loginS.json();
+                if(loginS2.login_status==0){
     
                 const loginid = await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
                 const loginMid = await loginid.json();
@@ -199,7 +211,7 @@ function MemberLogin(props){
                 localStorage.setItem("mail", loginMid.member_mail);
                 localStorage.setItem("point", loginMid.member_point);
                 //將會員編號寫入localStorage的true，帳號信箱也分別寫入
-
+                let member_id=loginMid.member_id;
                 localStorage.setItem("dataCheck", "資料完整");
                 //先將dataCheck，設定為資料完整
                 const loginData = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginData/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
@@ -217,22 +229,35 @@ function MemberLogin(props){
                     localStorage.setItem("address", results.member_address);
                     localStorage.setItem("photo", results.member_photo);
                     //將會員基本資料分別寫入localStorage
-                    alert('成功登入');
-                    // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
+                    // alert('成功登入');
+                    const loginstatus = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginstatusY?member_id=${member_id}`);
                     
-                    window.location.replace("http://localhost:3000/member/profile");
+                    
+                    SweetloginY();
+                    // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
+                    setTimeout(() => {
+                        window.location.replace("http://localhost:3000/member/profile");
+                      }, 1500)
                     //轉向會員基本資料頁面
+                
             }else{
-            //如果沒有基本資料
-                localStorage.removeItem("dataCheck")
-                //清除localStorage內的dataCheck
-                alert('成功登入 但基本資料尚未完整');
-                //跳出訊息
-                window.location.replace("http://localhost:3000/member/NewData");
-                //轉向填寫資料頁面
-                }
+                //如果沒有基本資料
+                    localStorage.removeItem("dataCheck")
+                    //清除localStorage內的dataCheck
+                    SweetloginYN()
+                    // alert('成功登入 但基本資料尚未完整');
+                    //跳出訊息
+                    setTimeout(() => {
+                        window.location.replace("http://localhost:3000/member/NewData");
+                      }, 1500)
+                    //轉向填寫資料頁面
+                    }
+                }else{
+                SweetloginSTN()
+            }
             }else{
-                alert('帳號密碼錯誤');
+                SweetloginN()
+                // alert('帳號密碼錯誤');
                 // setAuth(!auth)
     
             }

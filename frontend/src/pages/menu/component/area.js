@@ -14,7 +14,6 @@ function Area(props){
         setArea(document.getElementById("select-profession").value)
         const area2=(document.getElementById("select-profession").value)
         const response = await fetch(`http://localhost:3001/menu/areastore?city=${area2}`)
-        console.log(area2)
         const results=await response.json();
         setAreastore(results);
         
@@ -22,7 +21,6 @@ function Area(props){
     useEffect(()=>{
         fetchData();
     },[])
-    console.log(datas);
     return(
         <>
             <div>
@@ -30,7 +28,7 @@ function Area(props){
                                     <div className="Payment">
                                         <p>選擇地區</p>
                                         <div className="sel sel--black-panther popo2">
-                                        <select name="select-profession" id="select-profession" onChange={CGArea}>
+                                        <select name="select-profession" id="select-profession" onChange={CGArea} className="dropdownbig">
                                         <option value="請選擇" >請選擇</option>
 
                                             {datas.length> 0 && datas.map((area,i)=>{
@@ -47,12 +45,10 @@ function Area(props){
                                     <div className="Payment">
                                         <p>選擇門市</p>
                                         <Areastore area={area} setArea={setArea} areastore={areastore} setAreastore={setAreastore} astore={astore} setAstore={setAstore}/>
-                                       
                                         <hr className="rule"/>
                                     </div>
                                 </div>
                                 </div>
-       
         </>
     )
 }

@@ -18,15 +18,15 @@ function homeMenu(props) {
         data-aos-duration="1500">
                 <div className="menuHover">
                     <img className='menuImg' src={menu01} alt="" />
-                    <img className='menuHoverImg' src={menuHover01} alt="" />
+                    <a href="/onlinemenu"><img className='menuHoverImg' src={menuHover01} alt="" /></a>
                 </div>
                 <div className="menuHover">
                     <img className='menuImg' src={menu02} alt="" />
-                    <img className='menuHoverImg' src={menuHover02} alt="" />
+                    <a href="/onlinemenu"><img className='menuHoverImg' src={menuHover02} alt="" /></a>
                 </div>
                 <div className="menuHover">
                     <img className='menuImg' src={menu03} alt="" />
-                    <img className='menuHoverImg' src={menuHover03} alt="" />
+                    <a href="/onlinemenu"><img className='menuHoverImg' src={menuHover03} alt="" /></a>
                 </div>
             </div>
         </div>

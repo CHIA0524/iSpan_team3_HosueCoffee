@@ -16,7 +16,7 @@ function Coupon(props){
         const response = await fetch(`http://localhost:3001/shoporder/coupon?fk_m_id=${thismemberid}`);
         const results = await response.json();
         setDatas(results);
-        console.log(results);
+        //console.log.log(results);
         
     }
   
@@ -36,13 +36,13 @@ function Coupon(props){
        }else{
            //取的會員優惠券id
            const b=a.substr(4,)
-           console.log(b)
+           //console.log.log(b)
            //回傳會員優惠券id
            setMC_id(b)
 
            //擷取優惠券折數
            const c=Number(a.substr(0,2))/100
-           console.log(c)
+           //console.log.log(c)
 
            //計算折購金額
            const d = Math.round(ptotal* c)
@@ -62,7 +62,7 @@ return(
            <option className="selText" value="0" >不使用優惠券</option>
             {/* 連資料庫 */}
             {datas.map((C,CP_id)=>{
-                {/* console.log(CP_id) */}
+                {/* //console.log.log(CP_id) */}
                         
                         return(
                             <option className="selText" value={C.coupon_code+"+"+C.MC_id}>{C.coupon_title}</option>

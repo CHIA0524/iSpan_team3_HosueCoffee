@@ -7,7 +7,7 @@ function MCouponN(props){
         const response = await fetch(`${process.env.REACT_APP_API_URL}/morder/couNo?fk_m_id=${thismemberid}`)
         const results=await response.json();
         setDatas(results);
-        console.log(results.length)
+        // console.log(results.length)
         setMCNO(results.length)
     }
     

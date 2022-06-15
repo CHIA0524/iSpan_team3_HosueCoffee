@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import logo from './img/logo.svg';
 import './Navbar.scss';
+import LGOSweet from './sweetalert/LoginOutSweet';
 
 // icons
 import { IoCloseOutline } from "react-icons/io5";
@@ -22,8 +23,12 @@ function Navbar (props){
         setmember_photo("housecoffee.png")
       }
   // console.log(carNum);  
-  const loginOUT=()=>{
+  const loginOUT=async()=>{
     // localStorage.clear();
+    const thismemberid=localStorage.getItem("true");
+
+    const loginstatus = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginstatusN?member_id=${thismemberid}`);
+
     localStorage.removeItem("dataCheck")
     localStorage.removeItem("member_point")
     localStorage.removeItem("mail")
@@ -35,8 +40,10 @@ function Navbar (props){
     localStorage.removeItem("birth")
     localStorage.removeItem("phone")
     localStorage.removeItem("true")
-    alert("您已登出")
-    window.location.assign("http://localhost:3000/");
+    LGOSweet()
+    setTimeout(() => {
+      window.location.assign("http://localhost:3000/");
+    }, 1500)
 
   }
 
@@ -115,9 +122,12 @@ function Navbar (props){
             <a className="" href="#">
               <IoPersonOutline size={20} color={'#4C3410'} />
             </a>
-
+              {auth? 
               <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
-              {auth?<><a className="ms-3" onClick={loginOUT} href="/" >
+              :
+              <Link to="/member"><p className="openMemberDetail">MEMBER</p></Link>
+              }
+              {auth?<><a className="ms-3" onClick={loginOUT}  >
               <IoExitOutline size={20} color={'#4C3410'}/>
             </a></>:
             <></>}
@@ -173,7 +183,10 @@ function Navbar (props){
           <li className="mobileNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn" >{">> Order Online"}</button></Link></li>
 
           <li><Link className='carCSS' to="/shoppingcart"><IoCartOutline  size={30} style={{ color: '#DDB44A' }}/>
-          {carNum?<div className='redC'></div>:<></>}
+          {carNum?
+          <div className='redC'></div>
+          :
+          <></>}
           </Link></li>
 
           <li className="mobileNone position-relative">

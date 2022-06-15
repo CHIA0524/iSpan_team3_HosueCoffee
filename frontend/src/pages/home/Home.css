@@ -101,6 +101,9 @@ body {
     margin: 50px 30px;
     cursor: pointer;
 }
+.store .homestore{
+    display: none;
+}
 
 .menuImg {
     opacity: 80%;
@@ -152,6 +155,10 @@ body {
     text-align: center;
     font-family: "Comfortaa", "Microsoft JhengHei";
 }
+.ABC123{
+    color: white;
+    cursor: pointer;
+}
 
 .scrollDiv {
     width: 100%;
@@ -163,7 +170,6 @@ body {
     flex-grow: 1 100px;
     flex-flow: row wrap;
     display: flex;
-    cursor: pointer;
 }
 
 .productscroll {
@@ -175,7 +181,6 @@ body {
     justify-content: center;
     flex-flow: row wrap;
     align-items: center;
-    cursor: pointer;
 }
 
 .productscroll img {
@@ -366,17 +371,58 @@ body {
     cursor: pointer;
 }
 
-#storeBtn {
-    border: 2px #E4D2A3 solid;
-    border-radius: 20px;
+.homeStoreCardWrap{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 5px;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-around;
+    transition: all .3s ease-in-out;}
+    .homeStoreCardWrap div:last-child{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s;
+      color: #4C3410;
+    }
+    .homeStoreCardWrap div:last-child:hover{
+      color: #A37025;
+    }
+    .homeStoreCardWrap img{
+      width: 80px;
+      height: 60px;
+      border-radius: 5px;
+    }
+    .itemText{
+      height: 60px;
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;}
+      .itemText p{
+        margin: 0;
+        font-size: 14px;
+        color: #4C3410;
+      }
+      .itemText p:first-child{
+        font-size: 16px;
+      }
+    
+  
+  .homeStoreCardWrap:hover{
     background: #E4D2A3;
-    color: #fff;
-    width: 70px;
-    height: 35px;
-    text-align: center;
-    cursor: pointer;
-}
+  }
 
+  .itemTextForMobile p {
+    display: none;
+  }
 /* --------------------- */
 
 /* news & activity */
@@ -725,7 +771,7 @@ body {
         width: 100%;
     }
 
-    .productdetail h5 h6 p {
+    .productdetail h5, h6, p {
         margin: 0;
         text-align: center;
     }
@@ -791,6 +837,20 @@ body {
         margin: 10px 0;
     }
 
+    .itemText{
+        display: none;
+    }
+
+    .itemTextForMobile{
+        display: flex;
+        flex-grow: 1 100px;
+        flex-flow: column wrap;
+        font-size: 12px;
+    }
+
+    .itemTextForMobile p {
+        text-align: left;
+    }
     /* ------------------ */
 
     /* news & activity */
@@ -1009,7 +1069,7 @@ body {
         width: 100%;
     }
 
-    .productdetail h5 h6 p {
+    .productdetail h5, h6, p {
         text-align: center;
     }
 

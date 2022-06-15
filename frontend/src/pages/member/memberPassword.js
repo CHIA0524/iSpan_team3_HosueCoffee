@@ -3,6 +3,7 @@ import { useState } from 'react';
 import MemberAside from "./memberAside";
 import MemberBack from './memberBack';
 import './memberPassword.css'
+import SweetpasswordY from './sweetalert/SweetpasswordY';
 
 function MemberPassword(props){
   const{auth}=props;
@@ -89,8 +90,10 @@ function MemberPassword(props){
     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/changePassword?member_password=${member_passwordN}&member_id=${thismemberid}`);
     // const results = await response.json();
     // console.log(results);
-    alert('成功修改');
-    window.location.replace("http://localhost:3000/member/profile");
+    SweetpasswordY()
+     setTimeout(() => {
+       window.location.replace("http://localhost:3000/member/profile");
+              }, 1600)
   }else{
     if(passwordMessage != '舊密碼正確'){
       document.querySelector('.passwordMessageRed').style.color="red"

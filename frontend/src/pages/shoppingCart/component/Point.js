@@ -10,7 +10,6 @@ function Point(props){
 
     const [datas, setDatas ] = useState([])
     const thismemberid=localStorage.getItem(true)
-    
     const Ipoint=(e)=>{
        setPointla(e.target.value);
     }
@@ -18,11 +17,18 @@ function Point(props){
 
       const Bpoint=()=>{
         if(Number(pointla)> mpoint){   
-            setPointla(mpoint)   
-        } if(Number(pointla)>ptotal-ctotal){
-            setPointla(ptotal-ctotal)   
-            
-        }
+            if(Number(pointla)<ptotal-ctotal){
+                setPointla(mpoint)   
+                
+                
+            }else{
+                setPointla(ptotal-ctotal)    
+            }
+        }else{
+            if(Number(pointla)>ptotal-ctotal){
+                setPointla(ptotal-ctotal)      
+            }
+        } 
     }   
              
   

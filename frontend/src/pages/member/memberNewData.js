@@ -5,7 +5,8 @@ import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
 import { check } from 'prettier';
-
+import SweetNDY from './sweetalert/SweetNDY';
+import SweetNUP from './sweetalert/SweetNUP';
 function MemberNewData(props){
   const{auth}=props;
     if(!auth){
@@ -135,8 +136,10 @@ function MemberNewData(props){
           localStorage.setItem("address", UPaddress);
           localStorage.setItem("photo", UPImg);
           localStorage.setItem("dataCheck", "資料完整");
-          alert("資料新增成功")
-          window.location.replace("http://localhost:3000/member/profile");
+          SweetNDY()
+          setTimeout(() => {
+            window.location.replace("http://localhost:3000/member/profile");
+          }, 1500)
         }else {if(nameMessage!="感謝填寫姓名"){
           document.querySelector(".NewName").style.color="red";
 
@@ -150,7 +153,7 @@ function MemberNewData(props){
           document.querySelector(".NewAddress").style.color="red";
 
         }if(UPPT!=1){
-          alert("請點擊上傳圖片")
+          SweetNUP()
           
         }
       }

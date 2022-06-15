@@ -189,9 +189,9 @@ function StoreMapCardWrap(){
         setOriginPosition({
           lat: Number(position.coords.latitude),
           lng: Number(position.coords.longitude)})
-          setCenter({
-            lat: Number(position.coords.latitude),
-            lng: Number(position.coords.longitude)})
+        setCenter({
+          lat: Number(position.coords.latitude),
+          lng: Number(position.coords.longitude)})
         setControl(true)  
       }
 
@@ -246,7 +246,20 @@ function StoreMapCardWrap(){
     });
   },[]);
 
-  
+  useEffect(() => {
+    if (distance) {
+      setTimeout(() => {
+        for (let i = 0; i < data.length; i++) {
+          data[i].distance = distance.rows[0].elements[i].distance.text
+          data[i].distanceValue = distance.rows[0].elements[i].distance.value
+        }
+        const sortData = data.sort(function(a, b){
+        return a.distanceValue - b.distanceValue
+        })
+        setFilterData(sortData)
+      }, 100)
+    }
+  }, [data, distance])
 
   return(
     <>

@@ -31,6 +31,7 @@ const Popup = (props) => {
         }
         localStorage.setItem("gifts", JSON.stringify(gifts))
     }
+    
     if(datas.length > 0){
         return(
             <div className="overlay" style={css}>
@@ -50,19 +51,19 @@ const Popup = (props) => {
                     <div className="menuContent">
                         <div className="popoimg">
                             <img 
-                                src={require('../img/'+ datas[drinkId-1].url +'.jpg')}
+                                src={require('../img/'+ datas[drinkId-300001].url +'.jpg')}
                                 alt=""   
                             />
                         </div>
                         <div className="popupNameTop">
                             <div className="popupName">
                                 <h2>
-                                    {datas[drinkId-1].drink_name}
+                                    {datas[drinkId-300001].drink_name}
                                 </h2>
                             </div>
                             <div className="popotext">
                                 <span>
-                                    {datas[drinkId-1].content}
+                                    {datas[drinkId-300001].content}
                                 </span>
                             </div>
                             <div className="content2 btn">

@@ -55,7 +55,7 @@ function Pay2(){
     const RIaddress=(e)=>{
     setRAddress(e.target.value);
     }   
-        // console.log(name)
+        // //console.log.log(name)
       
         //驗證 
         const Wrongname=()=>{
@@ -120,7 +120,7 @@ function Pay2(){
        const shipSame = ()=>{
         const a=document.querySelector('.sameAddress').checked
         
-        console.log(a)
+        //console.log.log(a)
         if(a==true){
          document.querySelector('.receiverInfo').style.display="none"
          setRName(name)
@@ -140,7 +140,7 @@ function Pay2(){
     const [shipgopay,setShipgopay]=useState("請選擇運送方式");
     const shipprice = ()=>{
      const b = document.querySelector('.postoffice').checked
-     console.log(b)
+     //console.log.log(b)
      if(b==true){
         // document.getElementById("sprice").innerHTML = 80
         setShipgopay(80)

@@ -4,19 +4,18 @@ function Areastore(props){
     const{areastore,setAstore}=props
     const CGAreaS=async()=>{
         setAstore(document.getElementById("select-profession-store").value)
-        console.log(document.getElementById("select-profession-store").value)
-        
     }
     
+
     return(
         <>
-            <select name="select-profession" id="select-profession-store" onChange={CGAreaS}>
+            <select name="select-profession" id="select-profession-store" className='dropdownbig' onChange={CGAreaS}>
         {areastore.length> 0 && areastore.map((areaStoreA,i)=>{
             const{store_name}=areaStoreA;
             return(
-                   <option value={store_name} >{store_name}</option>
-              )})}
-                 </select>
+                    <option value={store_name} >{store_name}</option>
+            )})}
+                </select>
         </>
     )
 }

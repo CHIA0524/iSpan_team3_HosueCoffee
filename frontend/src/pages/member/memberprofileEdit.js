@@ -4,6 +4,8 @@ import axios from 'axios';
 import MemberAside from './memberAside';
 import MemberBack from './memberBack';
 import './memberprofileEdit.css';
+import SweetPEY from './sweetalert/SweetPEY';
+import SweetNUP from './sweetalert/SweetNUP';
 
 function MemberprofileEdit(props){
   const{auth}=props;
@@ -73,10 +75,13 @@ function MemberprofileEdit(props){
           localStorage.setItem("phone", UPphone);
           localStorage.setItem("address", UPaddress);
           localStorage.setItem("photo", UPImg);
-          alert("資料修改成功")
-          window.location.replace("http://localhost:3000/member/profile");
+
+          SweetPEY()
+          setTimeout(() => {
+            window.location.replace("http://localhost:3000/member/profile");
+          }, 1500)
         }if(UPPT!=1){
-          alert("請點擊上傳");
+          SweetNUP()
 
         }
   }
