@@ -236,7 +236,7 @@ function App() {
          {/* 以上是會員頁面 */}
 
 
-        <Route path="/store">
+        <Route path="/store" exact>
           <StoreMapCardWrap />
         </Route>
         
