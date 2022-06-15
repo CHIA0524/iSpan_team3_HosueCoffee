@@ -26,6 +26,7 @@ const BodyLeft = props => {
             .max(10, "請輸入正確手機格式09XX-XXX-XXX")
             .required("請輸入手機號碼"),
     });
+    console.log(astore)
     const totalprice = datas.totalprice
     axios.post('')
     .then((res) => {
@@ -73,7 +74,8 @@ const BodyLeft = props => {
                             </div>
                             <div className="selectStore">
                                 <div>
-                                    <span>選擇門市</span>
+                                    {/* <span>選擇門市</span> */}
+                                    <br></br>
                                 </div>
                                 <Area 
                                     area={area} 
@@ -143,9 +145,10 @@ const BodyLeft = props => {
                         
                             <button 
                             className="PaymentLast mt-1" 
-                            type="submit" 
-                            onClick={()=>{if (isSubmitting===true) {
-                                window.location.href="/OnlineCheckPage3"
+                            type="button" 
+                            onClick={async()=>{if (isSubmitting===true) {
+                                console.log(astore)
+                                // window.location.href="/OnlineCheckPage3"
                                 localStorage.setItem("gifts", JSON.stringify([]))
                             }}}
                             >
