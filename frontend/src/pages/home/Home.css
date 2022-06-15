@@ -121,7 +121,7 @@ body {
 .menuHover:hover .menuHoverImg {
   display: flex;
   transform: scale(1.1);
-  transform-origin: right;
+  left: 10%;
   transition: 1s;
 }
 
