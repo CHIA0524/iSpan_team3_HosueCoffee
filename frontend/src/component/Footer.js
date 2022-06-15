@@ -19,14 +19,14 @@ function Footer (){
       <div className="d-flex">
         <div className="mx-5">
           PRODUCT
-          <li><a href="">coffee</a></li>
-          <li><a href="">cups</a></li>
-          <li><a href="">other</a></li>
+          <li><a href="/shop">coffee</a></li>
+          {/* <li><a href="">cups</a></li> */}
+          <li><a href="/shop/other">other</a></li>
         </div>
         <div className="mx-5">
           ABOUT US
           <li><a href="">news</a></li>
-          <li><a href="">store</a></li>
+          <li><a href="/store">store</a></li>
           <li><a href="">FAQs</a></li>
         </div>
       </div>
