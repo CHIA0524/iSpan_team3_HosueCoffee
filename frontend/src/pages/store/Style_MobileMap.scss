@@ -55,6 +55,14 @@ $MB_CardWrapHeight: calc(100vh - 150px);
   .storeCardWrap{
     border: 1px solid $main_color;
   }
+  .storeImgDiv{
+    display: none;
+  }
+  .storeCardWrap{
+    .itemText{
+      width: 200px;
+    }
+  }
 }
 
 
