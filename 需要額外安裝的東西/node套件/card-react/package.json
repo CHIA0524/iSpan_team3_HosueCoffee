@@ -1,0 +1,59 @@
+{
+  "name": "card-react",
+  "version": "1.2.7",
+  "description": "Add an interactive credit card animation to your payment form.",
+  "main": "lib/card-react-form-container.js",
+  "dependencies": {
+    "classnames": "^2.1.2",
+    "create-react-class": "^15.5.3",
+    "payment": "~2.2.1"
+  },
+  "devDependencies": {
+    "bourbon": "^4.2.7",
+    "browserify": "^13.0.1",
+    "coffee-react": "^5.0.0",
+    "coffee-reactify": "^5.0.0",
+    "coffee-script": "^1.9.3",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-coffee-react": "^5.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "uglify-save-license": "^0.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/grunt dev",
+    "clean": "node_modules/.bin/grunt clean",
+    "build": "node_modules/.bin/grunt build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shatran/card-react.git"
+  },
+  "keywords": [
+    "card-react",
+    "credit",
+    "card",
+    "react",
+    "component"
+  ],
+  "author": "Shay Stern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shatran/card-react/issues"
+  },
+  "homepage": "https://github.com/shatran/card-react"
+}

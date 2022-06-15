@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 
 function Areastore(props){
     const{areastore,setAstore}=props
+    console.log(areastore)
     const CGAreaS=async()=>{
         setAstore(document.getElementById("select-profession-store").value)
     }

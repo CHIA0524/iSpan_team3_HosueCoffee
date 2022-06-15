@@ -31,7 +31,7 @@ router.get('/area',async (req,res,next)=>{
   })
 router.get('/areastore',async (req,res,next)=>{
     //^創建新的帳號^
-    const sql = "SELECT store_name FROM store where city='高雄市';"
+    const sql = "SELECT store_name FROM store where city=?;"
     const [datas] = await db.query(sql,[req.query.city]);
     res.json(datas);
     

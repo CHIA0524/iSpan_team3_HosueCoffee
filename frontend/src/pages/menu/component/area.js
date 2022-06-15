@@ -13,6 +13,7 @@ function Area(props){
     const CGArea=async()=>{
         setArea(document.getElementById("select-profession").value)
         const area2=(document.getElementById("select-profession").value)
+        console.log(area2)
         const response = await fetch(`http://localhost:3001/menu/areastore?city=${area2}`)
         const results=await response.json();
         setAreastore(results);
