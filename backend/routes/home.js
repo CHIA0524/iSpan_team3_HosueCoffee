@@ -7,6 +7,13 @@ const upload = multer();
 //GET　http://localhost:3001/home
 
 
+router.route('/store')
+    .get(async (req, res, next) => {
+        const sql =
+            "SELECT * FROM store where store_name =?";
+        const [datas] = await db.query(sql, [req.query.store_name]);
+        res.json(datas[0]);
+    })
 router.route('/news')
     .get(async (req, res, next) => {
         const sql =

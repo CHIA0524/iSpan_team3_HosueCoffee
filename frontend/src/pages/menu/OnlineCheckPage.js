@@ -4,7 +4,6 @@ import Space from './component/Space';
 import Process from './Page1/Process';
 import ProcessRwd from './Page1/ProcessRwd';
 import List from './Page1/List';
-import Promo from './Page1/Promo';
 import Pay from './Page1/Pay';
 import './scss/styleCheckout.scss'
 
@@ -26,7 +25,6 @@ const OnlineCheckPage = () => {
                         <ProcessRwd />
                         <Space />
                         <List setpricetotal1={setpricetotal1} datas={datas} settotalprice={settotalprice}  totalprice={totalprice}/>
-                        <Promo />
                         <Pay totalprice={totalprice} />
                         
                 </>

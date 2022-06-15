@@ -17,7 +17,7 @@ function BACard(props){
     return(
     <>
     {datas.map((BA,i) => {
-      console.log(BA.img_src)
+      //console.log(BA.img_src)
       const articleSimg=(BA.img_src);
       
         return(

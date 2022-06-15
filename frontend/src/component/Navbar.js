@@ -22,9 +22,13 @@ function Navbar (props){
     if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
-  console.log(carNum);  
-  const loginOUT=()=>{
+  // console.log(carNum);  
+  const loginOUT=async()=>{
     // localStorage.clear();
+    const thismemberid=localStorage.getItem("true");
+
+    const loginstatus = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginstatusN?member_id=${thismemberid}`);
+
     localStorage.removeItem("dataCheck")
     localStorage.removeItem("member_point")
     localStorage.removeItem("mail")
@@ -118,9 +122,12 @@ function Navbar (props){
             <a className="" href="#">
               <IoPersonOutline size={20} color={'#4C3410'} />
             </a>
-
+              {auth? 
               <p className="openMemberDetail" onClick={openMemberDetailClick}>MEMBER</p>
-              {auth?<><a className="ms-3" onClick={loginOUT} href="/" >
+              :
+              <Link to="/member"><p className="openMemberDetail">MEMBER</p></Link>
+              }
+              {auth?<><a className="ms-3" onClick={loginOUT}  >
               <IoExitOutline size={20} color={'#4C3410'}/>
             </a></>:
             <></>}

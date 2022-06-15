@@ -16,7 +16,11 @@ $colorMain3: #A37025;
         justify-content: center;
     }
 }
-
+#demo-simple-select-autowidth-label{
+    &::before{
+        display: none;
+    }
+}
 
 // aside
 

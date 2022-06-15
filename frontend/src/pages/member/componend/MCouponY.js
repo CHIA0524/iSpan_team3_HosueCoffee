@@ -7,7 +7,7 @@ function MCouponY(props){
         const response = await fetch(`${process.env.REACT_APP_API_URL}/morder/couYes?fk_m_id=${thismemberid}`)
         const results=await response.json();
         setDatas(results);
-        console.log(results.length)
+        // console.log(results.length)
         setMCYES(results.length)
     }
     

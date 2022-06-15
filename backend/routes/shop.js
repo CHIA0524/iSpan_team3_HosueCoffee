@@ -14,6 +14,13 @@ const upload = multer();
         const [datas] = await db.query(sql);
         res.json(datas);
     })
+    router.route('/rec')
+    .get(async (req,res,next)=>{
+        const sql = 
+        "SELECT * FROM `products` order by rand()";
+        const [datas] = await db.query(sql);
+        res.json(datas);
+    })
     
     //肯亞
     router.route('/kenya')

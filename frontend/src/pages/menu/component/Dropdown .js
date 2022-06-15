@@ -18,7 +18,7 @@ const Dropdown = () => {
     <>
     <Box sx={{ minWidth: 200 }}>
     <FormControl fullWidt>
-      <InputLabel >付款方式</InputLabel>
+    <InputLabel id="demo-simple-select-autowidth-label">付款方式</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"

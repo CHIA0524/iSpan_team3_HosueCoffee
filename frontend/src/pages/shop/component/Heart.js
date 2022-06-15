@@ -5,7 +5,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 function Heart(props){
     const {pt_id,datasPMF}=props
     const thismemberid=localStorage.getItem(true)
-    console.log(pt_id)
+    // console.log(pt_id)
     
     return(
      <>

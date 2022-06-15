@@ -26,7 +26,7 @@ function Blog(props){
     
         
     }
-    console.log(blog);
+    //console.log(blog);
     
       // didMount
       useEffect(() => {

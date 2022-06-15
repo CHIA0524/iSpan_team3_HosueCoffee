@@ -1,7 +1,8 @@
 .MRText {
   font-size: 1.5rem;
-  margin-left: 8rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 /* Slider */
 .slick-loading .slick-list {

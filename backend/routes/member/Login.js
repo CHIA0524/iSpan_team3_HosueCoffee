@@ -29,8 +29,8 @@ router.get('/checkPhone',async (req,res,next)=>{
 
 router.get('/CRNM',async (req,res,next)=>{
   //^創建新的帳號^
-  const sql = `INSERT INTO members (member_mail, member_account,member_password,member_point) VALUES (?,?,?,?)`
-  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point]);
+  const sql = `INSERT INTO members (member_mail, member_account,member_password,member_point,login_status) VALUES (?,?,?,?,?)`
+  const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point,req.query.login_status]);
   res.json(datas);
   
 })
@@ -60,6 +60,20 @@ router.post('/Login',async (req,res,next)=>{
   //^登入後取的所有會員資料^
   const sql = `select * from members join members_data on members.member_id = members_data.fk_member_id WHERE member_account=? and member_password=?`
   const [data] =  await db.query(sql,[req.query.member_account,req.query.member_password]);
+  res.json(data[0]);
+})
+router.get('/LoginstatusY',async (req,res,next)=>{
+  //^登入後更新登入狀態^
+  const sql = `UPDATE members SET login_status='1' WHERE member_id=?`
+  console.log(req.query.member_id)
+  const [data] =  await db.query(sql,[req.query.member_id]);
+  res.json(data[0]);
+})
+router.get('/LoginstatusN',async (req,res,next)=>{
+  //^登入後更新登入狀態^
+  const sql = `UPDATE members SET login_status='0' WHERE member_id=?`
+  console.log(req.query.member_id)
+  const [data] =  await db.query(sql,[req.query.member_id]);
   res.json(data[0]);
 })
 

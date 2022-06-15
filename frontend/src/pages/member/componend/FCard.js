@@ -43,7 +43,6 @@ function FCard(props){
                             <button className='heart' onClick={async()=>{
                                 if(window.confirm('請問要刪除收藏的 '+p_name+' 嗎')==true){
                                     window.alert("已刪除此收藏")
-                                    console.log(123)
                                     document.getElementById(MF_id).style.display="none"
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/Favfavorite/DF?MF_id=${MF_id}`)
                                 }else{

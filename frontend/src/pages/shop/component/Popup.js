@@ -54,7 +54,7 @@ function Popup(props){
     const [ShopCounter, setShopCounter] = useState(1) 
      // 準備傳至OnlineCheckPage
     if(Alldatas.length>0){  
-      console.log(productId);
+    //   console.log(productId);
       // const PopupId=productId-200000;
       // console.log(PopupId);
 

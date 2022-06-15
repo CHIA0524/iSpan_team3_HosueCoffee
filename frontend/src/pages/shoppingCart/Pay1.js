@@ -38,7 +38,7 @@ function Pay1(props){
         if(JSON.parse(localStorage.getItem('sCarts'))==false){
             alert("購物車沒有商品")
        }else if(!auth){
-           console.log(auth)
+           //console.log.log(auth)
             alert("請登入會員")
            }else{
         document.querySelector('.payTwo').style.display="block"
@@ -54,6 +54,7 @@ function Pay1(props){
         document.querySelector('.payTwo').style.display="none"
         document.querySelector('.payOne').style.display="block"
         window.scroll(0,0)
+        window.location.reload()
          } 
 
    //去付款頁面
@@ -87,16 +88,16 @@ function Pay1(props){
                 const odmap=JSON.parse(localStorage.getItem('sCarts'))
                 for(var i=0;i<odmap.length;i++){
                     const fk_p_id=odmap[i].id
-                    console.log(fk_p_id)
+                    //console.log.log(fk_p_id)
                     const qty=odmap[i].ShopCounter
-                    console.log(qty)
+                    //console.log.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
                 document.querySelector('.payTwo').style.display="block"
                 document.querySelector('.payOne').style.display="none"
                 window.scroll(0,0)
                 const p3="http://localhost:3000/shoppingCart/pay3/"+thisoid
-                // console.log(odweb);
+                // //console.log.log(odweb);
                 localStorage.removeItem("sCarts")
                 window.location.replace(p3)
            }else{
@@ -127,9 +128,9 @@ function Pay1(props){
                 const odmap=JSON.parse(localStorage.getItem('sCarts'))
                 for(var i=0;i<odmap.length;i++){
                     const fk_p_id=odmap[i].id
-                    console.log(fk_p_id)
+                    //console.log.log(fk_p_id)
                     const qty=odmap[i].ShopCounter
-                    console.log(qty)
+                    //console.log.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
                 document.querySelector('.payTwo').style.display="block"
@@ -154,7 +155,7 @@ function Pay1(props){
 
 
 const [ ptotal, setPtotal ]= useState(0)
-console.log(ptotal)
+//console.log.log(ptotal)
 const [totalp ,settotalp]= useState()
 //會員優惠券id
 const[ MC_id , setMC_id] = useState("")
@@ -229,7 +230,7 @@ const[ newpoint , setNewpoint] = useState(0)
         setNote(e.target.value);
         } 
      
-     // console.log(name)
+     // //console.log.log(name)
        
          //驗證
       
@@ -308,7 +309,7 @@ const[ newpoint , setNewpoint] = useState(0)
         const shipSame = ()=>{
           const a=document.querySelector('.sameAddress').checked
          
-          console.log(a)
+          //console.log.log(a)
           if(a==true){
           document.querySelector('.receiverInfo').style.display="none"
           setRName(name)
@@ -334,9 +335,9 @@ const[ newpoint , setNewpoint] = useState(0)
            const [shipgopay,setShipgopay]=useState("請選擇運送方式");
            const shipprice = ()=>{
                const a = ptotal
-               console.log(a)
+               //console.log.log(a)
             const b = document.querySelector('.postoffice').checked
-            console.log(b)
+            //console.log.log(b)
             if(b==true){
                 setShipment("郵局")
                   if(a>1500){
@@ -366,7 +367,7 @@ const[ newpoint , setNewpoint] = useState(0)
         const point = await fetch(`http://localhost:3001/shoporder/point?member_id=${thismemberid}`);
         const repoint = await point.json();
         setMpoint(repoint.member_point);
-        console.log(repoint.member_point);
+        //console.log.log(repoint.member_point);
 
      }
     useEffect(()=>{
