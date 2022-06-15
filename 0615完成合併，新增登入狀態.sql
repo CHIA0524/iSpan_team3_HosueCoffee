@@ -31,7 +31,7 @@ VALUE
 ('MS47','abc123456','MS47@gmail.com',100,0),
 ('LN04','abc123456','LN04@gmail.com',100,0),
 ('DR03','abc123456','DR03@gmail.com',100,0),
-('NR06','abc123456','NR06@gmail.com',0,0);
+('thisis9AN','abc123456','ninean@gmail.com',100,0);
 
 CREATE TABLE `members_data`(
 	`fk_member_id` INT PRIMARY KEY ,
@@ -47,7 +47,8 @@ insert into `members_data`(`fk_member_id`,`member_name`,`member_nick`,`member_bi
 value
 ('100001','路易斯 漢米爾頓','7次世界冠軍','1985-01-07','0944444444','摩納哥','Lewis_Hamilton.jpg'),
 ('100002','維爾特利 鮑達斯','嚕嚕米','1989-08-28','0977777777','芬蘭','bottas.jpg'),
-('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','Russell.jpg');
+('100003','喬治 羅素','未來世界冠軍','1998-02-05','0963636363','英國倫敦','Russell.jpg'),
+('100010','9an','這就是久安哦哦哦','2009-09-09','0963636363','馬卡道路333號','');
 
 
 
@@ -984,6 +985,7 @@ CREATE TABLE `blogs`(
 羅素說過一句經典的名言，希望是堅韌的拐杖，忍耐是旅行袋，攜帶它們，人可以登上永恆之旅。這句話語雖然很短，但令我浮想聯翩。阿拉伯在過去曾經講過，金鳥籠在鳥的心目中是黑牢。這句話改變了我的人生。帶著這些問題，我們一起來審視日曬處理。動機，可以說是最單純的力量。紀伯倫曾經說過，一個羞赧的失敗比一個驕傲的成功還要高貴。<br/>
 ','4celebrity40010');
 
+-- 餐點
 CREATE TABLE `drink_menu`(
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `drink_name` VARCHAR(100) NOT NULL,

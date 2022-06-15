@@ -771,7 +771,7 @@ body {
         width: 100%;
     }
 
-    .productdetail h5 h6 p {
+    .productdetail h5, h6, p {
         margin: 0;
         text-align: center;
     }
@@ -1069,7 +1069,7 @@ body {
         width: 100%;
     }
 
-    .productdetail h5 h6 p {
+    .productdetail h5, h6, p {
         text-align: center;
     }
 
