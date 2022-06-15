@@ -1,12 +1,13 @@
-module.exports = class GetPayment {
+import { get } from 'axios';
+export default class GetPayment {
   payAction(req,res,next){
     let base_param = {
       MerchantTradeNo: payUid(), //請帶20碼uid, ex: f0a0d7e9fae1bb72bc93
       MerchantTradeDate: onTimeValue(), //ex: 2017/02/13 15:45:30
-      TotalAmount: '100',
+      TotalAmount: totalprice,
       TradeDesc: '測試交易描述',
       ItemName: 'HouseCoffe網路購物',
-      ReturnURL: 'http://localhost:3000',
+      ReturnURL: 'https://team3-hosue-coffee-frontend-gusxwdshd-shungyun89.vercel.app/OnlineCheckPage2',
       // ChooseSubPayment: '',
       // OrderResultURL: 'http://192.168.0.1/payment_result',
       // NeedExtraPaidInfo: '1',
@@ -48,12 +49,13 @@ const onTimeValue = function () {
   var hh = date.getHours();
   var mi = date.getMinutes();
   var ss = date.getSeconds();
-
-  router.route('/OnlineCheckPage2')
-.get(async (req,res,next)=>{
-    req.send(datas);
-    console.log(datas);
-})
+  fetch('https://team3-hosue-coffee-frontend-gusxwdshd-shungyun89.vercel.app/OnlineCheckPage2',{
+    method:'get',})
+    .then(res => {
+        const totalprice = res.text();   // 使用 text() 可以得到純文字 String
+    }).then(result => {
+        console.log(result); // 得到「你的名字是：oxxo，年紀：18 歲。」
+    });
 
   return [date.getFullYear(), "/" +
       (mm > 9 ? '' : '0') + mm, "/" +

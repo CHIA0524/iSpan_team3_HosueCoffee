@@ -4,14 +4,10 @@ const multer = require('multer');
 const db = require('../modules/mysql_config');
 const upload = multer();
 
-router.route('/OnlineCheckPage2')
-.get(async (req,res,next)=>{
-    req.send(datas);
-    console.log(datas);
-})
 
-/* GET users listing. */
-//GET　http://localhost:3001/menu
+
+
+
 router.route('/')
 .get(async (req,res,next)=>{
     const sql = "SELECT drink_menu.drink_name,`id`, `price`, `url`,`content`,`menutype`FROM `drink_menu` ;"

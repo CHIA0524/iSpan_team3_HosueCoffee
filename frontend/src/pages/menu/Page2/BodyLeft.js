@@ -6,7 +6,7 @@ import Storemap1 from '../component/Storemap1';
 import StoreCard from '../../store/StoreCard';
 import Area from '../component/area';
 import Areastore from '../component/areastore';
-import { Router } from 'react-router-dom';
+import axios from "axios"
 
 const BodyLeft = props => {
     
@@ -27,11 +27,12 @@ const BodyLeft = props => {
             .required("請輸入手機號碼"),
     });
     const totalprice = datas.totalprice
-    const postprice = ()=>{Router.route('/get_controller')
-    .post(async (req,res,next)=>{
-        res.send(totalprice);
-    })}
-
+    const postprice = fetch('http://localhost:3001/menu',{
+                        method:'post',
+                        body:{totalprice}
+                        }
+                        )
+                        
     return(
         <>     
             <Formik

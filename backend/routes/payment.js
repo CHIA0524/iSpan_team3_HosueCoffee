@@ -5,7 +5,7 @@ const db = require('../modules/mysql_config');
 const upload = multer();
 require("dotenv").config();
 
-const GetPayment = require('../controllers/get_controller')
+const GetPayment = require('../controllers/get_controller').default
 const ModifyPayment = require('../controllers/modify_controller')
 
 getPayment = new GetPayment();
