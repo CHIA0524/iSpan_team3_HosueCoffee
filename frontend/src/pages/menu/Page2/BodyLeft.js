@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import axios from "axios"
 import Storemap1 from '../component/Storemap1';
 import StoreCard from '../../store/StoreCard';
 import Area from '../component/area';
@@ -25,7 +26,11 @@ const BodyLeft = props => {
             .max(10, "請輸入正確手機格式09XX-XXX-XXX")
             .required("請輸入手機號碼"),
     });
-
+    const totalprice = datas.totalprice
+    axios.post('')
+    .then((res) => {
+      console.log(res);
+  });
 
     return(
         <>     
@@ -78,6 +83,27 @@ const BodyLeft = props => {
                                     astore={astore} 
                                     setAstore={setAstore}/>
                             </div>
+                            {/* <div className="storeCardWrap" key={i} onClick={sentCardIndex(i)}>
+              <div className='storeImgDiv'>
+                <img src={store.photo ? require(`./img/${store.photo}`) : ''} alt="no-img"></img>
+              </div>
+              <div className="itemText">
+                <p>{store.store_name}</p>
+                <p>{store.city}</p>
+                <p>{store.area} {store.address}</p>
+                <p>{store.phone}</p>
+              </div>
+              <div
+                style={{display: 'flex', flexDirection: 'column'}}
+                onClick={sentDetailToCardDetail(i)}
+              >
+                <IoInformationCircleOutline size={25}/>
+                { data[i].distance ?
+                  <p style={{fontSize: '8px', textAlign: 'center'}}>{data[i].distance.replace('公里', ' km')}</p>
+                  : ''
+                }
+              </div>
+            </div> */}
                         </div>
                     </div> 
     <div className="body2">  
