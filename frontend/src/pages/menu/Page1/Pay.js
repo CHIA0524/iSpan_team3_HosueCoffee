@@ -31,14 +31,6 @@ const Pay = (props) => {
                         <p>商品小計:</p>
                     </div>
                     <div className="totalPrice">
-                        <div className="d-flex justify-content-between">
-                            <h6>優惠碼折扣</h6>
-                            <h6>-25</h6>
-                        </div>
-                        <div className="d-flex justify-content-between mb-5">
-                            {/* // <h6>紅利折扣</h6>
-                            // <h6>-25</h6> */}
-                        </div>
                         <h4 style={{color: 'red'}}>{totalprice}</h4>
                     </div>
                 </div>
