@@ -8,7 +8,7 @@ use team3;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
 -- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
 --------------------------------------------------------------------------------------------------------------------------------
- UPDATE members_data SET member_photo='housecoffee.png' WHERE fk_member_id=100010;
+	UPDATE members_data SET member_photo='housecoffee.png' WHERE fk_member_id=100010;
 -- UPDATE members SET login_status='0' WHERE member_id=100001;
 -- 使用者
 
@@ -1478,7 +1478,7 @@ CREATE TABLE `drink_menu`(
   `url` VARCHAR(200) NOT NULL,
   `price` INT NOT NULL,
   `content` VARCHAR(200) NOT NULL,
-  'menutype'  VARCHAR(200) NOT NULL,
+  `menutype`  VARCHAR(200) NOT NULL,
   `status` boolean NULL
 );
 ALTER TABLE `drink_menu` AUTO_INCREMENT=300001;
@@ -1486,7 +1486,7 @@ INSERT INTO drink_menu(drink_name, url, price, content, menutype,status)
 VALUES
 ('美式咖啡','美式咖啡','110','以歐洲方式調製，結合經典濃縮咖啡及熱水，帶來濃郁豐富的咖啡滋味。','每日精選','1'),
 ('冰美式咖啡','冰美式咖啡','110','以歐洲方式調製，帶來濃郁豐富的咖啡滋味。','每日精選','0'),
-('那堤','那堤','100','濃郁醇厚的濃縮咖啡，搭配新鮮蒸煮的優質鮮奶，覆上綿密細緻的奶泡',,'每日精選''1'),
+('那堤','那堤','100','濃郁醇厚的濃縮咖啡，搭配新鮮蒸煮的優質鮮奶，覆上綿密細緻的奶泡','每日精選','1'),
 ('濃縮咖啡','濃縮咖啡','80','濃郁豐厚的濃縮咖啡是咖啡的靈魂，它醇厚的口感、綿長香氣及焦糖般的甜味，豐富而令人難忘。','熱飲咖啡','1'),
 ('焦糖瑪奇朵','焦糖瑪奇朵','155','融合新鮮蒸奶及香草風味糖漿後，倒入濃縮咖啡並在奶泡上覆以香甜焦糖醬，呈現多層次風味，是深受歡迎的飲料。','熱飲咖啡','1'),
 ('冰焦糖瑪奇朵','冰焦糖瑪奇朵','100','融合優質鮮奶及香草風味糖漿後，倒入濃縮咖啡並在牛奶上覆以香甜焦糖醬，呈現多層次風味，是星巴克深受歡迎的飲料。','冰飲咖啡','1'),
@@ -1510,7 +1510,7 @@ CREATE TABLE `drink_order`(
   `phone` VARCHAR(15) NOT NULL,
   `odertime` VARCHAR(6) NOT NULL,
   `fk_store_id` INT UNSIGNED NOT NULL,
-  'drink_total_price' INT NOT NULL,
+  `drink_total_price` INT NOT NULL,
   `status` TINYINT NOT NULL,
   `CREATEd_at` TIMESTAMP DEFAULT NOW(),
   FOREIGN KEY(fk_store_id) REFERENCES store(id)
