@@ -31,15 +31,15 @@ function Footer (){
         </div>
       </div>
       <div className="mx-5">
-        <div className="d-flex">
+        <div className="d-flex align-items-center">
           <IoMailOutline size={20}/>
           <p>team3@house.coffee.com</p>
         </div>
-        <div className="d-flex">
+        <div className="d-flex align-items-center">
           <IoCallOutline size={20}/>
           <p>(07)333-3333</p>
         </div>
-        <div className="d-flex">
+        <div className="d-flex align-items-center">
           <BiCopyright size={20}/>
           <p>2022 . HOUSE COFFEE</p>
         </div>
