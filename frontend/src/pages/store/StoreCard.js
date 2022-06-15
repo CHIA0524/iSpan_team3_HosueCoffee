@@ -49,7 +49,7 @@ function StoreCard(props){
         data.map((store,i) => {
           return(
             <div className="storeCardWrap" key={i} onClick={sentCardIndex(i)}>
-              <div>
+              <div className='storeImgDiv'>
                 <img src={store.photo ? require(`./img/${store.photo}`) : ''} alt="no-img"></img>
               </div>
               <div className="itemText">
