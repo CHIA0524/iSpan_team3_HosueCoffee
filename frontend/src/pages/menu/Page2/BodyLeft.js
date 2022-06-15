@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import axios from "axios"
 import Storemap1 from '../component/Storemap1';
 import StoreCard from '../../store/StoreCard';
 import Area from '../component/area';
 import Areastore from '../component/areastore';
+import { Router } from 'react-router-dom';
 
 const BodyLeft = props => {
     
@@ -27,10 +27,10 @@ const BodyLeft = props => {
             .required("請輸入手機號碼"),
     });
     const totalprice = datas.totalprice
-    axios.post('')
-    .then((res) => {
-      console.log(res);
-  });
+    const postprice = ()=>{Router.route('/get_controller')
+    .post(async (req,res,next)=>{
+        res.send(totalprice);
+    })}
 
     return(
         <>     
@@ -144,10 +144,12 @@ const BodyLeft = props => {
                             <button 
                             className="PaymentLast mt-1" 
                             type="submit" 
-                            onClick={()=>{if (isSubmitting===true) {
-                                window.location.href="/OnlineCheckPage3"
-                                localStorage.setItem("gifts", JSON.stringify([]))
-                            }}}
+                            // onClick={()=>{if (isSubmitting===true) {
+                            //     window.location.href="/OnlineCheckPage3"
+                            //     localStorage.setItem("gifts", JSON.stringify([]))
+                            // }}
+                            // }
+                            onClick={postprice}
                             >
                                 結帳
                             </button>

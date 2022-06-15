@@ -27,7 +27,8 @@ const mODRouter=require('./routes/member/order')
 const db=require('./modules/mysql_config')
 
 const menuRouter = require('./routes/menu');
-
+// 綠界API
+const paymentRouter = require('./routes/payment');
 var app = express();
 
 // view engine setup
@@ -70,7 +71,8 @@ app.use('/shoporder',shoporderRouter);
 
 //http://localhost:3001/shop
 app.use('/shop',shopRouter);
-
+// 綠界API
+app.use('/payment',paymentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
