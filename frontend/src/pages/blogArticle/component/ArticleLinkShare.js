@@ -20,7 +20,6 @@ import instagramImg from '../img/share btn ig.svg'
 const ArticleLinkShare = (props) => {
   const {thisBid}=props
   const shareUrl =`http://localhost:3001/blog/blogArticle?blog_id=${thisBid}`;
-  const shareUrl2 =`https://team3-hosue-coffee-frontend-hd9bpbokx`;
 
   
   return (
@@ -32,7 +31,7 @@ const ArticleLinkShare = (props) => {
                     
                     <div className="outsideLink">
                       <FacebookShareButton
-                        url={shareUrl2}
+                        url={shareUrl}
                       >
                       <div className="facebook"><img src={facebookImg} alt="facebookImg" round={true}></img></div>
 

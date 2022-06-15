@@ -175,6 +175,10 @@
     
 } */
 
+.MRec{
+    display: none;
+}
+
 
 
 
@@ -229,6 +233,14 @@
 
     .articleRecommendWrapper{
         /* padding: 0.5%; */
+    }
+
+    .WRec{
+        display: none;
+    }
+
+    .MRec{
+        display: block;
     }
 
 

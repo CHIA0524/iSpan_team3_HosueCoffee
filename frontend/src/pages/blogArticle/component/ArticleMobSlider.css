@@ -1,17 +1,48 @@
 
-
-
-.articleRecommendKit{
+.articleMobRecommendKit{
     margin-bottom: 13rem;
     width: auto;
     height: auto;
-
 }
 
-@media screen and (max-width: 1100px) {
+
+/* 文章內容 行動裝置版相關推薦CSS */
+.articleMobRecommendWord{
+    display: flex;
+    font-size: 2.8rem;
+    font-weight:bolder;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.articleMobRecommendWrapper{
+    justify-content: center;
+    padding: 1.5%;
+}
 
 
+.articleMobRecommendCard {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
 
+.articleMobRecommendImg img{
+    width: 100%;
+    height: auto;
+    padding: 2%;
+}
+
+.articleMobRecommend{
+    display: flex;
+    justify-content: center;
+}
+
+
+.articleMobRecommendTitle{
+    font-size: 1.5rem;
+    margin-left: 8rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -86,8 +117,9 @@
     cursor: pointer;
 }
 
-.articleRecommendImg{
-    height: 240px;
-    display: flex;
-    overflow: hidden;
+/* Mobile RWD articleRecommend */
+@media screen and (max-width: 400px) {
+
+
+    
 }

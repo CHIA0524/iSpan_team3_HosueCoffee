@@ -4,6 +4,7 @@ import React,{ useEffect, useState,Component  } from 'react';
 //component
 import ArticleRecommend from './component/ArticleRecommend';
 import BACard from './component/BACard';
+import ArticleMobRecommend from './component/ArticleMobRecommend';
 import ArticleLinkShare from './component/ArticleLinkShare';
 
 //CSS
@@ -67,7 +68,7 @@ function BlogArticle(props){
 
 
                   {/* <!--makeLinkDown用來將 outsideLink在縮至行動裝置版時,顯示於下方 --> */}
-                  <div className="makeLinkDown">
+                  <div className="makeLinkDown ">
                       <ArticleLinkShare thisBid={thisBid}/>
 
                     <article className="blogArticle">
@@ -91,8 +92,11 @@ function BlogArticle(props){
 
                  
 
-                  <div className="articleRecommend">
+                  <div className="articleRecommend WRec">
                     <ArticleRecommend arecomend={arecomend}/>
+                  </div>
+                  <div className="articleRecommend MRec ">
+                    <ArticleMobRecommend arecomend={arecomend}/>
                   </div>
 
                 </div>   
