@@ -8,9 +8,10 @@ use team3;
 -- SELECT Count(*) as total FROM members_data WHERE  member_phone='0944444444';
 -- SELECT Count(*) as total FROM members WHERE member_mail='LH44@gmail.com';
 --------------------------------------------------------------------------------------------------------------------------------
--- UPDATE members SET login_status='1' WHERE member_id=100001;
+ UPDATE members_data SET member_photo='housecoffee.png' WHERE fk_member_id=100010;
 -- UPDATE members SET login_status='0' WHERE member_id=100001;
 -- 使用者
+
 CREATE TABLE `members`(
 	`member_id` INT PRIMARY KEY AUTO_INCREMENT,
     `member_account` varchar(20) NOT NULL UNIQUE,
