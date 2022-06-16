@@ -8,7 +8,7 @@ const MenuAside = () => (
 
 
     <div className="asideMenu main1">
-        <aside>
+        <aside className="webmenuaside">
             <div className="onlion">
                 <span>線上訂餐</span>
             </div>

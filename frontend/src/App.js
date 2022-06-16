@@ -21,7 +21,7 @@ import ScrollToTop from './component/ScrollToTop';
 /* 以下頁面組件載入 */
 // Home pages
 import Home from './pages/home/Home';
-
+import HomeIndexFaqs from './pages/home/HomeIndexFaqs';
 //menu pages
 import MenuIndex from './pages/menu/MenuIndex';
 import OnlineCheckPage from './pages/menu/OnlineCheckPage';
@@ -245,6 +245,9 @@ function App() {
         
         <Route path="/" exact>
           <Home setBannerHeight={setBannerHeight}/>
+        </Route>
+        <Route path="/FAQ" exact>
+          <HomeIndexFaqs />
         </Route>
 
         {/* menu */}
