@@ -62,6 +62,8 @@ router.get('/inmenu',async (req,res)=>{
 router.get('/areastore',async (req,res,next)=>{
     const sql = "SELECT store_name FROM store where city=?;"
     const [datas] = await db.query(sql,[req.query.city]);
+    res.json(datas);
+
 })
 
 module.exports = router;
