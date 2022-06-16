@@ -39,6 +39,7 @@ function Navbar (props){
     localStorage.removeItem("photo")
     localStorage.removeItem("birth")
     localStorage.removeItem("phone")
+    localStorage.removeItem("point")
     localStorage.removeItem("true")
     LGOSweet()
     setTimeout(() => {
