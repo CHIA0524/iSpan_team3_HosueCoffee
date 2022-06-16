@@ -180,6 +180,9 @@ $colorMain3: #A37025;
   }
 
 @media (max-width:800px) {
+    .drinkCard{
+        display: none;
+    }
     .listBodyRwd{
         display: flex;
         width: 100%;
@@ -344,6 +347,9 @@ a {
   }
 
 
+.popoimgbody{
+    width: 100%;
+}
 
   .popoimg {
     width: 50%;
@@ -409,7 +415,8 @@ a {
 }
 
   .popotext {
-      padding: 2em;
+      padding: 2rem;
+      width: 100%;
   }
   .menuNumButton {
     border: #E4D2A3 1px solid;
@@ -437,63 +444,16 @@ a {
 }
   
   @media screen and (max-width: 700px){
-    .box{
-      width: 70%;
+    .menuPopup{
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
     }
-    .popup{
-      width: 80%;
-      height: 80%;
-    }
-    .popoimg {
-        padding: 20px;
-    }
-    .popotext {
-        padding: 1em;
-    }
-    .overlay {
-        width: 100%;
-    }
-    .content1 {
-        justify-content: space-between;
-        padding-left: 2em;
-        align-items: flex-end
-    }
-    .numButton {
-        display: flex;
-    }
-    .btn2 {
-        display: flex;
-    }
-    .btn1 {
-        display: none;
-    }
-   
-    .body1 {
-        justify-content: center;
-    }
+
 
 }
 
-@media screen and (max-width: 376px){
-    // .main2{
  
-    // }
-    .mainBody{
-        justify-content: center;
-    }
-    .nameRotate {
-        margin-left: 1em;
-        display: flex;
-        align-items: center;
-    }
-    }
-
-.heart1{
-    display: flex;
-}
-.heart2{
-display: none;
-}
 
 .shopping{
     display: flex;
