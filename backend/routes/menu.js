@@ -27,7 +27,21 @@ router.route('/oder')
 router.route('/today')
 .get(async (req,res,next)=>{
     const sql = 
-    "SELECT * FROM `products` WHERE `coffeetype`= '哥倫比亞' order by p_id";
+    "SELECT * FROM `drink_menu` WHERE `menutype`= '每日精選' order by id";
+    const [datas] = await db.query(sql);
+    res.json(datas);
+})
+router.route('/icecoffee')
+.get(async (req,res,next)=>{
+    const sql = 
+    "SELECT * FROM `drink_menu` WHERE `menutype`= '冰飲咖啡' order by id";
+    const [datas] = await db.query(sql);
+    res.json(datas);
+})
+router.route('/hotcoffee')
+.get(async (req,res,next)=>{
+    const sql = 
+    "SELECT * FROM `drink_menu` WHERE `menutype`= '熱飲咖啡' order by id";
     const [datas] = await db.query(sql);
     res.json(datas);
 })

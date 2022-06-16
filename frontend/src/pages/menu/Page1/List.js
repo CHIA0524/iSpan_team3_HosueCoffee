@@ -1,6 +1,7 @@
 import React,{ useState} from 'react';
 import Counter from '../component/Counter';
-import { AiFillDelete } from "react-icons/ai";
+
+
 
 const List = (props) => {
     // 接收localStorage上的購物車資料

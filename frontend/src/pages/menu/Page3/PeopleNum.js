@@ -22,12 +22,12 @@ return(
     <div className="member1">
         <div className="memberBody">
             <div className="memberNum">
-                {/* <span>取餐時間</span>
+                <span>取餐時間</span>
                 <span>{datas[0].odertime}</span>
             </div>
             <div className="memberNum">
                 <span>訂單編號:</span>
-                <span>{datas[0].id}</span> */}
+                <span>{datas[0].id}</span>
             </div>
         </div>
     </div>

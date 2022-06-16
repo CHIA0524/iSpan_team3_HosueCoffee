@@ -7,39 +7,49 @@ import MenuCardRwd from "./MenuIndex/MenuCardRwd";
 import Popup from "./MenuIndex/Popup";
 import { BiCoffee } from "react-icons/bi";
 
-const MenuType1 = () => {
+const MenuTypeIce = () => {
         // 抓到點擊菜單品項的id
         const [drinkId, setdrinkId] = useState(300002)
         //控制POPUP的CSS
         const [css,setcss] = useState()
+        const datas1 = JSON.parse(localStorage.getItem('gifts'))
         //從後端抓資料
         const [datas, setDatas ] = useState([])
         const fetchData = async()=>{
-                            const response = await fetch('http://localhost:3001/menu');
-                            const results = await response.json();         
-                                            setDatas(results);
-        }
+            const response = await fetch('http://localhost:3001/menu');
+            const results = await response.json();         
+                            setDatas(results);
+                        }
         useEffect(()=>{fetchData();},[])
-        const datas1 = JSON.parse(localStorage.getItem('gifts'))
-        console.log(datas1);
+        const [icedatas, seticedatas] = useState([])
+        const fetctodyhData = async()=>{
+                            const response = await fetch('http://localhost:3001/menu/icecoffee');
+                            const results = await response.json();         
+                            seticedatas(results);
+                        }
+        useEffect(()=>{fetctodyhData();},[])
+        console.log(icedatas);
         return( 
             <>   
-                {/* <div className="bodyMenu">
+                <div className="bodyMenu">
                 <MenuAside/>
                     <div className="main2">
                         <div className="mainBody">
                             <MenuCard 
                                 datas={datas}
+                                icedatas={icedatas}
                                 setdrinkId={setdrinkId}
                                 setcss={setcss}
                             />
                             <MenuCardRwd 
                                 datas={datas}
+                                icedatas={icedatas}
                                 setdrinkId={setdrinkId}
                                 setcss={setcss} 
                             />
                             <Popup 
-                                datas={datas}  
+                                datas={datas}
+                                icedatas={icedatas}  
                                 drinkId={drinkId} 
                                 css={css} 
                                 setcss={setcss}
@@ -57,10 +67,10 @@ const MenuType1 = () => {
                     >
                         <BiCoffee size={60}/>
                     </Link> 
-                </div>*/}
-                123
+                </div>
+                
             </>   
         )
 }       
 
-export default MenuType1
+export default MenuTypeIce
