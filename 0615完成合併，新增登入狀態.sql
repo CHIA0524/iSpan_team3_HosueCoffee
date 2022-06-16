@@ -348,7 +348,7 @@ ALTER TABLE `home_coupon` AUTO_INCREMENT=7001;
 INSERT INTO `home_coupon`(`coupon_title`, `coupon_start_date`, `coupon_end_date`, `coupon_code`)
 VALUES
 ('開幕七五折優惠券','2022/06/10','2022/06/18','25'),
-('子瑜生日慶，七折優惠券','2022/06/10','2022/06/15','30'),
+('子瑜生日慶，七折優惠券','2022/06/01','2022/06/18','30'),
 ('八五折優惠券','2022/06/10','2022/06/18','15'),
 ('九折優惠券','2022/06/10','2022/06/30','10'),
 ('八折優惠券','2022/07/01','2022/07/05','20'),
@@ -377,7 +377,8 @@ VALUES
 ('100009','7001',"未使用"),
 ('100009','7005',"未使用"),
 ('100009','7008',"未使用"),
-('100010','7002',"未使用");
+('100010','7002',"未使用"),
+('100010','7008',"未使用");
 
 select count(*) as total from member_con where fk_m_id=100001 and fk_coupon_id=7001;
 -- SELECT * FROM `home_coupon` where `coupon_end_date` >= now() order by rand() limit 15;
