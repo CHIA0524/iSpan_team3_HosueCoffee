@@ -15,7 +15,7 @@ const FavouritePage = () => {
         //從後端抓資料
         const [datas, setDatas] = useState([])
         const fetchData = async()=>{
-            const response = await fetch('http://localhost:3001/menu');
+            const response = await fetch('https://hosue-coffee-backend.herokuapp.com/menu');
             const results = await response.json();         
             setDatas(results);
         }
