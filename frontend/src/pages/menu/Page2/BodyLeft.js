@@ -148,7 +148,7 @@ const BodyLeft = props => {
                             type="button" 
                             onClick={async()=>{if (isSubmitting===true) {
                                 console.log(astore)
-                                // window.location.href="/OnlineCheckPage3"
+                                window.location.href="/OnlineCheckPage3"
                                 localStorage.setItem("gifts", JSON.stringify([]))
                             }}}
                             >
