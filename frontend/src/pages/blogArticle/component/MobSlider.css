@@ -107,12 +107,20 @@
       margin-bottom: 2rem;
     }
     
-    @media screen and (max-width: 400px) {
+
+    /* @media screen and (max-width: 1100px) {
+      .mMoreInfo{
+        margin-top: 0;
+        margin-left: 1rem;
+      }
+    } */
+/* 
+    @media screen and (max-width: 800px) {
     .mMoreInfo{
       margin-top: 0;
       margin-left: 1rem;
     }
-  }
+  } */
 
     @media screen and (max-width: 400px) {
       .mMoreInfo{

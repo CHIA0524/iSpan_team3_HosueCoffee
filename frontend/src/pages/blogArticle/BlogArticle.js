@@ -6,9 +6,12 @@ import ArticleRecommend from './component/ArticleRecommend';
 import BACard from './component/BACard';
 import ArticleMobRecommend from './component/ArticleMobRecommend';
 import ArticleLinkShare from './component/ArticleLinkShare';
+import HomeTopBTN from '../home/HomeTopBTN';
+
 
 //CSS
 import './articleBanner.css';
+import '../home/Home.css';
 
 
 
@@ -102,7 +105,7 @@ function BlogArticle(props){
                 </div>   
               </div>
             
-
+              <HomeTopBTN />
   
               <div className="citeSrc">此網頁來自《iDrip》網站 https://www.idrip.coffee
               </div>

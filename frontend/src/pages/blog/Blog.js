@@ -5,9 +5,11 @@ import React, { useEffect, useState } from 'react';
 import BlogCard from './component/BlogCard';
 import BlogWebNav from './component/BlogWebNav';
 import BlogMobNav from './component/BlogMobNav ';
+import HomeTopBTN from '../home/HomeTopBTN';
 
 //CSS
 import './blogBanner.css';
+import '../home/Home.css';
 
 
 
@@ -64,6 +66,10 @@ function Blog(props){
               <BlogCard blog={blog}/>
             </div>
         </div>
+
+        <HomeTopBTN />
+
+        
     </section>
 
     </>
