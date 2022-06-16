@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React from 'react';
 import './Footer.scss'
 
@@ -26,8 +26,8 @@ function Footer (){
         <div className="mx-5">
           ABOUT US
           <li><a href="">news</a></li>
-          <li><a href="/store">store</a></li>
-          <li><a href="">FAQs</a></li>
+          <li><Link to={"/store"}>store</Link></li>
+          <li><Link to={"/FAQ"}>FAQs</Link></li>
         </div>
       </div>
       <div className="mx-5">
