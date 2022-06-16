@@ -7,6 +7,7 @@ import Storemap1 from '../component/Storemap1';
 import StoreCard from '../../store/StoreCard';
 import Area from '../component/area';
 import Areastore from '../component/areastore';
+import { Login } from '@mui/icons-material';
 
 const BodyLeft = props => {
     
@@ -28,7 +29,6 @@ const BodyLeft = props => {
     });
     
     
-    const totalprice = datas.totalprice
     return(
         <>     
             <Formik
@@ -41,7 +41,7 @@ const BodyLeft = props => {
                 validationSchema={SignupSchema}
                 
                 onSubmit={values => {
-                    aaa = values
+                
                 }}
             >
             {({ errors, touched, isSubmitting,values }) => (
@@ -123,16 +123,14 @@ const BodyLeft = props => {
                             className="PaymentLast mt-1" 
                             type="submit"
                             onClick={async()=>{
-                                if (isSubmitting==true) {
-                                    const aaa = values
-                                    console.log(values);
-                                    const gobtoto=await fetch(`http://localhost:3001/menu/total?gototal=${datas.totalprice}`)
-                                    const indate= await fetch(`http://localhost:3001/menu/inmenu?orderer=${aaa.name}&phone=${aaa.phone}&odertime=${aaa.time}`)
+                                if (isSubmitting === true) {
+                                    console.log(values)
+                                    const indate = await fetch(`http://localhost:3001/menu/inmenu?pay=${'信用卡'}&orderer=${values.name}&phone=${values.phone}&odertime=${values.time}&drink_total_price=${datas.totalprice}`)
                                     localStorage.setItem("gifts", JSON.stringify([]))
                                     window.location.href=("/OnlineCheckPage3")
                             }}}
                             >
-                                結帳
+                               {/* &phone=${aaa.phone}&odertime=${aaa.time} */} 結帳
                             </button>
                     </div>
                 </div>
