@@ -449,7 +449,7 @@ const[ newpoint , setNewpoint] = useState(0)
                          
                       </div>
                       <div className="questInfo">
-                          <div>取貨方式</div>
+                          <div>寄件方式</div>
                           <div>※消費滿1500即可免運</div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">
