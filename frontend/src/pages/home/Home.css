@@ -1515,6 +1515,10 @@ body {
     margin: 10px 0;
   }
 
+  .itemTextForMobile{
+    display: none;
+  }
+
   /* ------------------ */
 
   /* news & activity */
