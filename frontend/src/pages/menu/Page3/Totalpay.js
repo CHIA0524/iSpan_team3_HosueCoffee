@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -35,11 +36,13 @@ const Totalpay = () =>(
         <div className="member2">
             <div className="d-flex justify-content-between">
                 <div className="d-flex justify-content-end mt-4">
+                    {/* <div className="btn PaymentLast mt-1">訂單查詢</div> */}
+                </div>
+                <Link to='/onlinemenu'>
+                <div className="d-flex justify-content-end mt-4">
                     <div className="btn PaymentLast mt-1">繼續購物</div>
                 </div>
-                <div className="d-flex justify-content-end mt-4">
-                    <div className="btn PaymentLast mt-1">訂單查詢</div>
-                </div>
+                </Link>
             </div>
         </div>
     </>
