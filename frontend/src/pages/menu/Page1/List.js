@@ -78,9 +78,6 @@ const List = (props) => {
                                 >
                                     刪除
                                 </div>
-                                <div className="trash">
-                                    <AiFillDelete />
-                                </div>
                             </div>
                             <div className="price">
                                 {total*price}               

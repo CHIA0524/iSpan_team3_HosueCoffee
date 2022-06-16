@@ -96,12 +96,7 @@ const BodyLeft = props => {
                 </div> 
                 <hr/> 
                 <div className="d-flex justify-content-between my-2 mb-3">
-                    <div>
-                        <span>優惠折扣</span>
-                    </div>
-                    <div>
-                        <span>$100</span>
-                    </div>
+                    
                 </div>
                 <div className="d-flex justify-content-between my-2 mt-5">
                     <div>

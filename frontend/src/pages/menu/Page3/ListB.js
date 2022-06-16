@@ -9,7 +9,7 @@ const ListB = () => (
                 <div className="col-3">
                     {/* <img className=" listImg" src={Fakeing} alt="fake"/> */}
                 </div>
-                <div className="nameRotate">
+                <div className="nameRotate3">
                     <div className="col-6 coffeeName">
                         <span>可可綿雲琪朵</span>
                     </div>

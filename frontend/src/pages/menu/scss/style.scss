@@ -115,6 +115,10 @@ $colorMain3: #A37025;
         margin: 2em 0;
     }
 }
+
+.listconuter1{
+    display: none;
+}
 // list RWD
 .listBodyRwd {
     display: none;
@@ -167,6 +171,11 @@ $colorMain3: #A37025;
     display: flex;
     justify-content: center;
   }
+  .amount{
+    width: 8em;
+    display: flex;
+    justify-content: center;
+}
   
   .quantityText1 {
     width: 5em;
@@ -188,6 +197,7 @@ $colorMain3: #A37025;
         width: 100%;
         padding: 10px 0;
     }
+
     .card {
         width: 100%;
     }
@@ -449,6 +459,13 @@ a {
     }
     .menuContent {
         padding: 0;
+    }
+    .deletebtn {
+        border: 1px solid $colorMain;
+        &:hover{
+            background-color: $colorMain;
+            color: #fff;
+        }
     }
 }
 
