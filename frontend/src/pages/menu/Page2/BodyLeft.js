@@ -124,13 +124,12 @@ const BodyLeft = props => {
                             type="submit"
                             onClick={async()=>{
                                 if (isSubmitting === true) {
-                                    console.log(values)
-                                    const indate = await fetch(`http://localhost:3001/menu/inmenu?pay=${'信用卡'}&orderer=${values.name}&phone=${values.phone}&odertime=${values.time}&drink_total_price=${datas.totalprice}`)
-                                    localStorage.setItem("gifts", JSON.stringify([]))
                                     window.location.href=("/OnlineCheckPage3")
+                                    localStorage.setItem("gifts", JSON.stringify([]))
+                                    const indate = await fetch(`http://localhost:3001/menu/inmenu?pay=${'信用卡'}&orderer=${values.name}&phone=${values.phone}&odertime=${values.time}&drink_total_price=${datas.totalprice}`)
                             }}}
                             >
-                               {/* &phone=${aaa.phone}&odertime=${aaa.time} */} 結帳
+                                結帳
                             </button>
                     </div>
                 </div>

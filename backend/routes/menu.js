@@ -38,10 +38,6 @@ router.get('/inmenu',async (req,res)=>{
   })
 
 
-
-  router.get('/total',async(req,res)=>{
-    console.log(req.query.gototal)
-  })
   router.get('/area',async (req,res,next)=>{
     const sql = "SELECT DISTINCT city FROM `store` ;"
     const [datas] = await db.query(sql);
