@@ -28,6 +28,9 @@ import OnlineCheckPage from './pages/menu/OnlineCheckPage';
 import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
 import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
 import FavouritePage from './pages/menu/FavouritePage';
+import MenuTypeToday from './pages/menu/MenuTypeToday';
+import MenuTypeIce from './pages/menu/MenuTypeIce';
+import MenuTypeHot from './pages/menu/MenuTypeHot';
 
 // Store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
@@ -246,19 +249,28 @@ function App() {
 
         {/* menu */}
         <Route path="/onlinemenu">
-          <MenuIndex/>
+          <MenuIndex />
         </Route>
         <Route path="/OnlineCheckPage">
-          <OnlineCheckPage/>
+          <OnlineCheckPage />
         </Route>
         <Route path="/OnlineCheckPage2">
-          <OnlineCheckPage2/>
+          <OnlineCheckPage2 />
         </Route>
         <Route path="/OnlineCheckPage3">
-          <OnlineCheckPage3/>
+          <OnlineCheckPage3 />
         </Route>
         <Route path="/favorite">
-          <FavouritePage/>
+          <FavouritePage />
+        </Route>
+        <Route path="/MenuTypeToday">
+          <MenuTypeToday />
+        </Route>
+        <Route path="/MenuTypeIce">
+          <MenuTypeIce />
+        </Route>
+        <Route path="/MenuTypeHot">
+          <MenuTypeHot />
         </Route>
 
 
