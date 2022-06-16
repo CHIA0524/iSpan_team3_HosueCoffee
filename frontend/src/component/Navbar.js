@@ -150,7 +150,7 @@ function Navbar (props){
           <li><a href="/blog" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
 
-          <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          <li className="webNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
           {/* 以上為已登入狀態 */}
           </> 
           :
@@ -167,7 +167,7 @@ function Navbar (props){
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
           <li><Link to="/blog" onClick={closeSideNavClick}>BLOG<span>部落格</span></Link></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
-          <li className="webNone"><a href="#"><button className="coffeeLightBtn">{">> Order Online"}</button></a></li>
+          <li className="webNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
           </>}
           
           

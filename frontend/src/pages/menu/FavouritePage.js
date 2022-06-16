@@ -49,7 +49,8 @@ const FavouritePage = () => {
                             <MenuCardRwd 
                                 datas={datas}
                                 setdrinkId={setdrinkId}
-                                setcss={setcss} 
+                                setcss={setcss}
+                                favdatas={favdatas} 
                             />
                             <Popup 
                                 datas={datas}  

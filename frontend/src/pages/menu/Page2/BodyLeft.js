@@ -27,12 +27,8 @@ const BodyLeft = props => {
             .required("請輸入手機號碼"),
     });
     
+    
     const totalprice = datas.totalprice
-//     axios.post('')
-//     .then((res) => {
-//       console.log(res);
-//   });
-
     return(
         <>     
             <Formik
@@ -43,11 +39,12 @@ const BodyLeft = props => {
                 time: '',
                 }}
                 validationSchema={SignupSchema}
+                
                 onSubmit={values => {
-                    console.log(values);
+                    aaa = values
                 }}
             >
-            {({ errors, touched, isSubmitting }) => (
+            {({ errors, touched, isSubmitting,values }) => (
                 <Form className="superman">
                     <div className="body1">
                         <div className="total">
@@ -127,8 +124,12 @@ const BodyLeft = props => {
                             type="submit"
                             onClick={async()=>{
                                 if (isSubmitting==true) {
-                                window.location.href=("/OnlineCheckPage3")
-                                localStorage.setItem("gifts", JSON.stringify([]))
+                                    const aaa = values
+                                    console.log(values);
+                                    const gobtoto=await fetch(`http://localhost:3001/menu/total?gototal=${datas.totalprice}`)
+                                    const indate= await fetch(`http://localhost:3001/menu/inmenu?orderer=${aaa.name}&phone=${aaa.phone}&odertime=${aaa.time}`)
+                                    localStorage.setItem("gifts", JSON.stringify([]))
+                                    window.location.href=("/OnlineCheckPage3")
                             }}}
                             >
                                 結帳

@@ -12,6 +12,15 @@ const MenuCard = (props) => {
     // 異步回調
     useEffect(() => {},[setdrinkId])
     console.log(datas);
+    let menutype1data = []
+    for(let i = 0;i<datas.length;i++){
+        if(datas[i].menutype=='每日精選'){
+            menutype1data.push(datas[i])
+        }
+    }
+    console.log(menutype1data);
+
+
     if(thisURL=="http://localhost:3000/onlinemenu"){
     return(
         <>
@@ -112,6 +121,57 @@ const MenuCard = (props) => {
             })}
         </>   
     )  
+}else if(thisURL=="http://localhost:3000/MenuType1"){
+    return(
+        <>
+            {/* 印出資料 */}
+            {menutype1data.map((ma,i)=>{
+                // 儲存圖片路徑
+                const img1 = (ma.drink_name)
+                return(
+                    <div 
+                        className="card drinkCard" 
+                        type="button" 
+                        key={ma.id}  
+                    >
+                        <div>
+                            <div 
+                                className="imgdiv"
+                                onClick={()=>{
+                                    setdrinkId((ma.id))
+                                    setcss({
+                                        visibility: 'visible',
+                                        opacity:'1'
+                                    })
+                                }}
+                            >
+                                <img src={require('../img/'+ img1 +'.jpg')} alt="" />
+                            </div>
+                            <div className="cardpa">
+                                <span>{ma.drink_name}</span>
+                                <Collect id={(ma.id)} i={i} ma={ma}/>
+                            </div>
+                            <div 
+                                className="d-flex justify-content-between cardpading"
+                                onClick={()=>{
+                                setdrinkId((ma.id))
+                                setcss({
+                                    visibility: 'visible',
+                                    opacity:'1'
+                                })
+                            }}
+                            >
+                                <span className="d-flex align-items-center">
+                                    ${ma.price}
+                                </span>
+                            </div>
+                        </div>    
+                    </div>
+                )
+            })}
+        </>   
+    )  
+
 }
 }
 

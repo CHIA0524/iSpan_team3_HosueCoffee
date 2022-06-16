@@ -21,10 +21,10 @@ const MenuType1 = () => {
         }
         useEffect(()=>{fetchData();},[])
         const datas1 = JSON.parse(localStorage.getItem('gifts'))
-        console.log(datas);
+        console.log(datas1);
         return( 
             <>   
-                <div className="bodyMenu">
+                {/* <div className="bodyMenu">
                 <MenuAside/>
                     <div className="main2">
                         <div className="mainBody">
@@ -56,8 +56,9 @@ const MenuType1 = () => {
                         }}
                     >
                         <BiCoffee size={60}/>
-                    </Link>
-                </div>
+                    </Link> 
+                </div>*/}
+                123
             </>   
         )
 }       

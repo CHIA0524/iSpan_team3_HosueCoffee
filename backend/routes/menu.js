@@ -15,35 +15,24 @@ router.route('/')
     const [datas] = await db.query(sql);
     res.json(datas);
 })
-
-
-router.get('/menucreate',async (req,res,next)=>{
-    //^創建新的帳號^
-    const sql = `INSERT INTO drink_order_detail(fk_drink_order_id, fk_drink_menu_id, qty) VALUES (?,?,?)`
-    const [datas] = await db.query(sql,[req.query.member_mail,req.query.member_account,req.query.member_password,req.query.member_point]);
-    res.json(datas);
-    
-  })
-router.get('/area',async (req,res,next)=>{
-    //^創建新的帳號^
-    const sql = "SELECT DISTINCT city FROM `store` ;"
+router.route('/today')
+.get(async (req,res,next)=>{
+    const sql = 
+    "SELECT * FROM `products` WHERE `coffeetype`= '哥倫比亞' order by p_id";
     const [datas] = await db.query(sql);
     res.json(datas);
-    
-  })
-router.get('/areastore',async (req,res,next)=>{
+})
+
+
+router.get('/inmenu',async (req,res,next)=>{
     //^創建新的帳號^
-    const sql = "SELECT store_name FROM store where city=?;"
-    const [datas] = await db.query(sql,[req.query.city]);
-    res.json(datas);
-    
+    const sql = `INSERT INTO drink_order_detail(orderer, phone, odertime) VALUES (?,?,?)`
+    const [datas] = await db.query(sql,[req.query.orderer, req.query.phone, req.query.odertime]);
   })
-  router.get('/oder',async (req,res,next)=>{
+
+  router.get('/total',async(req,res)=>{
     //^創建新的帳號^
-    const sql = "SELECT id, pay, fk_store_id, orderer, phone, odertime FROM drink_order order by id DESC limit 1;"
-    const [datas] = await db.query(sql);
-    res.json(datas);
-    console.log(datas);
+    console.log(req.query.gototal)
   })
 
 module.exports = router;
