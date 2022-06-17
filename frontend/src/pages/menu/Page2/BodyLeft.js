@@ -41,7 +41,6 @@ const BodyLeft = props => {
                 validationSchema={SignupSchema}
                 
                 onSubmit={values => {
-                    aaa = values
                 }}
             >
             {({ errors, touched, isSubmitting,values }) => (
