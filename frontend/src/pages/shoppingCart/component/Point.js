@@ -16,17 +16,23 @@ function Point(props){
 
 
       const Bpoint=()=>{
-        if(Number(pointla)> mpoint){   
-            if(Number(pointla)<ptotal-ctotal){
+        if(Number(pointla)> mpoint){  
+            if(Number(pointla)>ptotal-ctotal){
+                if(ptotal-ctotal>mpoint){
                 setPointla(mpoint)   
-                
+
+                }else{
+                setPointla(ptotal-ctotal)   
+            }
                 
             }else{
-                setPointla(ptotal-ctotal)    
+                setPointla(mpoint)    
             }
         }else{
             if(Number(pointla)>ptotal-ctotal){
                 setPointla(ptotal-ctotal)      
+            }else{
+                setPointla(mpoint)    
             }
         } 
     }   

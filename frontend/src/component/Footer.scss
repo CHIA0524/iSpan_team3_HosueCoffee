@@ -37,6 +37,12 @@
   a:hover{
     color: $nav_item_inactive;
   }
+  .tofb{
+    cursor: pointer;
+  }
+  .tofb:hover{
+    color: $nav_item_inactive;
+  }
 }
 @media screen and (max-width:800px) {
   .coffeeFooter{

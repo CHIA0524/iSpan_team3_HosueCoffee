@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import axios from "axios"
-import Storemap1 from '../component/Storemap1';
-import StoreCard from '../../store/StoreCard';
 import Area from '../component/area';
-import Areastore from '../component/areastore';
+
 
 const BodyLeft = props => {
     
@@ -14,7 +11,6 @@ const BodyLeft = props => {
     const [area,setArea]=useState("請選擇");
     const [astore,setAstore]=useState([]);
     const [areastore,setAreastore]=useState([]);
-
     const phoneRegExp = /^09\d{2}-?\d{3}-?\d{3}$/
     const SignupSchema = Yup.object().shape({
         name: Yup.string()
@@ -27,8 +23,6 @@ const BodyLeft = props => {
             .required("請輸入手機號碼"),
     });
     
-    
-    const totalprice = datas.totalprice
     return(
         <>     
             <Formik
@@ -39,39 +33,42 @@ const BodyLeft = props => {
                 time: '',
                 }}
                 validationSchema={SignupSchema}
-                
-                onSubmit={values => {
-                }}
             >
             {({ errors, touched, isSubmitting,values }) => (
                 <Form className="superman">
                     <div className="body1">
                         <div className="total">
                             <div className="people">
-                                        <div className='d-flex flex-column'>
-                                        <span>姓名</span>
-                                        <Field name="name" />
-                                        {errors.name && touched.name ? (
-                                            <div style={{color:'red'}}>{errors.name}</div>
-                                        ) : null}
+                                <div className='d-flex flex-column'>
+                                    <span>姓名</span>
+                                    <Field name="name" />
+                                    {errors.name && touched.name ? (
+                                        <div style={{color:'red'}}>
+                                            {errors.name}
                                         </div>
-                                        <div className='d-flex flex-column'>
-                                        <span>手機號碼</span>
-                                        <Field name="phone" />
-                                        {errors.phone && touched.phone ? (
-                                            <div style={{color:'red'}}>{errors.phone}</div>
-                                        ) : null}
+                                    ) : null}
+                                </div>
+                                <div className='d-flex flex-column'>
+                                    <span>手機號碼</span>
+                                    <Field name="phone" />
+                                    {errors.phone && touched.phone ? (
+                                        <div style={{color:'red'}}>
+                                            {errors.phone}
                                         </div>
-                                        <div className='d-flex flex-column'>
-                                        <span>領取時間</span>
-                                        <Field name="time" type="time" />
-                                        {errors.time && touched.time ? <div>{errors.time}</div> : null}
-                                        </div>
+                                    ) : null}
+                                </div>
+                                <div className='d-flex flex-column'>
+                                    <span>領取時間</span>
+                                    <Field name="time" type="time" />
+                                    {errors.time && touched.time ? 
+                                    <div>
+                                        {errors.time}
+                                    </div> : null}
+                                </div>
                             </div>
                             <div className="selectStore">
                                 <div>
-                                    {/* <span>選擇門市</span> */}
-                                    <br></br>
+                                    <br/>
                                 </div>
                                 <Area 
                                     area={area} 
@@ -79,73 +76,59 @@ const BodyLeft = props => {
                                     areastore={areastore} 
                                     setAreastore={setAreastore} 
                                     astore={astore} 
-                                    setAstore={setAstore}/>
+                                    setAstore={setAstore}
+                                />
                             </div>
                         </div>
                     </div> 
-    <div className="body2">  
-            <div className="totalCard">
-                <div className="d-flex justify-content-between">
-                    <div>
-                        <span>商品小計</span>
+                    <div className="body2">  
+                        <div className="totalCard">
+                            <div className="d-flex justify-content-between">
+                                <div>
+                                    <span>商品小計</span>
+                                </div>
+                                <div>
+                                    <span>${datas.totalprice}</span>
+                                </div>
+                            </div> 
+                            <hr/> 
+                            <div className="d-flex justify-content-between my-2 mt-5">
+                                <div>
+                                    <span>結帳金額</span>
+                                </div>
+                                <div>
+                                    <h3 style={{color:'red'}}>${datas.totalprice}</h3>
+                                </div>
+                            </div>
+                            <div className="d-flex justify-content-between">
+                                <div className="d-flex justify-content-end mt-4">
+                                    <Link to="/OnlineCheckPage">
+                                        <div className="btn PaymentLast mt-1">上一頁</div>
+                                    </Link>
+                                </div>
+                                <div className="d-flex justify-content-end mt-4">
+                                    <button 
+                                        className="PaymentLast mt-1" 
+                                        type="submit"
+                                        onClick={async()=>{
+                                            if (isSubmitting === true) {
+                                                window.location.href=("/OnlineCheckPage3")
+                                                localStorage.setItem("gifts", JSON.stringify([]))
+                                                const indate = await fetch(`http://localhost:3001/menu/inmenu?pay=${'信用卡'}&orderer=${values.name}&phone=${values.phone}&odertime=${values.time}&drink_total_price=${datas.totalprice}`)
+                                            }
+                                        }}
+                                    >
+                                        結帳
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <span>${datas.totalprice}</span>
-                    </div>
-                </div> 
-                <hr/> 
-                <div className="d-flex justify-content-between my-2 mb-3">
-                    <div>
-                        <span>優惠折扣</span>
-                    </div>
-                    <div>
-                        <span>$100</span>
-                    </div>
-                </div>
-                <div className="d-flex justify-content-between my-2 mt-5">
-                    <div>
-                        <span>結帳金額</span>
-                    </div>
-                    <div>
-                        <h3 style={{color:'red'}}>${datas.totalprice}</h3>
-                    </div>
-                </div>
-                <div className="d-flex justify-content-between">
-                    <div className="d-flex justify-content-end mt-4">
-                        <Link to="/OnlineCheckPage">
-                            <div className="btn PaymentLast mt-1">上一頁</div>
-                        </Link>
-                    </div>
-                    <div className="d-flex justify-content-end mt-4">
-                        
-                            <button 
-                            className="PaymentLast mt-1" 
-                            type="submit"
-                            onClick={async()=>{
-                                if (isSubmitting==true) {
-                                    const aaa = values
-                                    console.log(values);
-                                    const gobtoto=await fetch(`http://localhost:3001/menu/total?gototal=${datas.totalprice}`)
-                                    const indate= await fetch(`http://localhost:3001/menu/inmenu?orderer=${aaa.name}&phone=${aaa.phone}&odertime=${aaa.time}`)
-                                    localStorage.setItem("gifts", JSON.stringify([]))
-                                    window.location.href=("/OnlineCheckPage3")
-                            }}}
-                            >
-                                結帳
-                            </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </Form>
-        )}
-    </Formik>
-</> 
-
-
-
-
-)
-    }
+                </Form>
+            )}
+            </Formik>
+        </> 
+    )
+}
 
 export default  BodyLeft

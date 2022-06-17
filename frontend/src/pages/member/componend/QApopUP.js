@@ -68,6 +68,7 @@ function QApopUP(){
                 <option value="類型" disabled selected>類型</option>
                 <option value="商品相關" >商品相關</option>
                 <option value="付款相關" >付款相關</option>
+                <option value="優惠活動" >優惠活動</option>
                 <option value="其他" >其他</option>
             </select>
             <div className="chickQA Redsel">{QASLMessage}</div>
