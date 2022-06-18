@@ -31,8 +31,6 @@ function Point(props){
         }else{
             if(Number(pointla)>ptotal-ctotal){
                 setPointla(ptotal-ctotal)      
-            }else{
-                setPointla(mpoint)    
             }
         } 
     }   
