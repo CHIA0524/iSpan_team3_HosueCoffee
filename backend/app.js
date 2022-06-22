@@ -15,7 +15,6 @@ const productsRouter = require('./routes/products');
 const homeRouter = require('./routes/home');
 const storeRouter = require('./routes/store');
 const getStoreData = require('./routes/get_store_data')
-const getStoreLatLng = require('./routes/get_all_store_latlng')
 
 const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
@@ -54,7 +53,6 @@ app.use('/products',productsRouter);
 app.use('/test',testRouter);
 app.use('/store', storeRouter);
 app.use('/getStoreData', getStoreData);
-app.use('/getStoreLatLng', getStoreLatLng);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
 app.use(`/morder`,mODRouter);
