@@ -12,14 +12,13 @@ const Collect = (props) =>{
     const {mu} = props
     const muid = mu.id
     const datas1 = JSON.parse(localStorage.getItem('favourite'))
-
-    const upFavourite = () =>{
+    //上傳我的最愛品項至localStorage
+    const upFavourite = () => {
         let k = 0
         const favouriteid = {
             menuid:muid
         } 
         let favourites = localStorage.getItem("favourite") ? JSON.parse(localStorage.getItem("favourite")) : []
-
 
         for (let i = 0; i < favourites.length; i++) {
             let item = favourites[i]
@@ -34,12 +33,11 @@ const Collect = (props) =>{
         }
         localStorage.setItem("favourite", JSON.stringify(favourites))
     }
-
+    // 取消我的最愛並從localStorage刪除
     const downFavourite = ()=>{
         const datas1 = JSON.parse(localStorage.getItem('favourite'))
-        console.log(datas1);
-        for(let i=0; i<datas1.length; i++){
-            if (id===datas1[i].menuid) {
+        for(let i=0; i<datas1.length; i++) {
+            if (id === datas1[i].menuid) {
                 datas1.splice(i,1)
             }
         }
@@ -47,7 +45,7 @@ const Collect = (props) =>{
     }
     
     useEffect(()=>{
-        for(let i =0;i<datas1.length;i++){
+        for(let i =0; i<datas1.length; i++) {
             if (datas1[i].menuid === muid) {
                 setIsFav(true);
             }
@@ -73,8 +71,9 @@ const Collect = (props) =>{
                 upFavourite()
                 setIsFav(true)
                 }}
-            />)}
-            
+            />
+        )}
+
         </span>
 )
 

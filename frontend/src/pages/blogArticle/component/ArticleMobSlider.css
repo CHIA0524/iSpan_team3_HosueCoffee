@@ -1,0 +1,125 @@
+
+.articleMobRecommendKit{
+    margin-bottom: 13rem;
+    width: auto;
+    height: auto;
+}
+
+
+/* 文章內容 行動裝置版相關推薦CSS */
+.articleMobRecommendWord{
+    display: flex;
+    font-size: 2.8rem;
+    font-weight:bolder;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.articleMobRecommendWrapper{
+    justify-content: center;
+    padding: 1.5%;
+}
+
+
+.articleMobRecommendCard {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+.articleMobRecommendImg img{
+    width: 100%;
+    height: auto;
+    padding: 2%;
+}
+
+.articleMobRecommend{
+    display: flex;
+    justify-content: center;
+}
+
+
+.articleMobRecommendTitle{
+    font-size: 1.5rem;
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+}
+
+
+
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+    
+    position: absolute;
+    top: 50%;
+    
+    display: block;
+    
+    width: 20px;
+    height: 20px;
+    padding-bottom: 4rem;
+    
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    
+    cursor: pointer;
+    
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+
+.slick-prev:before,
+.slick-next:before
+{
+    color: #E4D2A3;
+}
+
+
+
+/* dots */
+.slick-dots
+{
+    position: absolute;
+    bottom: -25px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: -1rem 0;
+
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+/* Mobile RWD articleRecommend */
+@media screen and (max-width: 400px) {
+
+
+    
+}

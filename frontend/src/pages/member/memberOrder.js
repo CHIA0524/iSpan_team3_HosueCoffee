@@ -125,9 +125,9 @@ function MemberOrder(props){
                             
                             <div className="row MperInfo  col-3None">
                                 <div className="col-2">
-                                    <p>取貨方式:</p>
+                                    <p>寄貨方式:</p>
                                     <br></br>
-                                    <p>付款編號:</p>
+                                    <p>付款方式:</p>
                                     <br></br>
                                     <p>收件人資訊:</p>
                             
@@ -189,7 +189,7 @@ function MemberOrder(props){
                             <div className="container col-wn">
                                 <div className="row">
                                     <div className="col-4 payColor">
-                                        <div>取貨方式:</div>
+                                        <div>寄貨方式:</div>
                                         <div>付款方式:</div>
                                         <div>備註內容:</div>
                                     </div>

@@ -6,6 +6,8 @@ import PInfo from './component/PInfo';
 import Steps1 from './component/Steps1';
 import Coupon from './component/Coupon';
 import Point from './component/Point';
+import LoginSweet from './component/LoginSweet';
+import EmptySweet from './component/EmptySweet';
 // <----------pay2----------->
 import './pay2.css';
 import Steps2 from './component/Steps2';
@@ -36,10 +38,10 @@ function Pay1(props){
     //按下一步跳pay2
        const nextStep = ()=>{
         if(JSON.parse(localStorage.getItem('sCarts'))==false){
-            alert("購物車沒有商品")
+            EmptySweet()
        }else if(!auth){
            //console.log.log(auth)
-            alert("請登入會員")
+            LoginSweet()
            }else{
         document.querySelector('.payTwo').style.display="block"
         document.querySelector('.payOne').style.display="none"
@@ -447,7 +449,7 @@ const[ newpoint , setNewpoint] = useState(0)
                          
                       </div>
                       <div className="questInfo">
-                          <div>取貨方式</div>
+                          <div>寄件方式</div>
                           <div>※消費滿1500即可免運</div>
                           <div className="radioS ssship">
                               <div className="form-check  checkPart ">

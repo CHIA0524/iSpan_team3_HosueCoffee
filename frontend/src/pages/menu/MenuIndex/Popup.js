@@ -49,8 +49,9 @@ const Popup = (props) => {
                         &times;
                     </div>
                     <div className="menuContent">
-                        <div className="popoimg">
+                        <div className="popoimgbody">
                             <img 
+                                className="popoimg"
                                 src={require('../img/'+ datas[drinkId-300001].url +'.jpg')}
                                 alt=""   
                             />

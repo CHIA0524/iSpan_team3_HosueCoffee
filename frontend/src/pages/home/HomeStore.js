@@ -1,9 +1,11 @@
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { display } from '@mui/system';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
 function HomeStore() {
+        const [selectedURL, setSelectedURL] = useState("");
         const [selected, setSelected] = useState("");
         const [photo,setphoto]=useState("1.jpg")
         const [store_name,setstore_name]=useState("新店店")
@@ -44,6 +46,7 @@ function HomeStore() {
         setaddress(results.address)
         setphone(results.phone)
         setphoto(results.photo)
+        setSelectedURL("/store?store_name="+results.store_name)
         document.querySelector(".homestore").style.display="flex"
     }else{
         document.querySelector(".homestore").style.display="none"
@@ -74,7 +77,7 @@ function HomeStore() {
                     </div>
                     {/* <button id="storeBtn" type="button">搜尋</button> */}
                 </form>
-                <div className="homeStoreCardWrap homeStore">
+                <a href={selectedURL} className="homeStoreCardWrap homeStore">
                     <div>
                         <img src={require(`../store/img/${photo}`)} alt="no-img"></img>
                     </div>
@@ -97,7 +100,7 @@ function HomeStore() {
                     <p>{phone}</p>
                     </div>
                     
-                 </div>
+                 </a>
             </div>
         </div>
     );

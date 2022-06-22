@@ -182,7 +182,12 @@ $colorMain3: #A37025;
     // margin: auto;
 }
 
-
+.PaymentLast {
+    &:hover{
+        color: #eee;
+        background-color: $colorMain3;
+    }
+}
 
 .hisstoryStore{
     width:80%;

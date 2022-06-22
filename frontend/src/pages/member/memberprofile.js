@@ -16,7 +16,7 @@ function Memberprofile(props){
     const member_mail=localStorage.getItem("mail")
     const member_address=localStorage.getItem("address")
     const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
-    if(member_photo==""){
+    if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
     console.log(member_photo)

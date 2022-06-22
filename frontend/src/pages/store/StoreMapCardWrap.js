@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useParams } from 'react'
+import { useLocation } from 'react-router-dom'
 
 // component
 import StoreCardWrap from './StoreCardWrap'
@@ -12,7 +13,12 @@ import './Style_MobileMap.scss'
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 
-function StoreMapCardWrap(){
+function StoreMapCardWrap(props){
+
+  let getURL = useLocation();
+  console.log(getURL);
+  console.log(getURL.search);
+
 
   // 載入指示器用
   const [ isLoading, setIsLoading ] = useState(false)
@@ -218,8 +224,13 @@ function StoreMapCardWrap(){
   useEffect(() => {
     setIsLoading(true)
     // 向伺服器要求get資料
-    fetchData()
     fetchServeData()
+    if (getURL.search) {
+      let keyword = (getURL.search).replace('?store_name=', '')
+      fetchFilterData(keyword)
+    } else {
+      fetchData()
+    }
   }, [])
   
   // 自動於x秒後關掉指示動畫

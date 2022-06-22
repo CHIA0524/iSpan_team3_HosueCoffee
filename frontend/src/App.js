@@ -21,13 +21,16 @@ import ScrollToTop from './component/ScrollToTop';
 /* 以下頁面組件載入 */
 // Home pages
 import Home from './pages/home/Home';
-
+import HomeIndexFaqs from './pages/home/HomeIndexFaqs';
 //menu pages
 import MenuIndex from './pages/menu/MenuIndex';
 import OnlineCheckPage from './pages/menu/OnlineCheckPage';
 import OnlineCheckPage2 from './pages/menu/OnlineCheckPage2';
 import OnlineCheckPage3 from './pages/menu/OnlineCheckPage3';
 import FavouritePage from './pages/menu/FavouritePage';
+import MenuTypeToday from './pages/menu/MenuTypeToday';
+import MenuTypeIce from './pages/menu/MenuTypeIce';
+import MenuTypeHot from './pages/menu/MenuTypeHot';
 
 // Store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
@@ -98,6 +101,9 @@ function App() {
 
 
   const [ bannerHeight, setBannerHeight ] = useState()
+
+
+  
 
 
   return (
@@ -234,7 +240,7 @@ function App() {
          {/* 以上是會員頁面 */}
 
 
-        <Route path="/store">
+        <Route path="/store" exact>
           <StoreMapCardWrap />
         </Route>
         <Route path="/store2">
@@ -244,22 +250,34 @@ function App() {
         <Route path="/" exact>
           <Home setBannerHeight={setBannerHeight}/>
         </Route>
+        <Route path="/FAQ" exact>
+          <HomeIndexFaqs />
+        </Route>
 
         {/* menu */}
         <Route path="/onlinemenu">
-          <MenuIndex/>
+          <MenuIndex />
         </Route>
         <Route path="/OnlineCheckPage">
-          <OnlineCheckPage/>
+          <OnlineCheckPage />
         </Route>
         <Route path="/OnlineCheckPage2">
-          <OnlineCheckPage2/>
+          <OnlineCheckPage2 />
         </Route>
         <Route path="/OnlineCheckPage3">
-          <OnlineCheckPage3/>
+          <OnlineCheckPage3 />
         </Route>
         <Route path="/favorite">
-          <FavouritePage/>
+          <FavouritePage />
+        </Route>
+        <Route path="/MenuTypeToday">
+          <MenuTypeToday />
+        </Route>
+        <Route path="/MenuTypeIce">
+          <MenuTypeIce />
+        </Route>
+        <Route path="/MenuTypeHot">
+          <MenuTypeHot />
         </Route>
 
 

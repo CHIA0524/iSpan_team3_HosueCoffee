@@ -23,14 +23,7 @@ const FavouritePage = () => {
         },[])
         const datas1 = JSON.parse(localStorage.getItem('gifts'))
         const favlocaldata = JSON.parse(localStorage.getItem('favourite'))
-        console.log('favlocaldata',favlocaldata);
-        console.log('datas',datas);
         
-        // for(let i=0;i<favlocaldata.length;i++){
-        //      if(favlocaldata[i].menuId === datas[i].id){
-        //         console.log('123');
-        //      }
-        // }
         if(datas.length>0){
             let favdatas = []
             for(let i=0;i<favlocaldata.length;i++){
@@ -56,7 +49,8 @@ const FavouritePage = () => {
                             <MenuCardRwd 
                                 datas={datas}
                                 setdrinkId={setdrinkId}
-                                setcss={setcss} 
+                                setcss={setcss}
+                                favdatas={favdatas} 
                             />
                             <Popup 
                                 datas={datas}  

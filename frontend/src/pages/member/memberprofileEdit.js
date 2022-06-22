@@ -6,6 +6,7 @@ import MemberBack from './memberBack';
 import './memberprofileEdit.css';
 import SweetPEY from './sweetalert/SweetPEY';
 import SweetNUP from './sweetalert/SweetNUP';
+import SweetPhoneN from './sweetalert/SweetPhoneN';
 
 function MemberprofileEdit(props){
   const{auth}=props;
@@ -56,11 +57,18 @@ function MemberprofileEdit(props){
 
     const phone_re = /^09[0-9]{8}$/;
     const EditBTN=async()=>{
+      
       if(! phone_re.test(UPphone)){
         alert("手機格式錯誤");
       }else{
         if(UPname.length>0 && UPphone.length==10 &&UPPT==1){
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}&member_photo=${UPImg}`);
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkPhone?member_phone=${UPphone}`);
+          console.log(process.env.REACT_APP_API_URL);
+          const results = await response.json();
+          // console.log(results)
+          // console.log(results.total)
+          if(results.total===0){
+              const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}&member_photo=${UPImg}`);
           
           localStorage.removeItem("name")
           localStorage.removeItem("nick")
@@ -80,12 +88,17 @@ function MemberprofileEdit(props){
           setTimeout(() => {
             window.location.replace("http://localhost:3000/member/profile");
           }, 1500)
+        }else{
+              SweetPhoneN()
+            }
         }if(UPPT!=1){
           SweetNUP()
 
         }
+          
   }
 }
+
 
   // 大頭照狀態
   const [image, setImage] = useState({ preview: '', data: '' })

@@ -7,7 +7,7 @@ const addsweet = Swal.fire({
     icon: 'error',
     title: '帳號已在別處登入',
     showConfirmButton: false,
-    timer: 1500
+    timer: 5000
   })
   return(
   <>

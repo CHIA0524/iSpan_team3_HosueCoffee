@@ -6,7 +6,6 @@ import Process3 from "./Page3/Process3";
 import Process3RWD from "./Page3/Process3RWD";
 import PeopleNum from "./Page3/PeopleNum";
 import Buyer from "./Page3/Buyer";
-import Message from "./Page3/Message";
 import Totalpay from "./Page3/Totalpay";
 
 
@@ -28,7 +27,6 @@ const OnlineCheckPage3 = () => {
                 <Space />
                 <PeopleNum />
                 <Buyer />
-                <Message />
                 <Totalpay />
             </>
 

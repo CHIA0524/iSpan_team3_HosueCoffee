@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import LoginSweet from './LoginSweet';
 
 function Heart(props){
     const {pt_id,datasPMF}=props
@@ -38,7 +39,7 @@ function Heart(props){
                         return(
                         
                         <button className="heart" onClick={()=>{
-                             alert("請登入") }} > 
+                             LoginSweet() }} > 
                            <AiOutlineHeart className="heart3" size={24}/>
                         </button>
                     )

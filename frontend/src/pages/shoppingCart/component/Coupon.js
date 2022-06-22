@@ -35,7 +35,7 @@ function Coupon(props){
            setCtotal(d)
        }else{
            //取的會員優惠券id
-           const b=a.substr(4,)
+           const b=a.substr(3,)
            //console.log.log(b)
            //回傳會員優惠券id
            setMC_id(b)

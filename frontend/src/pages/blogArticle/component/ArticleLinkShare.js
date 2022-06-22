@@ -26,13 +26,14 @@ const ArticleLinkShare = (props) => {
     <>
         
 
+
          {/* <!--makeLinkDown用來將 outsideLink在縮至行動裝置版時,顯示於下方 --> */}
                     
                     <div className="outsideLink">
                       <FacebookShareButton
                         url={shareUrl}
                       >
-                      <div className="facebook"><img src={facebookImg} alt="facebookImg"></img></div>
+                      <div className="facebook"><img src={facebookImg} alt="facebookImg" round={true}></img></div>
 
                       </FacebookShareButton>&emsp;
                       
