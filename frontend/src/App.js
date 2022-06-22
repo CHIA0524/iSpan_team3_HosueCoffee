@@ -239,12 +239,12 @@ function App() {
 
          {/* 以上是會員頁面 */}
 
+        <Route path="/store2">
+          <CrawlerStore />
+        </Route>
 
         <Route path="/store" exact>
           <StoreMapCardWrap />
-        </Route>
-        <Route path="/store2">
-          <CrawlerStore />
         </Route>
         
         <Route path="/" exact>
