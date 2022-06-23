@@ -1,9 +1,6 @@
-.MBText {
-    width: 280px;
-    font-size: 1.5rem;
-    margin: -7rem 5.5rem;
-    margin-bottom: 2rem;
-  }
+
+
+
   /* Slider */
   .slick-loading .slick-list {
     background: transparent;
@@ -62,10 +59,12 @@
   .slick-dots li {
     display: none;
   }
-  /* .mMoreinfo {
+  .mMoreinfo {
     display: flex;
-    justify-content: center;
-  } */
+    /* justify-content: center; */
+  }
+
+
   .articleMobRecommendWrapper{
     display: flex;
     justify-content: center;
@@ -95,3 +94,50 @@
     /* .bM{
         margin: 1rem;
     } */
+
+    .mMoreInfo{
+      margin-left: 7rem;
+      text-align: center;
+    }
+
+    .MBText {
+      width: 280px;
+      font-size: 1.5rem;
+      margin: -7rem 0.2rem;
+      margin-bottom: 2rem;
+    }
+    
+
+    /* @media screen and (max-width: 1100px) {
+      .mMoreInfo{
+        margin-top: 0;
+        margin-left: 1rem;
+      }
+    } */
+/* 
+    @media screen and (max-width: 800px) {
+    .mMoreInfo{
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+  } */
+
+    @media screen and (max-width: 400px) {
+      .mMoreInfo{
+        margin-top: 0;
+        margin-left: 1rem;
+      }
+      
+     .MBText {
+        width: 280px;
+        font-size: 1.5rem;
+        margin: -7rem 0.7rem;
+        margin-bottom: 2rem;
+      }
+      
+       /* .MRec{
+        margin-left:7rem;
+       } */
+      
+    
+    }

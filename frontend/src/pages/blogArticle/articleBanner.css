@@ -76,13 +76,14 @@
 
 
 .articleCardImg{
-    width: 60%;
-    height: 100%;
+    width: 80%;
+    height: 40%;
     display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .articleCardImg:hover{
@@ -188,9 +189,9 @@
 @media screen and (max-width: 1000px) {
 
 
-    .articleRecommendWrapper{
+    /* .articleRecommendWrapper{
     padding: auto;
-    }
+    } */
 
 
 
