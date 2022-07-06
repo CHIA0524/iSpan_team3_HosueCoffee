@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Switch ,useParams} from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import Aside from './component/Aside';
+import React from 'react'
 import './productdetail.css';
 import RecCard from './component/RecCard';
 import MRecCard from './component/MRecCard';

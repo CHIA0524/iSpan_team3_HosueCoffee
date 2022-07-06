@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 // <----------pay1----------->
 import './pay1.css';
