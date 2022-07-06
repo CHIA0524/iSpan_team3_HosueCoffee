@@ -6,15 +6,12 @@ var logger = require('morgan');
 require('dotenv').config();
 const cors = require('cors');
 
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
 const homeRouter = require('./routes/home');
 const storeRouter = require('./routes/store');
-const getStoreData = require('./routes/get_store_data')
 
 const shoporderRouter = require('./routes/shoporder');
 const shopRouter = require('./routes/shop');
@@ -51,8 +48,7 @@ app.use('/categories',categoriesRouter);
 app.use('/products',productsRouter);
 
 app.use('/test',testRouter);
-app.use('/store', storeRouter);
-app.use('/getStoreData', getStoreData);
+app.use('/store',storeRouter);
 app.use('/account',accountRouter);
 app.use(`/profile`,profileRouter);
 app.use(`/morder`,mODRouter);

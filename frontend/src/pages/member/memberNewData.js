@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react'
 import { useState,useEffect } from 'react';
 
 import MemberAside from './memberAside';

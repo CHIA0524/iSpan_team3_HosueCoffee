@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
-import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import './pay2.css';
 import Steps2 from './component/Steps2';

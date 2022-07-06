@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import React from 'react'
+
 function OD_List_Detail(props){
     const {o_id}=props
     // console.log(o_id)

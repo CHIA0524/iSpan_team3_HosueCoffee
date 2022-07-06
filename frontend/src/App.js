@@ -34,7 +34,6 @@ import MenuTypeHot from './pages/menu/MenuTypeHot';
 
 // Store pages
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
-import CrawlerStore from './pages/store/crawlerStore/StoreMapCardWrap'
 
 // Member pages
 import MemberLogin from './pages/member/memberlogin';
@@ -239,9 +238,6 @@ function App() {
 
          {/* 以上是會員頁面 */}
 
-        <Route path="/store2">
-          <CrawlerStore />
-        </Route>
 
         <Route path="/store" exact>
           <StoreMapCardWrap />

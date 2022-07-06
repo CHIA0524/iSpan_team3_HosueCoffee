@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from 'react'
 import "../pay1.css";
 
 function AddNumBtn(props){

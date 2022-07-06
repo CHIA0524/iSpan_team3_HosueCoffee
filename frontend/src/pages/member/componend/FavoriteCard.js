@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { AiFillHeart } from "react-icons/ai";
 import FCard from './FCard';
-import React from 'react'
 
 function FavoriteCard(props){
     const {setcarNum}=props

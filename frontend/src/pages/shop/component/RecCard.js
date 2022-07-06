@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import React from 'react'
 import '../productdetail.css';
 import ProductDetail from '../ProductDetail';
 import Slider from "react-slick";

@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-import React from 'react'
 
 function BACard(props){
     const [datas,setDatas]=useState([])

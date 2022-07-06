@@ -1,6 +1,5 @@
 import '../memberAside.css'
 import '../memberOrder.css'
-import React from 'react'
 function DrinkOCard(){
     return(
         <>
