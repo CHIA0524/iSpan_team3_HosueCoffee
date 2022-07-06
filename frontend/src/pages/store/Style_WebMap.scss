@@ -43,6 +43,11 @@ $WEB_CardWrapHeight: calc(100vh - 185px);
     left: calc(50% - 200px);
     transition: all .3s ease-in-out;
   }
+  .myLocation{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
 }
 
 // store

@@ -181,6 +181,20 @@ function StoreMap(props){
         : ''}
         <Link to="/shop" className='coffeeDarkBtn'>享喝咖啡</Link>
       </div>
+      {
+        originPosition ? 
+        <div className='myLocation'>
+          <button
+            className='coffeeDarkBtn'
+            onClick={()=>{
+              setCenter(originPosition)
+              setMarkerInfoCSS('-150px')
+            }}
+          >
+            回到我的位置
+          </button>
+        </div> : ''
+      }
     </div>
   )
 }
