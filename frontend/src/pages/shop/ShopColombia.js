@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback,useRef } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch ,useParams} from 'react-router-dom';
 import './brandproduct.css';
+import React from 'react'
 import './component/popup.css';
 import ProductCard from './component/ProductCard';
 import Aside from './component/Aside';

@@ -3,6 +3,7 @@ import MemberBack from './memberBack';
 import MCouponY from './componend/MCouponY';
 import MCouponN from './componend/MCouponN';
 import { useState } from 'react';
+import React from 'react'
 import "./memberPoint.css"
 function MemberPoint(){
   const thisPoint=localStorage.getItem("point")
