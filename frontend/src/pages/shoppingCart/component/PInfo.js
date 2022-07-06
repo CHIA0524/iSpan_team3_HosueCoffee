@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import React from 'react'
 
 import { useState, useEffect, useCallback } from 'react';
 import '../pay1.css';

@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2'
-import React from 'react'
 import { useState } from 'react';
 // import withReactContent from 'sweetalert2-react-content'
 

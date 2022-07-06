@@ -1,7 +1,6 @@
 import { isAccordionItemSelected } from 'react-bootstrap/esm/AccordionContext';
 import { BrowserRouter as Router, Route, Link, Switch } 
 from 'react-router-dom';
-import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import '../brandproduct.css';
 import ShopKenya from '../ShopKenya';

@@ -1,5 +1,4 @@
 import { useEffect,useState } from "react";
-import React from 'react'
 function MCouponY(props){
     const {setMCYES}=props
     const [datas,setDatas] = useState([])
