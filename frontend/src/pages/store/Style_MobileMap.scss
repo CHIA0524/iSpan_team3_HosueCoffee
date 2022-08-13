@@ -8,168 +8,168 @@ $MB_CardWrapWidth: 300px;
 $MB_CardWrapHeight: calc(100vh - 150px);
 
 @media screen and (max-width:800px) {
-  .asideCardSearch{
-    position: absolute;
-    left: -375px;
-    z-index: 1;
-  }
-  .storeOpenAside{
-    width: 30px;
-    height: 50px;
-    padding: 0;
-    border-width: 2px 2px 2px 0px;
-    border-style: solid;
-    border-radius: 0 30px 30px 0;
-    display: flex;
-    position: absolute;
-    left: $WEB_CardWrapWidth;
-    top: 50%;
-    z-index: 1;
-  }
-  .cardGroupWrap{
-    width: auto;
-  }
-  .mapWrap{
-    width: 100%;
-    // height: 60vh;
-    background: #000;
-  }
+    .asideCardSearch{
+        position: absolute;
+        left: -375px;
+        z-index: 1;
+    }
+    .storeOpenAside{
+        width: 30px;
+        height: 50px;
+        padding: 0;
+        border-width: 2px 2px 2px 0px;
+        border-style: solid;
+        border-radius: 0 30px 30px 0;
+        display: flex;
+        position: absolute;
+        left: $WEB_CardWrapWidth;
+        top: 50%;
+        z-index: 1;
+    }
+    .cardGroupWrap{
+        width: auto;
+    }
+    .mapWrap{
+        width: 100%;
+        // height: 60vh;
+        background: #000;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  .cardGroupWrap, .storeWrap, .cardDetail{
+.cardGroupWrap, .storeWrap, .cardDetail{
     height: $MB_CardWrapHeight;
-  }
-  // .mapWrap{
-  //   height: calc(100% - 90px);
-  // }
+}
+// .mapWrap{
+//   height: calc(100% - 90px);
+// }
 }
 
 @media screen and (max-width: 500px) {
-  .storeSpinner, .cardGroupWrap, .storeWrap, .cardDetail, .storeSearch{
-    width: $MB_CardWrapWidth;
-  }
-  .storeOpenAside{
-    left: $MB_CardWrapWidth
-  }
-  .storeCardWrap{
-    border: 1px solid $main_color;
-  }
-  .storeImgDiv{
-    display: none;
-  }
-  .storeCardWrap{
-    .itemText{
-      width: 200px;
+    .storeSpinner, .cardGroupWrap, .storeWrap, .cardDetail, .storeSearch{
+        width: $MB_CardWrapWidth;
     }
-  }
+    .storeOpenAside{
+        left: $MB_CardWrapWidth
+    }
+    .storeCardWrap{
+        border: 1px solid $main_color;
+    }
+    .storeImgDiv{
+        display: none;
+    }
+    .storeCardWrap{
+        .itemText{
+        width: 200px;
+        }
+    }
 }
 
 
 // index
 .storeBanner{
-  width: 100%;
-  height: 500px;
-  background: no-repeat center/cover url("./img/storeBanner.png");
-  margin-top: -3rem;
+    width: 100%;
+    height: 500px;
+    background: no-repeat center/cover url("./img/storeBanner.png");
+    margin-top: -3rem;
 }
 .storeIndex{
-  margin: 60px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  p{
-    margin: 0;
+    margin: 60px auto;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
-  div{
-    width: 50%;
-    height: 300px;
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid $main_color;
-    border-radius: 40px;
-    cursor: pointer;
-    img{
-      transition: all .5s;
+    gap: 60px;
+    p{
+        margin: 0;
+        display: flex;
+        align-items: center;
     }
-    a{
-      width: 100%;
-      height: 300px;
-      text-decoration: none;
-      color: white;
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      background: rgba(000, 000, 000, .4);
-      transition: all .5s ease-out;
-    }
-  }
-  div:first-child img{
-    width: 20%;
-  }
-  div:first-child, div:nth-child(3){
-    a{
-      left: -100%;
-    }
-  }
-  div:nth-child(2){
-    a{
-      right: -100%;
-    }
-  }
-
-  div:first-child:hover{
-    img{
-      width: 25%;
-    }
-    a{
-      left: 0;
-    }
-  }
-  
-  div:nth-child(2):hover{
-    a{
-      right: 0;
-    }
-  }
-  div:nth-child(3):hover{
-    a{
-      left: 0;
-    }
-  }
-}
-
-@media screen and(max-width:600px) {
-  .storeBanner{
-    height: 300px;
-  }
-  .storeIndex{
-    gap: 30px;
     div{
-        width: calc(100% - 60px);
+        width: 50%;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid $main_color;
+        border-radius: 40px;
+        cursor: pointer;
+        img{
+        transition: all .5s;
+        }
+        a{
+        width: 100%;
+        height: 300px;
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background: rgba(000, 000, 000, .4);
+        transition: all .5s ease-out;
+        }
     }
-    div:nth-child(1){
-      p, img{
-        display: none;
-      }
+    div:first-child img{
+        width: 20%;
     }
-    div:nth-child(1), div:nth-child(3){
-      a{
-        left: 0;
-      }
+    div:first-child, div:nth-child(3){
+        a{
+        left: -100%;
+        }
     }
     div:nth-child(2){
-      a{
-        right: 0;
-      }
+        a{
+            right: -100%;
+        }
     }
-  }
+
+    div:first-child:hover{
+        img{
+            width: 25%;
+        }
+        a{
+            left: 0;
+        }
+    }
+
+    div:nth-child(2):hover{
+        a{
+            right: 0;
+        }
+    }
+    div:nth-child(3):hover{
+        a{
+            left: 0;
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .storeBanner{
+        height: 300px;
+    }
+    .storeIndex{
+        gap: 30px;
+        div{
+            width: calc(100% - 60px);
+        }
+        div:nth-child(1){
+        p, img{
+            display: none;
+        }
+        }
+        div:nth-child(1), div:nth-child(3){
+        a{
+            left: 0;
+        }
+        }
+        div:nth-child(2){
+        a{
+            right: 0;
+        }
+        }
+    }
 }
