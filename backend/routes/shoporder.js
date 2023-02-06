@@ -19,7 +19,7 @@ router.route('/Shoppingcart/id')
     const sql = "SELECT * FROM `orders` WHERE o_id= ?";
     const [datas] = await db.query(sql,[req.query.o_id]);
    res.json(datas);
-   console.log(datas);
+   //console.log(datas);
   //  res.send(`讀取${id}的資料`)
 })
 
@@ -50,7 +50,7 @@ router.route('/coupon')
         "SELECT member_point from members where member_id= ?;"; 
         const [datas] = await db.query(sql,[req.query.member_id]);
         res.json(datas[0]);
-        console.log(datas[0]);
+        //console.log(datas[0]);
 
     })
 
@@ -101,7 +101,7 @@ router.route('/coupon')
             req.query.used_coupon,
             req.query.used_points]);
             res.json(datas[0]);
-            console.log(datas[0]);
+            //console.log(datas[0]);
     })
 
     router.get('/useCou',async (req,res,next)=>{

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch ,useHistory} from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom'
 import './pay3.css';
@@ -23,28 +23,29 @@ function Pay3(){
   const [cvc,setCvc]= useState("")
   const order_condition="未出貨"
 
+  const history=useHistory()
   
     const o_id=params.id
-    console.log(o_id)
+    //console.log(o_id)
     var payM=0
     const fetchData=async()=>{
-    //console.log.log(process.env.REACT_APP_API_URL);
+    ////console.log.log(process.env.REACT_APP_API_URL);
     const response = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/Shoppingcart/id?o_id=${o_id}`)
     const results=await response.json();  
     setDatas(results);
-    console.log(results)
+    //console.log(results)
 
-    //console.log.log(results)
+    ////console.log.log(results)
     // 抓memberorderlist的sql
     const res = await fetch(`${process.env.REACT_APP_API_URL}/morder/odList/detailed?o_id=${o_id}`)
     const result=await res.json();
-    console.log(result)
+    //console.log(result)
     for(var m = 0 ; m<result.length;m++ ){
-        //console.log.log(result[m]);
+        ////console.log.log(result[m]);
         const price=result[m].p_price;
         const qty=result[m].qty;
         payM=payM+(price*qty)  
-        console.log(payM);  
+        //console.log(payM);  
         }
         var payship=0
         
@@ -63,13 +64,13 @@ function Pay3(){
 
                     }
             }
-            console.log(payship)
+            //console.log(payship)
         const coupon = results[0].used_coupon
         const point = results[0].used_points
         const thismid = results[0].fk_member_id
-        console.log(coupon)
-        console.log(point)
-        console.log(thismid)
+        //console.log(coupon)
+        //console.log(point)
+        //console.log(thismid)
         setThisMemberid(thismid)
         // const member_point =  point 
         
@@ -78,7 +79,7 @@ function Pay3(){
         setNewP(parseInt(finalPay/100))
         const mpoint = await fetch(`${process.env.REACT_APP_API_URL}/shoporder//getpoint?member_id=${thismid}`)
         const mypoint=await mpoint.json();
-        //console.log.log(mypoint);
+        ////console.log.log(mypoint);
         setMyP(mypoint)
 
           }
@@ -89,8 +90,8 @@ function Pay3(){
                 const pointss = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/Newpoint?member_point=${Myp+Newp}&member_id=${thisMemberid}`)
                 localStorage.setItem("point", Myp+Newp);
 
-                const member_orderlist="http://localhost:3000/member/Order/"+o_id
-                window.location.replace(member_orderlist)
+                const member_orderlist=`${process.env.REACT_APP_URL}/member/Order/`+o_id
+                history.push(member_orderlist)
               }else{
                 alert ("付款失敗")
               }

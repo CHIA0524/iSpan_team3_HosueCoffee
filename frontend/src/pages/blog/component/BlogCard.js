@@ -14,9 +14,9 @@ const BlogCard = (props) => {
     return (
         <>
          {blog.map((v, i) => {
-            console.log(v)
+            //console.log(v)
             const firstImg=(v.first_img);
-            console.log(v.blog_id)
+            //console.log(v.blog_id)
 
             return (
                     

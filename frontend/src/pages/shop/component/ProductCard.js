@@ -29,7 +29,7 @@ function ProductCard(props){
     return(
       <>
        {datas.map((pCard,i)=>{
-         {/* console.log(pCard.id); */}
+         {/* //console.log(pCard.id); */}
          const pt_id=pCard.p_id
          const pt_name=pCard.p_name
          //照片設置的變數

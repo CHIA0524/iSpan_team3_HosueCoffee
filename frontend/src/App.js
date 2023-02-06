@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Route, Link, Switch, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,HashRouter } from 'react-router-dom';
 import React, { useState } from 'react';
 import './App.scss';
 import logo from './logo.svg';
@@ -36,7 +36,7 @@ import MenuTypeHot from './pages/menu/MenuTypeHot';
 import StoreMapCardWrap from './pages/store/StoreMapCardWrap'
 
 // Member pages
-import MemberLogin from './pages/member/memberlogin';
+import MemberLogin from './pages/member/memberLogin';
 import MemberNewData from './pages/member/memberNewData';
 import MemberprofileEdit from './pages/member/memberprofileEdit';
 import MemberPassword from './pages/member/memberPassword';
@@ -106,10 +106,10 @@ function App() {
 
 
   return (
-    <Router>
+    <HashRouter>
 
 
-      <Navbar bannerHeight={bannerHeight} auth={auth} carNum={carNum}/>
+      <Navbar bannerHeight={bannerHeight} auth={auth} setAuth={setAuth} setDataCheck={setDataCheck} carNum={carNum}/>
 
 
 
@@ -243,9 +243,7 @@ function App() {
           <StoreMapCardWrap />
         </Route>
         
-        <Route path="/" exact>
-          <Home setBannerHeight={setBannerHeight}/>
-        </Route>
+       
         <Route path="/FAQ" exact>
           <HomeIndexFaqs />
         </Route>
@@ -276,10 +274,12 @@ function App() {
           <MenuTypeHot />
         </Route>
 
-
+        <Route path="/" exact>
+          <Home setBannerHeight={setBannerHeight}/>
+        </Route>
       </Switch>
       <Footer/>
-    </Router>
+    </HashRouter>
 
   )
 }

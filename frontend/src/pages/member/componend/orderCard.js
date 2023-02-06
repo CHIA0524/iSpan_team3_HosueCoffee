@@ -7,7 +7,7 @@ function OrderCard(props){
     const [datas,setDatas] = useState([])
 
     const fetchData=async()=>{
-        // console.log(process.env.REACT_APP_API_URL);
+        // //console.log(process.env.REACT_APP_API_URL);
         const response = await fetch(`${process.env.REACT_APP_API_URL}/morder/odList/detailed?o_id=${thiso_id}`)
         const results=await response.json();
         setDatas(results); 
@@ -24,7 +24,7 @@ function OrderCard(props){
        
     }
     setAlltotalpay(allMoney)
-    // console.log(alltotalpay)
+    // //console.log(alltotalpay)
     useEffect(()=>{
         fetchData();
     },[])

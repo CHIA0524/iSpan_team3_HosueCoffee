@@ -7,7 +7,7 @@ const StoreMapClusterer = ({ data }) => {
   // const algorithm = new GridAlgorithm();
 
   useEffect(() => {
-    // console.log(map);
+    // //console.log(map);
     // eslint-disable-next-line no-undef
     if (map instanceof google.maps.Map) {
       const algorithm = new GridAlgorithm({});

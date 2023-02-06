@@ -62,10 +62,10 @@ router.route('/id')
 
     router.route('/blogArticle')
     .get(async(req,res,next)=>{
-        console.log(req.query.blog_id)
+        //console.log(req.query.blog_id)
         const sql ="SELECT sencond_content,img_src FROM `blogs`JOIN blogs_content ON blogs.blog_id = blogs_content.b_id WHERE blog_id=? ORDER BY blog_p_id;";
         const [data] = await db.query(sql,[req.query.blog_id]);
-        console.log(data)
+        //console.log(data)
         res.json(data);
     })   
    

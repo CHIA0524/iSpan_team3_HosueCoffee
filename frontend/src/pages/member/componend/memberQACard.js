@@ -25,7 +25,7 @@ function MemberQACard(props){
                 }
                 return(
                     <tr key={QA_id}>
-                        <td className="col-3None" scope="row">{QA_id}</td>
+                        <td className="col-3None" scope="row">&nbsp;{QA_id}</td>
                         <td className="col-3None">{ask_type}</td>
                         <td>{ask_title}</td> 
                         <td>{ans_type}</td>

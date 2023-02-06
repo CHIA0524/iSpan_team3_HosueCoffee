@@ -12,7 +12,7 @@ const{ auth } =props
 
   //抓到點擊商品的id
 const [productId, setProductId] = useState(2)
-// console.log(productId)
+// //console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
 const [thismemberid,setThismemberid]=useState(localStorage.getItem("true"))
@@ -30,21 +30,21 @@ const[amount, setAmount]= useState(1)
      // 向後端請求資料
      const fetchData = async()=>{
          //讀取本頁資料，並寫入datas
-         const response = await fetch('http://localhost:3001/shop/kenya');
+         const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/kenya`);
          const results = await response.json();
          setDatas(results);
          var PFMARR=[];
          for(var i=0;i<results.length;i++){
          const PMF = await fetch(`${process.env.REACT_APP_API_URL}/shop/FavoriteYN?fk_m_id=${thismemberid}&fk_p_id=${results[i].p_id}`);
           const PMF2 = await PMF.json();
-          // console.log(results[i].p_id)
-          // console.log(PMF2.total)
+          // //console.log(results[i].p_id)
+          // //console.log(PMF2.total)
           PFMARR.push({p_id:results[i].p_id,TF:PMF2.total})
         }
         setDatasPMF(PFMARR)
          
          //讀取全部資料，並寫入Alldata
-       const Aresponse = await fetch('http://localhost:3001/shop');
+       const Aresponse = await fetch(`${process.env.REACT_APP_API_URL}/shop`);
        const Aresults = await Aresponse.json();
        setAllDatas(Aresults);
     }
@@ -55,7 +55,7 @@ const[amount, setAmount]= useState(1)
        fetchData();
      },[])
     //  const handleClick = (pCard)=>{
-    //  console.log(pCard)
+    //  //console.log(pCard)
     // }
      
     //點選以外視窗，關閉popup
@@ -65,7 +65,7 @@ const[amount, setAmount]= useState(1)
   return(
     <>
      {/* {datas.map((pCard,i)=>{
-         console.log(pCard.id);
+         //console.log(pCard.id);
          
          const img1=(pCard.p_name);
          const id='#'+(pCard.id); */}

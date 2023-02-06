@@ -13,7 +13,7 @@ const MenuCard = (props) => {
     useEffect(() => {},[setdrinkId])
 
 
-    if(thisURL=='http://localhost:3000/onlinemenu'){
+    if(thisURL.includes("onlinemenu")){
     return(
         <>
             {/* 印出資料 */}
@@ -63,7 +63,7 @@ const MenuCard = (props) => {
             })}
         </>   
     )  
-}else if(thisURL=='http://localhost:3000/favorite'){
+}else if(thisURL.includes(`favorite`)){
     return(
         <>
             {/* 印出資料 */}
@@ -113,7 +113,7 @@ const MenuCard = (props) => {
             })}
         </>   
     )  
-}else if(thisURL=='http://localhost:3000/MenuTypeToday'){
+}else if(thisURL.includes(`MenuTypeToday`)){
     return(
         <>
             {/* 印出資料 */}
@@ -166,7 +166,7 @@ const MenuCard = (props) => {
 
 
 
-}else if(thisURL=='http://localhost:3000/MenuTypeIce'){
+}else if(thisURL.includes(`MenuTypeIce`)){
     return(
         <>
             {/* 印出資料 */}
@@ -219,7 +219,7 @@ const MenuCard = (props) => {
 
 
 
-}else if(thisURL=='http://localhost:3000/MenuTypeHot'){
+}else if(thisURL.includes(`MenuTypeHot`)){
     return(
         <>
             {/* 印出資料 */}

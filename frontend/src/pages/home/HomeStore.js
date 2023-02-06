@@ -35,7 +35,7 @@ function HomeStore() {
             EachStoreName = type.map((el) => <option key={el}>{el}</option>);
     }
     const OCC=async()=>{
-        // console.log(document.getElementById("store").value)
+        // //console.log(document.getElementById("store").value)
         const name=document.getElementById("store").value
         if(name!="請選擇"){
         const response = await fetch(`${process.env.REACT_APP_API_URL}/home/store?store_name=${name}`)
@@ -77,7 +77,7 @@ function HomeStore() {
                     </div>
                     {/* <button id="storeBtn" type="button">搜尋</button> */}
                 </form>
-                <a href={selectedURL} className="homeStoreCardWrap homeStore">
+                <Link to={selectedURL} className="homeStoreCardWrap homeStore">
                     <div>
                         <img src={require(`../store/img/${photo}`)} alt="no-img"></img>
                     </div>
@@ -100,7 +100,7 @@ function HomeStore() {
                     <p>{phone}</p>
                     </div>
                     
-                 </a>
+                 </Link>
             </div>
         </div>
     );

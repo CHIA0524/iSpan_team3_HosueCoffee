@@ -20,7 +20,7 @@ const ext={
   'image/jpeg':'.jpg',
   'image/png':'.png',
 }
-console.log(ext['image/png'])
+// //console.log(ext['image/png'])
 
 const storage =multer.diskStorage({
   destination:(req,file,cb)=>{

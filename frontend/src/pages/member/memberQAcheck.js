@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import MemberAside from './memberAside';
@@ -7,15 +7,17 @@ import './memberQAcheck.css'
  function MemberQAcheck(props){
    const{auth}=props
    const {dataCheck}=props;
+   const history=useHistory()
+
     if(!dataCheck){
-        window.location.replace("http://localhost:3000/member/NewData");
+        history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
    
   const params = useParams()
   const [datas,setDatas] = useState([])
 
   const fetchData=async()=>{
-        console.log(process.env.REACT_APP_API_URL);
+        //console.log(process.env.REACT_APP_API_URL);
         const response = await fetch(`${process.env.REACT_APP_API_URL}/test/id?QA_id=${params.id}`)
         const results=await response.json();  
       
@@ -24,11 +26,11 @@ import './memberQAcheck.css'
    
 
     useEffect(()=>{
-      // console.log("effect")
+      // //console.log("effect")
         fetchData();
     },[])
-    // console.log("aaa")
-    // console.log(datas)
+    // //console.log("aaa")
+    // //console.log(datas)
     if(datas.length >0 ){
       const QA=datas[0];
       const{QA_id,ask_type,ask_title,ask,ans,CREATEd_at,renew}=QA;

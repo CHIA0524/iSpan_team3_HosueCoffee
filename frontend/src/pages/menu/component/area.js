@@ -6,14 +6,14 @@ function Area(props){
     const [datas,setDatas] = useState([])
 
     const fetchData=async()=>{
-        const response = await fetch(`http://localhost:3001/menu/area`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/area`)
         const results=await response.json();
         setDatas(results);
     }
     const CGArea=async()=>{
         setArea(document.getElementById("select-profession").value)
         const area2=(document.getElementById("select-profession").value)
-        const response = await fetch(`http://localhost:3001/menu/areastore?city=${area2}`)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/areastore?city=${area2}`)
         const results=await response.json();
         setAreastore(results);
     }

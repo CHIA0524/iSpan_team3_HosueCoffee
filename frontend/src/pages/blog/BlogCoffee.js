@@ -21,9 +21,9 @@ function BlogCoffee(props){
  
     const fetchBlogCoffee = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:3001/blog/coffee')
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/blog/coffee`)
         const data = await response.json()
-        //console.log(data)
+        ////console.log(data)
         // 載入資料後設定到狀態中
         // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
         setBlog(data)

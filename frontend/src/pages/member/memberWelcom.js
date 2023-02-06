@@ -5,7 +5,7 @@ function Welcome(){
         <>
         
         <div className="mMain">
-            <Link to="/member/Profile"><button>點擊進入會員中心</button></Link>
+            <Link to="/HouseCoffee/member/Profile"><button>點擊進入會員中心</button></Link>
         </div>
       
         </>

@@ -21,7 +21,7 @@ const InputButton = () => {
             .required("Email must not be empty.")
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values);
+            //console.log(values);
             resetForm();
         }
         });

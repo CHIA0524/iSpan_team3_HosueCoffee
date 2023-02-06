@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -17,11 +17,12 @@ function MemberOrder(props){
     const [alltotalpay,setAlltotalpay] = useState(0)
     const [state,setState]=useState([])
     const internationalNumberFormat = new Intl.NumberFormat('en-US')
+    const history=useHistory()
     
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`)
     }if(!dataCheck){
-      window.location.replace("http://localhost:3000/member/NewData");
+      history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
 
     
@@ -35,7 +36,7 @@ function MemberOrder(props){
             setState("1");
         }
     }
-    console.log(datas)
+    //console.log(datas)
     useEffect(()=>{
         fetchData();
     },[])
@@ -85,9 +86,9 @@ function MemberOrder(props){
                         <h4 className="col-3None gopay">{order_condition}</h4> 
                         {state?<></>:<button className="coffeeLightBtn gopay gopayBTN" 
                             onClick={()=>{
-                                const p3="http://localhost:3000/shoppingCart/pay3/"+thiso_id
+                                const p3=`${process.env.REACT_APP_URL}/shoppingCart/pay3/`+thiso_id
 
-                                window.location.replace(p3)
+                                history.push(p3)
                              
                             }}>前往付款</button>}
                         

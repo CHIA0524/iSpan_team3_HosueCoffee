@@ -20,7 +20,7 @@ function Blog(props){
     
     const fetchBlog = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:3001/blog')
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/blog`)
         const data = await response.json()
         // 載入資料後設定到狀態中
         // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
@@ -49,7 +49,7 @@ function Blog(props){
               window.location.assign('/blog')
           }
       }
-    //console.log(blog);
+    ////console.log(blog);
     
       // didMount
       useEffect(() => {

@@ -12,7 +12,7 @@ import SweetloginSTN from './sweetalert/SweetloginSTN';
 function MemberLogin(props){
     const {auth,setAuth,setDataCheck} = props;  
     
-    
+    const history=useHistory()
   
     const [member_account, setmember_account] = useState("");
     const [member_password, setmember_password] = useState("");
@@ -34,7 +34,7 @@ function MemberLogin(props){
     //^設定註冊時的提示訊息^
 
     if(auth){
-        window.location.replace("http://localhost:3000/member/profile")
+        history.push(`${process.env.REACT_APP_URL}/member/profile`)
         //^如果已經登入，轉向個人基本資料^
     }else{
     
@@ -191,13 +191,14 @@ function MemberLogin(props){
         }  
 
         const loginBTN=async()=>{
+           
             // 點擊登入
             const loginTF = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginTF/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
             //判斷帳號密碼是否正確，如果正確回傳1
            
             
             const resultsTF = await loginTF.json();
-            console.log(resultsTF);
+            //console.log(resultsTF);
             if(resultsTF.total===1){
                 const loginS=await fetch(`${process.env.REACT_APP_API_URL}/account/Loginid/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
                 const loginS2 = await loginS.json();
@@ -221,7 +222,7 @@ function MemberLogin(props){
                     const login = await fetch(`${process.env.REACT_APP_API_URL}/account/Login/?member_account=${member_account}&member_password=${member_password}`, {method: "POST"});
                     const results = await login.json();
                     //取得登入的會員 的基本資料
-                    console.log(results);
+                    //console.log(results);
                     localStorage.setItem("name", results.member_name);
                     localStorage.setItem("nick", results.member_nick);
                     localStorage.setItem("birth", results.member_birth);
@@ -230,13 +231,16 @@ function MemberLogin(props){
                     localStorage.setItem("photo", results.member_photo);
                     //將會員基本資料分別寫入localStorage
                     // alert('成功登入');
-                    const loginstatus = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginstatusY?member_id=${member_id}`);
+                    // const loginstatus = await fetch(`${process.env.REACT_APP_API_URL}/account/LoginstatusY?member_id=${member_id}`);
                     
                     
                     SweetloginY();
+                    
                     // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
                     setTimeout(() => {
-                        window.location.replace("http://localhost:3000/member/profile");
+                        window.location.replace(`${process.env.REACT_APP_URL}/`)
+                        // history.push(`${process.env.REACT_APP_URL}/`);
+                        // history.push(`${process.env.REACT_APP_URL}/member/profile`);
                       }, 1500)
                     //轉向會員基本資料頁面
                 
@@ -247,8 +251,11 @@ function MemberLogin(props){
                     SweetloginYN()
                     // alert('成功登入 但基本資料尚未完整');
                     //跳出訊息
+                    
                     setTimeout(() => {
-                        window.location.replace("http://localhost:3000/member/NewData");
+                        window.location.replace(`${process.env.REACT_APP_URL}/`)
+
+                        // history.push(`${process.env.REACT_APP_URL}/`);
                       }, 1500)
                     //轉向填寫資料頁面
                     }

@@ -10,8 +10,8 @@ import '../blogBanner.css';
 
 const BlogMobNav = (props) => {
     const nowWeb=window.location.pathname
-    console.log(window.location.pathname); 
-    console.log(nowWeb.slice(6,)); 
+    //console.log(window.location.pathname); 
+    //console.log(nowWeb.slice(6,)); 
     const nowpath=nowWeb.slice(6,)
     // 行動裝置板選單
 //  const [selectedValue, setSelectedValue] = useState('')
@@ -54,7 +54,7 @@ return (
    
             <option value="">文章類別</option>
             {articleOptions.map((v, i) => {
-                    console.log(v.value)
+                    //console.log(v.value)
                 return (
                 <option value={v.value}>
                     {v.name}

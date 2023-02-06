@@ -34,5 +34,14 @@ router.route('/newQA')
         res.json(datas);
 
     })
+router.route('/AAA')
+//^新增問答^
+    .get(async(req,res,next)=>{
+        const sql=
+        "select * from members_data;"; 
+        const [datas] = await db.query(sql);
+        res.json(datas);
+
+    })
 
 module.exports = router;

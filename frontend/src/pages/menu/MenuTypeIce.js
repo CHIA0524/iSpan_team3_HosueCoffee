@@ -16,19 +16,19 @@ const MenuTypeIce = () => {
         //從後端抓資料
         const [datas, setDatas ] = useState([])
         const fetchData = async()=>{
-            const response = await fetch('http://localhost:3001/menu');
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/menu`);
             const results = await response.json();         
                             setDatas(results);
                         }
         useEffect(()=>{fetchData();},[])
         const [icedatas, seticedatas] = useState([])
         const fetctodyhData = async()=>{
-                            const response = await fetch('http://localhost:3001/menu/icecoffee');
+                            const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/icecoffee`);
                             const results = await response.json();         
                             seticedatas(results);
                         }
         useEffect(()=>{fetctodyhData();},[])
-        console.log(icedatas);
+        //console.log(icedatas);
         return( 
             <>   
                 <div className="bodyMenu">

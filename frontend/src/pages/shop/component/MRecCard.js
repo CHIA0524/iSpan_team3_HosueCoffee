@@ -12,7 +12,7 @@ function MRecCard(){
   // 向後端請求資料
   const [datas, setDatas ] = useState([])
   const fetchData = async()=>{
-    const response = await fetch('http://localhost:3001/shop');
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop`);
     const results = await response.json();
     setDatas(results);
   }
@@ -46,7 +46,7 @@ function MRecCard(){
              <div className="MRText">推薦商品</div>
               <Slider {...settings} >
                       {datas.map((PCard,i)=>{
-                        {/* console.log(PCard.id); */}
+                        {/* //console.log(PCard.id); */}
                         const img1=(PCard.p_name);
                         return(
                

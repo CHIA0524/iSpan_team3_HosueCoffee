@@ -6,7 +6,7 @@ import LoginSweet from './LoginSweet';
 function Heart(props){
     const {pt_id,datasPMF}=props
     const thismemberid=localStorage.getItem(true)
-    // console.log(pt_id)
+    // //console.log(pt_id)
     
     return(
      <>
@@ -16,7 +16,7 @@ function Heart(props){
                  return(
                     <button className="heart" onClick={async()=>{
                                    window.location.reload()
-                                    // console.log(process.env.REACT_APP_API_URL);
+                                    // //console.log(process.env.REACT_APP_API_URL);
                                     // 刪除資料
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/delete?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)    
                               }} > 
@@ -28,7 +28,7 @@ function Heart(props){
                         return(    
                         <button className="heart" onClick={async()=>{
                                     window.location.reload()
-                                    // console.log(process.env.REACT_APP_API_URL);
+                                    // //console.log(process.env.REACT_APP_API_URL);
                                     // 新增資料
                                     const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist/add?fk_m_id=${thismemberid}&fk_p_id=${pt_id}`)
                                 } } > 

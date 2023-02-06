@@ -35,7 +35,7 @@ router.route('/odList/detailed')
         "select p_name,p_price,qty ,p_id, used_coupon,used_points,shipment from order_detail join orders  on order_detail.fk_o_id=orders.o_id join products  on order_detail.fk_p_id=products.p_id where o_id=?"; 
         const [datas]=await db.query(sql,[req.query.o_id]);
         res.json(datas);
-        console.log(datas)
+        //console.log(datas)
 
 
     })
@@ -53,32 +53,32 @@ router.route('/odList/detailed/count')
 router.route('/')
 //^查詢本訂單所有基本資料^
     .get(async(req,res,next)=>{
-        console.log(req.query.o_id)
+        //console.log(req.query.o_id)
         const sql=
         "select * from orders where o_id=?"; 
         const [datas]=await db.query(sql,[req.query.o_id]);
-        // console.log(datas)
+        // //console.log(datas)
         res.json(datas);
     })
 
 router.route('/couYes')
 //^查詢本帳號未使用優惠券^
     .get(async(req,res,next)=>{
-        console.log(req.query.fk_m_id)
+        //console.log(req.query.fk_m_id)
         const sql=
         `SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id =? and state='未使用' and coupon_start_date <=now() and coupon_end_date>=now() order by coupon_end_date`; 
         const [datas]=await db.query(sql,[req.query.fk_m_id]);
-        // console.log(datas)
+        // //console.log(datas)
         res.json(datas);
     })
 router.route('/couNo')
 //^查詢本帳號已過期未使用優惠券^
     .get(async(req,res,next)=>{
-        console.log(req.query.fk_m_id)
+        //console.log(req.query.fk_m_id)
         const sql=
         `SELECT * from member_con JOIN home_coupon ON member_con.fk_coupon_id= home_coupon.CP_id WHERE fk_m_id =? and state='未使用' and coupon_end_date<now() order by coupon_end_date LIMIT 5`; 
         const [datas]=await db.query(sql,[req.query.fk_m_id]);
-        // console.log(datas)
+        // //console.log(datas)
         res.json(datas);
     })
 

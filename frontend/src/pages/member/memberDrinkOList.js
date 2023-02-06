@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import MemberAside from './memberAside';
 import DrinkOListCard from './componend/DrinkOListCard';
 import MemberBack from './memberBack';
@@ -6,10 +6,12 @@ import './memberOrderList.css'
 function MemberDrinkOList(props){
     const{auth}=props;
     const {dataCheck}=props;
+    const history=useHistory()
+
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`)
     }if(!dataCheck){
-      window.location.replace("http://localhost:3000/member/NewData");
+      history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
     return(
         <>

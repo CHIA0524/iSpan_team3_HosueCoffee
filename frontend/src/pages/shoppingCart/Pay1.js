@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch ,useHistory} from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 // <----------pay1----------->
 import './pay1.css';
@@ -28,11 +28,12 @@ function Pay1(props){
 
     const thismemberid=localStorage.getItem(true)
 
+    const history=useHistory()
     
 
     //回去繼續購物
     const keepshopping = ()=>{
-        window.location.assign("http://localhost:3000/shop")
+        history.push('/shop')
          }  
 
     //按下一步跳pay2
@@ -40,7 +41,7 @@ function Pay1(props){
         if(JSON.parse(localStorage.getItem('sCarts'))==false){
             EmptySweet()
        }else if(!auth){
-           //console.log.log(auth)
+           ////console.log.log(auth)
             LoginSweet()
            }else{
         document.querySelector('.payTwo').style.display="block"
@@ -90,18 +91,18 @@ function Pay1(props){
                 const odmap=JSON.parse(localStorage.getItem('sCarts'))
                 for(var i=0;i<odmap.length;i++){
                     const fk_p_id=odmap[i].id
-                    //console.log.log(fk_p_id)
+                    ////console.log.log(fk_p_id)
                     const qty=odmap[i].ShopCounter
-                    //console.log.log(qty)
+                    ////console.log.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
                 document.querySelector('.payTwo').style.display="block"
                 document.querySelector('.payOne').style.display="none"
                 window.scroll(0,0)
-                const p3="http://localhost:3000/shoppingCart/pay3/"+thisoid
-                // //console.log.log(odweb);
+                const p3=`${process.env.REACT_APP_URL}/shoppingCart/pay3/`+thisoid
+                // ////console.log.log(odweb);
                 localStorage.removeItem("sCarts")
-                window.location.replace(p3)
+                history.push(p3)
            }else{
                  document.querySelector(".errorname").style.color="red";
                  document.querySelector(".errorphone").style.color="red";
@@ -130,9 +131,9 @@ function Pay1(props){
                 const odmap=JSON.parse(localStorage.getItem('sCarts'))
                 for(var i=0;i<odmap.length;i++){
                     const fk_p_id=odmap[i].id
-                    //console.log.log(fk_p_id)
+                    ////console.log.log(fk_p_id)
                     const qty=odmap[i].ShopCounter
-                    //console.log.log(qty)
+                    ////console.log.log(qty)
                     const od = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/orderdetail?fk_o_id=${thisoid}&fk_p_id=${fk_p_id}&qty=${qty}`)
                 }
                 document.querySelector('.payTwo').style.display="block"
@@ -157,7 +158,7 @@ function Pay1(props){
 
 
 const [ ptotal, setPtotal ]= useState(0)
-//console.log.log(ptotal)
+////console.log.log(ptotal)
 const [totalp ,settotalp]= useState()
 //會員優惠券id
 const[ MC_id , setMC_id] = useState("")
@@ -232,7 +233,7 @@ const[ newpoint , setNewpoint] = useState(0)
         setNote(e.target.value);
         } 
      
-     // //console.log.log(name)
+     // ////console.log.log(name)
        
          //驗證
       
@@ -311,7 +312,7 @@ const[ newpoint , setNewpoint] = useState(0)
         const shipSame = ()=>{
           const a=document.querySelector('.sameAddress').checked
          
-          //console.log.log(a)
+          ////console.log.log(a)
           if(a==true){
           document.querySelector('.receiverInfo').style.display="none"
           setRName(name)
@@ -337,9 +338,9 @@ const[ newpoint , setNewpoint] = useState(0)
            const [shipgopay,setShipgopay]=useState("請選擇運送方式");
            const shipprice = ()=>{
                const a = ptotal
-               //console.log.log(a)
+               ////console.log.log(a)
             const b = document.querySelector('.postoffice').checked
-            //console.log.log(b)
+            ////console.log.log(b)
             if(b==true){
                 setShipment("郵局")
                   if(a>1500){
@@ -362,14 +363,14 @@ const[ newpoint , setNewpoint] = useState(0)
     // let[pricetotal1, setpricetotal1] = useState('')
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{    
-     const response = await fetch('http://localhost:3001/shop'); 
+     const response = await fetch(`${process.env.REACT_APP_API_URL}/shop`); 
      const results = await response.json();
                      setDatas(results);
 
-        const point = await fetch(`http://localhost:3001/shoporder/point?member_id=${thismemberid}`);
+        const point = await fetch(`${process.env.REACT_APP_API_URL}/shoporder/point?member_id=${thismemberid}`);
         const repoint = await point.json();
         setMpoint(repoint.member_point);
-        //console.log.log(repoint.member_point);
+        ////console.log.log(repoint.member_point);
 
      }
     useEffect(()=>{

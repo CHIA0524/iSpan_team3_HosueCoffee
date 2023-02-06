@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch ,useHistory} from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import MemberAside from "./memberAside";
 import MemberNewData from './memberNewData';
@@ -16,20 +16,22 @@ function Memberprofile(props){
     const member_mail=localStorage.getItem("mail")
     const member_address=localStorage.getItem("address")
     const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
+    const history=useHistory()
+
     if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
-    console.log(member_photo)
+    //console.log(member_photo)
     if(!auth){
-        window.location.replace("http://localhost:3000/member");
+        history.push(`${process.env.REACT_APP_URL}/member`);
     }if(!dataCheck){
-        window.location.replace("http://localhost:3000/member/NewData");
+        history.push(`${process.env.REACT_APP_URL}/member/NewData`);
 
     }else{
 
 
     // if(dataCheck!=true){
-    //     window.location.replace("http://localhost:3000/member/NewData");
+    //     history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     // }
   
  
@@ -83,10 +85,10 @@ function Memberprofile(props){
                             </div>
                             <br></br>
                         </div>
-                        <Link to={'/member/profileEdit'}>
+                        <Link to={'/HouseCoffee/member/profileEdit'}>
                         <button className="memberEdit memberEdit-w">編輯資料</button>
                         </Link>
-                        <Link to={'/member/profileEdit'}>
+                        <Link to={'/HouseCoffee/member/profileEdit'}>
                         <button className="memberEdit memberEdit-m">編輯</button>
                         </Link>
                 

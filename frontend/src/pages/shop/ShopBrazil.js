@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback,useRef } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch ,useParams} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch ,useParams,useHistory} from 'react-router-dom';
 import './brandproduct.css';
 import './component/popup.css';
 import ProductCard from './component/ProductCard';
@@ -9,10 +9,10 @@ import Popup from './component/Popup';
 
 function ShopBrazil(props){
 const{ auth ,setcarNum } =props
-
+const history=useHistory()
   //抓到點擊商品的id
 const [productId, setProductId] = useState(2)
-// console.log(productId)
+// //console.log(productId)
 //控制ＰＯＰＵＰ的ＣＳＳ
 const [css, setcss] = useState()
 
@@ -33,21 +33,21 @@ const[amount, setAmount]= useState(1)
      // 向後端請求資料
      const fetchData = async()=>{
         //讀取本頁資料，並寫入datas
-        const response = await fetch('http://localhost:3001/shop/brazil');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/brazil`);
         const results = await response.json();
         setDatas(results);
         var WISH=[];
         for(var i=0;i<results.length;i++){
         const PMF = await fetch(`${process.env.REACT_APP_API_URL}/shop/wishlist?fk_m_id=${thismemberid}&fk_p_id=${results[i].p_id}`);
          const PMF2 = await PMF.json();
-        //  console.log(results[i].p_id)
-        //  console.log(PMF2.total)
+        //  //console.log(results[i].p_id)
+        //  //console.log(PMF2.total)
          WISH.push({p_id:results[i].p_id,TF:PMF2.total})
        }
        setDatasPMF(WISH)
         
         //讀取全部資料，並寫入Alldata
-      const Aresponse = await fetch('http://localhost:3001/shop');
+      const Aresponse = await fetch(`${process.env.REACT_APP_API_URL}/shop`);
       const Aresults = await Aresponse.json();
       setAllDatas(Aresults);
    }
@@ -58,7 +58,7 @@ const[amount, setAmount]= useState(1)
       fetchData();
     },[])
    //  const handleClick = (pCard)=>{
-   //  console.log(pCard)
+   //  //console.log(pCard)
    // }
     
    //點選以外視窗，關閉popup
@@ -68,25 +68,25 @@ const[amount, setAmount]= useState(1)
      const find = (event) => {
       event.preventDefault();
       if (event.target.value === "shop") {
-          window.location.assign('/shop')
+          history.push(`/shop`)
           }
            else if (event.target.value === "kenya") {
-           window.location.assign('/shop/kenya')
+           history.push(`/shop/kenya`)
            }
            else if (event.target.value === "ethiopia") {
-              window.location.assign('/shop/ethiopia')
+              history.push(`/shop/ethiopia`)
               }
           else if (event.target.value === "brazil") {
-              window.location.assign('/shop/brazil')
+              history.push(`/shop/brazil`)
               }
           else if (event.target.value =="colombia") {
-              window.location.assign('/shop/colombia')
+              history.push(`/shop/colombia`)
               }
           else if (event.target.value =="guatemala") {
-              window.location.assign('/shop/guatemala')
+              history.push(`/shop/guatemala`)
               }
           else{
-              window.location.assign('/shop/other')
+              history.push(`/shop/other`)
           }
       }
    
@@ -95,7 +95,7 @@ const[amount, setAmount]= useState(1)
   return(
     <>
      {/* {datas.map((pCard,i)=>{
-         console.log(pCard.id);
+         //console.log(pCard.id);
          
          const img1=(pCard.p_name);
          const id='#'+(pCard.id); */}

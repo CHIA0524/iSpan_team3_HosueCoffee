@@ -14,7 +14,7 @@ function RecCard(props){
   const [datas, setDatas ] = useState([])
  
   const fetchData = async()=>{
-    const response = await fetch('http://localhost:3001/shop/rec');
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/shop/rec`);
     const results = await response.json();
     setDatas(results);
   }
@@ -50,7 +50,7 @@ function RecCard(props){
               <Slider {...settings}>
                  {/* 連資料庫 */}
                       {datas.map((PCard,p_id)=>{
-                        console.log(PCard.p_id);
+                        //console.log(PCard.p_id);
                        const img1=(PCard.p_name);
                         return(
                

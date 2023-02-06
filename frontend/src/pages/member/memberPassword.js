@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory} from 'react-router-dom';
 import { useState } from 'react';
 import MemberAside from "./memberAside";
 import MemberBack from './memberBack';
@@ -8,10 +8,12 @@ import SweetpasswordY from './sweetalert/SweetpasswordY';
 function MemberPassword(props){
   const{auth}=props;
     const {dataCheck}=props;
+    const history=useHistory()
+
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`)
     }if(!dataCheck){
-      window.location.replace("http://localhost:3000/member/NewData");
+      history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
   const account=localStorage.getItem("account");
   const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
@@ -26,7 +28,7 @@ function MemberPassword(props){
   const [passwordMessageN2, setpasswordMessageN2] = useState("");
   const [oldpassword, setOldpassword] = useState("");
   const thismemberid=localStorage.getItem(true);
-  // console.log(thismemberid);
+  // //console.log(thismemberid);
 
   const handleValueChange=(e)=>{
     setmember_password(e.target.value);
@@ -40,11 +42,11 @@ function MemberPassword(props){
  
   const handleCheckPassword=async ()=>{
     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkPassword?member_password=${member_password}&member_id=${thismemberid}`);
-    console.log(process.env.REACT_APP_API_URL);
+    //console.log(process.env.REACT_APP_API_URL);
     const results = await response.json();
     if(results.total === 1){
       const getoldPWord = await fetch(`${process.env.REACT_APP_API_URL}/account//getoldPassword?member_password=${member_password}&member_id=${thismemberid}`);
-      console.log(process.env.REACT_APP_API_URL);
+      //console.log(process.env.REACT_APP_API_URL);
       const oldPW = await getoldPWord.json();
       setpasswordMessage("舊密碼正確");
       document.querySelector('.passwordMessageRed').style.color="#4C3410"
@@ -89,10 +91,10 @@ function MemberPassword(props){
     if(passwordMessage=='舊密碼正確' && passwordMessageN=="密碼符合" && passwordMessageN2=="新密碼對比正確"){
     const response = await fetch(`${process.env.REACT_APP_API_URL}/account/changePassword?member_password=${member_passwordN}&member_id=${thismemberid}`);
     // const results = await response.json();
-    // console.log(results);
+    // //console.log(results);
     SweetpasswordY()
      setTimeout(() => {
-       window.location.replace("http://localhost:3000/member/profile");
+       history.push(`${process.env.REACT_APP_URL}/member/profile`);
               }, 1600)
   }else{
     if(passwordMessage != '舊密碼正確'){

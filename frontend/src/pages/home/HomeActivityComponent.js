@@ -9,27 +9,27 @@ function HomeActivityComponent() {
     const [TTdatas,setTTDatas] = useState([])
     const thismemberid=localStorage.getItem(true)
     const fetchData=async()=>{
-        // console.log(process.env.REACT_APP_API_URL);
-        const response = await fetch('http://localhost:3001/home/coupon')
+        // //console.log(process.env.REACT_APP_API_URL);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/home/coupon`)
         const results=await response.json();
         setDatas(results);
         var savetomb=[];
     
         
         for(var i=0;i<results.length;i++){
-            // console.log(results[i].CP_id);
+            // //console.log(results[i].CP_id);
 
             const fk_CP_id=results[i].CP_id;
-            const YN = await fetch(`http://localhost:3001/home/coupon/saved?fk_m_id=${thismemberid}&fk_coupon_id=${fk_CP_id}`)
+            const YN = await fetch(`${process.env.REACT_APP_API_URL}/home/coupon/saved?fk_m_id=${thismemberid}&fk_coupon_id=${fk_CP_id}`)
             const YN1=await YN.json();
             const YNTT=YN1.total
-            // console.log(YN1.total);
+            // //console.log(YN1.total);
             savetomb.push({id:fk_CP_id,total:YNTT});
         }
         setTTDatas(savetomb);
     }
-    // console.log(TTdatas)
-    // console.log(datas);
+    // //console.log(TTdatas)
+    // //console.log(datas);
     useEffect(()=>{
         fetchData();
     },[])

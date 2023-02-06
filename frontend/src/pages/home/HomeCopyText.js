@@ -10,9 +10,9 @@ import Swal from 'sweetalert2';
 function HomeCopyText(props) {
     const { CP_id, thismemberid, TTdatas } = props
     const [datas, setDatas] = useState([])
-    // console.log(CP_id)
-    // console.log(TTdatas)
-    // console.log(addsweet)
+    // //console.log(CP_id)
+    // //console.log(TTdatas)
+    // //console.log(addsweet)
     return (
         <>
             {TTdatas.length > 0 && TTdatas.map((coupon, i) => {
@@ -39,7 +39,7 @@ function HomeCopyText(props) {
                                     } else {
                                         const state = "未使用"
                                         // alert("領取成功")
-                                        const response = await fetch(`http://localhost:3001/home/coupon/saved/toMember?fk_m_id=${thismemberid}&fk_coupon_id=${CP_id}&state=${state}`)
+                                        const response = await fetch(`${process.env.REACT_APP_API_URL}/home/coupon/saved/toMember?fk_m_id=${thismemberid}&fk_coupon_id=${CP_id}&state=${state}`)
                                         const results = await response.json();
                                         setDatas(results);
                                         document.getElementById(CP_id).innerHTML = "已領取"
@@ -53,7 +53,7 @@ function HomeCopyText(props) {
                             return (
 
                                 <div className="copyText" onClick={() => {
-                                    window.location.replace("http://localhost:3000/member")
+                                    window.location.replace(`${process.env.REACT_APP_URL}/member`)
                                 }}>
                                     請登入領取
                                 </div>

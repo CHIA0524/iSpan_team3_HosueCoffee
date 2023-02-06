@@ -22,7 +22,6 @@ router.route('/getServeList')
         const sql = 
         "SELECT serve_name FROM store_serve_icon ORDER BY id";
         const [data] = await db.query(sql);
-        console.log('123');
         res.json(data);
     })
 

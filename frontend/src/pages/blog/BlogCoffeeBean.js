@@ -19,7 +19,7 @@ function BlogCoffeeBean(props){
 
     const fetchBlogCoffeeBean = async () => {
         //向遠端伺服器get資料
-        const response = await fetch('http://localhost:3001/blog/coffeebean')
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/blog/coffeebean`)
         const data = await response.json()
         
         // 載入資料後設定到狀態中

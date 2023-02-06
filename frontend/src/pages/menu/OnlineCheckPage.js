@@ -13,7 +13,7 @@ const OnlineCheckPage = () => {
         const [datas, setDatas ] = useState([])
         const [totalprice, settotalprice ] = useState()
         const fetchData = async()=>{
-                                const response = await fetch('http://localhost:3001/menu');
+                                const response = await fetch(`${process.env.REACT_APP_API_URL}/menu`);
                                 const results = await response.json();
                                                 setDatas(results);
                         }

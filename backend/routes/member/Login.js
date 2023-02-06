@@ -26,6 +26,12 @@ router.get('/checkPhone',async (req,res,next)=>{
   const [datas] = await db.query(sql,[req.query.member_phone]);
   res.json(datas[0]);
 })
+router.get('/checkMyPhone',async (req,res,next)=>{
+  //^驗證電話是否已被註冊^
+  const sql = `SELECT Count(*) as total FROM members_data WHERE member_phone=? and fk_member_id=?`
+  const [datas] = await db.query(sql,[req.query.member_phone,req.query.fk_member_id]);
+  res.json(datas[0]);
+})
 
 router.get('/CRNM',async (req,res,next)=>{
   //^創建新的帳號^
@@ -65,14 +71,14 @@ router.post('/Login',async (req,res,next)=>{
 router.get('/LoginstatusY',async (req,res,next)=>{
   //^登入後更新登入狀態^
   const sql = `UPDATE members SET login_status='1' WHERE member_id=?`
-  console.log(req.query.member_id)
+  //console.log(req.query.member_id)
   const [data] =  await db.query(sql,[req.query.member_id]);
   res.json(data[0]);
 })
 router.get('/LoginstatusN',async (req,res,next)=>{
   //^登入後更新登入狀態^
   const sql = `UPDATE members SET login_status='0' WHERE member_id=?`
-  console.log(req.query.member_id)
+  //console.log(req.query.member_id)
   const [data] =  await db.query(sql,[req.query.member_id]);
   res.json(data[0]);
 })

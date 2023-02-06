@@ -16,8 +16,8 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 function StoreMapCardWrap(props){
 
   let getURL = useLocation();
-  console.log(getURL);
-  console.log(getURL.search);
+  //console.log(getURL);
+  //console.log(getURL.search);
 
 
   // 載入指示器用
@@ -73,7 +73,7 @@ function StoreMapCardWrap(props){
       }
     } catch (e) {
       // 作錯誤處理
-      console.log(e)
+      //console.log(e)
       setError(e.message)
     }
   }
@@ -84,7 +84,7 @@ function StoreMapCardWrap(props){
       const response = await fetch(`${process.env.REACT_APP_API_URL}/store`)
       const results = await response.json()
 
-      // console.log(results);
+      // //console.log(results);
       
       // 載入資料後設定到狀態中
       // 設定到狀態後，因改變狀態會觸發updating生命周期，然後重新render一次
@@ -112,22 +112,22 @@ function StoreMapCardWrap(props){
           );
 
           const GEOresults = await GEOresponse.json().catch(() => {
-            console.log("Error parsing server response")
+            //console.log("Error parsing server response")
             return Promise.reject(new Error("Error parsing server response"));
           })
 
           if (GEOresults.status === "OK") {
-            // console.log(GEOresults)
+            // //console.log(GEOresults)
             const updateLatLng = await fetch(
               `${process.env.REACT_APP_API_URL}/store/${results[i].id}/${GEOresults.results[0].geometry.location.lat}/${GEOresults.results[0].geometry.location.lng}`,
               {method: "PUT"})
-            // console.log(await updateLanLng.json())
+            // //console.log(await updateLanLng.json())
           }
 
-          console.log(
-            `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
-            true
-          )
+          //console.log(
+          //   `${GEOresults.error_message}.\nServer returned status code ${GEOresults.status}`,
+          //   true
+          // )
           
           
           // 載入資料後設定到狀態中
@@ -137,13 +137,13 @@ function StoreMapCardWrap(props){
           const results2 = await response2.json()
           if (Array.isArray(results2)) {
             setData(results2)
-            console.log(results2);
+            //console.log(results2);
           }
         }
       }
     } catch (e) {
       // 作錯誤處理
-      console.log(e)
+      //console.log(e)
       setError(e.message)
     }
   }
@@ -165,9 +165,9 @@ function StoreMapCardWrap(props){
 
     } catch (e) {
       // 作錯誤處理
-      console.log(e)
+      //console.log(e)
       setError(e.message)
-      console.log(error);
+      //console.log(error);
     }
   }
 
@@ -308,7 +308,7 @@ function StoreMapCardWrap(props){
             className='storeOpenAside coffeeLightBtn'
             onClick={()=>{
               if (asideCSS === '0px') {
-                // console.log(window.innerWidth);
+                // //console.log(window.innerWidth);
                 if (window.innerWidth <= 500) {
                   setAsideCSS('-300px')
                 } else {

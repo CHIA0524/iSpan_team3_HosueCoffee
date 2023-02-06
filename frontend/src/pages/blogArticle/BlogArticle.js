@@ -27,11 +27,11 @@ function BlogArticle(props){
   
   
   const fetchData= async()=>{
-    const response= await fetch(`http://localhost:3001/blog/id?blog_id=${thisBid}`);
+    const response= await fetch(`${process.env.REACT_APP_API_URL}/blog/id?blog_id=${thisBid}`);
     const results=await response.json(); 
     setDatas(results);
 
-    const response1 = await fetch('http://localhost:3001/blog')
+    const response1 = await fetch(`${process.env.REACT_APP_API_URL}/blog`)
     const datas1 = await response1.json();
     setarecomend(datas1)
   }

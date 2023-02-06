@@ -14,7 +14,7 @@ router.route('/')
         const sql = "INSERT INTO categories(CategoryID,CategoryName,Description) VALUES (?,?,?)";
        // const [datas] = await db.query(sql,[req.body]);
         const [datas] = await db.query(sql,[req.body.CategoryID,req.body.CategoryName,req.body.Description]);
-        console.log(datas)
+        //console.log(datas)
         res.send("新增資料")
     })
    

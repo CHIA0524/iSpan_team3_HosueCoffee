@@ -18,6 +18,7 @@ import HomeStore from './HomeStore';
 import HomeNewsActivity from './HomeNewsActivity';
 import HomeAboutUs from './HomeAboutUs';
 import HomeTopBTN from './HomeTopBTN';
+import dividerClasses from '@mui/material/Divider/dividerClasses';
 
 
 
@@ -27,8 +28,8 @@ function Home(props) {
     useEffect(()=>{
          },[nowpage])
     return (
-        <Router>
-
+        // <Router>
+        <div>
             <HomeBanner setBannerHeight={props.setBannerHeight}/>
 
             <HomeAppeal />
@@ -46,8 +47,8 @@ function Home(props) {
             <HomeAboutUs />
 
             <HomeTopBTN />
-
-        </Router>
+        </div>
+        // </Router>
     );
 }
 

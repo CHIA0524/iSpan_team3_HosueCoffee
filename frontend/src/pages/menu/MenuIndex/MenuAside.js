@@ -13,11 +13,11 @@ const MenuAside = () => (
                 <span>線上訂餐</span>
             </div>
             <ul>
-                <a href="/onlinemenu"><li>全部</li></a>
-                <a href="/MenuTypeToday"><li>每日精選咖啡</li></a>
-                <a href="/MenuTypeIce"><li>冰飲咖啡</li></a>
-                <a href="/MenuTypeHot"><li>熱飲咖啡</li></a>
-                <a href="/favorite"><li>我的最愛</li></a>
+                <Link to="/onlinemenu"><li>全部</li></Link>
+                <Link to="/MenuTypeToday"><li>每日精選咖啡</li></Link>
+                <Link to="/MenuTypeIce"><li>冰飲咖啡</li></Link>
+                <Link to="/MenuTypeHot"><li>熱飲咖啡</li></Link>
+                <Link to="/favorite"><li>我的最愛</li></Link>
             </ul>
         </aside>
     </div>

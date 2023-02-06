@@ -12,7 +12,7 @@ function Price(props){
     const[amount, setAmount]= useState(0)
 
     const [thisTT,setThisTT]=useState(Number(total))
-    //console.log.log(ptotal);
+    ////console.log.log(ptotal);
         //加入購物車更新
         const updateCart = (dd,ee,cc)=>{
             //加入購物車的計算

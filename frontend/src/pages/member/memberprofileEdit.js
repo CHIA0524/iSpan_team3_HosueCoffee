@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import MemberAside from './memberAside';
@@ -11,14 +11,12 @@ import SweetPhoneN from './sweetalert/SweetPhoneN';
 function MemberprofileEdit(props){
   const{auth}=props;
     const {dataCheck}=props;
-    console.log("---------")
-    console.log(dataCheck)
-    console.log(!dataCheck)
-    console.log("---------")
+    const history=useHistory()
+
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`)
     }if(!dataCheck){
-      window.location.replace("http://localhost:3000/member/NewData");
+      history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
   const thismemberid=localStorage.getItem("true");
   const account=localStorage.getItem("account");
@@ -51,7 +49,7 @@ function MemberprofileEdit(props){
     setUPaddress(e.target.value);
   }
   // const UPP=async()=>{
-  //   console.log("123")
+  //   //console.log("123")
   //   const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`);
   // }
 
@@ -63,11 +61,12 @@ function MemberprofileEdit(props){
       }else{
         if(UPname.length>0 && UPphone.length==10 &&UPPT==1){
           const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkPhone?member_phone=${UPphone}`);
-          console.log(process.env.REACT_APP_API_URL);
           const results = await response.json();
-          // console.log(results)
-          // console.log(results.total)
-          if(results.total===0){
+          const response2 = await fetch(`${process.env.REACT_APP_API_URL}/account/checkMyPhone?member_phone=${UPphone}&fk_member_id=${thismemberid}`);
+          const results2 = await response2.json();
+          // //console.log(results)
+          // //console.log(results.total)
+          if(results.total===0||results2.total===1){
               const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/UPdate?fk_member_id=${thismemberid}&member_name=${UPname}&member_nick=${UPnick}&member_birth=${UPbirth}&member_phone=${UPphone}&member_address=${UPaddress}&member_photo=${UPImg}`);
           
           localStorage.removeItem("name")
@@ -86,7 +85,7 @@ function MemberprofileEdit(props){
 
           SweetPEY()
           setTimeout(() => {
-            window.location.replace("http://localhost:3000/member/profile");
+            history.push(`${process.env.REACT_APP_URL}/member/profile`);
           }, 1500)
         }else{
               SweetPhoneN()
@@ -131,13 +130,13 @@ function MemberprofileEdit(props){
     e.preventDefault()
     let formData = new FormData()
     formData.append('file', image.data)
-    console.log(formData);
+    //console.log(formData);
     const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`, {
       method: 'POST',
       body: formData,
     })
     const backImg=await response.json();
-    console.log(backImg)
+    //console.log(backImg)
     setUPImg(backImg)
     if (response) setStatus(response.statusText)
     setUPPT(1)

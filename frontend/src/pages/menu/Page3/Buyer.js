@@ -5,7 +5,7 @@ import React,{useState,useEffect} from "react";
 const Buyer = (props) => {
     const [datas, setDatas ] = useState([])
     const fetchData = async()=>{
-                            const response = await fetch('http://localhost:3001/menu/oder');
+                            const response = await fetch(`${process.env.REACT_APP_API_URL}/menu/oder`);
                             const results = await response.json();
                             setDatas(results);
                     }

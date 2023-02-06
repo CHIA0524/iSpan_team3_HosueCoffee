@@ -7,7 +7,7 @@ function Delsweetalert(props){
   const datas1 = JSON.parse(localStorage.getItem('sCarts'))
 
   const [datasNEW, setdatasNEW] = useState(datas1)
-  //console.log.log(datasNEW)
+  ////console.log.log(datasNEW)
   
   
   return(
@@ -44,7 +44,7 @@ removePinfo.fire({
         )
         
             datasNEW.splice(i,1)
-            //console.log.log(datasNEW);
+            ////console.log.log(datasNEW);
             localStorage.setItem("sCarts", JSON.stringify(datasNEW))
             const datas222 = JSON.parse(localStorage.getItem('sCarts'))
             setdatasNEW(datas222)

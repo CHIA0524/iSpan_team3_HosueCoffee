@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import MemberAside from './memberAside';
 import MemberQACard from './componend/memberQACard';
 import MemberBack from './memberBack';
@@ -13,19 +13,21 @@ function MemberQAList(props){
 
     const{auth}=props;
     const {dataCheck}=props;
-    console.log(auth);
+    const history=useHistory()
+
+    //console.log(auth);
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`)
     }if(!dataCheck){
-      window.location.replace("http://localhost:3000/member/NewData");
+      history.push(`${process.env.REACT_APP_URL}/member/NewData`);
     }
     const thismemberid=localStorage.getItem("true");
   
 
     
  
-  console.log(123);
-  console.log(thismemberid);
+  //console.log(123);
+  //console.log(thismemberid);
     return(
         <>
         {auth? <div>
@@ -51,7 +53,7 @@ function MemberQAList(props){
                     <br></br>
                     <table className="table userTr" >
                           <tr>
-                            <th className="col-3None" scope="col">提問編號</th>
+                            <th className="col-3None" scope="col">&nbsp;提問編號</th>
                             <th className="col-3None" scope="col">提問類型</th>
                             <th scope="col">主旨</th>
                             <th scope="col">回復狀態</th>

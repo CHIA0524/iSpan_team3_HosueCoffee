@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import React from 'react';
 import logo from './img/logo.svg';
@@ -15,14 +15,26 @@ import { duration } from '@mui/material';
 
 
 function Navbar (props){
-  const {auth,carNum}=props
+  const {auth,setAuth,carNum}=props
+  const history=useHistory()
+
   const { bannerHeight } = props
+     if(localStorage.getItem("true")){
+      setAuth(localStorage.getItem("true"));
+    }else{
+      setAuth('')
+    }
+    //  if(localStorage.getItem("dataCheck")){
+    //   setDataCheck(localStorage.getItem("dataCheck"));
+    // }else{
+    //   setDataCheck('')
+    // }
   const [ pageYOffset, setPageYOffset ] = useState()
   const [member_photo,setmember_photo]=useState(localStorage.getItem("photo"))
     if(member_photo==""||member_photo==null){
         setmember_photo("housecoffee.png")
       }
-  // console.log(carNum);  
+  // //console.log(carNum);  
   const loginOUT=async()=>{
     // localStorage.clear();
     const thismemberid=localStorage.getItem("true");
@@ -43,16 +55,17 @@ function Navbar (props){
     localStorage.removeItem("true")
     LGOSweet()
     setTimeout(() => {
-      window.location.assign("http://localhost:3000/");
+      history.push("/")
     }, 1500)
 
   }
-
+ 
 
   let getURL = useLocation();
 
   // 監測視窗Y軸偏移量
   useEffect(()=>{ 
+ 
     window.addEventListener('scroll',()=>{
       setPageYOffset(window.pageYOffset)
     })
@@ -60,7 +73,7 @@ function Navbar (props){
 
   // 畫面滾動時 Navbar 行為
   useEffect(()=>{
-    if (getURL.pathname === '/') {
+    if (getURL.pathname=== '/') {
       document.querySelector('.coffeeNavbar').style.position = 'absolute'
       document.querySelector('.coffeeNavbar').style.top = '-125px'
         if (pageYOffset >= bannerHeight) {
@@ -101,7 +114,7 @@ function Navbar (props){
   // 監測視窗寬度
   useEffect(()=>{ 
     window.addEventListener('resize',()=>{
-      // console.log(window.innerWidth);
+      // //console.log(window.innerWidth);
       if (window.innerWidth >= 1000) {
         document.querySelector('.navFirst').style.transition = '';
         document.querySelector('.sideDark').style.display = 'none';
@@ -141,13 +154,13 @@ function Navbar (props){
             <li><Link to="/member/OrderList" onClick={closeSideNavClick}>訂單查詢</Link></li>
             <li><Link to="/member/Point" onClick={closeSideNavClick}>優惠中心</Link></li>
             <li><Link to="/member/QAList" onClick={closeSideNavClick}>問答中心</Link></li>
-            <li><Link to="member/profileEdit" onClick={closeSideNavClick}>資料維護</Link></li>
+            <li><Link to="/member/profileEdit" onClick={closeSideNavClick}>資料維護</Link></li>
             <li><Link to="/member/Password" onClick={closeSideNavClick}>密碼修改</Link></li>
           </div>
 
           <li><Link to="/" onClick={closeSideNavClick}>HOME<span>首頁</span></Link></li>
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>
-          <li><a href="/blog" onClick={closeSideNavClick}>BLOG<span>部落格</span></a></li>
+          <li><Link to="/blog" onClick={closeSideNavClick}>BLOG<span>部落格</span></Link></li>
           <li><Link to="/store" onClick={closeSideNavClick}>STORE<span>門市地圖</span></Link></li>
 
           <li className="webNone"><Link to="/onlinemenu" onClick={()=>{if(datas1 === null){localStorage.setItem("favourite", JSON.stringify([]))}}}><button className="coffeeLightBtn">{">> Order Online"}</button></Link></li>
@@ -157,11 +170,11 @@ function Navbar (props){
           <>
           {/* 以下為登出狀態 */}
           <div className="memberDetail" style={{height: '0px',display:"none"}} >
-            <li><a href="" onClick={closeSideNavClick}>訂單查詢</a></li>
-            <li><a href="" onClick={closeSideNavClick}>優惠中心</a></li>
-            <li><a href="" onClick={closeSideNavClick}>問答中心</a></li>
-            <li><a href="" onClick={closeSideNavClick}>資料維護</a></li>
-            <li><a href="" onClick={closeSideNavClick}>密碼修改</a></li>
+            <li><Link to="/member/OrderList" onClick={closeSideNavClick}>訂單查詢</Link></li>
+            <li><Link to="/member/Point" onClick={closeSideNavClick}>優惠中心</Link></li>
+            <li><Link to="/member/QAList" onClick={closeSideNavClick}>問答中心</Link></li>
+            <li><Link to="/member/profileEdit" onClick={closeSideNavClick}>資料維護</Link></li>
+            <li><Link to="/member/Password" onClick={closeSideNavClick}>密碼修改</Link></li>
           </div>
           <li><Link to="/" onClick={closeSideNavClick}>HOME<span>首頁</span></Link></li>
           <li><Link to="/shop" onClick={closeSideNavClick}>SHOP<span>網路商城</span></Link></li>

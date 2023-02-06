@@ -13,7 +13,7 @@ async function scrapeData() {
   try {
     // Fetch HTML of the page we want to scrape
     const { data } = await axios.get(url);
-    console.log(data);
+    //console.log(data);
     // Load HTML we fetched in the previous line
     const $ = cheerio.load(data);
     // Select all the list items in store_list class
@@ -39,7 +39,7 @@ async function scrapeData() {
         console.error(err);
         return;
       }
-      console.log("Successfully written data to file");
+      //console.log("Successfully written data to file");
     });
   } catch (err) {
     console.error(err);

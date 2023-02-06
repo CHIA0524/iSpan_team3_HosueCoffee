@@ -4,7 +4,7 @@ function BACard(props){
     const [datas,setDatas]=useState([])
     const {thisBid}=props
     const fetchData= async()=>{
-      const response= await fetch(`http://localhost:3001/blog/blogArticle?blog_id=${thisBid}`);
+      const response= await fetch(`${process.env.REACT_APP_API_URL}/blog/blogArticle?blog_id=${thisBid}`);
       const results=await response.json(); 
       setDatas(results);
       
@@ -17,7 +17,7 @@ function BACard(props){
     return(
     <>
     {datas.map((BA,i) => {
-      //console.log(BA.img_src)
+      ////console.log(BA.img_src)
       const articleSimg=(BA.img_src);
       
         return(

@@ -12,7 +12,7 @@ const MenuCardRwd = (props) => {
     const thisURL=window.location.href
     // 異步回調
     useEffect(() => {},[setdrinkId])
-    if(thisURL=='http://localhost:3000/onlinemenu'){
+    if(thisURL==`${process.env.REACT_APP_URL}/onlinemenu`){
         return(
                 <>
                     {/* 印出資料 */}
@@ -54,7 +54,7 @@ const MenuCardRwd = (props) => {
                     })}
                 </>   
         ) 
-}else if(thisURL=='http://localhost:3000/favorite'){
+}else if(thisURL==`${process.env.REACT_APP_URL}/favorite`){
     return(
         <>
             {/* 印出資料 */}
@@ -97,7 +97,7 @@ const MenuCardRwd = (props) => {
         </>   
     ) 
 
-}else if(thisURL=='http://localhost:3000/MenuTypeToday'){
+}else if(thisURL==`${process.env.REACT_APP_URL}/MenuTypeToday`){
     return(
         <>
             {/* 印出資料 */}
@@ -140,7 +140,7 @@ const MenuCardRwd = (props) => {
         </>   
     ) 
 
-}else if(thisURL=='http://localhost:3000/MenuTypeIce'){
+}else if(thisURL==`${process.env.REACT_APP_URL}/MenuTypeIce`){
     return(
         <>
             {/* 印出資料 */}
@@ -182,7 +182,7 @@ const MenuCardRwd = (props) => {
             })}
         </>   
     ) 
-}else if(thisURL=='http://localhost:3000/MenuTypeHot'){
+}else if(thisURL==`${process.env.REACT_APP_URL}/MenuTypeHot`){
     return(
         <>
             {/* 印出資料 */}

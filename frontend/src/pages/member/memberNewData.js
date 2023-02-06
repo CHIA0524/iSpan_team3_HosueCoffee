@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch,useHistory } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
 import MemberAside from './memberAside';
@@ -9,9 +9,12 @@ import SweetNDY from './sweetalert/SweetNDY';
 import SweetNUP from './sweetalert/SweetNUP';
 function MemberNewData(props){
   const{auth}=props;
+  const history=useHistory()
+
     if(!auth){
-      window.location.replace("http://localhost:3000/member")
+      history.push(`${process.env.REACT_APP_URL}/member`);
     }
+    
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth()+1; //January is 0!
@@ -96,10 +99,10 @@ function MemberNewData(props){
         setPhoneMessage("手機格式錯誤")
         }else{
           const response = await fetch(`${process.env.REACT_APP_API_URL}/account/checkPhone?member_phone=${UPphone}`);
-          console.log(process.env.REACT_APP_API_URL);
+          //console.log(process.env.REACT_APP_API_URL);
           const results = await response.json();
-          console.log(results)
-          console.log(results.total)
+          //console.log(results)
+          //console.log(results.total)
             if(results.total===0){
               setPhoneMessage("感謝填寫手機號碼")
               document.querySelector('.NewPhone').style.color="#4C3410"
@@ -138,7 +141,7 @@ function MemberNewData(props){
           localStorage.setItem("dataCheck", "資料完整");
           SweetNDY()
           setTimeout(() => {
-            window.location.replace("http://localhost:3000/member/profile");
+            history.push(`${process.env.REACT_APP_URL}/member/profile`);
           }, 1500)
         }else {if(nameMessage!="感謝填寫姓名"){
           document.querySelector(".NewName").style.color="red";
@@ -188,13 +191,13 @@ function MemberNewData(props){
       e.preventDefault()
       let formData = new FormData()
       formData.append('file', image.data)
-      console.log(formData);
+      //console.log(formData);
       const response = await fetch(`${process.env.REACT_APP_API_URL}/profile/upphoto`, {
         method: 'POST',
         body: formData,
       })
       const backImg=await response.json();
-      console.log(backImg)
+      //console.log(backImg)
       setUPImg(backImg)
       setUPPT("1")
       if (response) setStatus(response.statusText)
