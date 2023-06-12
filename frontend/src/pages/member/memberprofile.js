@@ -85,10 +85,10 @@ function Memberprofile(props){
                             </div>
                             <br></br>
                         </div>
-                        <Link to={'/HouseCoffee/member/profileEdit'}>
+                        <Link to={'/member/profileEdit'}>
                         <button className="memberEdit memberEdit-w">編輯資料</button>
                         </Link>
-                        <Link to={'/HouseCoffee/member/profileEdit'}>
+                        <Link to={'/member/profileEdit'}>
                         <button className="memberEdit memberEdit-m">編輯</button>
                         </Link>
                 

@@ -53,7 +53,7 @@ function HomeCopyText(props) {
                             return (
 
                                 <div className="copyText" onClick={() => {
-                                    window.location.replace(`${process.env.REACT_APP_URL}/member`)
+                                    window.location.replace(`/housecoffee#/member`)
                                 }}>
                                     請登入領取
                                 </div>

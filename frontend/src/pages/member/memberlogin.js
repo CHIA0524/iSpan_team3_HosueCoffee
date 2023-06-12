@@ -238,7 +238,7 @@ function MemberLogin(props){
                     
                     // setDataCheck(!dataCheck) 這不需要因為它本身useState是由 localStorage去驗證
                     setTimeout(() => {
-                        window.location.replace(`${process.env.REACT_APP_URL}/`)
+                        window.location.replace(`/housecoffee/`)
                         // history.push(`${process.env.REACT_APP_URL}/`);
                         // history.push(`${process.env.REACT_APP_URL}/member/profile`);
                       }, 1500)
@@ -253,7 +253,7 @@ function MemberLogin(props){
                     //跳出訊息
                     
                     setTimeout(() => {
-                        window.location.replace(`${process.env.REACT_APP_URL}/`)
+                        window.location.replace(`/housecoffee/`)
 
                         // history.push(`${process.env.REACT_APP_URL}/`);
                       }, 1500)
